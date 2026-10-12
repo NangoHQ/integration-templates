@@ -1,0 +1,168 @@
+{
+  "input": {
+    "account_id": 1145787,
+    "label_id": 4687689
+  },
+  "output": {
+    "id": 4687689,
+    "name": "Phase",
+    "sequence": 1,
+    "parent_id": null,
+    "emoji": "https://emoji.memorycdn.com/tw64/1f680.png",
+    "active": true,
+    "external_id": null,
+    "created_at": "2026-10-07T05:53:45+03:00",
+    "updated_at": "2026-10-07T05:53:45+03:00",
+    "children": [
+      {
+        "id": 4687690,
+        "name": "Pitching",
+        "sequence": 1,
+        "parent_id": 4687689,
+        "emoji": "https://twemoji.maxcdn.com/36x36/1f4ac.png",
+        "active": true,
+        "external_id": null,
+        "created_at": "2026-10-07T05:53:45+03:00",
+        "updated_at": "2026-10-07T05:53:45+03:00",
+        "children": []
+      },
+      {
+        "id": 4687691,
+        "name": "Ideation",
+        "sequence": 2,
+        "parent_id": 4687689,
+        "emoji": "https://twemoji.maxcdn.com/36x36/1f4a1.png",
+        "active": true,
+        "external_id": null,
+        "created_at": "2026-10-07T05:53:45+03:00",
+        "updated_at": "2026-10-07T05:53:45+03:00",
+        "children": []
+      },
+      {
+        "id": 4687692,
+        "name": "Production",
+        "sequence": 3,
+        "parent_id": 4687689,
+        "emoji": "https://emoji.memorycdn.com/tw64/1f6e0.png",
+        "active": true,
+        "external_id": null,
+        "created_at": "2026-10-07T05:53:45+03:00",
+        "updated_at": "2026-10-07T05:53:45+03:00",
+        "children": []
+      },
+      {
+        "id": 4687693,
+        "name": "Delivery",
+        "sequence": 4,
+        "parent_id": 4687689,
+        "emoji": "https://emoji.memorycdn.com/tw64/1f381.png",
+        "active": true,
+        "external_id": null,
+        "created_at": "2026-10-07T05:53:45+03:00",
+        "updated_at": "2026-10-07T05:53:45+03:00",
+        "children": []
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/1.1/1145787/labels/4687689": {
+        "response": {
+          "id": 4687689,
+          "name": "Phase",
+          "sequence": 1,
+          "parent_id": null,
+          "emoji": "https://emoji.memorycdn.com/tw64/1f680.png",
+          "active": true,
+          "external_id": null,
+          "created_at": "2026-10-07T05:53:45+03:00",
+          "updated_at": "2026-10-07T05:53:45+03:00",
+          "children": [
+            {
+              "id": 4687690,
+              "name": "Pitching",
+              "sequence": 1,
+              "parent_id": 4687689,
+              "emoji": "https://twemoji.maxcdn.com/36x36/1f4ac.png",
+              "active": true,
+              "external_id": null,
+              "created_at": "2026-10-07T05:53:45+03:00",
+              "updated_at": "2026-10-07T05:53:45+03:00",
+              "children": []
+            },
+            {
+              "id": 4687691,
+              "name": "Ideation",
+              "sequence": 2,
+              "parent_id": 4687689,
+              "emoji": "https://twemoji.maxcdn.com/36x36/1f4a1.png",
+              "active": true,
+              "external_id": null,
+              "created_at": "2026-10-07T05:53:45+03:00",
+              "updated_at": "2026-10-07T05:53:45+03:00",
+              "children": []
+            },
+            {
+              "id": 4687692,
+              "name": "Production",
+              "sequence": 3,
+              "parent_id": 4687689,
+              "emoji": "https://emoji.memorycdn.com/tw64/1f6e0.png",
+              "active": true,
+              "external_id": null,
+              "created_at": "2026-10-07T05:53:45+03:00",
+              "updated_at": "2026-10-07T05:53:45+03:00",
+              "children": []
+            },
+            {
+              "id": 4687693,
+              "name": "Delivery",
+              "sequence": 4,
+              "parent_id": 4687689,
+              "emoji": "https://emoji.memorycdn.com/tw64/1f381.png",
+              "active": true,
+              "external_id": null,
+              "created_at": "2026-10-07T05:53:45+03:00",
+              "updated_at": "2026-10-07T05:53:45+03:00",
+              "children": []
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 09 Oct 2026 21:55:26 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "1234",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1925",
+          "x-ratelimit-reset": "1791582949",
+          "x-permitted-cross-domain-policies": "none",
+          "vary": "Accept-Encoding, Origin",
+          "etag": "W/\"df97be87298f2659253aa787c7ef93be\"",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "x-request-id": "e1bd1e68-4508-400c-8433-b9dfd9605936",
+          "x-runtime": "0.024782",
+          "cf-cache-status": "DYNAMIC",
+          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=a7l1y71tv4Rf0XfByDrO626uMhDPg1Cb8U4LXSeZBmLeMi2vqFUm6ZCttei5QsMo4fSM5BhTWHGKUNj002nrJKY%2FuIW2YnM60O4iH3JLveEwP9JK0W%2BSJzuDlGafsHdOK2E4yg%3D%3D\"}]}",
+          "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+          "server": "cloudflare",
+          "cf-ray": "a480a12c09858bee-PDX"
+        },
+        "hash": "90eff3d82a1baf1c3528f9df0189c6c96a01c2a5",
+        "request": {}
+      }
+    }
+  }
+}

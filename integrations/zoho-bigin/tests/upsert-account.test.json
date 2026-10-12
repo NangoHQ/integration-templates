@@ -1,0 +1,91 @@
+{
+  "input": {
+    "account": {
+      "Account_Name": "Zylker Corp"
+    }
+  },
+  "output": {
+    "id": "7618134000000632027",
+    "action": "update",
+    "duplicate_field": "Account_Name",
+    "created_time": "2026-10-07T03:21:34+03:00",
+    "modified_time": "2026-10-09T22:11:19+03:00",
+    "message": "record updated"
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/bigin/v2/Accounts/upsert": {
+        "response": {
+          "data": [
+            {
+              "code": "SUCCESS",
+              "duplicate_field": "Account_Name",
+              "action": "update",
+              "details": {
+                "Modified_Time": "2026-10-09T22:11:19+03:00",
+                "Modified_By": {
+                  "name": "Nango Developer",
+                  "id": "7618134000000627001"
+                },
+                "Created_Time": "2026-10-07T03:21:34+03:00",
+                "id": "7618134000000632027",
+                "Created_By": {
+                  "name": "Nango Developer",
+                  "id": "7618134000000627001"
+                }
+              },
+              "message": "record updated",
+              "status": "success"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 09 Oct 2026 19:11:19 GMT",
+          "content-type": "application/json;charset=UTF-8",
+          "content-length": "387",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=64072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1923",
+          "x-ratelimit-reset": "1791573115",
+          "server": "ZGS",
+          "set-cookie": "zalb_3d223cf300=2f172f3e3c92d6f5eda9924b42663d6f; Path=/; Secure; HttpOnly, crmcsr=b223fc6f-d2b1-41d4-9aba-ddd0f9003714;path=/;SameSite=None;Secure;priority=high, BIGINCROSSCDNID =325d874123ec077b9fbe6a082d8a13cf1f38ac5fa71adcd635e0208614cbe83575e0e77ba8f80afc006e3e8a661df867;Path=/; Expires=Sat Oct 10 12:11:19 PDT 2026, BIGINCROSSCDNCOUNTRY =US;Path=/; Expires=Sat Oct 10 12:11:19 PDT 2026",
+          "cache-control": "no-store, no-cache, must-revalidate, private",
+          "pragma": "no-cache",
+          "expires": "Thu, 01 Jan 1970 00:00:00 GMT",
+          "x-accesstoken-reset": "2026-10-09T22:33:35+03:00",
+          "clientversion": "14729686",
+          "clientsubversion": "1d7b626d4325dc2fb9fba2b9d0e404b4",
+          "vary": "Sec-Fetch-Dest,Sec-Fetch-Mode,Sec-Fetch-Site,Sec-Fetch-User",
+          "content-disposition": "attachment; filename=response.json",
+          "server-timing": "cpuTime;desc=\"CPU Time\";dur=50, totalTime;desc=\"Total Execution Time\";dur=88,murphySpanId;desc=\"\";dur=0",
+          "content-language": "en-US"
+        },
+        "hash": "716e95e7099875f5e6c914a5f8a933cb56d807b3",
+        "request": {
+          "data": {
+            "data": [
+              {
+                "Account_Name": "Zylker Corp"
+              }
+            ],
+            "duplicate_check_fields": [
+              "Account_Name"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

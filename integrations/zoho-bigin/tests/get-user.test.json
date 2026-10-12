@@ -1,0 +1,171 @@
+{
+  "input": {
+    "user_id": "7618134000000627001"
+  },
+  "output": {
+    "id": "7618134000000627001",
+    "full_name": "Nango Developer",
+    "first_name": "Nango",
+    "last_name": "Developer",
+    "email": "api@nango.dev",
+    "zuid": "924194079",
+    "status": "active",
+    "category": "regular_user",
+    "confirm": true,
+    "is_online": false,
+    "role": {
+      "id": "7618134000000026005",
+      "name": "Level 1"
+    },
+    "profile": {
+      "id": "7618134000000026011",
+      "name": "Administrator"
+    },
+    "created_by": {
+      "id": "7618134000000627001",
+      "name": "Nango Developer"
+    },
+    "modified_by": {
+      "id": "7618134000000627001",
+      "name": "Nango Developer"
+    },
+    "created_time": "2026-10-07T03:21:22+03:00",
+    "modified_time": "2026-10-07T03:22:42+03:00",
+    "time_zone": "Africa/Nairobi",
+    "language": "en_US",
+    "locale": "en_US",
+    "country": "KENYA",
+    "state": "NAIROBI CITY",
+    "offset": 10800000
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/bigin/v2/users/7618134000000627001": {
+        "response": {
+          "users": [
+            {
+              "country": "KENYA",
+              "Preferred_Currency__s": null,
+              "language": "en_US",
+              "microsoft": false,
+              "$shift_effective_from": null,
+              "id": "7618134000000627001",
+              "state": "NAIROBI CITY",
+              "fax": null,
+              "country_locale": "en_US",
+              "sandboxDeveloper": false,
+              "zip": null,
+              "decimal_separator": "Period",
+              "created_time": "2026-10-07T03:21:22+03:00",
+              "time_format": "hh:mm a",
+              "offset": 10800000,
+              "profile": {
+                "name": "Administrator",
+                "id": "7618134000000026011"
+              },
+              "created_by": {
+                "name": "Nango Developer",
+                "id": "7618134000000627001"
+              },
+              "zuid": "924194079",
+              "full_name": "Nango Developer",
+              "phone": null,
+              "dob": null,
+              "status": "active",
+              "role": {
+                "name": "Level 1",
+                "id": "7618134000000026005"
+              },
+              "customize_info": {
+                "notes_desc": null,
+                "show_right_panel": null,
+                "bc_view": null,
+                "show_home": false,
+                "show_detail_view": true,
+                "show_left_panel": true,
+                "unpin_recent_item": null
+              },
+              "city": null,
+              "signature": null,
+              "sort_order_preference": "First Name,Last Name",
+              "name_format": "Salutation,First Name,Last Name",
+              "locale": "en_US",
+              "personal_account": true,
+              "Isonline": false,
+              "default_tab_group": "0",
+              "Modified_By": {
+                "name": "Nango Developer",
+                "id": "7618134000000627001"
+              },
+              "street": null,
+              "$current_shift": null,
+              "alias": null,
+              "theme": {
+                "normal_tab": {
+                  "font_color": "#FFFFFF",
+                  "background": "#222222"
+                },
+                "selected_tab": {
+                  "font_color": "#FFFFFF",
+                  "background": "#222222"
+                },
+                "new_background": null,
+                "background": "#F3F0EB",
+                "screen": "fixed",
+                "type": "default"
+              },
+              "first_name": "Nango",
+              "email": "api@nango.dev",
+              "status_reason__s": null,
+              "website": null,
+              "Modified_Time": "2026-10-07T03:22:42+03:00",
+              "$next_shift": null,
+              "mobile": null,
+              "last_name": "Developer",
+              "time_zone": "Africa/Nairobi",
+              "number_separator": "Comma",
+              "confirm": true,
+              "date_format": "MM/dd/yyyy",
+              "category": "regular_user"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 09 Oct 2026 19:10:48 GMT",
+          "content-type": "application/json;charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=64072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1930",
+          "x-ratelimit-reset": "1791573055",
+          "server": "ZGS",
+          "set-cookie": "zalb_3d223cf300=2f172f3e3c92d6f5eda9924b42663d6f; Path=/; Secure; HttpOnly, crmcsr=23a8a903-77a5-4367-9360-569a4d1d6a0b;path=/;SameSite=None;Secure;priority=high, BIGINCROSSCDNID =9333b452d04432ebaf205a531f47499f6468af4e11cbd7decc301fac372b803c5008f6790bdb6a5b04232f4918be40fd;Path=/; Expires=Sat Oct 10 12:10:48 PDT 2026, BIGINCROSSCDNCOUNTRY =US;Path=/; Expires=Sat Oct 10 12:10:48 PDT 2026",
+          "cache-control": "no-store, no-cache, must-revalidate, private",
+          "pragma": "no-cache",
+          "expires": "Thu, 01 Jan 1970 00:00:00 GMT",
+          "x-accesstoken-reset": "2026-10-09T22:33:35+03:00",
+          "clientversion": "14729686",
+          "clientsubversion": "1d7b626d4325dc2fb9fba2b9d0e404b4",
+          "vary": "sec-fetch-dest,sec-fetch-mode,sec-fetch-site,sec-fetch-user,accept-encoding",
+          "content-disposition": "attachment; filename=response.json",
+          "server-timing": "cpuTime;desc=\"CPU Time\";dur=15, totalTime;desc=\"Total Execution Time\";dur=29,murphySpanId;desc=\"\";dur=0",
+          "content-language": "en-US"
+        },
+        "hash": "43ff8aef0d351752f2463ff25ec2a595e1f56c70",
+        "request": {}
+      }
+    }
+  }
+}

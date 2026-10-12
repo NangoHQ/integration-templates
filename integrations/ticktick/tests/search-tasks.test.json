@@ -1,0 +1,88 @@
+{
+  "input": {
+    "keywords": "Pomodoro"
+  },
+  "output": {
+    "tasks": [
+      {
+        "id": "6ac5b589bed7f77658a9a80a",
+        "projectId": "6ac5b589bed7f77658a9a803",
+        "title": "🍅 Pomodoro: Rescue from procrastination",
+        "content": "If you have procrastination tendencies, give the Pomodoro feature a try. The sense of achievement gained from completing individual Pomodoro sessions can help you achieve more goals.\n\n![file](https://pull.ticktick.com/newuser3/desktop/en/pomodoro.mp4)\n",
+        "isAllDay": false,
+        "timeZone": "Asia/Shanghai",
+        "tags": [],
+        "repeatFlag": "",
+        "priority": 0,
+        "status": 0,
+        "sortOrder": -1099511627776,
+        "kind": "TEXT",
+        "etag": "b7ljgztw",
+        "modifiedTime": "2026-10-07T02:59:21.000+0000",
+        "createdTime": "2026-10-07T02:59:21.000+0000"
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/open/v1/task/search": {
+        "response": [
+          {
+            "id": "6ac5b589bed7f77658a9a80a",
+            "projectId": "6ac5b589bed7f77658a9a803",
+            "sortOrder": -1099511627776,
+            "title": "🍅 Pomodoro: Rescue from procrastination",
+            "content": "If you have procrastination tendencies, give the Pomodoro feature a try. The sense of achievement gained from completing individual Pomodoro sessions can help you achieve more goals.\n\n![file](https://pull.ticktick.com/newuser3/desktop/en/pomodoro.mp4)\n",
+            "timeZone": "Asia/Shanghai",
+            "isAllDay": false,
+            "priority": 0,
+            "progress": 0,
+            "isFloating": false,
+            "repeatFlag": "",
+            "status": 0,
+            "tags": [],
+            "columnId": "6ac5b589bed7f77658a9a806",
+            "columnName": "Feature Modules",
+            "etag": "b7ljgztw",
+            "etimestamp": 1791341965552,
+            "kind": "TEXT",
+            "modifiedTime": "2026-10-07T02:59:21.000+0000",
+            "createdTime": "2026-10-07T02:59:21.000+0000"
+          }
+        ],
+        "status": 200,
+        "headers": {
+          "date": "Fri, 09 Oct 2026 20:39:02 GMT",
+          "content-type": "application/json;charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "DENY",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=31536000 ; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1957",
+          "x-ratelimit-reset": "1791578355",
+          "set-cookie": "AWSALB=OI4ovjxlWnHF3FfoGgEBxz/EZHJpZrp1nRnzp3PkuCurM9VQdvGj5rf0ayEFWr2qzjbsSNuHetm/2tb8e4DJAw3rjlAXrGlndUzHDM3h2EwcYm1BWI4bXnPKUGVe; Expires=Fri, 16 Oct 2026 20:39:02 GMT; Path=/, AWSALBCORS=OI4ovjxlWnHF3FfoGgEBxz/EZHJpZrp1nRnzp3PkuCurM9VQdvGj5rf0ayEFWr2qzjbsSNuHetm/2tb8e4DJAw3rjlAXrGlndUzHDM3h2EwcYm1BWI4bXnPKUGVe; Expires=Fri, 16 Oct 2026 20:39:02 GMT; Path=/; SameSite=None; Secure",
+          "vary": "origin,access-control-request-method,access-control-request-headers,accept-encoding",
+          "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
+          "pragma": "no-cache",
+          "expires": "0"
+        },
+        "hash": "c9efd4d30a4656f51d5d44ad96d18276923571fb",
+        "request": {
+          "data": {
+            "keywords": "Pomodoro"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,142 @@
+import { describe, expect, it, vi } from 'vitest';
+
+import archiveCycleAction from '../actions/archive-cycle.js';
+import createCycleAction from '../actions/create-cycle.js';
+import getCycleAction from '../actions/get-cycle.js';
+import listCyclesAction from '../actions/list-cycles.js';
+import listProjectsAction from '../actions/list-projects.js';
+import unarchiveProjectAction from '../actions/unarchive-project.js';
+
+import type { NangoActionLocal } from '../actions/get-cycle.js';
+
+class ActionErrorMock extends Error {
+    payload: Record<string, unknown>;
+
+    constructor(payload: Record<string, unknown>) {
+        super(typeof payload['message'] === 'string' ? payload['message'] : 'action error');
+        this.payload = payload;
+    }
+}
+
+function makeNango(responseData: unknown): NangoActionLocal {
+    return {
+        post: vi.fn().mockResolvedValue({ data: responseData }),
+        ActionError: ActionErrorMock
+    } as unknown as NangoActionLocal;
+}
+
+const graphqlErrorResponse = {
+    data: null,
+    errors: [{ message: 'Entity not found or you do not have access to it.' }]
+};
+
+describe('linear GraphQL errors[] surface as graphql_error instead of Zod/shape failures', () => {
+    it('get-cycle throws graphql_error', async () => {
+        const nango = makeNango(graphqlErrorResponse);
+
+        await expect(getCycleAction.exec(nango, { id: 'cycle-1' })).rejects.toMatchObject({
+            payload: {
+                type: 'graphql_error',
+                message: 'Entity not found or you do not have access to it.'
+            }
+        });
+    });
+
+    it('get-cycle still reports not_found when cycle is null without errors', async () => {
+        const nango = makeNango({ data: { cycle: null } });
+
+        await expect(getCycleAction.exec(nango, { id: 'cycle-1' })).rejects.toMatchObject({
+            payload: { type: 'not_found' }
+        });
+    });
+
+    it('list-cycles throws graphql_error', async () => {
+        const nango = makeNango(graphqlErrorResponse);
+
+        await expect(listCyclesAction.exec(nango, {})).rejects.toMatchObject({
+            payload: {
+                type: 'graphql_error',
+                message: 'Entity not found or you do not have access to it.'
+            }
+        });
+    });
+
+    it('list-projects throws graphql_error', async () => {
+        const nango = makeNango(graphqlErrorResponse);
+
+        await expect(listProjectsAction.exec(nango, {})).rejects.toMatchObject({
+            payload: {
+                type: 'graphql_error',
+                message: 'Entity not found or you do not have access to it.'
+            }
+        });
+    });
+
+    it('list-cycles throws graphql_error on partial data with cycles: null', async () => {
+        const nango = makeNango({
+            data: { cycles: null },
+            errors: [{ message: 'Entity not found or you do not have access to it.' }]
+        });
+
+        await expect(listCyclesAction.exec(nango, {})).rejects.toMatchObject({
+            payload: { type: 'graphql_error' }
+        });
+    });
+
+    it('list-projects throws graphql_error on partial data with projects: null', async () => {
+        const nango = makeNango({
+            data: { projects: null },
+            errors: [{ message: 'Entity not found or you do not have access to it.' }]
+        });
+
+        await expect(listProjectsAction.exec(nango, {})).rejects.toMatchObject({
+            payload: { type: 'graphql_error' }
+        });
+    });
+
+    it('unarchive-project throws graphql_error on partial data with projectUnarchive: null', async () => {
+        const nango = makeNango({
+            data: { projectUnarchive: null },
+            errors: [{ message: 'Entity not found or you do not have access to it.' }]
+        });
+
+        await expect(unarchiveProjectAction.exec(nango, { projectId: 'project-1' })).rejects.toMatchObject({
+            payload: { type: 'graphql_error' }
+        });
+    });
+
+    it('create-cycle throws graphql_error on partial data with cycleCreate: null', async () => {
+        const nango = makeNango({
+            data: { cycleCreate: null },
+            errors: [{ message: 'Entity not found or you do not have access to it.' }]
+        });
+
+        await expect(
+            createCycleAction.exec(nango, { teamId: 'team-1', name: 'Cycle', startsAt: '2026-01-01', endsAt: '2026-01-14' })
+        ).rejects.toMatchObject({
+            payload: { type: 'graphql_error' }
+        });
+    });
+
+    it('archive-cycle throws graphql_error on partial data with cycleArchive: null', async () => {
+        const nango = makeNango({
+            data: { cycleArchive: null },
+            errors: [{ message: 'Entity not found or you do not have access to it.' }]
+        });
+
+        await expect(archiveCycleAction.exec(nango, { id: 'cycle-1' })).rejects.toMatchObject({
+            payload: { type: 'graphql_error' }
+        });
+    });
+
+    it('unarchive-project throws graphql_error', async () => {
+        const nango = makeNango(graphqlErrorResponse);
+
+        await expect(unarchiveProjectAction.exec(nango, { projectId: 'project-1' })).rejects.toMatchObject({
+            payload: {
+                type: 'graphql_error',
+                message: 'Entity not found or you do not have access to it.'
+            }
+        });
+    });
+});

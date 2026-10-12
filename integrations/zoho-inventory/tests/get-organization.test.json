@@ -1,0 +1,320 @@
+{
+  "input": {
+    "organization_id": "927270289"
+  },
+  "output": {
+    "organization_id": "927270289",
+    "name": "Nango Dev",
+    "first_name": "",
+    "last_name": "",
+    "logo_url": "",
+    "store_logo_url": "",
+    "is_default_org": false,
+    "user_role": "Admin",
+    "role_id": "260815000000033001",
+    "account_created_date": "2026-06-09",
+    "time_zone": "America/New_York",
+    "language_code": "en",
+    "customer_languages": [
+      "en"
+    ],
+    "date_format": "dd MMM yyyy",
+    "field_separator": "",
+    "fiscal_year_start_month": "january",
+    "fiscal_year_start_date": 1,
+    "primary_domain_name": "nango.dev",
+    "is_public_domain": false,
+    "can_show_authentication_warning": true,
+    "contact_name": "Nango Developer",
+    "industry_type": "",
+    "industry_size": "",
+    "previous_invoicing_option": "",
+    "previous_product_option": "",
+    "company_id_label": "Company ID :",
+    "custom_field_type": 2,
+    "is_trial_period_extended": false,
+    "is_quick_setup_completed": true,
+    "is_sez": false,
+    "is_designated_zone": false,
+    "is_free_zone": false,
+    "store_url": "",
+    "company_id_value": "",
+    "label_for_company_id": "Company ID",
+    "tax_id_label": "Tax ID :",
+    "tax_id_value": "",
+    "currency_id": "260815000000000097",
+    "currency_code": "USD",
+    "currency_symbol": "$",
+    "currency_format": "###,##0.00",
+    "price_precision": 2,
+    "status": "1",
+    "address": {
+      "street_address1": "",
+      "street_address2": "",
+      "city": "",
+      "state": "Delaware",
+      "state_code": "DE",
+      "country": "U.S.A",
+      "country_code": "US",
+      "zip": "",
+      "latitude": "",
+      "longitude": "",
+      "attention": ""
+    },
+    "tax_settings": {
+      "is_tax_registered": false,
+      "tax_reg_no": ""
+    },
+    "is_registered_for_gst": false,
+    "org_address": "",
+    "remit_to_address": "",
+    "phone": "",
+    "fax": "",
+    "website": "",
+    "version": "us",
+    "weight_unit": "lb",
+    "dimension_unit": "in",
+    "is_old_email_flow": false,
+    "business_type": "",
+    "email": "api@nango.dev",
+    "unverified_emails_count": 0,
+    "tax_basis": "accrual",
+    "custom_fields": [
+      {
+        "index": 1,
+        "label": "",
+        "value": ""
+      },
+      {
+        "index": 2,
+        "label": "",
+        "value": ""
+      },
+      {
+        "index": 3,
+        "label": "",
+        "value": ""
+      },
+      {
+        "index": 4,
+        "label": "",
+        "value": ""
+      },
+      {
+        "index": 5,
+        "label": "",
+        "value": ""
+      }
+    ],
+    "custom_field_hash": {
+      "cf_1_unformatted": "",
+      "cf_1": "",
+      "cf_2_unformatted": "",
+      "cf_2": "",
+      "cf_3_unformatted": "",
+      "cf_3": "",
+      "cf_4_unformatted": "",
+      "cf_4": "",
+      "cf_5_unformatted": "",
+      "cf_5": ""
+    },
+    "is_org_active": true,
+    "is_new_customer_custom_fields": true,
+    "is_portal_enabled": true,
+    "org_joined_app_list": [
+      "books",
+      "inventory"
+    ],
+    "company_identification_labels_list": [],
+    "portal_name": "nangodev",
+    "business_start_date": "2026-06-09",
+    "inventory_start_date": "2026-06-09",
+    "is_project_enabled": true,
+    "is_retainerinvoice_enabled": false,
+    "mode": "live",
+    "payments_url": ""
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/inventory/v1/organizations/927270289": {
+        "response": {
+          "code": 0,
+          "message": "success",
+          "organization": {
+            "organization_id": "927270289",
+            "name": "Nango Dev",
+            "first_name": "",
+            "last_name": "",
+            "logo_url": "",
+            "store_logo_url": "",
+            "is_default_org": false,
+            "user_role": "Admin",
+            "role_id": "260815000000033001",
+            "account_created_date": "2026-06-09",
+            "time_zone": "America/New_York",
+            "language_code": "en",
+            "customer_languages": [
+              "en"
+            ],
+            "date_format": "dd MMM yyyy",
+            "field_separator": "",
+            "fiscal_year_start_month": "january",
+            "primary_domain_name": "nango.dev",
+            "is_public_domain": false,
+            "can_show_authentication_warning": true,
+            "fiscal_year_start_date": 1,
+            "contact_name": "Nango Developer",
+            "industry_type": "",
+            "industry_size": "",
+            "previous_invoicing_option": "",
+            "previous_product_option": "",
+            "company_id_label": "Company ID :",
+            "custom_field_type": 2,
+            "is_trial_period_extended": false,
+            "is_quick_setup_completed": true,
+            "is_sez": false,
+            "is_designated_zone": false,
+            "is_free_zone": false,
+            "store_url": "",
+            "company_id_value": "",
+            "label_for_company_id": "Company ID",
+            "tax_id_label": "Tax ID :",
+            "tax_id_value": "",
+            "currency_id": "260815000000000097",
+            "currency_code": "USD",
+            "currency_symbol": "$",
+            "currency_format": "###,##0.00",
+            "price_precision": 2,
+            "status": "1",
+            "address": {
+              "street_address1": "",
+              "street_address2": "",
+              "city": "",
+              "state": "Delaware",
+              "state_code": "DE",
+              "country": "U.S.A",
+              "country_code": "US",
+              "zip": "",
+              "latitude": "",
+              "longitude": "",
+              "attention": ""
+            },
+            "tax_settings": {
+              "is_tax_registered": false,
+              "tax_reg_no": ""
+            },
+            "is_registered_for_gst": false,
+            "org_address": "",
+            "remit_to_address": "",
+            "phone": "",
+            "fax": "",
+            "website": "",
+            "version": "us",
+            "weight_unit": "lb",
+            "dimension_unit": "in",
+            "is_old_email_flow": false,
+            "business_type": "",
+            "email": "api@nango.dev",
+            "unverified_emails_count": 0,
+            "tax_basis": "accrual",
+            "custom_fields": [
+              {
+                "index": 1,
+                "label": "",
+                "value": ""
+              },
+              {
+                "index": 2,
+                "label": "",
+                "value": ""
+              },
+              {
+                "index": 3,
+                "label": "",
+                "value": ""
+              },
+              {
+                "index": 4,
+                "label": "",
+                "value": ""
+              },
+              {
+                "index": 5,
+                "label": "",
+                "value": ""
+              }
+            ],
+            "custom_field_hash": {
+              "cf_1_unformatted": "",
+              "cf_1": "",
+              "cf_2_unformatted": "",
+              "cf_2": "",
+              "cf_3_unformatted": "",
+              "cf_3": "",
+              "cf_4_unformatted": "",
+              "cf_4": "",
+              "cf_5_unformatted": "",
+              "cf_5": ""
+            },
+            "is_org_active": true,
+            "is_new_customer_custom_fields": true,
+            "is_portal_enabled": true,
+            "org_joined_app_list": [
+              "books",
+              "inventory"
+            ],
+            "company_identification_labels_list": [],
+            "portal_name": "nangodev",
+            "business_start_date": "2026-06-09",
+            "inventory_start_date": "2026-06-09",
+            "is_project_enabled": true,
+            "is_retainerinvoice_enabled": false,
+            "mode": "live",
+            "payments_url": ""
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 09 Oct 2026 18:26:19 GMT",
+          "content-type": "application/json;charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "DENY",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=64072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1859",
+          "x-ratelimit-reset": "1791570407",
+          "server": "ZGS",
+          "set-cookie": "<redacted>",
+          "cache-control": "no-store, no-cache, must-revalidate, max-age=0, post-check=0, pre-check=0",
+          "pragma": "no-cache",
+          "expires": "Thu, 01 Jan 1970 00:00:00 GMT",
+          "x-rate-limit-limit": "7500",
+          "x-rate-limit-reset": "34420",
+          "x-rate-limit-remaining": "6925",
+          "content-disposition": "attachment;",
+          "allow": "OPTIONS, GET",
+          "build_version": "Oct_09_2026_27467",
+          "client_build_version": "Oct_09_2026_27467",
+          "server_build_version": "Oct_09_2026_14741/",
+          "vary": "accept-encoding"
+        },
+        "hash": "cee25bba16a35e6de1611f764e8c80703a1f6fee",
+        "request": {
+          "params": {
+            "organization_id": "927270289"
+          }
+        }
+      }
+    }
+  }
+}

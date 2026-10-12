@@ -1,0 +1,160 @@
+{
+  "input": {
+    "projectName": "Nango FindOrCreate Dryrun",
+    "title": "FindOrCreate Dryrun Task",
+    "priority": 3,
+    "tags": [
+      "dryrun"
+    ]
+  },
+  "output": {
+    "projectId": "6ac9523d8f088b3af8945ade",
+    "projectName": "Nango FindOrCreate Dryrun",
+    "projectCreated": false,
+    "task": {
+      "id": "6ac952538f08929498a94994",
+      "projectId": "6ac9523d8f088b3af8945ade",
+      "title": "FindOrCreate Dryrun Task",
+      "sortOrder": -3298534883328,
+      "timeZone": "Africa/Nairobi",
+      "isAllDay": false,
+      "tags": [
+        "dryrun"
+      ],
+      "priority": 3,
+      "status": 0,
+      "kind": "TEXT",
+      "etag": "kupggvqf",
+      "createdTime": "2026-10-09T20:45:07.438+0000",
+      "modifiedTime": "2026-10-09T20:45:07.438+0000"
+    }
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/open/v1/project": {
+        "response": [
+          {
+            "id": "6ac5b589bed7f77658a9a803",
+            "name": "👋Welcome",
+            "sortOrder": 0,
+            "viewMode": "list",
+            "kind": "TASK"
+          },
+          {
+            "id": "6ac94f5b8f084dbfaa69e967",
+            "name": "Nango AddComment Test",
+            "sortOrder": 0,
+            "viewMode": "list",
+            "kind": "TASK"
+          },
+          {
+            "id": "6ac9500d8f0879728388eac2",
+            "name": "Nango CompleteTask Test",
+            "sortOrder": 0,
+            "viewMode": "list",
+            "kind": "TASK"
+          },
+          {
+            "id": "6ac9523d8f088b3af8945ade",
+            "name": "Nango FindOrCreate Dryrun",
+            "sortOrder": 0,
+            "viewMode": "list",
+            "kind": "TASK"
+          }
+        ],
+        "status": 200,
+        "headers": {
+          "date": "Fri, 09 Oct 2026 20:45:07 GMT",
+          "content-type": "application/json;charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "DENY",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=31536000 ; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1981",
+          "x-ratelimit-reset": "1791578742",
+          "set-cookie": "<redacted>",
+          "vary": "origin,access-control-request-method,access-control-request-headers,accept-encoding",
+          "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
+          "pragma": "no-cache",
+          "expires": "0"
+        },
+        "hash": "77b9a543349d94597ab3735c696dad114aaf961b",
+        "request": {
+          "params": {
+            "limit": "200",
+            "offset": "0"
+          }
+        }
+      }
+    },
+    "post": {
+      "/open/v1/task": {
+        "response": {
+          "id": "6ac952538f08929498a94994",
+          "projectId": "6ac9523d8f088b3af8945ade",
+          "sortOrder": -3298534883328,
+          "title": "FindOrCreate Dryrun Task",
+          "timeZone": "Africa/Nairobi",
+          "isAllDay": false,
+          "priority": 3,
+          "isFloating": false,
+          "status": 0,
+          "tags": [
+            "dryrun"
+          ],
+          "etag": "kupggvqf",
+          "etimestamp": 1791578707439,
+          "kind": "TEXT",
+          "modifiedTime": "2026-10-09T20:45:07.438+0000",
+          "createdTime": "2026-10-09T20:45:07.438+0000"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 09 Oct 2026 20:45:07 GMT",
+          "content-type": "application/json;charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "DENY",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=31536000 ; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1980",
+          "x-ratelimit-reset": "1791578742",
+          "set-cookie": "<redacted>",
+          "vary": "origin,access-control-request-method,access-control-request-headers,accept-encoding",
+          "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
+          "pragma": "no-cache",
+          "expires": "0"
+        },
+        "hash": "affa89676765fa8c90d0658086c7f17431e4e9fc",
+        "request": {
+          "data": {
+            "title": "FindOrCreate Dryrun Task",
+            "projectId": "6ac9523d8f088b3af8945ade",
+            "tags": [
+              "dryrun"
+            ],
+            "priority": 3
+          }
+        }
+      }
+    }
+  }
+}

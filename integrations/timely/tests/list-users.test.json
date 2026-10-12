@@ -1,0 +1,119 @@
+{
+  "input": {
+    "account_id": 1145787
+  },
+  "output": {
+    "users": [
+      {
+        "id": 2418691,
+        "email": "api@nango.dev",
+        "name": "Nango Developer",
+        "active": true,
+        "time_zone": "Africa/Nairobi",
+        "avatar": {
+          "large_retina": "https://www.gravatar.com/avatar/0f8c53293177b8e9f1658ae7951a468e?d=https%3A%2F%2Fd1vbcromo72rmd.cloudfront.net%2Fassets%2Fthumbs%2Fuser_large_retina-c403e04ad44c7d8b8c7904dc7e7c1893101f3672565370034edbe3dee9985509.jpg&s=200",
+          "large": "https://www.gravatar.com/avatar/0f8c53293177b8e9f1658ae7951a468e?d=https%3A%2F%2Fd1vbcromo72rmd.cloudfront.net%2Fassets%2Fthumbs%2Fuser_large_retina-c403e04ad44c7d8b8c7904dc7e7c1893101f3672565370034edbe3dee9985509.jpg&s=200",
+          "medium_retina": "https://www.gravatar.com/avatar/0f8c53293177b8e9f1658ae7951a468e?d=https%3A%2F%2Fd1vbcromo72rmd.cloudfront.net%2Fassets%2Fthumbs%2Fuser_medium_retina-459a8b7582a7417f4b47a0064f692ffcd161fb11eda9dcc359f1b5e63fe51235.jpg&s=50",
+          "medium": "https://www.gravatar.com/avatar/0f8c53293177b8e9f1658ae7951a468e?d=https%3A%2F%2Fd1vbcromo72rmd.cloudfront.net%2Fassets%2Fthumbs%2Fuser_medium_retina-459a8b7582a7417f4b47a0064f692ffcd161fb11eda9dcc359f1b5e63fe51235.jpg&s=50",
+          "small_retina": "https://www.gravatar.com/avatar/0f8c53293177b8e9f1658ae7951a468e?d=https%3A%2F%2Fd1vbcromo72rmd.cloudfront.net%2Fassets%2Fthumbs%2Fuser_small_retina-459a8b7582a7417f4b47a0064f692ffcd161fb11eda9dcc359f1b5e63fe51235.jpg&s=25",
+          "small": "https://www.gravatar.com/avatar/0f8c53293177b8e9f1658ae7951a468e?d=https%3A%2F%2Fd1vbcromo72rmd.cloudfront.net%2Fassets%2Fthumbs%2Fuser_small_retina-459a8b7582a7417f4b47a0064f692ffcd161fb11eda9dcc359f1b5e63fe51235.jpg&s=25"
+        },
+        "type": "User",
+        "user_level": "admin",
+        "admin": true,
+        "deleted": false,
+        "weekly_capacity": 40,
+        "default_hour_rate": 0,
+        "internal_hour_rate": 0,
+        "role_id": 2197140,
+        "role": {
+          "id": 2197140,
+          "name": "admin"
+        },
+        "created_at": 1791341625,
+        "updated_at": 1791341678
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/1.1/1145787/users": {
+        "response": [
+          {
+            "id": 2418691,
+            "email": "api@nango.dev",
+            "name": "Nango Developer",
+            "active": true,
+            "day_view_onboarded": true,
+            "memory_onboarded": true,
+            "created_at": 1791341625,
+            "updated_at": 1791341678,
+            "last_received_memories_date": null,
+            "sign_in_count": 1,
+            "external_id": null,
+            "time_zone": "Africa/Nairobi",
+            "memory_retention_days": null,
+            "avatar": {
+              "large_retina": "https://www.gravatar.com/avatar/0f8c53293177b8e9f1658ae7951a468e?d=https%3A%2F%2Fd1vbcromo72rmd.cloudfront.net%2Fassets%2Fthumbs%2Fuser_large_retina-c403e04ad44c7d8b8c7904dc7e7c1893101f3672565370034edbe3dee9985509.jpg&s=200",
+              "large": "https://www.gravatar.com/avatar/0f8c53293177b8e9f1658ae7951a468e?d=https%3A%2F%2Fd1vbcromo72rmd.cloudfront.net%2Fassets%2Fthumbs%2Fuser_large_retina-c403e04ad44c7d8b8c7904dc7e7c1893101f3672565370034edbe3dee9985509.jpg&s=200",
+              "medium_retina": "https://www.gravatar.com/avatar/0f8c53293177b8e9f1658ae7951a468e?d=https%3A%2F%2Fd1vbcromo72rmd.cloudfront.net%2Fassets%2Fthumbs%2Fuser_medium_retina-459a8b7582a7417f4b47a0064f692ffcd161fb11eda9dcc359f1b5e63fe51235.jpg&s=50",
+              "medium": "https://www.gravatar.com/avatar/0f8c53293177b8e9f1658ae7951a468e?d=https%3A%2F%2Fd1vbcromo72rmd.cloudfront.net%2Fassets%2Fthumbs%2Fuser_medium_retina-459a8b7582a7417f4b47a0064f692ffcd161fb11eda9dcc359f1b5e63fe51235.jpg&s=50",
+              "small_retina": "https://www.gravatar.com/avatar/0f8c53293177b8e9f1658ae7951a468e?d=https%3A%2F%2Fd1vbcromo72rmd.cloudfront.net%2Fassets%2Fthumbs%2Fuser_small_retina-459a8b7582a7417f4b47a0064f692ffcd161fb11eda9dcc359f1b5e63fe51235.jpg&s=25",
+              "small": "https://www.gravatar.com/avatar/0f8c53293177b8e9f1658ae7951a468e?d=https%3A%2F%2Fd1vbcromo72rmd.cloudfront.net%2Fassets%2Fthumbs%2Fuser_small_retina-459a8b7582a7417f4b47a0064f692ffcd161fb11eda9dcc359f1b5e63fe51235.jpg&s=25"
+            },
+            "type": "User",
+            "work_days": "MON,TUE,WED,THU,FRI",
+            "weekdays": "MO,TU,WE,TH,FR",
+            "weekly_capacity": 40,
+            "user_level": "admin",
+            "admin": true,
+            "hide_hourly_rate": false,
+            "hide_internal_hourly_rate": false,
+            "deleted": false,
+            "default_hour_rate": 0,
+            "internal_hour_rate": 0,
+            "role_id": 2197140,
+            "role": {
+              "id": 2197140,
+              "name": "admin"
+            }
+          }
+        ],
+        "status": 200,
+        "headers": {
+          "date": "Fri, 09 Oct 2026 21:52:41 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "2055",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1840",
+          "x-ratelimit-reset": "1791582763",
+          "x-permitted-cross-domain-policies": "none",
+          "vary": "Accept-Encoding, Origin",
+          "etag": "W/\"46a2490e7336f7fd0bff7b2c37701216\"",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "x-request-id": "1f2a090f-89df-4d62-a732-afaca3e334e7",
+          "x-runtime": "0.029194",
+          "cf-cache-status": "DYNAMIC",
+          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=q81e5M%2FhNW6g8rVZl47G8OcypbIjuIRhKfv%2B0n2rtmX%2BWqhcsA%2FhKMV7el2mynRRGKbdn86adQx4hcrxm%2FCFN32UsGWDS1%2FTaauVACuzhswTPO%2F9j20hUPDHcUZJHBigVQsJpw%3D%3D\"}]}",
+          "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+          "server": "cloudflare",
+          "cf-ray": "a4809d241befc54c-PDX"
+        },
+        "hash": "47a270f38b841f1f9616bbe97fb8498dbbb13870",
+        "request": {}
+      }
+    }
+  }
+}

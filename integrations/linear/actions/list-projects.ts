@@ -44,7 +44,11 @@ const OutputSchema = z.object({
     nextCursor: z.string().optional()
 });
 
-const RawLeadSchema = LeadSchema.nullable();
+// Linear returns `email: null` for leads that are bots or deleted users. Parse the
+// nullable shape, then strip null emails when mapping to the output lead.
+const RawLeadSchema = LeadSchema.extend({
+    email: z.string().nullable().optional()
+}).nullable();
 
 const RawProjectSchema = z.object({
     id: z.string(),
@@ -67,7 +71,7 @@ const RawProjectSchema = z.object({
 
 const action = createAction({
     description: 'List Linear projects with filtering and pagination.',
-    version: '1.0.2',
+    version: '1.0.3',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['read'],
@@ -125,20 +129,51 @@ const action = createAction({
 
         const responseData = z
             .object({
-                data: z.object({
-                    projects: z.object({
-                        nodes: z.array(z.unknown()),
-                        pageInfo: z.object({
-                            hasNextPage: z.boolean(),
-                            endCursor: z.string().nullable()
-                        })
+                data: z
+                    .object({
+                        projects: z
+                            .object({
+                                nodes: z.array(z.unknown()),
+                                pageInfo: z.object({
+                                    hasNextPage: z.boolean(),
+                                    endCursor: z.string().nullable()
+                                })
+                            })
+                            .nullable()
+                            .optional()
                     })
-                })
+                    .nullable()
+                    .optional(),
+                errors: z
+                    .array(
+                        z.object({
+                            message: z.string(),
+                            extensions: z.record(z.string(), z.unknown()).optional()
+                        })
+                    )
+                    .optional()
             })
             .parse(response.data);
 
-        const nodes = responseData.data.projects.nodes;
-        const pageInfo = responseData.data.projects.pageInfo;
+        const firstError = responseData.errors?.[0];
+        if (firstError) {
+            throw new nango.ActionError({
+                type: 'graphql_error',
+                message: firstError.message,
+                errors: responseData.errors
+            });
+        }
+
+        const projectsData = responseData.data?.projects;
+        if (!projectsData) {
+            throw new nango.ActionError({
+                type: 'invalid_response',
+                message: 'Linear API returned no projects data.'
+            });
+        }
+
+        const nodes = projectsData.nodes;
+        const pageInfo = projectsData.pageInfo;
 
         const projects: z.infer<typeof ProjectSchema>[] = [];
 
@@ -155,7 +190,13 @@ const action = createAction({
                 ...(raw.createdAt !== null && { createdAt: raw.createdAt }),
                 ...(raw.updatedAt !== null && { updatedAt: raw.updatedAt }),
                 ...(raw.url !== null && { url: raw.url }),
-                ...(raw.lead !== null && { lead: raw.lead }),
+                ...(raw.lead !== null && {
+                    lead: {
+                        id: raw.lead.id,
+                        ...(raw.lead.name !== undefined && { name: raw.lead.name }),
+                        ...(raw.lead.email != null && { email: raw.lead.email })
+                    }
+                }),
                 ...(raw.teams !== null && { teams: raw.teams })
             };
             projects.push(project);

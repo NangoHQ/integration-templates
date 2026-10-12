@@ -1,0 +1,108 @@
+{
+  "input": {
+    "record_id": "7618134000000632027"
+  },
+  "output": {
+    "id": "7618134000000632027",
+    "account_name": "Zylker Corp",
+    "phone": "609-281-3662",
+    "website": "https://help.zoho.com/portal/community/bigin",
+    "billing_street": "8 W Cerritos Ave #54",
+    "billing_city": "Bridgeport",
+    "billing_state": "New Jersey",
+    "owner_id": "7618134000000627001",
+    "owner_name": "Nango Developer",
+    "owner_email": "api@nango.dev",
+    "created_by_id": "7618134000000627001",
+    "created_by_name": "Nango Developer",
+    "created_by_email": "api@nango.dev",
+    "modified_by_id": "7618134000000627001",
+    "modified_by_name": "Nango Developer",
+    "modified_by_email": "api@nango.dev",
+    "created_time": "2026-10-07T03:21:34+03:00",
+    "modified_time": "2026-10-09T22:11:19+03:00",
+    "last_activity_time": "2026-10-09T22:13:04+03:00",
+    "tags": []
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/bigin/v2/Accounts/7618134000000632027": {
+        "response": {
+          "data": [
+            {
+              "Owner": {
+                "name": "Nango Developer",
+                "id": "7618134000000627001",
+                "email": "api@nango.dev"
+              },
+              "Modified_Time": "2026-10-09T22:11:19+03:00",
+              "Description": null,
+              "Billing_Street": "8 W Cerritos Ave #54",
+              "Created_Time": "2026-10-07T03:21:34+03:00",
+              "Website": "https://help.zoho.com/portal/community/bigin",
+              "Billing_Code": null,
+              "Last_Activity_Time": "2026-10-09T22:13:04+03:00",
+              "Record_Image": null,
+              "Modified_By": {
+                "name": "Nango Developer",
+                "id": "7618134000000627001",
+                "email": "api@nango.dev"
+              },
+              "Billing_City": "Bridgeport",
+              "Phone": "609-281-3662",
+              "Billing_Country": null,
+              "Billing_State": "New Jersey",
+              "Account_Name": "Zylker Corp",
+              "id": "7618134000000632027",
+              "Created_By": {
+                "name": "Nango Developer",
+                "id": "7618134000000627001",
+                "email": "api@nango.dev"
+              },
+              "Tag": []
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 09 Oct 2026 19:13:43 GMT",
+          "content-type": "application/json;charset=UTF-8",
+          "content-length": "741",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=64072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1924",
+          "x-ratelimit-reset": "1791573238",
+          "server": "ZGS",
+          "set-cookie": "zalb_3d223cf300=5ea307a71788bc67f1e452f7c999c3ed; Path=/; Secure; HttpOnly, crmcsr=8808d108-8e85-42a4-b3ec-b1184364b948;path=/;SameSite=None;Secure;priority=high, BIGINCROSSCDNID =c499d65c43d474092acc8c2419d48f196386fe541367eb34a04448b665296a64036a88a7e3bf8548766ca6cf56862f43;Path=/; Expires=Sat Oct 10 12:13:43 PDT 2026, BIGINCROSSCDNCOUNTRY =US;Path=/; Expires=Sat Oct 10 12:13:43 PDT 2026",
+          "cache-control": "no-store, no-cache, must-revalidate, private",
+          "pragma": "no-cache",
+          "expires": "Thu, 01 Jan 1970 00:00:00 GMT",
+          "x-accesstoken-reset": "2026-10-09T22:33:35+03:00",
+          "clientversion": "14729686",
+          "clientsubversion": "1d7b626d4325dc2fb9fba2b9d0e404b4",
+          "vary": "Sec-Fetch-Dest,Sec-Fetch-Mode,Sec-Fetch-Site,Sec-Fetch-User",
+          "content-disposition": "attachment; filename=response.json",
+          "server-timing": "cpuTime;desc=\"CPU Time\";dur=25, totalTime;desc=\"Total Execution Time\";dur=32,murphySpanId;desc=\"\";dur=0",
+          "content-language": "en-US"
+        },
+        "hash": "d89414980a0d62bd28d70f25a0137ecd4f97fc91",
+        "request": {
+          "params": {
+            "fields": "Owner,Account_Name,Phone,Website,Created_By,Modified_By,Created_Time,Modified_Time,Billing_Street,Billing_City,Billing_State,Billing_Code,Billing_Country,Description,Last_Activity_Time,Tag,Record_Image,id"
+          }
+        }
+      }
+    }
+  }
+}

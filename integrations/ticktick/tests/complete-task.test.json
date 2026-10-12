@@ -1,0 +1,104 @@
+{
+  "input": {
+    "projectId": "6ac9500d8f0879728388eac2",
+    "taskId": "6ac950118f08929498a91706"
+  },
+  "output": {
+    "id": "6ac950118f08929498a91706",
+    "projectId": "6ac9500d8f0879728388eac2",
+    "title": "Nango CompleteTask Test Task",
+    "status": 2,
+    "completedTime": "2026-10-09T20:38:14.602+0000",
+    "isAllDay": false,
+    "priority": 3,
+    "timeZone": "Africa/Nairobi",
+    "kind": "TEXT",
+    "sortOrder": -1099511627776,
+    "modifiedTime": "2026-10-09T20:38:14.604+0000",
+    "createdTime": "2026-10-09T20:35:29.468+0000"
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/open/v1/project/6ac9500d8f0879728388eac2/task/6ac950118f08929498a91706/complete": {
+        "response": "",
+        "status": 200,
+        "headers": {
+          "date": "Fri, 09 Oct 2026 20:38:14 GMT",
+          "content-type": "application/octet-stream",
+          "content-length": "0",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "DENY",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=31536000 ; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1939",
+          "x-ratelimit-reset": "1791578295",
+          "set-cookie": "AWSALB=QmkQLm4PDoEHcliiNTOrnm3hWu8F/tgS8GJgFpt0kaI3gFcBIDw7zldK61TkscujGaHfD73oYidRuZb7bHeJljxREhygO2/Pnraabl0q5A1Q7T0yr/hEfexzTvUk; Expires=Fri, 16 Oct 2026 20:38:14 GMT; Path=/, AWSALBCORS=QmkQLm4PDoEHcliiNTOrnm3hWu8F/tgS8GJgFpt0kaI3gFcBIDw7zldK61TkscujGaHfD73oYidRuZb7bHeJljxREhygO2/Pnraabl0q5A1Q7T0yr/hEfexzTvUk; Expires=Fri, 16 Oct 2026 20:38:14 GMT; Path=/; SameSite=None; Secure",
+          "vary": "Origin, Access-Control-Request-Method, Access-Control-Request-Headers",
+          "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
+          "pragma": "no-cache",
+          "expires": "0",
+          "etag": "W/\"0-2jmj7l5rSw0yVb/vlWAYkK/YBwk\""
+        },
+        "hash": "58c94ced100460b94783885d68d00af425491328",
+        "request": {}
+      }
+    },
+    "get": {
+      "/open/v1/project/6ac9500d8f0879728388eac2/task/6ac950118f08929498a91706": {
+        "response": {
+          "id": "6ac950118f08929498a91706",
+          "projectId": "6ac9500d8f0879728388eac2",
+          "sortOrder": -1099511627776,
+          "title": "Nango CompleteTask Test Task",
+          "timeZone": "Africa/Nairobi",
+          "isAllDay": false,
+          "priority": 3,
+          "isFloating": false,
+          "completedTime": "2026-10-09T20:38:14.602+0000",
+          "status": 2,
+          "etag": "ntvbb9en",
+          "etimestamp": 1791578294604,
+          "kind": "TEXT",
+          "modifiedTime": "2026-10-09T20:38:14.604+0000",
+          "createdTime": "2026-10-09T20:35:29.468+0000"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 09 Oct 2026 20:38:14 GMT",
+          "content-type": "application/json;charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "DENY",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=31536000 ; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1938",
+          "x-ratelimit-reset": "1791578295",
+          "set-cookie": "AWSALB=DJAoT9ImDO+GMShcq4DmZUZU1crsMrlmcPbj0VQnfp9UwJqxOcq377cLSe3vjcHvQgNAiKmYjPNpxvWOFQtmI/h5JkHJFZIwkXrPzwbKwQ6SgniExA+pkVa8GPCs; Expires=Fri, 16 Oct 2026 20:38:14 GMT; Path=/, AWSALBCORS=DJAoT9ImDO+GMShcq4DmZUZU1crsMrlmcPbj0VQnfp9UwJqxOcq377cLSe3vjcHvQgNAiKmYjPNpxvWOFQtmI/h5JkHJFZIwkXrPzwbKwQ6SgniExA+pkVa8GPCs; Expires=Fri, 16 Oct 2026 20:38:14 GMT; Path=/; SameSite=None; Secure",
+          "vary": "origin,access-control-request-method,access-control-request-headers,accept-encoding",
+          "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
+          "pragma": "no-cache",
+          "expires": "0"
+        },
+        "hash": "77c809a86c0c28709b5b9f94f98cce12652b0aff",
+        "request": {}
+      }
+    }
+  }
+}

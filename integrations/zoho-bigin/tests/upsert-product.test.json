@@ -1,0 +1,107 @@
+{
+  "input": {
+    "Product_Name": "Nango Upsert Test Product",
+    "Product_Code": "NANGO-UP-001",
+    "Unit_Price": 42.5,
+    "Product_Category": "Test",
+    "Product_Active": true
+  },
+  "output": {
+    "id": "7618134000000646014",
+    "action": "update",
+    "duplicate_field": "Product_Name",
+    "code": "SUCCESS",
+    "message": "record updated",
+    "status": "success",
+    "Created_Time": "2026-10-09T22:08:22+03:00",
+    "Modified_Time": "2026-10-09T22:08:39+03:00",
+    "Created_By": {
+      "id": "7618134000000627001",
+      "name": "Nango Developer"
+    },
+    "Modified_By": {
+      "id": "7618134000000627001",
+      "name": "Nango Developer"
+    }
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/bigin/v2/Products/upsert": {
+        "response": {
+          "data": [
+            {
+              "code": "SUCCESS",
+              "duplicate_field": "Product_Name",
+              "action": "update",
+              "details": {
+                "Modified_Time": "2026-10-09T22:08:39+03:00",
+                "Modified_By": {
+                  "name": "Nango Developer",
+                  "id": "7618134000000627001"
+                },
+                "Created_Time": "2026-10-09T22:08:22+03:00",
+                "id": "7618134000000646014",
+                "Created_By": {
+                  "name": "Nango Developer",
+                  "id": "7618134000000627001"
+                }
+              },
+              "message": "record updated",
+              "status": "success"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 09 Oct 2026 19:08:39 GMT",
+          "content-type": "application/json;charset=UTF-8",
+          "content-length": "387",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=64072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1851",
+          "x-ratelimit-reset": "1791572932",
+          "server": "ZGS",
+          "set-cookie": "zalb_3d223cf300=893e041e3e8f85d530c4aee0de46289d; Path=/; Secure; HttpOnly, crmcsr=2853697f-6315-4859-9238-22567ca8cc86;path=/;SameSite=None;Secure;priority=high, BIGINCROSSCDNID =20429d6bdae983fc6823027ec42d732c6ac0e38a9c3bfd83420218bda87814ba8ea51d5a4f637ee591df1d36d6da3308;Path=/; Expires=Sat Oct 10 12:08:39 PDT 2026, BIGINCROSSCDNCOUNTRY =US;Path=/; Expires=Sat Oct 10 12:08:39 PDT 2026",
+          "cache-control": "no-store, no-cache, must-revalidate, private",
+          "pragma": "no-cache",
+          "expires": "Thu, 01 Jan 1970 00:00:00 GMT",
+          "x-accesstoken-reset": "2026-10-09T22:33:35+03:00",
+          "clientversion": "14729686",
+          "clientsubversion": "1d7b626d4325dc2fb9fba2b9d0e404b4",
+          "vary": "Sec-Fetch-Dest,Sec-Fetch-Mode,Sec-Fetch-Site,Sec-Fetch-User",
+          "content-disposition": "attachment; filename=response.json",
+          "server-timing": "cpuTime;desc=\"CPU Time\";dur=95, totalTime;desc=\"Total Execution Time\";dur=173,murphySpanId;desc=\"\";dur=0",
+          "content-language": "en-US"
+        },
+        "hash": "6cd73e10d1ada2eff5cfa5cc89bf953c743b7002",
+        "request": {
+          "data": {
+            "data": [
+              {
+                "Product_Name": "Nango Upsert Test Product",
+                "Product_Code": "NANGO-UP-001",
+                "Unit_Price": 42.5,
+                "Product_Category": "Test",
+                "Product_Active": true
+              }
+            ],
+            "duplicate_check_fields": [
+              "Product_Name"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "nango": {
+    "batchSave": {
+      "Product": []
+    },
+    "batchDelete": {
+      "Product": []
+    }
+  },
+  "api": {
+    "get": {
+      "/bigin/v2/Products": {
+        "response": "",
+        "status": 204,
+        "headers": {
+          "date": "Fri, 09 Oct 2026 19:49:45 GMT",
+          "content-type": "application/json;charset=UTF-8",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=64072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1982",
+          "x-ratelimit-reset": "1791575416",
+          "server": "ZGS",
+          "set-cookie": "zalb_3d223cf300=5ea307a71788bc67f1e452f7c999c3ed; Path=/; Secure; HttpOnly, crmcsr=94ccbeb2-e6b9-4f5a-bb5e-8f2e18b947ef;path=/;SameSite=None;Secure;priority=high, BIGINCROSSCDNID =913e36ef7c1eb3679bd3a5d35698a2d752bcdc0c26816f669ca0d8f49f1246b03288ed7ae8e7f15da697e074a6ebe3aa;Path=/; Expires=Sat Oct 10 12:49:45 PDT 2026, BIGINCROSSCDNCOUNTRY =US;Path=/; Expires=Sat Oct 10 12:49:45 PDT 2026, JSESSIONID=462965CADEF42157A88001826AF54A2A; Path=/; Secure; HttpOnly",
+          "cache-control": "no-store, no-cache, must-revalidate, private",
+          "pragma": "no-cache",
+          "expires": "Thu, 01 Jan 1970 00:00:00 GMT",
+          "x-accesstoken-reset": "2026-10-09T23:19:07+03:00",
+          "clientversion": "14729686",
+          "clientsubversion": "1d7b626d4325dc2fb9fba2b9d0e404b4",
+          "vary": "Sec-Fetch-Dest,Sec-Fetch-Mode,Sec-Fetch-Site,Sec-Fetch-User",
+          "content-disposition": "attachment; filename=response.json",
+          "server-timing": "totalTime;desc=\"Total Execution Time\";dur=28,murphySpanId;desc=\"\";dur=0",
+          "content-language": "en-US"
+        },
+        "hash": "66f2c250734cf9431e7a10a237eba1510144e0b8",
+        "request": {
+          "params": {
+            "fields": "id,Product_Name,Product_Code,Product_Category,Product_Active,Unit_Price,Taxable,Description,Manufacturer,Usage_Unit,Qty_in_Stock,Qty_Ordered,Qty_in_Demand,Reorder_Level,Commission_Rate,Sales_Start_Date,Sales_End_Date,Support_Start_Date,Support_Expiry_Date,Last_Activity_Time,Handler,Owner,Created_By,Modified_By,Tag,Created_Time,Modified_Time,Record_Image",
+            "per_page": "200",
+            "approved": "both"
+          }
+        }
+      }
+    }
+  }
+}

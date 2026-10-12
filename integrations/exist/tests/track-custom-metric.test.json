@@ -1,0 +1,307 @@
+{
+  "input": {
+    "name": "nango_track_custom_test",
+    "value": 42,
+    "label": "Nango Track Custom Test",
+    "group": "productivity",
+    "value_type": 0,
+    "manual": true,
+    "date": "2026-10-07"
+  },
+  "output": {
+    "attribute": {
+      "name": "nango_track_custom_test",
+      "label": "Nango Track Custom Test",
+      "group": {
+        "name": "productivity",
+        "label": "Productivity",
+        "priority": 2
+      },
+      "active": true,
+      "value_type": 0,
+      "template": null,
+      "service": {
+        "name": "nango1234",
+        "label": "Nango"
+      },
+      "priority": 9,
+      "manual": true,
+      "value_type_description": "Integer"
+    },
+    "value_written": 42
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/api/2/attributes/": {
+        "response": {
+          "count": 9,
+          "next": null,
+          "previous": null,
+          "results": [
+            {
+              "template": "steps",
+              "name": "steps",
+              "label": "Steps",
+              "subgroup": null,
+              "group": {
+                "name": "activity",
+                "label": "Activity",
+                "priority": 1
+              },
+              "service": {
+                "name": "nango1234",
+                "label": "Nango"
+              },
+              "active": true,
+              "priority": 1,
+              "manual": true,
+              "value_type": 0,
+              "value_type_description": "Integer",
+              "available_services": []
+            },
+            {
+              "template": null,
+              "name": "nango_create_demo",
+              "label": "Nango Create Demo",
+              "subgroup": null,
+              "group": {
+                "name": "productivity",
+                "label": "Productivity",
+                "priority": 2
+              },
+              "service": null,
+              "active": false,
+              "priority": 9,
+              "manual": true,
+              "value_type": 0,
+              "value_type_description": "Integer",
+              "available_services": []
+            },
+            {
+              "template": null,
+              "name": "nango_create_verify",
+              "label": "Nango Create Verify",
+              "subgroup": null,
+              "group": {
+                "name": "productivity",
+                "label": "Productivity",
+                "priority": 2
+              },
+              "service": {
+                "name": "nango1234",
+                "label": "Nango"
+              },
+              "active": true,
+              "priority": 9,
+              "manual": true,
+              "value_type": 0,
+              "value_type_description": "Integer",
+              "available_services": []
+            },
+            {
+              "template": null,
+              "name": "nango_registry_test",
+              "label": "Nango Registry Test",
+              "subgroup": null,
+              "group": {
+                "name": "productivity",
+                "label": "Productivity",
+                "priority": 2
+              },
+              "service": {
+                "name": "nango1234",
+                "label": "Nango"
+              },
+              "active": true,
+              "priority": 9,
+              "manual": true,
+              "value_type": 0,
+              "value_type_description": "Integer",
+              "available_services": []
+            },
+            {
+              "template": null,
+              "name": "nango_track_custom_test",
+              "label": "Nango Track Custom Test",
+              "subgroup": null,
+              "group": {
+                "name": "productivity",
+                "label": "Productivity",
+                "priority": 2
+              },
+              "service": {
+                "name": "nango1234",
+                "label": "Nango"
+              },
+              "active": true,
+              "priority": 9,
+              "manual": true,
+              "value_type": 0,
+              "value_type_description": "Integer",
+              "available_services": []
+            },
+            {
+              "template": null,
+              "name": "nango_track_probe",
+              "label": "Nango Track Probe",
+              "subgroup": null,
+              "group": {
+                "name": "productivity",
+                "label": "Productivity",
+                "priority": 2
+              },
+              "service": {
+                "name": "nango1234",
+                "label": "Nango"
+              },
+              "active": true,
+              "priority": 9,
+              "manual": true,
+              "value_type": 0,
+              "value_type_description": "Integer",
+              "available_services": []
+            },
+            {
+              "template": null,
+              "name": "nango_bool_test",
+              "label": "nango bool test",
+              "subgroup": null,
+              "group": {
+                "name": "custom",
+                "label": "Daily tags",
+                "priority": 3
+              },
+              "service": {
+                "name": "nango1234",
+                "label": "Nango"
+              },
+              "active": true,
+              "priority": 2,
+              "manual": true,
+              "value_type": 7,
+              "value_type_description": "Boolean",
+              "available_services": []
+            },
+            {
+              "template": "mood",
+              "name": "mood",
+              "label": "Mood",
+              "subgroup": null,
+              "group": {
+                "name": "mood",
+                "label": "Mood",
+                "priority": 3
+              },
+              "service": null,
+              "active": false,
+              "priority": 1,
+              "manual": true,
+              "value_type": 8,
+              "value_type_description": "Integer scale (1-9)",
+              "available_services": []
+            },
+            {
+              "template": "energy_level",
+              "name": "energy_level",
+              "label": "Energy level",
+              "subgroup": null,
+              "group": {
+                "name": "mood",
+                "label": "Mood",
+                "priority": 3
+              },
+              "service": {
+                "name": "nango1234",
+                "label": "Nango"
+              },
+              "active": true,
+              "priority": 3,
+              "manual": true,
+              "value_type": 8,
+              "value_type_description": "Integer scale (1-9)",
+              "available_services": []
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 07 Oct 2026 00:26:56 GMT",
+          "content-type": "application/json",
+          "content-length": "2807",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1996",
+          "x-ratelimit-reset": "1791332873",
+          "server": "nginx/1.14.0 (Ubuntu)",
+          "allow": "GET, HEAD, OPTIONS",
+          "etag": "W/\"af7-oG8iQtxU7F4RFqxtI9ItZR6oeXY\""
+        },
+        "hash": "b822ddbda9b4cfc3ecb3a1a201aeebdf00143af7",
+        "request": {
+          "params": {
+            "attributes": "nango_track_custom_test",
+            "include_inactive": "true"
+          }
+        }
+      }
+    },
+    "post": {
+      "/api/2/attributes/update/": {
+        "response": {
+          "success": [
+            {
+              "name": "nango_track_custom_test",
+              "date": "2026-10-07",
+              "value": 42
+            }
+          ],
+          "failed": []
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 07 Oct 2026 00:26:56 GMT",
+          "content-type": "application/json",
+          "content-length": "91",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1995",
+          "x-ratelimit-reset": "1791332873",
+          "server": "nginx/1.14.0 (Ubuntu)",
+          "allow": "POST, OPTIONS",
+          "etag": "W/\"5b-1AnVNli00ntGlW9TzwrlzLl3x5Y\""
+        },
+        "hash": "62126ade77f640533a6d6691a03c41d5f7ce8184",
+        "request": {
+          "data": [
+            {
+              "name": "nango_track_custom_test",
+              "date": "2026-10-07",
+              "value": 42
+            }
+          ]
+        }
+      }
+    }
+  }
+}

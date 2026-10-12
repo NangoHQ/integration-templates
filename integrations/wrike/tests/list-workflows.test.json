@@ -1,0 +1,157 @@
+{
+  "input": {},
+  "output": {
+    "workflows": [
+      {
+        "id": "IEAG5DAKK77ZC47W",
+        "name": "Default Workflow",
+        "standard": true,
+        "hidden": false,
+        "description": "Use this standard workflow for anything, from start to finish. It can’t be deleted or renamed, but account admins can edit statuses.",
+        "customStatuses": [
+          {
+            "id": "IEAG5DAKJMAAAAAA",
+            "name": "New",
+            "color": "Blue",
+            "group": "Active",
+            "standard": true,
+            "standardName": true,
+            "hidden": false
+          },
+          {
+            "id": "IEAG5DAKJMHVMQVI",
+            "name": "In Progress",
+            "color": "Turquoise",
+            "group": "Active",
+            "standard": false,
+            "standardName": true,
+            "hidden": false
+          },
+          {
+            "id": "IEAG5DAKJMAAAAAB",
+            "name": "Completed",
+            "color": "Green",
+            "group": "Completed",
+            "standard": true,
+            "standardName": true,
+            "hidden": false
+          },
+          {
+            "id": "IEAG5DAKJMAAAAAC",
+            "name": "On Hold",
+            "color": "Gray",
+            "group": "Deferred",
+            "standard": true,
+            "standardName": true,
+            "hidden": false
+          },
+          {
+            "id": "IEAG5DAKJMAAAAAD",
+            "name": "Cancelled",
+            "color": "Gray",
+            "group": "Cancelled",
+            "standard": true,
+            "standardName": true,
+            "hidden": false
+          }
+        ]
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/workflows": {
+        "response": {
+          "kind": "workflows",
+          "data": [
+            {
+              "id": "IEAG5DAKK77ZC47W",
+              "name": "Default Workflow",
+              "standard": true,
+              "hidden": false,
+              "customStatuses": [
+                {
+                  "standardName": true,
+                  "standard": true,
+                  "id": "IEAG5DAKJMAAAAAA",
+                  "name": "New",
+                  "color": "Blue",
+                  "group": "Active",
+                  "hidden": false
+                },
+                {
+                  "standardName": true,
+                  "standard": false,
+                  "id": "IEAG5DAKJMHVMQVI",
+                  "name": "In Progress",
+                  "color": "Turquoise",
+                  "group": "Active",
+                  "hidden": false
+                },
+                {
+                  "standardName": true,
+                  "standard": true,
+                  "id": "IEAG5DAKJMAAAAAB",
+                  "name": "Completed",
+                  "color": "Green",
+                  "group": "Completed",
+                  "hidden": false
+                },
+                {
+                  "standardName": true,
+                  "standard": true,
+                  "id": "IEAG5DAKJMAAAAAC",
+                  "name": "On Hold",
+                  "color": "Gray",
+                  "group": "Deferred",
+                  "hidden": false
+                },
+                {
+                  "standardName": true,
+                  "standard": true,
+                  "id": "IEAG5DAKJMAAAAAD",
+                  "name": "Cancelled",
+                  "color": "Gray",
+                  "group": "Cancelled",
+                  "hidden": false
+                }
+              ],
+              "description": "Use this standard workflow for anything, from start to finish. It can’t be deleted or renamed, but account admins can edit statuses."
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 09 Oct 2026 23:28:57 GMT",
+          "content-type": "application/json;charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1894",
+          "x-ratelimit-reset": "1791588555",
+          "server": "cloudflare",
+          "vary": "Accept-Encoding",
+          "wrike-response-id": "625c17f6da2f789",
+          "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
+          "accept-ch": "Sec-CH-UA,Sec-CH-UA-Mobile,Sec-CH-UA-Full-Version,Sec-CH-UA-Platform,Sec-CH-UA-Platform-Version,Sec-CH-UA-Arch,Sec-CH-UA-Bitness,Sec-CH-UA-Model",
+          "traceid": "6ac978b900000000035bcbf9f35f940d",
+          "cf-cache-status": "DYNAMIC",
+          "cf-ray": "a4812a299ad21687-PDX"
+        },
+        "hash": "a6f9bd2838d84b671a64d36b53a48177b048ec03",
+        "request": {}
+      }
+    }
+  }
+}

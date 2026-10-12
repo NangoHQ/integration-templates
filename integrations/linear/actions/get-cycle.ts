@@ -31,9 +31,24 @@ const OutputSchema = z.object({
     endsAt: z.string().optional()
 });
 
+const GraphQLErrorSchema = z.object({
+    message: z.string(),
+    extensions: z.record(z.string(), z.unknown()).optional()
+});
+
+const GraphQLResponseSchema = z.object({
+    data: z
+        .object({
+            cycle: ProviderCycleSchema.nullable()
+        })
+        .nullable()
+        .optional(),
+    errors: z.array(GraphQLErrorSchema).optional()
+});
+
 const action = createAction({
     description: 'Retrieve a Linear cycle by cycle ID.',
-    version: '1.0.2',
+    version: '1.0.3',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['read'],
@@ -51,16 +66,25 @@ const action = createAction({
             retries: 3
         });
 
-        const cycleData = response.data?.data?.cycle;
+        const payload = GraphQLResponseSchema.parse(response.data);
 
-        if (!cycleData) {
+        const firstError = payload.errors?.[0];
+        if (firstError) {
+            throw new nango.ActionError({
+                type: 'graphql_error',
+                message: firstError.message,
+                errors: payload.errors
+            });
+        }
+
+        const providerCycle = payload.data?.cycle;
+
+        if (!providerCycle) {
             throw new nango.ActionError({
                 type: 'not_found',
                 message: `Cycle with id ${input.id} not found.`
             });
         }
-
-        const providerCycle = ProviderCycleSchema.parse(cycleData);
 
         return {
             id: providerCycle.id,

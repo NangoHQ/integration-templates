@@ -1,0 +1,76 @@
+{
+  "input": {
+    "account_id": 1145787,
+    "name": "Nango Create Label Dryrun"
+  },
+  "output": {
+    "id": 4691275,
+    "name": "Nango Create Label Dryrun",
+    "sequence": 3,
+    "parent_id": null,
+    "emoji": "https://emoji.memorycdn.com/tw64/1f3f7-fe0f.png",
+    "active": true,
+    "external_id": null,
+    "created_at": "2026-10-10T00:54:46+03:00",
+    "updated_at": "2026-10-10T00:54:46+03:00",
+    "children": []
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/1.1/1145787/labels": {
+        "response": {
+          "id": 4691275,
+          "name": "Nango Create Label Dryrun",
+          "sequence": 3,
+          "parent_id": null,
+          "emoji": "https://emoji.memorycdn.com/tw64/1f3f7-fe0f.png",
+          "active": true,
+          "external_id": null,
+          "created_at": "2026-10-10T00:54:46+03:00",
+          "updated_at": "2026-10-10T00:54:46+03:00",
+          "children": []
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 09 Oct 2026 21:54:46 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "266",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1909",
+          "x-ratelimit-reset": "1791582886",
+          "x-permitted-cross-domain-policies": "none",
+          "vary": "Accept-Encoding, Origin",
+          "etag": "W/\"0a06bdc44b023ccbc99380b8ffbe634b\"",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "x-request-id": "b957c1d6-c8e1-47c5-b4d9-174662591e2f",
+          "x-runtime": "0.043502",
+          "cf-cache-status": "DYNAMIC",
+          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=dqkdUYBBCr7yQ0V9%2B%2FgVHPjY6YrMw9mLhGwwotTsifkbBw3e7gWplfEjnSucwsIT2NkiTtsYg6x5Hu6dcNsFpkd8qcCqGXpkoR80uJPxsoFga2pmMhPfD%2BAu8BimlaMgtzoS0g%3D%3D\"}]}",
+          "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+          "server": "cloudflare",
+          "cf-ray": "a480a02dc96bfef3-PDX"
+        },
+        "hash": "b21302c4430df4ac7fcdbb75f34caddd70029d0d",
+        "request": {
+          "data": {
+            "label": {
+              "name": "Nango Create Label Dryrun"
+            }
+          }
+        }
+      }
+    }
+  }
+}

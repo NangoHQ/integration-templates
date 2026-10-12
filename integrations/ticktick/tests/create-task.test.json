@@ -1,0 +1,123 @@
+{
+  "input": {
+    "title": "Nango Create Task Test",
+    "projectId": "6ac5b589bed7f77658a9a803",
+    "content": "Created by Nango create-task dryrun",
+    "priority": 3,
+    "tags": [
+      "nango-test"
+    ],
+    "items": [
+      {
+        "title": "Subtask one",
+        "status": 0
+      }
+    ]
+  },
+  "output": {
+    "id": "6ac94fb88f084dbfaa69fc64",
+    "projectId": "6ac5b589bed7f77658a9a803",
+    "title": "Nango Create Task Test",
+    "content": "Created by Nango create-task dryrun",
+    "isAllDay": false,
+    "timeZone": "Africa/Nairobi",
+    "tags": [
+      "nango-test"
+    ],
+    "priority": 3,
+    "status": 0,
+    "sortOrder": -6597069766656,
+    "items": [
+      {
+        "id": "6ac94fb88f084dbfaa69fc65",
+        "title": "Subtask one",
+        "status": 0,
+        "sortOrder": 0,
+        "timeZone": "Africa/Nairobi"
+      }
+    ],
+    "kind": "CHECKLIST",
+    "etag": "u4u1oh9a",
+    "modifiedTime": "2026-10-09T20:34:00.761+0000",
+    "createdTime": "2026-10-09T20:34:00.761+0000"
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/open/v1/task": {
+        "response": {
+          "id": "6ac94fb88f084dbfaa69fc64",
+          "projectId": "6ac5b589bed7f77658a9a803",
+          "sortOrder": -6597069766656,
+          "title": "Nango Create Task Test",
+          "content": "Created by Nango create-task dryrun",
+          "timeZone": "Africa/Nairobi",
+          "isAllDay": false,
+          "priority": 3,
+          "isFloating": false,
+          "status": 0,
+          "items": [
+            {
+              "id": "6ac94fb88f084dbfaa69fc65",
+              "status": 0,
+              "title": "Subtask one",
+              "sortOrder": 0,
+              "timeZone": "Africa/Nairobi"
+            }
+          ],
+          "tags": [
+            "nango-test"
+          ],
+          "etag": "u4u1oh9a",
+          "etimestamp": 1791578040763,
+          "kind": "CHECKLIST",
+          "modifiedTime": "2026-10-09T20:34:00.761+0000",
+          "createdTime": "2026-10-09T20:34:00.761+0000"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 09 Oct 2026 20:34:00 GMT",
+          "content-type": "application/json;charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "DENY",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=31536000 ; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1914",
+          "x-ratelimit-reset": "1791578054",
+          "set-cookie": "AWSALB=tvY0ISJRGGt6OxAQO3NdcAKZvJKHxWEQzdsWlEy4gAEqFLBMtFWoBL6pZ8OQbPWdVVXf7Yh8oZUDDWGBYiJC4wvghd3ijOlL3wUiWipA/jOD+cH/4RRTvoIn8Cqa; Expires=Fri, 16 Oct 2026 20:34:00 GMT; Path=/, AWSALBCORS=tvY0ISJRGGt6OxAQO3NdcAKZvJKHxWEQzdsWlEy4gAEqFLBMtFWoBL6pZ8OQbPWdVVXf7Yh8oZUDDWGBYiJC4wvghd3ijOlL3wUiWipA/jOD+cH/4RRTvoIn8Cqa; Expires=Fri, 16 Oct 2026 20:34:00 GMT; Path=/; SameSite=None; Secure",
+          "vary": "origin,access-control-request-method,access-control-request-headers,accept-encoding",
+          "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
+          "pragma": "no-cache",
+          "expires": "0"
+        },
+        "hash": "f9b3954df7ce959a6e0af9546ff62aaca59cd984",
+        "request": {
+          "data": {
+            "title": "Nango Create Task Test",
+            "projectId": "6ac5b589bed7f77658a9a803",
+            "content": "Created by Nango create-task dryrun",
+            "tags": [
+              "nango-test"
+            ],
+            "priority": 3,
+            "items": [
+              {
+                "title": "Subtask one",
+                "status": 0
+              }
+            ]
+          }
+        }
+      }
+    }
+  }
+}

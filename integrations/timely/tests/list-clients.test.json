@@ -1,0 +1,67 @@
+{
+  "input": {
+    "account_id": 1145787
+  },
+  "output": {
+    "clients": [
+      {
+        "id": 2193170,
+        "name": "Nango Developer",
+        "active": true,
+        "color": "1976d2",
+        "external_id": null,
+        "updated_at": "2026-10-07T05:54:36+03:00"
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/1.1/1145787/clients": {
+        "response": [
+          {
+            "id": 2193170,
+            "name": "Nango Developer",
+            "color": "1976d2",
+            "active": true,
+            "external_id": null,
+            "updated_at": "2026-10-07T05:54:36+03:00"
+          }
+        ],
+        "status": 200,
+        "headers": {
+          "date": "Fri, 09 Oct 2026 21:53:18 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "132",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1932",
+          "x-ratelimit-reset": "1791582824",
+          "x-permitted-cross-domain-policies": "none",
+          "vary": "Accept-Encoding, Origin",
+          "etag": "W/\"7a06a53ff75f8c8dbe2d15298b1d95de\"",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "x-request-id": "1e1b57da-8467-4bbf-a5be-a2c58e011e56",
+          "x-runtime": "0.026341",
+          "cf-cache-status": "DYNAMIC",
+          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=m3PDiyytJfmHClSRNVg42fJo9H9wdCYhLFH8kEnFPnaAC0dE3Tb8IZwysaj11VqJpj4LhlE4Bl8AhsHO%2B2C1XAfKINw%2BbfQjsLXcZmY3yZerTWoM0abczSRcCHJLHNGqxDFiiQ%3D%3D\"}]}",
+          "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+          "server": "cloudflare",
+          "cf-ray": "a4809e06880bc54c-PDX"
+        },
+        "hash": "d830cd8d950c5a67420f099bac7fa8ef16e3187e",
+        "request": {}
+      }
+    }
+  }
+}

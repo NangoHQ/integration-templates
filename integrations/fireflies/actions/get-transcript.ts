@@ -35,6 +35,13 @@ const SummarySchema = z.object({
     extended_sections: z.array(SummarySectionSchema).nullish()
 });
 
+// Fireflies returns action_items either as a single newline-joined string or
+// as an array of strings depending on the account/summary version. The output
+// keeps the string shape; array payloads are newline-joined before returning.
+const ProviderSummarySchema = SummarySchema.extend({
+    action_items: z.union([z.string(), z.array(z.string())]).nullish()
+});
+
 const SpeakerSchema = z.object({
     id: z.string().nullish(),
     name: z.string().nullish()
@@ -90,7 +97,7 @@ const TranscriptSchema = z.object({
     id: z.string().nullish(),
     title: z.string().nullish(),
     sentences: z.array(SentenceSchema).nullish(),
-    summary: SummarySchema.nullable().optional(),
+    summary: ProviderSummarySchema.nullable().optional(),
     speakers: z.array(SpeakerSchema).nullish(),
     meeting_info: MeetingInfoSchema.nullable().optional(),
     meeting_attendees: z.array(MeetingAttendeeSchema).nullish(),
@@ -125,9 +132,14 @@ const OutputSchema = z.object({
     analytics: AnalyticsSchema.optional()
 });
 
+/** Normalizes action items to the output's string shape; array payloads are newline-joined. */
+function normalizeActionItems(actionItems: string | string[]): string {
+    return Array.isArray(actionItems) ? actionItems.join('\n') : actionItems;
+}
+
 const action = createAction({
     description: 'Retrieve a single transcript by ID including sentences, summary, speakers, and metadata.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: [],
@@ -243,7 +255,13 @@ const action = createAction({
             id: transcript.id ?? undefined,
             title: transcript.title ?? undefined,
             sentences: transcript.sentences ?? undefined,
-            summary: transcript.summary ?? undefined,
+            summary: transcript.summary
+                ? {
+                      ...transcript.summary,
+                      action_items:
+                          transcript.summary.action_items != null ? normalizeActionItems(transcript.summary.action_items) : transcript.summary.action_items
+                  }
+                : undefined,
             speakers: transcript.speakers ?? undefined,
             meeting_info: transcript.meeting_info ?? undefined,
             meeting_attendees: transcript.meeting_attendees ?? undefined,

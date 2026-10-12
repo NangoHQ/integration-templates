@@ -1,0 +1,73 @@
+{
+  "input": {
+    "account_id": 1145787,
+    "client_id": 2195248,
+    "name": "Nango Update Client",
+    "active": true,
+    "external_id": "nango-update-test"
+  },
+  "output": {
+    "id": 2195248,
+    "name": "Nango Update Client",
+    "color": "aabbcc",
+    "active": true,
+    "external_id": "nango-update-test",
+    "updated_at": "2026-10-10T01:03:38+03:00"
+  },
+  "nango": {},
+  "api": {
+    "put": {
+      "/1.1/1145787/clients/2195248": {
+        "response": {
+          "id": 2195248,
+          "name": "Nango Update Client",
+          "color": "aabbcc",
+          "active": true,
+          "external_id": "nango-update-test",
+          "updated_at": "2026-10-10T01:03:38+03:00"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 09 Oct 2026 22:03:43 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "149",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1980",
+          "x-ratelimit-reset": "1791583442",
+          "x-permitted-cross-domain-policies": "none",
+          "vary": "Accept-Encoding, Origin",
+          "etag": "W/\"4f94442a76a1161b14513451707245e9\"",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "x-request-id": "55ba431d-4233-4854-b0e8-57d2b8453510",
+          "x-runtime": "0.043141",
+          "cf-cache-status": "DYNAMIC",
+          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=uYYF54gzxt0bedgOgBeweTJ48yLPD5WO0Gjw3MiDGCOBJNywOyUVLGiNS0jHEMiJO8P%2F8M9OrOpMMhtQcgOnNFVL%2BmQzIrog9vXPJ141mLTtuPQZT%2BzID3GsYYpfhgAVTW%2FjgQ%3D%3D\"}]}",
+          "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+          "server": "cloudflare",
+          "cf-ray": "a480ad4c2abcc3af-PDX"
+        },
+        "hash": "9f385528285625cbf84c03d45583768ada85fa92",
+        "request": {
+          "data": {
+            "client": {
+              "name": "Nango Update Client",
+              "external_id": "nango-update-test",
+              "active": true
+            }
+          }
+        }
+      }
+    }
+  }
+}

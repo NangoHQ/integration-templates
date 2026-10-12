@@ -1,0 +1,79 @@
+{
+  "input": {
+    "projectId": "6ac94f0f8f089f376a257c35",
+    "taskId": "6ac94f108f088b3af8940d20",
+    "assigneeUsername": "api@nango.dev"
+  },
+  "output": {
+    "id": "6ac94f108f088b3af8940d20",
+    "projectId": "6ac94f0f8f089f376a257c35",
+    "title": "Nango Assign Test Task",
+    "isAllDay": false,
+    "timeZone": "Africa/Nairobi",
+    "tags": [],
+    "priority": 0,
+    "sortOrder": -1099511627776,
+    "status": 0,
+    "assigneeUsername": "api@nango.dev",
+    "kind": "TEXT",
+    "etag": "u1bsif71"
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/open/v1/task/assign": {
+        "response": {
+          "id": "6ac94f108f088b3af8940d20",
+          "projectId": "6ac94f0f8f089f376a257c35",
+          "sortOrder": -1099511627776,
+          "title": "Nango Assign Test Task",
+          "timeZone": "Africa/Nairobi",
+          "isAllDay": false,
+          "priority": 0,
+          "isFloating": false,
+          "status": 0,
+          "tags": [],
+          "assigneeUsername": "api@nango.dev",
+          "etag": "u1bsif71",
+          "etimestamp": 1791577918238,
+          "kind": "TEXT",
+          "modifiedTime": "2026-10-09T20:31:58.238+0000",
+          "createdTime": "2026-10-09T20:31:12.178+0000"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 09 Oct 2026 20:31:58 GMT",
+          "content-type": "application/json;charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "DENY",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=31536000 ; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1905",
+          "x-ratelimit-reset": "1791577933",
+          "set-cookie": "AWSALB=GzGTNwjkyCPhhUOP6Y91sqoYlqGfexrLJDvkAjtJYcJ7CC74tto+m4xAeSq0aNKt2pVFc2EADbo0CjpAC6sH6np6EIvDInVdW9qZQDfTeUyw3LB6YsmbAqej5DuR; Expires=Fri, 16 Oct 2026 20:31:58 GMT; Path=/, AWSALBCORS=GzGTNwjkyCPhhUOP6Y91sqoYlqGfexrLJDvkAjtJYcJ7CC74tto+m4xAeSq0aNKt2pVFc2EADbo0CjpAC6sH6np6EIvDInVdW9qZQDfTeUyw3LB6YsmbAqej5DuR; Expires=Fri, 16 Oct 2026 20:31:58 GMT; Path=/; SameSite=None; Secure",
+          "vary": "origin,access-control-request-method,access-control-request-headers,accept-encoding",
+          "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
+          "pragma": "no-cache",
+          "expires": "0"
+        },
+        "hash": "127703b4d4c4250e74e8f11850241cfaa9e01411",
+        "request": {
+          "data": {
+            "projectId": "6ac94f0f8f089f376a257c35",
+            "taskId": "6ac94f108f088b3af8940d20",
+            "assigneeUsername": "api@nango.dev"
+          }
+        }
+      }
+    }
+  }
+}

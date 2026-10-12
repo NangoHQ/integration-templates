@@ -1,0 +1,100 @@
+{
+  "input": {},
+  "output": {
+    "id": "KUAZR5CO",
+    "type": "Person",
+    "me": true,
+    "firstName": "Nango",
+    "lastName": "Developer",
+    "timezone": "US/Pacific",
+    "locale": "en",
+    "title": "Developer",
+    "companyName": "Nango",
+    "phone": "+1 30221960",
+    "primaryEmail": "api@nango.dev",
+    "avatarUrl": "https://www.wrike.com/avatars//F3/FB/Box_fff06292_78-68_v1.png",
+    "profiles": [
+      {
+        "accountId": "IEAG5DAK",
+        "email": "api@nango.dev",
+        "role": "User",
+        "admin": false,
+        "owner": true,
+        "active": true,
+        "external": false
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/contacts": {
+        "response": {
+          "kind": "contacts",
+          "data": [
+            {
+              "id": "KUAZR5CO",
+              "firstName": "Nango",
+              "lastName": "Developer",
+              "type": "Person",
+              "profiles": [
+                {
+                  "accountId": "IEAG5DAK",
+                  "email": "api@nango.dev",
+                  "role": "User",
+                  "external": false,
+                  "admin": false,
+                  "owner": true,
+                  "active": true
+                }
+              ],
+              "avatarUrl": "https://www.wrike.com/avatars//F3/FB/Box_fff06292_78-68_v1.png",
+              "timezone": "US/Pacific",
+              "locale": "en",
+              "deleted": false,
+              "me": true,
+              "title": "Developer",
+              "companyName": "Nango",
+              "phone": "+1 30221960",
+              "primaryEmail": "api@nango.dev"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 09 Oct 2026 23:38:27 GMT",
+          "content-type": "application/json;charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1970",
+          "x-ratelimit-reset": "1791589140",
+          "server": "cloudflare",
+          "vary": "Accept-Encoding",
+          "wrike-response-id": "625c1c4a700ff3f",
+          "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
+          "accept-ch": "Sec-CH-UA,Sec-CH-UA-Mobile,Sec-CH-UA-Full-Version,Sec-CH-UA-Platform,Sec-CH-UA-Platform-Version,Sec-CH-UA-Arch,Sec-CH-UA-Bitness,Sec-CH-UA-Model",
+          "traceid": "6ac97af300000000200bee40048346bd",
+          "cf-cache-status": "DYNAMIC",
+          "cf-ray": "a4813811df764afe-PDX"
+        },
+        "hash": "a3cd6dcefd1c74f6701e9e7ef89a9872bc4a4484",
+        "request": {
+          "params": {
+            "me": "true"
+          }
+        }
+      }
+    }
+  }
+}

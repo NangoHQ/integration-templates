@@ -1,0 +1,227 @@
+{
+  "input": {
+    "parentFolderId": "MQAAAAEQ_HoD",
+    "folderName": "Nango FOC Folder",
+    "folderDescription": "Created by Nango dryrun",
+    "project": {
+      "ownerIds": [
+        "KUAZR5CO"
+      ]
+    },
+    "taskTitle": "Nango FOC Task",
+    "taskDescription": "Task created by Nango dryrun",
+    "taskImportance": "High",
+    "taskDates": {
+      "type": "Planned",
+      "start": "2026-10-20T09:00:00",
+      "due": "2026-10-21T17:00:00"
+    },
+    "taskResponsibles": [
+      "KUAZR5CO"
+    ]
+  },
+  "output": {
+    "folderId": "MQAAAAERHC6E",
+    "folderWasCreated": false,
+    "task": {
+      "id": "MAAAAAERHC6N",
+      "accountId": "IEAG5DAK",
+      "title": "Nango FOC Task",
+      "description": "Task created by Nango dryrun",
+      "status": "Active",
+      "importance": "High",
+      "createdDate": "2026-10-09T23:28:53Z",
+      "updatedDate": "2026-10-09T23:28:53Z",
+      "scope": "WsTask",
+      "permalink": "https://www.wrike.com/open.htm?id=4582026893",
+      "parentIds": [
+        "MQAAAAERHC6E"
+      ],
+      "responsibleIds": [
+        "KUAZR5CO"
+      ],
+      "superTaskIds": [],
+      "subTaskIds": [],
+      "customStatusId": "IEAG5DAKJMHVMQV4"
+    }
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/folders/MQAAAAEQ_HoD/folders": {
+        "response": {
+          "kind": "folderTree",
+          "data": [
+            {
+              "id": "MQAAAAEQ_HoD",
+              "title": "First space",
+              "childIds": [
+                "MQAAAAEQ_HoI",
+                "MQAAAAERHC5q",
+                "MQAAAAERHC6E"
+              ],
+              "scope": "WsFolder"
+            },
+            {
+              "id": "MQAAAAERHC6E",
+              "title": "Nango FOC Folder",
+              "childIds": [],
+              "scope": "WsFolder",
+              "project": {
+                "authorId": "KUAZR5CO",
+                "ownerIds": [
+                  "KUAZR5CO"
+                ],
+                "customStatusId": "IEAG5DAKJMAAAAAA",
+                "createdDate": "2026-10-09T23:28:47Z"
+              }
+            },
+            {
+              "id": "MQAAAAERHC5q",
+              "title": "nango-dryrun-empty",
+              "childIds": [],
+              "scope": "WsFolder"
+            },
+            {
+              "id": "MQAAAAEQ_HoI",
+              "title": "First project 🚀",
+              "childIds": [],
+              "scope": "WsFolder",
+              "project": {
+                "authorId": "KUAZR5CO",
+                "ownerIds": [
+                  "KUAZR5CO"
+                ],
+                "customStatusId": "IEAG5DAKJMHVMQVI",
+                "createdDate": "2026-10-07T01:48:56Z"
+              }
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 09 Oct 2026 23:28:53 GMT",
+          "content-type": "application/json;charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1913",
+          "x-ratelimit-reset": "1791588555",
+          "server": "cloudflare",
+          "vary": "Accept-Encoding",
+          "wrike-response-id": "625c17e9d8d957d",
+          "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
+          "accept-ch": "Sec-CH-UA,Sec-CH-UA-Mobile,Sec-CH-UA-Full-Version,Sec-CH-UA-Platform,Sec-CH-UA-Platform-Version,Sec-CH-UA-Arch,Sec-CH-UA-Bitness,Sec-CH-UA-Model",
+          "traceid": "6ac978b5000000005eab5c569163599c",
+          "cf-cache-status": "DYNAMIC",
+          "cf-ray": "a4812a0cdb7bbd22-PDX"
+        },
+        "hash": "933b6b3d255e65a38537cf7b1b0ddd23bb65c671",
+        "request": {}
+      }
+    },
+    "post": {
+      "/folders/MQAAAAERHC6E/tasks": {
+        "response": {
+          "kind": "tasks",
+          "data": [
+            {
+              "id": "MAAAAAERHC6N",
+              "accountId": "IEAG5DAK",
+              "title": "Nango FOC Task",
+              "description": "Task created by Nango dryrun",
+              "briefDescription": "Task created by Nango dryrun",
+              "parentIds": [
+                "MQAAAAERHC6E"
+              ],
+              "superParentIds": [],
+              "sharedIds": [
+                "KX7WCEJZ",
+                "KUAZR5CO"
+              ],
+              "responsibleIds": [
+                "KUAZR5CO"
+              ],
+              "status": "Active",
+              "importance": "High",
+              "createdDate": "2026-10-09T23:28:53Z",
+              "updatedDate": "2026-10-09T23:28:53Z",
+              "dates": {
+                "type": "Planned",
+                "duration": 960,
+                "start": "2026-10-20T09:00:00",
+                "due": "2026-10-21T17:00:00"
+              },
+              "scope": "WsTask",
+              "authorIds": [
+                "KUAZR5CO"
+              ],
+              "customStatusId": "IEAG5DAKJMHVMQV4",
+              "hasAttachments": false,
+              "attachmentCount": 0,
+              "permalink": "https://www.wrike.com/open.htm?id=4582026893",
+              "priority": "01c9e8008000000000003400",
+              "followedByMe": true,
+              "followerIds": [
+                "KUAZR5CO"
+              ],
+              "superTaskIds": [],
+              "subTaskIds": [],
+              "dependencyIds": [],
+              "metadata": [],
+              "customFields": []
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 09 Oct 2026 23:28:53 GMT",
+          "content-type": "application/json;charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1911",
+          "x-ratelimit-reset": "1791588555",
+          "server": "cloudflare",
+          "vary": "Accept-Encoding",
+          "wrike-response-id": "625c17ef7fbe350",
+          "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
+          "accept-ch": "Sec-CH-UA,Sec-CH-UA-Mobile,Sec-CH-UA-Full-Version,Sec-CH-UA-Platform,Sec-CH-UA-Platform-Version,Sec-CH-UA-Arch,Sec-CH-UA-Bitness,Sec-CH-UA-Model",
+          "traceid": "6ac978b5000000003b18baa81aed4778",
+          "cf-cache-status": "DYNAMIC",
+          "cf-ray": "a4812a0d7dba1687-PDX"
+        },
+        "hash": "47ee090ce170f3fe6fb2bec6b07dff8b64044052",
+        "request": {
+          "params": {
+            "dates": "{\"type\":\"Planned\",\"start\":\"2026-10-20T09:00:00\",\"due\":\"2026-10-21T17:00:00\"}",
+            "description": "Task created by Nango dryrun",
+            "importance": "High",
+            "responsibles": "[\"KUAZR5CO\"]",
+            "title": "Nango FOC Task"
+          }
+        }
+      }
+    }
+  }
+}

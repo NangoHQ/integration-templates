@@ -1,0 +1,64 @@
+{
+  "input": {
+    "bill_id": "260815000000117048",
+    "organization_id": "927270289"
+  },
+  "output": {
+    "bill_id": "260815000000117048",
+    "status": "open",
+    "already_open": true,
+    "message": "This bill is already in open status."
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/inventory/v1/bills/260815000000117048/status/open": {
+        "response": {
+          "code": 1049,
+          "message": "This bill is already in open status."
+        },
+        "status": 400,
+        "headers": {
+          "date": "Fri, 09 Oct 2026 18:34:27 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "62",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "DENY",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=64072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1949",
+          "x-ratelimit-reset": "1791570894",
+          "server": "ZGS",
+          "set-cookie": "zalb_f73898f234=99b2ad598f85ee55b6084bb64b7ab917; Path=/; Secure; HttpOnly, zomcscook=9e018a88-7109-43d4-9027-eb052eba9ea5;path=/;SameSite=None;Secure;priority=high, JSESSIONID=DDD90104EE9ED5E4CDF52E55B045B6D9; Path=/; Secure; HttpOnly, BuildCookie_927270289=1; Max-Age=300; Expires=Fri, 09 Oct 2026 18:39:27 GMT; Secure; HttpOnly",
+          "cache-control": "no-store, no-cache, must-revalidate, max-age=0, post-check=0, pre-check=0",
+          "pragma": "no-cache",
+          "expires": "Thu, 01 Jan 1970 00:00:00 GMT",
+          "x-rate-limit-limit": "7500",
+          "x-rate-limit-reset": "33932",
+          "x-rate-limit-remaining": "6341",
+          "content-disposition": "attachment;",
+          "allow": "OPTIONS, POST",
+          "build_version": "Oct_09_2026_27467",
+          "client_build_version": "Oct_09_2026_27467",
+          "server_build_version": "Oct_09_2026_14741/",
+          "vary": "accept-encoding",
+          "etag": "W/\"3e-T3qnCIdSOikG4c1UPJ0bQ+EbPPY\""
+        },
+        "hash": "47f6515e64e2614115560cde7ae9992da3eaa773",
+        "request": {
+          "params": {
+            "organization_id": "927270289"
+          }
+        }
+      }
+    }
+  }
+}

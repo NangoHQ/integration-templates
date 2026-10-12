@@ -1,0 +1,178 @@
+{
+  "input": {
+    "per_page": 2
+  },
+  "output": {
+    "products": [
+      {
+        "id": "7618134000000648066",
+        "product_name": "Nango Create Action Test",
+        "product_code": "NANGO-CREATE-1",
+        "product_category": "Software",
+        "description": "Created by create-product action test",
+        "unit_price": 19.99,
+        "product_active": true,
+        "taxable": true,
+        "owner_id": "7618134000000627001",
+        "owner_name": "Nango Developer",
+        "owner_email": "api@nango.dev",
+        "created_by_id": "7618134000000627001",
+        "created_by_name": "Nango Developer",
+        "created_by_email": "api@nango.dev",
+        "modified_by_id": "7618134000000627001",
+        "modified_by_name": "Nango Developer",
+        "modified_by_email": "api@nango.dev",
+        "created_time": "2026-10-09T22:12:58+03:00",
+        "modified_time": "2026-10-09T22:12:58+03:00",
+        "currency_symbol": "$",
+        "approval_state": "approved"
+      },
+      {
+        "id": "7618134000000648048",
+        "product_name": "Nango LCP Probe Product",
+        "product_code": "NANGO-LCP-1",
+        "product_category": "Test",
+        "unit_price": 12.5,
+        "product_active": true,
+        "taxable": true,
+        "owner_id": "7618134000000627001",
+        "owner_name": "Nango Developer",
+        "owner_email": "api@nango.dev",
+        "created_by_id": "7618134000000627001",
+        "created_by_name": "Nango Developer",
+        "created_by_email": "api@nango.dev",
+        "modified_by_id": "7618134000000627001",
+        "modified_by_name": "Nango Developer",
+        "modified_by_email": "api@nango.dev",
+        "created_time": "2026-10-09T22:11:03+03:00",
+        "modified_time": "2026-10-09T22:11:03+03:00",
+        "currency_symbol": "$",
+        "approval_state": "approved"
+      }
+    ],
+    "next_cursor": "25b203870294ec72c21bd7df2bdacb068948e939628a5135fc38308e8e2b9a8f443b9c1eeba21a31202bdce09357598ef29c2a2fed019d5dcaa538f6c3d7c9d9e18e593016814e74bd00049163921b1fc0d3d9cc4977d982c6cfbb4d901379baa696e905d8e9cceeafdbb141907c177261919efcb6477cb0beb668c3b0b6622f"
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/bigin/v2/Products": {
+        "response": {
+          "data": [
+            {
+              "Product_Category": "Software",
+              "Owner": {
+                "name": "Nango Developer",
+                "id": "7618134000000627001",
+                "email": "api@nango.dev"
+              },
+              "Modified_Time": "2026-10-09T22:12:58+03:00",
+              "Description": "Created by create-product action test",
+              "$currency_symbol": "$",
+              "Created_Time": "2026-10-09T22:12:58+03:00",
+              "Product_Name": "Nango Create Action Test",
+              "$taxable": true,
+              "Product_Active": true,
+              "Record_Image": null,
+              "Modified_By": {
+                "name": "Nango Developer",
+                "id": "7618134000000627001",
+                "email": "api@nango.dev"
+              },
+              "Product_Code": "NANGO-CREATE-1",
+              "id": "7618134000000648066",
+              "Created_By": {
+                "name": "Nango Developer",
+                "id": "7618134000000627001",
+                "email": "api@nango.dev"
+              },
+              "Tag": [],
+              "$approval_state": "approved",
+              "Unit_Price": 19.99
+            },
+            {
+              "Product_Category": "Test",
+              "Owner": {
+                "name": "Nango Developer",
+                "id": "7618134000000627001",
+                "email": "api@nango.dev"
+              },
+              "Modified_Time": "2026-10-09T22:11:03+03:00",
+              "Description": null,
+              "$currency_symbol": "$",
+              "Created_Time": "2026-10-09T22:11:03+03:00",
+              "Product_Name": "Nango LCP Probe Product",
+              "$taxable": true,
+              "Product_Active": true,
+              "Record_Image": null,
+              "Modified_By": {
+                "name": "Nango Developer",
+                "id": "7618134000000627001",
+                "email": "api@nango.dev"
+              },
+              "Product_Code": "NANGO-LCP-1",
+              "id": "7618134000000648048",
+              "Created_By": {
+                "name": "Nango Developer",
+                "id": "7618134000000627001",
+                "email": "api@nango.dev"
+              },
+              "Tag": [],
+              "$approval_state": "approved",
+              "Unit_Price": 12.5
+            }
+          ],
+          "info": {
+            "per_page": 2,
+            "next_page_token": "25b203870294ec72c21bd7df2bdacb068948e939628a5135fc38308e8e2b9a8f443b9c1eeba21a31202bdce09357598ef29c2a2fed019d5dcaa538f6c3d7c9d9e18e593016814e74bd00049163921b1fc0d3d9cc4977d982c6cfbb4d901379baa696e905d8e9cceeafdbb141907c177261919efcb6477cb0beb668c3b0b6622f",
+            "count": 2,
+            "sort_by": "id",
+            "page": 1,
+            "previous_page_token": null,
+            "page_token_expiry": "2026-10-10T22:13:20+03:00",
+            "sort_order": "desc",
+            "more_records": true
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 09 Oct 2026 19:13:20 GMT",
+          "content-type": "application/json;charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=64072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1958",
+          "x-ratelimit-reset": "1791573238",
+          "server": "ZGS",
+          "set-cookie": "zalb_3d223cf300=5ea307a71788bc67f1e452f7c999c3ed; Path=/; Secure; HttpOnly, crmcsr=bf935283-8818-4ca1-b776-8d3ffc62e3fe;path=/;SameSite=None;Secure;priority=high, BIGINCROSSCDNID =a3668cb9e4d63af708a768fde638427985a498c120ad012c2ea7c2265b68da6a2b8abf982e76472405331f2bab1a5588;Path=/; Expires=Sat Oct 10 12:13:20 PDT 2026, BIGINCROSSCDNCOUNTRY =US;Path=/; Expires=Sat Oct 10 12:13:20 PDT 2026",
+          "cache-control": "no-store, no-cache, must-revalidate, private",
+          "pragma": "no-cache",
+          "expires": "Thu, 01 Jan 1970 00:00:00 GMT",
+          "x-accesstoken-reset": "2026-10-09T22:33:35+03:00",
+          "clientversion": "14729686",
+          "clientsubversion": "1d7b626d4325dc2fb9fba2b9d0e404b4",
+          "vary": "sec-fetch-dest,sec-fetch-mode,sec-fetch-site,sec-fetch-user,accept-encoding",
+          "content-disposition": "attachment; filename=response.json",
+          "server-timing": "cpuTime;desc=\"CPU Time\";dur=25, totalTime;desc=\"Total Execution Time\";dur=35,murphySpanId;desc=\"\";dur=0",
+          "content-language": "en-US"
+        },
+        "hash": "0516bd6c5443f5450360f1d40be4f9333f0bd235",
+        "request": {
+          "params": {
+            "fields": "id,Product_Name,Product_Code,Product_Category,Description,Unit_Price,Product_Active,$taxable,Owner,Created_By,Modified_By,Created_Time,Modified_Time,Record_Image,Tag,$currency_symbol,$approval_state",
+            "per_page": "2"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,118 @@
+{
+  "input": {
+    "folderId": "MQAAAAERHDLP",
+    "title": "Updated via action",
+    "description": "updated description",
+    "project": {
+      "startDate": "2026-11-01",
+      "endDate": "2026-11-30",
+      "customStatusId": "IEAG5DAKJMHVMQVI"
+    }
+  },
+  "output": {
+    "id": "MQAAAAERHDLP",
+    "title": "Updated via action",
+    "description": "updated description",
+    "scope": "WsFolder",
+    "parentIds": [
+      "IEAG5DAKI7777777"
+    ],
+    "childIds": [],
+    "permalink": "https://www.wrike.com/open.htm?id=4582027983",
+    "project": {
+      "authorId": "KUAZR5CO",
+      "ownerIds": [
+        "KUAZR5CO"
+      ],
+      "customStatusId": "IEAG5DAKJMHVMQVI",
+      "startDate": "2026-11-01",
+      "endDate": "2026-11-30",
+      "createdDate": "2026-10-09T23:35:57Z"
+    }
+  },
+  "nango": {},
+  "api": {
+    "put": {
+      "/folders/MQAAAAERHDLP": {
+        "response": {
+          "kind": "folders",
+          "data": [
+            {
+              "id": "MQAAAAERHDLP",
+              "accountId": "IEAG5DAK",
+              "title": "Updated via action",
+              "createdDate": "2026-10-09T23:35:57Z",
+              "updatedDate": "2026-10-09T23:36:11Z",
+              "description": "updated description",
+              "sharedIds": [
+                "KUAZR5CO"
+              ],
+              "parentIds": [
+                "IEAG5DAKI7777777"
+              ],
+              "childIds": [],
+              "superParentIds": [],
+              "scope": "WsFolder",
+              "hasAttachments": false,
+              "permalink": "https://www.wrike.com/open.htm?id=4582027983",
+              "workflowId": "IEAG5DAKK77ZC47W",
+              "metadata": [],
+              "customFields": [
+                {
+                  "id": "IEAG5DAKJUANPFG3",
+                  "value": "0"
+                }
+              ],
+              "project": {
+                "authorId": "KUAZR5CO",
+                "ownerIds": [
+                  "KUAZR5CO"
+                ],
+                "customStatusId": "IEAG5DAKJMHVMQVI",
+                "startDate": "2026-11-01",
+                "endDate": "2026-11-30",
+                "createdDate": "2026-10-09T23:35:57Z"
+              }
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 09 Oct 2026 23:36:11 GMT",
+          "content-type": "application/json;charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1991",
+          "x-ratelimit-reset": "1791589017",
+          "server": "cloudflare",
+          "vary": "Accept-Encoding",
+          "wrike-response-id": "625c1b415bcf1ae",
+          "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
+          "accept-ch": "Sec-CH-UA,Sec-CH-UA-Mobile,Sec-CH-UA-Full-Version,Sec-CH-UA-Platform,Sec-CH-UA-Platform-Version,Sec-CH-UA-Arch,Sec-CH-UA-Bitness,Sec-CH-UA-Model",
+          "traceid": "6ac97a6b000000005c986dc1358ac380",
+          "cf-cache-status": "DYNAMIC",
+          "cf-ray": "a48134c07d6d4afe-PDX"
+        },
+        "hash": "072bcfa1a487a58b6d923a6bf6e23aed0061f5bb",
+        "request": {
+          "params": {
+            "description": "updated description",
+            "project": "{\"startDate\":\"2026-11-01\",\"endDate\":\"2026-11-30\",\"customStatusId\":\"IEAG5DAKJMHVMQVI\"}",
+            "title": "Updated via action"
+          }
+        }
+      }
+    }
+  }
+}

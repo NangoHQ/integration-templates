@@ -1,0 +1,62 @@
+{
+  "input": {
+    "account_id": 1145787,
+    "client_id": 2193170
+  },
+  "output": {
+    "id": 2193170,
+    "name": "Nango Developer",
+    "color": "1976d2",
+    "active": true,
+    "external_id": null,
+    "updated_at": "2026-10-07T05:54:36+03:00"
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/1.1/1145787/clients/2193170": {
+        "response": {
+          "id": 2193170,
+          "name": "Nango Developer",
+          "color": "1976d2",
+          "active": true,
+          "external_id": null,
+          "updated_at": "2026-10-07T05:54:36+03:00"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 09 Oct 2026 21:58:48 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "130",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1948",
+          "x-ratelimit-reset": "1791583135",
+          "x-permitted-cross-domain-policies": "none",
+          "vary": "Accept-Encoding, Origin",
+          "etag": "W/\"3266d6e2e3769800f2c99eaadcb28e73\"",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "x-request-id": "fac7258e-7ac7-4482-a99a-19918d291aa7",
+          "x-runtime": "0.023203",
+          "cf-cache-status": "DYNAMIC",
+          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=z3DupNwxyVJZyfU3et7tsGlr18WDEDU7rN1GXqpgs2wJxO9xbW8vkPbyl9t6TQc62ixSelc3M0botOUlepY9wN5pKV3NEbSSzCK3YG0MMEQgMN9xQcc17Bf3HZX5hxIszvbfLA%3D%3D\"}]}",
+          "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+          "server": "cloudflare",
+          "cf-ray": "a480a61a2e3ffef9-PDX"
+        },
+        "hash": "7d0440d15644f70a448d0b86914c30358d3023dd",
+        "request": {}
+      }
+    }
+  }
+}

@@ -1,0 +1,225 @@
+{
+  "input": {
+    "account_id": 1145787,
+    "event_id": 297122067,
+    "note": "updated via nango update-event action",
+    "hours": 2,
+    "minutes": 15
+  },
+  "output": {
+    "id": 297122067,
+    "uid": "8c979410d93713a04d17c1b245c57800",
+    "day": "2026-10-09",
+    "note": "updated via nango update-event action",
+    "hours": 2,
+    "minutes": 15,
+    "total_hours": 2.25,
+    "project_id": 5691496,
+    "project_name": "Meetings & Collaboration",
+    "label_ids": [],
+    "billable": false,
+    "estimated": false,
+    "external_id": null,
+    "user_id": 2418691,
+    "locked": false,
+    "created_at": 1791582853,
+    "updated_at": 1791582866
+  },
+  "nango": {},
+  "api": {
+    "put": {
+      "/1.1/1145787/events/297122067": {
+        "response": {
+          "id": 297122067,
+          "uid": "8c979410d93713a04d17c1b245c57800",
+          "user": {
+            "id": 2418691,
+            "email": "api@nango.dev",
+            "name": "Nango Developer",
+            "avatar": {
+              "large_retina": "https://www.gravatar.com/avatar/0f8c53293177b8e9f1658ae7951a468e?d=https%3A%2F%2Fd1vbcromo72rmd.cloudfront.net%2Fassets%2Fthumbs%2Fuser_large_retina-c403e04ad44c7d8b8c7904dc7e7c1893101f3672565370034edbe3dee9985509.jpg&s=200",
+              "large": "https://www.gravatar.com/avatar/0f8c53293177b8e9f1658ae7951a468e?d=https%3A%2F%2Fd1vbcromo72rmd.cloudfront.net%2Fassets%2Fthumbs%2Fuser_large-c403e04ad44c7d8b8c7904dc7e7c1893101f3672565370034edbe3dee9985509.jpg&s=",
+              "medium_retina": "https://www.gravatar.com/avatar/0f8c53293177b8e9f1658ae7951a468e?d=https%3A%2F%2Fd1vbcromo72rmd.cloudfront.net%2Fassets%2Fthumbs%2Fuser_medium_retina-459a8b7582a7417f4b47a0064f692ffcd161fb11eda9dcc359f1b5e63fe51235.jpg&s=50",
+              "medium": "https://www.gravatar.com/avatar/0f8c53293177b8e9f1658ae7951a468e?d=https%3A%2F%2Fd1vbcromo72rmd.cloudfront.net%2Fassets%2Fthumbs%2Fuser_medium-459a8b7582a7417f4b47a0064f692ffcd161fb11eda9dcc359f1b5e63fe51235.jpg&s=",
+              "timeline": "https://www.gravatar.com/avatar/0f8c53293177b8e9f1658ae7951a468e?d=https%3A%2F%2Fd1vbcromo72rmd.cloudfront.net%2Fassets%2Fthumbs%2Fuser_timeline-e61ac46443487bd24fbaecab08cfacf5d0835b371cbe97a33b9e738744ef8334.jpg&s="
+            },
+            "updated_at": "2026-10-07T05:54:38+03:00"
+          },
+          "project": {
+            "id": 5691496,
+            "active": true,
+            "account_id": 1145787,
+            "name": "Meetings & Collaboration",
+            "description": "Syncs, planning, retros, pair programming, team chats. Tools e.g. Zoom, Slack, Notion. Sites e.g. zoom.us, notion.so, slack.com. Meetings e.g. standup, sprint retro, pair session. Keywords e.g. agenda, minutes, sync, review.",
+            "color": "ffeb3b",
+            "rate_type": "non-billable",
+            "billable": false,
+            "created_at": 1791341677,
+            "updated_at": 1791582859,
+            "external_id": "",
+            "budget_scope": null,
+            "client": {
+              "id": 2193170,
+              "name": "Nango Developer",
+              "color": "1976d2",
+              "active": true,
+              "external_id": null,
+              "updated_at": "2026-10-07T05:54:36+03:00"
+            },
+            "required_notes": false,
+            "required_labels": false,
+            "budget_expired_on": null,
+            "has_recurrence": false,
+            "enable_labels": "none",
+            "default_labels": false,
+            "currency": {
+              "id": "kes",
+              "name": "Kenyan Shilling",
+              "iso_code": "KES",
+              "symbol": "KSh",
+              "symbol_first": true
+            },
+            "team_ids": [],
+            "budget": 0,
+            "budget_type": "",
+            "budget_calculation": "completed",
+            "hour_rate": 0,
+            "hour_rate_in_cents": 0,
+            "budget_progress": 0,
+            "budget_percent": 0,
+            "invoice_by_budget": false,
+            "labels": [],
+            "label_ids": [],
+            "required_label_ids": [],
+            "default_label_ids": [],
+            "created_from": "Web",
+            "allow_only_one_tag": false
+          },
+          "duration": {
+            "hours": 2,
+            "minutes": 15,
+            "seconds": 0,
+            "formatted": "02:15",
+            "total_hours": 2.25,
+            "total_seconds": 8100,
+            "total_minutes": 135
+          },
+          "estimated_duration": {
+            "hours": 0,
+            "minutes": 0,
+            "seconds": 0,
+            "formatted": "00:00",
+            "total_hours": 0,
+            "total_seconds": 0,
+            "total_minutes": 0
+          },
+          "cost": {
+            "fractional": 0,
+            "formatted": "KSh0.00",
+            "amount": 0,
+            "currency_code": "kes"
+          },
+          "estimated_cost": {
+            "fractional": 0,
+            "formatted": "KSh0.00",
+            "amount": 0,
+            "currency_code": "kes"
+          },
+          "day": "2026-10-09",
+          "note": "updated via nango update-event action",
+          "sequence": 4,
+          "estimated": false,
+          "timer_state": "default",
+          "timer_started_on": 0,
+          "timer_stopped_on": 0,
+          "label_ids": [],
+          "user_ids": [],
+          "updated_at": 1791582866,
+          "created_at": 1791582853,
+          "created_from": "Nango",
+          "updated_from": "Nango",
+          "billed": false,
+          "billable": false,
+          "to": null,
+          "from": null,
+          "deleted": false,
+          "hour_rate": 0,
+          "hour_rate_in_cents": 0,
+          "creator_id": 2418691,
+          "updater_id": 2418691,
+          "external_id": null,
+          "entry_ids": [],
+          "suggestion_id": null,
+          "autosheet_proposal_id": null,
+          "draft": false,
+          "manage": true,
+          "forecast_id": null,
+          "billed_at": null,
+          "external_link_ids": [],
+          "internal_cost": {
+            "fractional": 0,
+            "formatted": "KSh0.00",
+            "amount": 0,
+            "currency_code": "kes"
+          },
+          "estimated_internal_cost": {
+            "fractional": 0,
+            "formatted": "KSh0.00",
+            "amount": 0,
+            "currency_code": "kes"
+          },
+          "internal_cost_rate": 0,
+          "profit": 0,
+          "profitability": 0,
+          "locked_reason": null,
+          "locked": false,
+          "invoice_id": null,
+          "timestamps": [],
+          "state": null,
+          "external_links": []
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 09 Oct 2026 21:54:26 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "3899",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1931",
+          "x-ratelimit-reset": "1791582886",
+          "x-permitted-cross-domain-policies": "none",
+          "vary": "Accept-Encoding, Origin",
+          "etag": "W/\"a8c88a51f067e27a100257df3e31e4e0\"",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "x-request-id": "0494acec-5897-45bc-9f2a-82b6ac931511",
+          "x-runtime": "0.084701",
+          "cf-cache-status": "DYNAMIC",
+          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=Q8xwJNwHDGoW%2BPksK1RYdiGsMCargREQblucG5JfEjH%2Fol6gho%2BLTOQGrrLPimG8Fq8EVUbSd2czZBDft2YR2lmbGkSCo9sUsdGvpOsDqbM2sxL2%2B5tWr0awpEzryna1kfc%2Fow%3D%3D\"}]}",
+          "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+          "server": "cloudflare",
+          "cf-ray": "a4809fb41e668bee-PDX"
+        },
+        "hash": "6698d594f99ba4731156716437b7433583c392b3",
+        "request": {
+          "data": {
+            "event": {
+              "note": "updated via nango update-event action",
+              "hours": 2,
+              "minutes": 15
+            }
+          }
+        }
+      }
+    }
+  }
+}

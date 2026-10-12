@@ -1,0 +1,98 @@
+{
+  "input": {
+    "taskId": "MAAAAAERHC5x"
+  },
+  "output": {
+    "id": "MAAAAAERHC5x",
+    "title": "delete-task-action-test",
+    "scope": "RbTask",
+    "status": "Active",
+    "permalink": "https://www.wrike.com/open.htm?id=4582026865",
+    "parentIds": [
+      "IEAG5DAKI7777776"
+    ]
+  },
+  "nango": {},
+  "api": {
+    "delete": {
+      "/tasks/MAAAAAERHC5x": {
+        "response": {
+          "kind": "tasks",
+          "data": [
+            {
+              "id": "MAAAAAERHC5x",
+              "accountId": "IEAG5DAK",
+              "title": "delete-task-action-test",
+              "description": "",
+              "briefDescription": "",
+              "parentIds": [
+                "IEAG5DAKI7777776"
+              ],
+              "superParentIds": [],
+              "sharedIds": [
+                "KX7WCEJZ",
+                "KUAZR5CO"
+              ],
+              "responsibleIds": [],
+              "status": "Active",
+              "importance": "Normal",
+              "createdDate": "2026-10-09T23:28:39Z",
+              "updatedDate": "2026-10-09T23:28:48Z",
+              "dates": {
+                "type": "Backlog"
+              },
+              "scope": "RbTask",
+              "authorIds": [
+                "KUAZR5CO"
+              ],
+              "customStatusId": "IEAG5DAKJMAAAAAA",
+              "hasAttachments": false,
+              "attachmentCount": 0,
+              "permalink": "https://www.wrike.com/open.htm?id=4582026865",
+              "priority": "01c9e8008000000000002800",
+              "followedByMe": true,
+              "followerIds": [
+                "KUAZR5CO"
+              ],
+              "superTaskIds": [],
+              "subTaskIds": [],
+              "dependencyIds": [],
+              "metadata": [],
+              "customFields": []
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 09 Oct 2026 23:28:48 GMT",
+          "content-type": "application/json;charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1934",
+          "x-ratelimit-reset": "1791588555",
+          "server": "cloudflare",
+          "vary": "Accept-Encoding",
+          "wrike-response-id": "625c17e0d42ba5b",
+          "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
+          "accept-ch": "Sec-CH-UA,Sec-CH-UA-Mobile,Sec-CH-UA-Full-Version,Sec-CH-UA-Platform,Sec-CH-UA-Platform-Version,Sec-CH-UA-Arch,Sec-CH-UA-Bitness,Sec-CH-UA-Model",
+          "traceid": "6ac978af00000000633d6c9842d2aa3d",
+          "cf-cache-status": "DYNAMIC",
+          "cf-ray": "a48129ebcfa8ef10-PDX"
+        },
+        "hash": "de4badc327a0eb3de255946035c8bc0fe0d1b6dc",
+        "request": {}
+      }
+    }
+  }
+}
