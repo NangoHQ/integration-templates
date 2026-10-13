@@ -625983,7 +625983,7 @@
           "ActionInput_outlook_addmessageattachment",
           "ActionOutput_outlook_addmessageattachment"
         ],
-        "version": "1.0.2",
+        "version": "1.0.3",
         "json_schema": {
           "definitions": {
             "ActionInput_outlook_addmessageattachment": {
@@ -626114,7 +626114,7 @@
           "ActionInput_outlook_copymessage",
           "ActionOutput_outlook_copymessage"
         ],
-        "version": "1.0.2",
+        "version": "1.0.3",
         "json_schema": {
           "definitions": {
             "ActionInput_outlook_copymessage": {
@@ -626297,7 +626297,7 @@
           "ActionInput_outlook_createdraftmessage",
           "ActionOutput_outlook_createdraftmessage"
         ],
-        "version": "1.0.3",
+        "version": "1.0.4",
         "json_schema": {
           "definitions": {
             "ActionInput_outlook_createdraftmessage": {
@@ -626923,7 +626923,7 @@
           "ActionInput_outlook_createmailfolder",
           "ActionOutput_outlook_createmailfolder"
         ],
-        "version": "1.0.3",
+        "version": "1.0.4",
         "json_schema": {
           "definitions": {
             "ActionInput_outlook_createmailfolder": {
@@ -627113,7 +627113,7 @@
           "ActionInput_outlook_deletemessage",
           "ActionOutput_outlook_deletemessage"
         ],
-        "version": "1.0.2",
+        "version": "1.0.3",
         "json_schema": {
           "definitions": {
             "ActionInput_outlook_deletemessage": {
@@ -627168,7 +627168,7 @@
           "ActionInput_outlook_downloadmessageattachment",
           "ActionOutput_outlook_downloadmessageattachment"
         ],
-        "version": "1.0.2",
+        "version": "1.0.3",
         "json_schema": {
           "definitions": {
             "ActionInput_outlook_downloadmessageattachment": {
@@ -627924,7 +627924,7 @@
           "ActionInput_outlook_getmessage",
           "ActionOutput_outlook_getmessage"
         ],
-        "version": "1.1.1",
+        "version": "1.1.2",
         "json_schema": {
           "definitions": {
             "ActionInput_outlook_getmessage": {
@@ -628427,7 +628427,7 @@
           "ActionInput_outlook_listmailfolderchildren",
           "ActionOutput_outlook_listmailfolderchildren"
         ],
-        "version": "1.0.3",
+        "version": "1.0.4",
         "json_schema": {
           "definitions": {
             "ActionInput_outlook_listmailfolderchildren": {
@@ -628526,7 +628526,7 @@
           "ActionInput_outlook_listmailfolders",
           "ActionOutput_outlook_listmailfolders"
         ],
-        "version": "1.0.3",
+        "version": "1.0.4",
         "json_schema": {
           "definitions": {
             "ActionInput_outlook_listmailfolders": {
@@ -628617,7 +628617,7 @@
           "ActionInput_outlook_listmessageattachments",
           "ActionOutput_outlook_listmessageattachments"
         ],
-        "version": "1.0.2",
+        "version": "1.0.3",
         "json_schema": {
           "definitions": {
             "ActionInput_outlook_listmessageattachments": {
@@ -628704,7 +628704,7 @@
           "ActionInput_outlook_listmessages",
           "ActionOutput_outlook_listmessages"
         ],
-        "version": "1.1.1",
+        "version": "1.1.2",
         "json_schema": {
           "definitions": {
             "ActionInput_outlook_listmessages": {
@@ -628896,7 +628896,7 @@
           "ActionInput_outlook_movemessage",
           "ActionOutput_outlook_movemessage"
         ],
-        "version": "1.0.2",
+        "version": "1.0.3",
         "json_schema": {
           "definitions": {
             "ActionInput_outlook_movemessage": {
@@ -628970,7 +628970,7 @@
           "ActionInput_outlook_replyalltomessage",
           "ActionOutput_outlook_replyalltomessage"
         ],
-        "version": "1.0.3",
+        "version": "1.0.4",
         "json_schema": {
           "definitions": {
             "ActionInput_outlook_replyalltomessage": {
@@ -629057,7 +629057,7 @@
           "ActionInput_outlook_replytomessage",
           "ActionOutput_outlook_replytomessage"
         ],
-        "version": "1.0.3",
+        "version": "1.0.4",
         "json_schema": {
           "definitions": {
             "ActionInput_outlook_replytomessage": {
@@ -629183,7 +629183,7 @@
           "ActionInput_outlook_senddraftmessage",
           "ActionOutput_outlook_senddraftmessage"
         ],
-        "version": "1.0.3",
+        "version": "1.0.4",
         "json_schema": {
           "definitions": {
             "ActionInput_outlook_senddraftmessage": {
@@ -629243,7 +629243,7 @@
           "ActionInput_outlook_sendmail",
           "ActionOutput_outlook_sendmail"
         ],
-        "version": "1.0.3",
+        "version": "1.0.4",
         "json_schema": {
           "definitions": {
             "ActionInput_outlook_sendmail": {
@@ -629833,7 +629833,7 @@
           "ActionInput_outlook_updatemessage",
           "ActionOutput_outlook_updatemessage"
         ],
-        "version": "1.0.2",
+        "version": "1.0.3",
         "json_schema": {
           "definitions": {
             "ActionInput_outlook_updatemessage": {

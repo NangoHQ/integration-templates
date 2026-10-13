@@ -4,6 +4,7 @@ import { createAction } from 'nango';
 const InputSchema = z.object({
     sharedMailbox: z
         .string()
+        .trim()
         .min(1)
         .optional()
         .describe('Shared mailbox UPN or Microsoft Graph user ID, not an SMTP alias. Requires delegated Mail.Read.Shared and mailbox access.'),
@@ -31,7 +32,7 @@ const ProviderAttachmentSchema = z.object({
 
 const action = createAction({
     description: 'Download the content of a file attachment on a message.',
-    version: '1.0.2',
+    version: '1.0.3',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['Mail.Read', 'Mail.Read.Shared'],

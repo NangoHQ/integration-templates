@@ -6,6 +6,7 @@ const NO_WRITE_RETRIES = 0;
 const InputSchema = z.object({
     sharedMailbox: z
         .string()
+        .trim()
         .min(1)
         .optional()
         .describe('Shared mailbox UPN or Microsoft Graph user ID, not an SMTP alias. Requires delegated Mail.ReadWrite.Shared and mailbox access.'),
@@ -36,7 +37,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a child mail folder in Outlook.',
-    version: '1.0.3',
+    version: '1.0.4',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['Mail.ReadWrite', 'Mail.ReadWrite.Shared'],

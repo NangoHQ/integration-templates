@@ -31,6 +31,7 @@ const MessageSchema = z.object({
 const InputSchema = z.object({
     sharedMailbox: z
         .string()
+        .trim()
         .min(1)
         .optional()
         .describe(
@@ -49,7 +50,7 @@ const NO_WRITE_RETRIES = 0;
 
 const action = createAction({
     description: 'Send a new email immediately, optionally from a mailbox for which the connected user has Send As or Send on Behalf permission.',
-    version: '1.0.3',
+    version: '1.0.4',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['Mail.Send', 'Mail.Send.Shared'],

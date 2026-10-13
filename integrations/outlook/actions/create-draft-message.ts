@@ -20,6 +20,7 @@ const BodySchema = z.object({
 const InputSchema = z.object({
     sharedMailbox: z
         .string()
+        .trim()
         .min(1)
         .optional()
         .describe(
@@ -67,7 +68,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a draft email message',
-    version: '1.0.3',
+    version: '1.0.4',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['Mail.ReadWrite', 'Mail.ReadWrite.Shared'],

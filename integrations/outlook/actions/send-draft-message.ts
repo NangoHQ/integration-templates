@@ -6,6 +6,7 @@ const NO_WRITE_RETRIES = 0;
 const InputSchema = z.object({
     sharedMailbox: z
         .string()
+        .trim()
         .min(1)
         .optional()
         .describe(
@@ -23,7 +24,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Send an existing draft message.',
-    version: '1.0.3',
+    version: '1.0.4',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['Mail.Send', 'Mail.Send.Shared'],

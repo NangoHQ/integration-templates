@@ -6,6 +6,7 @@ const NO_WRITE_RETRIES = 0;
 const InputSchema = z.object({
     sharedMailbox: z
         .string()
+        .trim()
         .min(1)
         .optional()
         .describe('Shared mailbox UPN or Microsoft Graph user ID, not an SMTP alias. Requires delegated Mail.ReadWrite.Shared and mailbox access.'),
@@ -47,7 +48,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Copy a message to another mail folder.',
-    version: '1.0.2',
+    version: '1.0.3',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['Mail.ReadWrite', 'Mail.ReadWrite.Shared'],

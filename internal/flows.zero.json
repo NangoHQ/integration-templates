@@ -689749,7 +689749,7 @@
                 "output": ["ActionOutput_outlook_addmessageattachment"],
                 "scopes": ["Mail.ReadWrite", "Mail.ReadWrite.Shared"],
                 "usedModels": ["ActionInput_outlook_addmessageattachment", "ActionOutput_outlook_addmessageattachment"],
-                "version": "1.0.2",
+                "version": "1.0.3",
                 "json_schema": {
                     "definitions": {
                         "ActionInput_outlook_addmessageattachment": {
@@ -689853,7 +689853,7 @@
                 "output": ["ActionOutput_outlook_copymessage"],
                 "scopes": ["Mail.ReadWrite", "Mail.ReadWrite.Shared"],
                 "usedModels": ["ActionInput_outlook_copymessage", "ActionOutput_outlook_copymessage"],
-                "version": "1.0.2",
+                "version": "1.0.3",
                 "json_schema": {
                     "definitions": {
                         "ActionInput_outlook_copymessage": {
@@ -690011,7 +690011,7 @@
                 "output": ["ActionOutput_outlook_createdraftmessage"],
                 "scopes": ["Mail.ReadWrite", "Mail.ReadWrite.Shared"],
                 "usedModels": ["ActionInput_outlook_createdraftmessage", "ActionOutput_outlook_createdraftmessage"],
-                "version": "1.0.3",
+                "version": "1.0.4",
                 "json_schema": {
                     "definitions": {
                         "ActionInput_outlook_createdraftmessage": {
@@ -690519,7 +690519,7 @@
                 "output": ["ActionOutput_outlook_createmailfolder"],
                 "scopes": ["Mail.ReadWrite", "Mail.ReadWrite.Shared"],
                 "usedModels": ["ActionInput_outlook_createmailfolder", "ActionOutput_outlook_createmailfolder"],
-                "version": "1.0.3",
+                "version": "1.0.4",
                 "json_schema": {
                     "definitions": {
                         "ActionInput_outlook_createmailfolder": {
@@ -690671,7 +690671,7 @@
                 "output": ["ActionOutput_outlook_deletemessage"],
                 "scopes": ["Mail.ReadWrite", "Mail.ReadWrite.Shared"],
                 "usedModels": ["ActionInput_outlook_deletemessage", "ActionOutput_outlook_deletemessage"],
-                "version": "1.0.2",
+                "version": "1.0.3",
                 "json_schema": {
                     "definitions": {
                         "ActionInput_outlook_deletemessage": {
@@ -690714,7 +690714,7 @@
                 "output": ["ActionOutput_outlook_downloadmessageattachment"],
                 "scopes": ["Mail.Read", "Mail.Read.Shared"],
                 "usedModels": ["ActionInput_outlook_downloadmessageattachment", "ActionOutput_outlook_downloadmessageattachment"],
-                "version": "1.0.2",
+                "version": "1.0.3",
                 "json_schema": {
                     "definitions": {
                         "ActionInput_outlook_downloadmessageattachment": {
@@ -691434,7 +691434,7 @@
                 "output": ["ActionOutput_outlook_getmessage"],
                 "scopes": ["Mail.Read", "Mail.Read.Shared"],
                 "usedModels": ["ActionInput_outlook_getmessage", "ActionOutput_outlook_getmessage"],
-                "version": "1.1.1",
+                "version": "1.1.2",
                 "json_schema": {
                     "definitions": {
                         "ActionInput_outlook_getmessage": {
@@ -691888,7 +691888,7 @@
                 "output": ["ActionOutput_outlook_listmailfolderchildren"],
                 "scopes": ["Mail.Read", "Mail.Read.Shared"],
                 "usedModels": ["ActionInput_outlook_listmailfolderchildren", "ActionOutput_outlook_listmailfolderchildren"],
-                "version": "1.0.3",
+                "version": "1.0.4",
                 "json_schema": {
                     "definitions": {
                         "ActionInput_outlook_listmailfolderchildren": {
@@ -691973,7 +691973,7 @@
                 "output": ["ActionOutput_outlook_listmailfolders"],
                 "scopes": ["Mail.Read", "Mail.Read.Shared"],
                 "usedModels": ["ActionInput_outlook_listmailfolders", "ActionOutput_outlook_listmailfolders"],
-                "version": "1.0.3",
+                "version": "1.0.4",
                 "json_schema": {
                     "definitions": {
                         "ActionInput_outlook_listmailfolders": {
@@ -692052,7 +692052,7 @@
                 "output": ["ActionOutput_outlook_listmessageattachments"],
                 "scopes": ["Mail.Read", "Mail.Read.Shared"],
                 "usedModels": ["ActionInput_outlook_listmessageattachments", "ActionOutput_outlook_listmessageattachments"],
-                "version": "1.0.2",
+                "version": "1.0.3",
                 "json_schema": {
                     "definitions": {
                         "ActionInput_outlook_listmessageattachments": {
@@ -692125,7 +692125,7 @@
                 "output": ["ActionOutput_outlook_listmessages"],
                 "scopes": ["Mail.Read", "Mail.Read.Shared"],
                 "usedModels": ["ActionInput_outlook_listmessages", "ActionOutput_outlook_listmessages"],
-                "version": "1.1.1",
+                "version": "1.1.2",
                 "json_schema": {
                     "definitions": {
                         "ActionInput_outlook_listmessages": {
@@ -692305,7 +692305,7 @@
                 "output": ["ActionOutput_outlook_movemessage"],
                 "scopes": ["Mail.ReadWrite", "Mail.ReadWrite.Shared"],
                 "usedModels": ["ActionInput_outlook_movemessage", "ActionOutput_outlook_movemessage"],
-                "version": "1.0.2",
+                "version": "1.0.3",
                 "json_schema": {
                     "definitions": {
                         "ActionInput_outlook_movemessage": {
@@ -692363,7 +692363,7 @@
                 "output": ["ActionOutput_outlook_replyalltomessage"],
                 "scopes": ["Mail.ReadWrite", "Mail.Send", "Mail.ReadWrite.Shared", "Mail.Send.Shared"],
                 "usedModels": ["ActionInput_outlook_replyalltomessage", "ActionOutput_outlook_replyalltomessage"],
-                "version": "1.0.3",
+                "version": "1.0.4",
                 "json_schema": {
                     "definitions": {
                         "ActionInput_outlook_replyalltomessage": {
@@ -692432,7 +692432,7 @@
                 "output": ["ActionOutput_outlook_replytomessage"],
                 "scopes": ["Mail.Send", "Mail.Send.Shared"],
                 "usedModels": ["ActionInput_outlook_replytomessage", "ActionOutput_outlook_replytomessage"],
-                "version": "1.0.3",
+                "version": "1.0.4",
                 "json_schema": {
                     "definitions": {
                         "ActionInput_outlook_replytomessage": {
@@ -692544,7 +692544,7 @@
                 "output": ["ActionOutput_outlook_senddraftmessage"],
                 "scopes": ["Mail.Send", "Mail.Send.Shared"],
                 "usedModels": ["ActionInput_outlook_senddraftmessage", "ActionOutput_outlook_senddraftmessage"],
-                "version": "1.0.3",
+                "version": "1.0.4",
                 "json_schema": {
                     "definitions": {
                         "ActionInput_outlook_senddraftmessage": {
@@ -692591,7 +692591,7 @@
                 "output": ["ActionOutput_outlook_sendmail"],
                 "scopes": ["Mail.Send", "Mail.Send.Shared"],
                 "usedModels": ["ActionInput_outlook_sendmail", "ActionOutput_outlook_sendmail"],
-                "version": "1.0.3",
+                "version": "1.0.4",
                 "json_schema": {
                     "definitions": {
                         "ActionInput_outlook_sendmail": {
@@ -693094,7 +693094,7 @@
                 "output": ["ActionOutput_outlook_updatemessage"],
                 "scopes": ["Mail.ReadWrite", "Mail.ReadWrite.Shared"],
                 "usedModels": ["ActionInput_outlook_updatemessage", "ActionOutput_outlook_updatemessage"],
-                "version": "1.0.2",
+                "version": "1.0.3",
                 "json_schema": {
                     "definitions": {
                         "ActionInput_outlook_updatemessage": {

@@ -19,6 +19,7 @@ const ProviderResponseSchema = z.object({
 const ListMailFoldersInputSchema = z.object({
     sharedMailbox: z
         .string()
+        .trim()
         .min(1)
         .optional()
         .describe(
@@ -45,7 +46,7 @@ const ListMailFoldersOutputSchema = z.object({
 
 const action = createAction({
     description: 'List top-level mail folders from the mailbox',
-    version: '1.0.3',
+    version: '1.0.4',
     input: ListMailFoldersInputSchema,
     output: ListMailFoldersOutputSchema,
     scopes: ['Mail.Read', 'Mail.Read.Shared'],

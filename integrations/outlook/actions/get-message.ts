@@ -4,6 +4,7 @@ import { createAction } from 'nango';
 const InputSchema = z.object({
     sharedMailbox: z
         .string()
+        .trim()
         .min(1)
         .optional()
         .describe('Shared mailbox UPN or Microsoft Graph user ID, not an SMTP alias. Requires delegated Mail.Read.Shared and mailbox access.'),
@@ -72,7 +73,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve a message by ID.',
-    version: '1.1.1',
+    version: '1.1.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['Mail.Read', 'Mail.Read.Shared'],

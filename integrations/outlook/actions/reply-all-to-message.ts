@@ -6,6 +6,7 @@ const NO_WRITE_RETRIES = 0;
 const InputSchema = z.object({
     sharedMailbox: z
         .string()
+        .trim()
         .min(1)
         .optional()
         .describe('Shared mailbox UPN or Microsoft Graph user ID, not an SMTP alias. Requires delegated shared mailbox access.'),
@@ -37,7 +38,7 @@ const DraftMessageResponseSchema = z.object({
 
 export default createAction({
     description: 'Reply to all recipients on a message',
-    version: '1.0.3',
+    version: '1.0.4',
     scopes: ['Mail.ReadWrite', 'Mail.Send', 'Mail.ReadWrite.Shared', 'Mail.Send.Shared'],
     input: InputSchema,
     output: OutputSchema,

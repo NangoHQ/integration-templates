@@ -4,6 +4,7 @@ import { createAction } from 'nango';
 const InputSchema = z.object({
     sharedMailbox: z
         .string()
+        .trim()
         .min(1)
         .optional()
         .describe(
@@ -80,7 +81,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List messages from a mail folder.',
-    version: '1.1.1',
+    version: '1.1.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['Mail.Read', 'Mail.Read.Shared'],

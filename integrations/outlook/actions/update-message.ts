@@ -4,6 +4,7 @@ import { createAction } from 'nango';
 const InputSchema = z.object({
     sharedMailbox: z
         .string()
+        .trim()
         .min(1)
         .optional()
         .describe('Shared mailbox UPN or Microsoft Graph user ID, not an SMTP alias. Requires delegated Mail.ReadWrite.Shared and mailbox access.'),
@@ -64,7 +65,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Update a draft or mutable message fields.',
-    version: '1.0.2',
+    version: '1.0.3',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['Mail.ReadWrite', 'Mail.ReadWrite.Shared'],
