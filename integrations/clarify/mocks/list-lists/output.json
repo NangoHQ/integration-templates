@@ -1,0 +1,22 @@
+{
+    "lists": [
+        {
+            "id": "9d2c4e6f-8a1b-4c3d-9e5f-7a9b1c3d5e7f",
+            "title": "Enterprise deals",
+            "entity": "deal",
+            "emoji": "🏢",
+            "description": "Open deals with enterprise accounts.",
+            "type": "static",
+            "state": "published",
+            "createdAt": "2026-01-15T09:30:00.000Z",
+            "updatedAt": "2026-02-01T17:45:00.000Z"
+        }
+    ],
+    "meta": {
+        "totalRecords": 15,
+        "totalPages": 15,
+        "offset": 0,
+        "limit": 1
+    },
+    "nextOffset": 1
+}
