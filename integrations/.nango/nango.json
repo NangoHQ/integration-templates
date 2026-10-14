@@ -772669,7 +772669,7 @@
     "syncs": [
       {
         "type": "sync",
-        "description": "Sync employees/users.",
+        "description": "Sync employees/users, including suspended users.",
         "auto_start": true,
         "endpoints": [],
         "input": null,
@@ -772686,7 +772686,7 @@
         "usedModels": [
           "User"
         ],
-        "version": "2.0.0",
+        "version": "2.1.0",
         "webhookSubscriptions": [],
         "json_schema": {
           "definitions": {
@@ -773842,7 +773842,7 @@
         "usedModels": [
           "Card"
         ],
-        "version": "1.0.0",
+        "version": "1.1.0",
         "webhookSubscriptions": [],
         "json_schema": {
           "definitions": {

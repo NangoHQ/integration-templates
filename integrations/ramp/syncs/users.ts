@@ -90,13 +90,20 @@ function toUser(user: z.infer<typeof ProviderUserSchema>): z.infer<typeof UserSc
     };
 }
 
+// GET /developer/v1/users returns active, inactive and draft users by default but omits suspended
+// users unless status=USER_SUSPENDED is requested, so each full refresh walks both passes.
+const SUSPENDED_STATUS = 'USER_SUSPENDED';
+
 const CheckpointSchema = z.object({
-    start: z.string().describe('Ramp pagination cursor extracted from `page.next`, or an empty string when no full refresh is in progress.')
+    status: z
+        .string()
+        .describe('Status filter of the pass in progress: an empty string for the default (non-suspended) pass, or USER_SUSPENDED for the suspended-users pass.'),
+    start: z.string().describe('Ramp pagination cursor extracted from `page.next` within the current pass, or an empty string to start that pass from its first page.')
 });
 
 const sync = createSync({
-    description: 'Sync employees/users.',
-    version: '2.0.0',
+    description: 'Sync employees/users, including suspended users.',
+    version: '2.1.0',
     frequency: 'every hour',
     autoStart: true,
     scopes: ['users:read'],
@@ -107,44 +114,59 @@ const sync = createSync({
 
     exec: async (nango) => {
         const checkpoint = await nango.getCheckpoint();
-        let start = typeof checkpoint?.['start'] === 'string' && checkpoint['start'] !== '' ? checkpoint['start'] : undefined;
+        const resumeSuspendedPass = checkpoint?.['status'] === SUSPENDED_STATUS;
+        const resumeStart = typeof checkpoint?.['start'] === 'string' && checkpoint['start'] !== '' ? checkpoint['start'] : undefined;
 
         // GET /developer/v1/users has no incremental or date filter, so this is a full
-        // refresh. Ramp still exposes a resumable page cursor, so persist it after each
-        // saved page and keep delete tracking open until the full scan completes.
+        // refresh. Ramp still exposes a resumable page cursor, so persist the pass and cursor
+        // after each saved page and keep delete tracking open until both passes complete.
         await nango.trackDeletesStart('User');
 
-        const proxyConfig: ProxyConfiguration = {
-            // https://docs.ramp.com/developer-api/v1/api-reference/users
-            endpoint: '/developer/v1/users',
-            params: {
-                ...(start !== undefined ? { start } : {})
-            },
-            paginate: {
-                type: 'link',
-                link_path_in_response_body: 'page.next',
-                response_path: 'data',
-                limit_name_in_request: 'page_size',
-                limit: 100,
-                on_page: async ({ nextPageParam }) => {
-                    start =
-                        typeof nextPageParam === 'string' ? (new URL(nextPageParam, 'https://ramp.invalid').searchParams.get('start') ?? undefined) : undefined;
+        const syncPass = async (status: string | undefined, initialStart: string | undefined) => {
+            let start = initialStart;
+
+            const proxyConfig: ProxyConfiguration = {
+                // https://docs.ramp.com/developer-api/v1/api-reference/users
+                endpoint: '/developer/v1/users',
+                params: {
+                    ...(status !== undefined ? { status } : {}),
+                    ...(start !== undefined ? { start } : {})
+                },
+                paginate: {
+                    type: 'link',
+                    link_path_in_response_body: 'page.next',
+                    response_path: 'data',
+                    limit_name_in_request: 'page_size',
+                    limit: 100,
+                    on_page: async ({ nextPageParam }) => {
+                        start =
+                            typeof nextPageParam === 'string'
+                                ? (new URL(nextPageParam, 'https://ramp.invalid').searchParams.get('start') ?? undefined)
+                                : undefined;
+                    }
+                },
+                retries: 3
+            };
+
+            for await (const page of nango.paginate<unknown>(proxyConfig)) {
+                const users = page.map((record) => toUser(ProviderUserSchema.parse(record)));
+
+                if (users.length > 0) {
+                    await nango.batchSave(users, 'User');
                 }
-            },
-            retries: 3
+
+                if (start !== undefined) {
+                    await nango.saveCheckpoint({ status: status ?? '', start });
+                }
+            }
         };
 
-        for await (const page of nango.paginate<unknown>(proxyConfig)) {
-            const users = page.map((record) => toUser(ProviderUserSchema.parse(record)));
-
-            if (users.length > 0) {
-                await nango.batchSave(users, 'User');
-            }
-
-            if (start !== undefined) {
-                await nango.saveCheckpoint({ start });
-            }
+        if (!resumeSuspendedPass) {
+            await syncPass(undefined, resumeStart);
+            await nango.saveCheckpoint({ status: SUSPENDED_STATUS, start: '' });
         }
+
+        await syncPass(SUSPENDED_STATUS, resumeSuspendedPass ? resumeStart : undefined);
 
         await nango.clearCheckpoint();
         await nango.trackDeletesEnd('User');

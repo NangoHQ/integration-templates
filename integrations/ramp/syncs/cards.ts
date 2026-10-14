@@ -92,7 +92,7 @@ const mapVirtualCard = (item: unknown): CardRecord => {
 
 const sync = createSync({
     description: 'Sync both physical and virtual cards into one unified card roster sync.',
-    version: '1.0.0',
+    version: '1.1.0',
     frequency: 'every hour',
     autoStart: true,
     scopes: ['cards:read'],
@@ -118,11 +118,13 @@ const sync = createSync({
         const syncCollection = async ({
             collection,
             endpoint,
+            filters,
             start,
             mapCard
         }: {
             collection: 'physical' | 'virtual';
             endpoint: string;
+            filters: Record<string, string>;
             start: string | undefined;
             mapCard: (item: unknown) => CardRecord;
         }) => {
@@ -133,6 +135,7 @@ const sync = createSync({
                 // Ramp API docs: GET /developer/v1/cards/virtual - https://docs.ramp.com/openapi/developer-api.json
                 endpoint,
                 params: {
+                    ...filters,
                     ...(nextStart !== undefined ? { start: nextStart } : {})
                 },
                 paginate: {
@@ -169,6 +172,9 @@ const sync = createSync({
                 collection: 'physical',
                 // Ramp API docs: GET /developer/v1/cards/physical - https://docs.ramp.com/openapi/developer-api.json
                 endpoint: '/developer/v1/cards/physical',
+                // include_activated_only defaults to true, which hides UNACTIVATED, SUSPENDED and TERMINATED
+                // physical cards (delete tracking would then remove them); fetch every state and expose it via `state`.
+                filters: { include_activated_only: 'false' },
                 start: resumeCollection === 'physical' ? resumeStart : undefined,
                 mapCard: mapPhysicalCard
             });
@@ -180,6 +186,9 @@ const sync = createSync({
             collection: 'virtual',
             // Ramp API docs: GET /developer/v1/cards/virtual - https://docs.ramp.com/openapi/developer-api.json
             endpoint: '/developer/v1/cards/virtual',
+            // Terminated virtual cards are excluded by default and have no state field to mark them,
+            // so they intentionally drop out of the roster (and are deleted) once terminated.
+            filters: {},
             start: resumeCollection === 'virtual' ? resumeStart : undefined,
             mapCard: mapVirtualCard
         });
