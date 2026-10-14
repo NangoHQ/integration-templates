@@ -58,15 +58,15 @@ const GraphQLResponseSchema = z.object({
 
 const action = createAction({
     description: 'List Shopify collections with cursor pagination.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['read_products'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const config: ProxyConfiguration = {
-            // https://shopify.dev/docs/api/admin-graphql/2025-04/queries/collections
-            endpoint: '/admin/api/2025-04/graphql.json',
+            // https://shopify.dev/docs/api/admin-graphql/2026-04/queries/collections
+            endpoint: '/admin/api/2026-04/graphql.json',
             data: {
                 query: `
                     query collections($first: Int!, $after: String, $sortKey: CollectionSortKeys, $reverse: Boolean, $query: String) {

@@ -82,7 +82,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Add an address to a Shopify customer.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['write_customers'],
@@ -129,8 +129,8 @@ const action = createAction({
         }
 
         const response = await nango.post({
-            // https://shopify.dev/docs/api/admin-graphql/2025-01/mutations/customerAddressCreate
-            endpoint: '/admin/api/2025-01/graphql.json',
+            // https://shopify.dev/docs/api/admin-graphql/2026-04/mutations/customerAddressCreate
+            endpoint: '/admin/api/2026-04/graphql.json',
             data: {
                 query: `mutation customerAddressCreate($customerId: ID!, $address: MailingAddressInput!, $setAsDefault: Boolean) {
                     customerAddressCreate(customerId: $customerId, address: $address, setAsDefault: $setAsDefault) {

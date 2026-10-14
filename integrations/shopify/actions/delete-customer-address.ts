@@ -36,15 +36,15 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Delete an address from a Shopify customer.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['write_customers'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.post({
-            // https://shopify.dev/docs/api/admin-graphql/2025-07/mutations/customerAddressDelete
-            endpoint: '/admin/api/2025-07/graphql.json',
+            // https://shopify.dev/docs/api/admin-graphql/2026-04/mutations/customerAddressDelete
+            endpoint: '/admin/api/2026-04/graphql.json',
             data: {
                 query: `mutation customerAddressDelete($customerId: ID!, $addressId: ID!) {
                     customerAddressDelete(customerId: $customerId, addressId: $addressId) {

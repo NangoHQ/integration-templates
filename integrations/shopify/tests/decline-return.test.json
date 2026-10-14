@@ -19,7 +19,7 @@
   "nango": {},
   "api": {
     "post": {
-      "/admin/api/2025-07/graphql.json": {
+      "/admin/api/2026-04/graphql.json": {
         "response": {
           "data": {
             "returnDeclineRequest": {
@@ -72,7 +72,7 @@
           "x-stats-userid": "",
           "x-stats-apiclientid": "376951341057",
           "x-stats-apipermissionid": "695964696713",
-          "x-shopify-api-version": "2025-07",
+          "x-shopify-api-version": "2026-04",
           "x-shopify-api-version-warning": "https://shopify.dev/concepts/about-apis/versioning",
           "content-language": "en",
           "alt-svc": "h3=\":443\"; ma=86400",
@@ -88,7 +88,7 @@
           "reporting-endpoints": "shopify-csp=\"/csp-report?source%5Baction%5D=query&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fgraphql&source%5Bsection%5D=admin_api&source%5Buuid%5D=c09c97f8-f388-427b-b60d-528ef23510e6-1780570200\"",
           "cf-ray": "a0665fca2a3af8cb-PDX"
         },
-        "hash": "686602fcc5d520d73479c422a8edc63191169adf",
+        "hash": "6d8b7b550ed294dba6f5a21297c83073e829718f",
         "request": {
           "data": {
             "query": "\n            mutation ReturnDeclineRequest($input: ReturnDeclineRequestInput!) {\n                returnDeclineRequest(input: $input) {\n                    return {\n                        id\n                        status\n                        name\n                        decline {\n                            reason\n                            note\n                        }\n                        order {\n                            id\n                        }\n                    }\n                    userErrors {\n                        code\n                        field\n                        message\n                    }\n                }\n            }\n        ",

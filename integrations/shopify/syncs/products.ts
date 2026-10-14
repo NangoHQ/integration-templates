@@ -113,7 +113,7 @@ const ProductEdgeSchema = z.object({
 
 const sync = createSync({
     description: 'Sync Shopify products with variants, tags, status, and merchandising fields.',
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
@@ -136,7 +136,7 @@ const sync = createSync({
 
         const proxyConfig: ProxyConfiguration = {
             // https://shopify.dev/docs/api/admin-graphql/latest/queries/products
-            endpoint: '/admin/api/2025-01/graphql.json',
+            endpoint: '/admin/api/2026-04/graphql.json',
             method: 'POST',
             data: {
                 query: `

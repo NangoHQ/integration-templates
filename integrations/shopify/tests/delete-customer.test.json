@@ -16,7 +16,7 @@
   "nango": {},
   "api": {
     "post": {
-      "/admin/api/2025-04/graphql.json": {
+      "/admin/api/2026-04/graphql.json": {
         "response": {
           "data": {
             "customerDelete": {
@@ -67,7 +67,7 @@
           "x-stats-userid": "",
           "x-stats-apiclientid": "376951341057",
           "x-stats-apipermissionid": "695964696713",
-          "x-shopify-api-version": "2025-07",
+          "x-shopify-api-version": "2026-04",
           "x-shopify-api-version-warning": "https://shopify.dev/concepts/about-apis/versioning",
           "content-language": "en",
           "alt-svc": "h3=\":443\"; ma=86400",
@@ -83,7 +83,7 @@
           "reporting-endpoints": "shopify-csp=\"/csp-report?source%5Baction%5D=query&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fgraphql&source%5Bsection%5D=admin_api&source%5Buuid%5D=e540f584-3801-4f3c-b034-b33a4e4320ec-1780566510\"",
           "cf-ray": "a06605b42fe48639-PDX"
         },
-        "hash": "98235017c9973ac908093322e627d23bf0abc35b",
+        "hash": "fe0704d1c9664ecda7b8091c5adcee772461e7fe",
         "request": {
           "data": {
             "query": "\n            mutation customerDelete($id: ID!) {\n                customerDelete(input: {id: $id}) {\n                    deletedCustomerId\n                    userErrors {\n                        field\n                        message\n                    }\n                }\n            }\n        ",

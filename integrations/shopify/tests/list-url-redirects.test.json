@@ -27,7 +27,7 @@
   "nango": {},
   "api": {
     "post": {
-      "/admin/api/2025-01/graphql.json": {
+      "/admin/api/2026-04/graphql.json": {
         "response": {
           "errors": [
             {
@@ -84,7 +84,7 @@
           "x-stats-userid": "",
           "x-stats-apiclientid": "376951341057",
           "x-stats-apipermissionid": "695964696713",
-          "x-shopify-api-version": "2025-07",
+          "x-shopify-api-version": "2026-04",
           "x-shopify-api-version-warning": "https://shopify.dev/concepts/about-apis/versioning",
           "content-language": "en",
           "alt-svc": "h3=\":443\"; ma=86400",
@@ -100,7 +100,7 @@
           "reporting-endpoints": "shopify-csp=\"/csp-report?source%5Baction%5D=query&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fgraphql&source%5Bsection%5D=admin_api&source%5Buuid%5D=65f4f077-b65a-4245-b760-0ca2c8da84bb-1780570388\"",
           "cf-ray": "a06664620c779d6b-PDX"
         },
-        "hash": "2e4c50bcd6392bfd5305d911afc839abe126eaa7",
+        "hash": "ccd73c197888e5991bb00700e177cc9e2260158e",
         "request": {
           "data": {
             "query": "\n        query UrlRedirects($first: Int, $after: String, $query: String) {\n            urlRedirects(first: $first, after: $after, query: $query) {\n                edges {\n                    node {\n                        id\n                        path\n                        target\n                    }\n                }\n                pageInfo {\n                    hasNextPage\n                    endCursor\n                }\n            }\n        }\n    ",
@@ -110,7 +110,7 @@
       }
     },
     "get": {
-      "/admin/api/2025-01/redirects.json": {
+      "/admin/api/2026-04/redirects.json": {
         "response": {
           "redirects": [
             {
@@ -159,7 +159,7 @@
           "x-stats-userid": "",
           "x-stats-apiclientid": "376951341057",
           "x-stats-apipermissionid": "695964696713",
-          "x-shopify-api-version": "2025-07",
+          "x-shopify-api-version": "2026-04",
           "x-shopify-api-version-warning": "https://shopify.dev/concepts/about-apis/versioning",
           "x-shopify-shop-api-call-limit": "1/80",
           "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=BhmFksj%2BGHez0x3WutcUsNTgRlqBld0QNHJ3XPjLGGYkQKnbBlDgvj24MmrC%2BaQKUqCqGW16eK1HhssYWl0uDowV5kOr4upBCizFCieOcZGUvCoI3FlfIlrib7ROVW1uxGvfr6deAzM%3D\"}]}",
@@ -174,7 +174,7 @@
           "x-request-id": "0b8ed48d-d83f-4875-b206-24ec79f71ee6-1780570389",
           "cf-ray": "a06664634a8070b9-PDX"
         },
-        "hash": "01f6601281d5a3a8fae04c042f499fe443937a83",
+        "hash": "8653d469f698d8d97611343b33f711ce621275d2",
         "request": {}
       }
     }

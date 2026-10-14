@@ -42,7 +42,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Update tracking details on a Shopify fulfillment.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['write_assigned_fulfillment_orders', 'write_merchant_managed_fulfillment_orders', 'write_third_party_fulfillment_orders'],
@@ -77,9 +77,9 @@ const action = createAction({
             variables.notifyCustomer = input.notifyCustomer;
         }
 
-        // https://shopify.dev/docs/api/admin-graphql/2025-04/mutations/fulfillmentTrackingInfoUpdate
+        // https://shopify.dev/docs/api/admin-graphql/2026-04/mutations/fulfillmentTrackingInfoUpdate
         const response = await nango.post({
-            endpoint: '/admin/api/2025-04/graphql.json',
+            endpoint: '/admin/api/2026-04/graphql.json',
             data: {
                 query: `
                     mutation FulfillmentTrackingInfoUpdate($fulfillmentId: ID!, $trackingInfoInput: FulfillmentTrackingInput!, $notifyCustomer: Boolean) {

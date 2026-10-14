@@ -54,7 +54,7 @@ const ProviderResponseSchema = z.object({
 
 const action = createAction({
     description: 'Cancel a Shopify order.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['write_orders'],
@@ -77,8 +77,8 @@ const action = createAction({
         }
 
         const response = await nango.post({
-            // https://shopify.dev/docs/api/admin-graphql/2025-10/mutations/orderCancel
-            endpoint: '/admin/api/2025-10/graphql.json',
+            // https://shopify.dev/docs/api/admin-graphql/2026-04/mutations/orderCancel
+            endpoint: '/admin/api/2026-04/graphql.json',
             data: {
                 query: `
                     mutation OrderCancel($orderId: ID!, $reason: OrderCancelReason!, $restock: Boolean!, $refundMethod: OrderCancelRefundMethodInput) {

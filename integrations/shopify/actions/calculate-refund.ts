@@ -114,7 +114,7 @@ const SuggestedRefundResponseSchema = z.object({
 
 const action = createAction({
     description: 'Calculate a suggested refund amount for a Shopify order.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['read_orders'],
@@ -154,8 +154,8 @@ const action = createAction({
         }
 
         const response = await nango.post({
-            // https://shopify.dev/docs/api/admin-graphql/2025-07/queries/order
-            endpoint: '/admin/api/2025-07/graphql.json',
+            // https://shopify.dev/docs/api/admin-graphql/2026-04/queries/order
+            endpoint: '/admin/api/2026-04/graphql.json',
             data: {
                 query: `
                     query CalculateRefund(

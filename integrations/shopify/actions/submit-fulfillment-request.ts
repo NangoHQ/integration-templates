@@ -35,7 +35,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Submit a fulfillment request to a third-party fulfillment service.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['write_third_party_fulfillment_orders'],
@@ -83,9 +83,9 @@ const action = createAction({
             ...(input.notifyCustomer !== undefined && { notifyCustomer: input.notifyCustomer })
         };
 
-        // https://shopify.dev/docs/api/admin-graphql/2025-07/mutations/fulfillmentOrderSubmitFulfillmentRequest
+        // https://shopify.dev/docs/api/admin-graphql/2026-04/mutations/fulfillmentOrderSubmitFulfillmentRequest
         const response = await nango.post({
-            endpoint: '/admin/api/2025-07/graphql.json',
+            endpoint: '/admin/api/2026-04/graphql.json',
             data: {
                 query: mutation,
                 variables

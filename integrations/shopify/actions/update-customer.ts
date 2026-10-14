@@ -58,7 +58,7 @@ const GraphQLResponseSchema = z.object({
 
 const action = createAction({
     description: 'Update a Shopify customer.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['write_customers'],
@@ -96,9 +96,9 @@ const action = createAction({
             }
         };
 
-        // https://shopify.dev/docs/api/admin-graphql/2025-04/mutations/customerUpdate
+        // https://shopify.dev/docs/api/admin-graphql/2026-04/mutations/customerUpdate
         const response = await nango.post({
-            endpoint: '/admin/api/2025-04/graphql.json',
+            endpoint: '/admin/api/2026-04/graphql.json',
             data: {
                 query: mutation,
                 variables

@@ -48,7 +48,7 @@ const GraphQLResponseSchema = z.object({
 
 const action = createAction({
     description: 'Create a Shopify market for international selling.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['read_markets', 'write_markets'],
@@ -87,8 +87,8 @@ const action = createAction({
         };
 
         const config: ProxyConfiguration = {
-            // https://shopify.dev/docs/api/admin-graphql/2025-10/mutations/marketCreate
-            endpoint: '/admin/api/2025-10/graphql.json',
+            // https://shopify.dev/docs/api/admin-graphql/2026-04/mutations/marketCreate
+            endpoint: '/admin/api/2026-04/graphql.json',
             data: {
                 query,
                 variables

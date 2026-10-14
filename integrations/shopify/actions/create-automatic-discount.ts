@@ -46,7 +46,7 @@ const MutationResponseSchema = z.object({
 
 const action = createAction({
     description: 'Create an automatic basic Shopify discount.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['write_discounts', 'read_discounts'],
@@ -125,7 +125,7 @@ const action = createAction({
 
         const response = await nango.post({
             // https://shopify.dev/docs/api/admin-graphql/latest/mutations/discountAutomaticBasicCreate
-            endpoint: '/admin/api/2025-04/graphql.json',
+            endpoint: '/admin/api/2026-04/graphql.json',
             data: {
                 query,
                 variables: {

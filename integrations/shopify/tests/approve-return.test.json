@@ -18,7 +18,7 @@
   "nango": {},
   "api": {
     "post": {
-      "/admin/api/2025-07/graphql.json": {
+      "/admin/api/2026-04/graphql.json": {
         "response": {
           "data": {
             "returnApproveRequest": {
@@ -71,7 +71,7 @@
           "x-stats-userid": "",
           "x-stats-apiclientid": "376951341057",
           "x-stats-apipermissionid": "695964696713",
-          "x-shopify-api-version": "2025-07",
+          "x-shopify-api-version": "2026-04",
           "x-shopify-api-version-warning": "https://shopify.dev/concepts/about-apis/versioning",
           "content-language": "en",
           "alt-svc": "h3=\":443\"; ma=86400",
@@ -87,7 +87,7 @@
           "reporting-endpoints": "shopify-csp=\"/csp-report?source%5Baction%5D=query&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fgraphql&source%5Bsection%5D=admin_api&source%5Buuid%5D=7e5bf338-0e59-461b-abe3-b8f0d9423f2a-1780567225\"",
           "cf-ray": "a06617291ed4ff12-PDX"
         },
-        "hash": "d1500495375e25ca308b487016f2acabad80e223",
+        "hash": "ef93b8cf800f88e9a7eba238f6a1808c0b2ec866",
         "request": {
           "data": "sha1:95a994fa095a5d94c6627ce262178e18d5a53fcb"
         }

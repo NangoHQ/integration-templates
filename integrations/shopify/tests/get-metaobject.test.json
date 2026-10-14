@@ -22,7 +22,7 @@
   "nango": {},
   "api": {
     "post": {
-      "/admin/api/2024-10/graphql.json": {
+      "/admin/api/2026-04/graphql.json": {
         "response": {
           "data": {
             "metaobject": {
@@ -82,7 +82,7 @@
           "x-stats-userid": "",
           "x-stats-apiclientid": "376951341057",
           "x-stats-apipermissionid": "695964696713",
-          "x-shopify-api-version": "2025-07",
+          "x-shopify-api-version": "2026-04",
           "x-shopify-api-version-warning": "https://shopify.dev/concepts/about-apis/versioning",
           "content-language": "en",
           "alt-svc": "h3=\":443\"; ma=86400",
@@ -98,7 +98,7 @@
           "reporting-endpoints": "shopify-csp=\"/csp-report?source%5Baction%5D=query&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fgraphql&source%5Bsection%5D=admin_api&source%5Buuid%5D=811db3d1-9a60-4da9-8acd-5f16a2ee1bf5-1780570224\"",
           "cf-ray": "a066605e1ae370b9-PDX"
         },
-        "hash": "8831f692df8ce3595e053d11d9501e6fd0592a2d",
+        "hash": "bdcf0cf27b2a2af8595f237faee4657de03ebf62",
         "request": {
           "data": {
             "query": "\n                    query GetMetaobject($id: ID!) {\n                        metaobject(id: $id) {\n                            id\n                            type\n                            handle\n                            capabilities {\n                                publishable {\n                                    status\n                                }\n                            }\n                            fields {\n                                key\n                                type\n                                value\n                            }\n                        }\n                    }\n                ",

@@ -16,7 +16,7 @@
   "nango": {},
   "api": {
     "post": {
-      "/admin/api/2025-04/graphql.json": {
+      "/admin/api/2026-04/graphql.json": {
         "response": {
           "data": {
             "fulfillmentOrderAcceptFulfillmentRequest": {
@@ -67,7 +67,7 @@
           "x-stats-userid": "",
           "x-stats-apiclientid": "376951341057",
           "x-stats-apipermissionid": "695964696713",
-          "x-shopify-api-version": "2025-07",
+          "x-shopify-api-version": "2026-04",
           "x-shopify-api-version-warning": "https://shopify.dev/concepts/about-apis/versioning",
           "content-language": "en",
           "alt-svc": "h3=\":443\"; ma=86400",
@@ -83,7 +83,7 @@
           "reporting-endpoints": "shopify-csp=\"/csp-report?source%5Baction%5D=query&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fgraphql&source%5Bsection%5D=admin_api&source%5Buuid%5D=e74d0653-eaf6-4ed7-8e93-353cf9e8dc09-1780577249\"",
           "cf-ray": "a0670be42e8cfef7-PDX"
         },
-        "hash": "bb7ab90d4938d3041be2892ce7f2858028cf8d20",
+        "hash": "e9346fca9103585de591e17920fda9f8a25447a9",
         "request": {
           "data": {
             "query": "\n            mutation fulfillmentOrderAcceptFulfillmentRequest($id: ID!, $message: String) {\n                fulfillmentOrderAcceptFulfillmentRequest(id: $id, message: $message) {\n                    fulfillmentOrder {\n                        id\n                        status\n                        requestStatus\n                    }\n                    userErrors {\n                        field\n                        message\n                    }\n                }\n            }\n        ",

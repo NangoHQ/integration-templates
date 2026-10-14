@@ -227,7 +227,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Calculate totals and taxes for a Shopify draft order without creating it.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['read_draft_orders', 'write_draft_orders'],
@@ -351,7 +351,7 @@ const action = createAction({
 
         // https://shopify.dev/docs/api/admin-graphql/latest/mutations/draftOrderCalculate
         const response = await nango.post({
-            endpoint: 'admin/api/2025-04/graphql.json',
+            endpoint: 'admin/api/2026-04/graphql.json',
             data: {
                 query: query,
                 variables: { input: input }

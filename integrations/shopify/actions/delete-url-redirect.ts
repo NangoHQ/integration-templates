@@ -31,15 +31,15 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Delete a URL redirect from a Shopify store.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['write_online_store_navigation'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        // https://shopify.dev/docs/api/admin-graphql/2025-07/mutations/urlRedirectDelete
+        // https://shopify.dev/docs/api/admin-graphql/2026-04/mutations/urlRedirectDelete
         const response = await nango.post({
-            endpoint: '/admin/api/2025-07/graphql.json',
+            endpoint: '/admin/api/2026-04/graphql.json',
             data: {
                 query: `
                     mutation UrlRedirectDelete($id: ID!) {

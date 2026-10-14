@@ -58,7 +58,7 @@ const ShopifySegmentsResponseSchema = z.object({
 
 const action = createAction({
     description: 'List Shopify customer segments with cursor pagination.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['read_customers'],
@@ -93,7 +93,7 @@ const action = createAction({
         };
         const config: ProxyConfiguration = {
             // https://shopify.dev/docs/api/admin-graphql/latest/queries/segments
-            endpoint: '/admin/api/2025-10/graphql.json',
+            endpoint: '/admin/api/2026-04/graphql.json',
             data: {
                 query: graphqlQuery,
                 variables

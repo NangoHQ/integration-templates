@@ -32,7 +32,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Delete a Shopify webhook subscription.',
-    version: '1.0.2',
+    version: '1.0.3',
     input: InputSchema,
     output: OutputSchema,
     scopes: [],
@@ -50,9 +50,9 @@ const action = createAction({
             }
         `;
 
-        // https://shopify.dev/docs/api/admin-graphql/2025-01/mutations/webhookSubscriptionDelete
+        // https://shopify.dev/docs/api/admin-graphql/2026-04/mutations/webhookSubscriptionDelete
         const response = await nango.post({
-            endpoint: '/admin/api/2025-01/graphql.json',
+            endpoint: '/admin/api/2026-04/graphql.json',
             data: {
                 query,
                 variables: {

@@ -84,7 +84,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List Shopify customers with cursor pagination and optional search query.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['read_customers'],
@@ -149,7 +149,7 @@ const action = createAction({
 
         const config: ProxyConfiguration = {
             // https://shopify.dev/docs/api/admin-graphql/latest/queries/customers
-            endpoint: '/admin/api/2025-07/graphql.json',
+            endpoint: '/admin/api/2026-04/graphql.json',
             data: {
                 query: graphQuery,
                 variables

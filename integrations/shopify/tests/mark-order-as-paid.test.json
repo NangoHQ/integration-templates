@@ -8,7 +8,7 @@
   "nango": {},
   "api": {
     "post": {
-      "/admin/api/2025-01/graphql.json": {
+      "/admin/api/2026-04/graphql.json": {
         "response": {
           "errors": [
             {
@@ -71,7 +71,7 @@
           "x-stats-userid": "",
           "x-stats-apiclientid": "376951341057",
           "x-stats-apipermissionid": "695964696713",
-          "x-shopify-api-version": "2025-07",
+          "x-shopify-api-version": "2026-04",
           "x-shopify-api-version-warning": "https://shopify.dev/concepts/about-apis/versioning",
           "content-language": "en",
           "alt-svc": "h3=\":443\"; ma=86400",
@@ -88,7 +88,7 @@
           "reporting-endpoints": "shopify-csp=\"/csp-report?source%5Baction%5D=query&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fgraphql&source%5Bsection%5D=admin_api&source%5Buuid%5D=107090b5-9a74-4a61-b96f-39576e5c0c66-1780570777\"",
           "cf-ray": "a0666de1fd828969-PDX"
         },
-        "hash": "e1de7095c7a1972f0f3d99f1e67c2373ee09427e",
+        "hash": "2871ac479a778ecbdd09b9ee895dd95cca65b014",
         "request": {
           "data": {
             "query": "\n            mutation orderMarkAsPaid($input: OrderMarkAsPaidInput!) {\n                orderMarkAsPaid(input: $input) {\n                    userErrors {\n                        field\n                        message\n                    }\n                    order {\n                        id\n                        name\n                        canMarkAsPaid\n                        displayFinancialStatus\n                        totalPrice\n                        totalOutstandingSet {\n                            shopMoney {\n                                amount\n                                currencyCode\n                            }\n                        }\n                    }\n                }\n            }\n        ",

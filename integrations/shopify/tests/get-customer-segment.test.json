@@ -11,7 +11,7 @@
   "nango": {},
   "api": {
     "post": {
-      "/admin/api/2024-10/graphql.json": {
+      "/admin/api/2026-04/graphql.json": {
         "response": {
           "data": {
             "segment": {
@@ -57,7 +57,7 @@
           "x-stats-userid": "",
           "x-stats-apiclientid": "376951341057",
           "x-stats-apipermissionid": "695964696713",
-          "x-shopify-api-version": "2025-07",
+          "x-shopify-api-version": "2026-04",
           "x-shopify-api-version-warning": "https://shopify.dev/concepts/about-apis/versioning",
           "content-language": "en",
           "alt-svc": "h3=\":443\"; ma=86400",
@@ -73,7 +73,7 @@
           "reporting-endpoints": "shopify-csp=\"/csp-report?source%5Baction%5D=query&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fgraphql&source%5Bsection%5D=admin_api&source%5Buuid%5D=92fda6b3-90ce-4594-9bd5-7bc7631e1dbf-1780566227\"",
           "cf-ray": "a065fecbabcd8639-PDX"
         },
-        "hash": "269e3c6019ff0ecef80e723926e8c26c46e22519",
+        "hash": "51901b5d8b2b1b8754eb47820352e972e4e7e314",
         "request": {
           "data": {
             "query": "\n                    query GetSegment($id: ID!) {\n                        segment(id: $id) {\n                            name\n                            query\n                            creationDate\n                            lastEditDate\n                        }\n                    }\n                ",

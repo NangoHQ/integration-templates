@@ -31,7 +31,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Move a Shopify fulfillment order to a different location.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['write_merchant_managed_fulfillment_orders', 'write_third_party_fulfillment_orders'],
@@ -73,8 +73,8 @@ const action = createAction({
         `;
 
         const response = await nango.post({
-            // https://shopify.dev/docs/api/admin-graphql/2025-04/mutations/fulfillmentOrderMove
-            endpoint: '/admin/api/2025-04/graphql.json',
+            // https://shopify.dev/docs/api/admin-graphql/2026-04/mutations/fulfillmentOrderMove
+            endpoint: '/admin/api/2026-04/graphql.json',
             data: {
                 query,
                 variables: {

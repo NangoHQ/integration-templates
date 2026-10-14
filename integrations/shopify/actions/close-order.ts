@@ -24,7 +24,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Close a Shopify order to prevent further changes.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['read_orders', 'write_orders'],
@@ -46,9 +46,9 @@ const action = createAction({
             });
         }
 
-        // https://shopify.dev/docs/api/admin-graphql/2025-01/mutations/orderClose
+        // https://shopify.dev/docs/api/admin-graphql/2026-04/mutations/orderClose
         const closeResponse = await nango.post({
-            endpoint: '/admin/api/2025-01/graphql.json',
+            endpoint: '/admin/api/2026-04/graphql.json',
             data: {
                 query: `
                     mutation orderClose($input: OrderCloseInput!) {
@@ -106,9 +106,9 @@ const action = createAction({
             };
         }
 
-        // https://shopify.dev/docs/api/admin-rest/2025-01/resources/order#post-orders-order-id-close
+        // https://shopify.dev/docs/api/admin-rest/2026-04/resources/order#post-orders-order-id-close
         const orderResponse = await nango.post({
-            endpoint: `/admin/api/2025-01/orders/${encodeURIComponent(numericOrderId)}/close.json`,
+            endpoint: `/admin/api/2026-04/orders/${encodeURIComponent(numericOrderId)}/close.json`,
             retries: 1
         });
 

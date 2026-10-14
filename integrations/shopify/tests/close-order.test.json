@@ -14,7 +14,7 @@
   "nango": {},
   "api": {
     "post": {
-      "/admin/api/2025-01/graphql.json": {
+      "/admin/api/2026-04/graphql.json": {
         "response": {
           "data": {
             "orderClose": {
@@ -57,7 +57,7 @@
           "x-stats-userid": "",
           "x-stats-apiclientid": "376951341057",
           "x-stats-apipermissionid": "695964696713",
-          "x-shopify-api-version": "2025-07",
+          "x-shopify-api-version": "2026-04",
           "x-shopify-api-version-warning": "https://shopify.dev/concepts/about-apis/versioning",
           "content-language": "en",
           "alt-svc": "h3=\":443\"; ma=86400",
@@ -73,7 +73,7 @@
           "reporting-endpoints": "shopify-csp=\"/csp-report?source%5Baction%5D=query&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fgraphql&source%5Bsection%5D=admin_api&source%5Buuid%5D=11c3d8e2-7439-4fcf-8258-9ded421a411d-1780566957\"",
           "cf-ray": "a066109c0ba2cb5f-PDX"
         },
-        "hash": "95105674d8812753cb71230088fe95aca9b547c2",
+        "hash": "2d36efe677a73cc129709a4538269c618e9b159c",
         "request": {
           "data": {
             "query": "\n                    mutation orderClose($input: OrderCloseInput!) {\n                        orderClose(input: $input) {\n                            userErrors {\n                                field\n                                message\n                            }\n                        }\n                    }\n                ",
@@ -85,7 +85,7 @@
           }
         }
       },
-      "/admin/api/2025-01/orders/7585349042313/close.json": {
+      "/admin/api/2026-04/orders/7585349042313/close.json": {
         "response": {
           "order": {
             "id": 7585349042313,
@@ -360,7 +360,7 @@
           "x-stats-userid": "",
           "x-stats-apiclientid": "376951341057",
           "x-stats-apipermissionid": "695964696713",
-          "x-shopify-api-version": "2025-07",
+          "x-shopify-api-version": "2026-04",
           "x-shopify-api-version-warning": "https://shopify.dev/concepts/about-apis/versioning",
           "x-shopify-shop-api-call-limit": "1/80",
           "location": "https://nangodev.myshopify.com/admin/orders/7585349042313",
@@ -376,7 +376,7 @@
           "x-request-id": "7a477b35-e243-472c-8999-842892c151d2-1780566958",
           "cf-ray": "a06610a07de43d49-PDX"
         },
-        "hash": "275f566b36ba2f56c8eea05ee6be33d9a0e96e89",
+        "hash": "d688932d100e05fcedd987b780dd7a89901cb31f",
         "request": {}
       }
     }
