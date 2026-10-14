@@ -1,0 +1,67 @@
+{
+  "input": {
+    "location_id": "09af6124-80ac-4d46-a5b2-7517f56e6cdf",
+    "name": "Nango Registry Test Location"
+  },
+  "output": {
+    "id": "09af6124-80ac-4d46-a5b2-7517f56e6cdf",
+    "name": "Nango Registry Test Location",
+    "entity_id": "eb24fd81-de5d-43bd-8102-eb2cc53d3c3a"
+  },
+  "nango": {},
+  "api": {
+    "patch": {
+      "/developer/v1/locations/09af6124-80ac-4d46-a5b2-7517f56e6cdf": {
+        "response": {
+          "name": "Nango Registry Test Location",
+          "entity_id": "eb24fd81-de5d-43bd-8102-eb2cc53d3c3a",
+          "id": "09af6124-80ac-4d46-a5b2-7517f56e6cdf"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 14 Oct 2026 11:06:11 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1985",
+          "x-ratelimit-reset": "1791976028",
+          "cf-ray": "a4a61cfbdf1fb7b9-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "server": "cloudflare",
+          "vary": "Origin, accept-encoding",
+          "content-security-policy": "upgrade-insecure-requests; frame-ancestors 'self' https://demo.ramp.com; report-uri https://ramp.report-uri.com/r/d/csp/enforce",
+          "ramp-worker-name": "demo-app-worker",
+          "server-timing": "gt;dur=252.632, ge;dur=0.156, px;dur=252.391, fw;dur=327.00, fwe;dur=0.00, fwx;dur=327.00",
+          "x-debug-cell-id": "none",
+          "x-debug-routing-key": "none",
+          "x-debug-upstream-cache-control": "none",
+          "x-ramp-body-source": "others",
+          "x-ramp-business-id": "e15cd7ee-ab7e-4173-a82f-00f33901c1ca",
+          "x-ramp-cf-ray": "a4a61cfbe8ca20eb-IAD",
+          "x-ramp-request-id": "01a13a17-599b-7e94-a133-4e54e0ea00f1",
+          "x-ramp-sensitive-fields": "name",
+          "x-trace-id": "ramp-a555614edf3d44ffb453c43b843938d9",
+          "set-cookie": "__cf_bm=UGWjvjfjebwqEDKZ7HHFy707xG69p6WjApbje5zGHVw-1791975971.1766386-1.0.1.1-fZWNoMq6t6jVbV3eczWjr9QhGIA2yoNbixAM3nQA163b8pbS_wO12SlVzWvu1Gpyr.2kOKUxnbEP9f2o.evrLm2H4FcQq3ZAGApcva5b_3g1773AW6mmsSOfw11DGJDW; HttpOnly; SameSite=None; Secure; Path=/; Domain=ramp.com; Expires=Wed, 14 Oct 2026 11:36:11 GMT",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "hash": "9379f26ee1f7cdca9159e6c20a6cbf3d0f3e29b6",
+        "request": {
+          "data": {
+            "name": "Nango Registry Test Location"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,138 @@
+{
+  "input": {
+    "card_id": "71000592-c11d-4b35-9111-9e5a8b0674e3"
+  },
+  "output": {
+    "id": "71000592-c11d-4b35-9111-9e5a8b0674e3",
+    "cardholder_id": "73f6feee-2788-4e4d-932e-2214361a9697",
+    "cardholder_name": "Sawyer Maloney",
+    "display_name": "Sawyer Maloney's Physical Card",
+    "created_at": "2026-10-14T10:43:47+00:00",
+    "expiration": "*REDACTED*",
+    "last_four": "*REDACTED*",
+    "is_physical": true,
+    "is_primary": true,
+    "is_suspended": false,
+    "has_program_overridden": false,
+    "automatic_routing_enabled": false,
+    "state": "TERMINATED",
+    "fulfillment": {
+      "fulfillment_status": "ISSUED",
+      "shipping": {
+        "method": "LOCAL_MAIL",
+        "recipient_address": {
+          "address1": "28 W 23rd St, Floor 2",
+          "city": "New York",
+          "country": "US",
+          "first_name": "Sawyer",
+          "last_name": "Maloney",
+          "postal_code": "10010",
+          "state": "NY"
+        }
+      },
+      "shipping_date": null,
+      "shipping_eta": null,
+      "shipping_tracking_url": null,
+      "card_personalization": {
+        "text": {
+          "name_line_1": {
+            "value": "Sawyer Maloney"
+          },
+          "name_line_2": {
+            "value": "nango-dev"
+          }
+        }
+      }
+    }
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/developer/v1/cards/physical/71000592-c11d-4b35-9111-9e5a8b0674e3": {
+        "response": {
+          "expiration": "*REDACTED*",
+          "cardholder_name": "Sawyer Maloney",
+          "cardholder_id": "73f6feee-2788-4e4d-932e-2214361a9697",
+          "id": "71000592-c11d-4b35-9111-9e5a8b0674e3",
+          "display_name": "Sawyer Maloney's Physical Card",
+          "is_suspended": false,
+          "automatic_routing_enabled": false,
+          "created_at": "2026-10-14T10:43:47+00:00",
+          "is_physical": true,
+          "state": "TERMINATED",
+          "fulfillment": {
+            "shipping_eta": null,
+            "card_personalization": {
+              "text": {
+                "name_line_1": {
+                  "value": "Sawyer Maloney"
+                },
+                "name_line_2": {
+                  "value": "nango-dev"
+                }
+              }
+            },
+            "shipping_tracking_url": null,
+            "fulfillment_status": "ISSUED",
+            "shipping": {
+              "recipient_address": {
+                "city": "New York",
+                "postal_code": "10010",
+                "country": "US",
+                "state": "NY",
+                "last_name": "Maloney",
+                "address1": "28 W 23rd St, Floor 2",
+                "first_name": "Sawyer"
+              },
+              "method": "LOCAL_MAIL"
+            },
+            "shipping_date": null
+          },
+          "has_program_overridden": false,
+          "last_four": "*REDACTED*",
+          "is_primary": true
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 14 Oct 2026 11:06:35 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1880",
+          "x-ratelimit-reset": "1791976028",
+          "cf-ray": "a4a61d919cb9ff02-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "server": "cloudflare",
+          "vary": "Origin, accept-encoding",
+          "content-security-policy": "upgrade-insecure-requests; frame-ancestors 'self' https://demo.ramp.com; report-uri https://ramp.report-uri.com/r/d/csp/enforce",
+          "ramp-worker-name": "demo-app-worker",
+          "server-timing": "gt;dur=131.463, ge;dur=0.184, px;dur=131.213, fw;dur=205.00, fwe;dur=0.00, fwx;dur=205.00",
+          "x-debug-cell-id": "none",
+          "x-debug-routing-key": "none",
+          "x-debug-upstream-cache-control": "none",
+          "x-ramp-body-source": "others",
+          "x-ramp-business-id": "e15cd7ee-ab7e-4173-a82f-00f33901c1ca",
+          "x-ramp-cf-ray": "a4a61d91a9051ef3-PDX",
+          "x-ramp-request-id": "01a13a17-b731-7201-b4ed-2eb59a8facd3",
+          "x-ramp-sensitive-fields": "fulfillment.shipping.recipient_address.address1",
+          "x-trace-id": "ramp-cd38798cf12d43a19fa50f6e9eeb38d1",
+          "set-cookie": "<redacted>",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "hash": "387338f172a138fcb95ac9ed72c320323f03dbe9",
+        "request": {}
+      }
+    }
+  }
+}

@@ -1,0 +1,686 @@
+{
+  "input": {
+    "purchase_order_id": "01a139ea-1cb3-7c62-b234-c368a1c4d404"
+  },
+  "output": {
+    "id": "01a139ea-1cb3-7c62-b234-c368a1c4d404",
+    "amount": {
+      "amount": 2050000,
+      "currency_code": "USD",
+      "minor_unit_conversion_rate": 100
+    },
+    "receipt_status": "NOT_RECEIVED",
+    "creation_source": "RAMP",
+    "three_way_match_enabled": false,
+    "entity_id": "eb24fd81-de5d-43bd-8102-eb2cc53d3c3a",
+    "ramp_url": "https://demo.ramp.com/s/procurement/purchase-orders/01a139ea-1cb3-7c62-b234-c368a1c4d404",
+    "bill_ids": [],
+    "transaction_ids": [],
+    "item_receipt_ids": [],
+    "line_items": [
+      {
+        "id": "f10890bb-f92b-472d-8e52-d5954fe4479c",
+        "amount": {
+          "amount": 1200000,
+          "currency_code": "USD",
+          "minor_unit_conversion_rate": 100
+        },
+        "accounting_field_selections": [],
+        "description": "HeyGen Creator Enterprise annual seats",
+        "quantity": 25,
+        "unit_price": {
+          "amount": 48000,
+          "currency_code": "USD",
+          "minor_unit_conversion_rate": 100
+        },
+        "start_date": "2026-12-24",
+        "end_date": "2027-12-24"
+      },
+      {
+        "id": "f2810ddf-5fe1-4de9-b437-7a58e605a7ad",
+        "amount": {
+          "amount": 850000,
+          "currency_code": "USD",
+          "minor_unit_conversion_rate": 100
+        },
+        "accounting_field_selections": [],
+        "description": "Eligible HeyGen usage credits",
+        "quantity": 10000,
+        "unit_price": {
+          "amount": 85,
+          "currency_code": "USD",
+          "minor_unit_conversion_rate": 100
+        },
+        "start_date": "2026-12-24",
+        "end_date": "2027-12-24"
+      }
+    ],
+    "accounting_field_selections": [],
+    "purchase_order_number": "11018",
+    "name": "HeyGen Creator Enterprise Renewal",
+    "spend_total_amount": {
+      "amount": 2050000,
+      "currency_code": "USD",
+      "minor_unit_conversion_rate": 100
+    },
+    "billing_status": "OPEN",
+    "vendor_id": "e47d63ca-326d-4a45-a161-4a60b24bc4a6",
+    "owner_id": "3ed54b88-fa34-4864-b35d-c2113b83fe07",
+    "user_id": "3ed54b88-fa34-4864-b35d-c2113b83fe07",
+    "spend_program_id": "dc16e322-3884-484b-ab63-bf4ad78dc1e0",
+    "spend_request_id": "31a05ccb-65c8-4bd8-8819-38372dcee5e9",
+    "spend_start_date": "2026-12-24T00:00:00+00:00",
+    "spend_end_date": "2027-12-24T00:00:00+00:00",
+    "shipping_contact_first_name": "Creed",
+    "shipping_contact_last_name": "Bratton",
+    "shipping_contact_email": "api+cardholder_2@nango.dev"
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/developer/v1/purchase-orders/01a139ea-1cb3-7c62-b234-c368a1c4d404": {
+        "response": {
+          "archived_at": null,
+          "spend_request_id": "31a05ccb-65c8-4bd8-8819-38372dcee5e9",
+          "net_payment_terms": null,
+          "spend_end_date": "2027-12-24T00:00:00+00:00",
+          "accounting_field_selections": [],
+          "spend_total_amount": {
+            "currency_code": "USD",
+            "minor_unit_conversion_rate": 100,
+            "amount": 2050000
+          },
+          "remote_id": null,
+          "three_way_match_enabled": false,
+          "shipping_contact_phone_number": null,
+          "name": "HeyGen Creator Enterprise Renewal",
+          "ship_to_company_name": null,
+          "vendor_id": "e47d63ca-326d-4a45-a161-4a60b24bc4a6",
+          "ramp_url": "https://demo.ramp.com/s/procurement/purchase-orders/01a139ea-1cb3-7c62-b234-c368a1c4d404",
+          "purchase_order_number": "11018",
+          "ship_to_address": null,
+          "entity_id": "eb24fd81-de5d-43bd-8102-eb2cc53d3c3a",
+          "shipping_contact_email": "api+cardholder_2@nango.dev",
+          "receipt_status": "NOT_RECEIVED",
+          "shipping_contact_first_name": "Creed",
+          "line_items": [
+            {
+              "remote_id": null,
+              "unit_price": {
+                "currency_code": "USD",
+                "minor_unit_conversion_rate": 100,
+                "amount": 48000
+              },
+              "withholding_rate": null,
+              "start_date": "2026-12-24",
+              "custom_field_values": [],
+              "end_date": "2027-12-24",
+              "description": "HeyGen Creator Enterprise annual seats",
+              "amount": {
+                "currency_code": "USD",
+                "minor_unit_conversion_rate": 100,
+                "amount": 1200000
+              },
+              "accounting_field_selections": [],
+              "id": "f10890bb-f92b-472d-8e52-d5954fe4479c",
+              "external_id": null,
+              "quantity": 25,
+              "unit_quantity": 25
+            },
+            {
+              "remote_id": null,
+              "unit_price": {
+                "currency_code": "USD",
+                "minor_unit_conversion_rate": 100,
+                "amount": 85
+              },
+              "withholding_rate": null,
+              "start_date": "2026-12-24",
+              "custom_field_values": [],
+              "end_date": "2027-12-24",
+              "description": "Eligible HeyGen usage credits",
+              "amount": {
+                "currency_code": "USD",
+                "minor_unit_conversion_rate": 100,
+                "amount": 850000
+              },
+              "accounting_field_selections": [],
+              "id": "f2810ddf-5fe1-4de9-b437-7a58e605a7ad",
+              "external_id": null,
+              "quantity": 10000,
+              "unit_quantity": 10000
+            }
+          ],
+          "spend_start_date": "2026-12-24T00:00:00+00:00",
+          "creation_source": "RAMP",
+          "promise_date": null,
+          "billing_status": "OPEN",
+          "spend_program_id": "dc16e322-3884-484b-ab63-bf4ad78dc1e0",
+          "owner_id": "3ed54b88-fa34-4864-b35d-c2113b83fe07",
+          "transaction_ids": [],
+          "external_id": null,
+          "memo": null,
+          "bill_ids": [],
+          "custom_form_collection_response": {
+            "custom_form_collection_log_entry": {
+              "allow_comments": false,
+              "label": null,
+              "forms": [
+                {
+                  "fields": [
+                    {
+                      "field_id": "415174ae-5dc5-4af0-bf3d-066b10878c84",
+                      "label": "Is this a new software purchase or renewal?",
+                      "short_title": null,
+                      "description": "",
+                      "required": false,
+                      "exclude_from_ai_prefill": false,
+                      "conditions": null,
+                      "required_if_conditions": null,
+                      "is_mapped_to_ironclad_field": false,
+                      "field_mapping_references": [],
+                      "is_used_in_approval_workflow_condition": false,
+                      "is_used_in_approval_workflow_approval_step": false,
+                      "is_used_in_custom_form_workflow_condition": false,
+                      "attachments": [],
+                      "global_library_field_id": null,
+                      "field": {
+                        "field_type": "TEXT_SINGLE_SELECT",
+                        "comment": null,
+                        "choices": [
+                          {
+                            "value": {
+                              "value": "New software purchase"
+                            },
+                            "value_id": "type-string-is_list-false-value-string-yes"
+                          },
+                          {
+                            "value": {
+                              "value": "Renewal"
+                            },
+                            "value_id": "type-string-is_list-false-value-string-existing-no"
+                          }
+                        ],
+                        "mapped_fields": [],
+                        "value": {
+                          "value": "New software purchase"
+                        }
+                      },
+                      "validation_errors": [],
+                      "value_display_string": "New software purchase"
+                    },
+                    {
+                      "field_id": "20a3215f-fe53-4f17-be4b-a953dbdb8536",
+                      "label": "Specify the vendor for this request",
+                      "short_title": null,
+                      "description": "",
+                      "required": true,
+                      "exclude_from_ai_prefill": false,
+                      "conditions": null,
+                      "required_if_conditions": null,
+                      "is_mapped_to_ironclad_field": false,
+                      "field_mapping_references": [],
+                      "is_used_in_approval_workflow_condition": false,
+                      "is_used_in_approval_workflow_approval_step": false,
+                      "is_used_in_custom_form_workflow_condition": false,
+                      "attachments": [],
+                      "global_library_field_id": null,
+                      "field": {
+                        "field_type": "VENDOR",
+                        "comment": null,
+                        "value": {
+                          "payee_uuid": "e47d63ca-326d-4a45-a161-4a60b24bc4a6",
+                          "vendor_name": "HeyGen",
+                          "vendor_logo": "https://demo-logos.ramp.com/ATHV1H1bUhiWrLBRWDvuCYJrIVmntkRXcK7A6ANgRA==",
+                          "vendor_contact": null
+                        }
+                      },
+                      "validation_errors": [],
+                      "value_display_string": "HeyGen"
+                    },
+                    {
+                      "field_id": "84c9dd17-33d1-4d83-b19d-1585cf699d47",
+                      "label": "Please describe the business problem this software will solve.",
+                      "short_title": null,
+                      "description": "",
+                      "required": true,
+                      "exclude_from_ai_prefill": false,
+                      "conditions": null,
+                      "required_if_conditions": null,
+                      "is_mapped_to_ironclad_field": false,
+                      "field_mapping_references": [],
+                      "is_used_in_approval_workflow_condition": false,
+                      "is_used_in_approval_workflow_approval_step": false,
+                      "is_used_in_custom_form_workflow_condition": false,
+                      "attachments": [],
+                      "global_library_field_id": null,
+                      "field": {
+                        "field_type": "TEXT",
+                        "comment": null,
+                        "mapped_fields": [],
+                        "value": {
+                          "value": "The marketing team will use this tool to create video testimonials and case studies"
+                        }
+                      },
+                      "validation_errors": [],
+                      "value_display_string": "The marketing team will use this tool to create video testimonials and case studies"
+                    },
+                    {
+                      "field_id": "28fdaa47-06ce-4dfe-9dd7-eb8d9b80688a",
+                      "label": "When would you like this software procured by?",
+                      "short_title": null,
+                      "description": "",
+                      "required": false,
+                      "exclude_from_ai_prefill": false,
+                      "conditions": null,
+                      "required_if_conditions": null,
+                      "is_mapped_to_ironclad_field": false,
+                      "field_mapping_references": [],
+                      "is_used_in_approval_workflow_condition": false,
+                      "is_used_in_approval_workflow_approval_step": false,
+                      "is_used_in_custom_form_workflow_condition": false,
+                      "attachments": [],
+                      "global_library_field_id": null,
+                      "field": {
+                        "field_type": "DATE",
+                        "comment": null,
+                        "mapped_fields": [],
+                        "value": {
+                          "value": "2026-12-31"
+                        }
+                      },
+                      "validation_errors": [],
+                      "value_display_string": "2026-12-31"
+                    },
+                    {
+                      "field_id": "73b25691-39c7-4700-8d6c-05d1a81b8652",
+                      "label": "Does this fit into your department's approved budget?",
+                      "short_title": null,
+                      "description": "",
+                      "required": false,
+                      "exclude_from_ai_prefill": false,
+                      "conditions": null,
+                      "required_if_conditions": null,
+                      "is_mapped_to_ironclad_field": false,
+                      "field_mapping_references": [],
+                      "is_used_in_approval_workflow_condition": false,
+                      "is_used_in_approval_workflow_approval_step": false,
+                      "is_used_in_custom_form_workflow_condition": false,
+                      "attachments": [],
+                      "global_library_field_id": null,
+                      "field": {
+                        "field_type": "TEXT_SINGLE_SELECT",
+                        "comment": null,
+                        "choices": [
+                          {
+                            "value": {
+                              "value": "Yes"
+                            },
+                            "value_id": "type-string-is_list-false-value-string-yes"
+                          },
+                          {
+                            "value": {
+                              "value": "No"
+                            },
+                            "value_id": "type-string-is_list-false-value-string-existing-no"
+                          },
+                          {
+                            "value": {
+                              "value": "Unsure"
+                            },
+                            "value_id": "type-string-is_list-false-value-string-existing-unsure"
+                          }
+                        ],
+                        "mapped_fields": [],
+                        "value": {
+                          "value": "Yes"
+                        }
+                      },
+                      "validation_errors": [],
+                      "value_display_string": "Yes"
+                    },
+                    {
+                      "field_id": "will_this_software_access_or_share_any_confidential_or_sensitive_business_information",
+                      "label": "Will this software access or share any confidential or sensitive business information?",
+                      "short_title": null,
+                      "description": "",
+                      "required": false,
+                      "exclude_from_ai_prefill": false,
+                      "conditions": null,
+                      "required_if_conditions": null,
+                      "is_mapped_to_ironclad_field": false,
+                      "field_mapping_references": [],
+                      "is_used_in_approval_workflow_condition": false,
+                      "is_used_in_approval_workflow_approval_step": false,
+                      "is_used_in_custom_form_workflow_condition": false,
+                      "attachments": [],
+                      "global_library_field_id": null,
+                      "field": {
+                        "field_type": "BOOLEAN",
+                        "comment": null,
+                        "mapped_fields": [],
+                        "value": {
+                          "value": true
+                        }
+                      },
+                      "validation_errors": [],
+                      "value_display_string": "Yes"
+                    },
+                    {
+                      "field_id": "9f466b59-5990-4c64-b627-d778fcee3185",
+                      "label": "Please enter the details for your primary contact at this vendor",
+                      "short_title": null,
+                      "description": "",
+                      "required": false,
+                      "exclude_from_ai_prefill": false,
+                      "conditions": null,
+                      "required_if_conditions": null,
+                      "is_mapped_to_ironclad_field": false,
+                      "field_mapping_references": [],
+                      "is_used_in_approval_workflow_condition": false,
+                      "is_used_in_approval_workflow_approval_step": false,
+                      "is_used_in_custom_form_workflow_condition": false,
+                      "attachments": [],
+                      "global_library_field_id": null,
+                      "field": {
+                        "field_type": "CONTACT",
+                        "comment": null,
+                        "mapped_fields": [
+                          {
+                            "mapped_field": "PURCHASE_ORDER__PAYEE_CONTACT"
+                          }
+                        ],
+                        "value": null
+                      },
+                      "validation_errors": [],
+                      "value_display_string": null
+                    },
+                    {
+                      "field_id": "how_will_this_software_purchase_be_made",
+                      "label": "How will this software purchase be made?",
+                      "short_title": null,
+                      "description": "",
+                      "required": true,
+                      "exclude_from_ai_prefill": false,
+                      "conditions": null,
+                      "required_if_conditions": null,
+                      "is_mapped_to_ironclad_field": false,
+                      "field_mapping_references": [],
+                      "is_used_in_approval_workflow_condition": true,
+                      "is_used_in_approval_workflow_approval_step": false,
+                      "is_used_in_custom_form_workflow_condition": true,
+                      "attachments": [],
+                      "global_library_field_id": null,
+                      "field": {
+                        "field_type": "TEXT_SINGLE_SELECT",
+                        "comment": null,
+                        "choices": [
+                          {
+                            "value": {
+                              "value": "Online click-through agreement"
+                            },
+                            "value_id": "type-string-is_list-false-value-string-yes"
+                          },
+                          {
+                            "value": {
+                              "value": "Signed contract"
+                            },
+                            "value_id": "type-string-is_list-false-value-string-existing-no"
+                          }
+                        ],
+                        "mapped_fields": [],
+                        "value": {
+                          "value": "Online click-through agreement"
+                        }
+                      },
+                      "validation_errors": [],
+                      "value_display_string": "Online click-through agreement"
+                    },
+                    {
+                      "field_id": "f874758d-6167-414b-8a43-e7d29c00c3de",
+                      "label": "Please upload the draft contract or quote (if provided one)",
+                      "short_title": null,
+                      "description": "",
+                      "required": false,
+                      "exclude_from_ai_prefill": false,
+                      "conditions": {
+                        "then": [
+                          {
+                            "uuid": "3230c254-a3cb-4076-b13b-f121670abad3",
+                            "metadata": {},
+                            "identifier": "custom_form_fields__show_field",
+                            "vertex_type": "ACTION",
+                            "action_kwargs": [
+                              {
+                                "key": "bool_field_id",
+                                "object": {
+                                  "id": "f874758d-6167-414b-8a43-e7d29c00c3de",
+                                  "deleted": false,
+                                  "object_type": "custom_form_fields__bool",
+                                  "display_name": "None"
+                                },
+                                "object_type": "custom_form_fields__bool",
+                                "action_kwarg_type": "OBJECT"
+                              }
+                            ],
+                            "has_been_visited": false,
+                            "available_operands": [
+                              {
+                                "key": "procurement_total_amount",
+                                "mask": "CURRENCY",
+                                "type": "NUMERIC",
+                                "display": "Amount (total)",
+                                "child_type": null,
+                                "state_type": "STATIC",
+                                "available_operand_type": "STATE"
+                              },
+                              {
+                                "key": "entity_uuid",
+                                "mask": null,
+                                "display": "Business entity",
+                                "state_type": "STATIC",
+                                "object_type": "entity",
+                                "available_operand_type": "STATE_OBJECT"
+                              },
+                              {
+                                "object_type": "change_request_diff__bool",
+                                "available_operand_type": "OBJECT"
+                              },
+                              {
+                                "object_type": "change_request_diff__text_select",
+                                "available_operand_type": "OBJECT"
+                              },
+                              {
+                                "object_type": "custom_form_fields__bool",
+                                "available_operand_type": "OBJECT"
+                              },
+                              {
+                                "object_type": "custom_form_fields__department",
+                                "available_operand_type": "OBJECT"
+                              },
+                              {
+                                "object_type": "custom_form_fields__text_select",
+                                "available_operand_type": "OBJECT"
+                              },
+                              {
+                                "object_type": "custom_form_fields__vendor",
+                                "available_operand_type": "OBJECT"
+                              },
+                              {
+                                "key": "user_uuid",
+                                "mask": null,
+                                "display": "Employee",
+                                "state_type": "STATIC",
+                                "object_type": "user",
+                                "available_operand_type": "STATE_OBJECT"
+                              },
+                              {
+                                "key": "spend_request_payment_method",
+                                "mask": null,
+                                "display": "Payment method",
+                                "state_type": "STATIC",
+                                "object_type": "spend_request_payment_method",
+                                "available_operand_type": "STATE_OBJECT"
+                              },
+                              {
+                                "key": "department_uuid",
+                                "mask": null,
+                                "display": "Ramp department",
+                                "state_type": "STATIC",
+                                "object_type": "department",
+                                "available_operand_type": "STATE_OBJECT"
+                              },
+                              {
+                                "key": "location_uuid",
+                                "mask": null,
+                                "display": "Ramp location",
+                                "state_type": "STATIC",
+                                "object_type": "location",
+                                "available_operand_type": "STATE_OBJECT"
+                              },
+                              {
+                                "key": "spend_request_request_type",
+                                "mask": null,
+                                "display": "Request type",
+                                "state_type": "STATIC",
+                                "object_type": "spend_request_request_type",
+                                "available_operand_type": "STATE_OBJECT"
+                              },
+                              {
+                                "key": "user_role",
+                                "mask": null,
+                                "display": "Requesting user role",
+                                "state_type": "STATIC",
+                                "object_type": "user_role",
+                                "available_operand_type": "STATE_OBJECT"
+                              },
+                              {
+                                "object_type": "tracking_category",
+                                "available_operand_type": "OBJECT"
+                              },
+                              {
+                                "key": "spend_request_vendor_type",
+                                "mask": null,
+                                "display": "Vendor",
+                                "state_type": "STATIC",
+                                "object_type": "spend_request_vendor_type",
+                                "available_operand_type": "STATE_OBJECT"
+                              }
+                            ]
+                          }
+                        ],
+                        "condition": {
+                          "items": [
+                            {
+                              "operator": {
+                                "operator": "custom_form_fields__text_select_is_one_of",
+                                "operator_display": "is"
+                              },
+                              "left_operand": {
+                                "object": {
+                                  "id": "how_will_this_software_purchase_be_made",
+                                  "deleted": false,
+                                  "object_type": "custom_form_fields__text_select",
+                                  "display_name": "How will this software purchase be made?"
+                                },
+                                "object_type": "custom_form_fields__text_select",
+                                "operand_type": "OBJECT"
+                              },
+                              "right_operand": {
+                                "objects": [
+                                  {
+                                    "id": "Signed contract",
+                                    "deleted": false,
+                                    "object_type": "custom_form_value__text_select",
+                                    "display_name": "Signed contract"
+                                  }
+                                ],
+                                "object_type": "custom_form_value__text_select",
+                                "operand_type": "OBJECT_LIST"
+                              },
+                              "condition_item_type": "CONDITION"
+                            }
+                          ],
+                          "operator": "ALL"
+                        }
+                      },
+                      "required_if_conditions": null,
+                      "is_mapped_to_ironclad_field": false,
+                      "field_mapping_references": [],
+                      "is_used_in_approval_workflow_condition": false,
+                      "is_used_in_approval_workflow_approval_step": false,
+                      "is_used_in_custom_form_workflow_condition": false,
+                      "attachments": [],
+                      "global_library_field_id": null,
+                      "field": {
+                        "field_type": "FILE_UPLOAD",
+                        "comment": null,
+                        "mapped_fields": [],
+                        "document_category": null,
+                        "allowed_file_types": null,
+                        "value": null
+                      },
+                      "validation_errors": [],
+                      "value_display_string": null
+                    }
+                  ],
+                  "label": null
+                }
+              ]
+            }
+          },
+          "withholding_default_rate": null,
+          "item_receipt_ids": [],
+          "amount": {
+            "currency_code": "USD",
+            "minor_unit_conversion_rate": 100,
+            "amount": 2050000
+          },
+          "user_id": "3ed54b88-fa34-4864-b35d-c2113b83fe07",
+          "id": "01a139ea-1cb3-7c62-b234-c368a1c4d404",
+          "created_at": "2026-10-14T10:16:45+00:00",
+          "shipping_contact_last_name": "Bratton"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 14 Oct 2026 11:08:03 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1752",
+          "x-ratelimit-reset": "1791976088",
+          "cf-ray": "a4a61fb31ca5ff02-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "server": "cloudflare",
+          "vary": "Origin, accept-encoding",
+          "content-security-policy": "upgrade-insecure-requests; frame-ancestors 'self' https://demo.ramp.com; report-uri https://ramp.report-uri.com/r/d/csp/enforce",
+          "ramp-worker-name": "demo-app-worker",
+          "server-timing": "gt;dur=523.495, ge;dur=0.519, px;dur=522.715, fw;dur=601.00, fwe;dur=0.00, fwx;dur=601.00",
+          "x-debug-cell-id": "none",
+          "x-debug-routing-key": "none",
+          "x-debug-upstream-cache-control": "none",
+          "x-ramp-body-source": "others",
+          "x-ramp-business-id": "e15cd7ee-ab7e-4173-a82f-00f33901c1ca",
+          "x-ramp-cf-ray": "a4a61fb32960a60a-IAD",
+          "x-ramp-request-id": "01a13a19-0c23-752a-9e7e-721b5eba3d90",
+          "x-trace-id": "ramp-3cff460bd17b405fbcd69409f2d39ee1",
+          "set-cookie": "__cf_bm=C_tgM_KDizj44wdK1Lu2yP6scY6rar1ispQmFOi__bI-1791976082.4159808-1.0.1.1-KWyxh6BFOiyF_IwDthytGTMZO1_xu1GC0z6gTLm0IJgghdy3Ji1d9gtiBPYYFGHnFZOVXqWHcnmGR.q7aK9fJsx1FqrpxpzgST1FAKIWx1gjVDUMEkERKe5zBTvvN13A; HttpOnly; SameSite=None; Secure; Path=/; Domain=ramp.com; Expires=Wed, 14 Oct 2026 11:38:03 GMT",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "hash": "68cf5217bd6b43b2c71ce6e10cc812d0e3c7e985",
+        "request": {}
+      }
+    }
+  }
+}

@@ -1,0 +1,99 @@
+{
+  "input": {
+    "entity_type": "BILL",
+    "entity_ids": [
+      "79e87b94-b823-46f4-aed4-d05d9fc33463"
+    ]
+  },
+  "output": {
+    "approvals": [
+      {
+        "entity_id": "79e87b94-b823-46f4-aed4-d05d9fc33463",
+        "entity_type": "bill",
+        "status": "APPROVED",
+        "approval_history": [
+          {
+            "user_id": "6200bcff-d274-4ff9-83a7-4276e3a57997",
+            "user_email": "api+admin_1@nango.dev",
+            "action_at": "2026-10-14T10:18:07.190240+00:00",
+            "step_status": "Approved"
+          }
+        ],
+        "next_approvers": []
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/developer/v1/approvals": {
+        "response": {
+          "page": {
+            "next": null
+          },
+          "data": [
+            {
+              "status": "APPROVED",
+              "entity_id": "79e87b94-b823-46f4-aed4-d05d9fc33463",
+              "entity_type": "bill",
+              "approval_history": [
+                {
+                  "step_status": "Approved",
+                  "action_at": "2026-10-14T10:18:07.190240+00:00",
+                  "user_id": "6200bcff-d274-4ff9-83a7-4276e3a57997",
+                  "user_email": "api+admin_1@nango.dev"
+                }
+              ],
+              "next_approvers": []
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 14 Oct 2026 11:10:45 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1877",
+          "x-ratelimit-reset": "1791976271",
+          "cf-ray": "a4a623aa79f18d3a-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "server": "cloudflare",
+          "vary": "Origin, accept-encoding",
+          "content-security-policy": "upgrade-insecure-requests; frame-ancestors 'self' https://demo.ramp.com; report-uri https://ramp.report-uri.com/r/d/csp/enforce",
+          "ramp-worker-name": "demo-app-worker",
+          "server-timing": "gt;dur=168.010, ge;dur=0.154, px;dur=167.800, fw;dur=242.00, fwe;dur=0.00, fwx;dur=242.00",
+          "x-debug-cell-id": "none",
+          "x-debug-routing-key": "none",
+          "x-debug-upstream-cache-control": "none",
+          "x-ramp-body-source": "others",
+          "x-ramp-business-id": "e15cd7ee-ab7e-4173-a82f-00f33901c1ca",
+          "x-ramp-cf-ray": "a4a623aa8b9f20eb-IAD",
+          "x-ramp-request-id": "01a13a1b-86bd-7e13-b1ab-6ec83e6b82e1",
+          "x-trace-id": "ramp-f9d3e64b10b4495095176551c16bfad0",
+          "set-cookie": "__cf_bm=ZUH3q.zaFU3evuXNSjOu4GwyHoA3IRHAk4pJtSSEn74-1791976244.8728106-1.0.1.1-GKoKDzcNKMn44ZqgMyHcGsZd3JoiJN07NZ2PYGjRwsWKQHCJ5BxOP0u9YBky8g8yqOwIlY65au.ZEpeGvbCZ4LcBD7PxFMLT573b73cp2HEYe.EEq_x.lHkMfpp3bwlD; HttpOnly; SameSite=None; Secure; Path=/; Domain=ramp.com; Expires=Wed, 14 Oct 2026 11:40:45 GMT",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "hash": "139772fb6b50593390ff9173e3bbe9ba26f601f1",
+        "request": {
+          "params": {
+            "entity_ids": "79e87b94-b823-46f4-aed4-d05d9fc33463",
+            "entity_type": "BILL",
+            "page_size": "100"
+          }
+        }
+      }
+    }
+  }
+}

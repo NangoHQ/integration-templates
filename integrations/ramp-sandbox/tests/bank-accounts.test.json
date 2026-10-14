@@ -1,0 +1,229 @@
+{
+  "nango": {
+    "batchSave": {
+      "BankAccount": [
+        {
+          "id": "9128effa-03f6-4302-b895-3468ab319cd2",
+          "account_name": "Brown Ltd",
+          "account_number_last_four": "6653",
+          "account_subtype": "checking",
+          "connection_provider": "manual",
+          "financial_institution_name": null,
+          "has_ach_details": false
+        },
+        {
+          "id": "fc37ae7e-ef76-4eb1-acf6-30e4c6d9ac3a",
+          "account_name": "Jones and Sons",
+          "account_number_last_four": "1264",
+          "account_subtype": "checking",
+          "connection_provider": "manual",
+          "financial_institution_name": null,
+          "has_ach_details": false
+        },
+        {
+          "id": "54f70182-c32a-43d4-8286-8b6a032adac0",
+          "account_name": "Stokes and Sons",
+          "account_number_last_four": "1832",
+          "account_subtype": "checking",
+          "connection_provider": "manual",
+          "financial_institution_name": "Test Bank",
+          "has_ach_details": true
+        },
+        {
+          "id": "db922c01-2e70-4b72-97a2-b3d92fb547f4",
+          "account_name": "Stablecoin Account",
+          "account_number_last_four": "4242",
+          "account_subtype": "checking",
+          "connection_provider": "ramp_wallet",
+          "financial_institution_name": null,
+          "has_ach_details": false
+        },
+        {
+          "id": "cd205940-83a7-469c-9585-296f11e8b351",
+          "account_name": "Investment Account - 2W487EG",
+          "account_number_last_four": "1234",
+          "account_subtype": "investment",
+          "connection_provider": "ramp_brokerage",
+          "financial_institution_name": null,
+          "has_ach_details": false
+        },
+        {
+          "id": "0cb665b6-49d5-4723-b29a-71ce8af70751",
+          "account_name": "Checking Account",
+          "account_number_last_four": "0001",
+          "account_subtype": "savings",
+          "connection_provider": "ramp_wallet",
+          "financial_institution_name": null,
+          "has_ach_details": false
+        },
+        {
+          "id": "63e1fe7c-418b-46e3-ba38-53ce229be26c",
+          "account_name": "Savings",
+          "account_number_last_four": "7777",
+          "account_subtype": "savings",
+          "connection_provider": "manual",
+          "financial_institution_name": null,
+          "has_ach_details": false
+        },
+        {
+          "id": "89e39479-281a-499d-a123-56a616921589",
+          "account_name": "Savings",
+          "account_number_last_four": "4512",
+          "account_subtype": "savings",
+          "connection_provider": "manual",
+          "financial_institution_name": null,
+          "has_ach_details": false
+        },
+        {
+          "id": "7bc1bb89-5ed5-48cd-a71c-9de9e383f745",
+          "account_name": "Checking",
+          "account_number_last_four": "9752",
+          "account_subtype": "savings",
+          "connection_provider": "manual",
+          "financial_institution_name": "Test Bank",
+          "has_ach_details": true
+        }
+      ]
+    },
+    "batchDelete": {
+      "BankAccount": []
+    }
+  },
+  "api": {
+    "get": {
+      "/developer/v1/bank-accounts": {
+        "response": {
+          "data": [
+            {
+              "account_number_last_four": "6653",
+              "connection_provider": "manual",
+              "financial_institution_name": null,
+              "id": "9128effa-03f6-4302-b895-3468ab319cd2",
+              "has_ach_details": false,
+              "account_name": "Brown Ltd",
+              "account_subtype": "checking"
+            },
+            {
+              "account_number_last_four": "1264",
+              "connection_provider": "manual",
+              "financial_institution_name": null,
+              "id": "fc37ae7e-ef76-4eb1-acf6-30e4c6d9ac3a",
+              "has_ach_details": false,
+              "account_name": "Jones and Sons",
+              "account_subtype": "checking"
+            },
+            {
+              "account_number_last_four": "1832",
+              "connection_provider": "manual",
+              "financial_institution_name": "Test Bank",
+              "id": "54f70182-c32a-43d4-8286-8b6a032adac0",
+              "has_ach_details": true,
+              "account_name": "Stokes and Sons",
+              "account_subtype": "checking"
+            },
+            {
+              "account_number_last_four": "4242",
+              "connection_provider": "ramp_wallet",
+              "financial_institution_name": null,
+              "id": "db922c01-2e70-4b72-97a2-b3d92fb547f4",
+              "has_ach_details": false,
+              "account_name": "Stablecoin Account",
+              "account_subtype": "checking"
+            },
+            {
+              "account_number_last_four": "1234",
+              "connection_provider": "ramp_brokerage",
+              "financial_institution_name": null,
+              "id": "cd205940-83a7-469c-9585-296f11e8b351",
+              "has_ach_details": false,
+              "account_name": "Investment Account - 2W487EG",
+              "account_subtype": "investment"
+            },
+            {
+              "account_number_last_four": "0001",
+              "connection_provider": "ramp_wallet",
+              "financial_institution_name": null,
+              "id": "0cb665b6-49d5-4723-b29a-71ce8af70751",
+              "has_ach_details": false,
+              "account_name": "Checking Account",
+              "account_subtype": "savings"
+            },
+            {
+              "account_number_last_four": "7777",
+              "connection_provider": "manual",
+              "financial_institution_name": null,
+              "id": "63e1fe7c-418b-46e3-ba38-53ce229be26c",
+              "has_ach_details": false,
+              "account_name": "Savings",
+              "account_subtype": "savings"
+            },
+            {
+              "account_number_last_four": "4512",
+              "connection_provider": "manual",
+              "financial_institution_name": null,
+              "id": "89e39479-281a-499d-a123-56a616921589",
+              "has_ach_details": false,
+              "account_name": "Savings",
+              "account_subtype": "savings"
+            },
+            {
+              "account_number_last_four": "9752",
+              "connection_provider": "manual",
+              "financial_institution_name": "Test Bank",
+              "id": "7bc1bb89-5ed5-48cd-a71c-9de9e383f745",
+              "has_ach_details": true,
+              "account_name": "Checking",
+              "account_subtype": "savings"
+            }
+          ],
+          "page": {
+            "next": null
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 14 Oct 2026 11:52:23 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1994",
+          "x-ratelimit-reset": "1791978798",
+          "cf-ray": "a4a660a70c8ba11a-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "server": "cloudflare",
+          "vary": "Origin, accept-encoding",
+          "content-security-policy": "upgrade-insecure-requests; frame-ancestors 'self' https://demo.ramp.com; report-uri https://ramp.report-uri.com/r/d/csp/enforce",
+          "ramp-worker-name": "demo-app-worker",
+          "server-timing": "gt;dur=171.007, ge;dur=0.198, px;dur=170.729, fw;dur=249.00, fwe;dur=0.00, fwx;dur=249.00",
+          "x-debug-cell-id": "none",
+          "x-debug-routing-key": "none",
+          "x-debug-upstream-cache-control": "none",
+          "x-ramp-body-source": "others",
+          "x-ramp-business-id": "e15cd7ee-ab7e-4173-a82f-00f33901c1ca",
+          "x-ramp-cf-ray": "a4a660a7094320eb-PDX",
+          "x-ramp-request-id": "01a13a41-a49b-7dfa-ada2-1ee79ff943db",
+          "x-trace-id": "ramp-bc3e57d7208d4f95820239796e134d30",
+          "set-cookie": "__cf_bm=daLNxpQhiMC7Ob2GqE713msjITSaTeS0YgxGr_OcL9Y-1791978742.8814662-1.0.1.1-J1IFMgZdXYXj_5YT7bBaaDU4zMNCJ4fTdotRDd7tq9Bm_pbJmObjbb4EOiWGCT6y6K7G2ZyHaGh5ypO8B9NiLA2WI5m6nga556RUyMR5KVfaf9o1O5joutfcoMOVQU9A; HttpOnly; SameSite=None; Secure; Path=/; Domain=ramp.com; Expires=Wed, 14 Oct 2026 12:22:23 GMT",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "hash": "0c0d65f7c2c9aad0896fa6483213f8e05057dd9d",
+        "request": {
+          "params": {
+            "page_size": "100"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,924 @@
+{
+  "input": {
+    "spend_program_id": "dc16e322-3884-484b-ab63-bf4ad78dc1e0"
+  },
+  "output": {
+    "id": "dc16e322-3884-484b-ab63-bf4ad78dc1e0",
+    "display_name": "Software",
+    "description": "Buying software",
+    "icon": "PerDiemCardIcon",
+    "is_shareable": false,
+    "issue_physical_card_if_needed": false,
+    "permitted_spend_types": {
+      "primary_card_enabled": true,
+      "reimbursements_enabled": true
+    },
+    "restrictions": {
+      "allowed_categories": [],
+      "blocked_categories": [],
+      "allowed_vendors": [],
+      "blocked_vendors": [],
+      "interval": "CUSTOM"
+    },
+    "line_item_accounting_fields": [],
+    "line_item_custom_fields": [],
+    "custom_form_collection": {
+      "custom_form_collection_log_entry": {
+        "forms": [
+          {
+            "fields": [
+              {
+                "field_id": "415174ae-5dc5-4af0-bf3d-066b10878c84",
+                "label": "Is this a new software purchase or renewal?",
+                "description": "",
+                "required": false,
+                "exclude_from_ai_prefill": false,
+                "is_mapped_to_ironclad_field": false,
+                "is_used_in_approval_workflow_condition": false,
+                "is_used_in_approval_workflow_approval_step": false,
+                "is_used_in_custom_form_workflow_condition": false,
+                "field_mapping_references": [],
+                "attachments": [],
+                "field": {
+                  "field_type": "TEXT_SINGLE_SELECT",
+                  "choices": [
+                    {
+                      "value": {
+                        "value": "New software purchase"
+                      },
+                      "value_id": "type-string-is_list-false-value-string-yes"
+                    },
+                    {
+                      "value": {
+                        "value": "Renewal"
+                      },
+                      "value_id": "type-string-is_list-false-value-string-existing-no"
+                    }
+                  ],
+                  "mapped_fields": []
+                }
+              },
+              {
+                "field_id": "20a3215f-fe53-4f17-be4b-a953dbdb8536",
+                "label": "Specify the vendor for this request",
+                "description": "",
+                "required": true,
+                "exclude_from_ai_prefill": false,
+                "is_mapped_to_ironclad_field": false,
+                "is_used_in_approval_workflow_condition": false,
+                "is_used_in_approval_workflow_approval_step": false,
+                "is_used_in_custom_form_workflow_condition": false,
+                "field_mapping_references": [],
+                "attachments": [],
+                "field": {
+                  "field_type": "VENDOR"
+                }
+              },
+              {
+                "field_id": "84c9dd17-33d1-4d83-b19d-1585cf699d47",
+                "label": "Please describe the business problem this software will solve.",
+                "description": "",
+                "required": true,
+                "exclude_from_ai_prefill": false,
+                "is_mapped_to_ironclad_field": false,
+                "is_used_in_approval_workflow_condition": false,
+                "is_used_in_approval_workflow_approval_step": false,
+                "is_used_in_custom_form_workflow_condition": false,
+                "field_mapping_references": [],
+                "attachments": [],
+                "field": {
+                  "field_type": "TEXT",
+                  "mapped_fields": []
+                }
+              },
+              {
+                "field_id": "28fdaa47-06ce-4dfe-9dd7-eb8d9b80688a",
+                "label": "When would you like this software procured by?",
+                "description": "",
+                "required": false,
+                "exclude_from_ai_prefill": false,
+                "is_mapped_to_ironclad_field": false,
+                "is_used_in_approval_workflow_condition": false,
+                "is_used_in_approval_workflow_approval_step": false,
+                "is_used_in_custom_form_workflow_condition": false,
+                "field_mapping_references": [],
+                "attachments": [],
+                "field": {
+                  "field_type": "DATE",
+                  "mapped_fields": []
+                }
+              },
+              {
+                "field_id": "73b25691-39c7-4700-8d6c-05d1a81b8652",
+                "label": "Does this fit into your department's approved budget?",
+                "description": "",
+                "required": false,
+                "exclude_from_ai_prefill": false,
+                "is_mapped_to_ironclad_field": false,
+                "is_used_in_approval_workflow_condition": false,
+                "is_used_in_approval_workflow_approval_step": false,
+                "is_used_in_custom_form_workflow_condition": false,
+                "field_mapping_references": [],
+                "attachments": [],
+                "field": {
+                  "field_type": "TEXT_SINGLE_SELECT",
+                  "choices": [
+                    {
+                      "value": {
+                        "value": "Yes"
+                      },
+                      "value_id": "type-string-is_list-false-value-string-yes"
+                    },
+                    {
+                      "value": {
+                        "value": "No"
+                      },
+                      "value_id": "type-string-is_list-false-value-string-existing-no"
+                    },
+                    {
+                      "value": {
+                        "value": "Unsure"
+                      },
+                      "value_id": "type-string-is_list-false-value-string-existing-unsure"
+                    }
+                  ],
+                  "mapped_fields": []
+                }
+              },
+              {
+                "field_id": "will_this_software_access_or_share_any_confidential_or_sensitive_business_information",
+                "label": "Will this software access or share any confidential or sensitive business information?",
+                "description": "",
+                "required": false,
+                "exclude_from_ai_prefill": false,
+                "is_mapped_to_ironclad_field": false,
+                "is_used_in_approval_workflow_condition": false,
+                "is_used_in_approval_workflow_approval_step": false,
+                "is_used_in_custom_form_workflow_condition": false,
+                "field_mapping_references": [],
+                "attachments": [],
+                "field": {
+                  "field_type": "BOOLEAN",
+                  "mapped_fields": []
+                }
+              },
+              {
+                "field_id": "9f466b59-5990-4c64-b627-d778fcee3185",
+                "label": "Please enter the details for your primary contact at this vendor",
+                "description": "",
+                "required": false,
+                "exclude_from_ai_prefill": false,
+                "is_mapped_to_ironclad_field": false,
+                "is_used_in_approval_workflow_condition": false,
+                "is_used_in_approval_workflow_approval_step": false,
+                "is_used_in_custom_form_workflow_condition": false,
+                "field_mapping_references": [],
+                "attachments": [],
+                "field": {
+                  "field_type": "CONTACT",
+                  "mapped_fields": [
+                    {
+                      "mapped_field": "PURCHASE_ORDER__PAYEE_CONTACT"
+                    }
+                  ]
+                }
+              },
+              {
+                "field_id": "how_will_this_software_purchase_be_made",
+                "label": "How will this software purchase be made?",
+                "description": "",
+                "required": true,
+                "exclude_from_ai_prefill": false,
+                "is_mapped_to_ironclad_field": false,
+                "is_used_in_approval_workflow_condition": false,
+                "is_used_in_approval_workflow_approval_step": false,
+                "is_used_in_custom_form_workflow_condition": true,
+                "field_mapping_references": [],
+                "attachments": [],
+                "field": {
+                  "field_type": "TEXT_SINGLE_SELECT",
+                  "choices": [
+                    {
+                      "value": {
+                        "value": "Online click-through agreement"
+                      },
+                      "value_id": "type-string-is_list-false-value-string-yes"
+                    },
+                    {
+                      "value": {
+                        "value": "Signed contract"
+                      },
+                      "value_id": "type-string-is_list-false-value-string-existing-no"
+                    }
+                  ],
+                  "mapped_fields": []
+                }
+              },
+              {
+                "field_id": "f874758d-6167-414b-8a43-e7d29c00c3de",
+                "label": "Please upload the draft contract or quote (if provided one)",
+                "description": "",
+                "required": false,
+                "exclude_from_ai_prefill": false,
+                "conditions": {
+                  "then": [
+                    {
+                      "uuid": "3230c254-a3cb-4076-b13b-f121670abad3",
+                      "metadata": {},
+                      "identifier": "custom_form_fields__show_field",
+                      "vertex_type": "ACTION",
+                      "action_kwargs": [
+                        {
+                          "key": "bool_field_id",
+                          "object": {
+                            "id": "f874758d-6167-414b-8a43-e7d29c00c3de",
+                            "deleted": false,
+                            "object_type": "custom_form_fields__bool",
+                            "display_name": "None"
+                          },
+                          "object_type": "custom_form_fields__bool",
+                          "action_kwarg_type": "OBJECT"
+                        }
+                      ],
+                      "has_been_visited": false,
+                      "available_operands": [
+                        {
+                          "key": "procurement_total_amount",
+                          "mask": "CURRENCY",
+                          "type": "NUMERIC",
+                          "display": "Amount (total)",
+                          "child_type": null,
+                          "state_type": "STATIC",
+                          "available_operand_type": "STATE"
+                        },
+                        {
+                          "key": "entity_uuid",
+                          "mask": null,
+                          "display": "Business entity",
+                          "state_type": "STATIC",
+                          "object_type": "entity",
+                          "available_operand_type": "STATE_OBJECT"
+                        },
+                        {
+                          "object_type": "change_request_diff__bool",
+                          "available_operand_type": "OBJECT"
+                        },
+                        {
+                          "object_type": "change_request_diff__text_select",
+                          "available_operand_type": "OBJECT"
+                        },
+                        {
+                          "object_type": "custom_form_fields__bool",
+                          "available_operand_type": "OBJECT"
+                        },
+                        {
+                          "object_type": "custom_form_fields__department",
+                          "available_operand_type": "OBJECT"
+                        },
+                        {
+                          "object_type": "custom_form_fields__text_select",
+                          "available_operand_type": "OBJECT"
+                        },
+                        {
+                          "object_type": "custom_form_fields__vendor",
+                          "available_operand_type": "OBJECT"
+                        },
+                        {
+                          "key": "user_uuid",
+                          "mask": null,
+                          "display": "Employee",
+                          "state_type": "STATIC",
+                          "object_type": "user",
+                          "available_operand_type": "STATE_OBJECT"
+                        },
+                        {
+                          "key": "spend_request_payment_method",
+                          "mask": null,
+                          "display": "Payment method",
+                          "state_type": "STATIC",
+                          "object_type": "spend_request_payment_method",
+                          "available_operand_type": "STATE_OBJECT"
+                        },
+                        {
+                          "key": "department_uuid",
+                          "mask": null,
+                          "display": "Ramp department",
+                          "state_type": "STATIC",
+                          "object_type": "department",
+                          "available_operand_type": "STATE_OBJECT"
+                        },
+                        {
+                          "key": "location_uuid",
+                          "mask": null,
+                          "display": "Ramp location",
+                          "state_type": "STATIC",
+                          "object_type": "location",
+                          "available_operand_type": "STATE_OBJECT"
+                        },
+                        {
+                          "key": "spend_request_request_type",
+                          "mask": null,
+                          "display": "Request type",
+                          "state_type": "STATIC",
+                          "object_type": "spend_request_request_type",
+                          "available_operand_type": "STATE_OBJECT"
+                        },
+                        {
+                          "key": "user_role",
+                          "mask": null,
+                          "display": "Requesting user role",
+                          "state_type": "STATIC",
+                          "object_type": "user_role",
+                          "available_operand_type": "STATE_OBJECT"
+                        },
+                        {
+                          "object_type": "tracking_category",
+                          "available_operand_type": "OBJECT"
+                        },
+                        {
+                          "key": "spend_request_vendor_type",
+                          "mask": null,
+                          "display": "Vendor",
+                          "state_type": "STATIC",
+                          "object_type": "spend_request_vendor_type",
+                          "available_operand_type": "STATE_OBJECT"
+                        }
+                      ]
+                    }
+                  ],
+                  "condition": {
+                    "items": [
+                      {
+                        "operator": {
+                          "operator": "custom_form_fields__text_select_is_one_of",
+                          "operator_display": "is"
+                        },
+                        "left_operand": {
+                          "object": {
+                            "id": "how_will_this_software_purchase_be_made",
+                            "deleted": false,
+                            "object_type": "custom_form_fields__text_select",
+                            "display_name": "How will this software purchase be made?"
+                          },
+                          "object_type": "custom_form_fields__text_select",
+                          "operand_type": "OBJECT"
+                        },
+                        "right_operand": {
+                          "objects": [
+                            {
+                              "id": "Signed contract",
+                              "deleted": false,
+                              "object_type": "custom_form_value__text_select",
+                              "display_name": "Signed contract"
+                            }
+                          ],
+                          "object_type": "custom_form_value__text_select",
+                          "operand_type": "OBJECT_LIST"
+                        },
+                        "condition_item_type": "CONDITION"
+                      }
+                    ],
+                    "operator": "ALL"
+                  }
+                },
+                "is_mapped_to_ironclad_field": false,
+                "is_used_in_approval_workflow_condition": false,
+                "is_used_in_approval_workflow_approval_step": false,
+                "is_used_in_custom_form_workflow_condition": false,
+                "field_mapping_references": [],
+                "attachments": [],
+                "field": {
+                  "field_type": "FILE_UPLOAD",
+                  "mapped_fields": []
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/developer/v1/spend-programs/dc16e322-3884-484b-ab63-bf4ad78dc1e0": {
+        "response": {
+          "line_item_accounting_fields": [],
+          "permitted_spend_types": {
+            "primary_card_enabled": true,
+            "reimbursements_enabled": true
+          },
+          "line_item_custom_fields": [],
+          "custom_form_collection": {
+            "custom_form_collection_log_entry": {
+              "label": null,
+              "forms": [
+                {
+                  "label": null,
+                  "fields": [
+                    {
+                      "field_id": "415174ae-5dc5-4af0-bf3d-066b10878c84",
+                      "label": "Is this a new software purchase or renewal?",
+                      "short_title": null,
+                      "description": "",
+                      "required": false,
+                      "exclude_from_ai_prefill": false,
+                      "conditions": null,
+                      "required_if_conditions": null,
+                      "is_mapped_to_ironclad_field": false,
+                      "field_mapping_references": [],
+                      "is_used_in_approval_workflow_condition": false,
+                      "is_used_in_approval_workflow_approval_step": false,
+                      "is_used_in_custom_form_workflow_condition": false,
+                      "attachments": [],
+                      "global_library_field_id": null,
+                      "field": {
+                        "field_type": "TEXT_SINGLE_SELECT",
+                        "choices": [
+                          {
+                            "value": {
+                              "value": "New software purchase"
+                            },
+                            "value_id": "type-string-is_list-false-value-string-yes"
+                          },
+                          {
+                            "value": {
+                              "value": "Renewal"
+                            },
+                            "value_id": "type-string-is_list-false-value-string-existing-no"
+                          }
+                        ],
+                        "mapped_fields": []
+                      },
+                      "disclaimer": null,
+                      "document_category": null,
+                      "answer_filter_workflow_definition": null,
+                      "default_answer_workflow_definition": null
+                    },
+                    {
+                      "field_id": "20a3215f-fe53-4f17-be4b-a953dbdb8536",
+                      "label": "Specify the vendor for this request",
+                      "short_title": null,
+                      "description": "",
+                      "required": true,
+                      "exclude_from_ai_prefill": false,
+                      "conditions": null,
+                      "required_if_conditions": null,
+                      "is_mapped_to_ironclad_field": false,
+                      "field_mapping_references": [],
+                      "is_used_in_approval_workflow_condition": false,
+                      "is_used_in_approval_workflow_approval_step": false,
+                      "is_used_in_custom_form_workflow_condition": false,
+                      "attachments": [],
+                      "global_library_field_id": null,
+                      "field": {
+                        "field_type": "VENDOR"
+                      },
+                      "disclaimer": null,
+                      "document_category": null,
+                      "answer_filter_workflow_definition": null,
+                      "default_answer_workflow_definition": null
+                    },
+                    {
+                      "field_id": "84c9dd17-33d1-4d83-b19d-1585cf699d47",
+                      "label": "Please describe the business problem this software will solve.",
+                      "short_title": null,
+                      "description": "",
+                      "required": true,
+                      "exclude_from_ai_prefill": false,
+                      "conditions": null,
+                      "required_if_conditions": null,
+                      "is_mapped_to_ironclad_field": false,
+                      "field_mapping_references": [],
+                      "is_used_in_approval_workflow_condition": false,
+                      "is_used_in_approval_workflow_approval_step": false,
+                      "is_used_in_custom_form_workflow_condition": false,
+                      "attachments": [],
+                      "global_library_field_id": null,
+                      "field": {
+                        "field_type": "TEXT",
+                        "mapped_fields": []
+                      },
+                      "disclaimer": null,
+                      "document_category": null,
+                      "answer_filter_workflow_definition": null,
+                      "default_answer_workflow_definition": null
+                    },
+                    {
+                      "field_id": "28fdaa47-06ce-4dfe-9dd7-eb8d9b80688a",
+                      "label": "When would you like this software procured by?",
+                      "short_title": null,
+                      "description": "",
+                      "required": false,
+                      "exclude_from_ai_prefill": false,
+                      "conditions": null,
+                      "required_if_conditions": null,
+                      "is_mapped_to_ironclad_field": false,
+                      "field_mapping_references": [],
+                      "is_used_in_approval_workflow_condition": false,
+                      "is_used_in_approval_workflow_approval_step": false,
+                      "is_used_in_custom_form_workflow_condition": false,
+                      "attachments": [],
+                      "global_library_field_id": null,
+                      "field": {
+                        "field_type": "DATE",
+                        "mapped_fields": []
+                      },
+                      "disclaimer": null,
+                      "document_category": null,
+                      "answer_filter_workflow_definition": null,
+                      "default_answer_workflow_definition": null
+                    },
+                    {
+                      "field_id": "73b25691-39c7-4700-8d6c-05d1a81b8652",
+                      "label": "Does this fit into your department's approved budget?",
+                      "short_title": null,
+                      "description": "",
+                      "required": false,
+                      "exclude_from_ai_prefill": false,
+                      "conditions": null,
+                      "required_if_conditions": null,
+                      "is_mapped_to_ironclad_field": false,
+                      "field_mapping_references": [],
+                      "is_used_in_approval_workflow_condition": false,
+                      "is_used_in_approval_workflow_approval_step": false,
+                      "is_used_in_custom_form_workflow_condition": false,
+                      "attachments": [],
+                      "global_library_field_id": null,
+                      "field": {
+                        "field_type": "TEXT_SINGLE_SELECT",
+                        "choices": [
+                          {
+                            "value": {
+                              "value": "Yes"
+                            },
+                            "value_id": "type-string-is_list-false-value-string-yes"
+                          },
+                          {
+                            "value": {
+                              "value": "No"
+                            },
+                            "value_id": "type-string-is_list-false-value-string-existing-no"
+                          },
+                          {
+                            "value": {
+                              "value": "Unsure"
+                            },
+                            "value_id": "type-string-is_list-false-value-string-existing-unsure"
+                          }
+                        ],
+                        "mapped_fields": []
+                      },
+                      "disclaimer": null,
+                      "document_category": null,
+                      "answer_filter_workflow_definition": null,
+                      "default_answer_workflow_definition": null
+                    },
+                    {
+                      "field_id": "will_this_software_access_or_share_any_confidential_or_sensitive_business_information",
+                      "label": "Will this software access or share any confidential or sensitive business information?",
+                      "short_title": null,
+                      "description": "",
+                      "required": false,
+                      "exclude_from_ai_prefill": false,
+                      "conditions": null,
+                      "required_if_conditions": null,
+                      "is_mapped_to_ironclad_field": false,
+                      "field_mapping_references": [],
+                      "is_used_in_approval_workflow_condition": false,
+                      "is_used_in_approval_workflow_approval_step": false,
+                      "is_used_in_custom_form_workflow_condition": false,
+                      "attachments": [],
+                      "global_library_field_id": null,
+                      "field": {
+                        "field_type": "BOOLEAN",
+                        "mapped_fields": []
+                      },
+                      "disclaimer": null,
+                      "document_category": null,
+                      "answer_filter_workflow_definition": null,
+                      "default_answer_workflow_definition": null
+                    },
+                    {
+                      "field_id": "9f466b59-5990-4c64-b627-d778fcee3185",
+                      "label": "Please enter the details for your primary contact at this vendor",
+                      "short_title": null,
+                      "description": "",
+                      "required": false,
+                      "exclude_from_ai_prefill": false,
+                      "conditions": null,
+                      "required_if_conditions": null,
+                      "is_mapped_to_ironclad_field": false,
+                      "field_mapping_references": [],
+                      "is_used_in_approval_workflow_condition": false,
+                      "is_used_in_approval_workflow_approval_step": false,
+                      "is_used_in_custom_form_workflow_condition": false,
+                      "attachments": [],
+                      "global_library_field_id": null,
+                      "field": {
+                        "field_type": "CONTACT",
+                        "mapped_fields": [
+                          {
+                            "mapped_field": "PURCHASE_ORDER__PAYEE_CONTACT"
+                          }
+                        ]
+                      },
+                      "disclaimer": null,
+                      "document_category": null,
+                      "answer_filter_workflow_definition": null,
+                      "default_answer_workflow_definition": null
+                    },
+                    {
+                      "field_id": "how_will_this_software_purchase_be_made",
+                      "label": "How will this software purchase be made?",
+                      "short_title": null,
+                      "description": "",
+                      "required": true,
+                      "exclude_from_ai_prefill": false,
+                      "conditions": null,
+                      "required_if_conditions": null,
+                      "is_mapped_to_ironclad_field": false,
+                      "field_mapping_references": [],
+                      "is_used_in_approval_workflow_condition": false,
+                      "is_used_in_approval_workflow_approval_step": false,
+                      "is_used_in_custom_form_workflow_condition": true,
+                      "attachments": [],
+                      "global_library_field_id": null,
+                      "field": {
+                        "field_type": "TEXT_SINGLE_SELECT",
+                        "choices": [
+                          {
+                            "value": {
+                              "value": "Online click-through agreement"
+                            },
+                            "value_id": "type-string-is_list-false-value-string-yes"
+                          },
+                          {
+                            "value": {
+                              "value": "Signed contract"
+                            },
+                            "value_id": "type-string-is_list-false-value-string-existing-no"
+                          }
+                        ],
+                        "mapped_fields": []
+                      },
+                      "disclaimer": null,
+                      "document_category": null,
+                      "answer_filter_workflow_definition": null,
+                      "default_answer_workflow_definition": null
+                    },
+                    {
+                      "field_id": "f874758d-6167-414b-8a43-e7d29c00c3de",
+                      "label": "Please upload the draft contract or quote (if provided one)",
+                      "short_title": null,
+                      "description": "",
+                      "required": false,
+                      "exclude_from_ai_prefill": false,
+                      "conditions": {
+                        "then": [
+                          {
+                            "uuid": "3230c254-a3cb-4076-b13b-f121670abad3",
+                            "metadata": {},
+                            "identifier": "custom_form_fields__show_field",
+                            "vertex_type": "ACTION",
+                            "action_kwargs": [
+                              {
+                                "key": "bool_field_id",
+                                "object": {
+                                  "id": "f874758d-6167-414b-8a43-e7d29c00c3de",
+                                  "deleted": false,
+                                  "object_type": "custom_form_fields__bool",
+                                  "display_name": "None"
+                                },
+                                "object_type": "custom_form_fields__bool",
+                                "action_kwarg_type": "OBJECT"
+                              }
+                            ],
+                            "has_been_visited": false,
+                            "available_operands": [
+                              {
+                                "key": "procurement_total_amount",
+                                "mask": "CURRENCY",
+                                "type": "NUMERIC",
+                                "display": "Amount (total)",
+                                "child_type": null,
+                                "state_type": "STATIC",
+                                "available_operand_type": "STATE"
+                              },
+                              {
+                                "key": "entity_uuid",
+                                "mask": null,
+                                "display": "Business entity",
+                                "state_type": "STATIC",
+                                "object_type": "entity",
+                                "available_operand_type": "STATE_OBJECT"
+                              },
+                              {
+                                "object_type": "change_request_diff__bool",
+                                "available_operand_type": "OBJECT"
+                              },
+                              {
+                                "object_type": "change_request_diff__text_select",
+                                "available_operand_type": "OBJECT"
+                              },
+                              {
+                                "object_type": "custom_form_fields__bool",
+                                "available_operand_type": "OBJECT"
+                              },
+                              {
+                                "object_type": "custom_form_fields__department",
+                                "available_operand_type": "OBJECT"
+                              },
+                              {
+                                "object_type": "custom_form_fields__text_select",
+                                "available_operand_type": "OBJECT"
+                              },
+                              {
+                                "object_type": "custom_form_fields__vendor",
+                                "available_operand_type": "OBJECT"
+                              },
+                              {
+                                "key": "user_uuid",
+                                "mask": null,
+                                "display": "Employee",
+                                "state_type": "STATIC",
+                                "object_type": "user",
+                                "available_operand_type": "STATE_OBJECT"
+                              },
+                              {
+                                "key": "spend_request_payment_method",
+                                "mask": null,
+                                "display": "Payment method",
+                                "state_type": "STATIC",
+                                "object_type": "spend_request_payment_method",
+                                "available_operand_type": "STATE_OBJECT"
+                              },
+                              {
+                                "key": "department_uuid",
+                                "mask": null,
+                                "display": "Ramp department",
+                                "state_type": "STATIC",
+                                "object_type": "department",
+                                "available_operand_type": "STATE_OBJECT"
+                              },
+                              {
+                                "key": "location_uuid",
+                                "mask": null,
+                                "display": "Ramp location",
+                                "state_type": "STATIC",
+                                "object_type": "location",
+                                "available_operand_type": "STATE_OBJECT"
+                              },
+                              {
+                                "key": "spend_request_request_type",
+                                "mask": null,
+                                "display": "Request type",
+                                "state_type": "STATIC",
+                                "object_type": "spend_request_request_type",
+                                "available_operand_type": "STATE_OBJECT"
+                              },
+                              {
+                                "key": "user_role",
+                                "mask": null,
+                                "display": "Requesting user role",
+                                "state_type": "STATIC",
+                                "object_type": "user_role",
+                                "available_operand_type": "STATE_OBJECT"
+                              },
+                              {
+                                "object_type": "tracking_category",
+                                "available_operand_type": "OBJECT"
+                              },
+                              {
+                                "key": "spend_request_vendor_type",
+                                "mask": null,
+                                "display": "Vendor",
+                                "state_type": "STATIC",
+                                "object_type": "spend_request_vendor_type",
+                                "available_operand_type": "STATE_OBJECT"
+                              }
+                            ]
+                          }
+                        ],
+                        "condition": {
+                          "items": [
+                            {
+                              "operator": {
+                                "operator": "custom_form_fields__text_select_is_one_of",
+                                "operator_display": "is"
+                              },
+                              "left_operand": {
+                                "object": {
+                                  "id": "how_will_this_software_purchase_be_made",
+                                  "deleted": false,
+                                  "object_type": "custom_form_fields__text_select",
+                                  "display_name": "How will this software purchase be made?"
+                                },
+                                "object_type": "custom_form_fields__text_select",
+                                "operand_type": "OBJECT"
+                              },
+                              "right_operand": {
+                                "objects": [
+                                  {
+                                    "id": "Signed contract",
+                                    "deleted": false,
+                                    "object_type": "custom_form_value__text_select",
+                                    "display_name": "Signed contract"
+                                  }
+                                ],
+                                "object_type": "custom_form_value__text_select",
+                                "operand_type": "OBJECT_LIST"
+                              },
+                              "condition_item_type": "CONDITION"
+                            }
+                          ],
+                          "operator": "ALL"
+                        }
+                      },
+                      "required_if_conditions": null,
+                      "is_mapped_to_ironclad_field": false,
+                      "field_mapping_references": [],
+                      "is_used_in_approval_workflow_condition": false,
+                      "is_used_in_approval_workflow_approval_step": false,
+                      "is_used_in_custom_form_workflow_condition": false,
+                      "attachments": [],
+                      "global_library_field_id": null,
+                      "field": {
+                        "field_type": "FILE_UPLOAD",
+                        "mapped_fields": [],
+                        "document_category": null,
+                        "allowed_file_types": null
+                      },
+                      "disclaimer": null,
+                      "document_category": null,
+                      "answer_filter_workflow_definition": null,
+                      "default_answer_workflow_definition": null
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          "icon": "PerDiemCardIcon",
+          "issue_physical_card_if_needed": false,
+          "id": "dc16e322-3884-484b-ab63-bf4ad78dc1e0",
+          "display_name": "Software",
+          "description": "Buying software",
+          "is_shareable": false,
+          "restrictions": {
+            "interval": "CUSTOM",
+            "limit": null,
+            "start_of_interval": null,
+            "next_interval_reset": null,
+            "allowed_vendors": [],
+            "allowed_categories": [],
+            "auto_lock_date": null,
+            "temporary_limit": null,
+            "transaction_amount_limit": null,
+            "blocked_vendors": [],
+            "blocked_categories": []
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 14 Oct 2026 11:14:36 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1975",
+          "x-ratelimit-reset": "1791976521",
+          "cf-ray": "a4a6294f4d0eff0d-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "server": "cloudflare",
+          "vary": "Origin, accept-encoding",
+          "content-security-policy": "upgrade-insecure-requests; frame-ancestors 'self' https://demo.ramp.com; report-uri https://ramp.report-uri.com/r/d/csp/enforce",
+          "ramp-worker-name": "demo-app-worker",
+          "server-timing": "gt;dur=524.682, ge;dur=0.175, px;dur=524.420, fw;dur=603.00, fwe;dur=0.00, fwx;dur=603.00",
+          "x-debug-cell-id": "none",
+          "x-debug-routing-key": "none",
+          "x-debug-upstream-cache-control": "none",
+          "x-ramp-body-source": "others",
+          "x-ramp-business-id": "e15cd7ee-ab7e-4173-a82f-00f33901c1ca",
+          "x-ramp-cf-ray": "a4a6294f6ec6ef63-IAD",
+          "x-ramp-request-id": "01a13a1f-0dd0-74fe-9d23-da7c61a53d5b",
+          "x-trace-id": "ramp-09998a87efca41668f07548b43435b7a",
+          "set-cookie": "__cf_bm=ZTrt47mvFviSji7UZfV1FLp7KWpQdVN0isxnwhONxyk-1791976476.0486665-1.0.1.1-2fxfu3.kERrhuT2BgRta7Gk3zPMaK.ILszt9.0wT9Us8wuQQj0qXXsat8sXcHcQWX0uvgyD5Fmkp0ITdEhQvv4Z0IuYetB5JwqiXT.srD9QEaPWbRJij9Nuq8rpCgPTn; HttpOnly; SameSite=None; Secure; Path=/; Domain=ramp.com; Expires=Wed, 14 Oct 2026 11:44:36 GMT",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "hash": "cbb106ae272d0388a7bdf3b911949ed5873a5c66",
+        "request": {}
+      }
+    }
+  }
+}

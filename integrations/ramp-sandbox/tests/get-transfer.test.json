@@ -1,0 +1,79 @@
+{
+  "input": {
+    "transfer_id": "e77f7113-0972-441a-b05a-e0e5307d8af6"
+  },
+  "output": {
+    "id": "e77f7113-0972-441a-b05a-e0e5307d8af6",
+    "amount": {
+      "amount": 136620,
+      "currency_code": "USD",
+      "minor_unit_conversion_rate": 100
+    },
+    "entity_id": "eb24fd81-de5d-43bd-8102-eb2cc53d3c3a",
+    "payment_id": "S4HG58F4M9",
+    "bank_account_id": "7bc1bb89-5ed5-48cd-a71c-9de9e383f745",
+    "status": "COMPLETED",
+    "sync_status": "SYNC_READY",
+    "created_at": "2026-10-14T10:03:39+00:00"
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/developer/v1/transfers/e77f7113-0972-441a-b05a-e0e5307d8af6": {
+        "response": {
+          "sync_status": "SYNC_READY",
+          "id": "e77f7113-0972-441a-b05a-e0e5307d8af6",
+          "amount": {
+            "minor_unit_conversion_rate": 100,
+            "amount": 136620,
+            "currency_code": "USD"
+          },
+          "created_at": "2026-10-14T10:03:39+00:00",
+          "entity_id": "eb24fd81-de5d-43bd-8102-eb2cc53d3c3a",
+          "bank_account_id": "7bc1bb89-5ed5-48cd-a71c-9de9e383f745",
+          "payment_id": "S4HG58F4M9",
+          "status": "COMPLETED"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 14 Oct 2026 11:08:26 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1932",
+          "x-ratelimit-reset": "1791976149",
+          "cf-ray": "a4a620477e80ac0d-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "server": "cloudflare",
+          "vary": "Origin, accept-encoding",
+          "content-security-policy": "upgrade-insecure-requests; frame-ancestors 'self' https://demo.ramp.com; report-uri https://ramp.report-uri.com/r/d/csp/enforce",
+          "ramp-worker-name": "demo-app-worker",
+          "server-timing": "gt;dur=132.242, ge;dur=0.167, px;dur=132.005, fw;dur=204.00, fwe;dur=0.00, fwx;dur=204.00",
+          "x-debug-cell-id": "none",
+          "x-debug-routing-key": "none",
+          "x-debug-upstream-cache-control": "none",
+          "x-ramp-body-source": "others",
+          "x-ramp-business-id": "e15cd7ee-ab7e-4173-a82f-00f33901c1ca",
+          "x-ramp-cf-ray": "a4a6204788cd20eb-IAD",
+          "x-ramp-request-id": "01a13a19-68dd-77e4-b347-a4680b21cd8d",
+          "x-trace-id": "ramp-56ab68be071941fe96e2c7183a53ad0b",
+          "set-cookie": "__cf_bm=dc_h4LEsGgsnd6LdTYvykGHR6JhSMyJOS7PQM8WnF6s-1791976106.1550822-1.0.1.1-dsdP3zE.ZJYIHEyYkOLzr1xa6DiEdkRWzTNAQ4KWH.OxWDjzro4TqN7bYOg4g5M9ZrE7fFtIkCORmn.HMVPDXAVhwj9pssbTqf_gVXeU1_yWgsCJ.fnoGNr3adSwbUtD; HttpOnly; SameSite=None; Secure; Path=/; Domain=ramp.com; Expires=Wed, 14 Oct 2026 11:38:26 GMT",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "hash": "2fd50cbf37a5cec8ec09208f6920ad1b52905922",
+        "request": {}
+      }
+    }
+  }
+}

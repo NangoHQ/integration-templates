@@ -1,0 +1,401 @@
+{
+  "input": {
+    "page_size": 2
+  },
+  "output": {
+    "bills": [
+      {
+        "id": "591dad9b-c35d-46d7-a65f-f929bd8af0ab",
+        "invoice_number": "NANGO-SUBMIT-DRY-B",
+        "amount": {
+          "amount": 100000,
+          "currency_code": "USD",
+          "minor_unit_conversion_rate": 100
+        },
+        "status": "OPEN",
+        "status_summary": "APPROVAL_PENDING",
+        "approval_status": "PENDING",
+        "sync_status": "NOT_SYNCED",
+        "vendor": {
+          "id": "effa4ecc-59f7-423b-9747-56dafc7c66da",
+          "name": "Figma",
+          "type": "BUSINESS"
+        },
+        "bill_owner": {
+          "id": "07323c8f-c449-4222-a970-8cc4cf673711",
+          "first_name": "David",
+          "last_name": "Wallace"
+        },
+        "entity_id": "eb24fd81-de5d-43bd-8102-eb2cc53d3c3a",
+        "line_items": [
+          {
+            "id": "01a13a1a-52b6-7861-8385-65e78ccfade0",
+            "amount": {
+              "amount": 100000,
+              "currency_code": "USD",
+              "minor_unit_conversion_rate": 100
+            },
+            "memo": "Dryrun line item",
+            "purchase_order_line_item_id": null,
+            "accounting_field_selections": [],
+            "item_receipt_line_item_ids": []
+          }
+        ],
+        "inventory_line_items": [],
+        "accounting_field_selections": [],
+        "applied_vendor_credits": [],
+        "attachments": [],
+        "invoice_urls": [],
+        "item_receipt_ids": [],
+        "payment": {
+          "id": "eb155a44-937d-4902-95a1-0aa8b9ac0619",
+          "amount": {
+            "amount": 100000,
+            "currency_code": "USD",
+            "minor_unit_conversion_rate": 100
+          },
+          "customer_friendly_payment_id": null,
+          "effective_date": null,
+          "payment_date": null,
+          "payment_method": "ACH",
+          "trace_id": null,
+          "details": {
+            "vendor_account_id": "e521d107-ad27-481d-96c2-1e05c15900e1",
+            "approval_status": null,
+            "is_same_day": false,
+            "source_bank_account_id": null,
+            "schema_type": "VendorPaymentDetailsSchema"
+          }
+        },
+        "purchase_order_id": null,
+        "purchase_order_ids": [],
+        "vendor_contact_id": "694ffb89-6e85-4320-bc82-aaa8961b8e6e",
+        "draft_bill_id": "591dad9b-c35d-46d7-a65f-f929bd8af0ab",
+        "draft_bill_created_at": "2026-10-14T11:09:25+00:00",
+        "created_at": "2026-10-14T11:09:48+00:00",
+        "issued_at": "2026-10-14T00:00:00+00:00",
+        "due_at": "2026-11-14T00:00:00+00:00",
+        "paid_at": null,
+        "accounting_date": "2026-10-14T00:00:00+00:00",
+        "posting_date": null,
+        "archived_at": null,
+        "deep_link_url": null,
+        "remote_id": null,
+        "memo": "Nango submit-bill-draft dryrun test B",
+        "vendor_memo": null,
+        "fx_conversion_rate": "1.0",
+        "enable_accounting_sync": true,
+        "is_payment_sync_ready": false
+      },
+      {
+        "id": "ef26852c-2cd2-4941-bf6d-d1981076625b",
+        "invoice_number": "NANGO-REGISTRY-CREATE-BILL-2",
+        "amount": {
+          "amount": 1050,
+          "currency_code": "USD",
+          "minor_unit_conversion_rate": 100
+        },
+        "status": "OPEN",
+        "status_summary": "PAYMENT_SCHEDULED",
+        "approval_status": "APPROVED",
+        "sync_status": "NOT_SYNCED",
+        "vendor": {
+          "id": "effa4ecc-59f7-423b-9747-56dafc7c66da",
+          "name": "Figma",
+          "type": "BUSINESS"
+        },
+        "bill_owner": {
+          "id": "07323c8f-c449-4222-a970-8cc4cf673711",
+          "first_name": "David",
+          "last_name": "Wallace"
+        },
+        "entity_id": "eb24fd81-de5d-43bd-8102-eb2cc53d3c3a",
+        "line_items": [
+          {
+            "id": "01a13a1a-9ce8-79c0-8bd5-4bb8c9239fca",
+            "amount": {
+              "amount": 1050,
+              "currency_code": "USD",
+              "minor_unit_conversion_rate": 100
+            },
+            "memo": "Nango registry create-bill test line item",
+            "purchase_order_line_item_id": null,
+            "accounting_field_selections": [],
+            "item_receipt_line_item_ids": []
+          }
+        ],
+        "inventory_line_items": [],
+        "accounting_field_selections": [],
+        "applied_vendor_credits": [],
+        "attachments": [],
+        "invoice_urls": [],
+        "item_receipt_ids": [],
+        "payment": {
+          "id": "7dfda73a-56d6-4279-b63a-35b6b8b0060a",
+          "amount": {
+            "amount": 1050,
+            "currency_code": "USD",
+            "minor_unit_conversion_rate": 100
+          },
+          "customer_friendly_payment_id": "KEKSDXGCFH",
+          "effective_date": null,
+          "payment_date": "2026-11-13T00:00:00+00:00",
+          "payment_method": "ACH",
+          "trace_id": null,
+          "details": {
+            "vendor_account_id": "e521d107-ad27-481d-96c2-1e05c15900e1",
+            "approval_status": null,
+            "is_same_day": false,
+            "source_bank_account_id": "0cb665b6-49d5-4723-b29a-71ce8af70751",
+            "schema_type": "VendorPaymentDetailsSchema"
+          }
+        },
+        "purchase_order_id": null,
+        "purchase_order_ids": [],
+        "vendor_contact_id": "8a855e01-2123-4730-b117-4fc0647051e5",
+        "draft_bill_id": null,
+        "draft_bill_created_at": null,
+        "created_at": "2026-10-14T11:09:43+00:00",
+        "issued_at": "2026-10-14T00:00:00+00:00",
+        "due_at": "2026-11-15T00:00:00+00:00",
+        "paid_at": null,
+        "accounting_date": "2026-10-14T00:00:00+00:00",
+        "posting_date": null,
+        "archived_at": null,
+        "deep_link_url": null,
+        "remote_id": null,
+        "memo": null,
+        "vendor_memo": null,
+        "fx_conversion_rate": "1.0",
+        "enable_accounting_sync": true,
+        "is_payment_sync_ready": false
+      }
+    ],
+    "next_cursor": "https://demo-api.ramp.com/developer/v1/bills?page_size=2&start=gAAAAABqz2MHhMZ2SQ451Wtuk2hSlXeMJhYyasrZZ9ZcDEbDwVsoy_5kJDtiOloGDIXRdum04QOiNtLVEhvUKsizpfJQq3Zyxf78cr8lmm2fs5l6TPevvPLo837to0r486_GPpB61_7H"
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/developer/v1/bills": {
+        "response": {
+          "data": [
+            {
+              "draft_bill_id": "591dad9b-c35d-46d7-a65f-f929bd8af0ab",
+              "archived_at": null,
+              "vendor_contact_id": "694ffb89-6e85-4320-bc82-aaa8961b8e6e",
+              "fx_conversion_rate": "1.0",
+              "purchase_order_id": null,
+              "accounting_field_selections": [],
+              "vendor": {
+                "name": "Figma",
+                "type": "BUSINESS",
+                "id": "effa4ecc-59f7-423b-9747-56dafc7c66da"
+              },
+              "remote_id": null,
+              "approval_status": "PENDING",
+              "bill_owner": {
+                "last_name": "Wallace",
+                "first_name": "David",
+                "id": "07323c8f-c449-4222-a970-8cc4cf673711"
+              },
+              "paid_at": null,
+              "applied_vendor_credits": [],
+              "entity_id": "eb24fd81-de5d-43bd-8102-eb2cc53d3c3a",
+              "enable_accounting_sync": true,
+              "status_summary": "APPROVAL_PENDING",
+              "line_items": [
+                {
+                  "posting_gl_account": null,
+                  "amount": {
+                    "currency_code": "USD",
+                    "minor_unit_conversion_rate": 100,
+                    "amount": 100000
+                  },
+                  "purchase_order_line_item_id": null,
+                  "item_receipt_line_item_ids": [],
+                  "id": "01a13a1a-52b6-7861-8385-65e78ccfade0",
+                  "accounting_field_selections": [],
+                  "memo": "Dryrun line item"
+                }
+              ],
+              "inventory_line_items": [],
+              "accounting_date": "2026-10-14T00:00:00+00:00",
+              "status": "OPEN",
+              "posting_date": null,
+              "invoice_urls": [],
+              "issued_at": "2026-10-14T00:00:00+00:00",
+              "payment": {
+                "payment_date": null,
+                "effective_date": null,
+                "amount": {
+                  "currency_code": "USD",
+                  "minor_unit_conversion_rate": 100,
+                  "amount": 100000
+                },
+                "trace_id": null,
+                "id": "eb155a44-937d-4902-95a1-0aa8b9ac0619",
+                "customer_friendly_payment_id": null,
+                "payment_method": "ACH",
+                "details": {
+                  "vendor_account_id": "e521d107-ad27-481d-96c2-1e05c15900e1",
+                  "approval_status": null,
+                  "is_same_day": false,
+                  "source_bank_account_id": null,
+                  "schema_type": "VendorPaymentDetailsSchema"
+                }
+              },
+              "vendor_memo": null,
+              "memo": "Nango submit-bill-draft dryrun test B",
+              "attachments": [],
+              "due_at": "2026-11-14T00:00:00+00:00",
+              "is_payment_sync_ready": false,
+              "deep_link_url": null,
+              "item_receipt_ids": [],
+              "purchase_order_ids": [],
+              "amount": {
+                "currency_code": "USD",
+                "minor_unit_conversion_rate": 100,
+                "amount": 100000
+              },
+              "id": "591dad9b-c35d-46d7-a65f-f929bd8af0ab",
+              "created_at": "2026-10-14T11:09:48+00:00",
+              "draft_bill_created_at": "2026-10-14T11:09:25+00:00",
+              "invoice_number": "NANGO-SUBMIT-DRY-B",
+              "sync_status": "NOT_SYNCED"
+            },
+            {
+              "draft_bill_id": null,
+              "archived_at": null,
+              "vendor_contact_id": "8a855e01-2123-4730-b117-4fc0647051e5",
+              "fx_conversion_rate": "1.0",
+              "purchase_order_id": null,
+              "accounting_field_selections": [],
+              "vendor": {
+                "name": "Figma",
+                "type": "BUSINESS",
+                "id": "effa4ecc-59f7-423b-9747-56dafc7c66da"
+              },
+              "remote_id": null,
+              "approval_status": "APPROVED",
+              "bill_owner": {
+                "last_name": "Wallace",
+                "first_name": "David",
+                "id": "07323c8f-c449-4222-a970-8cc4cf673711"
+              },
+              "paid_at": null,
+              "applied_vendor_credits": [],
+              "entity_id": "eb24fd81-de5d-43bd-8102-eb2cc53d3c3a",
+              "enable_accounting_sync": true,
+              "status_summary": "PAYMENT_SCHEDULED",
+              "line_items": [
+                {
+                  "posting_gl_account": null,
+                  "amount": {
+                    "currency_code": "USD",
+                    "minor_unit_conversion_rate": 100,
+                    "amount": 1050
+                  },
+                  "purchase_order_line_item_id": null,
+                  "item_receipt_line_item_ids": [],
+                  "id": "01a13a1a-9ce8-79c0-8bd5-4bb8c9239fca",
+                  "accounting_field_selections": [],
+                  "memo": "Nango registry create-bill test line item"
+                }
+              ],
+              "inventory_line_items": [],
+              "accounting_date": "2026-10-14T00:00:00+00:00",
+              "status": "OPEN",
+              "posting_date": null,
+              "invoice_urls": [],
+              "issued_at": "2026-10-14T00:00:00+00:00",
+              "payment": {
+                "payment_date": "2026-11-13T00:00:00+00:00",
+                "effective_date": null,
+                "amount": {
+                  "currency_code": "USD",
+                  "minor_unit_conversion_rate": 100,
+                  "amount": 1050
+                },
+                "trace_id": null,
+                "id": "7dfda73a-56d6-4279-b63a-35b6b8b0060a",
+                "customer_friendly_payment_id": "KEKSDXGCFH",
+                "payment_method": "ACH",
+                "details": {
+                  "vendor_account_id": "e521d107-ad27-481d-96c2-1e05c15900e1",
+                  "approval_status": null,
+                  "is_same_day": false,
+                  "source_bank_account_id": "0cb665b6-49d5-4723-b29a-71ce8af70751",
+                  "schema_type": "VendorPaymentDetailsSchema"
+                }
+              },
+              "vendor_memo": null,
+              "memo": null,
+              "attachments": [],
+              "due_at": "2026-11-15T00:00:00+00:00",
+              "is_payment_sync_ready": false,
+              "deep_link_url": null,
+              "item_receipt_ids": [],
+              "purchase_order_ids": [],
+              "amount": {
+                "currency_code": "USD",
+                "minor_unit_conversion_rate": 100,
+                "amount": 1050
+              },
+              "id": "ef26852c-2cd2-4941-bf6d-d1981076625b",
+              "created_at": "2026-10-14T11:09:43+00:00",
+              "draft_bill_created_at": null,
+              "invoice_number": "NANGO-REGISTRY-CREATE-BILL-2",
+              "sync_status": "NOT_SYNCED"
+            }
+          ],
+          "page": {
+            "next": "https://demo-api.ramp.com/developer/v1/bills?page_size=2&start=gAAAAABqz2MHhMZ2SQ451Wtuk2hSlXeMJhYyasrZZ9ZcDEbDwVsoy_5kJDtiOloGDIXRdum04QOiNtLVEhvUKsizpfJQq3Zyxf78cr8lmm2fs5l6TPevvPLo837to0r486_GPpB61_7H"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 14 Oct 2026 11:09:59 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1675",
+          "x-ratelimit-reset": "1791976210",
+          "cf-ray": "a4a62289ba64ff0d-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "server": "cloudflare",
+          "vary": "Origin, accept-encoding",
+          "content-security-policy": "upgrade-insecure-requests; frame-ancestors 'self' https://demo.ramp.com; report-uri https://ramp.report-uri.com/r/d/csp/enforce",
+          "ramp-worker-name": "demo-app-worker",
+          "server-timing": "gt;dur=885.514, ge;dur=0.157, px;dur=885.291, fw;dur=958.00, fwe;dur=0.00, fwx;dur=958.00",
+          "x-debug-cell-id": "none",
+          "x-debug-routing-key": "none",
+          "x-debug-upstream-cache-control": "none",
+          "x-ramp-body-source": "others",
+          "x-ramp-business-id": "e15cd7ee-ab7e-4173-a82f-00f33901c1ca",
+          "x-ramp-cf-ray": "a4a62289bf6987ab-IAD",
+          "x-ramp-request-id": "01a13a1a-d240-7cee-bace-114e0d38dcbc",
+          "x-trace-id": "ramp-17538f4e6c3d48df97ff9f29170a6298",
+          "set-cookie": "<redacted>",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "hash": "661bf6e2dc8c3368777732bf207422a124b7c928",
+        "request": {
+          "params": {
+            "page_size": "2"
+          }
+        }
+      }
+    }
+  }
+}

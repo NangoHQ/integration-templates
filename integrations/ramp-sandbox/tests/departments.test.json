@@ -1,0 +1,187 @@
+{
+  "nango": {
+    "batchSave": {
+      "Department": [
+        {
+          "id": "f03e9fc2-7dea-4457-a34f-7c9d45b10e8e",
+          "name": "Support"
+        },
+        {
+          "id": "377993fd-6065-492a-8288-2ccbbee8e458",
+          "name": "Sales"
+        },
+        {
+          "id": "d61c1484-0b2f-4a78-aba1-d56ba1b0c43b",
+          "name": "Product"
+        },
+        {
+          "id": "d6c06947-9f63-4799-ad16-4782e3d43e27",
+          "name": "Operations"
+        },
+        {
+          "id": "72139263-f303-4aea-93de-35a5111c0c03",
+          "name": "Nango Registry Test Dept"
+        },
+        {
+          "id": "8f81c23b-20f6-49ad-ba3b-b287c152ea96",
+          "name": "Nango Create Department Test"
+        },
+        {
+          "id": "9a3d8f71-c9df-4391-9779-530c7c630561",
+          "name": "Nango Create Department Test"
+        },
+        {
+          "id": "70e2ae3c-cc9e-4835-98c7-e2fc12a3b210",
+          "name": "Marketing"
+        },
+        {
+          "id": "9de419b6-99d1-4e1b-854f-8881fc102821",
+          "name": "Legal & HR"
+        },
+        {
+          "id": "c4688cf0-3043-4b02-855a-5e838fca7658",
+          "name": "Implementations"
+        },
+        {
+          "id": "2bedcc5e-c8d3-4f07-9af8-5b7be4b876a1",
+          "name": "Finance & Accounting"
+        },
+        {
+          "id": "2e34edf5-9603-4986-8aaa-bbec47d56674",
+          "name": "Executive"
+        },
+        {
+          "id": "0c2ed169-aac5-45b8-bbd0-74a1a66240f1",
+          "name": "Engineering"
+        },
+        {
+          "id": "c3cebd4b-558f-4f70-b7bb-ddb02125b71a",
+          "name": "Customer Success"
+        },
+        {
+          "id": "06880c2d-8ed5-4946-9b07-cc7f1433ef60",
+          "name": "Admin"
+        }
+      ]
+    },
+    "batchDelete": {
+      "Department": []
+    }
+  },
+  "api": {
+    "get": {
+      "/developer/v1/departments": {
+        "response": {
+          "page": {
+            "next": null
+          },
+          "data": [
+            {
+              "name": "Support",
+              "id": "f03e9fc2-7dea-4457-a34f-7c9d45b10e8e"
+            },
+            {
+              "name": "Sales",
+              "id": "377993fd-6065-492a-8288-2ccbbee8e458"
+            },
+            {
+              "name": "Product",
+              "id": "d61c1484-0b2f-4a78-aba1-d56ba1b0c43b"
+            },
+            {
+              "name": "Operations",
+              "id": "d6c06947-9f63-4799-ad16-4782e3d43e27"
+            },
+            {
+              "name": "Nango Registry Test Dept",
+              "id": "72139263-f303-4aea-93de-35a5111c0c03"
+            },
+            {
+              "name": "Nango Create Department Test",
+              "id": "8f81c23b-20f6-49ad-ba3b-b287c152ea96"
+            },
+            {
+              "name": "Nango Create Department Test",
+              "id": "9a3d8f71-c9df-4391-9779-530c7c630561"
+            },
+            {
+              "name": "Marketing",
+              "id": "70e2ae3c-cc9e-4835-98c7-e2fc12a3b210"
+            },
+            {
+              "name": "Legal & HR",
+              "id": "9de419b6-99d1-4e1b-854f-8881fc102821"
+            },
+            {
+              "name": "Implementations",
+              "id": "c4688cf0-3043-4b02-855a-5e838fca7658"
+            },
+            {
+              "name": "Finance & Accounting",
+              "id": "2bedcc5e-c8d3-4f07-9af8-5b7be4b876a1"
+            },
+            {
+              "name": "Executive",
+              "id": "2e34edf5-9603-4986-8aaa-bbec47d56674"
+            },
+            {
+              "name": "Engineering",
+              "id": "0c2ed169-aac5-45b8-bbd0-74a1a66240f1"
+            },
+            {
+              "name": "Customer Success",
+              "id": "c3cebd4b-558f-4f70-b7bb-ddb02125b71a"
+            },
+            {
+              "name": "Admin",
+              "id": "06880c2d-8ed5-4946-9b07-cc7f1433ef60"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 14 Oct 2026 11:52:54 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1978",
+          "x-ratelimit-reset": "1791978798",
+          "cf-ray": "a4a6616d0c180024-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "server": "cloudflare",
+          "vary": "Origin, accept-encoding",
+          "content-security-policy": "upgrade-insecure-requests; frame-ancestors 'self' https://demo.ramp.com; report-uri https://ramp.report-uri.com/r/d/csp/enforce",
+          "ramp-worker-name": "demo-app-worker",
+          "server-timing": "gt;dur=119.156, ge;dur=0.140, px;dur=118.963, fw;dur=342.00, fwe;dur=0.00, fwx;dur=342.00",
+          "x-debug-cell-id": "none",
+          "x-debug-routing-key": "none",
+          "x-debug-upstream-cache-control": "none",
+          "x-ramp-body-source": "others",
+          "x-ramp-business-id": "e15cd7ee-ab7e-4173-a82f-00f33901c1ca",
+          "x-ramp-cf-ray": "a4a6616d1eaedabf-PDX",
+          "x-ramp-request-id": "01a13a42-20f0-750f-a799-57fcbdd15194",
+          "x-trace-id": "ramp-c2afd0828c30411cb5c79e20f72d8cb4",
+          "set-cookie": "__cf_bm=sFwKlwbmkhaSStFz6aBVvju.uuBf4JrEeg1d9CX3_Po-1791978774.5670455-1.0.1.1-Do1hkot_R_FF0YCznBjhBlJpZTH4B_rrmwICb4fU0HNOMaTJJ9VVtGs0p.jY3iI85di0cl_tn2ZYEb7gfELUHDE3X.jp2vhp.lTfyP9kOOsDKtxDiYrcxIAwon6yZbZk; HttpOnly; SameSite=None; Secure; Path=/; Domain=ramp.com; Expires=Wed, 14 Oct 2026 12:22:54 GMT",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "hash": "5bb9d0d3d687c0fd5115cb0e778e76ba26440d1b",
+        "request": {
+          "params": {
+            "page_size": "100"
+          }
+        }
+      }
+    }
+  }
+}

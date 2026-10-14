@@ -1,0 +1,265 @@
+{
+  "input": {
+    "bill_id": "93d8436a-1cc7-596b-ace0-7c69f5bcb5ce"
+  },
+  "output": {
+    "id": "93d8436a-1cc7-596b-ace0-7c69f5bcb5ce",
+    "invoice_number": "DD-MANUAL-1",
+    "status": "OPEN",
+    "status_summary": "WAITING_FOR_TRANSFER_MATCH",
+    "approval_status": "APPROVED",
+    "sync_status": "NOT_SYNCED",
+    "amount": {
+      "amount": 125000,
+      "currency_code": "USD",
+      "minor_unit_conversion_rate": 100
+    },
+    "memo": "Salesforce monthly subscription",
+    "issued_at": "2026-10-07T00:00:00+00:00",
+    "due_at": "2026-10-15T00:00:00+00:00",
+    "accounting_date": "2026-10-14T00:00:00+00:00",
+    "posting_date": "2026-10-14T00:00:00+00:00",
+    "created_at": "2026-10-14T10:17:13+00:00",
+    "entity_id": "eb24fd81-de5d-43bd-8102-eb2cc53d3c3a",
+    "vendor_contact_id": "ad05d647-e524-4c39-8e1f-50d73a4b881b",
+    "purchase_order_ids": [],
+    "item_receipt_ids": [],
+    "enable_accounting_sync": true,
+    "is_payment_sync_ready": false,
+    "fx_conversion_rate": "1.0",
+    "bill_owner": {
+      "id": "9d3d3246-8235-40fa-a5c1-56ae8583d945",
+      "first_name": "Angela",
+      "last_name": "Martin"
+    },
+    "vendor": {
+      "id": "ece8d100-7737-4b28-abe8-d9afa74a921d",
+      "name": "Salesforce",
+      "type": "BUSINESS"
+    },
+    "line_items": [
+      {
+        "id": "01a139ea-90c2-7ffa-8031-8a46d151eb39",
+        "amount": {
+          "amount": 125000,
+          "currency_code": "USD",
+          "minor_unit_conversion_rate": 100
+        },
+        "memo": "Salesforce monthly subscription",
+        "item_receipt_line_item_ids": [],
+        "accounting_field_selections": []
+      }
+    ],
+    "inventory_line_items": [],
+    "accounting_field_selections": [],
+    "applied_vendor_credits": [],
+    "attachments": [
+      {
+        "id": "6ee79510-3815-4ec2-8d09-0d4dfae53f34",
+        "attachment_type": "INVOICE",
+        "url": "https://demo-shared.ramp.com/invoices/save-time-inc/2026_10_14_d9a8dc17-98ee-431e-8e74-9fe265a033f6.pdf?Expires=1791979723&Signature=WsAW43tn~P55dilTtmNZeYd4NzUfWU0NusbhmIuZoHJptst~1SVH5IddEDN6OOFDaqqpDJqQ3aoJyPLVr0vpY1jaaB1vH-HW9zX-GwugOlPgN9Fgok2H7EviitsD3Eean6f4xQWALLb4i7CbOwynqmo6JmZdQIW8UmW8G-1GA058GbS1QH5-4CmxrA0T0jKmHoDTmQO7RxsbBmhGiENy9WJaeyrq2NKQEWvfelH71zFW2rt3z4dxfc4-mn1y7iM7lyH45ROG6wYPBv9vdcodlcLcVynUM8odn3EK0jeLKPwcmK0tllDkdPEu-Ilz6nOZK03QNEJiBslAYZ5Opem7MQ__&Key-Pair-Id=KSUO74XX4KMAT&Hash-Algorithm=SHA256"
+      }
+    ],
+    "invoice_urls": [
+      "https://demo-shared.ramp.com/invoices/save-time-inc/2026_10_14_d9a8dc17-98ee-431e-8e74-9fe265a033f6.pdf?Expires=1791979723&Signature=WsAW43tn~P55dilTtmNZeYd4NzUfWU0NusbhmIuZoHJptst~1SVH5IddEDN6OOFDaqqpDJqQ3aoJyPLVr0vpY1jaaB1vH-HW9zX-GwugOlPgN9Fgok2H7EviitsD3Eean6f4xQWALLb4i7CbOwynqmo6JmZdQIW8UmW8G-1GA058GbS1QH5-4CmxrA0T0jKmHoDTmQO7RxsbBmhGiENy9WJaeyrq2NKQEWvfelH71zFW2rt3z4dxfc4-mn1y7iM7lyH45ROG6wYPBv9vdcodlcLcVynUM8odn3EK0jeLKPwcmK0tllDkdPEu-Ilz6nOZK03QNEJiBslAYZ5Opem7MQ__&Key-Pair-Id=KSUO74XX4KMAT&Hash-Algorithm=SHA256"
+    ],
+    "payment": {
+      "id": "f4e0fe5f-2ae2-4d74-b0b3-ce355cc1d318",
+      "amount": {
+        "amount": 125000,
+        "currency_code": "USD",
+        "minor_unit_conversion_rate": 100
+      },
+      "payment_method": "DIRECT_DEBIT",
+      "trace_id": {},
+      "details": {
+        "schema_type": "VendorPaymentDetailsSchema",
+        "source_bank_account_id": "0cb665b6-49d5-4723-b29a-71ce8af70751",
+        "is_same_day": false
+      }
+    },
+    "payments": [
+      {
+        "id": "f4e0fe5f-2ae2-4d74-b0b3-ce355cc1d318",
+        "amount": {
+          "amount": 125000,
+          "currency_code": "USD",
+          "minor_unit_conversion_rate": 100
+        },
+        "payment_method": "DIRECT_DEBIT",
+        "trace_id": {},
+        "details": {
+          "schema_type": "VendorPaymentDetailsSchema",
+          "source_bank_account_id": "0cb665b6-49d5-4723-b29a-71ce8af70751",
+          "is_same_day": false
+        }
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/developer/v1/bills/93d8436a-1cc7-596b-ace0-7c69f5bcb5ce": {
+        "response": {
+          "issued_at": "2026-10-07T00:00:00+00:00",
+          "deep_link_url": null,
+          "vendor_contact_id": "ad05d647-e524-4c39-8e1f-50d73a4b881b",
+          "sync_status": "NOT_SYNCED",
+          "purchase_order_id": null,
+          "status": "OPEN",
+          "line_items": [
+            {
+              "amount": {
+                "currency_code": "USD",
+                "minor_unit_conversion_rate": 100,
+                "amount": 125000
+              },
+              "purchase_order_line_item_id": null,
+              "item_receipt_line_item_ids": [],
+              "id": "01a139ea-90c2-7ffa-8031-8a46d151eb39",
+              "memo": "Salesforce monthly subscription",
+              "accounting_field_selections": [],
+              "posting_gl_account": null
+            }
+          ],
+          "created_at": "2026-10-14T10:17:13+00:00",
+          "enable_accounting_sync": true,
+          "applied_vendor_credits": [],
+          "payment": {
+            "details": {
+              "vendor_account_id": null,
+              "approval_status": null,
+              "source_bank_account_id": "0cb665b6-49d5-4723-b29a-71ce8af70751",
+              "is_same_day": false,
+              "schema_type": "VendorPaymentDetailsSchema"
+            },
+            "payment_method": "DIRECT_DEBIT",
+            "amount": {
+              "currency_code": "USD",
+              "minor_unit_conversion_rate": 100,
+              "amount": 125000
+            },
+            "id": "f4e0fe5f-2ae2-4d74-b0b3-ce355cc1d318",
+            "customer_friendly_payment_id": null,
+            "effective_date": null,
+            "trace_id": {
+              "descriptor": null,
+              "trace_id": null
+            },
+            "payment_date": null
+          },
+          "amount": {
+            "currency_code": "USD",
+            "minor_unit_conversion_rate": 100,
+            "amount": 125000
+          },
+          "draft_bill_created_at": null,
+          "due_at": "2026-10-15T00:00:00+00:00",
+          "invoice_number": "DD-MANUAL-1",
+          "payments": [
+            {
+              "details": {
+                "vendor_account_id": null,
+                "approval_status": null,
+                "source_bank_account_id": "0cb665b6-49d5-4723-b29a-71ce8af70751",
+                "is_same_day": false,
+                "schema_type": "VendorPaymentDetailsSchema"
+              },
+              "payment_method": "DIRECT_DEBIT",
+              "amount": {
+                "currency_code": "USD",
+                "minor_unit_conversion_rate": 100,
+                "amount": 125000
+              },
+              "id": "f4e0fe5f-2ae2-4d74-b0b3-ce355cc1d318",
+              "customer_friendly_payment_id": null,
+              "effective_date": null,
+              "trace_id": {
+                "descriptor": null,
+                "trace_id": null
+              },
+              "payment_date": null
+            }
+          ],
+          "item_receipt_ids": [],
+          "paid_at": null,
+          "entity_id": "eb24fd81-de5d-43bd-8102-eb2cc53d3c3a",
+          "draft_bill_id": null,
+          "id": "93d8436a-1cc7-596b-ace0-7c69f5bcb5ce",
+          "vendor": {
+            "id": "ece8d100-7737-4b28-abe8-d9afa74a921d",
+            "name": "Salesforce",
+            "type": "BUSINESS"
+          },
+          "accounting_date": "2026-10-14T00:00:00+00:00",
+          "bill_owner": {
+            "id": "9d3d3246-8235-40fa-a5c1-56ae8583d945",
+            "last_name": "Martin",
+            "first_name": "Angela"
+          },
+          "is_payment_sync_ready": false,
+          "invoice_urls": [
+            "https://demo-shared.ramp.com/invoices/save-time-inc/2026_10_14_d9a8dc17-98ee-431e-8e74-9fe265a033f6.pdf?Expires=1791979723&Signature=WsAW43tn~P55dilTtmNZeYd4NzUfWU0NusbhmIuZoHJptst~1SVH5IddEDN6OOFDaqqpDJqQ3aoJyPLVr0vpY1jaaB1vH-HW9zX-GwugOlPgN9Fgok2H7EviitsD3Eean6f4xQWALLb4i7CbOwynqmo6JmZdQIW8UmW8G-1GA058GbS1QH5-4CmxrA0T0jKmHoDTmQO7RxsbBmhGiENy9WJaeyrq2NKQEWvfelH71zFW2rt3z4dxfc4-mn1y7iM7lyH45ROG6wYPBv9vdcodlcLcVynUM8odn3EK0jeLKPwcmK0tllDkdPEu-Ilz6nOZK03QNEJiBslAYZ5Opem7MQ__&Key-Pair-Id=KSUO74XX4KMAT&Hash-Algorithm=SHA256"
+          ],
+          "approval_status": "APPROVED",
+          "posting_date": "2026-10-14T00:00:00+00:00",
+          "vendor_memo": null,
+          "inventory_line_items": [],
+          "fx_conversion_rate": "1.0",
+          "memo": "Salesforce monthly subscription",
+          "archived_at": null,
+          "remote_id": null,
+          "attachments": [
+            {
+              "id": "6ee79510-3815-4ec2-8d09-0d4dfae53f34",
+              "attachment_type": "INVOICE",
+              "url": "https://demo-shared.ramp.com/invoices/save-time-inc/2026_10_14_d9a8dc17-98ee-431e-8e74-9fe265a033f6.pdf?Expires=1791979723&Signature=WsAW43tn~P55dilTtmNZeYd4NzUfWU0NusbhmIuZoHJptst~1SVH5IddEDN6OOFDaqqpDJqQ3aoJyPLVr0vpY1jaaB1vH-HW9zX-GwugOlPgN9Fgok2H7EviitsD3Eean6f4xQWALLb4i7CbOwynqmo6JmZdQIW8UmW8G-1GA058GbS1QH5-4CmxrA0T0jKmHoDTmQO7RxsbBmhGiENy9WJaeyrq2NKQEWvfelH71zFW2rt3z4dxfc4-mn1y7iM7lyH45ROG6wYPBv9vdcodlcLcVynUM8odn3EK0jeLKPwcmK0tllDkdPEu-Ilz6nOZK03QNEJiBslAYZ5Opem7MQ__&Key-Pair-Id=KSUO74XX4KMAT&Hash-Algorithm=SHA256"
+            }
+          ],
+          "accounting_field_selections": [],
+          "purchase_order_ids": [],
+          "status_summary": "WAITING_FOR_TRANSFER_MATCH"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 14 Oct 2026 11:08:43 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1845",
+          "x-ratelimit-reset": "1791976149",
+          "cf-ray": "a4a620b0981cac0d-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "server": "cloudflare",
+          "vary": "Origin, accept-encoding",
+          "content-security-policy": "upgrade-insecure-requests; frame-ancestors 'self' https://demo.ramp.com; report-uri https://ramp.report-uri.com/r/d/csp/enforce",
+          "ramp-worker-name": "demo-app-worker",
+          "server-timing": "gt;dur=519.850, ge;dur=0.671, px;dur=519.049, fw;dur=591.00, fwe;dur=0.00, fwx;dur=591.00",
+          "x-debug-cell-id": "none",
+          "x-debug-routing-key": "none",
+          "x-debug-upstream-cache-control": "none",
+          "x-ramp-body-source": "others",
+          "x-ramp-business-id": "e15cd7ee-ab7e-4173-a82f-00f33901c1ca",
+          "x-ramp-cf-ray": "a4a620b0aa8320eb-PDX",
+          "x-ramp-request-id": "01a13a19-aa95-75c6-bf0c-c820b1fdc6b7",
+          "x-trace-id": "ramp-a57baf381faf4f42bb4c4c590f5464df",
+          "set-cookie": "<redacted>",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "hash": "2f5f546d8f5c6d76d2e3d2b5a78021abb97eb8ec",
+        "request": {}
+      }
+    }
+  }
+}

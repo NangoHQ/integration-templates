@@ -1,0 +1,338 @@
+{
+  "input": {
+    "page_size": 3
+  },
+  "output": {
+    "trips": [
+      {
+        "id": "5b09bb29-a545-4fd9-90ea-17c64a82a7ca",
+        "name": "Shaun's trip to Atlanta",
+        "description": "Trip to Atlanta to visit with customer",
+        "status": "completed",
+        "user_id": "1a201a19-0dfa-4fb2-b82e-28ed6456e471",
+        "start_date": "2026-01-04T10:05:12+00:00",
+        "end_date": "2026-01-07T10:05:12+00:00",
+        "created_at": "2026-10-14T10:05:15+00:00",
+        "updated_at": "2026-10-14T10:05:15+00:00",
+        "length_in_days": 4,
+        "locations": [
+          {
+            "start_date": "2026-01-04T10:05:12+00:00",
+            "end_date": "2026-01-04T10:07:12+00:00",
+            "location": {
+              "city": "Seattle",
+              "state": "WA",
+              "country": "United States",
+              "latitude": 47.6062095,
+              "longitude": -122.3320708
+            }
+          },
+          {
+            "start_date": "2026-01-04T10:07:12+00:00",
+            "end_date": "2026-01-07T10:05:12+00:00",
+            "location": {
+              "city": "Atlanta",
+              "state": "GA",
+              "country": "United States",
+              "latitude": 33.7489954,
+              "longitude": -84.3879824
+            }
+          }
+        ],
+        "spend_events": [],
+        "travel_types": []
+      },
+      {
+        "id": "e5da039f-3047-4c02-b0df-9d71d9156d4a",
+        "name": "Andrew's trip to Orlando",
+        "description": "Trip to Orlando for conference",
+        "status": "completed",
+        "user_id": "37ceeae5-7257-413b-92a6-edfac5ab10d4",
+        "start_date": "2026-04-17T10:05:12+00:00",
+        "end_date": "2026-04-21T10:05:12+00:00",
+        "created_at": "2026-10-14T10:05:14+00:00",
+        "updated_at": "2026-10-14T10:05:14+00:00",
+        "length_in_days": 5,
+        "locations": [
+          {
+            "start_date": "2026-04-17T10:05:12+00:00",
+            "end_date": "2026-04-17T10:07:12+00:00",
+            "location": {
+              "city": "New York",
+              "state": "NY",
+              "country": "United States",
+              "latitude": 40.7127753,
+              "longitude": -74.0059728
+            }
+          },
+          {
+            "start_date": "2026-04-17T10:07:12+00:00",
+            "end_date": "2026-04-21T10:05:12+00:00",
+            "location": {
+              "city": "Orlando",
+              "state": "FL",
+              "country": "United States",
+              "latitude": 28.5383832,
+              "longitude": -81.3789269
+            }
+          }
+        ],
+        "spend_events": [],
+        "travel_types": []
+      },
+      {
+        "id": "635c9868-fe5f-4124-bf3a-bf2a7df83396",
+        "name": "Sales onsite in Chicago",
+        "description": "Sales onsite meeting in Chicago",
+        "status": "completed",
+        "user_id": "69d80729-a6b1-4bd6-b82b-eb1dda1ad981",
+        "start_date": "2026-07-18T10:05:12+00:00",
+        "end_date": "2026-07-21T10:05:12+00:00",
+        "created_at": "2026-10-14T10:05:16+00:00",
+        "updated_at": "2026-10-14T10:05:16+00:00",
+        "length_in_days": 4,
+        "locations": [
+          {
+            "start_date": "2026-07-18T10:05:12+00:00",
+            "end_date": "2026-07-18T10:07:12+00:00",
+            "location": {
+              "city": "New York",
+              "state": "NY",
+              "country": "United States",
+              "latitude": 40.7127753,
+              "longitude": -74.0059728
+            }
+          },
+          {
+            "start_date": "2026-07-18T10:07:12+00:00",
+            "end_date": "2026-07-21T10:05:12+00:00",
+            "location": {
+              "city": "Chicago",
+              "state": "IL",
+              "country": "United States",
+              "latitude": 41.8781136,
+              "longitude": -87.6297982
+            }
+          }
+        ],
+        "spend_events": [
+          {
+            "id": "029e8768-19ad-4828-9a0f-324a729b80b6",
+            "spend_type": "TRANSACTION"
+          },
+          {
+            "id": "5d2a10a2-75c6-466a-aecd-7034d95760fc",
+            "spend_type": "TRANSACTION"
+          },
+          {
+            "id": "c8ee7db9-4960-4499-a46b-9393b284433e",
+            "spend_type": "TRANSACTION"
+          }
+        ],
+        "travel_types": [
+          "FLIGHT"
+        ],
+        "total_spend_amount": {
+          "currency": "USD",
+          "value": 97300
+        }
+      }
+    ],
+    "next_cursor": "635c9868-fe5f-4124-bf3a-bf2a7df83396"
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/developer/v1/trips": {
+        "response": {
+          "page": {
+            "next": "https://demo-api.ramp.com/developer/v1/trips?page_size=3&start=635c9868-fe5f-4124-bf3a-bf2a7df83396"
+          },
+          "data": [
+            {
+              "spend_events": [],
+              "user_id": "1a201a19-0dfa-4fb2-b82e-28ed6456e471",
+              "length_in_days": 4,
+              "total_spend_amount": null,
+              "id": "5b09bb29-a545-4fd9-90ea-17c64a82a7ca",
+              "locations": [
+                {
+                  "location": {
+                    "state": "WA",
+                    "latitude": 47.6062095,
+                    "city": "Seattle",
+                    "country": "United States",
+                    "longitude": -122.3320708
+                  },
+                  "start_date": "2026-01-04T10:05:12+00:00",
+                  "end_date": "2026-01-04T10:07:12+00:00"
+                },
+                {
+                  "location": {
+                    "state": "GA",
+                    "latitude": 33.7489954,
+                    "city": "Atlanta",
+                    "country": "United States",
+                    "longitude": -84.3879824
+                  },
+                  "start_date": "2026-01-04T10:07:12+00:00",
+                  "end_date": "2026-01-07T10:05:12+00:00"
+                }
+              ],
+              "end_date": "2026-01-07T10:05:12+00:00",
+              "name": "Shaun's trip to Atlanta",
+              "status": "completed",
+              "start_date": "2026-01-04T10:05:12+00:00",
+              "travel_types": [],
+              "description": "Trip to Atlanta to visit with customer",
+              "updated_at": "2026-10-14T10:05:15+00:00",
+              "created_at": "2026-10-14T10:05:15+00:00",
+              "total_spend": 0
+            },
+            {
+              "spend_events": [],
+              "user_id": "37ceeae5-7257-413b-92a6-edfac5ab10d4",
+              "length_in_days": 5,
+              "total_spend_amount": null,
+              "id": "e5da039f-3047-4c02-b0df-9d71d9156d4a",
+              "locations": [
+                {
+                  "location": {
+                    "state": "NY",
+                    "latitude": 40.7127753,
+                    "city": "New York",
+                    "country": "United States",
+                    "longitude": -74.0059728
+                  },
+                  "start_date": "2026-04-17T10:05:12+00:00",
+                  "end_date": "2026-04-17T10:07:12+00:00"
+                },
+                {
+                  "location": {
+                    "state": "FL",
+                    "latitude": 28.5383832,
+                    "city": "Orlando",
+                    "country": "United States",
+                    "longitude": -81.3789269
+                  },
+                  "start_date": "2026-04-17T10:07:12+00:00",
+                  "end_date": "2026-04-21T10:05:12+00:00"
+                }
+              ],
+              "end_date": "2026-04-21T10:05:12+00:00",
+              "name": "Andrew's trip to Orlando",
+              "status": "completed",
+              "start_date": "2026-04-17T10:05:12+00:00",
+              "travel_types": [],
+              "description": "Trip to Orlando for conference",
+              "updated_at": "2026-10-14T10:05:14+00:00",
+              "created_at": "2026-10-14T10:05:14+00:00",
+              "total_spend": 0
+            },
+            {
+              "spend_events": [
+                {
+                  "id": "029e8768-19ad-4828-9a0f-324a729b80b6",
+                  "spend_type": "TRANSACTION"
+                },
+                {
+                  "id": "5d2a10a2-75c6-466a-aecd-7034d95760fc",
+                  "spend_type": "TRANSACTION"
+                },
+                {
+                  "id": "c8ee7db9-4960-4499-a46b-9393b284433e",
+                  "spend_type": "TRANSACTION"
+                }
+              ],
+              "user_id": "69d80729-a6b1-4bd6-b82b-eb1dda1ad981",
+              "length_in_days": 4,
+              "total_spend_amount": {
+                "value": 97300,
+                "currency": "USD"
+              },
+              "id": "635c9868-fe5f-4124-bf3a-bf2a7df83396",
+              "locations": [
+                {
+                  "location": {
+                    "state": "NY",
+                    "latitude": 40.7127753,
+                    "city": "New York",
+                    "country": "United States",
+                    "longitude": -74.0059728
+                  },
+                  "start_date": "2026-07-18T10:05:12+00:00",
+                  "end_date": "2026-07-18T10:07:12+00:00"
+                },
+                {
+                  "location": {
+                    "state": "IL",
+                    "latitude": 41.8781136,
+                    "city": "Chicago",
+                    "country": "United States",
+                    "longitude": -87.6297982
+                  },
+                  "start_date": "2026-07-18T10:07:12+00:00",
+                  "end_date": "2026-07-21T10:05:12+00:00"
+                }
+              ],
+              "end_date": "2026-07-21T10:05:12+00:00",
+              "name": "Sales onsite in Chicago",
+              "status": "completed",
+              "start_date": "2026-07-18T10:05:12+00:00",
+              "travel_types": [
+                "FLIGHT"
+              ],
+              "description": "Sales onsite meeting in Chicago",
+              "updated_at": "2026-10-14T10:05:16+00:00",
+              "created_at": "2026-10-14T10:05:16+00:00",
+              "total_spend": 973
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 14 Oct 2026 11:06:12 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1980",
+          "x-ratelimit-reset": "1791976028",
+          "cf-ray": "a4a61cfe7f4c5ee6-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "server": "cloudflare",
+          "vary": "Origin, accept-encoding",
+          "content-security-policy": "upgrade-insecure-requests; frame-ancestors 'self' https://demo.ramp.com; report-uri https://ramp.report-uri.com/r/d/csp/enforce",
+          "ramp-worker-name": "demo-app-worker",
+          "server-timing": "gt;dur=453.095, ge;dur=0.179, px;dur=452.853, fw;dur=526.00, fwe;dur=0.00, fwx;dur=526.00",
+          "x-debug-cell-id": "none",
+          "x-debug-routing-key": "none",
+          "x-debug-upstream-cache-control": "none",
+          "x-ramp-body-source": "others",
+          "x-ramp-business-id": "e15cd7ee-ab7e-4173-a82f-00f33901c1ca",
+          "x-ramp-cf-ray": "a4a61cfe7fbe0d87-PDX",
+          "x-ramp-request-id": "01a13a17-5b3c-74b0-b0bd-453f0f894100",
+          "x-trace-id": "ramp-ab929d59bb5345e7b84c43bcb3dffc4f",
+          "set-cookie": "<redacted>",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "hash": "9518f033f015edc42e855b93bdb81599ff176fd7",
+        "request": {
+          "params": {
+            "page_size": "3"
+          }
+        }
+      }
+    }
+  }
+}

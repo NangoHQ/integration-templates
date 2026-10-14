@@ -1,0 +1,160 @@
+{
+  "input": {
+    "vendor_id": "effa4ecc-59f7-423b-9747-56dafc7c66da"
+  },
+  "output": {
+    "id": "effa4ecc-59f7-423b-9747-56dafc7c66da",
+    "name": "Figma",
+    "name_legal": "Figma",
+    "status": "ACTIVE",
+    "is_active": true,
+    "is_deletable": false,
+    "vendor_type": "BUSINESS",
+    "vendor_owner_id": "07323c8f-c449-4222-a970-8cc4cf673711",
+    "country": "US",
+    "state": "NJ",
+    "addresses": [],
+    "contacts": [
+      "8a855e01-2123-4730-b117-4fc0647051e5",
+      "694ffb89-6e85-4320-bc82-aaa8961b8e6e"
+    ],
+    "federal_tax_classification": "C_CORPORATION",
+    "approval_status": "APPROVED",
+    "created_at": "2026-10-14T10:17:59+00:00",
+    "updated_at": "2026-10-14T10:17:59+00:00",
+    "total_spend_all_time": {
+      "amount": 73005,
+      "currency_code": "USD",
+      "minor_unit_conversion_rate": 100
+    },
+    "total_spend_last_30_days": {
+      "amount": 73005,
+      "currency_code": "USD",
+      "minor_unit_conversion_rate": 100
+    },
+    "total_spend_last_365_days": {
+      "amount": 73005,
+      "currency_code": "USD",
+      "minor_unit_conversion_rate": 100
+    },
+    "total_spend_ytd": {
+      "amount": 73005,
+      "currency_code": "USD",
+      "minor_unit_conversion_rate": 100
+    }
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/developer/v1/vendors/effa4ecc-59f7-423b-9747-56dafc7c66da": {
+        "response": {
+          "total_spend_last_30_days": {
+            "currency_code": "USD",
+            "minor_unit_conversion_rate": 100,
+            "amount": 73005
+          },
+          "custom_form_collection_response": null,
+          "updated_at": "2026-10-14T10:17:59+00:00",
+          "country": "US",
+          "default_payment_method": {
+            "update_source": "MANUAL",
+            "policy": {
+              "kind": "BANK_ACCOUNT",
+              "data": {
+                "account_number_last_four": "6789",
+                "payment_method": "ACH",
+                "account_nickname": null,
+                "id": "e521d107-ad27-481d-96c2-1e05c15900e1",
+                "currency": "USD",
+                "is_default": true
+              }
+            }
+          },
+          "status": "ACTIVE",
+          "default_entity_id": null,
+          "federal_tax_classification": "C_CORPORATION",
+          "created_at": "2026-10-14T10:17:59+00:00",
+          "addresses": [],
+          "vendor_owner_id": "07323c8f-c449-4222-a970-8cc4cf673711",
+          "name_legal": "Figma",
+          "name": "Figma",
+          "sk_category_id": null,
+          "parent_vendor_id": null,
+          "state": "NJ",
+          "external_vendor_id": null,
+          "accounting_vendor_remote_id": null,
+          "id": "effa4ecc-59f7-423b-9747-56dafc7c66da",
+          "address": null,
+          "total_spend_all_time": {
+            "currency_code": "USD",
+            "minor_unit_conversion_rate": 100,
+            "amount": 73005
+          },
+          "merchant_id": null,
+          "approval_status": "APPROVED",
+          "total_spend_ytd": {
+            "currency_code": "USD",
+            "minor_unit_conversion_rate": 100,
+            "amount": 73005
+          },
+          "billing_frequency": null,
+          "total_spend_last_365_days": {
+            "currency_code": "USD",
+            "minor_unit_conversion_rate": 100,
+            "amount": 73005
+          },
+          "custom_record_fields": [],
+          "is_active": true,
+          "vendor_type": "BUSINESS",
+          "net_payment_terms": null,
+          "description": null,
+          "is_deletable": false,
+          "contacts": [
+            "8a855e01-2123-4730-b117-4fc0647051e5",
+            "694ffb89-6e85-4320-bc82-aaa8961b8e6e"
+          ],
+          "tax_address": null
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 14 Oct 2026 11:12:21 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1987",
+          "x-ratelimit-reset": "1791976393",
+          "cf-ray": "a4a6260359b4f3b4-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "server": "cloudflare",
+          "vary": "Origin, accept-encoding",
+          "content-security-policy": "upgrade-insecure-requests; frame-ancestors 'self' https://demo.ramp.com; report-uri https://ramp.report-uri.com/r/d/csp/enforce",
+          "ramp-worker-name": "demo-app-worker",
+          "server-timing": "gt;dur=807.504, ge;dur=0.305, px;dur=807.124, fw;dur=881.00, fwe;dur=0.00, fwx;dur=881.00",
+          "x-debug-cell-id": "none",
+          "x-debug-routing-key": "none",
+          "x-debug-upstream-cache-control": "none",
+          "x-ramp-body-source": "others",
+          "x-ramp-business-id": "e15cd7ee-ab7e-4173-a82f-00f33901c1ca",
+          "x-ramp-cf-ray": "a4a626036b310ba9-IAD",
+          "x-ramp-request-id": "01a13a1c-fe48-7dad-a4d0-94e6d0ed1c59",
+          "x-trace-id": "ramp-95a5f69fea444a08ade8c8d32f9a64f8",
+          "set-cookie": "<redacted>",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "hash": "098d0bcfbf6fe9f77ec9f5e77d9023682f7d23e6",
+        "request": {}
+      }
+    }
+  }
+}

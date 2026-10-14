@@ -1,0 +1,3230 @@
+{
+  "nango": {
+    "batchSave": {
+      "BankingAccountBalance": [
+        {
+          "id": "01a139ea-d2f8-7a15-8af6-53cb91605643:2026-07-14",
+          "account_id": "01a139ea-d2f8-7a15-8af6-53cb91605643",
+          "account_name": "Investment Account",
+          "date": "2026-07-14",
+          "amount": 125000000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "01a139ea-d2f8-7a15-8af6-53cb91605643:2026-07-15",
+          "account_id": "01a139ea-d2f8-7a15-8af6-53cb91605643",
+          "account_name": "Investment Account",
+          "date": "2026-07-15",
+          "amount": 125000000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "01a139ea-d2f8-7a15-8af6-53cb91605643:2026-07-16",
+          "account_id": "01a139ea-d2f8-7a15-8af6-53cb91605643",
+          "account_name": "Investment Account",
+          "date": "2026-07-16",
+          "amount": 210000000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "01a139ea-d2f8-7a15-8af6-53cb91605643:2026-07-17",
+          "account_id": "01a139ea-d2f8-7a15-8af6-53cb91605643",
+          "account_name": "Investment Account",
+          "date": "2026-07-17",
+          "amount": 210000000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "01a139ea-d2f8-7a15-8af6-53cb91605643:2026-07-18",
+          "account_id": "01a139ea-d2f8-7a15-8af6-53cb91605643",
+          "account_name": "Investment Account",
+          "date": "2026-07-18",
+          "amount": 210000000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "01a139ea-d2f8-7a15-8af6-53cb91605643:2026-07-19",
+          "account_id": "01a139ea-d2f8-7a15-8af6-53cb91605643",
+          "account_name": "Investment Account",
+          "date": "2026-07-19",
+          "amount": 210000000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "01a139ea-d2f8-7a15-8af6-53cb91605643:2026-07-20",
+          "account_id": "01a139ea-d2f8-7a15-8af6-53cb91605643",
+          "account_name": "Investment Account",
+          "date": "2026-07-20",
+          "amount": 210000000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "01a139ea-d2f8-7a15-8af6-53cb91605643:2026-07-21",
+          "account_id": "01a139ea-d2f8-7a15-8af6-53cb91605643",
+          "account_name": "Investment Account",
+          "date": "2026-07-21",
+          "amount": 210000000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "01a139ea-d2f8-7a15-8af6-53cb91605643:2026-07-22",
+          "account_id": "01a139ea-d2f8-7a15-8af6-53cb91605643",
+          "account_name": "Investment Account",
+          "date": "2026-07-22",
+          "amount": 210000000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "01a139ea-d2f8-7a15-8af6-53cb91605643:2026-07-23",
+          "account_id": "01a139ea-d2f8-7a15-8af6-53cb91605643",
+          "account_name": "Investment Account",
+          "date": "2026-07-23",
+          "amount": 210000000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "01a139ea-d2f8-7a15-8af6-53cb91605643:2026-07-24",
+          "account_id": "01a139ea-d2f8-7a15-8af6-53cb91605643",
+          "account_name": "Investment Account",
+          "date": "2026-07-24",
+          "amount": 210000000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "01a139ea-d2f8-7a15-8af6-53cb91605643:2026-07-25",
+          "account_id": "01a139ea-d2f8-7a15-8af6-53cb91605643",
+          "account_name": "Investment Account",
+          "date": "2026-07-25",
+          "amount": 210000000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "01a139ea-d2f8-7a15-8af6-53cb91605643:2026-07-26",
+          "account_id": "01a139ea-d2f8-7a15-8af6-53cb91605643",
+          "account_name": "Investment Account",
+          "date": "2026-07-26",
+          "amount": 210000000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "01a139ea-d2f8-7a15-8af6-53cb91605643:2026-07-27",
+          "account_id": "01a139ea-d2f8-7a15-8af6-53cb91605643",
+          "account_name": "Investment Account",
+          "date": "2026-07-27",
+          "amount": 210000000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "01a139ea-d2f8-7a15-8af6-53cb91605643:2026-07-28",
+          "account_id": "01a139ea-d2f8-7a15-8af6-53cb91605643",
+          "account_name": "Investment Account",
+          "date": "2026-07-28",
+          "amount": 210000000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "01a139ea-d2f8-7a15-8af6-53cb91605643:2026-07-29",
+          "account_id": "01a139ea-d2f8-7a15-8af6-53cb91605643",
+          "account_name": "Investment Account",
+          "date": "2026-07-29",
+          "amount": 210000000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "01a139ea-d2f8-7a15-8af6-53cb91605643:2026-07-30",
+          "account_id": "01a139ea-d2f8-7a15-8af6-53cb91605643",
+          "account_name": "Investment Account",
+          "date": "2026-07-30",
+          "amount": 210000000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "01a139ea-d2f8-7a15-8af6-53cb91605643:2026-07-31",
+          "account_id": "01a139ea-d2f8-7a15-8af6-53cb91605643",
+          "account_name": "Investment Account",
+          "date": "2026-07-31",
+          "amount": 210000000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "01a139ea-d2f8-7a15-8af6-53cb91605643:2026-08-01",
+          "account_id": "01a139ea-d2f8-7a15-8af6-53cb91605643",
+          "account_name": "Investment Account",
+          "date": "2026-08-01",
+          "amount": 210000000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "01a139ea-d2f8-7a15-8af6-53cb91605643:2026-08-02",
+          "account_id": "01a139ea-d2f8-7a15-8af6-53cb91605643",
+          "account_name": "Investment Account",
+          "date": "2026-08-02",
+          "amount": 210000000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "01a139ea-d2f8-7a15-8af6-53cb91605643:2026-08-03",
+          "account_id": "01a139ea-d2f8-7a15-8af6-53cb91605643",
+          "account_name": "Investment Account",
+          "date": "2026-08-03",
+          "amount": 210000000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "01a139ea-d2f8-7a15-8af6-53cb91605643:2026-08-04",
+          "account_id": "01a139ea-d2f8-7a15-8af6-53cb91605643",
+          "account_name": "Investment Account",
+          "date": "2026-08-04",
+          "amount": 210000000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "01a139ea-d2f8-7a15-8af6-53cb91605643:2026-08-05",
+          "account_id": "01a139ea-d2f8-7a15-8af6-53cb91605643",
+          "account_name": "Investment Account",
+          "date": "2026-08-05",
+          "amount": 210000000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "01a139ea-d2f8-7a15-8af6-53cb91605643:2026-08-06",
+          "account_id": "01a139ea-d2f8-7a15-8af6-53cb91605643",
+          "account_name": "Investment Account",
+          "date": "2026-08-06",
+          "amount": 360000000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "01a139ea-d2f8-7a15-8af6-53cb91605643:2026-08-07",
+          "account_id": "01a139ea-d2f8-7a15-8af6-53cb91605643",
+          "account_name": "Investment Account",
+          "date": "2026-08-07",
+          "amount": 360000000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "01a139ea-d2f8-7a15-8af6-53cb91605643:2026-08-08",
+          "account_id": "01a139ea-d2f8-7a15-8af6-53cb91605643",
+          "account_name": "Investment Account",
+          "date": "2026-08-08",
+          "amount": 360000000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "01a139ea-d2f8-7a15-8af6-53cb91605643:2026-08-09",
+          "account_id": "01a139ea-d2f8-7a15-8af6-53cb91605643",
+          "account_name": "Investment Account",
+          "date": "2026-08-09",
+          "amount": 360000000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "01a139ea-d2f8-7a15-8af6-53cb91605643:2026-08-10",
+          "account_id": "01a139ea-d2f8-7a15-8af6-53cb91605643",
+          "account_name": "Investment Account",
+          "date": "2026-08-10",
+          "amount": 360000000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "01a139ea-d2f8-7a15-8af6-53cb91605643:2026-08-11",
+          "account_id": "01a139ea-d2f8-7a15-8af6-53cb91605643",
+          "account_name": "Investment Account",
+          "date": "2026-08-11",
+          "amount": 360000000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "01a139ea-d2f8-7a15-8af6-53cb91605643:2026-08-12",
+          "account_id": "01a139ea-d2f8-7a15-8af6-53cb91605643",
+          "account_name": "Investment Account",
+          "date": "2026-08-12",
+          "amount": 360000000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "01a139ea-d2f8-7a15-8af6-53cb91605643:2026-08-13",
+          "account_id": "01a139ea-d2f8-7a15-8af6-53cb91605643",
+          "account_name": "Investment Account",
+          "date": "2026-08-13",
+          "amount": 360000000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "01a139ea-d2f8-7a15-8af6-53cb91605643:2026-08-14",
+          "account_id": "01a139ea-d2f8-7a15-8af6-53cb91605643",
+          "account_name": "Investment Account",
+          "date": "2026-08-14",
+          "amount": 360000000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "01a139ea-d2f8-7a15-8af6-53cb91605643:2026-08-15",
+          "account_id": "01a139ea-d2f8-7a15-8af6-53cb91605643",
+          "account_name": "Investment Account",
+          "date": "2026-08-15",
+          "amount": 360000000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "01a139ea-d2f8-7a15-8af6-53cb91605643:2026-08-16",
+          "account_id": "01a139ea-d2f8-7a15-8af6-53cb91605643",
+          "account_name": "Investment Account",
+          "date": "2026-08-16",
+          "amount": 360000000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "01a139ea-d2f8-7a15-8af6-53cb91605643:2026-08-17",
+          "account_id": "01a139ea-d2f8-7a15-8af6-53cb91605643",
+          "account_name": "Investment Account",
+          "date": "2026-08-17",
+          "amount": 360000000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "01a139ea-d2f8-7a15-8af6-53cb91605643:2026-08-18",
+          "account_id": "01a139ea-d2f8-7a15-8af6-53cb91605643",
+          "account_name": "Investment Account",
+          "date": "2026-08-18",
+          "amount": 360000000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "01a139ea-d2f8-7a15-8af6-53cb91605643:2026-08-19",
+          "account_id": "01a139ea-d2f8-7a15-8af6-53cb91605643",
+          "account_name": "Investment Account",
+          "date": "2026-08-19",
+          "amount": 470000000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "01a139ea-d2f8-7a15-8af6-53cb91605643:2026-08-20",
+          "account_id": "01a139ea-d2f8-7a15-8af6-53cb91605643",
+          "account_name": "Investment Account",
+          "date": "2026-08-20",
+          "amount": 470000000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "01a139ea-d2f8-7a15-8af6-53cb91605643:2026-08-21",
+          "account_id": "01a139ea-d2f8-7a15-8af6-53cb91605643",
+          "account_name": "Investment Account",
+          "date": "2026-08-21",
+          "amount": 470000000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "01a139ea-d2f8-7a15-8af6-53cb91605643:2026-08-22",
+          "account_id": "01a139ea-d2f8-7a15-8af6-53cb91605643",
+          "account_name": "Investment Account",
+          "date": "2026-08-22",
+          "amount": 470000000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "01a139ea-d2f8-7a15-8af6-53cb91605643:2026-08-23",
+          "account_id": "01a139ea-d2f8-7a15-8af6-53cb91605643",
+          "account_name": "Investment Account",
+          "date": "2026-08-23",
+          "amount": 470000000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "01a139ea-d2f8-7a15-8af6-53cb91605643:2026-08-24",
+          "account_id": "01a139ea-d2f8-7a15-8af6-53cb91605643",
+          "account_name": "Investment Account",
+          "date": "2026-08-24",
+          "amount": 470000000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "01a139ea-d2f8-7a15-8af6-53cb91605643:2026-08-25",
+          "account_id": "01a139ea-d2f8-7a15-8af6-53cb91605643",
+          "account_name": "Investment Account",
+          "date": "2026-08-25",
+          "amount": 470000000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "01a139ea-d2f8-7a15-8af6-53cb91605643:2026-08-26",
+          "account_id": "01a139ea-d2f8-7a15-8af6-53cb91605643",
+          "account_name": "Investment Account",
+          "date": "2026-08-26",
+          "amount": 470000000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "01a139ea-d2f8-7a15-8af6-53cb91605643:2026-08-27",
+          "account_id": "01a139ea-d2f8-7a15-8af6-53cb91605643",
+          "account_name": "Investment Account",
+          "date": "2026-08-27",
+          "amount": 470000000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "01a139ea-d2f8-7a15-8af6-53cb91605643:2026-08-28",
+          "account_id": "01a139ea-d2f8-7a15-8af6-53cb91605643",
+          "account_name": "Investment Account",
+          "date": "2026-08-28",
+          "amount": 470000000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "01a139ea-d2f8-7a15-8af6-53cb91605643:2026-08-29",
+          "account_id": "01a139ea-d2f8-7a15-8af6-53cb91605643",
+          "account_name": "Investment Account",
+          "date": "2026-08-29",
+          "amount": 470000000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "01a139ea-d2f8-7a15-8af6-53cb91605643:2026-08-30",
+          "account_id": "01a139ea-d2f8-7a15-8af6-53cb91605643",
+          "account_name": "Investment Account",
+          "date": "2026-08-30",
+          "amount": 470000000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "01a139ea-d2f8-7a15-8af6-53cb91605643:2026-08-31",
+          "account_id": "01a139ea-d2f8-7a15-8af6-53cb91605643",
+          "account_name": "Investment Account",
+          "date": "2026-08-31",
+          "amount": 470000000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "01a139ea-d2f8-7a15-8af6-53cb91605643:2026-09-01",
+          "account_id": "01a139ea-d2f8-7a15-8af6-53cb91605643",
+          "account_name": "Investment Account",
+          "date": "2026-09-01",
+          "amount": 470000000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "01a139ea-d2f8-7a15-8af6-53cb91605643:2026-09-02",
+          "account_id": "01a139ea-d2f8-7a15-8af6-53cb91605643",
+          "account_name": "Investment Account",
+          "date": "2026-09-02",
+          "amount": 470000000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "01a139ea-d2f8-7a15-8af6-53cb91605643:2026-09-03",
+          "account_id": "01a139ea-d2f8-7a15-8af6-53cb91605643",
+          "account_name": "Investment Account",
+          "date": "2026-09-03",
+          "amount": 470000000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "01a139ea-d2f8-7a15-8af6-53cb91605643:2026-09-04",
+          "account_id": "01a139ea-d2f8-7a15-8af6-53cb91605643",
+          "account_name": "Investment Account",
+          "date": "2026-09-04",
+          "amount": 470000000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "01a139ea-d2f8-7a15-8af6-53cb91605643:2026-09-05",
+          "account_id": "01a139ea-d2f8-7a15-8af6-53cb91605643",
+          "account_name": "Investment Account",
+          "date": "2026-09-05",
+          "amount": 645000000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "01a139ea-d2f8-7a15-8af6-53cb91605643:2026-09-06",
+          "account_id": "01a139ea-d2f8-7a15-8af6-53cb91605643",
+          "account_name": "Investment Account",
+          "date": "2026-09-06",
+          "amount": 645000000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "01a139ea-d2f8-7a15-8af6-53cb91605643:2026-09-07",
+          "account_id": "01a139ea-d2f8-7a15-8af6-53cb91605643",
+          "account_name": "Investment Account",
+          "date": "2026-09-07",
+          "amount": 645000000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "01a139ea-d2f8-7a15-8af6-53cb91605643:2026-09-08",
+          "account_id": "01a139ea-d2f8-7a15-8af6-53cb91605643",
+          "account_name": "Investment Account",
+          "date": "2026-09-08",
+          "amount": 645000000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "01a139ea-d2f8-7a15-8af6-53cb91605643:2026-09-09",
+          "account_id": "01a139ea-d2f8-7a15-8af6-53cb91605643",
+          "account_name": "Investment Account",
+          "date": "2026-09-09",
+          "amount": 645000000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "01a139ea-d2f8-7a15-8af6-53cb91605643:2026-09-10",
+          "account_id": "01a139ea-d2f8-7a15-8af6-53cb91605643",
+          "account_name": "Investment Account",
+          "date": "2026-09-10",
+          "amount": 645000000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "01a139ea-d2f8-7a15-8af6-53cb91605643:2026-09-11",
+          "account_id": "01a139ea-d2f8-7a15-8af6-53cb91605643",
+          "account_name": "Investment Account",
+          "date": "2026-09-11",
+          "amount": 645000000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "01a139ea-d2f8-7a15-8af6-53cb91605643:2026-09-12",
+          "account_id": "01a139ea-d2f8-7a15-8af6-53cb91605643",
+          "account_name": "Investment Account",
+          "date": "2026-09-12",
+          "amount": 645000000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "01a139ea-d2f8-7a15-8af6-53cb91605643:2026-09-13",
+          "account_id": "01a139ea-d2f8-7a15-8af6-53cb91605643",
+          "account_name": "Investment Account",
+          "date": "2026-09-13",
+          "amount": 740000000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "01a139ea-d2f8-7a15-8af6-53cb91605643:2026-09-14",
+          "account_id": "01a139ea-d2f8-7a15-8af6-53cb91605643",
+          "account_name": "Investment Account",
+          "date": "2026-09-14",
+          "amount": 740000000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "01a139ea-d2f8-7a15-8af6-53cb91605643:2026-09-15",
+          "account_id": "01a139ea-d2f8-7a15-8af6-53cb91605643",
+          "account_name": "Investment Account",
+          "date": "2026-09-15",
+          "amount": 740000000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "01a139ea-d2f8-7a15-8af6-53cb91605643:2026-09-16",
+          "account_id": "01a139ea-d2f8-7a15-8af6-53cb91605643",
+          "account_name": "Investment Account",
+          "date": "2026-09-16",
+          "amount": 740000000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "01a139ea-d2f8-7a15-8af6-53cb91605643:2026-09-17",
+          "account_id": "01a139ea-d2f8-7a15-8af6-53cb91605643",
+          "account_name": "Investment Account",
+          "date": "2026-09-17",
+          "amount": 740000000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "01a139ea-d2f8-7a15-8af6-53cb91605643:2026-09-18",
+          "account_id": "01a139ea-d2f8-7a15-8af6-53cb91605643",
+          "account_name": "Investment Account",
+          "date": "2026-09-18",
+          "amount": 740000000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "01a139ea-d2f8-7a15-8af6-53cb91605643:2026-09-19",
+          "account_id": "01a139ea-d2f8-7a15-8af6-53cb91605643",
+          "account_name": "Investment Account",
+          "date": "2026-09-19",
+          "amount": 740000000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "01a139ea-d2f8-7a15-8af6-53cb91605643:2026-09-20",
+          "account_id": "01a139ea-d2f8-7a15-8af6-53cb91605643",
+          "account_name": "Investment Account",
+          "date": "2026-09-20",
+          "amount": 740000000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "01a139ea-d2f8-7a15-8af6-53cb91605643:2026-09-21",
+          "account_id": "01a139ea-d2f8-7a15-8af6-53cb91605643",
+          "account_name": "Investment Account",
+          "date": "2026-09-21",
+          "amount": 740000000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "01a139ea-d2f8-7a15-8af6-53cb91605643:2026-09-22",
+          "account_id": "01a139ea-d2f8-7a15-8af6-53cb91605643",
+          "account_name": "Investment Account",
+          "date": "2026-09-22",
+          "amount": 740000000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "01a139ea-d2f8-7a15-8af6-53cb91605643:2026-09-23",
+          "account_id": "01a139ea-d2f8-7a15-8af6-53cb91605643",
+          "account_name": "Investment Account",
+          "date": "2026-09-23",
+          "amount": 740000000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "01a139ea-d2f8-7a15-8af6-53cb91605643:2026-09-24",
+          "account_id": "01a139ea-d2f8-7a15-8af6-53cb91605643",
+          "account_name": "Investment Account",
+          "date": "2026-09-24",
+          "amount": 880000000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "01a139ea-d2f8-7a15-8af6-53cb91605643:2026-09-25",
+          "account_id": "01a139ea-d2f8-7a15-8af6-53cb91605643",
+          "account_name": "Investment Account",
+          "date": "2026-09-25",
+          "amount": 880000000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "01a139ea-d2f8-7a15-8af6-53cb91605643:2026-09-26",
+          "account_id": "01a139ea-d2f8-7a15-8af6-53cb91605643",
+          "account_name": "Investment Account",
+          "date": "2026-09-26",
+          "amount": 880000000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "01a139ea-d2f8-7a15-8af6-53cb91605643:2026-09-27",
+          "account_id": "01a139ea-d2f8-7a15-8af6-53cb91605643",
+          "account_name": "Investment Account",
+          "date": "2026-09-27",
+          "amount": 880000000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "01a139ea-d2f8-7a15-8af6-53cb91605643:2026-09-28",
+          "account_id": "01a139ea-d2f8-7a15-8af6-53cb91605643",
+          "account_name": "Investment Account",
+          "date": "2026-09-28",
+          "amount": 880000000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "01a139ea-d2f8-7a15-8af6-53cb91605643:2026-09-29",
+          "account_id": "01a139ea-d2f8-7a15-8af6-53cb91605643",
+          "account_name": "Investment Account",
+          "date": "2026-09-29",
+          "amount": 880000000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "01a139ea-d2f8-7a15-8af6-53cb91605643:2026-09-30",
+          "account_id": "01a139ea-d2f8-7a15-8af6-53cb91605643",
+          "account_name": "Investment Account",
+          "date": "2026-09-30",
+          "amount": 880000000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "01a139ea-d2f8-7a15-8af6-53cb91605643:2026-10-01",
+          "account_id": "01a139ea-d2f8-7a15-8af6-53cb91605643",
+          "account_name": "Investment Account",
+          "date": "2026-10-01",
+          "amount": 880000000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "01a139ea-d2f8-7a15-8af6-53cb91605643:2026-10-02",
+          "account_id": "01a139ea-d2f8-7a15-8af6-53cb91605643",
+          "account_name": "Investment Account",
+          "date": "2026-10-02",
+          "amount": 880000000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "01a139ea-d2f8-7a15-8af6-53cb91605643:2026-10-03",
+          "account_id": "01a139ea-d2f8-7a15-8af6-53cb91605643",
+          "account_name": "Investment Account",
+          "date": "2026-10-03",
+          "amount": 880000000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "01a139ea-d2f8-7a15-8af6-53cb91605643:2026-10-04",
+          "account_id": "01a139ea-d2f8-7a15-8af6-53cb91605643",
+          "account_name": "Investment Account",
+          "date": "2026-10-04",
+          "amount": 880000000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "01a139ea-d2f8-7a15-8af6-53cb91605643:2026-10-05",
+          "account_id": "01a139ea-d2f8-7a15-8af6-53cb91605643",
+          "account_name": "Investment Account",
+          "date": "2026-10-05",
+          "amount": 880000000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "01a139ea-d2f8-7a15-8af6-53cb91605643:2026-10-06",
+          "account_id": "01a139ea-d2f8-7a15-8af6-53cb91605643",
+          "account_name": "Investment Account",
+          "date": "2026-10-06",
+          "amount": 880000000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "01a139ea-d2f8-7a15-8af6-53cb91605643:2026-10-07",
+          "account_id": "01a139ea-d2f8-7a15-8af6-53cb91605643",
+          "account_name": "Investment Account",
+          "date": "2026-10-07",
+          "amount": 1015000000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "01a139ea-d2f8-7a15-8af6-53cb91605643:2026-10-08",
+          "account_id": "01a139ea-d2f8-7a15-8af6-53cb91605643",
+          "account_name": "Investment Account",
+          "date": "2026-10-08",
+          "amount": 1015000000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "01a139ea-d2f8-7a15-8af6-53cb91605643:2026-10-09",
+          "account_id": "01a139ea-d2f8-7a15-8af6-53cb91605643",
+          "account_name": "Investment Account",
+          "date": "2026-10-09",
+          "amount": 1015000000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "01a139ea-d2f8-7a15-8af6-53cb91605643:2026-10-10",
+          "account_id": "01a139ea-d2f8-7a15-8af6-53cb91605643",
+          "account_name": "Investment Account",
+          "date": "2026-10-10",
+          "amount": 1015000000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "01a139ea-d2f8-7a15-8af6-53cb91605643:2026-10-11",
+          "account_id": "01a139ea-d2f8-7a15-8af6-53cb91605643",
+          "account_name": "Investment Account",
+          "date": "2026-10-11",
+          "amount": 1015000000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "01a139ea-d2f8-7a15-8af6-53cb91605643:2026-10-12",
+          "account_id": "01a139ea-d2f8-7a15-8af6-53cb91605643",
+          "account_name": "Investment Account",
+          "date": "2026-10-12",
+          "amount": 1015000000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "01a139ea-d2f8-7a15-8af6-53cb91605643:2026-10-13",
+          "account_id": "01a139ea-d2f8-7a15-8af6-53cb91605643",
+          "account_name": "Investment Account",
+          "date": "2026-10-13",
+          "amount": 1015000000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "01a139ea-d2f8-7a15-8af6-53cb91605643:2026-10-14",
+          "account_id": "01a139ea-d2f8-7a15-8af6-53cb91605643",
+          "account_name": "Investment Account",
+          "date": "2026-10-14",
+          "amount": 1015000000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "65c9931a-88c3-4e32-8abf-b707d3f74716:2026-07-14",
+          "account_id": "65c9931a-88c3-4e32-8abf-b707d3f74716",
+          "account_name": "Checking Account",
+          "date": "2026-07-14",
+          "amount": 7700000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "65c9931a-88c3-4e32-8abf-b707d3f74716:2026-07-15",
+          "account_id": "65c9931a-88c3-4e32-8abf-b707d3f74716",
+          "account_name": "Checking Account",
+          "date": "2026-07-15",
+          "amount": 9700000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "65c9931a-88c3-4e32-8abf-b707d3f74716:2026-07-16",
+          "account_id": "65c9931a-88c3-4e32-8abf-b707d3f74716",
+          "account_name": "Checking Account",
+          "date": "2026-07-16",
+          "amount": 9700000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "65c9931a-88c3-4e32-8abf-b707d3f74716:2026-07-17",
+          "account_id": "65c9931a-88c3-4e32-8abf-b707d3f74716",
+          "account_name": "Checking Account",
+          "date": "2026-07-17",
+          "amount": 9700000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "65c9931a-88c3-4e32-8abf-b707d3f74716:2026-07-18",
+          "account_id": "65c9931a-88c3-4e32-8abf-b707d3f74716",
+          "account_name": "Checking Account",
+          "date": "2026-07-18",
+          "amount": 9700000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "65c9931a-88c3-4e32-8abf-b707d3f74716:2026-07-19",
+          "account_id": "65c9931a-88c3-4e32-8abf-b707d3f74716",
+          "account_name": "Checking Account",
+          "date": "2026-07-19",
+          "amount": 9700000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "65c9931a-88c3-4e32-8abf-b707d3f74716:2026-07-20",
+          "account_id": "65c9931a-88c3-4e32-8abf-b707d3f74716",
+          "account_name": "Checking Account",
+          "date": "2026-07-20",
+          "amount": 9700000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "65c9931a-88c3-4e32-8abf-b707d3f74716:2026-07-21",
+          "account_id": "65c9931a-88c3-4e32-8abf-b707d3f74716",
+          "account_name": "Checking Account",
+          "date": "2026-07-21",
+          "amount": 9700000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "65c9931a-88c3-4e32-8abf-b707d3f74716:2026-07-22",
+          "account_id": "65c9931a-88c3-4e32-8abf-b707d3f74716",
+          "account_name": "Checking Account",
+          "date": "2026-07-22",
+          "amount": 9700000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "65c9931a-88c3-4e32-8abf-b707d3f74716:2026-07-23",
+          "account_id": "65c9931a-88c3-4e32-8abf-b707d3f74716",
+          "account_name": "Checking Account",
+          "date": "2026-07-23",
+          "amount": 9700000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "65c9931a-88c3-4e32-8abf-b707d3f74716:2026-07-24",
+          "account_id": "65c9931a-88c3-4e32-8abf-b707d3f74716",
+          "account_name": "Checking Account",
+          "date": "2026-07-24",
+          "amount": 8750000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "65c9931a-88c3-4e32-8abf-b707d3f74716:2026-07-25",
+          "account_id": "65c9931a-88c3-4e32-8abf-b707d3f74716",
+          "account_name": "Checking Account",
+          "date": "2026-07-25",
+          "amount": 8750000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "65c9931a-88c3-4e32-8abf-b707d3f74716:2026-07-26",
+          "account_id": "65c9931a-88c3-4e32-8abf-b707d3f74716",
+          "account_name": "Checking Account",
+          "date": "2026-07-26",
+          "amount": 8750000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "65c9931a-88c3-4e32-8abf-b707d3f74716:2026-07-27",
+          "account_id": "65c9931a-88c3-4e32-8abf-b707d3f74716",
+          "account_name": "Checking Account",
+          "date": "2026-07-27",
+          "amount": 8750000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "65c9931a-88c3-4e32-8abf-b707d3f74716:2026-07-28",
+          "account_id": "65c9931a-88c3-4e32-8abf-b707d3f74716",
+          "account_name": "Checking Account",
+          "date": "2026-07-28",
+          "amount": 7800000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "65c9931a-88c3-4e32-8abf-b707d3f74716:2026-07-29",
+          "account_id": "65c9931a-88c3-4e32-8abf-b707d3f74716",
+          "account_name": "Checking Account",
+          "date": "2026-07-29",
+          "amount": 7800000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "65c9931a-88c3-4e32-8abf-b707d3f74716:2026-07-30",
+          "account_id": "65c9931a-88c3-4e32-8abf-b707d3f74716",
+          "account_name": "Checking Account",
+          "date": "2026-07-30",
+          "amount": 7800000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "65c9931a-88c3-4e32-8abf-b707d3f74716:2026-07-31",
+          "account_id": "65c9931a-88c3-4e32-8abf-b707d3f74716",
+          "account_name": "Checking Account",
+          "date": "2026-07-31",
+          "amount": 7800000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "65c9931a-88c3-4e32-8abf-b707d3f74716:2026-08-01",
+          "account_id": "65c9931a-88c3-4e32-8abf-b707d3f74716",
+          "account_name": "Checking Account",
+          "date": "2026-08-01",
+          "amount": 8150000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "65c9931a-88c3-4e32-8abf-b707d3f74716:2026-08-02",
+          "account_id": "65c9931a-88c3-4e32-8abf-b707d3f74716",
+          "account_name": "Checking Account",
+          "date": "2026-08-02",
+          "amount": 8150000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "65c9931a-88c3-4e32-8abf-b707d3f74716:2026-08-03",
+          "account_id": "65c9931a-88c3-4e32-8abf-b707d3f74716",
+          "account_name": "Checking Account",
+          "date": "2026-08-03",
+          "amount": 8150000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "65c9931a-88c3-4e32-8abf-b707d3f74716:2026-08-04",
+          "account_id": "65c9931a-88c3-4e32-8abf-b707d3f74716",
+          "account_name": "Checking Account",
+          "date": "2026-08-04",
+          "amount": 10950000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "65c9931a-88c3-4e32-8abf-b707d3f74716:2026-08-05",
+          "account_id": "65c9931a-88c3-4e32-8abf-b707d3f74716",
+          "account_name": "Checking Account",
+          "date": "2026-08-05",
+          "amount": 10950000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "65c9931a-88c3-4e32-8abf-b707d3f74716:2026-08-06",
+          "account_id": "65c9931a-88c3-4e32-8abf-b707d3f74716",
+          "account_name": "Checking Account",
+          "date": "2026-08-06",
+          "amount": 10950000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "65c9931a-88c3-4e32-8abf-b707d3f74716:2026-08-07",
+          "account_id": "65c9931a-88c3-4e32-8abf-b707d3f74716",
+          "account_name": "Checking Account",
+          "date": "2026-08-07",
+          "amount": 15450000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "65c9931a-88c3-4e32-8abf-b707d3f74716:2026-08-08",
+          "account_id": "65c9931a-88c3-4e32-8abf-b707d3f74716",
+          "account_name": "Checking Account",
+          "date": "2026-08-08",
+          "amount": 15450000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "65c9931a-88c3-4e32-8abf-b707d3f74716:2026-08-09",
+          "account_id": "65c9931a-88c3-4e32-8abf-b707d3f74716",
+          "account_name": "Checking Account",
+          "date": "2026-08-09",
+          "amount": 15450000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "65c9931a-88c3-4e32-8abf-b707d3f74716:2026-08-10",
+          "account_id": "65c9931a-88c3-4e32-8abf-b707d3f74716",
+          "account_name": "Checking Account",
+          "date": "2026-08-10",
+          "amount": 18550000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "65c9931a-88c3-4e32-8abf-b707d3f74716:2026-08-11",
+          "account_id": "65c9931a-88c3-4e32-8abf-b707d3f74716",
+          "account_name": "Checking Account",
+          "date": "2026-08-11",
+          "amount": 18550000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "65c9931a-88c3-4e32-8abf-b707d3f74716:2026-08-12",
+          "account_id": "65c9931a-88c3-4e32-8abf-b707d3f74716",
+          "account_name": "Checking Account",
+          "date": "2026-08-12",
+          "amount": 18550000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "65c9931a-88c3-4e32-8abf-b707d3f74716:2026-08-13",
+          "account_id": "65c9931a-88c3-4e32-8abf-b707d3f74716",
+          "account_name": "Checking Account",
+          "date": "2026-08-13",
+          "amount": 18550000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "65c9931a-88c3-4e32-8abf-b707d3f74716:2026-08-14",
+          "account_id": "65c9931a-88c3-4e32-8abf-b707d3f74716",
+          "account_name": "Checking Account",
+          "date": "2026-08-14",
+          "amount": 18550000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "65c9931a-88c3-4e32-8abf-b707d3f74716:2026-08-15",
+          "account_id": "65c9931a-88c3-4e32-8abf-b707d3f74716",
+          "account_name": "Checking Account",
+          "date": "2026-08-15",
+          "amount": 20050000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "65c9931a-88c3-4e32-8abf-b707d3f74716:2026-08-16",
+          "account_id": "65c9931a-88c3-4e32-8abf-b707d3f74716",
+          "account_name": "Checking Account",
+          "date": "2026-08-16",
+          "amount": 20050000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "65c9931a-88c3-4e32-8abf-b707d3f74716:2026-08-17",
+          "account_id": "65c9931a-88c3-4e32-8abf-b707d3f74716",
+          "account_name": "Checking Account",
+          "date": "2026-08-17",
+          "amount": 20050000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "65c9931a-88c3-4e32-8abf-b707d3f74716:2026-08-18",
+          "account_id": "65c9931a-88c3-4e32-8abf-b707d3f74716",
+          "account_name": "Checking Account",
+          "date": "2026-08-18",
+          "amount": 20050000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "65c9931a-88c3-4e32-8abf-b707d3f74716:2026-08-19",
+          "account_id": "65c9931a-88c3-4e32-8abf-b707d3f74716",
+          "account_name": "Checking Account",
+          "date": "2026-08-19",
+          "amount": 20050000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "65c9931a-88c3-4e32-8abf-b707d3f74716:2026-08-20",
+          "account_id": "65c9931a-88c3-4e32-8abf-b707d3f74716",
+          "account_name": "Checking Account",
+          "date": "2026-08-20",
+          "amount": 20050000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "65c9931a-88c3-4e32-8abf-b707d3f74716:2026-08-21",
+          "account_id": "65c9931a-88c3-4e32-8abf-b707d3f74716",
+          "account_name": "Checking Account",
+          "date": "2026-08-21",
+          "amount": 20050000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "65c9931a-88c3-4e32-8abf-b707d3f74716:2026-08-22",
+          "account_id": "65c9931a-88c3-4e32-8abf-b707d3f74716",
+          "account_name": "Checking Account",
+          "date": "2026-08-22",
+          "amount": 20050000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "65c9931a-88c3-4e32-8abf-b707d3f74716:2026-08-23",
+          "account_id": "65c9931a-88c3-4e32-8abf-b707d3f74716",
+          "account_name": "Checking Account",
+          "date": "2026-08-23",
+          "amount": 20050000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "65c9931a-88c3-4e32-8abf-b707d3f74716:2026-08-24",
+          "account_id": "65c9931a-88c3-4e32-8abf-b707d3f74716",
+          "account_name": "Checking Account",
+          "date": "2026-08-24",
+          "amount": 19070000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "65c9931a-88c3-4e32-8abf-b707d3f74716:2026-08-25",
+          "account_id": "65c9931a-88c3-4e32-8abf-b707d3f74716",
+          "account_name": "Checking Account",
+          "date": "2026-08-25",
+          "amount": 19070000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "65c9931a-88c3-4e32-8abf-b707d3f74716:2026-08-26",
+          "account_id": "65c9931a-88c3-4e32-8abf-b707d3f74716",
+          "account_name": "Checking Account",
+          "date": "2026-08-26",
+          "amount": 19070000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "65c9931a-88c3-4e32-8abf-b707d3f74716:2026-08-27",
+          "account_id": "65c9931a-88c3-4e32-8abf-b707d3f74716",
+          "account_name": "Checking Account",
+          "date": "2026-08-27",
+          "amount": 19070000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "65c9931a-88c3-4e32-8abf-b707d3f74716:2026-08-28",
+          "account_id": "65c9931a-88c3-4e32-8abf-b707d3f74716",
+          "account_name": "Checking Account",
+          "date": "2026-08-28",
+          "amount": 18150000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "65c9931a-88c3-4e32-8abf-b707d3f74716:2026-08-29",
+          "account_id": "65c9931a-88c3-4e32-8abf-b707d3f74716",
+          "account_name": "Checking Account",
+          "date": "2026-08-29",
+          "amount": 18150000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "65c9931a-88c3-4e32-8abf-b707d3f74716:2026-08-30",
+          "account_id": "65c9931a-88c3-4e32-8abf-b707d3f74716",
+          "account_name": "Checking Account",
+          "date": "2026-08-30",
+          "amount": 18150000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "65c9931a-88c3-4e32-8abf-b707d3f74716:2026-08-31",
+          "account_id": "65c9931a-88c3-4e32-8abf-b707d3f74716",
+          "account_name": "Checking Account",
+          "date": "2026-08-31",
+          "amount": 18150000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "65c9931a-88c3-4e32-8abf-b707d3f74716:2026-09-01",
+          "account_id": "65c9931a-88c3-4e32-8abf-b707d3f74716",
+          "account_name": "Checking Account",
+          "date": "2026-09-01",
+          "amount": 18920000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "65c9931a-88c3-4e32-8abf-b707d3f74716:2026-09-02",
+          "account_id": "65c9931a-88c3-4e32-8abf-b707d3f74716",
+          "account_name": "Checking Account",
+          "date": "2026-09-02",
+          "amount": 18920000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "65c9931a-88c3-4e32-8abf-b707d3f74716:2026-09-03",
+          "account_id": "65c9931a-88c3-4e32-8abf-b707d3f74716",
+          "account_name": "Checking Account",
+          "date": "2026-09-03",
+          "amount": 18920000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "65c9931a-88c3-4e32-8abf-b707d3f74716:2026-09-04",
+          "account_id": "65c9931a-88c3-4e32-8abf-b707d3f74716",
+          "account_name": "Checking Account",
+          "date": "2026-09-04",
+          "amount": 22920000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "65c9931a-88c3-4e32-8abf-b707d3f74716:2026-09-05",
+          "account_id": "65c9931a-88c3-4e32-8abf-b707d3f74716",
+          "account_name": "Checking Account",
+          "date": "2026-09-05",
+          "amount": 22920000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "65c9931a-88c3-4e32-8abf-b707d3f74716:2026-09-06",
+          "account_id": "65c9931a-88c3-4e32-8abf-b707d3f74716",
+          "account_name": "Checking Account",
+          "date": "2026-09-06",
+          "amount": 22920000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "65c9931a-88c3-4e32-8abf-b707d3f74716:2026-09-07",
+          "account_id": "65c9931a-88c3-4e32-8abf-b707d3f74716",
+          "account_name": "Checking Account",
+          "date": "2026-09-07",
+          "amount": 25420000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "65c9931a-88c3-4e32-8abf-b707d3f74716:2026-09-08",
+          "account_id": "65c9931a-88c3-4e32-8abf-b707d3f74716",
+          "account_name": "Checking Account",
+          "date": "2026-09-08",
+          "amount": 25420000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "65c9931a-88c3-4e32-8abf-b707d3f74716:2026-09-09",
+          "account_id": "65c9931a-88c3-4e32-8abf-b707d3f74716",
+          "account_name": "Checking Account",
+          "date": "2026-09-09",
+          "amount": 25420000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "65c9931a-88c3-4e32-8abf-b707d3f74716:2026-09-10",
+          "account_id": "65c9931a-88c3-4e32-8abf-b707d3f74716",
+          "account_name": "Checking Account",
+          "date": "2026-09-10",
+          "amount": 25420000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "65c9931a-88c3-4e32-8abf-b707d3f74716:2026-09-11",
+          "account_id": "65c9931a-88c3-4e32-8abf-b707d3f74716",
+          "account_name": "Checking Account",
+          "date": "2026-09-11",
+          "amount": 25420000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "65c9931a-88c3-4e32-8abf-b707d3f74716:2026-09-12",
+          "account_id": "65c9931a-88c3-4e32-8abf-b707d3f74716",
+          "account_name": "Checking Account",
+          "date": "2026-09-12",
+          "amount": 25420000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "65c9931a-88c3-4e32-8abf-b707d3f74716:2026-09-13",
+          "account_id": "65c9931a-88c3-4e32-8abf-b707d3f74716",
+          "account_name": "Checking Account",
+          "date": "2026-09-13",
+          "amount": 25420000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "65c9931a-88c3-4e32-8abf-b707d3f74716:2026-09-14",
+          "account_id": "65c9931a-88c3-4e32-8abf-b707d3f74716",
+          "account_name": "Checking Account",
+          "date": "2026-09-14",
+          "amount": 27620000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "65c9931a-88c3-4e32-8abf-b707d3f74716:2026-09-15",
+          "account_id": "65c9931a-88c3-4e32-8abf-b707d3f74716",
+          "account_name": "Checking Account",
+          "date": "2026-09-15",
+          "amount": 27620000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "65c9931a-88c3-4e32-8abf-b707d3f74716:2026-09-16",
+          "account_id": "65c9931a-88c3-4e32-8abf-b707d3f74716",
+          "account_name": "Checking Account",
+          "date": "2026-09-16",
+          "amount": 27620000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "65c9931a-88c3-4e32-8abf-b707d3f74716:2026-09-17",
+          "account_id": "65c9931a-88c3-4e32-8abf-b707d3f74716",
+          "account_name": "Checking Account",
+          "date": "2026-09-17",
+          "amount": 27620000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "65c9931a-88c3-4e32-8abf-b707d3f74716:2026-09-18",
+          "account_id": "65c9931a-88c3-4e32-8abf-b707d3f74716",
+          "account_name": "Checking Account",
+          "date": "2026-09-18",
+          "amount": 27620000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "65c9931a-88c3-4e32-8abf-b707d3f74716:2026-09-19",
+          "account_id": "65c9931a-88c3-4e32-8abf-b707d3f74716",
+          "account_name": "Checking Account",
+          "date": "2026-09-19",
+          "amount": 27620000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "65c9931a-88c3-4e32-8abf-b707d3f74716:2026-09-20",
+          "account_id": "65c9931a-88c3-4e32-8abf-b707d3f74716",
+          "account_name": "Checking Account",
+          "date": "2026-09-20",
+          "amount": 27620000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "65c9931a-88c3-4e32-8abf-b707d3f74716:2026-09-21",
+          "account_id": "65c9931a-88c3-4e32-8abf-b707d3f74716",
+          "account_name": "Checking Account",
+          "date": "2026-09-21",
+          "amount": 27620000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "65c9931a-88c3-4e32-8abf-b707d3f74716:2026-09-22",
+          "account_id": "65c9931a-88c3-4e32-8abf-b707d3f74716",
+          "account_name": "Checking Account",
+          "date": "2026-09-22",
+          "amount": 27620000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "65c9931a-88c3-4e32-8abf-b707d3f74716:2026-09-23",
+          "account_id": "65c9931a-88c3-4e32-8abf-b707d3f74716",
+          "account_name": "Checking Account",
+          "date": "2026-09-23",
+          "amount": 27620000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "65c9931a-88c3-4e32-8abf-b707d3f74716:2026-09-24",
+          "account_id": "65c9931a-88c3-4e32-8abf-b707d3f74716",
+          "account_name": "Checking Account",
+          "date": "2026-09-24",
+          "amount": 30670000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "65c9931a-88c3-4e32-8abf-b707d3f74716:2026-09-25",
+          "account_id": "65c9931a-88c3-4e32-8abf-b707d3f74716",
+          "account_name": "Checking Account",
+          "date": "2026-09-25",
+          "amount": 30670000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "65c9931a-88c3-4e32-8abf-b707d3f74716:2026-09-26",
+          "account_id": "65c9931a-88c3-4e32-8abf-b707d3f74716",
+          "account_name": "Checking Account",
+          "date": "2026-09-26",
+          "amount": 30670000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "65c9931a-88c3-4e32-8abf-b707d3f74716:2026-09-27",
+          "account_id": "65c9931a-88c3-4e32-8abf-b707d3f74716",
+          "account_name": "Checking Account",
+          "date": "2026-09-27",
+          "amount": 30670000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "65c9931a-88c3-4e32-8abf-b707d3f74716:2026-09-28",
+          "account_id": "65c9931a-88c3-4e32-8abf-b707d3f74716",
+          "account_name": "Checking Account",
+          "date": "2026-09-28",
+          "amount": 25720000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "65c9931a-88c3-4e32-8abf-b707d3f74716:2026-09-29",
+          "account_id": "65c9931a-88c3-4e32-8abf-b707d3f74716",
+          "account_name": "Checking Account",
+          "date": "2026-09-29",
+          "amount": 25720000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "65c9931a-88c3-4e32-8abf-b707d3f74716:2026-09-30",
+          "account_id": "65c9931a-88c3-4e32-8abf-b707d3f74716",
+          "account_name": "Checking Account",
+          "date": "2026-09-30",
+          "amount": 25720000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "65c9931a-88c3-4e32-8abf-b707d3f74716:2026-10-01",
+          "account_id": "65c9931a-88c3-4e32-8abf-b707d3f74716",
+          "account_name": "Checking Account",
+          "date": "2026-10-01",
+          "amount": 26870000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "65c9931a-88c3-4e32-8abf-b707d3f74716:2026-10-02",
+          "account_id": "65c9931a-88c3-4e32-8abf-b707d3f74716",
+          "account_name": "Checking Account",
+          "date": "2026-10-02",
+          "amount": 26870000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "65c9931a-88c3-4e32-8abf-b707d3f74716:2026-10-03",
+          "account_id": "65c9931a-88c3-4e32-8abf-b707d3f74716",
+          "account_name": "Checking Account",
+          "date": "2026-10-03",
+          "amount": 26870000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "65c9931a-88c3-4e32-8abf-b707d3f74716:2026-10-04",
+          "account_id": "65c9931a-88c3-4e32-8abf-b707d3f74716",
+          "account_name": "Checking Account",
+          "date": "2026-10-04",
+          "amount": 26870000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "65c9931a-88c3-4e32-8abf-b707d3f74716:2026-10-05",
+          "account_id": "65c9931a-88c3-4e32-8abf-b707d3f74716",
+          "account_name": "Checking Account",
+          "date": "2026-10-05",
+          "amount": 26870000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "65c9931a-88c3-4e32-8abf-b707d3f74716:2026-10-06",
+          "account_id": "65c9931a-88c3-4e32-8abf-b707d3f74716",
+          "account_name": "Checking Account",
+          "date": "2026-10-06",
+          "amount": 26870000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "65c9931a-88c3-4e32-8abf-b707d3f74716:2026-10-07",
+          "account_id": "65c9931a-88c3-4e32-8abf-b707d3f74716",
+          "account_name": "Checking Account",
+          "date": "2026-10-07",
+          "amount": 33870000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "65c9931a-88c3-4e32-8abf-b707d3f74716:2026-10-08",
+          "account_id": "65c9931a-88c3-4e32-8abf-b707d3f74716",
+          "account_name": "Checking Account",
+          "date": "2026-10-08",
+          "amount": 33870000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "65c9931a-88c3-4e32-8abf-b707d3f74716:2026-10-09",
+          "account_id": "65c9931a-88c3-4e32-8abf-b707d3f74716",
+          "account_name": "Checking Account",
+          "date": "2026-10-09",
+          "amount": 33870000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "65c9931a-88c3-4e32-8abf-b707d3f74716:2026-10-10",
+          "account_id": "65c9931a-88c3-4e32-8abf-b707d3f74716",
+          "account_name": "Checking Account",
+          "date": "2026-10-10",
+          "amount": 33870000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "65c9931a-88c3-4e32-8abf-b707d3f74716:2026-10-11",
+          "account_id": "65c9931a-88c3-4e32-8abf-b707d3f74716",
+          "account_name": "Checking Account",
+          "date": "2026-10-11",
+          "amount": 33870000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "65c9931a-88c3-4e32-8abf-b707d3f74716:2026-10-12",
+          "account_id": "65c9931a-88c3-4e32-8abf-b707d3f74716",
+          "account_name": "Checking Account",
+          "date": "2026-10-12",
+          "amount": 33870000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "65c9931a-88c3-4e32-8abf-b707d3f74716:2026-10-13",
+          "account_id": "65c9931a-88c3-4e32-8abf-b707d3f74716",
+          "account_name": "Checking Account",
+          "date": "2026-10-13",
+          "amount": 33870000,
+          "currency_code": "USD"
+        },
+        {
+          "id": "65c9931a-88c3-4e32-8abf-b707d3f74716:2026-10-14",
+          "account_id": "65c9931a-88c3-4e32-8abf-b707d3f74716",
+          "account_name": "Checking Account",
+          "date": "2026-10-14",
+          "amount": 33796995,
+          "currency_code": "USD"
+        },
+        {
+          "id": "6a953bb0-1074-4c80-a108-34c684a20f74:2026-10-14",
+          "account_id": "6a953bb0-1074-4c80-a108-34c684a20f74",
+          "account_name": "Stablecoin Account",
+          "date": "2026-10-14",
+          "amount": 1043109000000,
+          "currency_code": "USDC"
+        }
+      ]
+    },
+    "batchDelete": {
+      "BankingAccountBalance": []
+    }
+  },
+  "api": {
+    "get": {
+      "/developer/v1/banking/accounts": {
+        "response": {
+          "page": {
+            "next": null
+          },
+          "data": [
+            {
+              "name": "Investment Account",
+              "id": "01a139ea-d2f8-7a15-8af6-53cb91605643",
+              "account_type": "MANAGED_PORTFOLIO_ACCOUNT"
+            },
+            {
+              "name": "Checking Account",
+              "id": "65c9931a-88c3-4e32-8abf-b707d3f74716",
+              "account_type": "WALLET_ACCOUNT"
+            },
+            {
+              "name": "Stablecoin Account",
+              "id": "6a953bb0-1074-4c80-a108-34c684a20f74",
+              "account_type": "WALLET_ACCOUNT"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 14 Oct 2026 11:11:01 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1815",
+          "x-ratelimit-reset": "1791976271",
+          "cf-ray": "a4a624136d0b5d68-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "server": "cloudflare",
+          "vary": "Origin, accept-encoding",
+          "content-security-policy": "upgrade-insecure-requests; frame-ancestors 'self' https://demo.ramp.com; report-uri https://ramp.report-uri.com/r/d/csp/enforce",
+          "ramp-worker-name": "demo-app-worker",
+          "server-timing": "gt;dur=142.445, ge;dur=0.720, px;dur=140.897, fw;dur=226.00, fwe;dur=0.00, fwx;dur=226.00",
+          "x-debug-cell-id": "none",
+          "x-debug-routing-key": "none",
+          "x-debug-upstream-cache-control": "none",
+          "x-ramp-body-source": "others",
+          "x-ramp-business-id": "e15cd7ee-ab7e-4173-a82f-00f33901c1ca",
+          "x-ramp-cf-ray": "a4a62413784520eb-IAD",
+          "x-ramp-request-id": "01a13a1b-c858-7213-948a-af117213598e",
+          "x-trace-id": "ramp-f6ab82f269c94c0fac37da9b0beb8c98",
+          "set-cookie": "<redacted>",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "hash": "8d781b7cffd5a40ee1e603a20c3485dde043082b",
+        "request": {
+          "params": {
+            "page_size": "100"
+          }
+        }
+      },
+      "/developer/v1/banking/accounts/01a139ea-d2f8-7a15-8af6-53cb91605643/balance-history": {
+        "response": {
+          "page": {
+            "next": null
+          },
+          "data": [
+            {
+              "amount": {
+                "currency_code": "USD",
+                "minor_unit_conversion_rate": 100,
+                "amount": 125000000
+              },
+              "date": "2026-07-14"
+            },
+            {
+              "amount": {
+                "currency_code": "USD",
+                "minor_unit_conversion_rate": 100,
+                "amount": 125000000
+              },
+              "date": "2026-07-15"
+            },
+            {
+              "amount": {
+                "currency_code": "USD",
+                "minor_unit_conversion_rate": 100,
+                "amount": 210000000
+              },
+              "date": "2026-07-16"
+            },
+            {
+              "amount": {
+                "currency_code": "USD",
+                "minor_unit_conversion_rate": 100,
+                "amount": 210000000
+              },
+              "date": "2026-07-17"
+            },
+            {
+              "amount": {
+                "currency_code": "USD",
+                "minor_unit_conversion_rate": 100,
+                "amount": 210000000
+              },
+              "date": "2026-07-18"
+            },
+            {
+              "amount": {
+                "currency_code": "USD",
+                "minor_unit_conversion_rate": 100,
+                "amount": 210000000
+              },
+              "date": "2026-07-19"
+            },
+            {
+              "amount": {
+                "currency_code": "USD",
+                "minor_unit_conversion_rate": 100,
+                "amount": 210000000
+              },
+              "date": "2026-07-20"
+            },
+            {
+              "amount": {
+                "currency_code": "USD",
+                "minor_unit_conversion_rate": 100,
+                "amount": 210000000
+              },
+              "date": "2026-07-21"
+            },
+            {
+              "amount": {
+                "currency_code": "USD",
+                "minor_unit_conversion_rate": 100,
+                "amount": 210000000
+              },
+              "date": "2026-07-22"
+            },
+            {
+              "amount": {
+                "currency_code": "USD",
+                "minor_unit_conversion_rate": 100,
+                "amount": 210000000
+              },
+              "date": "2026-07-23"
+            },
+            {
+              "amount": {
+                "currency_code": "USD",
+                "minor_unit_conversion_rate": 100,
+                "amount": 210000000
+              },
+              "date": "2026-07-24"
+            },
+            {
+              "amount": {
+                "currency_code": "USD",
+                "minor_unit_conversion_rate": 100,
+                "amount": 210000000
+              },
+              "date": "2026-07-25"
+            },
+            {
+              "amount": {
+                "currency_code": "USD",
+                "minor_unit_conversion_rate": 100,
+                "amount": 210000000
+              },
+              "date": "2026-07-26"
+            },
+            {
+              "amount": {
+                "currency_code": "USD",
+                "minor_unit_conversion_rate": 100,
+                "amount": 210000000
+              },
+              "date": "2026-07-27"
+            },
+            {
+              "amount": {
+                "currency_code": "USD",
+                "minor_unit_conversion_rate": 100,
+                "amount": 210000000
+              },
+              "date": "2026-07-28"
+            },
+            {
+              "amount": {
+                "currency_code": "USD",
+                "minor_unit_conversion_rate": 100,
+                "amount": 210000000
+              },
+              "date": "2026-07-29"
+            },
+            {
+              "amount": {
+                "currency_code": "USD",
+                "minor_unit_conversion_rate": 100,
+                "amount": 210000000
+              },
+              "date": "2026-07-30"
+            },
+            {
+              "amount": {
+                "currency_code": "USD",
+                "minor_unit_conversion_rate": 100,
+                "amount": 210000000
+              },
+              "date": "2026-07-31"
+            },
+            {
+              "amount": {
+                "currency_code": "USD",
+                "minor_unit_conversion_rate": 100,
+                "amount": 210000000
+              },
+              "date": "2026-08-01"
+            },
+            {
+              "amount": {
+                "currency_code": "USD",
+                "minor_unit_conversion_rate": 100,
+                "amount": 210000000
+              },
+              "date": "2026-08-02"
+            },
+            {
+              "amount": {
+                "currency_code": "USD",
+                "minor_unit_conversion_rate": 100,
+                "amount": 210000000
+              },
+              "date": "2026-08-03"
+            },
+            {
+              "amount": {
+                "currency_code": "USD",
+                "minor_unit_conversion_rate": 100,
+                "amount": 210000000
+              },
+              "date": "2026-08-04"
+            },
+            {
+              "amount": {
+                "currency_code": "USD",
+                "minor_unit_conversion_rate": 100,
+                "amount": 210000000
+              },
+              "date": "2026-08-05"
+            },
+            {
+              "amount": {
+                "currency_code": "USD",
+                "minor_unit_conversion_rate": 100,
+                "amount": 360000000
+              },
+              "date": "2026-08-06"
+            },
+            {
+              "amount": {
+                "currency_code": "USD",
+                "minor_unit_conversion_rate": 100,
+                "amount": 360000000
+              },
+              "date": "2026-08-07"
+            },
+            {
+              "amount": {
+                "currency_code": "USD",
+                "minor_unit_conversion_rate": 100,
+                "amount": 360000000
+              },
+              "date": "2026-08-08"
+            },
+            {
+              "amount": {
+                "currency_code": "USD",
+                "minor_unit_conversion_rate": 100,
+                "amount": 360000000
+              },
+              "date": "2026-08-09"
+            },
+            {
+              "amount": {
+                "currency_code": "USD",
+                "minor_unit_conversion_rate": 100,
+                "amount": 360000000
+              },
+              "date": "2026-08-10"
+            },
+            {
+              "amount": {
+                "currency_code": "USD",
+                "minor_unit_conversion_rate": 100,
+                "amount": 360000000
+              },
+              "date": "2026-08-11"
+            },
+            {
+              "amount": {
+                "currency_code": "USD",
+                "minor_unit_conversion_rate": 100,
+                "amount": 360000000
+              },
+              "date": "2026-08-12"
+            },
+            {
+              "amount": {
+                "currency_code": "USD",
+                "minor_unit_conversion_rate": 100,
+                "amount": 360000000
+              },
+              "date": "2026-08-13"
+            },
+            {
+              "amount": {
+                "currency_code": "USD",
+                "minor_unit_conversion_rate": 100,
+                "amount": 360000000
+              },
+              "date": "2026-08-14"
+            },
+            {
+              "amount": {
+                "currency_code": "USD",
+                "minor_unit_conversion_rate": 100,
+                "amount": 360000000
+              },
+              "date": "2026-08-15"
+            },
+            {
+              "amount": {
+                "currency_code": "USD",
+                "minor_unit_conversion_rate": 100,
+                "amount": 360000000
+              },
+              "date": "2026-08-16"
+            },
+            {
+              "amount": {
+                "currency_code": "USD",
+                "minor_unit_conversion_rate": 100,
+                "amount": 360000000
+              },
+              "date": "2026-08-17"
+            },
+            {
+              "amount": {
+                "currency_code": "USD",
+                "minor_unit_conversion_rate": 100,
+                "amount": 360000000
+              },
+              "date": "2026-08-18"
+            },
+            {
+              "amount": {
+                "currency_code": "USD",
+                "minor_unit_conversion_rate": 100,
+                "amount": 470000000
+              },
+              "date": "2026-08-19"
+            },
+            {
+              "amount": {
+                "currency_code": "USD",
+                "minor_unit_conversion_rate": 100,
+                "amount": 470000000
+              },
+              "date": "2026-08-20"
+            },
+            {
+              "amount": {
+                "currency_code": "USD",
+                "minor_unit_conversion_rate": 100,
+                "amount": 470000000
+              },
+              "date": "2026-08-21"
+            },
+            {
+              "amount": {
+                "currency_code": "USD",
+                "minor_unit_conversion_rate": 100,
+                "amount": 470000000
+              },
+              "date": "2026-08-22"
+            },
+            {
+              "amount": {
+                "currency_code": "USD",
+                "minor_unit_conversion_rate": 100,
+                "amount": 470000000
+              },
+              "date": "2026-08-23"
+            },
+            {
+              "amount": {
+                "currency_code": "USD",
+                "minor_unit_conversion_rate": 100,
+                "amount": 470000000
+              },
+              "date": "2026-08-24"
+            },
+            {
+              "amount": {
+                "currency_code": "USD",
+                "minor_unit_conversion_rate": 100,
+                "amount": 470000000
+              },
+              "date": "2026-08-25"
+            },
+            {
+              "amount": {
+                "currency_code": "USD",
+                "minor_unit_conversion_rate": 100,
+                "amount": 470000000
+              },
+              "date": "2026-08-26"
+            },
+            {
+              "amount": {
+                "currency_code": "USD",
+                "minor_unit_conversion_rate": 100,
+                "amount": 470000000
+              },
+              "date": "2026-08-27"
+            },
+            {
+              "amount": {
+                "currency_code": "USD",
+                "minor_unit_conversion_rate": 100,
+                "amount": 470000000
+              },
+              "date": "2026-08-28"
+            },
+            {
+              "amount": {
+                "currency_code": "USD",
+                "minor_unit_conversion_rate": 100,
+                "amount": 470000000
+              },
+              "date": "2026-08-29"
+            },
+            {
+              "amount": {
+                "currency_code": "USD",
+                "minor_unit_conversion_rate": 100,
+                "amount": 470000000
+              },
+              "date": "2026-08-30"
+            },
+            {
+              "amount": {
+                "currency_code": "USD",
+                "minor_unit_conversion_rate": 100,
+                "amount": 470000000
+              },
+              "date": "2026-08-31"
+            },
+            {
+              "amount": {
+                "currency_code": "USD",
+                "minor_unit_conversion_rate": 100,
+                "amount": 470000000
+              },
+              "date": "2026-09-01"
+            },
+            {
+              "amount": {
+                "currency_code": "USD",
+                "minor_unit_conversion_rate": 100,
+                "amount": 470000000
+              },
+              "date": "2026-09-02"
+            },
+            {
+              "amount": {
+                "currency_code": "USD",
+                "minor_unit_conversion_rate": 100,
+                "amount": 470000000
+              },
+              "date": "2026-09-03"
+            },
+            {
+              "amount": {
+                "currency_code": "USD",
+                "minor_unit_conversion_rate": 100,
+                "amount": 470000000
+              },
+              "date": "2026-09-04"
+            },
+            {
+              "amount": {
+                "currency_code": "USD",
+                "minor_unit_conversion_rate": 100,
+                "amount": 645000000
+              },
+              "date": "2026-09-05"
+            },
+            {
+              "amount": {
+                "currency_code": "USD",
+                "minor_unit_conversion_rate": 100,
+                "amount": 645000000
+              },
+              "date": "2026-09-06"
+            },
+            {
+              "amount": {
+                "currency_code": "USD",
+                "minor_unit_conversion_rate": 100,
+                "amount": 645000000
+              },
+              "date": "2026-09-07"
+            },
+            {
+              "amount": {
+                "currency_code": "USD",
+                "minor_unit_conversion_rate": 100,
+                "amount": 645000000
+              },
+              "date": "2026-09-08"
+            },
+            {
+              "amount": {
+                "currency_code": "USD",
+                "minor_unit_conversion_rate": 100,
+                "amount": 645000000
+              },
+              "date": "2026-09-09"
+            },
+            {
+              "amount": {
+                "currency_code": "USD",
+                "minor_unit_conversion_rate": 100,
+                "amount": 645000000
+              },
+              "date": "2026-09-10"
+            },
+            {
+              "amount": {
+                "currency_code": "USD",
+                "minor_unit_conversion_rate": 100,
+                "amount": 645000000
+              },
+              "date": "2026-09-11"
+            },
+            {
+              "amount": {
+                "currency_code": "USD",
+                "minor_unit_conversion_rate": 100,
+                "amount": 645000000
+              },
+              "date": "2026-09-12"
+            },
+            {
+              "amount": {
+                "currency_code": "USD",
+                "minor_unit_conversion_rate": 100,
+                "amount": 740000000
+              },
+              "date": "2026-09-13"
+            },
+            {
+              "amount": {
+                "currency_code": "USD",
+                "minor_unit_conversion_rate": 100,
+                "amount": 740000000
+              },
+              "date": "2026-09-14"
+            },
+            {
+              "amount": {
+                "currency_code": "USD",
+                "minor_unit_conversion_rate": 100,
+                "amount": 740000000
+              },
+              "date": "2026-09-15"
+            },
+            {
+              "amount": {
+                "currency_code": "USD",
+                "minor_unit_conversion_rate": 100,
+                "amount": 740000000
+              },
+              "date": "2026-09-16"
+            },
+            {
+              "amount": {
+                "currency_code": "USD",
+                "minor_unit_conversion_rate": 100,
+                "amount": 740000000
+              },
+              "date": "2026-09-17"
+            },
+            {
+              "amount": {
+                "currency_code": "USD",
+                "minor_unit_conversion_rate": 100,
+                "amount": 740000000
+              },
+              "date": "2026-09-18"
+            },
+            {
+              "amount": {
+                "currency_code": "USD",
+                "minor_unit_conversion_rate": 100,
+                "amount": 740000000
+              },
+              "date": "2026-09-19"
+            },
+            {
+              "amount": {
+                "currency_code": "USD",
+                "minor_unit_conversion_rate": 100,
+                "amount": 740000000
+              },
+              "date": "2026-09-20"
+            },
+            {
+              "amount": {
+                "currency_code": "USD",
+                "minor_unit_conversion_rate": 100,
+                "amount": 740000000
+              },
+              "date": "2026-09-21"
+            },
+            {
+              "amount": {
+                "currency_code": "USD",
+                "minor_unit_conversion_rate": 100,
+                "amount": 740000000
+              },
+              "date": "2026-09-22"
+            },
+            {
+              "amount": {
+                "currency_code": "USD",
+                "minor_unit_conversion_rate": 100,
+                "amount": 740000000
+              },
+              "date": "2026-09-23"
+            },
+            {
+              "amount": {
+                "currency_code": "USD",
+                "minor_unit_conversion_rate": 100,
+                "amount": 880000000
+              },
+              "date": "2026-09-24"
+            },
+            {
+              "amount": {
+                "currency_code": "USD",
+                "minor_unit_conversion_rate": 100,
+                "amount": 880000000
+              },
+              "date": "2026-09-25"
+            },
+            {
+              "amount": {
+                "currency_code": "USD",
+                "minor_unit_conversion_rate": 100,
+                "amount": 880000000
+              },
+              "date": "2026-09-26"
+            },
+            {
+              "amount": {
+                "currency_code": "USD",
+                "minor_unit_conversion_rate": 100,
+                "amount": 880000000
+              },
+              "date": "2026-09-27"
+            },
+            {
+              "amount": {
+                "currency_code": "USD",
+                "minor_unit_conversion_rate": 100,
+                "amount": 880000000
+              },
+              "date": "2026-09-28"
+            },
+            {
+              "amount": {
+                "currency_code": "USD",
+                "minor_unit_conversion_rate": 100,
+                "amount": 880000000
+              },
+              "date": "2026-09-29"
+            },
+            {
+              "amount": {
+                "currency_code": "USD",
+                "minor_unit_conversion_rate": 100,
+                "amount": 880000000
+              },
+              "date": "2026-09-30"
+            },
+            {
+              "amount": {
+                "currency_code": "USD",
+                "minor_unit_conversion_rate": 100,
+                "amount": 880000000
+              },
+              "date": "2026-10-01"
+            },
+            {
+              "amount": {
+                "currency_code": "USD",
+                "minor_unit_conversion_rate": 100,
+                "amount": 880000000
+              },
+              "date": "2026-10-02"
+            },
+            {
+              "amount": {
+                "currency_code": "USD",
+                "minor_unit_conversion_rate": 100,
+                "amount": 880000000
+              },
+              "date": "2026-10-03"
+            },
+            {
+              "amount": {
+                "currency_code": "USD",
+                "minor_unit_conversion_rate": 100,
+                "amount": 880000000
+              },
+              "date": "2026-10-04"
+            },
+            {
+              "amount": {
+                "currency_code": "USD",
+                "minor_unit_conversion_rate": 100,
+                "amount": 880000000
+              },
+              "date": "2026-10-05"
+            },
+            {
+              "amount": {
+                "currency_code": "USD",
+                "minor_unit_conversion_rate": 100,
+                "amount": 880000000
+              },
+              "date": "2026-10-06"
+            },
+            {
+              "amount": {
+                "currency_code": "USD",
+                "minor_unit_conversion_rate": 100,
+                "amount": 1015000000
+              },
+              "date": "2026-10-07"
+            },
+            {
+              "amount": {
+                "currency_code": "USD",
+                "minor_unit_conversion_rate": 100,
+                "amount": 1015000000
+              },
+              "date": "2026-10-08"
+            },
+            {
+              "amount": {
+                "currency_code": "USD",
+                "minor_unit_conversion_rate": 100,
+                "amount": 1015000000
+              },
+              "date": "2026-10-09"
+            },
+            {
+              "amount": {
+                "currency_code": "USD",
+                "minor_unit_conversion_rate": 100,
+                "amount": 1015000000
+              },
+              "date": "2026-10-10"
+            },
+            {
+              "amount": {
+                "currency_code": "USD",
+                "minor_unit_conversion_rate": 100,
+                "amount": 1015000000
+              },
+              "date": "2026-10-11"
+            },
+            {
+              "amount": {
+                "currency_code": "USD",
+                "minor_unit_conversion_rate": 100,
+                "amount": 1015000000
+              },
+              "date": "2026-10-12"
+            },
+            {
+              "amount": {
+                "currency_code": "USD",
+                "minor_unit_conversion_rate": 100,
+                "amount": 1015000000
+              },
+              "date": "2026-10-13"
+            },
+            {
+              "amount": {
+                "currency_code": "USD",
+                "minor_unit_conversion_rate": 100,
+                "amount": 1015000000
+              },
+              "date": "2026-10-14"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 14 Oct 2026 11:11:02 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1812",
+          "x-ratelimit-reset": "1791976271",
+          "cf-ray": "a4a62417c8ddb7b9-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "server": "cloudflare",
+          "vary": "Origin, accept-encoding",
+          "content-security-policy": "upgrade-insecure-requests; frame-ancestors 'self' https://demo.ramp.com; report-uri https://ramp.report-uri.com/r/d/csp/enforce",
+          "ramp-worker-name": "demo-app-worker",
+          "server-timing": "gt;dur=193.823, ge;dur=0.892, px;dur=192.768, fw;dur=269.00, fwe;dur=0.00, fwx;dur=269.00",
+          "x-debug-cell-id": "none",
+          "x-debug-routing-key": "none",
+          "x-debug-upstream-cache-control": "none",
+          "x-ramp-body-source": "others",
+          "x-ramp-business-id": "e15cd7ee-ab7e-4173-a82f-00f33901c1ca",
+          "x-ramp-cf-ray": "a4a62417dd5520eb-IAD",
+          "x-ramp-request-id": "01a13a1b-cb17-7440-85a4-361563e9d7f9",
+          "x-trace-id": "ramp-3e29f682a31c41fd9a8ab5fc9c789e89",
+          "set-cookie": "<redacted>",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "hash": "c7c393ef8f78ad8aa8841656117c16660f2ed58e",
+        "request": {
+          "params": {
+            "page_size": "100"
+          }
+        }
+      },
+      "/developer/v1/banking/accounts/65c9931a-88c3-4e32-8abf-b707d3f74716/balance-history": {
+        "response": {
+          "page": {
+            "next": null
+          },
+          "data": [
+            {
+              "amount": {
+                "minor_unit_conversion_rate": 100,
+                "amount": 7700000,
+                "currency_code": "USD"
+              },
+              "date": "2026-07-14"
+            },
+            {
+              "amount": {
+                "minor_unit_conversion_rate": 100,
+                "amount": 9700000,
+                "currency_code": "USD"
+              },
+              "date": "2026-07-15"
+            },
+            {
+              "amount": {
+                "minor_unit_conversion_rate": 100,
+                "amount": 9700000,
+                "currency_code": "USD"
+              },
+              "date": "2026-07-16"
+            },
+            {
+              "amount": {
+                "minor_unit_conversion_rate": 100,
+                "amount": 9700000,
+                "currency_code": "USD"
+              },
+              "date": "2026-07-17"
+            },
+            {
+              "amount": {
+                "minor_unit_conversion_rate": 100,
+                "amount": 9700000,
+                "currency_code": "USD"
+              },
+              "date": "2026-07-18"
+            },
+            {
+              "amount": {
+                "minor_unit_conversion_rate": 100,
+                "amount": 9700000,
+                "currency_code": "USD"
+              },
+              "date": "2026-07-19"
+            },
+            {
+              "amount": {
+                "minor_unit_conversion_rate": 100,
+                "amount": 9700000,
+                "currency_code": "USD"
+              },
+              "date": "2026-07-20"
+            },
+            {
+              "amount": {
+                "minor_unit_conversion_rate": 100,
+                "amount": 9700000,
+                "currency_code": "USD"
+              },
+              "date": "2026-07-21"
+            },
+            {
+              "amount": {
+                "minor_unit_conversion_rate": 100,
+                "amount": 9700000,
+                "currency_code": "USD"
+              },
+              "date": "2026-07-22"
+            },
+            {
+              "amount": {
+                "minor_unit_conversion_rate": 100,
+                "amount": 9700000,
+                "currency_code": "USD"
+              },
+              "date": "2026-07-23"
+            },
+            {
+              "amount": {
+                "minor_unit_conversion_rate": 100,
+                "amount": 8750000,
+                "currency_code": "USD"
+              },
+              "date": "2026-07-24"
+            },
+            {
+              "amount": {
+                "minor_unit_conversion_rate": 100,
+                "amount": 8750000,
+                "currency_code": "USD"
+              },
+              "date": "2026-07-25"
+            },
+            {
+              "amount": {
+                "minor_unit_conversion_rate": 100,
+                "amount": 8750000,
+                "currency_code": "USD"
+              },
+              "date": "2026-07-26"
+            },
+            {
+              "amount": {
+                "minor_unit_conversion_rate": 100,
+                "amount": 8750000,
+                "currency_code": "USD"
+              },
+              "date": "2026-07-27"
+            },
+            {
+              "amount": {
+                "minor_unit_conversion_rate": 100,
+                "amount": 7800000,
+                "currency_code": "USD"
+              },
+              "date": "2026-07-28"
+            },
+            {
+              "amount": {
+                "minor_unit_conversion_rate": 100,
+                "amount": 7800000,
+                "currency_code": "USD"
+              },
+              "date": "2026-07-29"
+            },
+            {
+              "amount": {
+                "minor_unit_conversion_rate": 100,
+                "amount": 7800000,
+                "currency_code": "USD"
+              },
+              "date": "2026-07-30"
+            },
+            {
+              "amount": {
+                "minor_unit_conversion_rate": 100,
+                "amount": 7800000,
+                "currency_code": "USD"
+              },
+              "date": "2026-07-31"
+            },
+            {
+              "amount": {
+                "minor_unit_conversion_rate": 100,
+                "amount": 8150000,
+                "currency_code": "USD"
+              },
+              "date": "2026-08-01"
+            },
+            {
+              "amount": {
+                "minor_unit_conversion_rate": 100,
+                "amount": 8150000,
+                "currency_code": "USD"
+              },
+              "date": "2026-08-02"
+            },
+            {
+              "amount": {
+                "minor_unit_conversion_rate": 100,
+                "amount": 8150000,
+                "currency_code": "USD"
+              },
+              "date": "2026-08-03"
+            },
+            {
+              "amount": {
+                "minor_unit_conversion_rate": 100,
+                "amount": 10950000,
+                "currency_code": "USD"
+              },
+              "date": "2026-08-04"
+            },
+            {
+              "amount": {
+                "minor_unit_conversion_rate": 100,
+                "amount": 10950000,
+                "currency_code": "USD"
+              },
+              "date": "2026-08-05"
+            },
+            {
+              "amount": {
+                "minor_unit_conversion_rate": 100,
+                "amount": 10950000,
+                "currency_code": "USD"
+              },
+              "date": "2026-08-06"
+            },
+            {
+              "amount": {
+                "minor_unit_conversion_rate": 100,
+                "amount": 15450000,
+                "currency_code": "USD"
+              },
+              "date": "2026-08-07"
+            },
+            {
+              "amount": {
+                "minor_unit_conversion_rate": 100,
+                "amount": 15450000,
+                "currency_code": "USD"
+              },
+              "date": "2026-08-08"
+            },
+            {
+              "amount": {
+                "minor_unit_conversion_rate": 100,
+                "amount": 15450000,
+                "currency_code": "USD"
+              },
+              "date": "2026-08-09"
+            },
+            {
+              "amount": {
+                "minor_unit_conversion_rate": 100,
+                "amount": 18550000,
+                "currency_code": "USD"
+              },
+              "date": "2026-08-10"
+            },
+            {
+              "amount": {
+                "minor_unit_conversion_rate": 100,
+                "amount": 18550000,
+                "currency_code": "USD"
+              },
+              "date": "2026-08-11"
+            },
+            {
+              "amount": {
+                "minor_unit_conversion_rate": 100,
+                "amount": 18550000,
+                "currency_code": "USD"
+              },
+              "date": "2026-08-12"
+            },
+            {
+              "amount": {
+                "minor_unit_conversion_rate": 100,
+                "amount": 18550000,
+                "currency_code": "USD"
+              },
+              "date": "2026-08-13"
+            },
+            {
+              "amount": {
+                "minor_unit_conversion_rate": 100,
+                "amount": 18550000,
+                "currency_code": "USD"
+              },
+              "date": "2026-08-14"
+            },
+            {
+              "amount": {
+                "minor_unit_conversion_rate": 100,
+                "amount": 20050000,
+                "currency_code": "USD"
+              },
+              "date": "2026-08-15"
+            },
+            {
+              "amount": {
+                "minor_unit_conversion_rate": 100,
+                "amount": 20050000,
+                "currency_code": "USD"
+              },
+              "date": "2026-08-16"
+            },
+            {
+              "amount": {
+                "minor_unit_conversion_rate": 100,
+                "amount": 20050000,
+                "currency_code": "USD"
+              },
+              "date": "2026-08-17"
+            },
+            {
+              "amount": {
+                "minor_unit_conversion_rate": 100,
+                "amount": 20050000,
+                "currency_code": "USD"
+              },
+              "date": "2026-08-18"
+            },
+            {
+              "amount": {
+                "minor_unit_conversion_rate": 100,
+                "amount": 20050000,
+                "currency_code": "USD"
+              },
+              "date": "2026-08-19"
+            },
+            {
+              "amount": {
+                "minor_unit_conversion_rate": 100,
+                "amount": 20050000,
+                "currency_code": "USD"
+              },
+              "date": "2026-08-20"
+            },
+            {
+              "amount": {
+                "minor_unit_conversion_rate": 100,
+                "amount": 20050000,
+                "currency_code": "USD"
+              },
+              "date": "2026-08-21"
+            },
+            {
+              "amount": {
+                "minor_unit_conversion_rate": 100,
+                "amount": 20050000,
+                "currency_code": "USD"
+              },
+              "date": "2026-08-22"
+            },
+            {
+              "amount": {
+                "minor_unit_conversion_rate": 100,
+                "amount": 20050000,
+                "currency_code": "USD"
+              },
+              "date": "2026-08-23"
+            },
+            {
+              "amount": {
+                "minor_unit_conversion_rate": 100,
+                "amount": 19070000,
+                "currency_code": "USD"
+              },
+              "date": "2026-08-24"
+            },
+            {
+              "amount": {
+                "minor_unit_conversion_rate": 100,
+                "amount": 19070000,
+                "currency_code": "USD"
+              },
+              "date": "2026-08-25"
+            },
+            {
+              "amount": {
+                "minor_unit_conversion_rate": 100,
+                "amount": 19070000,
+                "currency_code": "USD"
+              },
+              "date": "2026-08-26"
+            },
+            {
+              "amount": {
+                "minor_unit_conversion_rate": 100,
+                "amount": 19070000,
+                "currency_code": "USD"
+              },
+              "date": "2026-08-27"
+            },
+            {
+              "amount": {
+                "minor_unit_conversion_rate": 100,
+                "amount": 18150000,
+                "currency_code": "USD"
+              },
+              "date": "2026-08-28"
+            },
+            {
+              "amount": {
+                "minor_unit_conversion_rate": 100,
+                "amount": 18150000,
+                "currency_code": "USD"
+              },
+              "date": "2026-08-29"
+            },
+            {
+              "amount": {
+                "minor_unit_conversion_rate": 100,
+                "amount": 18150000,
+                "currency_code": "USD"
+              },
+              "date": "2026-08-30"
+            },
+            {
+              "amount": {
+                "minor_unit_conversion_rate": 100,
+                "amount": 18150000,
+                "currency_code": "USD"
+              },
+              "date": "2026-08-31"
+            },
+            {
+              "amount": {
+                "minor_unit_conversion_rate": 100,
+                "amount": 18920000,
+                "currency_code": "USD"
+              },
+              "date": "2026-09-01"
+            },
+            {
+              "amount": {
+                "minor_unit_conversion_rate": 100,
+                "amount": 18920000,
+                "currency_code": "USD"
+              },
+              "date": "2026-09-02"
+            },
+            {
+              "amount": {
+                "minor_unit_conversion_rate": 100,
+                "amount": 18920000,
+                "currency_code": "USD"
+              },
+              "date": "2026-09-03"
+            },
+            {
+              "amount": {
+                "minor_unit_conversion_rate": 100,
+                "amount": 22920000,
+                "currency_code": "USD"
+              },
+              "date": "2026-09-04"
+            },
+            {
+              "amount": {
+                "minor_unit_conversion_rate": 100,
+                "amount": 22920000,
+                "currency_code": "USD"
+              },
+              "date": "2026-09-05"
+            },
+            {
+              "amount": {
+                "minor_unit_conversion_rate": 100,
+                "amount": 22920000,
+                "currency_code": "USD"
+              },
+              "date": "2026-09-06"
+            },
+            {
+              "amount": {
+                "minor_unit_conversion_rate": 100,
+                "amount": 25420000,
+                "currency_code": "USD"
+              },
+              "date": "2026-09-07"
+            },
+            {
+              "amount": {
+                "minor_unit_conversion_rate": 100,
+                "amount": 25420000,
+                "currency_code": "USD"
+              },
+              "date": "2026-09-08"
+            },
+            {
+              "amount": {
+                "minor_unit_conversion_rate": 100,
+                "amount": 25420000,
+                "currency_code": "USD"
+              },
+              "date": "2026-09-09"
+            },
+            {
+              "amount": {
+                "minor_unit_conversion_rate": 100,
+                "amount": 25420000,
+                "currency_code": "USD"
+              },
+              "date": "2026-09-10"
+            },
+            {
+              "amount": {
+                "minor_unit_conversion_rate": 100,
+                "amount": 25420000,
+                "currency_code": "USD"
+              },
+              "date": "2026-09-11"
+            },
+            {
+              "amount": {
+                "minor_unit_conversion_rate": 100,
+                "amount": 25420000,
+                "currency_code": "USD"
+              },
+              "date": "2026-09-12"
+            },
+            {
+              "amount": {
+                "minor_unit_conversion_rate": 100,
+                "amount": 25420000,
+                "currency_code": "USD"
+              },
+              "date": "2026-09-13"
+            },
+            {
+              "amount": {
+                "minor_unit_conversion_rate": 100,
+                "amount": 27620000,
+                "currency_code": "USD"
+              },
+              "date": "2026-09-14"
+            },
+            {
+              "amount": {
+                "minor_unit_conversion_rate": 100,
+                "amount": 27620000,
+                "currency_code": "USD"
+              },
+              "date": "2026-09-15"
+            },
+            {
+              "amount": {
+                "minor_unit_conversion_rate": 100,
+                "amount": 27620000,
+                "currency_code": "USD"
+              },
+              "date": "2026-09-16"
+            },
+            {
+              "amount": {
+                "minor_unit_conversion_rate": 100,
+                "amount": 27620000,
+                "currency_code": "USD"
+              },
+              "date": "2026-09-17"
+            },
+            {
+              "amount": {
+                "minor_unit_conversion_rate": 100,
+                "amount": 27620000,
+                "currency_code": "USD"
+              },
+              "date": "2026-09-18"
+            },
+            {
+              "amount": {
+                "minor_unit_conversion_rate": 100,
+                "amount": 27620000,
+                "currency_code": "USD"
+              },
+              "date": "2026-09-19"
+            },
+            {
+              "amount": {
+                "minor_unit_conversion_rate": 100,
+                "amount": 27620000,
+                "currency_code": "USD"
+              },
+              "date": "2026-09-20"
+            },
+            {
+              "amount": {
+                "minor_unit_conversion_rate": 100,
+                "amount": 27620000,
+                "currency_code": "USD"
+              },
+              "date": "2026-09-21"
+            },
+            {
+              "amount": {
+                "minor_unit_conversion_rate": 100,
+                "amount": 27620000,
+                "currency_code": "USD"
+              },
+              "date": "2026-09-22"
+            },
+            {
+              "amount": {
+                "minor_unit_conversion_rate": 100,
+                "amount": 27620000,
+                "currency_code": "USD"
+              },
+              "date": "2026-09-23"
+            },
+            {
+              "amount": {
+                "minor_unit_conversion_rate": 100,
+                "amount": 30670000,
+                "currency_code": "USD"
+              },
+              "date": "2026-09-24"
+            },
+            {
+              "amount": {
+                "minor_unit_conversion_rate": 100,
+                "amount": 30670000,
+                "currency_code": "USD"
+              },
+              "date": "2026-09-25"
+            },
+            {
+              "amount": {
+                "minor_unit_conversion_rate": 100,
+                "amount": 30670000,
+                "currency_code": "USD"
+              },
+              "date": "2026-09-26"
+            },
+            {
+              "amount": {
+                "minor_unit_conversion_rate": 100,
+                "amount": 30670000,
+                "currency_code": "USD"
+              },
+              "date": "2026-09-27"
+            },
+            {
+              "amount": {
+                "minor_unit_conversion_rate": 100,
+                "amount": 25720000,
+                "currency_code": "USD"
+              },
+              "date": "2026-09-28"
+            },
+            {
+              "amount": {
+                "minor_unit_conversion_rate": 100,
+                "amount": 25720000,
+                "currency_code": "USD"
+              },
+              "date": "2026-09-29"
+            },
+            {
+              "amount": {
+                "minor_unit_conversion_rate": 100,
+                "amount": 25720000,
+                "currency_code": "USD"
+              },
+              "date": "2026-09-30"
+            },
+            {
+              "amount": {
+                "minor_unit_conversion_rate": 100,
+                "amount": 26870000,
+                "currency_code": "USD"
+              },
+              "date": "2026-10-01"
+            },
+            {
+              "amount": {
+                "minor_unit_conversion_rate": 100,
+                "amount": 26870000,
+                "currency_code": "USD"
+              },
+              "date": "2026-10-02"
+            },
+            {
+              "amount": {
+                "minor_unit_conversion_rate": 100,
+                "amount": 26870000,
+                "currency_code": "USD"
+              },
+              "date": "2026-10-03"
+            },
+            {
+              "amount": {
+                "minor_unit_conversion_rate": 100,
+                "amount": 26870000,
+                "currency_code": "USD"
+              },
+              "date": "2026-10-04"
+            },
+            {
+              "amount": {
+                "minor_unit_conversion_rate": 100,
+                "amount": 26870000,
+                "currency_code": "USD"
+              },
+              "date": "2026-10-05"
+            },
+            {
+              "amount": {
+                "minor_unit_conversion_rate": 100,
+                "amount": 26870000,
+                "currency_code": "USD"
+              },
+              "date": "2026-10-06"
+            },
+            {
+              "amount": {
+                "minor_unit_conversion_rate": 100,
+                "amount": 33870000,
+                "currency_code": "USD"
+              },
+              "date": "2026-10-07"
+            },
+            {
+              "amount": {
+                "minor_unit_conversion_rate": 100,
+                "amount": 33870000,
+                "currency_code": "USD"
+              },
+              "date": "2026-10-08"
+            },
+            {
+              "amount": {
+                "minor_unit_conversion_rate": 100,
+                "amount": 33870000,
+                "currency_code": "USD"
+              },
+              "date": "2026-10-09"
+            },
+            {
+              "amount": {
+                "minor_unit_conversion_rate": 100,
+                "amount": 33870000,
+                "currency_code": "USD"
+              },
+              "date": "2026-10-10"
+            },
+            {
+              "amount": {
+                "minor_unit_conversion_rate": 100,
+                "amount": 33870000,
+                "currency_code": "USD"
+              },
+              "date": "2026-10-11"
+            },
+            {
+              "amount": {
+                "minor_unit_conversion_rate": 100,
+                "amount": 33870000,
+                "currency_code": "USD"
+              },
+              "date": "2026-10-12"
+            },
+            {
+              "amount": {
+                "minor_unit_conversion_rate": 100,
+                "amount": 33870000,
+                "currency_code": "USD"
+              },
+              "date": "2026-10-13"
+            },
+            {
+              "amount": {
+                "minor_unit_conversion_rate": 100,
+                "amount": 33796995,
+                "currency_code": "USD"
+              },
+              "date": "2026-10-14"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 14 Oct 2026 11:11:03 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1808",
+          "x-ratelimit-reset": "1791976271",
+          "cf-ray": "a4a6241a69e8b8b9-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "server": "cloudflare",
+          "vary": "Origin, accept-encoding",
+          "content-security-policy": "upgrade-insecure-requests; frame-ancestors 'self' https://demo.ramp.com; report-uri https://ramp.report-uri.com/r/d/csp/enforce",
+          "ramp-worker-name": "demo-app-worker",
+          "server-timing": "gt;dur=153.164, ge;dur=0.255, px;dur=152.826, fw;dur=231.00, fwe;dur=0.00, fwx;dur=231.00",
+          "x-debug-cell-id": "none",
+          "x-debug-routing-key": "none",
+          "x-debug-upstream-cache-control": "none",
+          "x-ramp-body-source": "others",
+          "x-ramp-business-id": "e15cd7ee-ab7e-4173-a82f-00f33901c1ca",
+          "x-ramp-cf-ray": "a4a6241a7d4bb395-IAD",
+          "x-ramp-request-id": "01a13a1b-ccbc-76fd-8c87-535949fcab48",
+          "x-trace-id": "ramp-319e0fc6b3344181b0d0ad49ff4560c3",
+          "set-cookie": "<redacted>",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "hash": "f2111945ea9b8975166dc8e54eca9b45469d2bb7",
+        "request": {
+          "params": {
+            "page_size": "100"
+          }
+        }
+      },
+      "/developer/v1/banking/accounts/6a953bb0-1074-4c80-a108-34c684a20f74/balance-history": {
+        "response": {
+          "page": {
+            "next": null
+          },
+          "data": [
+            {
+              "date": "2026-10-14",
+              "amount": {
+                "currency_code": "USDC",
+                "minor_unit_conversion_rate": 1000000,
+                "amount": 1043109000000
+              }
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 14 Oct 2026 11:11:03 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1806",
+          "x-ratelimit-reset": "1791976271",
+          "cf-ray": "a4a6241c8e7c9811-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "server": "cloudflare",
+          "vary": "Origin, accept-encoding",
+          "content-security-policy": "upgrade-insecure-requests; frame-ancestors 'self' https://demo.ramp.com; report-uri https://ramp.report-uri.com/r/d/csp/enforce",
+          "ramp-worker-name": "demo-app-worker",
+          "server-timing": "gt;dur=172.050, ge;dur=0.189, px;dur=171.783, fw;dur=245.00, fwe;dur=0.00, fwx;dur=245.00",
+          "x-debug-cell-id": "none",
+          "x-debug-routing-key": "none",
+          "x-debug-upstream-cache-control": "none",
+          "x-ramp-body-source": "others",
+          "x-ramp-business-id": "e15cd7ee-ab7e-4173-a82f-00f33901c1ca",
+          "x-ramp-cf-ray": "a4a6241c99db20eb-IAD",
+          "x-ramp-request-id": "01a13a1b-ce0e-7018-b49c-3a2ea36aa7d5",
+          "x-trace-id": "ramp-a2b720b647704a9c8932280f82004c28",
+          "set-cookie": "<redacted>",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "hash": "9fe07cc4463e0a7f63cf781c79943bf871861341",
+        "request": {
+          "params": {
+            "page_size": "100"
+          }
+        }
+      }
+    }
+  }
+}
