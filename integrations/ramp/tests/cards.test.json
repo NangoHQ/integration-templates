@@ -1,0 +1,3124 @@
+{
+  "nango": {
+    "batchSave": {
+      "Card": [
+        {
+          "id": "4a348146-b6f5-4cfb-aeab-623bce708965",
+          "card_type": "PHYSICAL",
+          "is_suspended": true,
+          "state": "TERMINATED",
+          "cardholder_id": "12d3ccab-6314-4c65-9ac8-835fe16536b9",
+          "cardholder_name": "Stanley Hudson",
+          "fulfillment_status": "ISSUED",
+          "created_at": "2026-10-14T18:02:36+00:00"
+        },
+        {
+          "id": "b200f25e-7f4d-4f60-a144-b72ef3dcdbb3",
+          "card_type": "PHYSICAL",
+          "is_suspended": false,
+          "state": "TERMINATED",
+          "cardholder_id": "1fb57f8e-27bd-4077-9084-c18be2593eea",
+          "cardholder_name": "Toby Flenderson",
+          "fulfillment_status": "ISSUED",
+          "created_at": "2026-10-14T12:55:44+00:00"
+        },
+        {
+          "id": "1aed2869-b52c-4200-b7c1-3cc0f0f7bc3f",
+          "card_type": "PHYSICAL",
+          "is_suspended": false,
+          "state": "TERMINATED",
+          "cardholder_id": "12d3ccab-6314-4c65-9ac8-835fe16536b9",
+          "cardholder_name": "Stanley Hudson",
+          "fulfillment_status": "ISSUED",
+          "created_at": "2026-10-14T11:10:58+00:00"
+        },
+        {
+          "id": "c7bcaf5e-df14-4a09-9ed6-e7bbb945d0ca",
+          "card_type": "PHYSICAL",
+          "is_suspended": false,
+          "state": "TERMINATED",
+          "cardholder_id": "12d3ccab-6314-4c65-9ac8-835fe16536b9",
+          "cardholder_name": "Stanley Hudson",
+          "fulfillment_status": "ISSUED",
+          "fund_id": "07acc4c8-62b5-4fed-8e9c-26c52ef267c2",
+          "created_at": "2026-10-14T11:10:01+00:00"
+        },
+        {
+          "id": "24d96a66-0b26-4b99-8748-90783e9f666a",
+          "card_type": "PHYSICAL",
+          "is_suspended": false,
+          "state": "TERMINATED",
+          "cardholder_id": "1fb57f8e-27bd-4077-9084-c18be2593eea",
+          "cardholder_name": "Toby Flenderson",
+          "fulfillment_status": "ISSUED",
+          "fund_id": "07acc4c8-62b5-4fed-8e9c-26c52ef267c2",
+          "created_at": "2026-10-14T11:09:25+00:00"
+        },
+        {
+          "id": "c01f21da-cebc-4e31-b53f-6d8c0f995625",
+          "card_type": "PHYSICAL",
+          "is_suspended": false,
+          "state": "TERMINATED",
+          "cardholder_id": "1fb57f8e-27bd-4077-9084-c18be2593eea",
+          "cardholder_name": "Toby Flenderson",
+          "fulfillment_status": "ISSUED",
+          "created_at": "2026-10-14T11:09:19+00:00"
+        },
+        {
+          "id": "2e7b602f-297f-4eb6-876e-bbacc74a391b",
+          "card_type": "PHYSICAL",
+          "is_suspended": false,
+          "state": "TERMINATED",
+          "cardholder_id": "1fb57f8e-27bd-4077-9084-c18be2593eea",
+          "cardholder_name": "Toby Flenderson",
+          "fulfillment_status": "ISSUED",
+          "created_at": "2026-10-14T11:08:28+00:00"
+        },
+        {
+          "id": "42e5d32c-fce1-404c-ab13-2e99ffc439d9",
+          "card_type": "PHYSICAL",
+          "is_suspended": false,
+          "state": "TERMINATED",
+          "cardholder_id": "4d4c50c6-29d2-4aae-aed1-46e2c5c4c319",
+          "cardholder_name": "Holly Flax",
+          "fulfillment_status": "ISSUED",
+          "fund_id": "07acc4c8-62b5-4fed-8e9c-26c52ef267c2",
+          "created_at": "2026-10-14T11:05:21+00:00"
+        },
+        {
+          "id": "71000592-c11d-4b35-9111-9e5a8b0674e3",
+          "card_type": "PHYSICAL",
+          "is_suspended": false,
+          "state": "TERMINATED",
+          "cardholder_id": "73f6feee-2788-4e4d-932e-2214361a9697",
+          "cardholder_name": "Sawyer Maloney",
+          "fulfillment_status": "ISSUED",
+          "created_at": "2026-10-14T10:43:47+00:00"
+        },
+        {
+          "id": "58cb9b33-d372-4aa1-825f-30bf11ef3fc1",
+          "card_type": "PHYSICAL",
+          "is_suspended": false,
+          "state": "ACTIVE",
+          "cardholder_id": "07323c8f-c449-4222-a970-8cc4cf673711",
+          "cardholder_name": "David Wallace",
+          "fulfillment_status": "DELIVERED",
+          "created_at": "2026-10-14T10:06:22+00:00"
+        },
+        {
+          "id": "ae07c163-e819-4c42-9d20-05d135fdf9d0",
+          "card_type": "PHYSICAL",
+          "is_suspended": false,
+          "state": "ACTIVE",
+          "cardholder_id": "ae2ad268-e63d-438a-bfe3-02ddaa4f68af",
+          "cardholder_name": "Calvin Lee",
+          "fulfillment_status": "DELIVERED",
+          "created_at": "2026-10-14T10:06:20+00:00"
+        },
+        {
+          "id": "950792a7-fb5a-41b9-a127-29b7f3f94384",
+          "card_type": "PHYSICAL",
+          "is_suspended": false,
+          "state": "ACTIVE",
+          "cardholder_id": "92539a3b-9151-4dfc-8a8c-b5dd5114b865",
+          "cardholder_name": "Laura Van Lenten",
+          "fulfillment_status": "DELIVERED",
+          "created_at": "2026-10-14T10:06:19+00:00"
+        },
+        {
+          "id": "52db404e-d3a9-4cb0-a2a2-c69ee4f792a2",
+          "card_type": "PHYSICAL",
+          "is_suspended": false,
+          "state": "ACTIVE",
+          "cardholder_id": "b42522c3-e364-4507-9a8e-9a4c56ed7848",
+          "cardholder_name": "Noel Vierra",
+          "fulfillment_status": "DELIVERED",
+          "created_at": "2026-10-14T10:06:18+00:00"
+        },
+        {
+          "id": "8e880bb1-276f-4f6b-87de-abe0765c30e0",
+          "card_type": "PHYSICAL",
+          "is_suspended": false,
+          "state": "ACTIVE",
+          "cardholder_id": "69d80729-a6b1-4bd6-b82b-eb1dda1ad981",
+          "cardholder_name": "Sanil Sawlani",
+          "fulfillment_status": "DELIVERED",
+          "created_at": "2026-10-14T10:06:18+00:00"
+        },
+        {
+          "id": "69df450c-f91b-49e2-99b0-3f52d19ca58c",
+          "card_type": "PHYSICAL",
+          "is_suspended": false,
+          "state": "ACTIVE",
+          "cardholder_id": "23f1dc34-5b5e-4558-b85e-41ce2e0ff033",
+          "cardholder_name": "Andy Bernard",
+          "fulfillment_status": "DELIVERED",
+          "created_at": "2026-10-14T10:06:13+00:00"
+        },
+        {
+          "id": "e4bde992-1229-4ff1-a1ed-c71a98475130",
+          "card_type": "PHYSICAL",
+          "is_suspended": false,
+          "state": "ACTIVE",
+          "cardholder_id": "e2e4cd18-83d9-4668-abd3-550971080d40",
+          "cardholder_name": "Meredith Palmer",
+          "fulfillment_status": "DELIVERED",
+          "created_at": "2026-10-14T10:06:13+00:00"
+        },
+        {
+          "id": "238c8b5a-46d5-47b3-a8b1-f73b0c154f9f",
+          "card_type": "PHYSICAL",
+          "is_suspended": false,
+          "state": "ACTIVE",
+          "cardholder_id": "c6735957-0b3e-450b-a54a-45944e7ed3fe",
+          "cardholder_name": "Jim Halpert",
+          "fulfillment_status": "DELIVERED",
+          "created_at": "2026-10-14T10:06:10+00:00"
+        },
+        {
+          "id": "cfa04e98-aef1-4484-89ee-61b499ffa072",
+          "card_type": "PHYSICAL",
+          "is_suspended": false,
+          "state": "ACTIVE",
+          "cardholder_id": "c7df8ee0-aa5a-4351-a8c2-0d15d585a902",
+          "cardholder_name": "Pam Beesly",
+          "fulfillment_status": "DELIVERED",
+          "created_at": "2026-10-14T10:06:09+00:00"
+        },
+        {
+          "id": "454dacf8-2fa8-4356-b7ee-2ef44e1a4abb",
+          "card_type": "PHYSICAL",
+          "is_suspended": false,
+          "state": "ACTIVE",
+          "cardholder_id": "9f3e47f5-573c-4a89-9748-967a9347ca27",
+          "cardholder_name": "Dwight Schrute",
+          "fulfillment_status": "DELIVERED",
+          "created_at": "2026-10-14T10:06:09+00:00"
+        },
+        {
+          "id": "4ae4be19-2128-4458-a19d-46c2579262f6",
+          "card_type": "PHYSICAL",
+          "is_suspended": false,
+          "state": "ACTIVE",
+          "cardholder_id": "1a201a19-0dfa-4fb2-b82e-28ed6456e471",
+          "cardholder_name": "Shaun Flemming",
+          "fulfillment_status": "DELIVERED",
+          "created_at": "2026-10-14T10:06:08+00:00"
+        },
+        {
+          "id": "c66ed034-b71d-4014-8b22-51656754f10d",
+          "card_type": "PHYSICAL",
+          "is_suspended": false,
+          "state": "ACTIVE",
+          "cardholder_id": "fc192430-7413-4eb4-8e80-08f65ab826a3",
+          "cardholder_name": "Laisa Alam",
+          "fulfillment_status": "DELIVERED",
+          "created_at": "2026-10-14T10:05:58+00:00"
+        },
+        {
+          "id": "e8800ab1-5897-4f33-8378-89f8cfb47723",
+          "card_type": "PHYSICAL",
+          "is_suspended": false,
+          "state": "ACTIVE",
+          "cardholder_id": "f890ed82-4fd6-4d37-8451-9c7fcc578d7e",
+          "cardholder_name": "Jose Millan",
+          "fulfillment_status": "DELIVERED",
+          "created_at": "2026-10-14T10:05:57+00:00"
+        },
+        {
+          "id": "54c548f2-4a8e-4037-9889-a19a38584626",
+          "card_type": "PHYSICAL",
+          "is_suspended": false,
+          "state": "ACTIVE",
+          "cardholder_id": "3ed54b88-fa34-4864-b35d-c2113b83fe07",
+          "cardholder_name": "Creed Bratton",
+          "fulfillment_status": "DELIVERED",
+          "created_at": "2026-10-14T10:05:52+00:00"
+        },
+        {
+          "id": "862201cd-ab3e-49dc-8c43-da90b32f6189",
+          "card_type": "PHYSICAL",
+          "is_suspended": false,
+          "state": "ACTIVE",
+          "cardholder_id": "45e9786d-3469-4275-85fe-3e01ae8bacd2",
+          "cardholder_name": "Michael Scott",
+          "fulfillment_status": "DELIVERED",
+          "created_at": "2026-10-14T10:05:49+00:00"
+        },
+        {
+          "id": "83205e07-03e8-494d-9f5a-0bcd63e4da53",
+          "card_type": "PHYSICAL",
+          "is_suspended": false,
+          "state": "ACTIVE",
+          "cardholder_id": "6200bcff-d274-4ff9-83a7-4276e3a57997",
+          "cardholder_name": "Oscar Martinez",
+          "fulfillment_status": "DELIVERED",
+          "created_at": "2026-10-14T10:05:43+00:00"
+        },
+        {
+          "id": "8d9ef8c7-92a9-473d-9c23-39fded2ba23f",
+          "card_type": "PHYSICAL",
+          "is_suspended": false,
+          "state": "ACTIVE",
+          "cardholder_id": "c63ebe4b-b653-4099-9847-76672723c3e3",
+          "cardholder_name": "Jan Levinson",
+          "fulfillment_status": "DELIVERED",
+          "created_at": "2026-10-14T10:05:42+00:00"
+        },
+        {
+          "id": "837d0006-156c-48d8-982a-7dbc9ba0ae21",
+          "card_type": "PHYSICAL",
+          "is_suspended": false,
+          "state": "ACTIVE",
+          "cardholder_id": "862b7598-e143-4c13-93be-05fd0773c0bb",
+          "cardholder_name": "Kevin Malone",
+          "fulfillment_status": "DELIVERED",
+          "created_at": "2026-10-14T10:05:36+00:00"
+        },
+        {
+          "id": "6c58e256-314f-42f3-8462-6aebbb1a1d95",
+          "card_type": "VIRTUAL",
+          "is_suspended": false,
+          "fund_id": "07acc4c8-62b5-4fed-8e9c-26c52ef267c2",
+          "user_id": "07323c8f-c449-4222-a970-8cc4cf673711",
+          "created_at": "2026-10-14T10:06:22+00:00"
+        },
+        {
+          "id": "a2d25ac2-5528-4c16-ba51-cd258d8d09f7",
+          "card_type": "VIRTUAL",
+          "is_suspended": false,
+          "fund_id": "325a12bc-75c4-4022-8855-8e0dba170103",
+          "user_id": "07323c8f-c449-4222-a970-8cc4cf673711",
+          "created_at": "2026-10-14T10:06:20+00:00"
+        },
+        {
+          "id": "fee6fb47-b566-4964-bcbd-b5f9decf20da",
+          "card_type": "VIRTUAL",
+          "is_suspended": false,
+          "fund_id": "6c0d7c72-a24e-4899-9324-1ae8d7b437fa",
+          "user_id": "ae2ad268-e63d-438a-bfe3-02ddaa4f68af",
+          "created_at": "2026-10-14T10:06:19+00:00"
+        },
+        {
+          "id": "ac927289-b5e1-42d6-a0eb-dd2fb84e6cb1",
+          "card_type": "VIRTUAL",
+          "is_suspended": false,
+          "fund_id": "eb84a463-4d76-43e9-b885-8af81cc12038",
+          "user_id": "07323c8f-c449-4222-a970-8cc4cf673711",
+          "created_at": "2026-10-14T10:06:18+00:00"
+        },
+        {
+          "id": "31178a9d-d2ca-4ad0-9b3a-bf94bc37d779",
+          "card_type": "VIRTUAL",
+          "is_suspended": false,
+          "fund_id": "da9ff2de-dd61-45e9-8188-15de2fc30148",
+          "user_id": "92539a3b-9151-4dfc-8a8c-b5dd5114b865",
+          "created_at": "2026-10-14T10:06:18+00:00"
+        },
+        {
+          "id": "5aad55cd-ccc4-4fde-b9cb-c9753c9e9e0c",
+          "card_type": "VIRTUAL",
+          "is_suspended": false,
+          "fund_id": "38855e90-64a5-4d58-9d9d-ad403c6ec13a",
+          "user_id": "b42522c3-e364-4507-9a8e-9a4c56ed7848",
+          "created_at": "2026-10-14T10:06:17+00:00"
+        },
+        {
+          "id": "fc8b1ad3-abef-405a-8df2-7b77c0f089f8",
+          "card_type": "VIRTUAL",
+          "is_suspended": false,
+          "fund_id": "51d7d5ac-c4cc-4526-b48d-5e9ee12b6f62",
+          "user_id": "ae2ad268-e63d-438a-bfe3-02ddaa4f68af",
+          "created_at": "2026-10-14T10:06:17+00:00"
+        },
+        {
+          "id": "7a157102-94f4-4b22-adf5-d0694131114a",
+          "card_type": "VIRTUAL",
+          "is_suspended": false,
+          "fund_id": "f26d72ae-4f35-4015-9310-152aed6172b0",
+          "user_id": "69d80729-a6b1-4bd6-b82b-eb1dda1ad981",
+          "created_at": "2026-10-14T10:06:17+00:00"
+        },
+        {
+          "id": "90c49f3e-cf77-4ecb-933c-89250add7939",
+          "card_type": "VIRTUAL",
+          "is_suspended": false,
+          "fund_id": "1163eb81-6a18-4f7a-83e0-3503440b159a",
+          "user_id": "07323c8f-c449-4222-a970-8cc4cf673711",
+          "created_at": "2026-10-14T10:06:17+00:00"
+        },
+        {
+          "id": "a3d0342f-70f8-4a6e-98ae-70596db35349",
+          "card_type": "VIRTUAL",
+          "is_suspended": false,
+          "fund_id": "5e7ece7f-b5b3-4733-99b2-c5b5b42cb07c",
+          "user_id": "92539a3b-9151-4dfc-8a8c-b5dd5114b865",
+          "created_at": "2026-10-14T10:06:16+00:00"
+        },
+        {
+          "id": "ddef55a5-53f9-4ea7-9b91-9050972fd9be",
+          "card_type": "VIRTUAL",
+          "is_suspended": false,
+          "fund_id": "a98bc18d-9842-4613-b843-54d358a17b8d",
+          "user_id": "69d80729-a6b1-4bd6-b82b-eb1dda1ad981",
+          "created_at": "2026-10-14T10:06:16+00:00"
+        },
+        {
+          "id": "b7dcac85-2ad7-48d7-91f8-d19b3f7afc46",
+          "card_type": "VIRTUAL",
+          "is_suspended": false,
+          "fund_id": "d00d6c9a-1b97-4a91-8941-46d38ec7fedb",
+          "user_id": "b42522c3-e364-4507-9a8e-9a4c56ed7848",
+          "created_at": "2026-10-14T10:06:15+00:00"
+        },
+        {
+          "id": "9e9bddbb-0ad8-48ca-a290-a6573bbbd236",
+          "card_type": "VIRTUAL",
+          "is_suspended": false,
+          "fund_id": "fb8f7f92-c550-4e47-977b-1641a07fd96f",
+          "user_id": "ae2ad268-e63d-438a-bfe3-02ddaa4f68af",
+          "created_at": "2026-10-14T10:06:15+00:00"
+        },
+        {
+          "id": "f55c1639-7e3e-4baf-b184-0cb9826136ff",
+          "card_type": "VIRTUAL",
+          "is_suspended": false,
+          "fund_id": "1099cb93-62f9-4812-ab25-519fbe1c0c70",
+          "user_id": "07323c8f-c449-4222-a970-8cc4cf673711",
+          "created_at": "2026-10-14T10:06:13+00:00"
+        },
+        {
+          "id": "634aae66-e3b0-45a9-a315-85e636994e62",
+          "card_type": "VIRTUAL",
+          "is_suspended": false,
+          "fund_id": "03633fe9-caf8-4585-8eea-4cff5592b011",
+          "user_id": "92539a3b-9151-4dfc-8a8c-b5dd5114b865",
+          "created_at": "2026-10-14T10:06:14+00:00"
+        },
+        {
+          "id": "519d4244-9e17-4fd7-bafa-75e09f880bbd",
+          "card_type": "VIRTUAL",
+          "is_suspended": false,
+          "fund_id": "ec785cce-1367-47ce-9443-17475915a3fd",
+          "user_id": "69d80729-a6b1-4bd6-b82b-eb1dda1ad981",
+          "created_at": "2026-10-14T10:06:14+00:00"
+        },
+        {
+          "id": "10d4a579-7a47-4a66-a8c5-dd8251ab92ea",
+          "card_type": "VIRTUAL",
+          "is_suspended": false,
+          "fund_id": "a6f58713-4941-49f8-bf8c-454ee21f4638",
+          "user_id": "b42522c3-e364-4507-9a8e-9a4c56ed7848",
+          "created_at": "2026-10-14T10:06:12+00:00"
+        },
+        {
+          "id": "90843425-aaad-4065-8c03-528d0de25087",
+          "card_type": "VIRTUAL",
+          "is_suspended": false,
+          "fund_id": "9b5826d4-88a6-44d0-891a-2db494eb7665",
+          "user_id": "23f1dc34-5b5e-4558-b85e-41ce2e0ff033",
+          "created_at": "2026-10-14T10:06:12+00:00"
+        },
+        {
+          "id": "5e3fd976-162a-4696-9ad8-033944eafc0b",
+          "card_type": "VIRTUAL",
+          "is_suspended": false,
+          "fund_id": "6f69de0b-55c9-47b6-97ea-ee889584418e",
+          "user_id": "69d80729-a6b1-4bd6-b82b-eb1dda1ad981",
+          "created_at": "2026-10-14T10:06:13+00:00"
+        },
+        {
+          "id": "315f3ccc-ff1b-4a58-88b6-1f365894bf2f",
+          "card_type": "VIRTUAL",
+          "is_suspended": false,
+          "fund_id": "3096cd33-1e90-4bfe-8077-34517c264725",
+          "user_id": "e2e4cd18-83d9-4668-abd3-550971080d40",
+          "created_at": "2026-10-14T10:06:12+00:00"
+        },
+        {
+          "id": "50bf4ba8-8de2-430c-a145-b5b3d645eb71",
+          "card_type": "VIRTUAL",
+          "is_suspended": false,
+          "fund_id": "ed24b10e-919c-40a5-a52b-2f311f3792cf",
+          "user_id": "ae2ad268-e63d-438a-bfe3-02ddaa4f68af",
+          "created_at": "2026-10-14T10:06:12+00:00"
+        },
+        {
+          "id": "31d884f1-3912-4ca2-b2af-535e454e8a2e",
+          "card_type": "VIRTUAL",
+          "is_suspended": false,
+          "fund_id": "dd784bcb-e264-454f-9d08-50840a744a48",
+          "user_id": "92539a3b-9151-4dfc-8a8c-b5dd5114b865",
+          "created_at": "2026-10-14T10:06:11+00:00"
+        },
+        {
+          "id": "a2c57309-4d6e-4f0c-8f45-f0de0843529c",
+          "card_type": "VIRTUAL",
+          "is_suspended": false,
+          "fund_id": "b05c77e5-48ac-40e4-9881-abdf6f06989c",
+          "user_id": "c6735957-0b3e-450b-a54a-45944e7ed3fe",
+          "created_at": "2026-10-14T10:06:09+00:00"
+        },
+        {
+          "id": "5a216a96-682f-4404-9a83-a9de6e479e15",
+          "card_type": "VIRTUAL",
+          "is_suspended": false,
+          "fund_id": "2b66496d-9734-440f-8c2f-ecf66c117465",
+          "user_id": "b42522c3-e364-4507-9a8e-9a4c56ed7848",
+          "created_at": "2026-10-14T10:06:09+00:00"
+        },
+        {
+          "id": "3192c27c-1ed5-4c48-9d55-dfdc38c528cb",
+          "card_type": "VIRTUAL",
+          "is_suspended": false,
+          "fund_id": "cdf2acc2-7418-4454-9c0a-c1c346606496",
+          "user_id": "ae2ad268-e63d-438a-bfe3-02ddaa4f68af",
+          "created_at": "2026-10-14T10:06:09+00:00"
+        },
+        {
+          "id": "ba41e86f-ce3e-4cd3-92dd-2312bb16d010",
+          "card_type": "VIRTUAL",
+          "is_suspended": false,
+          "fund_id": "b43cc0fe-863b-46f0-a6b5-7dab3df03d4e",
+          "user_id": "c7df8ee0-aa5a-4351-a8c2-0d15d585a902",
+          "created_at": "2026-10-14T10:06:08+00:00"
+        },
+        {
+          "id": "71f47878-ffcd-4679-a890-ad948eef5f61",
+          "card_type": "VIRTUAL",
+          "is_suspended": false,
+          "fund_id": "a9f56f93-c764-40e7-b240-154826ee81be",
+          "user_id": "23f1dc34-5b5e-4558-b85e-41ce2e0ff033",
+          "created_at": "2026-10-14T10:06:08+00:00"
+        },
+        {
+          "id": "602cdf51-c72d-4fa6-bcfe-7d0f170c9aa4",
+          "card_type": "VIRTUAL",
+          "is_suspended": false,
+          "fund_id": "5ebec32f-92e6-442b-aa1b-43e3e036319e",
+          "user_id": "e2e4cd18-83d9-4668-abd3-550971080d40",
+          "created_at": "2026-10-14T10:06:08+00:00"
+        },
+        {
+          "id": "3d71fd12-ff4d-4b9f-ad61-47074ab4bbbc",
+          "card_type": "VIRTUAL",
+          "is_suspended": false,
+          "fund_id": "efb6fee6-dad5-4b27-afaa-bafc1ccd610f",
+          "user_id": "9f3e47f5-573c-4a89-9748-967a9347ca27",
+          "created_at": "2026-10-14T10:06:08+00:00"
+        },
+        {
+          "id": "b5087e5e-4a07-4657-a524-b125a34ef1b3",
+          "card_type": "VIRTUAL",
+          "is_suspended": false,
+          "fund_id": "5a49abbe-88d5-483b-9dd3-fd2bd2b75fa7",
+          "user_id": "1a201a19-0dfa-4fb2-b82e-28ed6456e471",
+          "created_at": "2026-10-14T10:06:07+00:00"
+        },
+        {
+          "id": "808671d9-1f75-4f33-876d-431608d2831f",
+          "card_type": "VIRTUAL",
+          "is_suspended": false,
+          "fund_id": "c1f1ea92-3ba4-43e3-b2ff-4ffef6b6d4ea",
+          "user_id": "1a201a19-0dfa-4fb2-b82e-28ed6456e471",
+          "created_at": "2026-10-14T10:06:05+00:00"
+        },
+        {
+          "id": "c260ac28-1487-494c-baa6-e2e695af6bd3",
+          "card_type": "VIRTUAL",
+          "is_suspended": false,
+          "fund_id": "3d5955fa-7e00-4d9a-bd70-7832f4e5895e",
+          "user_id": "c6735957-0b3e-450b-a54a-45944e7ed3fe",
+          "created_at": "2026-10-14T10:06:04+00:00"
+        },
+        {
+          "id": "9c23ca81-702c-488b-84c6-6f884723b2d9",
+          "card_type": "VIRTUAL",
+          "is_suspended": false,
+          "fund_id": "9bb187e6-24d3-4736-8c36-4f21cb00e4c0",
+          "user_id": "9f3e47f5-573c-4a89-9748-967a9347ca27",
+          "created_at": "2026-10-14T10:06:04+00:00"
+        },
+        {
+          "id": "0972e412-da7e-430e-a9b0-e76635926767",
+          "card_type": "VIRTUAL",
+          "is_suspended": false,
+          "fund_id": "7f426ca6-94e4-4caa-b0d6-e74d5ea6bb51",
+          "user_id": "36e09f48-aade-4603-8f6d-ecfc9c5eff2a",
+          "created_at": "2026-10-14T10:06:04+00:00"
+        },
+        {
+          "id": "a3210c8d-fb0d-4847-99c1-d480c25c0f86",
+          "card_type": "VIRTUAL",
+          "is_suspended": false,
+          "fund_id": "a0eb994a-cb99-4be9-9281-e24e6c4af67a",
+          "user_id": "5aff8098-6fc3-47d2-92a1-fbed6356d002",
+          "created_at": "2026-10-14T10:06:03+00:00"
+        },
+        {
+          "id": "b5e0160d-ee37-45c5-a392-ceba81328ea4",
+          "card_type": "VIRTUAL",
+          "is_suspended": false,
+          "fund_id": "b6956bc5-b96d-4a59-97fa-1b92968a7ba6",
+          "user_id": "e2e4cd18-83d9-4668-abd3-550971080d40",
+          "created_at": "2026-10-14T10:06:03+00:00"
+        },
+        {
+          "id": "d5dae09d-6368-48cf-892e-821d92bde77f",
+          "card_type": "VIRTUAL",
+          "is_suspended": false,
+          "fund_id": "7cddee4b-357f-4b07-82c8-0f3c8739f815",
+          "user_id": "23f1dc34-5b5e-4558-b85e-41ce2e0ff033",
+          "created_at": "2026-10-14T10:06:03+00:00"
+        },
+        {
+          "id": "98cfaf5f-36ac-4c80-b880-ea3394ddd501",
+          "card_type": "VIRTUAL",
+          "is_suspended": false,
+          "fund_id": "15b22c9b-370b-4d43-8fa2-2be5509e7976",
+          "user_id": "c7df8ee0-aa5a-4351-a8c2-0d15d585a902",
+          "created_at": "2026-10-14T10:06:03+00:00"
+        },
+        {
+          "id": "0217aee7-4984-4d0a-894a-766f115ba668",
+          "card_type": "VIRTUAL",
+          "is_suspended": false,
+          "fund_id": "e82447a5-b647-4e1b-b2a0-feedc5590865",
+          "user_id": "1a201a19-0dfa-4fb2-b82e-28ed6456e471",
+          "created_at": "2026-10-14T10:06:03+00:00"
+        },
+        {
+          "id": "e45f43ca-723c-4e22-89eb-656fef7b9392",
+          "card_type": "VIRTUAL",
+          "is_suspended": false,
+          "fund_id": "8b05947b-140e-4687-84ba-9224a5e8d390",
+          "user_id": "c6735957-0b3e-450b-a54a-45944e7ed3fe",
+          "created_at": "2026-10-14T10:06:01+00:00"
+        },
+        {
+          "id": "a3a42789-411c-454f-8f5c-1a237fd15f68",
+          "card_type": "VIRTUAL",
+          "is_suspended": false,
+          "fund_id": "86748879-22b5-4400-8acf-b7ef48d64e22",
+          "user_id": "9f3e47f5-573c-4a89-9748-967a9347ca27",
+          "created_at": "2026-10-14T10:06:00+00:00"
+        },
+        {
+          "id": "701e1c0c-0b1a-4ba1-a0e3-4f6ecba1da0c",
+          "card_type": "VIRTUAL",
+          "is_suspended": false,
+          "fund_id": "c095b0f6-c8d0-4205-a5bf-4d1b4a64a39d",
+          "user_id": "0139bf68-00ea-4759-89ae-38350e20d0de",
+          "created_at": "2026-10-14T10:06:00+00:00"
+        },
+        {
+          "id": "864ee35f-85ea-410e-b573-44d878b62955",
+          "card_type": "VIRTUAL",
+          "is_suspended": false,
+          "fund_id": "e5f737c9-9ada-4e3c-9f39-d8937f8c5e62",
+          "user_id": "c7df8ee0-aa5a-4351-a8c2-0d15d585a902",
+          "created_at": "2026-10-14T10:06:00+00:00"
+        },
+        {
+          "id": "f9d9a8e3-8172-4699-ae36-dadd453e8ab8",
+          "card_type": "VIRTUAL",
+          "is_suspended": false,
+          "fund_id": "bd0c6029-c8c3-475f-83d7-eb3ab647c01b",
+          "user_id": "1a201a19-0dfa-4fb2-b82e-28ed6456e471",
+          "created_at": "2026-10-14T10:05:59+00:00"
+        },
+        {
+          "id": "b5d8a61d-024c-4a4d-bd9e-6ebb3b215b7d",
+          "card_type": "VIRTUAL",
+          "is_suspended": false,
+          "fund_id": "cff47c9f-bafa-4bc0-a583-8b4bd18c4a7a",
+          "user_id": "23f1dc34-5b5e-4558-b85e-41ce2e0ff033",
+          "created_at": "2026-10-14T10:05:59+00:00"
+        },
+        {
+          "id": "23c4d8e4-fdde-4ee4-9a55-2e6c562baaa1",
+          "card_type": "VIRTUAL",
+          "is_suspended": false,
+          "fund_id": "777cbd36-675c-474e-83e8-3db222d2c3cc",
+          "user_id": "c6735957-0b3e-450b-a54a-45944e7ed3fe",
+          "created_at": "2026-10-14T10:05:58+00:00"
+        },
+        {
+          "id": "40c8c512-52e6-40d4-aca4-fd328b532070",
+          "card_type": "VIRTUAL",
+          "is_suspended": false,
+          "fund_id": "b93dde79-4397-4768-bc16-3008e40a71ec",
+          "user_id": "fc192430-7413-4eb4-8e80-08f65ab826a3",
+          "created_at": "2026-10-14T10:05:57+00:00"
+        },
+        {
+          "id": "249b094d-e881-4419-828c-1a428df1d4ab",
+          "card_type": "VIRTUAL",
+          "is_suspended": false,
+          "fund_id": "1595a541-2b06-4509-bc1d-e675f464b46a",
+          "user_id": "20ee4d2e-c32c-4ac9-9b64-542836291400",
+          "created_at": "2026-10-14T10:05:57+00:00"
+        },
+        {
+          "id": "37541509-d85b-4301-93f2-1e26296f7dc9",
+          "card_type": "VIRTUAL",
+          "is_suspended": false,
+          "fund_id": "aad942b7-675b-4751-a2a6-ab2c9d750265",
+          "user_id": "0139bf68-00ea-4759-89ae-38350e20d0de",
+          "created_at": "2026-10-14T10:05:57+00:00"
+        },
+        {
+          "id": "ac6fb4aa-9155-4d82-a89a-18e20447d3fc",
+          "card_type": "VIRTUAL",
+          "is_suspended": false,
+          "fund_id": "8c96974f-98fc-4b46-a5c3-4c1b6da090f3",
+          "user_id": "9f3e47f5-573c-4a89-9748-967a9347ca27",
+          "created_at": "2026-10-14T10:05:57+00:00"
+        },
+        {
+          "id": "2f32c07a-a929-4b51-85d5-5df707708231",
+          "card_type": "VIRTUAL",
+          "is_suspended": false,
+          "fund_id": "478298e7-0bfd-492b-a115-f5474b2f6834",
+          "user_id": "c7df8ee0-aa5a-4351-a8c2-0d15d585a902",
+          "created_at": "2026-10-14T10:05:56+00:00"
+        },
+        {
+          "id": "51f82072-df7d-4581-883d-5357dd32bf1b",
+          "card_type": "VIRTUAL",
+          "is_suspended": false,
+          "fund_id": "1c639634-a358-43c8-bf65-dcc7b5cd7e64",
+          "user_id": "f890ed82-4fd6-4d37-8451-9c7fcc578d7e",
+          "created_at": "2026-10-14T10:05:56+00:00"
+        },
+        {
+          "id": "b75cc283-1264-4813-bfb1-99dcd6977ab6",
+          "card_type": "VIRTUAL",
+          "is_suspended": false,
+          "fund_id": "5659830a-ac39-4ef4-aea4-26dc8cd65f36",
+          "user_id": "20ee4d2e-c32c-4ac9-9b64-542836291400",
+          "created_at": "2026-10-14T10:05:55+00:00"
+        },
+        {
+          "id": "b3736f63-3ea7-4c85-92a3-c922fc8ac1ee",
+          "card_type": "VIRTUAL",
+          "is_suspended": false,
+          "fund_id": "4cbb2a58-19ca-4e80-bef7-649868a47e89",
+          "user_id": "b91131e3-d91c-4029-9c88-6951d5f94a67",
+          "created_at": "2026-10-14T10:05:55+00:00"
+        },
+        {
+          "id": "e9eb3efd-f134-4c6a-bb57-e97a57480c1c",
+          "card_type": "VIRTUAL",
+          "is_suspended": false,
+          "fund_id": "984c03e2-414d-4e51-ba43-d916bec04999",
+          "user_id": "4d4c50c6-29d2-4aae-aed1-46e2c5c4c319",
+          "created_at": "2026-10-14T10:05:54+00:00"
+        },
+        {
+          "id": "818f3264-7951-4461-a9ef-098b7414bf68",
+          "card_type": "VIRTUAL",
+          "is_suspended": false,
+          "fund_id": "0276d64b-8d20-49e5-9943-3cf64760e2f4",
+          "user_id": "fc192430-7413-4eb4-8e80-08f65ab826a3",
+          "created_at": "2026-10-14T10:05:53+00:00"
+        },
+        {
+          "id": "ea97e473-0548-44c8-9b78-125f00cff231",
+          "card_type": "VIRTUAL",
+          "is_suspended": false,
+          "fund_id": "e8be461d-f9f5-4b01-ba85-d6540607eaba",
+          "user_id": "083f3a8d-18bd-430b-bc97-522264cfd360",
+          "created_at": "2026-10-14T10:05:53+00:00"
+        },
+        {
+          "id": "0c35bc28-34a0-41f3-b6a0-e2fa76ed4e8d",
+          "card_type": "VIRTUAL",
+          "is_suspended": false,
+          "fund_id": "ab56f3bf-4c5b-41fb-bf1d-76824c6219d8",
+          "user_id": "1fb57f8e-27bd-4077-9084-c18be2593eea",
+          "created_at": "2026-10-14T10:05:52+00:00"
+        },
+        {
+          "id": "5c25bcfc-1bf6-4d27-b528-287e01da0702",
+          "card_type": "VIRTUAL",
+          "is_suspended": false,
+          "fund_id": "82c4f768-bf84-4bcf-a779-d36204d73756",
+          "user_id": "f890ed82-4fd6-4d37-8451-9c7fcc578d7e",
+          "created_at": "2026-10-14T10:05:52+00:00"
+        },
+        {
+          "id": "242f4abe-2a1b-43d5-8050-faee9dc3e87f",
+          "card_type": "VIRTUAL",
+          "is_suspended": false,
+          "fund_id": "f178288b-0df2-4cd1-8d19-4d79aa90c090",
+          "user_id": "12d3ccab-6314-4c65-9ac8-835fe16536b9",
+          "created_at": "2026-10-14T10:05:52+00:00"
+        },
+        {
+          "id": "61239719-7abb-4727-b163-fb0c2dc8c8c0",
+          "card_type": "VIRTUAL",
+          "is_suspended": false,
+          "fund_id": "f71efeb0-27cd-467d-bf60-10f244ca6a98",
+          "user_id": "083f3a8d-18bd-430b-bc97-522264cfd360",
+          "created_at": "2026-10-14T10:05:52+00:00"
+        },
+        {
+          "id": "18167655-fde4-470d-8f53-3d9c3592cff0",
+          "card_type": "VIRTUAL",
+          "is_suspended": false,
+          "fund_id": "2d171832-539f-4758-9215-33bdf291c1e2",
+          "user_id": "3ed54b88-fa34-4864-b35d-c2113b83fe07",
+          "created_at": "2026-10-14T10:05:52+00:00"
+        },
+        {
+          "id": "1e9596ca-ea4d-46a4-a21e-f717741e6424",
+          "card_type": "VIRTUAL",
+          "is_suspended": false,
+          "fund_id": "48dffd6c-254a-4764-be3f-391dfc29f1a4",
+          "user_id": "083f3a8d-18bd-430b-bc97-522264cfd360",
+          "created_at": "2026-10-14T10:05:51+00:00"
+        },
+        {
+          "id": "a72be867-b38f-4eff-9a96-47ab66db328b",
+          "card_type": "VIRTUAL",
+          "is_suspended": false,
+          "fund_id": "945208e1-bd5c-46af-9004-fa9b77f0f533",
+          "user_id": "fc192430-7413-4eb4-8e80-08f65ab826a3",
+          "created_at": "2026-10-14T10:05:50+00:00"
+        },
+        {
+          "id": "4c264db6-7743-42c6-8433-1e1eed27281a",
+          "card_type": "VIRTUAL",
+          "is_suspended": false,
+          "fund_id": "52ad3078-2244-4c9e-9542-92e8f2b014a8",
+          "user_id": "b91131e3-d91c-4029-9c88-6951d5f94a67",
+          "created_at": "2026-10-14T10:05:49+00:00"
+        },
+        {
+          "id": "95c45b72-b4c1-4a2a-a9b9-9b24915baf64",
+          "card_type": "VIRTUAL",
+          "is_suspended": false,
+          "fund_id": "1d81a922-e176-418d-977c-e719efce1f79",
+          "user_id": "3ed54b88-fa34-4864-b35d-c2113b83fe07",
+          "created_at": "2026-10-14T10:05:49+00:00"
+        },
+        {
+          "id": "a4093425-ba59-4183-b7e3-f0f6438985da",
+          "card_type": "VIRTUAL",
+          "is_suspended": false,
+          "fund_id": "a17ec576-ba7e-4948-91d4-75494d2ca513",
+          "user_id": "12d3ccab-6314-4c65-9ac8-835fe16536b9",
+          "created_at": "2026-10-14T10:05:48+00:00"
+        },
+        {
+          "id": "0b462d01-ba23-4b89-8ab2-dd5b6125a0ed",
+          "card_type": "VIRTUAL",
+          "is_suspended": false,
+          "fund_id": "79ce360f-89e8-4fc6-a86a-ba497826eb96",
+          "user_id": "37ceeae5-7257-413b-92a6-edfac5ab10d4",
+          "created_at": "2026-10-14T10:05:48+00:00"
+        },
+        {
+          "id": "95095536-7308-4caa-acda-270033b17a36",
+          "card_type": "VIRTUAL",
+          "is_suspended": false,
+          "fund_id": "364ab271-41b6-48da-9020-863a7bd289fd",
+          "user_id": "f890ed82-4fd6-4d37-8451-9c7fcc578d7e",
+          "created_at": "2026-10-14T10:05:48+00:00"
+        },
+        {
+          "id": "4a9c37b9-d1fc-4cb3-a092-59c091e71d1d",
+          "card_type": "VIRTUAL",
+          "is_suspended": false,
+          "fund_id": "5979ba89-d2bf-4f51-a2e5-6c3128d77332",
+          "user_id": "237d5197-39b6-4bc5-a97c-9ce4692d139c",
+          "created_at": "2026-10-14T10:05:48+00:00"
+        },
+        {
+          "id": "aa75be15-60a6-411d-8dc7-542092f767ac",
+          "card_type": "VIRTUAL",
+          "is_suspended": false,
+          "fund_id": "c00d556a-b818-4ccf-a8d1-ff61cb561f2c",
+          "user_id": "45e9786d-3469-4275-85fe-3e01ae8bacd2",
+          "created_at": "2026-10-14T10:05:48+00:00"
+        },
+        {
+          "id": "978afc6c-f18d-4876-969a-4002e88edb89",
+          "card_type": "VIRTUAL",
+          "is_suspended": false,
+          "fund_id": "70a82d72-5cf7-4832-8094-249822196e86",
+          "user_id": "fc192430-7413-4eb4-8e80-08f65ab826a3",
+          "created_at": "2026-10-14T10:05:46+00:00"
+        },
+        {
+          "id": "bcf71f0b-a7dd-4df5-83a0-d2399b86cdf3",
+          "card_type": "VIRTUAL",
+          "is_suspended": false,
+          "fund_id": "c3e679c3-3235-4f6a-8bce-0e197d5744b4",
+          "user_id": "3ed54b88-fa34-4864-b35d-c2113b83fe07",
+          "created_at": "2026-10-14T10:05:46+00:00"
+        },
+        {
+          "id": "bdfc8966-2da2-4010-8766-2d57a0fdc865",
+          "card_type": "VIRTUAL",
+          "is_suspended": false,
+          "fund_id": "962ffed6-91d8-407c-9564-814ea4ca395e",
+          "user_id": "2e625336-fcef-4dd1-bc45-3bcf982eff76",
+          "created_at": "2026-10-14T10:05:46+00:00"
+        },
+        {
+          "id": "ab84b8ca-d0a8-42e6-a20c-27148b9e6c16",
+          "card_type": "VIRTUAL",
+          "is_suspended": false,
+          "fund_id": "b9121d30-57e7-4c59-9088-79b7fbc2c01c",
+          "user_id": "2e625336-fcef-4dd1-bc45-3bcf982eff76",
+          "created_at": "2026-10-14T10:05:45+00:00"
+        },
+        {
+          "id": "9a8a7f90-2b19-49b9-a9eb-09f343c61aa3",
+          "card_type": "VIRTUAL",
+          "is_suspended": false,
+          "fund_id": "dcdfab45-1a59-45c0-a3af-87d9ff1f9871",
+          "user_id": "37ceeae5-7257-413b-92a6-edfac5ab10d4",
+          "created_at": "2026-10-14T10:05:44+00:00"
+        },
+        {
+          "id": "154123a0-2172-4216-bf9a-1b14a4499c2d",
+          "card_type": "VIRTUAL",
+          "is_suspended": false,
+          "fund_id": "18e8b5ef-c1e5-494a-8908-c401966367f2",
+          "user_id": "45e9786d-3469-4275-85fe-3e01ae8bacd2",
+          "created_at": "2026-10-14T10:05:44+00:00"
+        },
+        {
+          "id": "7b327bb4-c1ac-44e4-9eec-d267e235aa25",
+          "card_type": "VIRTUAL",
+          "is_suspended": false,
+          "fund_id": "e89bae9f-ea8d-475a-a5a5-ed06bc032875",
+          "user_id": "1602b98f-91af-44a4-ba93-6d87e08ab3f6",
+          "created_at": "2026-10-14T10:05:44+00:00"
+        },
+        {
+          "id": "8f59a51f-18a9-40fd-aa0b-f5727b81b3e3",
+          "card_type": "VIRTUAL",
+          "is_suspended": false,
+          "fund_id": "adf85579-9e93-4646-8e4b-62e2a43e4786",
+          "user_id": "c7ecf653-6aec-4c2f-8366-8890b60b0af0",
+          "created_at": "2026-10-14T10:05:43+00:00"
+        },
+        {
+          "id": "0da406a6-1c23-49a6-b5ff-8674f42d00e8",
+          "card_type": "VIRTUAL",
+          "is_suspended": false,
+          "fund_id": "dd661587-1ff9-4842-96ab-49af492b8731",
+          "user_id": "68a9a9ed-6c6e-4727-ab39-5fe88bba24c5",
+          "created_at": "2026-10-14T10:05:43+00:00"
+        },
+        {
+          "id": "e230fdcc-874c-4215-8b97-a55e5dc723c5",
+          "card_type": "VIRTUAL",
+          "is_suspended": false,
+          "fund_id": "b94863b4-fbc2-4c07-bb7c-47e0ae614e89",
+          "user_id": "07179053-7293-4dd6-91f3-1c2416b7fbf4",
+          "created_at": "2026-10-14T10:05:42+00:00"
+        },
+        {
+          "id": "052bc061-3476-4e63-a926-3f34f6e6b5d8",
+          "card_type": "VIRTUAL",
+          "is_suspended": false,
+          "fund_id": "a6ecb8a5-ed42-4d4b-b8e1-088838b12469",
+          "user_id": "6200bcff-d274-4ff9-83a7-4276e3a57997",
+          "created_at": "2026-10-14T10:05:41+00:00"
+        },
+        {
+          "id": "499c47b9-b54b-43c0-ac9f-4f958e2db2e6",
+          "card_type": "VIRTUAL",
+          "is_suspended": false,
+          "fund_id": "f4c96f07-e84a-491a-b453-82a9eb8a23b2",
+          "user_id": "c63ebe4b-b653-4099-9847-76672723c3e3",
+          "created_at": "2026-10-14T10:05:41+00:00"
+        },
+        {
+          "id": "591db0c3-c84f-4b29-94eb-b8ac93a2c3eb",
+          "card_type": "VIRTUAL",
+          "is_suspended": false,
+          "fund_id": "c283211e-b3a2-44e0-82dc-abf30b63fe18",
+          "user_id": "45e9786d-3469-4275-85fe-3e01ae8bacd2",
+          "created_at": "2026-10-14T10:05:41+00:00"
+        },
+        {
+          "id": "ee72fb0a-bfe3-448f-9905-982adf5e4c00",
+          "card_type": "VIRTUAL",
+          "is_suspended": false,
+          "fund_id": "248abbc6-e3f9-4355-ba0d-c0f9f7344ab3",
+          "user_id": "68a9a9ed-6c6e-4727-ab39-5fe88bba24c5",
+          "created_at": "2026-10-14T10:05:41+00:00"
+        },
+        {
+          "id": "0a3497f5-4121-4cfc-87d8-1df0f16e6798",
+          "card_type": "VIRTUAL",
+          "is_suspended": false,
+          "fund_id": "436de030-b9fa-412d-8f3b-80841a67ca07",
+          "user_id": "db5b78e6-7cc8-4792-8e00-486569712745",
+          "created_at": "2026-10-14T10:05:41+00:00"
+        },
+        {
+          "id": "212464eb-4840-4536-bc08-a45cc4dd5962",
+          "card_type": "VIRTUAL",
+          "is_suspended": false,
+          "fund_id": "066955a3-8454-4890-bf5f-6d40e92cb05a",
+          "user_id": "a7a2204b-ecaa-4f38-a300-e1d19aee52b5",
+          "created_at": "2026-10-14T10:05:40+00:00"
+        },
+        {
+          "id": "937075c3-ebc8-43a3-b870-20979f18ee7a",
+          "card_type": "VIRTUAL",
+          "is_suspended": false,
+          "fund_id": "8f432288-93b9-4a69-b7ae-cb1fd0e54f3c",
+          "user_id": "68a9a9ed-6c6e-4727-ab39-5fe88bba24c5",
+          "created_at": "2026-10-14T10:05:40+00:00"
+        },
+        {
+          "id": "3fb854b5-b914-44a7-ad25-2533ce395784",
+          "card_type": "VIRTUAL",
+          "is_suspended": false,
+          "fund_id": "866d861b-76c0-4c20-b8fc-ab26fe93a67e",
+          "user_id": "07179053-7293-4dd6-91f3-1c2416b7fbf4",
+          "created_at": "2026-10-14T10:05:38+00:00"
+        },
+        {
+          "id": "e4f6c21c-ee9f-4229-823a-495904a104db",
+          "card_type": "VIRTUAL",
+          "is_suspended": false,
+          "fund_id": "050878ea-0965-422a-820b-538922fbad2c",
+          "user_id": "6200bcff-d274-4ff9-83a7-4276e3a57997",
+          "created_at": "2026-10-14T10:05:38+00:00"
+        },
+        {
+          "id": "b3ccc6e9-fa81-439c-bbfa-6e924b4c61bd",
+          "card_type": "VIRTUAL",
+          "is_suspended": false,
+          "fund_id": "a713a116-46b2-46e8-a38c-cda2d9cea425",
+          "user_id": "c63ebe4b-b653-4099-9847-76672723c3e3",
+          "created_at": "2026-10-14T10:05:38+00:00"
+        },
+        {
+          "id": "b6110a29-ce4a-42c5-9f8e-79ad43a47d44",
+          "card_type": "VIRTUAL",
+          "is_suspended": false,
+          "fund_id": "3b04f579-50a1-49ea-a730-ff9a1c57341b",
+          "user_id": "1602b98f-91af-44a4-ba93-6d87e08ab3f6",
+          "created_at": "2026-10-14T10:05:38+00:00"
+        },
+        {
+          "id": "1ea8105b-2c35-4aa0-8b93-fae9e32819a5",
+          "card_type": "VIRTUAL",
+          "is_suspended": false,
+          "fund_id": "c2bd81c7-3b78-4333-a9af-ca56deb24490",
+          "user_id": "45e9786d-3469-4275-85fe-3e01ae8bacd2",
+          "created_at": "2026-10-14T10:05:38+00:00"
+        },
+        {
+          "id": "654dfcf0-0ca6-46c5-88c3-04f6e634ffec",
+          "card_type": "VIRTUAL",
+          "is_suspended": false,
+          "fund_id": "c12e4a4e-1fe5-4465-9f0a-72a675893949",
+          "user_id": "db5b78e6-7cc8-4792-8e00-486569712745",
+          "created_at": "2026-10-14T10:05:38+00:00"
+        },
+        {
+          "id": "4a9d7336-e53d-4784-9581-5e88843c9232",
+          "card_type": "VIRTUAL",
+          "is_suspended": false,
+          "fund_id": "687e8bba-88db-4f9a-9fb8-ae0be211c2cd",
+          "user_id": "a7a2204b-ecaa-4f38-a300-e1d19aee52b5",
+          "created_at": "2026-10-14T10:05:36+00:00"
+        },
+        {
+          "id": "1a97b005-4f72-425b-9420-be9adb3718ec",
+          "card_type": "VIRTUAL",
+          "is_suspended": false,
+          "fund_id": "a84c0214-4d49-4882-bd98-c70463b2f618",
+          "user_id": "862b7598-e143-4c13-93be-05fd0773c0bb",
+          "created_at": "2026-10-14T10:05:35+00:00"
+        },
+        {
+          "id": "c468cdbb-8349-4c77-8edd-2bca0aabedd1",
+          "card_type": "VIRTUAL",
+          "is_suspended": false,
+          "fund_id": "e19882da-b664-49ec-a2bc-aab7c6cc4d54",
+          "user_id": "6200bcff-d274-4ff9-83a7-4276e3a57997",
+          "created_at": "2026-10-14T10:05:34+00:00"
+        },
+        {
+          "id": "6c1d9dd7-85bb-4b5b-8787-d861666843a8",
+          "card_type": "VIRTUAL",
+          "is_suspended": false,
+          "fund_id": "1bd223bd-8728-48a8-b4a0-0f1a20a90823",
+          "user_id": "0b2f3a04-30f8-46d3-b0e6-ee6f54065ac9",
+          "created_at": "2026-10-14T10:05:35+00:00"
+        },
+        {
+          "id": "3cbf2418-5ab4-4199-91f5-58413343585a",
+          "card_type": "VIRTUAL",
+          "is_suspended": false,
+          "fund_id": "23176b2f-6c83-4e4f-83e1-5270515f367a",
+          "user_id": "c63ebe4b-b653-4099-9847-76672723c3e3",
+          "created_at": "2026-10-14T10:05:34+00:00"
+        },
+        {
+          "id": "b9a57768-afad-4cee-a2a8-452363ba2a12",
+          "card_type": "VIRTUAL",
+          "is_suspended": false,
+          "fund_id": "899fd429-0d5f-4ec7-bf0f-e7547c35c89c",
+          "user_id": "9d3d3246-8235-40fa-a5c1-56ae8583d945",
+          "created_at": "2026-10-14T10:05:35+00:00"
+        },
+        {
+          "id": "3bb1720f-b43f-45ac-8b94-bdad1e4b3fc5",
+          "card_type": "VIRTUAL",
+          "is_suspended": false,
+          "fund_id": "13654eaa-0a64-420b-bb28-4060a5f87714",
+          "user_id": "45e9786d-3469-4275-85fe-3e01ae8bacd2",
+          "created_at": "2026-10-14T10:05:34+00:00"
+        },
+        {
+          "id": "5ffa0512-2d46-4a2d-8ac6-452d5f3530de",
+          "card_type": "VIRTUAL",
+          "is_suspended": false,
+          "fund_id": "ffd384e3-c1ad-4bcc-b2a4-c9353e5e9023",
+          "user_id": "a36f545c-5e38-4e4d-acc5-b9a67916efde",
+          "created_at": "2026-10-14T10:05:34+00:00"
+        },
+        {
+          "id": "bcbcc3e7-9722-41c0-82ce-075f03375108",
+          "card_type": "VIRTUAL",
+          "is_suspended": false,
+          "fund_id": "78544d10-b198-4798-a951-fb9fac50d02b",
+          "user_id": "862b7598-e143-4c13-93be-05fd0773c0bb",
+          "created_at": "2026-10-14T10:05:34+00:00"
+        },
+        {
+          "id": "4a309590-121b-4c95-92d1-cd7993095c31",
+          "card_type": "VIRTUAL",
+          "is_suspended": false,
+          "fund_id": "6b8e03a5-7466-441b-9a93-d4eb3cae51ba",
+          "user_id": "9d3d3246-8235-40fa-a5c1-56ae8583d945",
+          "created_at": "2026-10-14T10:05:33+00:00"
+        },
+        {
+          "id": "5fad35c8-9071-4fa7-9803-0178f97d0d2a",
+          "card_type": "VIRTUAL",
+          "is_suspended": false,
+          "fund_id": "5c4382f3-6adc-4b1d-b236-b555bd6aee3b",
+          "user_id": "e21dbc6c-0fc3-42ed-a19c-7e4f66a0eddd",
+          "created_at": "2026-10-14T10:05:33+00:00"
+        },
+        {
+          "id": "ba3e8d6a-232b-42c9-95d9-a9fc0a3d7184",
+          "card_type": "VIRTUAL",
+          "is_suspended": false,
+          "fund_id": "ab8bf8ff-6f23-417b-ac2f-97b5a3f48ca7",
+          "user_id": "862b7598-e143-4c13-93be-05fd0773c0bb",
+          "created_at": "2026-10-14T10:05:33+00:00"
+        }
+      ]
+    },
+    "batchDelete": {
+      "Card": []
+    }
+  },
+  "api": {
+    "get": {
+      "/developer/v1/cards/physical": {
+        "response": {
+          "data": [
+            {
+              "display_name": "Stanley Hudson's Physical Card",
+              "created_at": "2026-10-14T18:02:36+00:00",
+              "is_physical": true,
+              "cardholder_name": "Stanley Hudson",
+              "last_four": "*REDACTED*",
+              "is_primary": true,
+              "cardholder_id": "12d3ccab-6314-4c65-9ac8-835fe16536b9",
+              "fulfillment": {
+                "fulfillment_status": "ISSUED",
+                "shipping_date": null,
+                "shipping": {
+                  "recipient_address": {
+                    "city": "San Francisco",
+                    "address1": "500 Market St",
+                    "last_name": "Hudson",
+                    "first_name": "Stanley",
+                    "country": "US",
+                    "postal_code": "94105",
+                    "state": "CA"
+                  },
+                  "method": "LOCAL_MAIL"
+                },
+                "shipping_tracking_url": null,
+                "shipping_eta": null,
+                "card_personalization": {
+                  "text": {
+                    "name_line_1": {
+                      "value": "Stanley Hudson"
+                    },
+                    "name_line_2": {
+                      "value": "nango-dev"
+                    }
+                  }
+                }
+              },
+              "expiration": "*REDACTED*",
+              "is_suspended": true,
+              "automatic_routing_enabled": false,
+              "has_program_overridden": false,
+              "state": "TERMINATED",
+              "id": "4a348146-b6f5-4cfb-aeab-623bce708965"
+            },
+            {
+              "display_name": "Toby Flenderson's Physical Card",
+              "created_at": "2026-10-14T12:55:44+00:00",
+              "is_physical": true,
+              "cardholder_name": "Toby Flenderson",
+              "last_four": "*REDACTED*",
+              "is_primary": true,
+              "cardholder_id": "1fb57f8e-27bd-4077-9084-c18be2593eea",
+              "fulfillment": {
+                "fulfillment_status": "ISSUED",
+                "shipping_date": null,
+                "shipping": {
+                  "recipient_address": {
+                    "city": "New York",
+                    "address1": "123 Main St",
+                    "last_name": "Flenderson",
+                    "first_name": "Toby",
+                    "country": "US",
+                    "postal_code": "10003",
+                    "state": "NY"
+                  },
+                  "method": "LOCAL_MAIL"
+                },
+                "shipping_tracking_url": null,
+                "shipping_eta": null,
+                "card_personalization": {
+                  "text": {
+                    "name_line_1": {
+                      "value": "Toby Flenderson"
+                    },
+                    "name_line_2": {
+                      "value": "nango-dev"
+                    }
+                  }
+                }
+              },
+              "expiration": "*REDACTED*",
+              "is_suspended": false,
+              "automatic_routing_enabled": false,
+              "has_program_overridden": false,
+              "state": "TERMINATED",
+              "id": "b200f25e-7f4d-4f60-a144-b72ef3dcdbb3"
+            },
+            {
+              "display_name": "Stanley Hudson's Physical Card",
+              "created_at": "2026-10-14T11:10:58+00:00",
+              "is_physical": true,
+              "cardholder_name": "Stanley Hudson",
+              "last_four": "*REDACTED*",
+              "is_primary": true,
+              "cardholder_id": "12d3ccab-6314-4c65-9ac8-835fe16536b9",
+              "fulfillment": {
+                "fulfillment_status": "ISSUED",
+                "shipping_date": null,
+                "shipping": {
+                  "recipient_address": {
+                    "city": "San Francisco",
+                    "address1": "500 Market St",
+                    "last_name": "Hudson",
+                    "first_name": "Stanley",
+                    "country": "US",
+                    "postal_code": "94105",
+                    "state": "CA"
+                  },
+                  "method": "LOCAL_MAIL"
+                },
+                "shipping_tracking_url": null,
+                "shipping_eta": null,
+                "card_personalization": {
+                  "text": {
+                    "name_line_1": {
+                      "value": "Stanley Hudson"
+                    },
+                    "name_line_2": {
+                      "value": "nango-dev"
+                    }
+                  }
+                }
+              },
+              "expiration": "*REDACTED*",
+              "is_suspended": false,
+              "automatic_routing_enabled": false,
+              "has_program_overridden": false,
+              "state": "TERMINATED",
+              "id": "1aed2869-b52c-4200-b7c1-3cc0f0f7bc3f"
+            },
+            {
+              "spend_limit_id": "07acc4c8-62b5-4fed-8e9c-26c52ef267c2",
+              "display_name": "Physical Card",
+              "created_at": "2026-10-14T11:10:01+00:00",
+              "is_physical": true,
+              "cardholder_name": "Stanley Hudson",
+              "last_four": "*REDACTED*",
+              "is_primary": true,
+              "cardholder_id": "12d3ccab-6314-4c65-9ac8-835fe16536b9",
+              "fulfillment": {
+                "fulfillment_status": "ISSUED",
+                "shipping_date": null,
+                "shipping": {
+                  "recipient_address": {
+                    "city": "New York City",
+                    "address1": "123 Main St",
+                    "last_name": "Hudson",
+                    "first_name": "Stanley",
+                    "country": "US",
+                    "postal_code": "10003",
+                    "state": "NY"
+                  },
+                  "method": "LOCAL_MAIL"
+                },
+                "shipping_tracking_url": null,
+                "shipping_eta": null,
+                "card_personalization": {
+                  "text": {
+                    "name_line_1": {
+                      "value": "Stanley Hudson"
+                    },
+                    "name_line_2": {
+                      "value": "nango-dev"
+                    }
+                  }
+                }
+              },
+              "expiration": "*REDACTED*",
+              "is_suspended": false,
+              "fund_id": "07acc4c8-62b5-4fed-8e9c-26c52ef267c2",
+              "automatic_routing_enabled": false,
+              "has_program_overridden": false,
+              "state": "TERMINATED",
+              "id": "c7bcaf5e-df14-4a09-9ed6-e7bbb945d0ca"
+            },
+            {
+              "spend_limit_id": "07acc4c8-62b5-4fed-8e9c-26c52ef267c2",
+              "display_name": "Physical Card",
+              "created_at": "2026-10-14T11:09:25+00:00",
+              "is_physical": true,
+              "cardholder_name": "Toby Flenderson",
+              "last_four": "*REDACTED*",
+              "is_primary": true,
+              "cardholder_id": "1fb57f8e-27bd-4077-9084-c18be2593eea",
+              "fulfillment": {
+                "fulfillment_status": "ISSUED",
+                "shipping_date": null,
+                "shipping": {
+                  "recipient_address": {
+                    "city": "New York City",
+                    "address1": "123 Main St",
+                    "last_name": "Flenderson",
+                    "first_name": "Toby",
+                    "country": "US",
+                    "postal_code": "10003",
+                    "state": "NY"
+                  },
+                  "method": "LOCAL_MAIL"
+                },
+                "shipping_tracking_url": null,
+                "shipping_eta": null,
+                "card_personalization": {
+                  "text": {
+                    "name_line_1": {
+                      "value": "Toby Flenderson"
+                    },
+                    "name_line_2": {
+                      "value": "nango-dev"
+                    }
+                  }
+                }
+              },
+              "expiration": "*REDACTED*",
+              "is_suspended": false,
+              "fund_id": "07acc4c8-62b5-4fed-8e9c-26c52ef267c2",
+              "automatic_routing_enabled": false,
+              "has_program_overridden": false,
+              "state": "TERMINATED",
+              "id": "24d96a66-0b26-4b99-8748-90783e9f666a"
+            },
+            {
+              "display_name": "Toby Flenderson's Physical Card",
+              "created_at": "2026-10-14T11:09:19+00:00",
+              "is_physical": true,
+              "cardholder_name": "Toby Flenderson",
+              "last_four": "*REDACTED*",
+              "is_primary": true,
+              "cardholder_id": "1fb57f8e-27bd-4077-9084-c18be2593eea",
+              "fulfillment": {
+                "fulfillment_status": "ISSUED",
+                "shipping_date": null,
+                "shipping": {
+                  "recipient_address": {
+                    "city": "New York City",
+                    "address1": "123 Main St",
+                    "last_name": "Flenderson",
+                    "first_name": "Toby",
+                    "country": "US",
+                    "postal_code": "10003",
+                    "state": "NY"
+                  },
+                  "method": "LOCAL_MAIL"
+                },
+                "shipping_tracking_url": null,
+                "shipping_eta": null,
+                "card_personalization": {
+                  "text": {
+                    "name_line_1": {
+                      "value": "Toby Flenderson"
+                    },
+                    "name_line_2": {
+                      "value": "nango-dev"
+                    }
+                  }
+                }
+              },
+              "expiration": "*REDACTED*",
+              "is_suspended": false,
+              "automatic_routing_enabled": false,
+              "has_program_overridden": false,
+              "state": "TERMINATED",
+              "id": "c01f21da-cebc-4e31-b53f-6d8c0f995625"
+            },
+            {
+              "display_name": "Toby Flenderson's Physical Card",
+              "created_at": "2026-10-14T11:08:28+00:00",
+              "is_physical": true,
+              "cardholder_name": "Toby Flenderson",
+              "last_four": "*REDACTED*",
+              "is_primary": true,
+              "cardholder_id": "1fb57f8e-27bd-4077-9084-c18be2593eea",
+              "fulfillment": {
+                "fulfillment_status": "ISSUED",
+                "shipping_date": null,
+                "shipping": {
+                  "recipient_address": {
+                    "city": "New York City",
+                    "address1": "123 Main St",
+                    "last_name": "Flenderson",
+                    "first_name": "Toby",
+                    "country": "US",
+                    "postal_code": "10003",
+                    "state": "NY"
+                  },
+                  "method": "LOCAL_MAIL"
+                },
+                "shipping_tracking_url": null,
+                "shipping_eta": null,
+                "card_personalization": {
+                  "text": {
+                    "name_line_1": {
+                      "value": "Toby Flenderson"
+                    },
+                    "name_line_2": {
+                      "value": "nango-dev"
+                    }
+                  }
+                }
+              },
+              "expiration": "*REDACTED*",
+              "is_suspended": false,
+              "automatic_routing_enabled": false,
+              "has_program_overridden": false,
+              "state": "TERMINATED",
+              "id": "2e7b602f-297f-4eb6-876e-bbacc74a391b"
+            },
+            {
+              "spend_limit_id": "07acc4c8-62b5-4fed-8e9c-26c52ef267c2",
+              "display_name": "Physical Card",
+              "created_at": "2026-10-14T11:05:21+00:00",
+              "is_physical": true,
+              "cardholder_name": "Holly Flax",
+              "last_four": "*REDACTED*",
+              "is_primary": true,
+              "cardholder_id": "4d4c50c6-29d2-4aae-aed1-46e2c5c4c319",
+              "fulfillment": {
+                "fulfillment_status": "ISSUED",
+                "shipping_date": null,
+                "shipping": {
+                  "recipient_address": {
+                    "city": "New York City",
+                    "address1": "123 Main St",
+                    "last_name": "Flax",
+                    "first_name": "Holly",
+                    "country": "US",
+                    "postal_code": "10003",
+                    "state": "NY"
+                  },
+                  "method": "LOCAL_MAIL"
+                },
+                "shipping_tracking_url": null,
+                "shipping_eta": null,
+                "card_personalization": {
+                  "text": {
+                    "name_line_1": {
+                      "value": "Holly Flax"
+                    },
+                    "name_line_2": {
+                      "value": "nango-dev"
+                    }
+                  }
+                }
+              },
+              "expiration": "*REDACTED*",
+              "is_suspended": false,
+              "fund_id": "07acc4c8-62b5-4fed-8e9c-26c52ef267c2",
+              "automatic_routing_enabled": false,
+              "has_program_overridden": false,
+              "state": "TERMINATED",
+              "id": "42e5d32c-fce1-404c-ab13-2e99ffc439d9"
+            },
+            {
+              "display_name": "Sawyer Maloney's Physical Card",
+              "created_at": "2026-10-14T10:43:47+00:00",
+              "is_physical": true,
+              "cardholder_name": "Sawyer Maloney",
+              "last_four": "*REDACTED*",
+              "is_primary": true,
+              "cardholder_id": "73f6feee-2788-4e4d-932e-2214361a9697",
+              "fulfillment": {
+                "fulfillment_status": "ISSUED",
+                "shipping_date": null,
+                "shipping": {
+                  "recipient_address": {
+                    "city": "New York",
+                    "address1": "28 W 23rd St, Floor 2",
+                    "last_name": "Maloney",
+                    "first_name": "Sawyer",
+                    "country": "US",
+                    "postal_code": "10010",
+                    "state": "NY"
+                  },
+                  "method": "LOCAL_MAIL"
+                },
+                "shipping_tracking_url": null,
+                "shipping_eta": null,
+                "card_personalization": {
+                  "text": {
+                    "name_line_1": {
+                      "value": "Sawyer Maloney"
+                    },
+                    "name_line_2": {
+                      "value": "nango-dev"
+                    }
+                  }
+                }
+              },
+              "expiration": "*REDACTED*",
+              "is_suspended": false,
+              "automatic_routing_enabled": false,
+              "has_program_overridden": false,
+              "state": "TERMINATED",
+              "id": "71000592-c11d-4b35-9111-9e5a8b0674e3"
+            },
+            {
+              "display_name": "Physical Card",
+              "created_at": "2026-10-14T10:06:22+00:00",
+              "is_physical": true,
+              "cardholder_name": "David Wallace",
+              "last_four": "8071",
+              "is_primary": true,
+              "cardholder_id": "07323c8f-c449-4222-a970-8cc4cf673711",
+              "fulfillment": {
+                "fulfillment_status": "DELIVERED",
+                "shipping_date": "2026-10-13T00:00:00+00:00",
+                "shipping": {
+                  "recipient_address": {
+                    "city": "New York",
+                    "phone": null,
+                    "address1": "28 W 23rd St, Floor 2",
+                    "last_name": "Wallace",
+                    "first_name": "David",
+                    "country": "US",
+                    "postal_code": "10010",
+                    "state": "NY"
+                  },
+                  "method": "LOCAL_MAIL"
+                },
+                "shipping_tracking_url": null,
+                "shipping_eta": null,
+                "card_personalization": {
+                  "text": {
+                    "name_line_1": {
+                      "value": "David Wallace"
+                    },
+                    "name_line_2": {
+                      "value": "nango-dev"
+                    }
+                  }
+                }
+              },
+              "expiration": "0930",
+              "is_suspended": false,
+              "automatic_routing_enabled": true,
+              "has_program_overridden": false,
+              "state": "ACTIVE",
+              "id": "58cb9b33-d372-4aa1-825f-30bf11ef3fc1"
+            },
+            {
+              "display_name": "Physical Card",
+              "created_at": "2026-10-14T10:06:20+00:00",
+              "is_physical": true,
+              "cardholder_name": "Calvin Lee",
+              "last_four": "6628",
+              "is_primary": true,
+              "cardholder_id": "ae2ad268-e63d-438a-bfe3-02ddaa4f68af",
+              "fulfillment": {
+                "fulfillment_status": "DELIVERED",
+                "shipping_date": "2026-10-13T00:00:00+00:00",
+                "shipping": {
+                  "recipient_address": {
+                    "city": "New York",
+                    "phone": "+15005550006",
+                    "address1": "28 W 23rd St, Floor 2",
+                    "last_name": "Lee",
+                    "first_name": "Calvin",
+                    "country": "US",
+                    "postal_code": "10010",
+                    "state": "NY"
+                  },
+                  "method": "LOCAL_MAIL"
+                },
+                "shipping_tracking_url": null,
+                "shipping_eta": null,
+                "card_personalization": {
+                  "text": {
+                    "name_line_1": {
+                      "value": "Calvin Lee"
+                    },
+                    "name_line_2": {
+                      "value": "nango-dev"
+                    }
+                  }
+                }
+              },
+              "expiration": "0830",
+              "is_suspended": false,
+              "automatic_routing_enabled": true,
+              "has_program_overridden": false,
+              "state": "ACTIVE",
+              "id": "ae07c163-e819-4c42-9d20-05d135fdf9d0"
+            },
+            {
+              "display_name": "Physical Card",
+              "created_at": "2026-10-14T10:06:19+00:00",
+              "is_physical": true,
+              "cardholder_name": "Laura Van Lenten",
+              "last_four": "5062",
+              "is_primary": true,
+              "cardholder_id": "92539a3b-9151-4dfc-8a8c-b5dd5114b865",
+              "fulfillment": {
+                "fulfillment_status": "DELIVERED",
+                "shipping_date": "2026-10-13T00:00:00+00:00",
+                "shipping": {
+                  "recipient_address": {
+                    "city": "New York",
+                    "phone": "+15005550006",
+                    "address1": "28 W 23rd St, Floor 2",
+                    "last_name": "Van Lenten",
+                    "first_name": "Laura",
+                    "country": "US",
+                    "postal_code": "10010",
+                    "state": "NY"
+                  },
+                  "method": "LOCAL_MAIL"
+                },
+                "shipping_tracking_url": null,
+                "shipping_eta": null,
+                "card_personalization": {
+                  "text": {
+                    "name_line_1": {
+                      "value": "Laura Van Lenten"
+                    },
+                    "name_line_2": {
+                      "value": "nango-dev"
+                    }
+                  }
+                }
+              },
+              "expiration": "0830",
+              "is_suspended": false,
+              "automatic_routing_enabled": true,
+              "has_program_overridden": false,
+              "state": "ACTIVE",
+              "id": "950792a7-fb5a-41b9-a127-29b7f3f94384"
+            },
+            {
+              "display_name": "Physical Card",
+              "created_at": "2026-10-14T10:06:18+00:00",
+              "is_physical": true,
+              "cardholder_name": "Noel Vierra",
+              "last_four": "2210",
+              "is_primary": true,
+              "cardholder_id": "b42522c3-e364-4507-9a8e-9a4c56ed7848",
+              "fulfillment": {
+                "fulfillment_status": "DELIVERED",
+                "shipping_date": "2026-10-13T00:00:00+00:00",
+                "shipping": {
+                  "recipient_address": {
+                    "city": "New York",
+                    "phone": "+15005550006",
+                    "address1": "28 W 23rd St, Floor 2",
+                    "last_name": "Vierra",
+                    "first_name": "Noel",
+                    "country": "US",
+                    "postal_code": "10010",
+                    "state": "NY"
+                  },
+                  "method": "LOCAL_MAIL"
+                },
+                "shipping_tracking_url": null,
+                "shipping_eta": null,
+                "card_personalization": {
+                  "text": {
+                    "name_line_1": {
+                      "value": "Noel Vierra"
+                    },
+                    "name_line_2": {
+                      "value": "nango-dev"
+                    }
+                  }
+                }
+              },
+              "expiration": "0930",
+              "is_suspended": false,
+              "automatic_routing_enabled": true,
+              "has_program_overridden": false,
+              "state": "ACTIVE",
+              "id": "52db404e-d3a9-4cb0-a2a2-c69ee4f792a2"
+            },
+            {
+              "display_name": "Physical Card",
+              "created_at": "2026-10-14T10:06:18+00:00",
+              "is_physical": true,
+              "cardholder_name": "Sanil Sawlani",
+              "last_four": "2876",
+              "is_primary": true,
+              "cardholder_id": "69d80729-a6b1-4bd6-b82b-eb1dda1ad981",
+              "fulfillment": {
+                "fulfillment_status": "DELIVERED",
+                "shipping_date": "2026-10-13T00:00:00+00:00",
+                "shipping": {
+                  "recipient_address": {
+                    "city": "New York",
+                    "phone": "+15005550006",
+                    "address1": "28 W 23rd St, Floor 2",
+                    "last_name": "Sawlani",
+                    "first_name": "Sanil",
+                    "country": "US",
+                    "postal_code": "10010",
+                    "state": "NY"
+                  },
+                  "method": "LOCAL_MAIL"
+                },
+                "shipping_tracking_url": null,
+                "shipping_eta": null,
+                "card_personalization": {
+                  "text": {
+                    "name_line_1": {
+                      "value": "Sanil Sawlani"
+                    },
+                    "name_line_2": {
+                      "value": "nango-dev"
+                    }
+                  }
+                }
+              },
+              "expiration": "0930",
+              "is_suspended": false,
+              "automatic_routing_enabled": true,
+              "has_program_overridden": false,
+              "state": "ACTIVE",
+              "id": "8e880bb1-276f-4f6b-87de-abe0765c30e0"
+            },
+            {
+              "display_name": "Physical Card",
+              "created_at": "2026-10-14T10:06:13+00:00",
+              "is_physical": true,
+              "cardholder_name": "Andy Bernard",
+              "last_four": "9790",
+              "is_primary": true,
+              "cardholder_id": "23f1dc34-5b5e-4558-b85e-41ce2e0ff033",
+              "fulfillment": {
+                "fulfillment_status": "DELIVERED",
+                "shipping_date": "2026-10-13T00:00:00+00:00",
+                "shipping": {
+                  "recipient_address": {
+                    "city": "New York",
+                    "phone": "+15005550006",
+                    "address1": "28 W 23rd St, Floor 2",
+                    "last_name": "Bernard",
+                    "first_name": "Andy",
+                    "country": "US",
+                    "postal_code": "10010",
+                    "state": "NY"
+                  },
+                  "method": "LOCAL_MAIL"
+                },
+                "shipping_tracking_url": null,
+                "shipping_eta": null,
+                "card_personalization": {
+                  "text": {
+                    "name_line_1": {
+                      "value": "Andy Bernard"
+                    },
+                    "name_line_2": {
+                      "value": "nango-dev"
+                    }
+                  }
+                }
+              },
+              "expiration": "0930",
+              "is_suspended": false,
+              "automatic_routing_enabled": true,
+              "has_program_overridden": false,
+              "state": "ACTIVE",
+              "id": "69df450c-f91b-49e2-99b0-3f52d19ca58c"
+            },
+            {
+              "display_name": "Physical Card",
+              "created_at": "2026-10-14T10:06:13+00:00",
+              "is_physical": true,
+              "cardholder_name": "Meredith Palmer",
+              "last_four": "8845",
+              "is_primary": true,
+              "cardholder_id": "e2e4cd18-83d9-4668-abd3-550971080d40",
+              "fulfillment": {
+                "fulfillment_status": "DELIVERED",
+                "shipping_date": "2026-10-13T00:00:00+00:00",
+                "shipping": {
+                  "recipient_address": {
+                    "city": "New York",
+                    "phone": "+15005550006",
+                    "address1": "28 W 23rd St, Floor 2",
+                    "last_name": "Palmer",
+                    "first_name": "Meredith",
+                    "country": "US",
+                    "postal_code": "10010",
+                    "state": "NY"
+                  },
+                  "method": "LOCAL_MAIL"
+                },
+                "shipping_tracking_url": null,
+                "shipping_eta": null,
+                "card_personalization": {
+                  "text": {
+                    "name_line_1": {
+                      "value": "Meredith Palmer"
+                    },
+                    "name_line_2": {
+                      "value": "nango-dev"
+                    }
+                  }
+                }
+              },
+              "expiration": "0930",
+              "is_suspended": false,
+              "automatic_routing_enabled": true,
+              "has_program_overridden": false,
+              "state": "ACTIVE",
+              "id": "e4bde992-1229-4ff1-a1ed-c71a98475130"
+            },
+            {
+              "display_name": "Physical Card",
+              "created_at": "2026-10-14T10:06:10+00:00",
+              "is_physical": true,
+              "cardholder_name": "Jim Halpert",
+              "last_four": "9667",
+              "is_primary": true,
+              "cardholder_id": "c6735957-0b3e-450b-a54a-45944e7ed3fe",
+              "fulfillment": {
+                "fulfillment_status": "DELIVERED",
+                "shipping_date": "2026-10-13T00:00:00+00:00",
+                "shipping": {
+                  "recipient_address": {
+                    "city": "New York",
+                    "phone": "+15005550006",
+                    "address1": "28 W 23rd St, Floor 2",
+                    "last_name": "Halpert",
+                    "first_name": "Jim",
+                    "country": "US",
+                    "postal_code": "10010",
+                    "state": "NY"
+                  },
+                  "method": "LOCAL_MAIL"
+                },
+                "shipping_tracking_url": null,
+                "shipping_eta": null,
+                "card_personalization": {
+                  "text": {
+                    "name_line_1": {
+                      "value": "Jim Halpert"
+                    },
+                    "name_line_2": {
+                      "value": "nango-dev"
+                    }
+                  }
+                }
+              },
+              "expiration": "1030",
+              "is_suspended": false,
+              "automatic_routing_enabled": true,
+              "has_program_overridden": false,
+              "state": "ACTIVE",
+              "id": "238c8b5a-46d5-47b3-a8b1-f73b0c154f9f"
+            },
+            {
+              "display_name": "Physical Card",
+              "created_at": "2026-10-14T10:06:09+00:00",
+              "is_physical": true,
+              "cardholder_name": "Pam Beesly",
+              "last_four": "3646",
+              "is_primary": true,
+              "cardholder_id": "c7df8ee0-aa5a-4351-a8c2-0d15d585a902",
+              "fulfillment": {
+                "fulfillment_status": "DELIVERED",
+                "shipping_date": "2026-10-13T00:00:00+00:00",
+                "shipping": {
+                  "recipient_address": {
+                    "city": "New York",
+                    "phone": "+15005550006",
+                    "address1": "28 W 23rd St, Floor 2",
+                    "last_name": "Beesly",
+                    "first_name": "Pam",
+                    "country": "US",
+                    "postal_code": "10010",
+                    "state": "NY"
+                  },
+                  "method": "LOCAL_MAIL"
+                },
+                "shipping_tracking_url": null,
+                "shipping_eta": null,
+                "card_personalization": {
+                  "text": {
+                    "name_line_1": {
+                      "value": "Pam Beesly"
+                    },
+                    "name_line_2": {
+                      "value": "nango-dev"
+                    }
+                  }
+                }
+              },
+              "expiration": "1030",
+              "is_suspended": false,
+              "automatic_routing_enabled": true,
+              "has_program_overridden": false,
+              "state": "ACTIVE",
+              "id": "cfa04e98-aef1-4484-89ee-61b499ffa072"
+            },
+            {
+              "display_name": "Physical Card",
+              "created_at": "2026-10-14T10:06:09+00:00",
+              "is_physical": true,
+              "cardholder_name": "Dwight Schrute",
+              "last_four": "5187",
+              "is_primary": true,
+              "cardholder_id": "9f3e47f5-573c-4a89-9748-967a9347ca27",
+              "fulfillment": {
+                "fulfillment_status": "DELIVERED",
+                "shipping_date": "2026-10-13T00:00:00+00:00",
+                "shipping": {
+                  "recipient_address": {
+                    "city": "New York",
+                    "phone": "+15005550006",
+                    "address1": "28 W 23rd St, Floor 2",
+                    "last_name": "Schrute",
+                    "first_name": "Dwight",
+                    "country": "US",
+                    "postal_code": "10010",
+                    "state": "NY"
+                  },
+                  "method": "LOCAL_MAIL"
+                },
+                "shipping_tracking_url": null,
+                "shipping_eta": null,
+                "card_personalization": {
+                  "text": {
+                    "name_line_1": {
+                      "value": "Dwight Schrute"
+                    },
+                    "name_line_2": {
+                      "value": "nango-dev"
+                    }
+                  }
+                }
+              },
+              "expiration": "1030",
+              "is_suspended": false,
+              "automatic_routing_enabled": true,
+              "has_program_overridden": false,
+              "state": "ACTIVE",
+              "id": "454dacf8-2fa8-4356-b7ee-2ef44e1a4abb"
+            },
+            {
+              "display_name": "Physical Card",
+              "created_at": "2026-10-14T10:06:08+00:00",
+              "is_physical": true,
+              "cardholder_name": "Shaun Flemming",
+              "last_four": "9600",
+              "is_primary": true,
+              "cardholder_id": "1a201a19-0dfa-4fb2-b82e-28ed6456e471",
+              "fulfillment": {
+                "fulfillment_status": "DELIVERED",
+                "shipping_date": "2026-10-13T00:00:00+00:00",
+                "shipping": {
+                  "recipient_address": {
+                    "city": "New York",
+                    "phone": "+15005550006",
+                    "address1": "28 W 23rd St, Floor 2",
+                    "last_name": "Flemming",
+                    "first_name": "Shaun",
+                    "country": "US",
+                    "postal_code": "10010",
+                    "state": "NY"
+                  },
+                  "method": "LOCAL_MAIL"
+                },
+                "shipping_tracking_url": null,
+                "shipping_eta": null,
+                "card_personalization": {
+                  "text": {
+                    "name_line_1": {
+                      "value": "Shaun Flemming"
+                    },
+                    "name_line_2": {
+                      "value": "nango-dev"
+                    }
+                  }
+                }
+              },
+              "expiration": "0830",
+              "is_suspended": false,
+              "automatic_routing_enabled": true,
+              "has_program_overridden": false,
+              "state": "ACTIVE",
+              "id": "4ae4be19-2128-4458-a19d-46c2579262f6"
+            },
+            {
+              "display_name": "Physical Card",
+              "created_at": "2026-10-14T10:05:58+00:00",
+              "is_physical": true,
+              "cardholder_name": "Laisa Alam",
+              "last_four": "6132",
+              "is_primary": true,
+              "cardholder_id": "fc192430-7413-4eb4-8e80-08f65ab826a3",
+              "fulfillment": {
+                "fulfillment_status": "DELIVERED",
+                "shipping_date": "2026-10-13T00:00:00+00:00",
+                "shipping": {
+                  "recipient_address": {
+                    "city": "New York",
+                    "phone": "+15005550006",
+                    "address1": "28 W 23rd St, Floor 2",
+                    "last_name": "Alam",
+                    "first_name": "Laisa",
+                    "country": "US",
+                    "postal_code": "10010",
+                    "state": "NY"
+                  },
+                  "method": "LOCAL_MAIL"
+                },
+                "shipping_tracking_url": null,
+                "shipping_eta": null,
+                "card_personalization": {
+                  "text": {
+                    "name_line_1": {
+                      "value": "Laisa Alam"
+                    },
+                    "name_line_2": {
+                      "value": "nango-dev"
+                    }
+                  }
+                }
+              },
+              "expiration": "0930",
+              "is_suspended": false,
+              "automatic_routing_enabled": true,
+              "has_program_overridden": false,
+              "state": "ACTIVE",
+              "id": "c66ed034-b71d-4014-8b22-51656754f10d"
+            },
+            {
+              "display_name": "Physical Card",
+              "created_at": "2026-10-14T10:05:57+00:00",
+              "is_physical": true,
+              "cardholder_name": "Jose Millan",
+              "last_four": "8129",
+              "is_primary": true,
+              "cardholder_id": "f890ed82-4fd6-4d37-8451-9c7fcc578d7e",
+              "fulfillment": {
+                "fulfillment_status": "DELIVERED",
+                "shipping_date": "2026-10-13T00:00:00+00:00",
+                "shipping": {
+                  "recipient_address": {
+                    "city": "New York",
+                    "phone": "+15005550006",
+                    "address1": "28 W 23rd St, Floor 2",
+                    "last_name": "Millan",
+                    "first_name": "Jose",
+                    "country": "US",
+                    "postal_code": "10010",
+                    "state": "NY"
+                  },
+                  "method": "LOCAL_MAIL"
+                },
+                "shipping_tracking_url": null,
+                "shipping_eta": null,
+                "card_personalization": {
+                  "text": {
+                    "name_line_1": {
+                      "value": "Jose Millan"
+                    },
+                    "name_line_2": {
+                      "value": "nango-dev"
+                    }
+                  }
+                }
+              },
+              "expiration": "0930",
+              "is_suspended": false,
+              "automatic_routing_enabled": true,
+              "has_program_overridden": false,
+              "state": "ACTIVE",
+              "id": "e8800ab1-5897-4f33-8378-89f8cfb47723"
+            },
+            {
+              "display_name": "Physical Card",
+              "created_at": "2026-10-14T10:05:52+00:00",
+              "is_physical": true,
+              "cardholder_name": "Creed Bratton",
+              "last_four": "9293",
+              "is_primary": true,
+              "cardholder_id": "3ed54b88-fa34-4864-b35d-c2113b83fe07",
+              "fulfillment": {
+                "fulfillment_status": "DELIVERED",
+                "shipping_date": "2026-10-13T00:00:00+00:00",
+                "shipping": {
+                  "recipient_address": {
+                    "city": "New York",
+                    "phone": "+15005550006",
+                    "address1": "28 W 23rd St, Floor 2",
+                    "last_name": "Bratton",
+                    "first_name": "Creed",
+                    "country": "US",
+                    "postal_code": "10010",
+                    "state": "NY"
+                  },
+                  "method": "TWO_DAY"
+                },
+                "shipping_tracking_url": null,
+                "shipping_eta": null,
+                "card_personalization": {
+                  "text": {
+                    "name_line_1": {
+                      "value": "Creed Bratton"
+                    },
+                    "name_line_2": {
+                      "value": "nango-dev"
+                    }
+                  }
+                }
+              },
+              "expiration": "0930",
+              "is_suspended": false,
+              "automatic_routing_enabled": true,
+              "has_program_overridden": false,
+              "state": "ACTIVE",
+              "id": "54c548f2-4a8e-4037-9889-a19a38584626"
+            },
+            {
+              "display_name": "Physical Card",
+              "created_at": "2026-10-14T10:05:49+00:00",
+              "is_physical": true,
+              "cardholder_name": "Michael Scott",
+              "last_four": "6458",
+              "is_primary": true,
+              "cardholder_id": "45e9786d-3469-4275-85fe-3e01ae8bacd2",
+              "fulfillment": {
+                "fulfillment_status": "DELIVERED",
+                "shipping_date": "2026-10-13T00:00:00+00:00",
+                "shipping": {
+                  "recipient_address": {
+                    "city": "New York",
+                    "phone": "+15005550006",
+                    "address1": "28 W 23rd St, Floor 2",
+                    "last_name": "Scott",
+                    "first_name": "Michael",
+                    "country": "US",
+                    "postal_code": "10010",
+                    "state": "NY"
+                  },
+                  "method": "TWO_DAY"
+                },
+                "shipping_tracking_url": null,
+                "shipping_eta": null,
+                "card_personalization": {
+                  "text": {
+                    "name_line_1": {
+                      "value": "Michael Scott"
+                    },
+                    "name_line_2": {
+                      "value": "nango-dev"
+                    }
+                  }
+                }
+              },
+              "expiration": "0930",
+              "is_suspended": false,
+              "automatic_routing_enabled": true,
+              "has_program_overridden": false,
+              "state": "ACTIVE",
+              "id": "862201cd-ab3e-49dc-8c43-da90b32f6189"
+            },
+            {
+              "display_name": "Physical Card",
+              "created_at": "2026-10-14T10:05:43+00:00",
+              "is_physical": true,
+              "cardholder_name": "Oscar Martinez",
+              "last_four": "6369",
+              "is_primary": true,
+              "cardholder_id": "6200bcff-d274-4ff9-83a7-4276e3a57997",
+              "fulfillment": {
+                "fulfillment_status": "DELIVERED",
+                "shipping_date": "2026-10-13T00:00:00+00:00",
+                "shipping": {
+                  "recipient_address": {
+                    "city": "New York",
+                    "phone": "+15005550006",
+                    "address1": "28 W 23rd St, Floor 2",
+                    "last_name": "Martinez",
+                    "first_name": "Oscar",
+                    "country": "US",
+                    "postal_code": "10010",
+                    "state": "NY"
+                  },
+                  "method": "TWO_DAY"
+                },
+                "shipping_tracking_url": null,
+                "shipping_eta": null,
+                "card_personalization": {
+                  "text": {
+                    "name_line_1": {
+                      "value": "Oscar Martinez"
+                    },
+                    "name_line_2": {
+                      "value": "nango-dev"
+                    }
+                  }
+                }
+              },
+              "expiration": "0830",
+              "is_suspended": false,
+              "automatic_routing_enabled": true,
+              "has_program_overridden": false,
+              "state": "ACTIVE",
+              "id": "83205e07-03e8-494d-9f5a-0bcd63e4da53"
+            },
+            {
+              "display_name": "Physical Card",
+              "created_at": "2026-10-14T10:05:42+00:00",
+              "is_physical": true,
+              "cardholder_name": "Jan Levinson",
+              "last_four": "4354",
+              "is_primary": true,
+              "cardholder_id": "c63ebe4b-b653-4099-9847-76672723c3e3",
+              "fulfillment": {
+                "fulfillment_status": "DELIVERED",
+                "shipping_date": "2026-10-13T00:00:00+00:00",
+                "shipping": {
+                  "recipient_address": {
+                    "city": "New York",
+                    "phone": "+15005550006",
+                    "address1": "28 W 23rd St, Floor 2",
+                    "last_name": "Levinson",
+                    "first_name": "Jan",
+                    "country": "US",
+                    "postal_code": "10010",
+                    "state": "NY"
+                  },
+                  "method": "TWO_DAY"
+                },
+                "shipping_tracking_url": null,
+                "shipping_eta": null,
+                "card_personalization": {
+                  "text": {
+                    "name_line_1": {
+                      "value": "Jan Levinson"
+                    },
+                    "name_line_2": {
+                      "value": "nango-dev"
+                    }
+                  }
+                }
+              },
+              "expiration": "0930",
+              "is_suspended": false,
+              "automatic_routing_enabled": true,
+              "has_program_overridden": false,
+              "state": "ACTIVE",
+              "id": "8d9ef8c7-92a9-473d-9c23-39fded2ba23f"
+            },
+            {
+              "display_name": "Physical Card",
+              "created_at": "2026-10-14T10:05:36+00:00",
+              "is_physical": true,
+              "cardholder_name": "Kevin Malone",
+              "last_four": "0239",
+              "is_primary": true,
+              "cardholder_id": "862b7598-e143-4c13-93be-05fd0773c0bb",
+              "fulfillment": {
+                "fulfillment_status": "DELIVERED",
+                "shipping_date": "2026-10-13T00:00:00+00:00",
+                "shipping": {
+                  "recipient_address": {
+                    "city": "New York",
+                    "phone": "+15005550006",
+                    "address1": "28 W 23rd St, Floor 2",
+                    "last_name": "Malone",
+                    "first_name": "Kevin",
+                    "country": "US",
+                    "postal_code": "10010",
+                    "state": "NY"
+                  },
+                  "method": "TWO_DAY"
+                },
+                "shipping_tracking_url": null,
+                "shipping_eta": null,
+                "card_personalization": {
+                  "text": {
+                    "name_line_1": {
+                      "value": "Kevin Malone"
+                    },
+                    "name_line_2": {
+                      "value": "nango-dev"
+                    }
+                  }
+                }
+              },
+              "expiration": "1030",
+              "is_suspended": false,
+              "automatic_routing_enabled": true,
+              "has_program_overridden": false,
+              "state": "ACTIVE",
+              "id": "837d0006-156c-48d8-982a-7dbc9ba0ae21"
+            }
+          ],
+          "page": {
+            "next": null
+          }
+        },
+        "status": 200,
+        "headers": {
+          "content-type": "application/json"
+        },
+        "hash": "5432c6b9eae6c33ce1cfb45a5a00fb78414961b3",
+        "request": {
+          "params": {
+            "include_activated_only": "false",
+            "page_size": "100"
+          }
+        }
+      },
+      "/developer/v1/cards/virtual": [
+        {
+          "response": {
+            "data": [
+              {
+                "id": "6c58e256-314f-42f3-8462-6aebbb1a1d95",
+                "user_id": "07323c8f-c449-4222-a970-8cc4cf673711",
+                "is_card_suspended": false,
+                "created_at": "2026-10-14T10:06:22+00:00",
+                "fund_id": "07acc4c8-62b5-4fed-8e9c-26c52ef267c2"
+              },
+              {
+                "id": "a2d25ac2-5528-4c16-ba51-cd258d8d09f7",
+                "user_id": "07323c8f-c449-4222-a970-8cc4cf673711",
+                "is_card_suspended": false,
+                "created_at": "2026-10-14T10:06:20+00:00",
+                "fund_id": "325a12bc-75c4-4022-8855-8e0dba170103"
+              },
+              {
+                "id": "fee6fb47-b566-4964-bcbd-b5f9decf20da",
+                "user_id": "ae2ad268-e63d-438a-bfe3-02ddaa4f68af",
+                "is_card_suspended": false,
+                "created_at": "2026-10-14T10:06:19+00:00",
+                "fund_id": "6c0d7c72-a24e-4899-9324-1ae8d7b437fa"
+              },
+              {
+                "id": "ac927289-b5e1-42d6-a0eb-dd2fb84e6cb1",
+                "user_id": "07323c8f-c449-4222-a970-8cc4cf673711",
+                "is_card_suspended": false,
+                "created_at": "2026-10-14T10:06:18+00:00",
+                "fund_id": "eb84a463-4d76-43e9-b885-8af81cc12038"
+              },
+              {
+                "id": "31178a9d-d2ca-4ad0-9b3a-bf94bc37d779",
+                "user_id": "92539a3b-9151-4dfc-8a8c-b5dd5114b865",
+                "is_card_suspended": false,
+                "created_at": "2026-10-14T10:06:18+00:00",
+                "fund_id": "da9ff2de-dd61-45e9-8188-15de2fc30148"
+              },
+              {
+                "id": "5aad55cd-ccc4-4fde-b9cb-c9753c9e9e0c",
+                "user_id": "b42522c3-e364-4507-9a8e-9a4c56ed7848",
+                "is_card_suspended": false,
+                "created_at": "2026-10-14T10:06:17+00:00",
+                "fund_id": "38855e90-64a5-4d58-9d9d-ad403c6ec13a"
+              },
+              {
+                "id": "fc8b1ad3-abef-405a-8df2-7b77c0f089f8",
+                "user_id": "ae2ad268-e63d-438a-bfe3-02ddaa4f68af",
+                "is_card_suspended": false,
+                "created_at": "2026-10-14T10:06:17+00:00",
+                "fund_id": "51d7d5ac-c4cc-4526-b48d-5e9ee12b6f62"
+              },
+              {
+                "id": "7a157102-94f4-4b22-adf5-d0694131114a",
+                "user_id": "69d80729-a6b1-4bd6-b82b-eb1dda1ad981",
+                "is_card_suspended": false,
+                "created_at": "2026-10-14T10:06:17+00:00",
+                "fund_id": "f26d72ae-4f35-4015-9310-152aed6172b0"
+              },
+              {
+                "id": "90c49f3e-cf77-4ecb-933c-89250add7939",
+                "user_id": "07323c8f-c449-4222-a970-8cc4cf673711",
+                "is_card_suspended": false,
+                "created_at": "2026-10-14T10:06:17+00:00",
+                "fund_id": "1163eb81-6a18-4f7a-83e0-3503440b159a"
+              },
+              {
+                "id": "a3d0342f-70f8-4a6e-98ae-70596db35349",
+                "user_id": "92539a3b-9151-4dfc-8a8c-b5dd5114b865",
+                "is_card_suspended": false,
+                "created_at": "2026-10-14T10:06:16+00:00",
+                "fund_id": "5e7ece7f-b5b3-4733-99b2-c5b5b42cb07c"
+              },
+              {
+                "id": "ddef55a5-53f9-4ea7-9b91-9050972fd9be",
+                "user_id": "69d80729-a6b1-4bd6-b82b-eb1dda1ad981",
+                "is_card_suspended": false,
+                "created_at": "2026-10-14T10:06:16+00:00",
+                "fund_id": "a98bc18d-9842-4613-b843-54d358a17b8d"
+              },
+              {
+                "id": "b7dcac85-2ad7-48d7-91f8-d19b3f7afc46",
+                "user_id": "b42522c3-e364-4507-9a8e-9a4c56ed7848",
+                "is_card_suspended": false,
+                "created_at": "2026-10-14T10:06:15+00:00",
+                "fund_id": "d00d6c9a-1b97-4a91-8941-46d38ec7fedb"
+              },
+              {
+                "id": "9e9bddbb-0ad8-48ca-a290-a6573bbbd236",
+                "user_id": "ae2ad268-e63d-438a-bfe3-02ddaa4f68af",
+                "is_card_suspended": false,
+                "created_at": "2026-10-14T10:06:15+00:00",
+                "fund_id": "fb8f7f92-c550-4e47-977b-1641a07fd96f"
+              },
+              {
+                "id": "f55c1639-7e3e-4baf-b184-0cb9826136ff",
+                "user_id": "07323c8f-c449-4222-a970-8cc4cf673711",
+                "is_card_suspended": false,
+                "created_at": "2026-10-14T10:06:13+00:00",
+                "fund_id": "1099cb93-62f9-4812-ab25-519fbe1c0c70"
+              },
+              {
+                "id": "634aae66-e3b0-45a9-a315-85e636994e62",
+                "user_id": "92539a3b-9151-4dfc-8a8c-b5dd5114b865",
+                "is_card_suspended": false,
+                "created_at": "2026-10-14T10:06:14+00:00",
+                "fund_id": "03633fe9-caf8-4585-8eea-4cff5592b011"
+              },
+              {
+                "id": "519d4244-9e17-4fd7-bafa-75e09f880bbd",
+                "user_id": "69d80729-a6b1-4bd6-b82b-eb1dda1ad981",
+                "is_card_suspended": false,
+                "created_at": "2026-10-14T10:06:14+00:00",
+                "fund_id": "ec785cce-1367-47ce-9443-17475915a3fd"
+              },
+              {
+                "id": "10d4a579-7a47-4a66-a8c5-dd8251ab92ea",
+                "user_id": "b42522c3-e364-4507-9a8e-9a4c56ed7848",
+                "is_card_suspended": false,
+                "created_at": "2026-10-14T10:06:12+00:00",
+                "fund_id": "a6f58713-4941-49f8-bf8c-454ee21f4638"
+              },
+              {
+                "id": "90843425-aaad-4065-8c03-528d0de25087",
+                "user_id": "23f1dc34-5b5e-4558-b85e-41ce2e0ff033",
+                "is_card_suspended": false,
+                "created_at": "2026-10-14T10:06:12+00:00",
+                "fund_id": "9b5826d4-88a6-44d0-891a-2db494eb7665"
+              },
+              {
+                "id": "5e3fd976-162a-4696-9ad8-033944eafc0b",
+                "user_id": "69d80729-a6b1-4bd6-b82b-eb1dda1ad981",
+                "is_card_suspended": false,
+                "created_at": "2026-10-14T10:06:13+00:00",
+                "fund_id": "6f69de0b-55c9-47b6-97ea-ee889584418e"
+              },
+              {
+                "id": "315f3ccc-ff1b-4a58-88b6-1f365894bf2f",
+                "user_id": "e2e4cd18-83d9-4668-abd3-550971080d40",
+                "is_card_suspended": false,
+                "created_at": "2026-10-14T10:06:12+00:00",
+                "fund_id": "3096cd33-1e90-4bfe-8077-34517c264725"
+              },
+              {
+                "id": "50bf4ba8-8de2-430c-a145-b5b3d645eb71",
+                "user_id": "ae2ad268-e63d-438a-bfe3-02ddaa4f68af",
+                "is_card_suspended": false,
+                "created_at": "2026-10-14T10:06:12+00:00",
+                "fund_id": "ed24b10e-919c-40a5-a52b-2f311f3792cf"
+              },
+              {
+                "id": "31d884f1-3912-4ca2-b2af-535e454e8a2e",
+                "user_id": "92539a3b-9151-4dfc-8a8c-b5dd5114b865",
+                "is_card_suspended": false,
+                "created_at": "2026-10-14T10:06:11+00:00",
+                "fund_id": "dd784bcb-e264-454f-9d08-50840a744a48"
+              },
+              {
+                "id": "a2c57309-4d6e-4f0c-8f45-f0de0843529c",
+                "user_id": "c6735957-0b3e-450b-a54a-45944e7ed3fe",
+                "is_card_suspended": false,
+                "created_at": "2026-10-14T10:06:09+00:00",
+                "fund_id": "b05c77e5-48ac-40e4-9881-abdf6f06989c"
+              },
+              {
+                "id": "5a216a96-682f-4404-9a83-a9de6e479e15",
+                "user_id": "b42522c3-e364-4507-9a8e-9a4c56ed7848",
+                "is_card_suspended": false,
+                "created_at": "2026-10-14T10:06:09+00:00",
+                "fund_id": "2b66496d-9734-440f-8c2f-ecf66c117465"
+              },
+              {
+                "id": "3192c27c-1ed5-4c48-9d55-dfdc38c528cb",
+                "user_id": "ae2ad268-e63d-438a-bfe3-02ddaa4f68af",
+                "is_card_suspended": false,
+                "created_at": "2026-10-14T10:06:09+00:00",
+                "fund_id": "cdf2acc2-7418-4454-9c0a-c1c346606496"
+              },
+              {
+                "id": "ba41e86f-ce3e-4cd3-92dd-2312bb16d010",
+                "user_id": "c7df8ee0-aa5a-4351-a8c2-0d15d585a902",
+                "is_card_suspended": false,
+                "created_at": "2026-10-14T10:06:08+00:00",
+                "fund_id": "b43cc0fe-863b-46f0-a6b5-7dab3df03d4e"
+              },
+              {
+                "id": "71f47878-ffcd-4679-a890-ad948eef5f61",
+                "user_id": "23f1dc34-5b5e-4558-b85e-41ce2e0ff033",
+                "is_card_suspended": false,
+                "created_at": "2026-10-14T10:06:08+00:00",
+                "fund_id": "a9f56f93-c764-40e7-b240-154826ee81be"
+              },
+              {
+                "id": "602cdf51-c72d-4fa6-bcfe-7d0f170c9aa4",
+                "user_id": "e2e4cd18-83d9-4668-abd3-550971080d40",
+                "is_card_suspended": false,
+                "created_at": "2026-10-14T10:06:08+00:00",
+                "fund_id": "5ebec32f-92e6-442b-aa1b-43e3e036319e"
+              },
+              {
+                "id": "3d71fd12-ff4d-4b9f-ad61-47074ab4bbbc",
+                "user_id": "9f3e47f5-573c-4a89-9748-967a9347ca27",
+                "is_card_suspended": false,
+                "created_at": "2026-10-14T10:06:08+00:00",
+                "fund_id": "efb6fee6-dad5-4b27-afaa-bafc1ccd610f"
+              },
+              {
+                "id": "b5087e5e-4a07-4657-a524-b125a34ef1b3",
+                "user_id": "1a201a19-0dfa-4fb2-b82e-28ed6456e471",
+                "is_card_suspended": false,
+                "created_at": "2026-10-14T10:06:07+00:00",
+                "fund_id": "5a49abbe-88d5-483b-9dd3-fd2bd2b75fa7"
+              },
+              {
+                "id": "808671d9-1f75-4f33-876d-431608d2831f",
+                "user_id": "1a201a19-0dfa-4fb2-b82e-28ed6456e471",
+                "is_card_suspended": false,
+                "created_at": "2026-10-14T10:06:05+00:00",
+                "fund_id": "c1f1ea92-3ba4-43e3-b2ff-4ffef6b6d4ea"
+              },
+              {
+                "id": "c260ac28-1487-494c-baa6-e2e695af6bd3",
+                "user_id": "c6735957-0b3e-450b-a54a-45944e7ed3fe",
+                "is_card_suspended": false,
+                "created_at": "2026-10-14T10:06:04+00:00",
+                "fund_id": "3d5955fa-7e00-4d9a-bd70-7832f4e5895e"
+              },
+              {
+                "id": "9c23ca81-702c-488b-84c6-6f884723b2d9",
+                "user_id": "9f3e47f5-573c-4a89-9748-967a9347ca27",
+                "is_card_suspended": false,
+                "created_at": "2026-10-14T10:06:04+00:00",
+                "fund_id": "9bb187e6-24d3-4736-8c36-4f21cb00e4c0"
+              },
+              {
+                "id": "0972e412-da7e-430e-a9b0-e76635926767",
+                "user_id": "36e09f48-aade-4603-8f6d-ecfc9c5eff2a",
+                "is_card_suspended": false,
+                "created_at": "2026-10-14T10:06:04+00:00",
+                "fund_id": "7f426ca6-94e4-4caa-b0d6-e74d5ea6bb51"
+              },
+              {
+                "id": "a3210c8d-fb0d-4847-99c1-d480c25c0f86",
+                "user_id": "5aff8098-6fc3-47d2-92a1-fbed6356d002",
+                "is_card_suspended": false,
+                "created_at": "2026-10-14T10:06:03+00:00",
+                "fund_id": "a0eb994a-cb99-4be9-9281-e24e6c4af67a"
+              },
+              {
+                "id": "b5e0160d-ee37-45c5-a392-ceba81328ea4",
+                "user_id": "e2e4cd18-83d9-4668-abd3-550971080d40",
+                "is_card_suspended": false,
+                "created_at": "2026-10-14T10:06:03+00:00",
+                "fund_id": "b6956bc5-b96d-4a59-97fa-1b92968a7ba6"
+              },
+              {
+                "id": "d5dae09d-6368-48cf-892e-821d92bde77f",
+                "user_id": "23f1dc34-5b5e-4558-b85e-41ce2e0ff033",
+                "is_card_suspended": false,
+                "created_at": "2026-10-14T10:06:03+00:00",
+                "fund_id": "7cddee4b-357f-4b07-82c8-0f3c8739f815"
+              },
+              {
+                "id": "98cfaf5f-36ac-4c80-b880-ea3394ddd501",
+                "user_id": "c7df8ee0-aa5a-4351-a8c2-0d15d585a902",
+                "is_card_suspended": false,
+                "created_at": "2026-10-14T10:06:03+00:00",
+                "fund_id": "15b22c9b-370b-4d43-8fa2-2be5509e7976"
+              },
+              {
+                "id": "0217aee7-4984-4d0a-894a-766f115ba668",
+                "user_id": "1a201a19-0dfa-4fb2-b82e-28ed6456e471",
+                "is_card_suspended": false,
+                "created_at": "2026-10-14T10:06:03+00:00",
+                "fund_id": "e82447a5-b647-4e1b-b2a0-feedc5590865"
+              },
+              {
+                "id": "e45f43ca-723c-4e22-89eb-656fef7b9392",
+                "user_id": "c6735957-0b3e-450b-a54a-45944e7ed3fe",
+                "is_card_suspended": false,
+                "created_at": "2026-10-14T10:06:01+00:00",
+                "fund_id": "8b05947b-140e-4687-84ba-9224a5e8d390"
+              },
+              {
+                "id": "a3a42789-411c-454f-8f5c-1a237fd15f68",
+                "user_id": "9f3e47f5-573c-4a89-9748-967a9347ca27",
+                "is_card_suspended": false,
+                "created_at": "2026-10-14T10:06:00+00:00",
+                "fund_id": "86748879-22b5-4400-8acf-b7ef48d64e22"
+              },
+              {
+                "id": "701e1c0c-0b1a-4ba1-a0e3-4f6ecba1da0c",
+                "user_id": "0139bf68-00ea-4759-89ae-38350e20d0de",
+                "is_card_suspended": false,
+                "created_at": "2026-10-14T10:06:00+00:00",
+                "fund_id": "c095b0f6-c8d0-4205-a5bf-4d1b4a64a39d"
+              },
+              {
+                "id": "864ee35f-85ea-410e-b573-44d878b62955",
+                "user_id": "c7df8ee0-aa5a-4351-a8c2-0d15d585a902",
+                "is_card_suspended": false,
+                "created_at": "2026-10-14T10:06:00+00:00",
+                "fund_id": "e5f737c9-9ada-4e3c-9f39-d8937f8c5e62"
+              },
+              {
+                "id": "f9d9a8e3-8172-4699-ae36-dadd453e8ab8",
+                "user_id": "1a201a19-0dfa-4fb2-b82e-28ed6456e471",
+                "is_card_suspended": false,
+                "created_at": "2026-10-14T10:05:59+00:00",
+                "fund_id": "bd0c6029-c8c3-475f-83d7-eb3ab647c01b"
+              },
+              {
+                "id": "b5d8a61d-024c-4a4d-bd9e-6ebb3b215b7d",
+                "user_id": "23f1dc34-5b5e-4558-b85e-41ce2e0ff033",
+                "is_card_suspended": false,
+                "created_at": "2026-10-14T10:05:59+00:00",
+                "fund_id": "cff47c9f-bafa-4bc0-a583-8b4bd18c4a7a"
+              },
+              {
+                "id": "23c4d8e4-fdde-4ee4-9a55-2e6c562baaa1",
+                "user_id": "c6735957-0b3e-450b-a54a-45944e7ed3fe",
+                "is_card_suspended": false,
+                "created_at": "2026-10-14T10:05:58+00:00",
+                "fund_id": "777cbd36-675c-474e-83e8-3db222d2c3cc"
+              },
+              {
+                "id": "40c8c512-52e6-40d4-aca4-fd328b532070",
+                "user_id": "fc192430-7413-4eb4-8e80-08f65ab826a3",
+                "is_card_suspended": false,
+                "created_at": "2026-10-14T10:05:57+00:00",
+                "fund_id": "b93dde79-4397-4768-bc16-3008e40a71ec"
+              },
+              {
+                "id": "249b094d-e881-4419-828c-1a428df1d4ab",
+                "user_id": "20ee4d2e-c32c-4ac9-9b64-542836291400",
+                "is_card_suspended": false,
+                "created_at": "2026-10-14T10:05:57+00:00",
+                "fund_id": "1595a541-2b06-4509-bc1d-e675f464b46a"
+              },
+              {
+                "id": "37541509-d85b-4301-93f2-1e26296f7dc9",
+                "user_id": "0139bf68-00ea-4759-89ae-38350e20d0de",
+                "is_card_suspended": false,
+                "created_at": "2026-10-14T10:05:57+00:00",
+                "fund_id": "aad942b7-675b-4751-a2a6-ab2c9d750265"
+              },
+              {
+                "id": "ac6fb4aa-9155-4d82-a89a-18e20447d3fc",
+                "user_id": "9f3e47f5-573c-4a89-9748-967a9347ca27",
+                "is_card_suspended": false,
+                "created_at": "2026-10-14T10:05:57+00:00",
+                "fund_id": "8c96974f-98fc-4b46-a5c3-4c1b6da090f3"
+              },
+              {
+                "id": "2f32c07a-a929-4b51-85d5-5df707708231",
+                "user_id": "c7df8ee0-aa5a-4351-a8c2-0d15d585a902",
+                "is_card_suspended": false,
+                "created_at": "2026-10-14T10:05:56+00:00",
+                "fund_id": "478298e7-0bfd-492b-a115-f5474b2f6834"
+              },
+              {
+                "id": "51f82072-df7d-4581-883d-5357dd32bf1b",
+                "user_id": "f890ed82-4fd6-4d37-8451-9c7fcc578d7e",
+                "is_card_suspended": false,
+                "created_at": "2026-10-14T10:05:56+00:00",
+                "fund_id": "1c639634-a358-43c8-bf65-dcc7b5cd7e64"
+              },
+              {
+                "id": "b75cc283-1264-4813-bfb1-99dcd6977ab6",
+                "user_id": "20ee4d2e-c32c-4ac9-9b64-542836291400",
+                "is_card_suspended": false,
+                "created_at": "2026-10-14T10:05:55+00:00",
+                "fund_id": "5659830a-ac39-4ef4-aea4-26dc8cd65f36"
+              },
+              {
+                "id": "b3736f63-3ea7-4c85-92a3-c922fc8ac1ee",
+                "user_id": "b91131e3-d91c-4029-9c88-6951d5f94a67",
+                "is_card_suspended": false,
+                "created_at": "2026-10-14T10:05:55+00:00",
+                "fund_id": "4cbb2a58-19ca-4e80-bef7-649868a47e89"
+              },
+              {
+                "id": "e9eb3efd-f134-4c6a-bb57-e97a57480c1c",
+                "user_id": "4d4c50c6-29d2-4aae-aed1-46e2c5c4c319",
+                "is_card_suspended": false,
+                "created_at": "2026-10-14T10:05:54+00:00",
+                "fund_id": "984c03e2-414d-4e51-ba43-d916bec04999"
+              },
+              {
+                "id": "818f3264-7951-4461-a9ef-098b7414bf68",
+                "user_id": "fc192430-7413-4eb4-8e80-08f65ab826a3",
+                "is_card_suspended": false,
+                "created_at": "2026-10-14T10:05:53+00:00",
+                "fund_id": "0276d64b-8d20-49e5-9943-3cf64760e2f4"
+              },
+              {
+                "id": "ea97e473-0548-44c8-9b78-125f00cff231",
+                "user_id": "083f3a8d-18bd-430b-bc97-522264cfd360",
+                "is_card_suspended": false,
+                "created_at": "2026-10-14T10:05:53+00:00",
+                "fund_id": "e8be461d-f9f5-4b01-ba85-d6540607eaba"
+              },
+              {
+                "id": "0c35bc28-34a0-41f3-b6a0-e2fa76ed4e8d",
+                "user_id": "1fb57f8e-27bd-4077-9084-c18be2593eea",
+                "is_card_suspended": false,
+                "created_at": "2026-10-14T10:05:52+00:00",
+                "fund_id": "ab56f3bf-4c5b-41fb-bf1d-76824c6219d8"
+              },
+              {
+                "id": "5c25bcfc-1bf6-4d27-b528-287e01da0702",
+                "user_id": "f890ed82-4fd6-4d37-8451-9c7fcc578d7e",
+                "is_card_suspended": false,
+                "created_at": "2026-10-14T10:05:52+00:00",
+                "fund_id": "82c4f768-bf84-4bcf-a779-d36204d73756"
+              },
+              {
+                "id": "242f4abe-2a1b-43d5-8050-faee9dc3e87f",
+                "user_id": "12d3ccab-6314-4c65-9ac8-835fe16536b9",
+                "is_card_suspended": false,
+                "created_at": "2026-10-14T10:05:52+00:00",
+                "fund_id": "f178288b-0df2-4cd1-8d19-4d79aa90c090"
+              },
+              {
+                "id": "61239719-7abb-4727-b163-fb0c2dc8c8c0",
+                "user_id": "083f3a8d-18bd-430b-bc97-522264cfd360",
+                "is_card_suspended": false,
+                "created_at": "2026-10-14T10:05:52+00:00",
+                "fund_id": "f71efeb0-27cd-467d-bf60-10f244ca6a98"
+              },
+              {
+                "id": "18167655-fde4-470d-8f53-3d9c3592cff0",
+                "user_id": "3ed54b88-fa34-4864-b35d-c2113b83fe07",
+                "is_card_suspended": false,
+                "created_at": "2026-10-14T10:05:52+00:00",
+                "fund_id": "2d171832-539f-4758-9215-33bdf291c1e2"
+              },
+              {
+                "id": "1e9596ca-ea4d-46a4-a21e-f717741e6424",
+                "user_id": "083f3a8d-18bd-430b-bc97-522264cfd360",
+                "is_card_suspended": false,
+                "created_at": "2026-10-14T10:05:51+00:00",
+                "fund_id": "48dffd6c-254a-4764-be3f-391dfc29f1a4"
+              },
+              {
+                "id": "a72be867-b38f-4eff-9a96-47ab66db328b",
+                "user_id": "fc192430-7413-4eb4-8e80-08f65ab826a3",
+                "is_card_suspended": false,
+                "created_at": "2026-10-14T10:05:50+00:00",
+                "fund_id": "945208e1-bd5c-46af-9004-fa9b77f0f533"
+              },
+              {
+                "id": "4c264db6-7743-42c6-8433-1e1eed27281a",
+                "user_id": "b91131e3-d91c-4029-9c88-6951d5f94a67",
+                "is_card_suspended": false,
+                "created_at": "2026-10-14T10:05:49+00:00",
+                "fund_id": "52ad3078-2244-4c9e-9542-92e8f2b014a8"
+              },
+              {
+                "id": "95c45b72-b4c1-4a2a-a9b9-9b24915baf64",
+                "user_id": "3ed54b88-fa34-4864-b35d-c2113b83fe07",
+                "is_card_suspended": false,
+                "created_at": "2026-10-14T10:05:49+00:00",
+                "fund_id": "1d81a922-e176-418d-977c-e719efce1f79"
+              },
+              {
+                "id": "a4093425-ba59-4183-b7e3-f0f6438985da",
+                "user_id": "12d3ccab-6314-4c65-9ac8-835fe16536b9",
+                "is_card_suspended": false,
+                "created_at": "2026-10-14T10:05:48+00:00",
+                "fund_id": "a17ec576-ba7e-4948-91d4-75494d2ca513"
+              },
+              {
+                "id": "0b462d01-ba23-4b89-8ab2-dd5b6125a0ed",
+                "user_id": "37ceeae5-7257-413b-92a6-edfac5ab10d4",
+                "is_card_suspended": false,
+                "created_at": "2026-10-14T10:05:48+00:00",
+                "fund_id": "79ce360f-89e8-4fc6-a86a-ba497826eb96"
+              },
+              {
+                "id": "95095536-7308-4caa-acda-270033b17a36",
+                "user_id": "f890ed82-4fd6-4d37-8451-9c7fcc578d7e",
+                "is_card_suspended": false,
+                "created_at": "2026-10-14T10:05:48+00:00",
+                "fund_id": "364ab271-41b6-48da-9020-863a7bd289fd"
+              },
+              {
+                "id": "4a9c37b9-d1fc-4cb3-a092-59c091e71d1d",
+                "user_id": "237d5197-39b6-4bc5-a97c-9ce4692d139c",
+                "is_card_suspended": false,
+                "created_at": "2026-10-14T10:05:48+00:00",
+                "fund_id": "5979ba89-d2bf-4f51-a2e5-6c3128d77332"
+              },
+              {
+                "id": "aa75be15-60a6-411d-8dc7-542092f767ac",
+                "user_id": "45e9786d-3469-4275-85fe-3e01ae8bacd2",
+                "is_card_suspended": false,
+                "created_at": "2026-10-14T10:05:48+00:00",
+                "fund_id": "c00d556a-b818-4ccf-a8d1-ff61cb561f2c"
+              },
+              {
+                "id": "978afc6c-f18d-4876-969a-4002e88edb89",
+                "user_id": "fc192430-7413-4eb4-8e80-08f65ab826a3",
+                "is_card_suspended": false,
+                "created_at": "2026-10-14T10:05:46+00:00",
+                "fund_id": "70a82d72-5cf7-4832-8094-249822196e86"
+              },
+              {
+                "id": "bcf71f0b-a7dd-4df5-83a0-d2399b86cdf3",
+                "user_id": "3ed54b88-fa34-4864-b35d-c2113b83fe07",
+                "is_card_suspended": false,
+                "created_at": "2026-10-14T10:05:46+00:00",
+                "fund_id": "c3e679c3-3235-4f6a-8bce-0e197d5744b4"
+              },
+              {
+                "id": "bdfc8966-2da2-4010-8766-2d57a0fdc865",
+                "user_id": "2e625336-fcef-4dd1-bc45-3bcf982eff76",
+                "is_card_suspended": false,
+                "created_at": "2026-10-14T10:05:46+00:00",
+                "fund_id": "962ffed6-91d8-407c-9564-814ea4ca395e"
+              },
+              {
+                "id": "ab84b8ca-d0a8-42e6-a20c-27148b9e6c16",
+                "user_id": "2e625336-fcef-4dd1-bc45-3bcf982eff76",
+                "is_card_suspended": false,
+                "created_at": "2026-10-14T10:05:45+00:00",
+                "fund_id": "b9121d30-57e7-4c59-9088-79b7fbc2c01c"
+              },
+              {
+                "id": "9a8a7f90-2b19-49b9-a9eb-09f343c61aa3",
+                "user_id": "37ceeae5-7257-413b-92a6-edfac5ab10d4",
+                "is_card_suspended": false,
+                "created_at": "2026-10-14T10:05:44+00:00",
+                "fund_id": "dcdfab45-1a59-45c0-a3af-87d9ff1f9871"
+              },
+              {
+                "id": "154123a0-2172-4216-bf9a-1b14a4499c2d",
+                "user_id": "45e9786d-3469-4275-85fe-3e01ae8bacd2",
+                "is_card_suspended": false,
+                "created_at": "2026-10-14T10:05:44+00:00",
+                "fund_id": "18e8b5ef-c1e5-494a-8908-c401966367f2"
+              },
+              {
+                "id": "7b327bb4-c1ac-44e4-9eec-d267e235aa25",
+                "user_id": "1602b98f-91af-44a4-ba93-6d87e08ab3f6",
+                "is_card_suspended": false,
+                "created_at": "2026-10-14T10:05:44+00:00",
+                "fund_id": "e89bae9f-ea8d-475a-a5a5-ed06bc032875"
+              },
+              {
+                "id": "8f59a51f-18a9-40fd-aa0b-f5727b81b3e3",
+                "user_id": "c7ecf653-6aec-4c2f-8366-8890b60b0af0",
+                "is_card_suspended": false,
+                "created_at": "2026-10-14T10:05:43+00:00",
+                "fund_id": "adf85579-9e93-4646-8e4b-62e2a43e4786"
+              },
+              {
+                "id": "0da406a6-1c23-49a6-b5ff-8674f42d00e8",
+                "user_id": "68a9a9ed-6c6e-4727-ab39-5fe88bba24c5",
+                "is_card_suspended": false,
+                "created_at": "2026-10-14T10:05:43+00:00",
+                "fund_id": "dd661587-1ff9-4842-96ab-49af492b8731"
+              },
+              {
+                "id": "e230fdcc-874c-4215-8b97-a55e5dc723c5",
+                "user_id": "07179053-7293-4dd6-91f3-1c2416b7fbf4",
+                "is_card_suspended": false,
+                "created_at": "2026-10-14T10:05:42+00:00",
+                "fund_id": "b94863b4-fbc2-4c07-bb7c-47e0ae614e89"
+              },
+              {
+                "id": "052bc061-3476-4e63-a926-3f34f6e6b5d8",
+                "user_id": "6200bcff-d274-4ff9-83a7-4276e3a57997",
+                "is_card_suspended": false,
+                "created_at": "2026-10-14T10:05:41+00:00",
+                "fund_id": "a6ecb8a5-ed42-4d4b-b8e1-088838b12469"
+              },
+              {
+                "id": "499c47b9-b54b-43c0-ac9f-4f958e2db2e6",
+                "user_id": "c63ebe4b-b653-4099-9847-76672723c3e3",
+                "is_card_suspended": false,
+                "created_at": "2026-10-14T10:05:41+00:00",
+                "fund_id": "f4c96f07-e84a-491a-b453-82a9eb8a23b2"
+              },
+              {
+                "id": "591db0c3-c84f-4b29-94eb-b8ac93a2c3eb",
+                "user_id": "45e9786d-3469-4275-85fe-3e01ae8bacd2",
+                "is_card_suspended": false,
+                "created_at": "2026-10-14T10:05:41+00:00",
+                "fund_id": "c283211e-b3a2-44e0-82dc-abf30b63fe18"
+              },
+              {
+                "id": "ee72fb0a-bfe3-448f-9905-982adf5e4c00",
+                "user_id": "68a9a9ed-6c6e-4727-ab39-5fe88bba24c5",
+                "is_card_suspended": false,
+                "created_at": "2026-10-14T10:05:41+00:00",
+                "fund_id": "248abbc6-e3f9-4355-ba0d-c0f9f7344ab3"
+              },
+              {
+                "id": "0a3497f5-4121-4cfc-87d8-1df0f16e6798",
+                "user_id": "db5b78e6-7cc8-4792-8e00-486569712745",
+                "is_card_suspended": false,
+                "created_at": "2026-10-14T10:05:41+00:00",
+                "fund_id": "436de030-b9fa-412d-8f3b-80841a67ca07"
+              },
+              {
+                "id": "212464eb-4840-4536-bc08-a45cc4dd5962",
+                "user_id": "a7a2204b-ecaa-4f38-a300-e1d19aee52b5",
+                "is_card_suspended": false,
+                "created_at": "2026-10-14T10:05:40+00:00",
+                "fund_id": "066955a3-8454-4890-bf5f-6d40e92cb05a"
+              },
+              {
+                "id": "937075c3-ebc8-43a3-b870-20979f18ee7a",
+                "user_id": "68a9a9ed-6c6e-4727-ab39-5fe88bba24c5",
+                "is_card_suspended": false,
+                "created_at": "2026-10-14T10:05:40+00:00",
+                "fund_id": "8f432288-93b9-4a69-b7ae-cb1fd0e54f3c"
+              },
+              {
+                "id": "3fb854b5-b914-44a7-ad25-2533ce395784",
+                "user_id": "07179053-7293-4dd6-91f3-1c2416b7fbf4",
+                "is_card_suspended": false,
+                "created_at": "2026-10-14T10:05:38+00:00",
+                "fund_id": "866d861b-76c0-4c20-b8fc-ab26fe93a67e"
+              },
+              {
+                "id": "e4f6c21c-ee9f-4229-823a-495904a104db",
+                "user_id": "6200bcff-d274-4ff9-83a7-4276e3a57997",
+                "is_card_suspended": false,
+                "created_at": "2026-10-14T10:05:38+00:00",
+                "fund_id": "050878ea-0965-422a-820b-538922fbad2c"
+              },
+              {
+                "id": "b3ccc6e9-fa81-439c-bbfa-6e924b4c61bd",
+                "user_id": "c63ebe4b-b653-4099-9847-76672723c3e3",
+                "is_card_suspended": false,
+                "created_at": "2026-10-14T10:05:38+00:00",
+                "fund_id": "a713a116-46b2-46e8-a38c-cda2d9cea425"
+              },
+              {
+                "id": "b6110a29-ce4a-42c5-9f8e-79ad43a47d44",
+                "user_id": "1602b98f-91af-44a4-ba93-6d87e08ab3f6",
+                "is_card_suspended": false,
+                "created_at": "2026-10-14T10:05:38+00:00",
+                "fund_id": "3b04f579-50a1-49ea-a730-ff9a1c57341b"
+              },
+              {
+                "id": "1ea8105b-2c35-4aa0-8b93-fae9e32819a5",
+                "user_id": "45e9786d-3469-4275-85fe-3e01ae8bacd2",
+                "is_card_suspended": false,
+                "created_at": "2026-10-14T10:05:38+00:00",
+                "fund_id": "c2bd81c7-3b78-4333-a9af-ca56deb24490"
+              },
+              {
+                "id": "654dfcf0-0ca6-46c5-88c3-04f6e634ffec",
+                "user_id": "db5b78e6-7cc8-4792-8e00-486569712745",
+                "is_card_suspended": false,
+                "created_at": "2026-10-14T10:05:38+00:00",
+                "fund_id": "c12e4a4e-1fe5-4465-9f0a-72a675893949"
+              },
+              {
+                "id": "4a9d7336-e53d-4784-9581-5e88843c9232",
+                "user_id": "a7a2204b-ecaa-4f38-a300-e1d19aee52b5",
+                "is_card_suspended": false,
+                "created_at": "2026-10-14T10:05:36+00:00",
+                "fund_id": "687e8bba-88db-4f9a-9fb8-ae0be211c2cd"
+              },
+              {
+                "id": "1a97b005-4f72-425b-9420-be9adb3718ec",
+                "user_id": "862b7598-e143-4c13-93be-05fd0773c0bb",
+                "is_card_suspended": false,
+                "created_at": "2026-10-14T10:05:35+00:00",
+                "fund_id": "a84c0214-4d49-4882-bd98-c70463b2f618"
+              },
+              {
+                "id": "c468cdbb-8349-4c77-8edd-2bca0aabedd1",
+                "user_id": "6200bcff-d274-4ff9-83a7-4276e3a57997",
+                "is_card_suspended": false,
+                "created_at": "2026-10-14T10:05:34+00:00",
+                "fund_id": "e19882da-b664-49ec-a2bc-aab7c6cc4d54"
+              },
+              {
+                "id": "6c1d9dd7-85bb-4b5b-8787-d861666843a8",
+                "user_id": "0b2f3a04-30f8-46d3-b0e6-ee6f54065ac9",
+                "is_card_suspended": false,
+                "created_at": "2026-10-14T10:05:35+00:00",
+                "fund_id": "1bd223bd-8728-48a8-b4a0-0f1a20a90823"
+              },
+              {
+                "id": "3cbf2418-5ab4-4199-91f5-58413343585a",
+                "user_id": "c63ebe4b-b653-4099-9847-76672723c3e3",
+                "is_card_suspended": false,
+                "created_at": "2026-10-14T10:05:34+00:00",
+                "fund_id": "23176b2f-6c83-4e4f-83e1-5270515f367a"
+              },
+              {
+                "id": "b9a57768-afad-4cee-a2a8-452363ba2a12",
+                "user_id": "9d3d3246-8235-40fa-a5c1-56ae8583d945",
+                "is_card_suspended": false,
+                "created_at": "2026-10-14T10:05:35+00:00",
+                "fund_id": "899fd429-0d5f-4ec7-bf0f-e7547c35c89c"
+              }
+            ],
+            "page": {
+              "next": "https://demo-api.ramp.com/developer/v1/cards/virtual?page_size=100&start=gAAAAABqz8QmGiZrRrlcKAofqZsa_kcNXJVxs6jsAvIiy9a3s63HfiZrFnITan19qVptEhXnT0XTwXMtVQ2QoS5skgrzgSLZxw%3D%3D"
+            }
+          },
+          "status": 200,
+          "headers": {
+            "content-type": "application/json"
+          },
+          "hash": "144231adf67e592a0f2e34aaacfb19b57732fb0a",
+          "request": {
+            "params": {
+              "page_size": "100"
+            }
+          }
+        },
+        {
+          "response": {
+            "data": [
+              {
+                "is_card_suspended": false,
+                "created_at": "2026-10-14T10:05:34+00:00",
+                "id": "3bb1720f-b43f-45ac-8b94-bdad1e4b3fc5",
+                "fund_id": "13654eaa-0a64-420b-bb28-4060a5f87714",
+                "user_id": "45e9786d-3469-4275-85fe-3e01ae8bacd2"
+              },
+              {
+                "is_card_suspended": false,
+                "created_at": "2026-10-14T10:05:34+00:00",
+                "id": "5ffa0512-2d46-4a2d-8ac6-452d5f3530de",
+                "fund_id": "ffd384e3-c1ad-4bcc-b2a4-c9353e5e9023",
+                "user_id": "a36f545c-5e38-4e4d-acc5-b9a67916efde"
+              },
+              {
+                "is_card_suspended": false,
+                "created_at": "2026-10-14T10:05:34+00:00",
+                "id": "bcbcc3e7-9722-41c0-82ce-075f03375108",
+                "fund_id": "78544d10-b198-4798-a951-fb9fac50d02b",
+                "user_id": "862b7598-e143-4c13-93be-05fd0773c0bb"
+              },
+              {
+                "is_card_suspended": false,
+                "created_at": "2026-10-14T10:05:33+00:00",
+                "id": "4a309590-121b-4c95-92d1-cd7993095c31",
+                "fund_id": "6b8e03a5-7466-441b-9a93-d4eb3cae51ba",
+                "user_id": "9d3d3246-8235-40fa-a5c1-56ae8583d945"
+              },
+              {
+                "is_card_suspended": false,
+                "created_at": "2026-10-14T10:05:33+00:00",
+                "id": "5fad35c8-9071-4fa7-9803-0178f97d0d2a",
+                "fund_id": "5c4382f3-6adc-4b1d-b236-b555bd6aee3b",
+                "user_id": "e21dbc6c-0fc3-42ed-a19c-7e4f66a0eddd"
+              },
+              {
+                "is_card_suspended": false,
+                "created_at": "2026-10-14T10:05:33+00:00",
+                "id": "ba3e8d6a-232b-42c9-95d9-a9fc0a3d7184",
+                "fund_id": "ab8bf8ff-6f23-417b-ac2f-97b5a3f48ca7",
+                "user_id": "862b7598-e143-4c13-93be-05fd0773c0bb"
+              }
+            ],
+            "page": {
+              "next": null
+            }
+          },
+          "status": 200,
+          "headers": {
+            "content-type": "application/json"
+          },
+          "hash": "b200acc56bc525898750a189f3343a2d17924bdc",
+          "request": {
+            "params": {
+              "page_size": "100",
+              "start": "gAAAAABqz8QmGiZrRrlcKAofqZsa_kcNXJVxs6jsAvIiy9a3s63HfiZrFnITan19qVptEhXnT0XTwXMtVQ2QoS5skgrzgSLZxw=="
+            }
+          }
+        }
+      ]
+    }
+  }
+}

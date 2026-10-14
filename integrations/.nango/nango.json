@@ -744470,228 +744470,24 @@
     "actions": [
       {
         "type": "action",
-        "description": "Creates a user in Ramp",
-        "endpoint": null,
-        "input": "ActionInput_ramp_createuser",
-        "name": "create-user",
-        "output": [
-          "ActionOutput_ramp_createuser"
-        ],
-        "scopes": [
-          "users:write"
-        ],
-        "usedModels": [
-          "ActionInput_ramp_createuser",
-          "ActionOutput_ramp_createuser"
-        ],
-        "version": "1.0.1",
-        "json_schema": {
-          "definitions": {
-            "ActionInput_ramp_createuser": {
-              "type": "object",
-              "properties": {
-                "firstName": {
-                  "type": "string"
-                },
-                "lastName": {
-                  "type": "string"
-                },
-                "email": {
-                  "type": "string"
-                },
-                "role": {
-                  "type": "string"
-                },
-                "departmentId": {
-                  "type": "string"
-                },
-                "directManagerId": {
-                  "type": "string"
-                },
-                "idempotencyKey": {
-                  "type": "string"
-                },
-                "locationId": {
-                  "type": "string"
-                }
-              },
-              "required": [
-                "firstName",
-                "lastName",
-                "email"
-              ],
-              "additionalProperties": false
-            },
-            "ActionOutput_ramp_createuser": {
-              "type": "object",
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "email": {
-                  "type": "string"
-                },
-                "firstName": {
-                  "type": "string"
-                },
-                "lastName": {
-                  "type": "string"
-                }
-              },
-              "required": [
-                "id",
-                "email",
-                "firstName",
-                "lastName"
-              ],
-              "additionalProperties": false
-            }
-          }
-        },
-        "features": []
-      },
-      {
-        "type": "action",
-        "description": "Deletes a user in Ramp by id",
-        "endpoint": null,
-        "input": "ActionInput_ramp_disableuser",
-        "name": "disable-user",
-        "output": [
-          "ActionOutput_ramp_disableuser"
-        ],
-        "scopes": [
-          "users:write"
-        ],
-        "usedModels": [
-          "ActionInput_ramp_disableuser",
-          "ActionOutput_ramp_disableuser"
-        ],
-        "version": "1.0.1",
-        "json_schema": {
-          "definitions": {
-            "ActionInput_ramp_disableuser": {
-              "type": "object",
-              "properties": {
-                "id": {
-                  "type": "string"
-                }
-              },
-              "required": [
-                "id"
-              ],
-              "additionalProperties": false
-            },
-            "ActionOutput_ramp_disableuser": {
-              "type": "object",
-              "properties": {
-                "success": {
-                  "type": "boolean"
-                }
-              },
-              "required": [
-                "success"
-              ],
-              "additionalProperties": false
-            }
-          }
-        },
-        "features": []
-      }
-    ],
-    "syncs": [
-      {
-        "type": "sync",
-        "description": "Fetches a list of users from Ramp",
-        "auto_start": true,
-        "endpoints": [
-          {
-            "method": "GET",
-            "path": "/users",
-            "group": "Users"
-          }
-        ],
-        "input": "SyncMetadata_ramp_users",
-        "name": "users",
-        "output": [
-          "User"
-        ],
-        "runs": "every day",
-        "scopes": [
-          "users:read"
-        ],
-        "sync_type": "full",
-        "track_deletes": false,
-        "usedModels": [
-          "User",
-          "SyncMetadata_ramp_users"
-        ],
-        "version": "1.1.0",
-        "webhookSubscriptions": [],
-        "json_schema": {
-          "definitions": {
-            "User": {
-              "type": "object",
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "email": {
-                  "type": "string"
-                },
-                "firstName": {
-                  "type": "string"
-                },
-                "lastName": {
-                  "type": "string"
-                }
-              },
-              "required": [
-                "id",
-                "email",
-                "firstName",
-                "lastName"
-              ],
-              "additionalProperties": false
-            },
-            "SyncMetadata_ramp_users": {
-              "type": "object",
-              "properties": {},
-              "additionalProperties": false
-            }
-          }
-        },
-        "features": []
-      }
-    ],
-    "onEventScripts": {
-      "post-connection-creation": [],
-      "pre-connection-deletion": [],
-      "validate-connection": []
-    }
-  },
-  {
-    "providerConfigKey": "ramp-sandbox",
-    "actions": [
-      {
-        "type": "action",
         "description": "Archive (soft-remove) a purchase order.",
         "endpoint": null,
-        "input": "ActionInput_ramp_sandbox_archivepurchaseorder",
+        "input": "ActionInput_ramp_archivepurchaseorder",
         "name": "archive-purchase-order",
         "output": [
-          "ActionOutput_ramp_sandbox_archivepurchaseorder"
+          "ActionOutput_ramp_archivepurchaseorder"
         ],
         "scopes": [
           "purchase_orders:write"
         ],
         "usedModels": [
-          "ActionInput_ramp_sandbox_archivepurchaseorder",
-          "ActionOutput_ramp_sandbox_archivepurchaseorder"
+          "ActionInput_ramp_archivepurchaseorder",
+          "ActionOutput_ramp_archivepurchaseorder"
         ],
         "version": "1.0.0",
         "json_schema": {
           "definitions": {
-            "ActionInput_ramp_sandbox_archivepurchaseorder": {
+            "ActionInput_ramp_archivepurchaseorder": {
               "type": "object",
               "properties": {
                 "purchase_order_id": {
@@ -744716,7 +744512,7 @@
               "additionalProperties": false,
               "description": "Input identifying the purchase order to archive and an optional reason."
             },
-            "ActionOutput_ramp_sandbox_archivepurchaseorder": {
+            "ActionOutput_ramp_archivepurchaseorder": {
               "type": "object",
               "properties": {
                 "purchase_order_id": {
@@ -744743,22 +744539,22 @@
         "type": "action",
         "description": "Create a bill in draft state, to be reviewed/edited before submission.",
         "endpoint": null,
-        "input": "ActionInput_ramp_sandbox_createbilldraft",
+        "input": "ActionInput_ramp_createbilldraft",
         "name": "create-bill-draft",
         "output": [
-          "ActionOutput_ramp_sandbox_createbilldraft"
+          "ActionOutput_ramp_createbilldraft"
         ],
         "scopes": [
           "bills:write"
         ],
         "usedModels": [
-          "ActionInput_ramp_sandbox_createbilldraft",
-          "ActionOutput_ramp_sandbox_createbilldraft"
+          "ActionInput_ramp_createbilldraft",
+          "ActionOutput_ramp_createbilldraft"
         ],
         "version": "1.0.0",
         "json_schema": {
           "definitions": {
-            "ActionInput_ramp_sandbox_createbilldraft": {
+            "ActionInput_ramp_createbilldraft": {
               "type": "object",
               "properties": {
                 "vendor_id": {
@@ -745088,7 +744884,7 @@
               "additionalProperties": false,
               "description": "Fields for creating a Ramp draft bill that can be reviewed or edited before submission."
             },
-            "ActionOutput_ramp_sandbox_createbilldraft": {
+            "ActionOutput_ramp_createbilldraft": {
               "type": "object",
               "properties": {
                 "id": {
@@ -745576,22 +745372,22 @@
         "type": "action",
         "description": "Create a bill directly (not via the draft flow) with line items.",
         "endpoint": null,
-        "input": "ActionInput_ramp_sandbox_createbill",
+        "input": "ActionInput_ramp_createbill",
         "name": "create-bill",
         "output": [
-          "ActionOutput_ramp_sandbox_createbill"
+          "ActionOutput_ramp_createbill"
         ],
         "scopes": [
           "bills:write"
         ],
         "usedModels": [
-          "ActionInput_ramp_sandbox_createbill",
-          "ActionOutput_ramp_sandbox_createbill"
+          "ActionInput_ramp_createbill",
+          "ActionOutput_ramp_createbill"
         ],
         "version": "1.0.0",
         "json_schema": {
           "definitions": {
-            "ActionInput_ramp_sandbox_createbill": {
+            "ActionInput_ramp_createbill": {
               "type": "object",
               "properties": {
                 "entity_id": {
@@ -745812,7 +745608,7 @@
               "additionalProperties": false,
               "description": "Input for creating a Ramp bill directly, with optional line items and payment settings."
             },
-            "ActionOutput_ramp_sandbox_createbill": {
+            "ActionOutput_ramp_createbill": {
               "type": "object",
               "properties": {
                 "id": {
@@ -745947,22 +745743,22 @@
         "type": "action",
         "description": "Create a new department.",
         "endpoint": null,
-        "input": "ActionInput_ramp_sandbox_createdepartment",
+        "input": "ActionInput_ramp_createdepartment",
         "name": "create-department",
         "output": [
-          "ActionOutput_ramp_sandbox_createdepartment"
+          "ActionOutput_ramp_createdepartment"
         ],
         "scopes": [
           "departments:write"
         ],
         "usedModels": [
-          "ActionInput_ramp_sandbox_createdepartment",
-          "ActionOutput_ramp_sandbox_createdepartment"
+          "ActionInput_ramp_createdepartment",
+          "ActionOutput_ramp_createdepartment"
         ],
         "version": "1.0.0",
         "json_schema": {
           "definitions": {
-            "ActionInput_ramp_sandbox_createdepartment": {
+            "ActionInput_ramp_createdepartment": {
               "type": "object",
               "properties": {
                 "name": {
@@ -745976,7 +745772,7 @@
               "additionalProperties": false,
               "description": "Input for creating a new department."
             },
-            "ActionOutput_ramp_sandbox_createdepartment": {
+            "ActionOutput_ramp_createdepartment": {
               "type": "object",
               "properties": {
                 "id": {
@@ -746003,22 +745799,22 @@
         "type": "action",
         "description": "Create a new fund (spend limit) for a user, optionally auto-issuing a card against it.",
         "endpoint": null,
-        "input": "ActionInput_ramp_sandbox_createfund",
+        "input": "ActionInput_ramp_createfund",
         "name": "create-fund",
         "output": [
-          "ActionOutput_ramp_sandbox_createfund"
+          "ActionOutput_ramp_createfund"
         ],
         "scopes": [
           "funds:write"
         ],
         "usedModels": [
-          "ActionInput_ramp_sandbox_createfund",
-          "ActionOutput_ramp_sandbox_createfund"
+          "ActionInput_ramp_createfund",
+          "ActionOutput_ramp_createfund"
         ],
         "version": "1.0.0",
         "json_schema": {
           "definitions": {
-            "ActionInput_ramp_sandbox_createfund": {
+            "ActionInput_ramp_createfund": {
               "type": "object",
               "properties": {
                 "user_id": {
@@ -746128,7 +745924,7 @@
               "additionalProperties": false,
               "description": "Input for creating a new fund (spend limit)."
             },
-            "ActionOutput_ramp_sandbox_createfund": {
+            "ActionOutput_ramp_createfund": {
               "type": "object",
               "properties": {
                 "id": {
@@ -746563,22 +746359,22 @@
         "type": "action",
         "description": "Create a new location.",
         "endpoint": null,
-        "input": "ActionInput_ramp_sandbox_createlocation",
+        "input": "ActionInput_ramp_createlocation",
         "name": "create-location",
         "output": [
-          "ActionOutput_ramp_sandbox_createlocation"
+          "ActionOutput_ramp_createlocation"
         ],
         "scopes": [
           "locations:write"
         ],
         "usedModels": [
-          "ActionInput_ramp_sandbox_createlocation",
-          "ActionOutput_ramp_sandbox_createlocation"
+          "ActionInput_ramp_createlocation",
+          "ActionOutput_ramp_createlocation"
         ],
         "version": "1.0.0",
         "json_schema": {
           "definitions": {
-            "ActionInput_ramp_sandbox_createlocation": {
+            "ActionInput_ramp_createlocation": {
               "type": "object",
               "properties": {
                 "name": {
@@ -746596,7 +746392,7 @@
               "additionalProperties": false,
               "description": "Input for creating a new Ramp location."
             },
-            "ActionOutput_ramp_sandbox_createlocation": {
+            "ActionOutput_ramp_createlocation": {
               "type": "object",
               "properties": {
                 "id": {
@@ -746628,22 +746424,22 @@
         "type": "action",
         "description": "Create a mileage reimbursement for a user business trip.",
         "endpoint": null,
-        "input": "ActionInput_ramp_sandbox_createmileagereimbursement",
+        "input": "ActionInput_ramp_createmileagereimbursement",
         "name": "create-mileage-reimbursement",
         "output": [
-          "ActionOutput_ramp_sandbox_createmileagereimbursement"
+          "ActionOutput_ramp_createmileagereimbursement"
         ],
         "scopes": [
           "reimbursements:write"
         ],
         "usedModels": [
-          "ActionInput_ramp_sandbox_createmileagereimbursement",
-          "ActionOutput_ramp_sandbox_createmileagereimbursement"
+          "ActionInput_ramp_createmileagereimbursement",
+          "ActionOutput_ramp_createmileagereimbursement"
         ],
         "version": "1.0.0",
         "json_schema": {
           "definitions": {
-            "ActionInput_ramp_sandbox_createmileagereimbursement": {
+            "ActionInput_ramp_createmileagereimbursement": {
               "type": "object",
               "properties": {
                 "reimbursee_id": {
@@ -746699,7 +746495,7 @@
               "additionalProperties": false,
               "description": "Input for creating a mileage reimbursement"
             },
-            "ActionOutput_ramp_sandbox_createmileagereimbursement": {
+            "ActionOutput_ramp_createmileagereimbursement": {
               "type": "object",
               "properties": {
                 "id": {
@@ -746833,22 +746629,22 @@
         "type": "action",
         "description": "Issue a new physical card to a user, optionally attached to a specific fund/spend limit.",
         "endpoint": null,
-        "input": "ActionInput_ramp_sandbox_createphysicalcard",
+        "input": "ActionInput_ramp_createphysicalcard",
         "name": "create-physical-card",
         "output": [
-          "ActionOutput_ramp_sandbox_createphysicalcard"
+          "ActionOutput_ramp_createphysicalcard"
         ],
         "scopes": [
           "cards:write"
         ],
         "usedModels": [
-          "ActionInput_ramp_sandbox_createphysicalcard",
-          "ActionOutput_ramp_sandbox_createphysicalcard"
+          "ActionInput_ramp_createphysicalcard",
+          "ActionOutput_ramp_createphysicalcard"
         ],
         "version": "1.0.0",
         "json_schema": {
           "definitions": {
-            "ActionInput_ramp_sandbox_createphysicalcard": {
+            "ActionInput_ramp_createphysicalcard": {
               "type": "object",
               "properties": {
                 "user_id": {
@@ -746908,7 +746704,7 @@
               "additionalProperties": false,
               "description": "Input for issuing a new physical card to a user."
             },
-            "ActionOutput_ramp_sandbox_createphysicalcard": {
+            "ActionOutput_ramp_createphysicalcard": {
               "type": "object",
               "properties": {
                 "id": {
@@ -747145,22 +746941,22 @@
         "type": "action",
         "description": "Create a new purchase order against a vendor.",
         "endpoint": null,
-        "input": "ActionInput_ramp_sandbox_createpurchaseorder",
+        "input": "ActionInput_ramp_createpurchaseorder",
         "name": "create-purchase-order",
         "output": [
-          "ActionOutput_ramp_sandbox_createpurchaseorder"
+          "ActionOutput_ramp_createpurchaseorder"
         ],
         "scopes": [
           "purchase_orders:write"
         ],
         "usedModels": [
-          "ActionInput_ramp_sandbox_createpurchaseorder",
-          "ActionOutput_ramp_sandbox_createpurchaseorder"
+          "ActionInput_ramp_createpurchaseorder",
+          "ActionOutput_ramp_createpurchaseorder"
         ],
         "version": "1.0.0",
         "json_schema": {
           "definitions": {
-            "ActionInput_ramp_sandbox_createpurchaseorder": {
+            "ActionInput_ramp_createpurchaseorder": {
               "type": "object",
               "properties": {
                 "entity_id": {
@@ -747280,7 +747076,7 @@
               "additionalProperties": false,
               "description": "Input for creating a purchase order against a vendor."
             },
-            "ActionOutput_ramp_sandbox_createpurchaseorder": {
+            "ActionOutput_ramp_createpurchaseorder": {
               "type": "object",
               "properties": {
                 "id": {
@@ -747484,23 +747280,23 @@
         "type": "action",
         "description": "Create a new user and trigger an async task to send them an email invite.",
         "endpoint": null,
-        "input": "ActionInput_ramp_sandbox_createuserinvite",
+        "input": "ActionInput_ramp_createuserinvite",
         "name": "create-user-invite",
         "output": [
-          "ActionOutput_ramp_sandbox_createuserinvite"
+          "ActionOutput_ramp_createuserinvite"
         ],
         "scopes": [
           "users:write",
           "users:read"
         ],
         "usedModels": [
-          "ActionInput_ramp_sandbox_createuserinvite",
-          "ActionOutput_ramp_sandbox_createuserinvite"
+          "ActionInput_ramp_createuserinvite",
+          "ActionOutput_ramp_createuserinvite"
         ],
         "version": "1.0.0",
         "json_schema": {
           "definitions": {
-            "ActionInput_ramp_sandbox_createuserinvite": {
+            "ActionInput_ramp_createuserinvite": {
               "type": "object",
               "properties": {
                 "email": {
@@ -747550,7 +747346,7 @@
               "additionalProperties": false,
               "description": "Input for creating a new Ramp user and triggering an email invite."
             },
-            "ActionOutput_ramp_sandbox_createuserinvite": {
+            "ActionOutput_ramp_createuserinvite": {
               "type": "object",
               "properties": {
                 "task_id": {
@@ -747623,22 +747419,22 @@
         "type": "action",
         "description": "Create a new vendor with a primary contact.",
         "endpoint": null,
-        "input": "ActionInput_ramp_sandbox_createvendor",
+        "input": "ActionInput_ramp_createvendor",
         "name": "create-vendor",
         "output": [
-          "ActionOutput_ramp_sandbox_createvendor"
+          "ActionOutput_ramp_createvendor"
         ],
         "scopes": [
           "vendors:write"
         ],
         "usedModels": [
-          "ActionInput_ramp_sandbox_createvendor",
-          "ActionOutput_ramp_sandbox_createvendor"
+          "ActionInput_ramp_createvendor",
+          "ActionOutput_ramp_createvendor"
         ],
         "version": "1.0.0",
         "json_schema": {
           "definitions": {
-            "ActionInput_ramp_sandbox_createvendor": {
+            "ActionInput_ramp_createvendor": {
               "type": "object",
               "properties": {
                 "name": {
@@ -747752,7 +747548,7 @@
               "additionalProperties": false,
               "description": "Input for creating a new vendor."
             },
-            "ActionOutput_ramp_sandbox_createvendor": {
+            "ActionOutput_ramp_createvendor": {
               "type": "object",
               "properties": {
                 "id": {
@@ -747872,23 +747668,23 @@
         "type": "action",
         "description": "Deactivate a user, revoking login, card-spend, and notification access.",
         "endpoint": null,
-        "input": "ActionInput_ramp_sandbox_deactivateuser",
+        "input": "ActionInput_ramp_deactivateuser",
         "name": "deactivate-user",
         "output": [
-          "ActionOutput_ramp_sandbox_deactivateuser"
+          "ActionOutput_ramp_deactivateuser"
         ],
         "scopes": [
           "users:read",
           "users:write"
         ],
         "usedModels": [
-          "ActionInput_ramp_sandbox_deactivateuser",
-          "ActionOutput_ramp_sandbox_deactivateuser"
+          "ActionInput_ramp_deactivateuser",
+          "ActionOutput_ramp_deactivateuser"
         ],
         "version": "1.0.0",
         "json_schema": {
           "definitions": {
-            "ActionInput_ramp_sandbox_deactivateuser": {
+            "ActionInput_ramp_deactivateuser": {
               "type": "object",
               "properties": {
                 "user_id": {
@@ -747902,7 +747698,7 @@
               "additionalProperties": false,
               "description": "Identifies the Ramp user to deactivate."
             },
-            "ActionOutput_ramp_sandbox_deactivateuser": {
+            "ActionOutput_ramp_deactivateuser": {
               "type": "object",
               "properties": {
                 "user_id": {
@@ -747933,22 +747729,22 @@
         "type": "action",
         "description": "Permanently delete a vendor.",
         "endpoint": null,
-        "input": "ActionInput_ramp_sandbox_deletevendor",
+        "input": "ActionInput_ramp_deletevendor",
         "name": "delete-vendor",
         "output": [
-          "ActionOutput_ramp_sandbox_deletevendor"
+          "ActionOutput_ramp_deletevendor"
         ],
         "scopes": [
           "vendors:write"
         ],
         "usedModels": [
-          "ActionInput_ramp_sandbox_deletevendor",
-          "ActionOutput_ramp_sandbox_deletevendor"
+          "ActionInput_ramp_deletevendor",
+          "ActionOutput_ramp_deletevendor"
         ],
         "version": "1.0.0",
         "json_schema": {
           "definitions": {
-            "ActionInput_ramp_sandbox_deletevendor": {
+            "ActionInput_ramp_deletevendor": {
               "type": "object",
               "properties": {
                 "vendor_id": {
@@ -747962,7 +747758,7 @@
               "additionalProperties": false,
               "description": "Identifies the vendor to permanently delete."
             },
-            "ActionOutput_ramp_sandbox_deletevendor": {
+            "ActionOutput_ramp_deletevendor": {
               "type": "object",
               "properties": {
                 "success": {
@@ -747989,23 +747785,23 @@
         "type": "action",
         "description": "Find a vendor by exact name or create it when missing, flagging ambiguous duplicate names.",
         "endpoint": null,
-        "input": "ActionInput_ramp_sandbox_findorcreatevendor",
+        "input": "ActionInput_ramp_findorcreatevendor",
         "name": "find-or-create-vendor",
         "output": [
-          "ActionOutput_ramp_sandbox_findorcreatevendor"
+          "ActionOutput_ramp_findorcreatevendor"
         ],
         "scopes": [
           "vendors:read",
           "vendors:write"
         ],
         "usedModels": [
-          "ActionInput_ramp_sandbox_findorcreatevendor",
-          "ActionOutput_ramp_sandbox_findorcreatevendor"
+          "ActionInput_ramp_findorcreatevendor",
+          "ActionOutput_ramp_findorcreatevendor"
         ],
         "version": "1.0.0",
         "json_schema": {
           "definitions": {
-            "ActionInput_ramp_sandbox_findorcreatevendor": {
+            "ActionInput_ramp_findorcreatevendor": {
               "type": "object",
               "properties": {
                 "name": {
@@ -748038,7 +747834,7 @@
               "additionalProperties": false,
               "description": "Input for finding a vendor by exact name or creating one when no exact match exists."
             },
-            "ActionOutput_ramp_sandbox_findorcreatevendor": {
+            "ActionOutput_ramp_findorcreatevendor": {
               "type": "object",
               "properties": {
                 "created": {
@@ -748274,22 +748070,22 @@
         "type": "action",
         "description": "Retrieve a single externally-linked bank account by ID.",
         "endpoint": null,
-        "input": "ActionInput_ramp_sandbox_getbankaccount",
+        "input": "ActionInput_ramp_getbankaccount",
         "name": "get-bank-account",
         "output": [
-          "ActionOutput_ramp_sandbox_getbankaccount"
+          "ActionOutput_ramp_getbankaccount"
         ],
         "scopes": [
           "bank_accounts:read"
         ],
         "usedModels": [
-          "ActionInput_ramp_sandbox_getbankaccount",
-          "ActionOutput_ramp_sandbox_getbankaccount"
+          "ActionInput_ramp_getbankaccount",
+          "ActionOutput_ramp_getbankaccount"
         ],
         "version": "1.0.0",
         "json_schema": {
           "definitions": {
-            "ActionInput_ramp_sandbox_getbankaccount": {
+            "ActionInput_ramp_getbankaccount": {
               "type": "object",
               "properties": {
                 "bank_account_id": {
@@ -748303,7 +748099,7 @@
               "additionalProperties": false,
               "description": "Input for retrieving a single externally-linked bank account by ID."
             },
-            "ActionOutput_ramp_sandbox_getbankaccount": {
+            "ActionOutput_ramp_getbankaccount": {
               "type": "object",
               "properties": {
                 "id": {
@@ -748354,22 +748150,22 @@
         "type": "action",
         "description": "Get the daily available balance history for a Ramp Treasury/Business banking account.",
         "endpoint": null,
-        "input": "ActionInput_ramp_sandbox_getbankingaccountbalancehistory",
+        "input": "ActionInput_ramp_getbankingaccountbalancehistory",
         "name": "get-banking-account-balance-history",
         "output": [
-          "ActionOutput_ramp_sandbox_getbankingaccountbalancehistory"
+          "ActionOutput_ramp_getbankingaccountbalancehistory"
         ],
         "scopes": [
           "treasury:read"
         ],
         "usedModels": [
-          "ActionInput_ramp_sandbox_getbankingaccountbalancehistory",
-          "ActionOutput_ramp_sandbox_getbankingaccountbalancehistory"
+          "ActionInput_ramp_getbankingaccountbalancehistory",
+          "ActionOutput_ramp_getbankingaccountbalancehistory"
         ],
         "version": "1.0.0",
         "json_schema": {
           "definitions": {
-            "ActionInput_ramp_sandbox_getbankingaccountbalancehistory": {
+            "ActionInput_ramp_getbankingaccountbalancehistory": {
               "type": "object",
               "properties": {
                 "account_id": {
@@ -748404,7 +748200,7 @@
               "additionalProperties": false,
               "description": "Input for retrieving the daily available balance history of a Ramp Treasury/Business banking account."
             },
-            "ActionOutput_ramp_sandbox_getbankingaccountbalancehistory": {
+            "ActionOutput_ramp_getbankingaccountbalancehistory": {
               "type": "object",
               "properties": {
                 "balances": {
@@ -748467,22 +748263,22 @@
         "type": "action",
         "description": "Get a Ramp Treasury/Business banking account merged with its daily balance history and a computed balance trend.",
         "endpoint": null,
-        "input": "ActionInput_ramp_sandbox_getbankingaccountbalancetrend",
+        "input": "ActionInput_ramp_getbankingaccountbalancetrend",
         "name": "get-banking-account-balance-trend",
         "output": [
-          "ActionOutput_ramp_sandbox_getbankingaccountbalancetrend"
+          "ActionOutput_ramp_getbankingaccountbalancetrend"
         ],
         "scopes": [
           "treasury:read"
         ],
         "usedModels": [
-          "ActionInput_ramp_sandbox_getbankingaccountbalancetrend",
-          "ActionOutput_ramp_sandbox_getbankingaccountbalancetrend"
+          "ActionInput_ramp_getbankingaccountbalancetrend",
+          "ActionOutput_ramp_getbankingaccountbalancetrend"
         ],
         "version": "1.0.0",
         "json_schema": {
           "definitions": {
-            "ActionInput_ramp_sandbox_getbankingaccountbalancetrend": {
+            "ActionInput_ramp_getbankingaccountbalancetrend": {
               "type": "object",
               "properties": {
                 "account_id": {
@@ -748503,7 +748299,7 @@
               "additionalProperties": false,
               "description": "Input for resolving a Ramp banking (Treasury) account and its daily balance history."
             },
-            "ActionOutput_ramp_sandbox_getbankingaccountbalancetrend": {
+            "ActionOutput_ramp_getbankingaccountbalancetrend": {
               "type": "object",
               "properties": {
                 "account": {
@@ -748665,22 +748461,22 @@
         "type": "action",
         "description": "Fetch the PDF remittance receipt for a paid bill.",
         "endpoint": null,
-        "input": "ActionInput_ramp_sandbox_getbillremittancereceipt",
+        "input": "ActionInput_ramp_getbillremittancereceipt",
         "name": "get-bill-remittance-receipt",
         "output": [
-          "ActionOutput_ramp_sandbox_getbillremittancereceipt"
+          "ActionOutput_ramp_getbillremittancereceipt"
         ],
         "scopes": [
           "bills:read"
         ],
         "usedModels": [
-          "ActionInput_ramp_sandbox_getbillremittancereceipt",
-          "ActionOutput_ramp_sandbox_getbillremittancereceipt"
+          "ActionInput_ramp_getbillremittancereceipt",
+          "ActionOutput_ramp_getbillremittancereceipt"
         ],
         "version": "1.0.0",
         "json_schema": {
           "definitions": {
-            "ActionInput_ramp_sandbox_getbillremittancereceipt": {
+            "ActionInput_ramp_getbillremittancereceipt": {
               "type": "object",
               "properties": {
                 "bill_id": {
@@ -748694,7 +748490,7 @@
               "additionalProperties": false,
               "description": "Identifies the bill whose remittance receipt should be fetched."
             },
-            "ActionOutput_ramp_sandbox_getbillremittancereceipt": {
+            "ActionOutput_ramp_getbillremittancereceipt": {
               "type": "object",
               "properties": {
                 "bill_id": {
@@ -748735,22 +748531,22 @@
         "type": "action",
         "description": "Retrieve a single bill by ID.",
         "endpoint": null,
-        "input": "ActionInput_ramp_sandbox_getbill",
+        "input": "ActionInput_ramp_getbill",
         "name": "get-bill",
         "output": [
-          "ActionOutput_ramp_sandbox_getbill"
+          "ActionOutput_ramp_getbill"
         ],
         "scopes": [
           "bills:read"
         ],
         "usedModels": [
-          "ActionInput_ramp_sandbox_getbill",
-          "ActionOutput_ramp_sandbox_getbill"
+          "ActionInput_ramp_getbill",
+          "ActionOutput_ramp_getbill"
         ],
         "version": "1.0.0",
         "json_schema": {
           "definitions": {
-            "ActionInput_ramp_sandbox_getbill": {
+            "ActionInput_ramp_getbill": {
               "type": "object",
               "properties": {
                 "bill_id": {
@@ -748764,7 +748560,7 @@
               "additionalProperties": false,
               "description": "Identifies the bill to retrieve."
             },
-            "ActionOutput_ramp_sandbox_getbill": {
+            "ActionOutput_ramp_getbill": {
               "type": "object",
               "properties": {
                 "id": {
@@ -749699,25 +749495,25 @@
         "type": "action",
         "description": "Get the business aggregate card balance, limits, and billing cycle dates.",
         "endpoint": null,
-        "input": "ActionInput_ramp_sandbox_getbusinessbalance",
+        "input": "ActionInput_ramp_getbusinessbalance",
         "name": "get-business-balance",
         "output": [
-          "ActionOutput_ramp_sandbox_getbusinessbalance"
+          "ActionOutput_ramp_getbusinessbalance"
         ],
         "scopes": [
           "business:read"
         ],
         "usedModels": [
-          "ActionInput_ramp_sandbox_getbusinessbalance",
-          "ActionOutput_ramp_sandbox_getbusinessbalance"
+          "ActionInput_ramp_getbusinessbalance",
+          "ActionOutput_ramp_getbusinessbalance"
         ],
         "version": "1.0.0",
         "json_schema": {
           "definitions": {
-            "ActionInput_ramp_sandbox_getbusinessbalance": {
+            "ActionInput_ramp_getbusinessbalance": {
               "type": "null"
             },
-            "ActionOutput_ramp_sandbox_getbusinessbalance": {
+            "ActionOutput_ramp_getbusinessbalance": {
               "type": "object",
               "properties": {
                 "card_balance_including_pending_amount": {
@@ -750030,28 +749826,28 @@
         "type": "action",
         "description": "Get the connected business's own profile (legal name, address, phone, card limits).",
         "endpoint": null,
-        "input": "ActionInput_ramp_sandbox_getbusinessprofile",
+        "input": "ActionInput_ramp_getbusinessprofile",
         "name": "get-business-profile",
         "output": [
-          "ActionOutput_ramp_sandbox_getbusinessprofile"
+          "ActionOutput_ramp_getbusinessprofile"
         ],
         "scopes": [
           "business:read"
         ],
         "usedModels": [
-          "ActionInput_ramp_sandbox_getbusinessprofile",
-          "ActionOutput_ramp_sandbox_getbusinessprofile"
+          "ActionInput_ramp_getbusinessprofile",
+          "ActionOutput_ramp_getbusinessprofile"
         ],
         "version": "1.0.0",
         "json_schema": {
           "definitions": {
-            "ActionInput_ramp_sandbox_getbusinessprofile": {
+            "ActionInput_ramp_getbusinessprofile": {
               "type": "object",
               "properties": {},
               "additionalProperties": false,
               "description": "No input parameters are required; the connected business is resolved from the connection."
             },
-            "ActionOutput_ramp_sandbox_getbusinessprofile": {
+            "ActionOutput_ramp_getbusinessprofile": {
               "type": "object",
               "properties": {
                 "id": {
@@ -750164,10 +749960,10 @@
         "type": "action",
         "description": "Composite: a card (physical or virtual) merged with its fund's current spending limit/balance and its recent transactions.",
         "endpoint": null,
-        "input": "ActionInput_ramp_sandbox_getcardfullstatus",
+        "input": "ActionInput_ramp_getcardfullstatus",
         "name": "get-card-full-status",
         "output": [
-          "ActionOutput_ramp_sandbox_getcardfullstatus"
+          "ActionOutput_ramp_getcardfullstatus"
         ],
         "scopes": [
           "cards:read",
@@ -750175,13 +749971,13 @@
           "transactions:read"
         ],
         "usedModels": [
-          "ActionInput_ramp_sandbox_getcardfullstatus",
-          "ActionOutput_ramp_sandbox_getcardfullstatus"
+          "ActionInput_ramp_getcardfullstatus",
+          "ActionOutput_ramp_getcardfullstatus"
         ],
         "version": "1.0.0",
         "json_schema": {
           "definitions": {
-            "ActionInput_ramp_sandbox_getcardfullstatus": {
+            "ActionInput_ramp_getcardfullstatus": {
               "type": "object",
               "properties": {
                 "card_id": {
@@ -750207,7 +750003,7 @@
               "additionalProperties": false,
               "description": "A card to inspect and an optional fund override."
             },
-            "ActionOutput_ramp_sandbox_getcardfullstatus": {
+            "ActionOutput_ramp_getcardfullstatus": {
               "type": "object",
               "properties": {
                 "card": {
@@ -750606,22 +750402,22 @@
         "type": "action",
         "description": "Retrieve a single cashback record by ID.",
         "endpoint": null,
-        "input": "ActionInput_ramp_sandbox_getcashback",
+        "input": "ActionInput_ramp_getcashback",
         "name": "get-cashback",
         "output": [
-          "ActionOutput_ramp_sandbox_getcashback"
+          "ActionOutput_ramp_getcashback"
         ],
         "scopes": [
           "cashbacks:read"
         ],
         "usedModels": [
-          "ActionInput_ramp_sandbox_getcashback",
-          "ActionOutput_ramp_sandbox_getcashback"
+          "ActionInput_ramp_getcashback",
+          "ActionOutput_ramp_getcashback"
         ],
         "version": "1.0.0",
         "json_schema": {
           "definitions": {
-            "ActionInput_ramp_sandbox_getcashback": {
+            "ActionInput_ramp_getcashback": {
               "type": "object",
               "properties": {
                 "cashback_id": {
@@ -750635,7 +750431,7 @@
               "additionalProperties": false,
               "description": "Identifies the cashback record to retrieve."
             },
-            "ActionOutput_ramp_sandbox_getcashback": {
+            "ActionOutput_ramp_getcashback": {
               "type": "object",
               "properties": {
                 "id": {
@@ -750701,22 +750497,22 @@
         "type": "action",
         "description": "Retrieve a single department by ID.",
         "endpoint": null,
-        "input": "ActionInput_ramp_sandbox_getdepartment",
+        "input": "ActionInput_ramp_getdepartment",
         "name": "get-department",
         "output": [
-          "ActionOutput_ramp_sandbox_getdepartment"
+          "ActionOutput_ramp_getdepartment"
         ],
         "scopes": [
           "departments:read"
         ],
         "usedModels": [
-          "ActionInput_ramp_sandbox_getdepartment",
-          "ActionOutput_ramp_sandbox_getdepartment"
+          "ActionInput_ramp_getdepartment",
+          "ActionOutput_ramp_getdepartment"
         ],
         "version": "1.0.0",
         "json_schema": {
           "definitions": {
-            "ActionInput_ramp_sandbox_getdepartment": {
+            "ActionInput_ramp_getdepartment": {
               "type": "object",
               "properties": {
                 "department_id": {
@@ -750730,7 +750526,7 @@
               "additionalProperties": false,
               "description": "Identifies the department to retrieve."
             },
-            "ActionOutput_ramp_sandbox_getdepartment": {
+            "ActionOutput_ramp_getdepartment": {
               "type": "object",
               "properties": {
                 "id": {
@@ -750757,22 +750553,22 @@
         "type": "action",
         "description": "Retrieve a single business entity by ID.",
         "endpoint": null,
-        "input": "ActionInput_ramp_sandbox_getentity",
+        "input": "ActionInput_ramp_getentity",
         "name": "get-entity",
         "output": [
-          "ActionOutput_ramp_sandbox_getentity"
+          "ActionOutput_ramp_getentity"
         ],
         "scopes": [
           "entities:read"
         ],
         "usedModels": [
-          "ActionInput_ramp_sandbox_getentity",
-          "ActionOutput_ramp_sandbox_getentity"
+          "ActionInput_ramp_getentity",
+          "ActionOutput_ramp_getentity"
         ],
         "version": "1.0.0",
         "json_schema": {
           "definitions": {
-            "ActionInput_ramp_sandbox_getentity": {
+            "ActionInput_ramp_getentity": {
               "type": "object",
               "properties": {
                 "entity_id": {
@@ -750786,7 +750582,7 @@
               "additionalProperties": false,
               "description": "Input for retrieving a single business entity by ID."
             },
-            "ActionOutput_ramp_sandbox_getentity": {
+            "ActionOutput_ramp_getentity": {
               "type": "object",
               "properties": {
                 "id": {
@@ -750936,22 +750732,22 @@
         "type": "action",
         "description": "Retrieve a single fund by ID.",
         "endpoint": null,
-        "input": "ActionInput_ramp_sandbox_getfund",
+        "input": "ActionInput_ramp_getfund",
         "name": "get-fund",
         "output": [
-          "ActionOutput_ramp_sandbox_getfund"
+          "ActionOutput_ramp_getfund"
         ],
         "scopes": [
           "funds:read"
         ],
         "usedModels": [
-          "ActionInput_ramp_sandbox_getfund",
-          "ActionOutput_ramp_sandbox_getfund"
+          "ActionInput_ramp_getfund",
+          "ActionOutput_ramp_getfund"
         ],
         "version": "1.0.0",
         "json_schema": {
           "definitions": {
-            "ActionInput_ramp_sandbox_getfund": {
+            "ActionInput_ramp_getfund": {
               "type": "object",
               "properties": {
                 "fund_id": {
@@ -750965,7 +750761,7 @@
               "additionalProperties": false,
               "description": "Input for retrieving a single Ramp fund by ID."
             },
-            "ActionOutput_ramp_sandbox_getfund": {
+            "ActionOutput_ramp_getfund": {
               "type": "object",
               "properties": {
                 "id": {
@@ -751400,22 +751196,22 @@
         "type": "action",
         "description": "Retrieve a single item receipt by ID.",
         "endpoint": null,
-        "input": "ActionInput_ramp_sandbox_getitemreceipt",
+        "input": "ActionInput_ramp_getitemreceipt",
         "name": "get-item-receipt",
         "output": [
-          "ActionOutput_ramp_sandbox_getitemreceipt"
+          "ActionOutput_ramp_getitemreceipt"
         ],
         "scopes": [
           "item_receipts:read"
         ],
         "usedModels": [
-          "ActionInput_ramp_sandbox_getitemreceipt",
-          "ActionOutput_ramp_sandbox_getitemreceipt"
+          "ActionInput_ramp_getitemreceipt",
+          "ActionOutput_ramp_getitemreceipt"
         ],
         "version": "1.0.0",
         "json_schema": {
           "definitions": {
-            "ActionInput_ramp_sandbox_getitemreceipt": {
+            "ActionInput_ramp_getitemreceipt": {
               "type": "object",
               "properties": {
                 "item_receipt_id": {
@@ -751429,7 +751225,7 @@
               "additionalProperties": false,
               "description": "Input for retrieving a single item receipt by its unique ID."
             },
-            "ActionOutput_ramp_sandbox_getitemreceipt": {
+            "ActionOutput_ramp_getitemreceipt": {
               "type": "object",
               "properties": {
                 "id": {
@@ -751678,22 +751474,22 @@
         "type": "action",
         "description": "Retrieve a single location by ID.",
         "endpoint": null,
-        "input": "ActionInput_ramp_sandbox_getlocation",
+        "input": "ActionInput_ramp_getlocation",
         "name": "get-location",
         "output": [
-          "ActionOutput_ramp_sandbox_getlocation"
+          "ActionOutput_ramp_getlocation"
         ],
         "scopes": [
           "locations:read"
         ],
         "usedModels": [
-          "ActionInput_ramp_sandbox_getlocation",
-          "ActionOutput_ramp_sandbox_getlocation"
+          "ActionInput_ramp_getlocation",
+          "ActionOutput_ramp_getlocation"
         ],
         "version": "1.0.0",
         "json_schema": {
           "definitions": {
-            "ActionInput_ramp_sandbox_getlocation": {
+            "ActionInput_ramp_getlocation": {
               "type": "object",
               "properties": {
                 "location_id": {
@@ -751707,7 +751503,7 @@
               "additionalProperties": false,
               "description": "Input for retrieving a single location by ID."
             },
-            "ActionOutput_ramp_sandbox_getlocation": {
+            "ActionOutput_ramp_getlocation": {
               "type": "object",
               "properties": {
                 "id": {
@@ -751739,22 +751535,22 @@
         "type": "action",
         "description": "Retrieve a single physical card by ID.",
         "endpoint": null,
-        "input": "ActionInput_ramp_sandbox_getphysicalcard",
+        "input": "ActionInput_ramp_getphysicalcard",
         "name": "get-physical-card",
         "output": [
-          "ActionOutput_ramp_sandbox_getphysicalcard"
+          "ActionOutput_ramp_getphysicalcard"
         ],
         "scopes": [
           "cards:read"
         ],
         "usedModels": [
-          "ActionInput_ramp_sandbox_getphysicalcard",
-          "ActionOutput_ramp_sandbox_getphysicalcard"
+          "ActionInput_ramp_getphysicalcard",
+          "ActionOutput_ramp_getphysicalcard"
         ],
         "version": "1.0.0",
         "json_schema": {
           "definitions": {
-            "ActionInput_ramp_sandbox_getphysicalcard": {
+            "ActionInput_ramp_getphysicalcard": {
               "type": "object",
               "properties": {
                 "card_id": {
@@ -751768,7 +751564,7 @@
               "additionalProperties": false,
               "description": "Input for retrieving a single physical card."
             },
-            "ActionOutput_ramp_sandbox_getphysicalcard": {
+            "ActionOutput_ramp_getphysicalcard": {
               "type": "object",
               "properties": {
                 "id": {
@@ -752151,22 +751947,22 @@
         "type": "action",
         "description": "Retrieve a single purchase order by ID.",
         "endpoint": null,
-        "input": "ActionInput_ramp_sandbox_getpurchaseorder",
+        "input": "ActionInput_ramp_getpurchaseorder",
         "name": "get-purchase-order",
         "output": [
-          "ActionOutput_ramp_sandbox_getpurchaseorder"
+          "ActionOutput_ramp_getpurchaseorder"
         ],
         "scopes": [
           "purchase_orders:read"
         ],
         "usedModels": [
-          "ActionInput_ramp_sandbox_getpurchaseorder",
-          "ActionOutput_ramp_sandbox_getpurchaseorder"
+          "ActionInput_ramp_getpurchaseorder",
+          "ActionOutput_ramp_getpurchaseorder"
         ],
         "version": "1.0.0",
         "json_schema": {
           "definitions": {
-            "ActionInput_ramp_sandbox_getpurchaseorder": {
+            "ActionInput_ramp_getpurchaseorder": {
               "type": "object",
               "properties": {
                 "purchase_order_id": {
@@ -752180,7 +751976,7 @@
               "additionalProperties": false,
               "description": "Identifier of the purchase order to retrieve."
             },
-            "ActionOutput_ramp_sandbox_getpurchaseorder": {
+            "ActionOutput_ramp_getpurchaseorder": {
               "type": "object",
               "properties": {
                 "id": {
@@ -752655,22 +752451,22 @@
         "type": "action",
         "description": "Retrieve a single receipt by ID, including its metadata and pre-signed download URL.",
         "endpoint": null,
-        "input": "ActionInput_ramp_sandbox_getreceipt",
+        "input": "ActionInput_ramp_getreceipt",
         "name": "get-receipt",
         "output": [
-          "ActionOutput_ramp_sandbox_getreceipt"
+          "ActionOutput_ramp_getreceipt"
         ],
         "scopes": [
           "receipts:read"
         ],
         "usedModels": [
-          "ActionInput_ramp_sandbox_getreceipt",
-          "ActionOutput_ramp_sandbox_getreceipt"
+          "ActionInput_ramp_getreceipt",
+          "ActionOutput_ramp_getreceipt"
         ],
         "version": "1.0.0",
         "json_schema": {
           "definitions": {
-            "ActionInput_ramp_sandbox_getreceipt": {
+            "ActionInput_ramp_getreceipt": {
               "type": "object",
               "properties": {
                 "receipt_id": {
@@ -752688,7 +752484,7 @@
               "additionalProperties": false,
               "description": "Identifies which receipt to fetch and whether to include its OCR data."
             },
-            "ActionOutput_ramp_sandbox_getreceipt": {
+            "ActionOutput_ramp_getreceipt": {
               "type": "object",
               "properties": {
                 "id": {
@@ -752864,22 +752660,22 @@
         "type": "action",
         "description": "Retrieve a single reimbursement by ID.",
         "endpoint": null,
-        "input": "ActionInput_ramp_sandbox_getreimbursement",
+        "input": "ActionInput_ramp_getreimbursement",
         "name": "get-reimbursement",
         "output": [
-          "ActionOutput_ramp_sandbox_getreimbursement"
+          "ActionOutput_ramp_getreimbursement"
         ],
         "scopes": [
           "reimbursements:read"
         ],
         "usedModels": [
-          "ActionInput_ramp_sandbox_getreimbursement",
-          "ActionOutput_ramp_sandbox_getreimbursement"
+          "ActionInput_ramp_getreimbursement",
+          "ActionOutput_ramp_getreimbursement"
         ],
         "version": "1.0.0",
         "json_schema": {
           "definitions": {
-            "ActionInput_ramp_sandbox_getreimbursement": {
+            "ActionInput_ramp_getreimbursement": {
               "type": "object",
               "properties": {
                 "reimbursement_id": {
@@ -752893,7 +752689,7 @@
               "additionalProperties": false,
               "description": "Input for retrieving a single reimbursement."
             },
-            "ActionOutput_ramp_sandbox_getreimbursement": {
+            "ActionOutput_ramp_getreimbursement": {
               "type": "object",
               "properties": {
                 "id": {
@@ -753402,22 +753198,22 @@
         "type": "action",
         "description": "Retrieve a single spend program by ID, including its full custom-form field definitions.",
         "endpoint": null,
-        "input": "ActionInput_ramp_sandbox_getspendprogram",
+        "input": "ActionInput_ramp_getspendprogram",
         "name": "get-spend-program",
         "output": [
-          "ActionOutput_ramp_sandbox_getspendprogram"
+          "ActionOutput_ramp_getspendprogram"
         ],
         "scopes": [
           "spend_programs:read"
         ],
         "usedModels": [
-          "ActionInput_ramp_sandbox_getspendprogram",
-          "ActionOutput_ramp_sandbox_getspendprogram"
+          "ActionInput_ramp_getspendprogram",
+          "ActionOutput_ramp_getspendprogram"
         ],
         "version": "1.0.0",
         "json_schema": {
           "definitions": {
-            "ActionInput_ramp_sandbox_getspendprogram": {
+            "ActionInput_ramp_getspendprogram": {
               "type": "object",
               "properties": {
                 "spend_program_id": {
@@ -753431,7 +753227,7 @@
               "additionalProperties": false,
               "description": "Input for retrieving a single spend program by ID."
             },
-            "ActionOutput_ramp_sandbox_getspendprogram": {
+            "ActionOutput_ramp_getspendprogram": {
               "type": "object",
               "properties": {
                 "id": {
@@ -753929,22 +753725,22 @@
         "type": "action",
         "description": "Retrieve a single statement by ID.",
         "endpoint": null,
-        "input": "ActionInput_ramp_sandbox_getstatement",
+        "input": "ActionInput_ramp_getstatement",
         "name": "get-statement",
         "output": [
-          "ActionOutput_ramp_sandbox_getstatement"
+          "ActionOutput_ramp_getstatement"
         ],
         "scopes": [
           "statements:read"
         ],
         "usedModels": [
-          "ActionInput_ramp_sandbox_getstatement",
-          "ActionOutput_ramp_sandbox_getstatement"
+          "ActionInput_ramp_getstatement",
+          "ActionOutput_ramp_getstatement"
         ],
         "version": "1.0.0",
         "json_schema": {
           "definitions": {
-            "ActionInput_ramp_sandbox_getstatement": {
+            "ActionInput_ramp_getstatement": {
               "type": "object",
               "properties": {
                 "statement_id": {
@@ -753958,7 +753754,7 @@
               "additionalProperties": false,
               "description": "Input identifying the statement to retrieve."
             },
-            "ActionOutput_ramp_sandbox_getstatement": {
+            "ActionOutput_ramp_getstatement": {
               "type": "object",
               "properties": {
                 "id": {
@@ -754385,10 +754181,10 @@
         "type": "action",
         "description": "Composite: a transaction merged with its receipts and current memo in one call.",
         "endpoint": null,
-        "input": "ActionInput_ramp_sandbox_gettransactionfullcontext",
+        "input": "ActionInput_ramp_gettransactionfullcontext",
         "name": "get-transaction-full-context",
         "output": [
-          "ActionOutput_ramp_sandbox_gettransactionfullcontext"
+          "ActionOutput_ramp_gettransactionfullcontext"
         ],
         "scopes": [
           "transactions:read",
@@ -754396,13 +754192,13 @@
           "memos:read"
         ],
         "usedModels": [
-          "ActionInput_ramp_sandbox_gettransactionfullcontext",
-          "ActionOutput_ramp_sandbox_gettransactionfullcontext"
+          "ActionInput_ramp_gettransactionfullcontext",
+          "ActionOutput_ramp_gettransactionfullcontext"
         ],
         "version": "1.0.0",
         "json_schema": {
           "definitions": {
-            "ActionInput_ramp_sandbox_gettransactionfullcontext": {
+            "ActionInput_ramp_gettransactionfullcontext": {
               "type": "object",
               "properties": {
                 "transaction_id": {
@@ -754416,7 +754212,7 @@
               "additionalProperties": false,
               "description": "Input for fetching a single transaction together with its receipts and memo."
             },
-            "ActionOutput_ramp_sandbox_gettransactionfullcontext": {
+            "ActionOutput_ramp_gettransactionfullcontext": {
               "type": "object",
               "properties": {
                 "transaction": {
@@ -755344,22 +755140,22 @@
         "type": "action",
         "description": "Get the current memo text on a transaction.",
         "endpoint": null,
-        "input": "ActionInput_ramp_sandbox_gettransactionmemo",
+        "input": "ActionInput_ramp_gettransactionmemo",
         "name": "get-transaction-memo",
         "output": [
-          "ActionOutput_ramp_sandbox_gettransactionmemo"
+          "ActionOutput_ramp_gettransactionmemo"
         ],
         "scopes": [
           "memos:read"
         ],
         "usedModels": [
-          "ActionInput_ramp_sandbox_gettransactionmemo",
-          "ActionOutput_ramp_sandbox_gettransactionmemo"
+          "ActionInput_ramp_gettransactionmemo",
+          "ActionOutput_ramp_gettransactionmemo"
         ],
         "version": "1.0.0",
         "json_schema": {
           "definitions": {
-            "ActionInput_ramp_sandbox_gettransactionmemo": {
+            "ActionInput_ramp_gettransactionmemo": {
               "type": "object",
               "properties": {
                 "transaction_id": {
@@ -755373,7 +755169,7 @@
               "additionalProperties": false,
               "description": "Identifier of the transaction to read the memo from."
             },
-            "ActionOutput_ramp_sandbox_gettransactionmemo": {
+            "ActionOutput_ramp_gettransactionmemo": {
               "type": "object",
               "properties": {
                 "id": {
@@ -755407,22 +755203,22 @@
         "type": "action",
         "description": "Retrieve a single transaction by its ID.",
         "endpoint": null,
-        "input": "ActionInput_ramp_sandbox_gettransaction",
+        "input": "ActionInput_ramp_gettransaction",
         "name": "get-transaction",
         "output": [
-          "ActionOutput_ramp_sandbox_gettransaction"
+          "ActionOutput_ramp_gettransaction"
         ],
         "scopes": [
           "transactions:read"
         ],
         "usedModels": [
-          "ActionInput_ramp_sandbox_gettransaction",
-          "ActionOutput_ramp_sandbox_gettransaction"
+          "ActionInput_ramp_gettransaction",
+          "ActionOutput_ramp_gettransaction"
         ],
         "version": "1.0.0",
         "json_schema": {
           "definitions": {
-            "ActionInput_ramp_sandbox_gettransaction": {
+            "ActionInput_ramp_gettransaction": {
               "type": "object",
               "properties": {
                 "transaction_id": {
@@ -755436,7 +755232,7 @@
               "additionalProperties": false,
               "description": "Input for retrieving a single transaction by its ID."
             },
-            "ActionOutput_ramp_sandbox_gettransaction": {
+            "ActionOutput_ramp_gettransaction": {
               "type": "object",
               "properties": {
                 "id": {
@@ -756380,22 +756176,22 @@
         "type": "action",
         "description": "Retrieve a single transfer by ID.",
         "endpoint": null,
-        "input": "ActionInput_ramp_sandbox_gettransfer",
+        "input": "ActionInput_ramp_gettransfer",
         "name": "get-transfer",
         "output": [
-          "ActionOutput_ramp_sandbox_gettransfer"
+          "ActionOutput_ramp_gettransfer"
         ],
         "scopes": [
           "transfers:read"
         ],
         "usedModels": [
-          "ActionInput_ramp_sandbox_gettransfer",
-          "ActionOutput_ramp_sandbox_gettransfer"
+          "ActionInput_ramp_gettransfer",
+          "ActionOutput_ramp_gettransfer"
         ],
         "version": "1.0.0",
         "json_schema": {
           "definitions": {
-            "ActionInput_ramp_sandbox_gettransfer": {
+            "ActionInput_ramp_gettransfer": {
               "type": "object",
               "properties": {
                 "transfer_id": {
@@ -756409,7 +756205,7 @@
               "additionalProperties": false,
               "description": "Input for retrieving a single transfer by ID."
             },
-            "ActionOutput_ramp_sandbox_gettransfer": {
+            "ActionOutput_ramp_gettransfer": {
               "type": "object",
               "properties": {
                 "id": {
@@ -756479,22 +756275,22 @@
         "type": "action",
         "description": "Retrieve a single trip by ID.",
         "endpoint": null,
-        "input": "ActionInput_ramp_sandbox_gettrip",
+        "input": "ActionInput_ramp_gettrip",
         "name": "get-trip",
         "output": [
-          "ActionOutput_ramp_sandbox_gettrip"
+          "ActionOutput_ramp_gettrip"
         ],
         "scopes": [
           "trips:read"
         ],
         "usedModels": [
-          "ActionInput_ramp_sandbox_gettrip",
-          "ActionOutput_ramp_sandbox_gettrip"
+          "ActionInput_ramp_gettrip",
+          "ActionOutput_ramp_gettrip"
         ],
         "version": "1.0.0",
         "json_schema": {
           "definitions": {
-            "ActionInput_ramp_sandbox_gettrip": {
+            "ActionInput_ramp_gettrip": {
               "type": "object",
               "properties": {
                 "trip_id": {
@@ -756508,7 +756304,7 @@
               "additionalProperties": false,
               "description": "Identifier of the trip to fetch."
             },
-            "ActionOutput_ramp_sandbox_gettrip": {
+            "ActionOutput_ramp_gettrip": {
               "type": "object",
               "properties": {
                 "id": {
@@ -756696,22 +756492,22 @@
         "type": "action",
         "description": "Poll the async task created by create-user-invite to retrieve the new user ID once ready.",
         "endpoint": null,
-        "input": "ActionInput_ramp_sandbox_getusercreationtaskstatus",
+        "input": "ActionInput_ramp_getusercreationtaskstatus",
         "name": "get-user-creation-task-status",
         "output": [
-          "ActionOutput_ramp_sandbox_getusercreationtaskstatus"
+          "ActionOutput_ramp_getusercreationtaskstatus"
         ],
         "scopes": [
           "users:write"
         ],
         "usedModels": [
-          "ActionInput_ramp_sandbox_getusercreationtaskstatus",
-          "ActionOutput_ramp_sandbox_getusercreationtaskstatus"
+          "ActionInput_ramp_getusercreationtaskstatus",
+          "ActionOutput_ramp_getusercreationtaskstatus"
         ],
         "version": "1.0.0",
         "json_schema": {
           "definitions": {
-            "ActionInput_ramp_sandbox_getusercreationtaskstatus": {
+            "ActionInput_ramp_getusercreationtaskstatus": {
               "type": "object",
               "properties": {
                 "task_id": {
@@ -756725,7 +756521,7 @@
               "additionalProperties": false,
               "description": "Input identifying the async user-creation task to poll."
             },
-            "ActionOutput_ramp_sandbox_getusercreationtaskstatus": {
+            "ActionOutput_ramp_getusercreationtaskstatus": {
               "type": "object",
               "properties": {
                 "task_id": {
@@ -756764,22 +756560,22 @@
         "type": "action",
         "description": "Retrieve a single Ramp user by ID.",
         "endpoint": null,
-        "input": "ActionInput_ramp_sandbox_getuser",
+        "input": "ActionInput_ramp_getuser",
         "name": "get-user",
         "output": [
-          "ActionOutput_ramp_sandbox_getuser"
+          "ActionOutput_ramp_getuser"
         ],
         "scopes": [
           "users:read"
         ],
         "usedModels": [
-          "ActionInput_ramp_sandbox_getuser",
-          "ActionOutput_ramp_sandbox_getuser"
+          "ActionInput_ramp_getuser",
+          "ActionOutput_ramp_getuser"
         ],
         "version": "1.0.0",
         "json_schema": {
           "definitions": {
-            "ActionInput_ramp_sandbox_getuser": {
+            "ActionInput_ramp_getuser": {
               "type": "object",
               "properties": {
                 "user_id": {
@@ -756793,7 +756589,7 @@
               "additionalProperties": false,
               "description": "Identifier of the Ramp user to fetch."
             },
-            "ActionOutput_ramp_sandbox_getuser": {
+            "ActionOutput_ramp_getuser": {
               "type": "object",
               "properties": {
                 "id": {
@@ -756922,22 +756718,22 @@
         "type": "action",
         "description": "Retrieve a single vendor by ID.",
         "endpoint": null,
-        "input": "ActionInput_ramp_sandbox_getvendor",
+        "input": "ActionInput_ramp_getvendor",
         "name": "get-vendor",
         "output": [
-          "ActionOutput_ramp_sandbox_getvendor"
+          "ActionOutput_ramp_getvendor"
         ],
         "scopes": [
           "vendors:read"
         ],
         "usedModels": [
-          "ActionInput_ramp_sandbox_getvendor",
-          "ActionOutput_ramp_sandbox_getvendor"
+          "ActionInput_ramp_getvendor",
+          "ActionOutput_ramp_getvendor"
         ],
         "version": "1.0.0",
         "json_schema": {
           "definitions": {
-            "ActionInput_ramp_sandbox_getvendor": {
+            "ActionInput_ramp_getvendor": {
               "type": "object",
               "properties": {
                 "vendor_id": {
@@ -756951,7 +756747,7 @@
               "additionalProperties": false,
               "description": "Input for retrieving a single Ramp vendor by ID."
             },
-            "ActionOutput_ramp_sandbox_getvendor": {
+            "ActionOutput_ramp_getvendor": {
               "type": "object",
               "properties": {
                 "id": {
@@ -757275,22 +757071,22 @@
         "type": "action",
         "description": "Retrieve a single virtual card by ID.",
         "endpoint": null,
-        "input": "ActionInput_ramp_sandbox_getvirtualcard",
+        "input": "ActionInput_ramp_getvirtualcard",
         "name": "get-virtual-card",
         "output": [
-          "ActionOutput_ramp_sandbox_getvirtualcard"
+          "ActionOutput_ramp_getvirtualcard"
         ],
         "scopes": [
           "cards:read"
         ],
         "usedModels": [
-          "ActionInput_ramp_sandbox_getvirtualcard",
-          "ActionOutput_ramp_sandbox_getvirtualcard"
+          "ActionInput_ramp_getvirtualcard",
+          "ActionOutput_ramp_getvirtualcard"
         ],
         "version": "1.0.0",
         "json_schema": {
           "definitions": {
-            "ActionInput_ramp_sandbox_getvirtualcard": {
+            "ActionInput_ramp_getvirtualcard": {
               "type": "object",
               "properties": {
                 "card_id": {
@@ -757304,7 +757100,7 @@
               "additionalProperties": false,
               "description": "Input for retrieving a single virtual card by its ID."
             },
-            "ActionOutput_ramp_sandbox_getvirtualcard": {
+            "ActionOutput_ramp_getvirtualcard": {
               "type": "object",
               "properties": {
                 "id": {
@@ -757351,22 +757147,22 @@
         "type": "action",
         "description": "Place a hold on a bill, pausing any pending payment.",
         "endpoint": null,
-        "input": "ActionInput_ramp_sandbox_holdbill",
+        "input": "ActionInput_ramp_holdbill",
         "name": "hold-bill",
         "output": [
-          "ActionOutput_ramp_sandbox_holdbill"
+          "ActionOutput_ramp_holdbill"
         ],
         "scopes": [
           "bills:write"
         ],
         "usedModels": [
-          "ActionInput_ramp_sandbox_holdbill",
-          "ActionOutput_ramp_sandbox_holdbill"
+          "ActionInput_ramp_holdbill",
+          "ActionOutput_ramp_holdbill"
         ],
         "version": "1.0.0",
         "json_schema": {
           "definitions": {
-            "ActionInput_ramp_sandbox_holdbill": {
+            "ActionInput_ramp_holdbill": {
               "type": "object",
               "properties": {
                 "bill_id": {
@@ -757384,7 +757180,7 @@
               "additionalProperties": false,
               "description": "Input for placing a hold on a bill."
             },
-            "ActionOutput_ramp_sandbox_holdbill": {
+            "ActionOutput_ramp_holdbill": {
               "type": "object",
               "properties": {
                 "id": {
@@ -757463,23 +757259,23 @@
         "type": "action",
         "description": "Place or remove a hold on a bill after validating that the status transition is allowed.",
         "endpoint": null,
-        "input": "ActionInput_ramp_sandbox_holdorreleasebillwithvalidation",
+        "input": "ActionInput_ramp_holdorreleasebillwithvalidation",
         "name": "hold-or-release-bill-with-validation",
         "output": [
-          "ActionOutput_ramp_sandbox_holdorreleasebillwithvalidation"
+          "ActionOutput_ramp_holdorreleasebillwithvalidation"
         ],
         "scopes": [
           "bills:read",
           "bills:write"
         ],
         "usedModels": [
-          "ActionInput_ramp_sandbox_holdorreleasebillwithvalidation",
-          "ActionOutput_ramp_sandbox_holdorreleasebillwithvalidation"
+          "ActionInput_ramp_holdorreleasebillwithvalidation",
+          "ActionOutput_ramp_holdorreleasebillwithvalidation"
         ],
         "version": "1.0.0",
         "json_schema": {
           "definitions": {
-            "ActionInput_ramp_sandbox_holdorreleasebillwithvalidation": {
+            "ActionInput_ramp_holdorreleasebillwithvalidation": {
               "type": "object",
               "properties": {
                 "bill_id": {
@@ -757506,7 +757302,7 @@
               "additionalProperties": false,
               "description": "Input for placing or removing a payment hold on a bill."
             },
-            "ActionOutput_ramp_sandbox_holdorreleasebillwithvalidation": {
+            "ActionOutput_ramp_holdorreleasebillwithvalidation": {
               "type": "object",
               "properties": {
                 "bill_id": {
@@ -757552,22 +757348,22 @@
         "type": "action",
         "description": "List the approval chain and history for a set of bills, reimbursements, or transactions.",
         "endpoint": null,
-        "input": "ActionInput_ramp_sandbox_listapprovals",
+        "input": "ActionInput_ramp_listapprovals",
         "name": "list-approvals",
         "output": [
-          "ActionOutput_ramp_sandbox_listapprovals"
+          "ActionOutput_ramp_listapprovals"
         ],
         "scopes": [
           "approvals:read"
         ],
         "usedModels": [
-          "ActionInput_ramp_sandbox_listapprovals",
-          "ActionOutput_ramp_sandbox_listapprovals"
+          "ActionInput_ramp_listapprovals",
+          "ActionOutput_ramp_listapprovals"
         ],
         "version": "1.0.0",
         "json_schema": {
           "definitions": {
-            "ActionInput_ramp_sandbox_listapprovals": {
+            "ActionInput_ramp_listapprovals": {
               "type": "object",
               "properties": {
                 "entity_type": {
@@ -757598,7 +757394,7 @@
               "additionalProperties": false,
               "description": "Input for listing the approval chain and history of a set of bills, reimbursements, or transactions."
             },
-            "ActionOutput_ramp_sandbox_listapprovals": {
+            "ActionOutput_ramp_listapprovals": {
               "type": "object",
               "properties": {
                 "approvals": {
@@ -757709,22 +757505,22 @@
         "type": "action",
         "description": "List business-wide audit log events (logins, approvals, transaction state changes, settings changes, etc).",
         "endpoint": null,
-        "input": "ActionInput_ramp_sandbox_listauditlogevents",
+        "input": "ActionInput_ramp_listauditlogevents",
         "name": "list-audit-log-events",
         "output": [
-          "ActionOutput_ramp_sandbox_listauditlogevents"
+          "ActionOutput_ramp_listauditlogevents"
         ],
         "scopes": [
           "audit_logs:read"
         ],
         "usedModels": [
-          "ActionInput_ramp_sandbox_listauditlogevents",
-          "ActionOutput_ramp_sandbox_listauditlogevents"
+          "ActionInput_ramp_listauditlogevents",
+          "ActionOutput_ramp_listauditlogevents"
         ],
         "version": "1.0.0",
         "json_schema": {
           "definitions": {
-            "ActionInput_ramp_sandbox_listauditlogevents": {
+            "ActionInput_ramp_listauditlogevents": {
               "type": "object",
               "properties": {
                 "user_ids": {
@@ -757826,7 +757622,7 @@
               "additionalProperties": false,
               "description": "Filters and pagination options for listing business-wide audit log events."
             },
-            "ActionOutput_ramp_sandbox_listauditlogevents": {
+            "ActionOutput_ramp_listauditlogevents": {
               "type": "object",
               "properties": {
                 "items": {
@@ -757999,22 +757795,22 @@
         "type": "action",
         "description": "List external bank accounts linked to the business.",
         "endpoint": null,
-        "input": "ActionInput_ramp_sandbox_listbankaccounts",
+        "input": "ActionInput_ramp_listbankaccounts",
         "name": "list-bank-accounts",
         "output": [
-          "ActionOutput_ramp_sandbox_listbankaccounts"
+          "ActionOutput_ramp_listbankaccounts"
         ],
         "scopes": [
           "bank_accounts:read"
         ],
         "usedModels": [
-          "ActionInput_ramp_sandbox_listbankaccounts",
-          "ActionOutput_ramp_sandbox_listbankaccounts"
+          "ActionInput_ramp_listbankaccounts",
+          "ActionOutput_ramp_listbankaccounts"
         ],
         "version": "1.0.0",
         "json_schema": {
           "definitions": {
-            "ActionInput_ramp_sandbox_listbankaccounts": {
+            "ActionInput_ramp_listbankaccounts": {
               "type": "object",
               "properties": {
                 "cursor": {
@@ -758026,7 +757822,7 @@
               "additionalProperties": false,
               "description": "Input for listing external bank accounts linked to the business."
             },
-            "ActionOutput_ramp_sandbox_listbankaccounts": {
+            "ActionOutput_ramp_listbankaccounts": {
               "type": "object",
               "properties": {
                 "items": {
@@ -758094,22 +757890,22 @@
         "type": "action",
         "description": "List Ramp's own Business Account / Treasury accounts (wallet, brokerage, investment).",
         "endpoint": null,
-        "input": "ActionInput_ramp_sandbox_listbankingaccounts",
+        "input": "ActionInput_ramp_listbankingaccounts",
         "name": "list-banking-accounts",
         "output": [
-          "ActionOutput_ramp_sandbox_listbankingaccounts"
+          "ActionOutput_ramp_listbankingaccounts"
         ],
         "scopes": [
           "treasury:read"
         ],
         "usedModels": [
-          "ActionInput_ramp_sandbox_listbankingaccounts",
-          "ActionOutput_ramp_sandbox_listbankingaccounts"
+          "ActionInput_ramp_listbankingaccounts",
+          "ActionOutput_ramp_listbankingaccounts"
         ],
         "version": "1.0.0",
         "json_schema": {
           "definitions": {
-            "ActionInput_ramp_sandbox_listbankingaccounts": {
+            "ActionInput_ramp_listbankingaccounts": {
               "type": "object",
               "properties": {
                 "cursor": {
@@ -758127,7 +757923,7 @@
               "additionalProperties": false,
               "description": "Filters for listing Ramp's Business/Treasury accounts, including optional pagination."
             },
-            "ActionOutput_ramp_sandbox_listbankingaccounts": {
+            "ActionOutput_ramp_listbankingaccounts": {
               "type": "object",
               "properties": {
                 "accounts": {
@@ -758176,22 +757972,22 @@
         "type": "action",
         "description": "List bills that are still in draft state (not yet submitted into the approval/payment flow).",
         "endpoint": null,
-        "input": "ActionInput_ramp_sandbox_listbilldrafts",
+        "input": "ActionInput_ramp_listbilldrafts",
         "name": "list-bill-drafts",
         "output": [
-          "ActionOutput_ramp_sandbox_listbilldrafts"
+          "ActionOutput_ramp_listbilldrafts"
         ],
         "scopes": [
           "bills:read"
         ],
         "usedModels": [
-          "ActionInput_ramp_sandbox_listbilldrafts",
-          "ActionOutput_ramp_sandbox_listbilldrafts"
+          "ActionInput_ramp_listbilldrafts",
+          "ActionOutput_ramp_listbilldrafts"
         ],
         "version": "1.0.0",
         "json_schema": {
           "definitions": {
-            "ActionInput_ramp_sandbox_listbilldrafts": {
+            "ActionInput_ramp_listbilldrafts": {
               "type": "object",
               "properties": {
                 "cursor": {
@@ -758248,7 +758044,7 @@
               "additionalProperties": false,
               "description": "Filters and pagination options for listing draft bills."
             },
-            "ActionOutput_ramp_sandbox_listbilldrafts": {
+            "ActionOutput_ramp_listbilldrafts": {
               "type": "object",
               "properties": {
                 "draft_bills": {
@@ -759040,22 +758836,22 @@
         "type": "action",
         "description": "List Bill Pay bills with extensive filtering.",
         "endpoint": null,
-        "input": "ActionInput_ramp_sandbox_listbills",
+        "input": "ActionInput_ramp_listbills",
         "name": "list-bills",
         "output": [
-          "ActionOutput_ramp_sandbox_listbills"
+          "ActionOutput_ramp_listbills"
         ],
         "scopes": [
           "bills:read"
         ],
         "usedModels": [
-          "ActionInput_ramp_sandbox_listbills",
-          "ActionOutput_ramp_sandbox_listbills"
+          "ActionInput_ramp_listbills",
+          "ActionOutput_ramp_listbills"
         ],
         "version": "1.0.0",
         "json_schema": {
           "definitions": {
-            "ActionInput_ramp_sandbox_listbills": {
+            "ActionInput_ramp_listbills": {
               "type": "object",
               "properties": {
                 "cursor": {
@@ -759264,7 +759060,7 @@
               "additionalProperties": false,
               "description": "Filters and pagination cursor for listing Bill Pay bills."
             },
-            "ActionOutput_ramp_sandbox_listbills": {
+            "ActionOutput_ramp_listbills": {
               "type": "object",
               "properties": {
                 "bills": {
@@ -760671,22 +760467,22 @@
         "type": "action",
         "description": "List cashback payouts earned on card spend.",
         "endpoint": null,
-        "input": "ActionInput_ramp_sandbox_listcashbacks",
+        "input": "ActionInput_ramp_listcashbacks",
         "name": "list-cashbacks",
         "output": [
-          "ActionOutput_ramp_sandbox_listcashbacks"
+          "ActionOutput_ramp_listcashbacks"
         ],
         "scopes": [
           "cashbacks:read"
         ],
         "usedModels": [
-          "ActionInput_ramp_sandbox_listcashbacks",
-          "ActionOutput_ramp_sandbox_listcashbacks"
+          "ActionInput_ramp_listcashbacks",
+          "ActionOutput_ramp_listcashbacks"
         ],
         "version": "1.0.0",
         "json_schema": {
           "definitions": {
-            "ActionInput_ramp_sandbox_listcashbacks": {
+            "ActionInput_ramp_listcashbacks": {
               "type": "object",
               "properties": {
                 "cursor": {
@@ -760733,7 +760529,7 @@
               "additionalProperties": false,
               "description": "Filters and pagination options for listing cashback payouts."
             },
-            "ActionOutput_ramp_sandbox_listcashbacks": {
+            "ActionOutput_ramp_listcashbacks": {
               "type": "object",
               "properties": {
                 "cashbacks": {
@@ -760826,22 +760622,22 @@
         "type": "action",
         "description": "List departments.",
         "endpoint": null,
-        "input": "ActionInput_ramp_sandbox_listdepartments",
+        "input": "ActionInput_ramp_listdepartments",
         "name": "list-departments",
         "output": [
-          "ActionOutput_ramp_sandbox_listdepartments"
+          "ActionOutput_ramp_listdepartments"
         ],
         "scopes": [
           "departments:read"
         ],
         "usedModels": [
-          "ActionInput_ramp_sandbox_listdepartments",
-          "ActionOutput_ramp_sandbox_listdepartments"
+          "ActionInput_ramp_listdepartments",
+          "ActionOutput_ramp_listdepartments"
         ],
         "version": "1.0.0",
         "json_schema": {
           "definitions": {
-            "ActionInput_ramp_sandbox_listdepartments": {
+            "ActionInput_ramp_listdepartments": {
               "type": "object",
               "properties": {
                 "cursor": {
@@ -760860,7 +760656,7 @@
               "additionalProperties": false,
               "description": "Filters for listing departments."
             },
-            "ActionOutput_ramp_sandbox_listdepartments": {
+            "ActionOutput_ramp_listdepartments": {
               "type": "object",
               "properties": {
                 "departments": {
@@ -760904,22 +760700,22 @@
         "type": "action",
         "description": "List legal entities/subsidiaries under the business.",
         "endpoint": null,
-        "input": "ActionInput_ramp_sandbox_listentities",
+        "input": "ActionInput_ramp_listentities",
         "name": "list-entities",
         "output": [
-          "ActionOutput_ramp_sandbox_listentities"
+          "ActionOutput_ramp_listentities"
         ],
         "scopes": [
           "entities:read"
         ],
         "usedModels": [
-          "ActionInput_ramp_sandbox_listentities",
-          "ActionOutput_ramp_sandbox_listentities"
+          "ActionInput_ramp_listentities",
+          "ActionOutput_ramp_listentities"
         ],
         "version": "1.0.0",
         "json_schema": {
           "definitions": {
-            "ActionInput_ramp_sandbox_listentities": {
+            "ActionInput_ramp_listentities": {
               "type": "object",
               "properties": {
                 "cursor": {
@@ -760953,7 +760749,7 @@
               "additionalProperties": false,
               "description": "Filters and pagination options for listing the business entities."
             },
-            "ActionOutput_ramp_sandbox_listentities": {
+            "ActionOutput_ramp_listentities": {
               "type": "object",
               "properties": {
                 "entities": {
@@ -761146,22 +760942,22 @@
         "type": "action",
         "description": "List funds - Ramp's current API name for what the product UI still calls \"spend limits\" - each a card-attached spending limit with its own balance and restrictions.",
         "endpoint": null,
-        "input": "ActionInput_ramp_sandbox_listfunds",
+        "input": "ActionInput_ramp_listfunds",
         "name": "list-funds",
         "output": [
-          "ActionOutput_ramp_sandbox_listfunds"
+          "ActionOutput_ramp_listfunds"
         ],
         "scopes": [
           "funds:read"
         ],
         "usedModels": [
-          "ActionInput_ramp_sandbox_listfunds",
-          "ActionOutput_ramp_sandbox_listfunds"
+          "ActionInput_ramp_listfunds",
+          "ActionOutput_ramp_listfunds"
         ],
         "version": "1.0.0",
         "json_schema": {
           "definitions": {
-            "ActionInput_ramp_sandbox_listfunds": {
+            "ActionInput_ramp_listfunds": {
               "type": "object",
               "properties": {
                 "cursor": {
@@ -761191,7 +760987,7 @@
               "additionalProperties": false,
               "description": "Filters and pagination options for listing Ramp funds (spend limits)."
             },
-            "ActionOutput_ramp_sandbox_listfunds": {
+            "ActionOutput_ramp_listfunds": {
               "type": "object",
               "properties": {
                 "items": {
@@ -761643,22 +761439,22 @@
         "type": "action",
         "description": "List item receipts recording physical or quantity receipt against purchase order line items.",
         "endpoint": null,
-        "input": "ActionInput_ramp_sandbox_listitemreceipts",
+        "input": "ActionInput_ramp_listitemreceipts",
         "name": "list-item-receipts",
         "output": [
-          "ActionOutput_ramp_sandbox_listitemreceipts"
+          "ActionOutput_ramp_listitemreceipts"
         ],
         "scopes": [
           "item_receipts:read"
         ],
         "usedModels": [
-          "ActionInput_ramp_sandbox_listitemreceipts",
-          "ActionOutput_ramp_sandbox_listitemreceipts"
+          "ActionInput_ramp_listitemreceipts",
+          "ActionOutput_ramp_listitemreceipts"
         ],
         "version": "1.0.0",
         "json_schema": {
           "definitions": {
-            "ActionInput_ramp_sandbox_listitemreceipts": {
+            "ActionInput_ramp_listitemreceipts": {
               "type": "object",
               "properties": {
                 "cursor": {
@@ -761699,7 +761495,7 @@
               "additionalProperties": false,
               "description": "Filters for listing item receipts, including pagination and purchase order or entity scoping."
             },
-            "ActionOutput_ramp_sandbox_listitemreceipts": {
+            "ActionOutput_ramp_listitemreceipts": {
               "type": "object",
               "properties": {
                 "items": {
@@ -762083,22 +761879,22 @@
         "type": "action",
         "description": "List office/work locations.",
         "endpoint": null,
-        "input": "ActionInput_ramp_sandbox_listlocations",
+        "input": "ActionInput_ramp_listlocations",
         "name": "list-locations",
         "output": [
-          "ActionOutput_ramp_sandbox_listlocations"
+          "ActionOutput_ramp_listlocations"
         ],
         "scopes": [
           "locations:read"
         ],
         "usedModels": [
-          "ActionInput_ramp_sandbox_listlocations",
-          "ActionOutput_ramp_sandbox_listlocations"
+          "ActionInput_ramp_listlocations",
+          "ActionOutput_ramp_listlocations"
         ],
         "version": "1.0.0",
         "json_schema": {
           "definitions": {
-            "ActionInput_ramp_sandbox_listlocations": {
+            "ActionInput_ramp_listlocations": {
               "type": "object",
               "properties": {
                 "cursor": {
@@ -762120,7 +761916,7 @@
               "additionalProperties": false,
               "description": "Filters and pagination options for listing office/work locations."
             },
-            "ActionOutput_ramp_sandbox_listlocations": {
+            "ActionOutput_ramp_listlocations": {
               "type": "object",
               "properties": {
                 "locations": {
@@ -762169,22 +761965,22 @@
         "type": "action",
         "description": "List merchants the business has transacted with, with category and auto-approval metadata.",
         "endpoint": null,
-        "input": "ActionInput_ramp_sandbox_listmerchants",
+        "input": "ActionInput_ramp_listmerchants",
         "name": "list-merchants",
         "output": [
-          "ActionOutput_ramp_sandbox_listmerchants"
+          "ActionOutput_ramp_listmerchants"
         ],
         "scopes": [
           "merchants:read"
         ],
         "usedModels": [
-          "ActionInput_ramp_sandbox_listmerchants",
-          "ActionOutput_ramp_sandbox_listmerchants"
+          "ActionInput_ramp_listmerchants",
+          "ActionOutput_ramp_listmerchants"
         ],
         "version": "1.0.0",
         "json_schema": {
           "definitions": {
-            "ActionInput_ramp_sandbox_listmerchants": {
+            "ActionInput_ramp_listmerchants": {
               "type": "object",
               "properties": {
                 "merchant_name": {
@@ -762218,7 +762014,7 @@
               "additionalProperties": false,
               "description": "Filters and pagination for listing merchants."
             },
-            "ActionOutput_ramp_sandbox_listmerchants": {
+            "ActionOutput_ramp_listmerchants": {
               "type": "object",
               "properties": {
                 "merchants": {
@@ -762279,22 +762075,22 @@
         "type": "action",
         "description": "List physical cards issued to employees.",
         "endpoint": null,
-        "input": "ActionInput_ramp_sandbox_listphysicalcards",
+        "input": "ActionInput_ramp_listphysicalcards",
         "name": "list-physical-cards",
         "output": [
-          "ActionOutput_ramp_sandbox_listphysicalcards"
+          "ActionOutput_ramp_listphysicalcards"
         ],
         "scopes": [
           "cards:read"
         ],
         "usedModels": [
-          "ActionInput_ramp_sandbox_listphysicalcards",
-          "ActionOutput_ramp_sandbox_listphysicalcards"
+          "ActionInput_ramp_listphysicalcards",
+          "ActionOutput_ramp_listphysicalcards"
         ],
         "version": "1.0.0",
         "json_schema": {
           "definitions": {
-            "ActionInput_ramp_sandbox_listphysicalcards": {
+            "ActionInput_ramp_listphysicalcards": {
               "type": "object",
               "properties": {
                 "user_id": {
@@ -762329,7 +762125,7 @@
               "additionalProperties": false,
               "description": "Filters and pagination options for listing physical cards."
             },
-            "ActionOutput_ramp_sandbox_listphysicalcards": {
+            "ActionOutput_ramp_listphysicalcards": {
               "type": "object",
               "properties": {
                 "cards": {
@@ -762675,22 +762471,22 @@
         "type": "action",
         "description": "List procurement purchase orders.",
         "endpoint": null,
-        "input": "ActionInput_ramp_sandbox_listpurchaseorders",
+        "input": "ActionInput_ramp_listpurchaseorders",
         "name": "list-purchase-orders",
         "output": [
-          "ActionOutput_ramp_sandbox_listpurchaseorders"
+          "ActionOutput_ramp_listpurchaseorders"
         ],
         "scopes": [
           "purchase_orders:read"
         ],
         "usedModels": [
-          "ActionInput_ramp_sandbox_listpurchaseorders",
-          "ActionOutput_ramp_sandbox_listpurchaseorders"
+          "ActionInput_ramp_listpurchaseorders",
+          "ActionOutput_ramp_listpurchaseorders"
         ],
         "version": "1.0.0",
         "json_schema": {
           "definitions": {
-            "ActionInput_ramp_sandbox_listpurchaseorders": {
+            "ActionInput_ramp_listpurchaseorders": {
               "type": "object",
               "properties": {
                 "cursor": {
@@ -762760,7 +762556,7 @@
               "additionalProperties": false,
               "description": "Filters and pagination options for listing Ramp purchase orders."
             },
-            "ActionOutput_ramp_sandbox_listpurchaseorders": {
+            "ActionOutput_ramp_listpurchaseorders": {
               "type": "object",
               "properties": {
                 "items": {
@@ -763625,22 +763421,22 @@
         "type": "action",
         "description": "List receipt images/PDFs, optionally filtered by transaction or reimbursement.",
         "endpoint": null,
-        "input": "ActionInput_ramp_sandbox_listreceipts",
+        "input": "ActionInput_ramp_listreceipts",
         "name": "list-receipts",
         "output": [
-          "ActionOutput_ramp_sandbox_listreceipts"
+          "ActionOutput_ramp_listreceipts"
         ],
         "scopes": [
           "receipts:read"
         ],
         "usedModels": [
-          "ActionInput_ramp_sandbox_listreceipts",
-          "ActionOutput_ramp_sandbox_listreceipts"
+          "ActionInput_ramp_listreceipts",
+          "ActionOutput_ramp_listreceipts"
         ],
         "version": "1.0.0",
         "json_schema": {
           "definitions": {
-            "ActionInput_ramp_sandbox_listreceipts": {
+            "ActionInput_ramp_listreceipts": {
               "type": "object",
               "properties": {
                 "transaction_id": {
@@ -763686,7 +763482,7 @@
               "additionalProperties": false,
               "description": "Filters for listing Ramp receipts."
             },
-            "ActionOutput_ramp_sandbox_listreceipts": {
+            "ActionOutput_ramp_listreceipts": {
               "type": "object",
               "properties": {
                 "items": {
@@ -763808,22 +763604,22 @@
         "type": "action",
         "description": "List out-of-pocket and mileage reimbursements.",
         "endpoint": null,
-        "input": "ActionInput_ramp_sandbox_listreimbursements",
+        "input": "ActionInput_ramp_listreimbursements",
         "name": "list-reimbursements",
         "output": [
-          "ActionOutput_ramp_sandbox_listreimbursements"
+          "ActionOutput_ramp_listreimbursements"
         ],
         "scopes": [
           "reimbursements:read"
         ],
         "usedModels": [
-          "ActionInput_ramp_sandbox_listreimbursements",
-          "ActionOutput_ramp_sandbox_listreimbursements"
+          "ActionInput_ramp_listreimbursements",
+          "ActionOutput_ramp_listreimbursements"
         ],
         "version": "1.0.0",
         "json_schema": {
           "definitions": {
-            "ActionInput_ramp_sandbox_listreimbursements": {
+            "ActionInput_ramp_listreimbursements": {
               "type": "object",
               "properties": {
                 "cursor": {
@@ -763902,7 +763698,7 @@
               "additionalProperties": false,
               "description": "Filters for listing reimbursements."
             },
-            "ActionOutput_ramp_sandbox_listreimbursements": {
+            "ActionOutput_ramp_listreimbursements": {
               "type": "object",
               "properties": {
                 "items": {
@@ -764428,22 +764224,22 @@
         "type": "action",
         "description": "List off-Ramp card repayments (e.g. a cardholder reimbursing the business for a disallowed personal charge).",
         "endpoint": null,
-        "input": "ActionInput_ramp_sandbox_listrepayments",
+        "input": "ActionInput_ramp_listrepayments",
         "name": "list-repayments",
         "output": [
-          "ActionOutput_ramp_sandbox_listrepayments"
+          "ActionOutput_ramp_listrepayments"
         ],
         "scopes": [
           "repayments:read"
         ],
         "usedModels": [
-          "ActionInput_ramp_sandbox_listrepayments",
-          "ActionOutput_ramp_sandbox_listrepayments"
+          "ActionInput_ramp_listrepayments",
+          "ActionOutput_ramp_listrepayments"
         ],
         "version": "1.0.0",
         "json_schema": {
           "definitions": {
-            "ActionInput_ramp_sandbox_listrepayments": {
+            "ActionInput_ramp_listrepayments": {
               "type": "object",
               "properties": {
                 "cursor": {
@@ -764508,7 +764304,7 @@
               "additionalProperties": false,
               "description": "Filters and pagination options for listing off-Ramp card repayments."
             },
-            "ActionOutput_ramp_sandbox_listrepayments": {
+            "ActionOutput_ramp_listrepayments": {
               "type": "object",
               "properties": {
                 "repayments": {
@@ -764611,28 +764407,28 @@
         "type": "action",
         "description": "List the custom/base roles defined on the business, with their permission capabilities.",
         "endpoint": null,
-        "input": "ActionInput_ramp_sandbox_listroles",
+        "input": "ActionInput_ramp_listroles",
         "name": "list-roles",
         "output": [
-          "ActionOutput_ramp_sandbox_listroles"
+          "ActionOutput_ramp_listroles"
         ],
         "scopes": [
           "users:read"
         ],
         "usedModels": [
-          "ActionInput_ramp_sandbox_listroles",
-          "ActionOutput_ramp_sandbox_listroles"
+          "ActionInput_ramp_listroles",
+          "ActionOutput_ramp_listroles"
         ],
         "version": "1.0.0",
         "json_schema": {
           "definitions": {
-            "ActionInput_ramp_sandbox_listroles": {
+            "ActionInput_ramp_listroles": {
               "type": "object",
               "properties": {},
               "additionalProperties": false,
               "description": "No input parameters; lists all roles defined on the connected business."
             },
-            "ActionOutput_ramp_sandbox_listroles": {
+            "ActionOutput_ramp_listroles": {
               "type": "object",
               "properties": {
                 "roles": {
@@ -764724,22 +764520,22 @@
         "type": "action",
         "description": "List spend program templates that funds can be created from or inherit restrictions from.",
         "endpoint": null,
-        "input": "ActionInput_ramp_sandbox_listspendprograms",
+        "input": "ActionInput_ramp_listspendprograms",
         "name": "list-spend-programs",
         "output": [
-          "ActionOutput_ramp_sandbox_listspendprograms"
+          "ActionOutput_ramp_listspendprograms"
         ],
         "scopes": [
           "spend_programs:read"
         ],
         "usedModels": [
-          "ActionInput_ramp_sandbox_listspendprograms",
-          "ActionOutput_ramp_sandbox_listspendprograms"
+          "ActionInput_ramp_listspendprograms",
+          "ActionOutput_ramp_listspendprograms"
         ],
         "version": "1.0.0",
         "json_schema": {
           "definitions": {
-            "ActionInput_ramp_sandbox_listspendprograms": {
+            "ActionInput_ramp_listspendprograms": {
               "type": "object",
               "properties": {
                 "cursor": {
@@ -764756,7 +764552,7 @@
               "additionalProperties": false,
               "description": "Filters for listing spend program templates."
             },
-            "ActionOutput_ramp_sandbox_listspendprograms": {
+            "ActionOutput_ramp_listspendprograms": {
               "type": "object",
               "properties": {
                 "items": {
@@ -764966,22 +764762,22 @@
         "type": "action",
         "description": "List card statements.",
         "endpoint": null,
-        "input": "ActionInput_ramp_sandbox_liststatements",
+        "input": "ActionInput_ramp_liststatements",
         "name": "list-statements",
         "output": [
-          "ActionOutput_ramp_sandbox_liststatements"
+          "ActionOutput_ramp_liststatements"
         ],
         "scopes": [
           "statements:read"
         ],
         "usedModels": [
-          "ActionInput_ramp_sandbox_liststatements",
-          "ActionOutput_ramp_sandbox_liststatements"
+          "ActionInput_ramp_liststatements",
+          "ActionOutput_ramp_liststatements"
         ],
         "version": "1.0.0",
         "json_schema": {
           "definitions": {
-            "ActionInput_ramp_sandbox_liststatements": {
+            "ActionInput_ramp_liststatements": {
               "type": "object",
               "properties": {
                 "from_date": {
@@ -765008,7 +764804,7 @@
               "additionalProperties": false,
               "description": "Filters and pagination for listing card statements."
             },
-            "ActionOutput_ramp_sandbox_liststatements": {
+            "ActionOutput_ramp_liststatements": {
               "type": "object",
               "properties": {
                 "statements": {
@@ -765499,22 +765295,22 @@
         "type": "action",
         "description": "List card transactions, with extensive filtering and cursor pagination.",
         "endpoint": null,
-        "input": "ActionInput_ramp_sandbox_listtransactions",
+        "input": "ActionInput_ramp_listtransactions",
         "name": "list-transactions",
         "output": [
-          "ActionOutput_ramp_sandbox_listtransactions"
+          "ActionOutput_ramp_listtransactions"
         ],
         "scopes": [
           "transactions:read"
         ],
         "usedModels": [
-          "ActionInput_ramp_sandbox_listtransactions",
-          "ActionOutput_ramp_sandbox_listtransactions"
+          "ActionInput_ramp_listtransactions",
+          "ActionOutput_ramp_listtransactions"
         ],
         "version": "1.0.0",
         "json_schema": {
           "definitions": {
-            "ActionInput_ramp_sandbox_listtransactions": {
+            "ActionInput_ramp_listtransactions": {
               "type": "object",
               "properties": {
                 "cursor": {
@@ -765695,7 +765491,7 @@
               "additionalProperties": false,
               "description": "Filters and pagination options for listing card transactions."
             },
-            "ActionOutput_ramp_sandbox_listtransactions": {
+            "ActionOutput_ramp_listtransactions": {
               "type": "object",
               "properties": {
                 "transactions": {
@@ -767120,22 +766916,22 @@
         "type": "action",
         "description": "List transfers between the business's bank accounts and its Ramp balance.",
         "endpoint": null,
-        "input": "ActionInput_ramp_sandbox_listtransfers",
+        "input": "ActionInput_ramp_listtransfers",
         "name": "list-transfers",
         "output": [
-          "ActionOutput_ramp_sandbox_listtransfers"
+          "ActionOutput_ramp_listtransfers"
         ],
         "scopes": [
           "transfers:read"
         ],
         "usedModels": [
-          "ActionInput_ramp_sandbox_listtransfers",
-          "ActionOutput_ramp_sandbox_listtransfers"
+          "ActionInput_ramp_listtransfers",
+          "ActionOutput_ramp_listtransfers"
         ],
         "version": "1.0.0",
         "json_schema": {
           "definitions": {
-            "ActionInput_ramp_sandbox_listtransfers": {
+            "ActionInput_ramp_listtransfers": {
               "type": "object",
               "properties": {
                 "cursor": {
@@ -767189,7 +766985,7 @@
               "additionalProperties": false,
               "description": "Filters and pagination for listing transfers."
             },
-            "ActionOutput_ramp_sandbox_listtransfers": {
+            "ActionOutput_ramp_listtransfers": {
               "type": "object",
               "properties": {
                 "items": {
@@ -767276,22 +767072,22 @@
         "type": "action",
         "description": "List business trips, including their location segments, linked spend events, and total spend.",
         "endpoint": null,
-        "input": "ActionInput_ramp_sandbox_listtrips",
+        "input": "ActionInput_ramp_listtrips",
         "name": "list-trips",
         "output": [
-          "ActionOutput_ramp_sandbox_listtrips"
+          "ActionOutput_ramp_listtrips"
         ],
         "scopes": [
           "trips:read"
         ],
         "usedModels": [
-          "ActionInput_ramp_sandbox_listtrips",
-          "ActionOutput_ramp_sandbox_listtrips"
+          "ActionInput_ramp_listtrips",
+          "ActionOutput_ramp_listtrips"
         ],
         "version": "1.0.0",
         "json_schema": {
           "definitions": {
-            "ActionInput_ramp_sandbox_listtrips": {
+            "ActionInput_ramp_listtrips": {
               "type": "object",
               "properties": {
                 "cursor": {
@@ -767346,7 +767142,7 @@
               "additionalProperties": false,
               "description": "Filters for listing business trips."
             },
-            "ActionOutput_ramp_sandbox_listtrips": {
+            "ActionOutput_ramp_listtrips": {
               "type": "object",
               "properties": {
                 "trips": {
@@ -767546,22 +767342,22 @@
         "type": "action",
         "description": "List employees/users on the business.",
         "endpoint": null,
-        "input": "ActionInput_ramp_sandbox_listusers",
+        "input": "ActionInput_ramp_listusers",
         "name": "list-users",
         "output": [
-          "ActionOutput_ramp_sandbox_listusers"
+          "ActionOutput_ramp_listusers"
         ],
         "scopes": [
           "users:read"
         ],
         "usedModels": [
-          "ActionInput_ramp_sandbox_listusers",
-          "ActionOutput_ramp_sandbox_listusers"
+          "ActionInput_ramp_listusers",
+          "ActionOutput_ramp_listusers"
         ],
         "version": "1.0.0",
         "json_schema": {
           "definitions": {
-            "ActionInput_ramp_sandbox_listusers": {
+            "ActionInput_ramp_listusers": {
               "type": "object",
               "properties": {
                 "cursor": {
@@ -767622,7 +767418,7 @@
               "additionalProperties": false,
               "description": "Filters and pagination for listing users on the business."
             },
-            "ActionOutput_ramp_sandbox_listusers": {
+            "ActionOutput_ramp_listusers": {
               "type": "object",
               "properties": {
                 "users": {
@@ -767840,22 +767636,22 @@
         "type": "action",
         "description": "List a vendor's bank accounts on file, used as payment destinations for bills.",
         "endpoint": null,
-        "input": "ActionInput_ramp_sandbox_listvendoraccounts",
+        "input": "ActionInput_ramp_listvendoraccounts",
         "name": "list-vendor-accounts",
         "output": [
-          "ActionOutput_ramp_sandbox_listvendoraccounts"
+          "ActionOutput_ramp_listvendoraccounts"
         ],
         "scopes": [
           "vendors:read"
         ],
         "usedModels": [
-          "ActionInput_ramp_sandbox_listvendoraccounts",
-          "ActionOutput_ramp_sandbox_listvendoraccounts"
+          "ActionInput_ramp_listvendoraccounts",
+          "ActionOutput_ramp_listvendoraccounts"
         ],
         "version": "1.0.0",
         "json_schema": {
           "definitions": {
-            "ActionInput_ramp_sandbox_listvendoraccounts": {
+            "ActionInput_ramp_listvendoraccounts": {
               "type": "object",
               "properties": {
                 "vendor_id": {
@@ -767881,7 +767677,7 @@
               "additionalProperties": false,
               "description": "Input for listing a vendor's on-file bank accounts."
             },
-            "ActionOutput_ramp_sandbox_listvendoraccounts": {
+            "ActionOutput_ramp_listvendoraccounts": {
               "type": "object",
               "properties": {
                 "items": {
@@ -767957,22 +767753,22 @@
         "type": "action",
         "description": "List contacts associated with a vendor.",
         "endpoint": null,
-        "input": "ActionInput_ramp_sandbox_listvendorcontacts",
+        "input": "ActionInput_ramp_listvendorcontacts",
         "name": "list-vendor-contacts",
         "output": [
-          "ActionOutput_ramp_sandbox_listvendorcontacts"
+          "ActionOutput_ramp_listvendorcontacts"
         ],
         "scopes": [
           "vendors:read"
         ],
         "usedModels": [
-          "ActionInput_ramp_sandbox_listvendorcontacts",
-          "ActionOutput_ramp_sandbox_listvendorcontacts"
+          "ActionInput_ramp_listvendorcontacts",
+          "ActionOutput_ramp_listvendorcontacts"
         ],
         "version": "1.0.0",
         "json_schema": {
           "definitions": {
-            "ActionInput_ramp_sandbox_listvendorcontacts": {
+            "ActionInput_ramp_listvendorcontacts": {
               "type": "object",
               "properties": {
                 "vendor_id": {
@@ -767998,7 +767794,7 @@
               "additionalProperties": false,
               "description": "Identifies the vendor and the page of contacts to retrieve."
             },
-            "ActionOutput_ramp_sandbox_listvendorcontacts": {
+            "ActionOutput_ramp_listvendorcontacts": {
               "type": "object",
               "properties": {
                 "contacts": {
@@ -768059,22 +767855,22 @@
         "type": "action",
         "description": "List credits issued by vendors (e.g. refunds/overpayments) applicable against future bills.",
         "endpoint": null,
-        "input": "ActionInput_ramp_sandbox_listvendorcredits",
+        "input": "ActionInput_ramp_listvendorcredits",
         "name": "list-vendor-credits",
         "output": [
-          "ActionOutput_ramp_sandbox_listvendorcredits"
+          "ActionOutput_ramp_listvendorcredits"
         ],
         "scopes": [
           "vendors:read"
         ],
         "usedModels": [
-          "ActionInput_ramp_sandbox_listvendorcredits",
-          "ActionOutput_ramp_sandbox_listvendorcredits"
+          "ActionInput_ramp_listvendorcredits",
+          "ActionOutput_ramp_listvendorcredits"
         ],
         "version": "1.0.0",
         "json_schema": {
           "definitions": {
-            "ActionInput_ramp_sandbox_listvendorcredits": {
+            "ActionInput_ramp_listvendorcredits": {
               "type": "object",
               "properties": {
                 "cursor": {
@@ -768120,7 +767916,7 @@
               "additionalProperties": false,
               "description": "Filters and pagination options for listing vendor credits."
             },
-            "ActionOutput_ramp_sandbox_listvendorcredits": {
+            "ActionOutput_ramp_listvendorcredits": {
               "type": "object",
               "properties": {
                 "items": {
@@ -768881,22 +768677,22 @@
         "type": "action",
         "description": "List vendors (payees for bills and purchase orders).",
         "endpoint": null,
-        "input": "ActionInput_ramp_sandbox_listvendors",
+        "input": "ActionInput_ramp_listvendors",
         "name": "list-vendors",
         "output": [
-          "ActionOutput_ramp_sandbox_listvendors"
+          "ActionOutput_ramp_listvendors"
         ],
         "scopes": [
           "vendors:read"
         ],
         "usedModels": [
-          "ActionInput_ramp_sandbox_listvendors",
-          "ActionOutput_ramp_sandbox_listvendors"
+          "ActionInput_ramp_listvendors",
+          "ActionOutput_ramp_listvendors"
         ],
         "version": "1.0.0",
         "json_schema": {
           "definitions": {
-            "ActionInput_ramp_sandbox_listvendors": {
+            "ActionInput_ramp_listvendors": {
               "type": "object",
               "properties": {
                 "name": {
@@ -768982,7 +768778,7 @@
               "additionalProperties": false,
               "description": "Filters and pagination for listing vendors."
             },
-            "ActionOutput_ramp_sandbox_listvendors": {
+            "ActionOutput_ramp_listvendors": {
               "type": "object",
               "properties": {
                 "vendors": {
@@ -769631,22 +769427,22 @@
         "type": "action",
         "description": "List virtual cards.",
         "endpoint": null,
-        "input": "ActionInput_ramp_sandbox_listvirtualcards",
+        "input": "ActionInput_ramp_listvirtualcards",
         "name": "list-virtual-cards",
         "output": [
-          "ActionOutput_ramp_sandbox_listvirtualcards"
+          "ActionOutput_ramp_listvirtualcards"
         ],
         "scopes": [
           "cards:read"
         ],
         "usedModels": [
-          "ActionInput_ramp_sandbox_listvirtualcards",
-          "ActionOutput_ramp_sandbox_listvirtualcards"
+          "ActionInput_ramp_listvirtualcards",
+          "ActionOutput_ramp_listvirtualcards"
         ],
         "version": "1.0.0",
         "json_schema": {
           "definitions": {
-            "ActionInput_ramp_sandbox_listvirtualcards": {
+            "ActionInput_ramp_listvirtualcards": {
               "type": "object",
               "properties": {
                 "cursor": {
@@ -769658,7 +769454,7 @@
               "additionalProperties": false,
               "description": "Input for listing Ramp virtual cards."
             },
-            "ActionOutput_ramp_sandbox_listvirtualcards": {
+            "ActionOutput_ramp_listvirtualcards": {
               "type": "object",
               "properties": {
                 "items": {
@@ -769722,23 +769518,23 @@
         "type": "action",
         "description": "Schedule, reschedule, deschedule, or immediately send a user's pending invite.",
         "endpoint": null,
-        "input": "ActionInput_ramp_sandbox_manageuserinvite",
+        "input": "ActionInput_ramp_manageuserinvite",
         "name": "manage-user-invite",
         "output": [
-          "ActionOutput_ramp_sandbox_manageuserinvite"
+          "ActionOutput_ramp_manageuserinvite"
         ],
         "scopes": [
           "users:read",
           "users:write"
         ],
         "usedModels": [
-          "ActionInput_ramp_sandbox_manageuserinvite",
-          "ActionOutput_ramp_sandbox_manageuserinvite"
+          "ActionInput_ramp_manageuserinvite",
+          "ActionOutput_ramp_manageuserinvite"
         ],
         "version": "1.0.0",
         "json_schema": {
           "definitions": {
-            "ActionInput_ramp_sandbox_manageuserinvite": {
+            "ActionInput_ramp_manageuserinvite": {
               "type": "object",
               "properties": {
                 "user_id": {
@@ -769766,7 +769562,7 @@
               "additionalProperties": false,
               "description": "Input for managing a Ramp user invite lifecycle."
             },
-            "ActionOutput_ramp_sandbox_manageuserinvite": {
+            "ActionOutput_ramp_manageuserinvite": {
               "type": "object",
               "properties": {
                 "user_id": {
@@ -769819,22 +769615,22 @@
         "type": "action",
         "description": "Reactivate a previously-deactivated user.",
         "endpoint": null,
-        "input": "ActionInput_ramp_sandbox_reactivateuser",
+        "input": "ActionInput_ramp_reactivateuser",
         "name": "reactivate-user",
         "output": [
-          "ActionOutput_ramp_sandbox_reactivateuser"
+          "ActionOutput_ramp_reactivateuser"
         ],
         "scopes": [
           "users:write"
         ],
         "usedModels": [
-          "ActionInput_ramp_sandbox_reactivateuser",
-          "ActionOutput_ramp_sandbox_reactivateuser"
+          "ActionInput_ramp_reactivateuser",
+          "ActionOutput_ramp_reactivateuser"
         ],
         "version": "1.0.0",
         "json_schema": {
           "definitions": {
-            "ActionInput_ramp_sandbox_reactivateuser": {
+            "ActionInput_ramp_reactivateuser": {
               "type": "object",
               "properties": {
                 "user_id": {
@@ -769848,7 +769644,7 @@
               "additionalProperties": false,
               "description": "Input for reactivating a previously-deactivated Ramp user."
             },
-            "ActionOutput_ramp_sandbox_reactivateuser": {
+            "ActionOutput_ramp_reactivateuser": {
               "type": "object",
               "properties": {
                 "success": {
@@ -769870,22 +769666,22 @@
         "type": "action",
         "description": "Remove a hold previously placed on a bill.",
         "endpoint": null,
-        "input": "ActionInput_ramp_sandbox_releasebill",
+        "input": "ActionInput_ramp_releasebill",
         "name": "release-bill",
         "output": [
-          "ActionOutput_ramp_sandbox_releasebill"
+          "ActionOutput_ramp_releasebill"
         ],
         "scopes": [
           "bills:write"
         ],
         "usedModels": [
-          "ActionInput_ramp_sandbox_releasebill",
-          "ActionOutput_ramp_sandbox_releasebill"
+          "ActionInput_ramp_releasebill",
+          "ActionOutput_ramp_releasebill"
         ],
         "version": "1.0.0",
         "json_schema": {
           "definitions": {
-            "ActionInput_ramp_sandbox_releasebill": {
+            "ActionInput_ramp_releasebill": {
               "type": "object",
               "properties": {
                 "bill_id": {
@@ -769899,7 +769695,7 @@
               "additionalProperties": false,
               "description": "Input identifying the Ramp bill whose hold should be released."
             },
-            "ActionOutput_ramp_sandbox_releasebill": {
+            "ActionOutput_ramp_releasebill": {
               "type": "object",
               "properties": {
                 "id": {
@@ -769994,22 +769790,22 @@
         "type": "action",
         "description": "Reverse a suspension on a physical card.",
         "endpoint": null,
-        "input": "ActionInput_ramp_sandbox_resumephysicalcard",
+        "input": "ActionInput_ramp_resumephysicalcard",
         "name": "resume-physical-card",
         "output": [
-          "ActionOutput_ramp_sandbox_resumephysicalcard"
+          "ActionOutput_ramp_resumephysicalcard"
         ],
         "scopes": [
           "cards:write"
         ],
         "usedModels": [
-          "ActionInput_ramp_sandbox_resumephysicalcard",
-          "ActionOutput_ramp_sandbox_resumephysicalcard"
+          "ActionInput_ramp_resumephysicalcard",
+          "ActionOutput_ramp_resumephysicalcard"
         ],
         "version": "1.0.0",
         "json_schema": {
           "definitions": {
-            "ActionInput_ramp_sandbox_resumephysicalcard": {
+            "ActionInput_ramp_resumephysicalcard": {
               "type": "object",
               "properties": {
                 "card_id": {
@@ -770023,7 +769819,7 @@
               "additionalProperties": false,
               "description": "Input for reversing a suspension on a physical card."
             },
-            "ActionOutput_ramp_sandbox_resumephysicalcard": {
+            "ActionOutput_ramp_resumephysicalcard": {
               "type": "object",
               "properties": {
                 "id": {
@@ -770253,22 +770049,22 @@
         "type": "action",
         "description": "Set or replace the memo text on a transaction.",
         "endpoint": null,
-        "input": "ActionInput_ramp_sandbox_settransactionmemo",
+        "input": "ActionInput_ramp_settransactionmemo",
         "name": "set-transaction-memo",
         "output": [
-          "ActionOutput_ramp_sandbox_settransactionmemo"
+          "ActionOutput_ramp_settransactionmemo"
         ],
         "scopes": [
           "memos:write"
         ],
         "usedModels": [
-          "ActionInput_ramp_sandbox_settransactionmemo",
-          "ActionOutput_ramp_sandbox_settransactionmemo"
+          "ActionInput_ramp_settransactionmemo",
+          "ActionOutput_ramp_settransactionmemo"
         ],
         "version": "1.0.0",
         "json_schema": {
           "definitions": {
-            "ActionInput_ramp_sandbox_settransactionmemo": {
+            "ActionInput_ramp_settransactionmemo": {
               "type": "object",
               "properties": {
                 "transaction_id": {
@@ -770292,7 +770088,7 @@
               "additionalProperties": false,
               "description": "Identifies the transaction and the memo text to set on it."
             },
-            "ActionOutput_ramp_sandbox_settransactionmemo": {
+            "ActionOutput_ramp_settransactionmemo": {
               "type": "object",
               "properties": {
                 "id": {
@@ -770326,22 +770122,22 @@
         "type": "action",
         "description": "Submit a previously-created draft bill into the normal approval/payment pipeline.",
         "endpoint": null,
-        "input": "ActionInput_ramp_sandbox_submitbilldraft",
+        "input": "ActionInput_ramp_submitbilldraft",
         "name": "submit-bill-draft",
         "output": [
-          "ActionOutput_ramp_sandbox_submitbilldraft"
+          "ActionOutput_ramp_submitbilldraft"
         ],
         "scopes": [
           "bills:write"
         ],
         "usedModels": [
-          "ActionInput_ramp_sandbox_submitbilldraft",
-          "ActionOutput_ramp_sandbox_submitbilldraft"
+          "ActionInput_ramp_submitbilldraft",
+          "ActionOutput_ramp_submitbilldraft"
         ],
         "version": "1.0.0",
         "json_schema": {
           "definitions": {
-            "ActionInput_ramp_sandbox_submitbilldraft": {
+            "ActionInput_ramp_submitbilldraft": {
               "type": "object",
               "properties": {
                 "draft_bill_id": {
@@ -770355,7 +770151,7 @@
               "additionalProperties": false,
               "description": "Input for submitting a draft bill into the approval/payment pipeline."
             },
-            "ActionOutput_ramp_sandbox_submitbilldraft": {
+            "ActionOutput_ramp_submitbilldraft": {
               "type": "object",
               "properties": {
                 "id": {
@@ -770496,22 +770292,22 @@
         "type": "action",
         "description": "Temporarily suspend a physical card, blocking new transactions until it is unsuspended.",
         "endpoint": null,
-        "input": "ActionInput_ramp_sandbox_suspendphysicalcard",
+        "input": "ActionInput_ramp_suspendphysicalcard",
         "name": "suspend-physical-card",
         "output": [
-          "ActionOutput_ramp_sandbox_suspendphysicalcard"
+          "ActionOutput_ramp_suspendphysicalcard"
         ],
         "scopes": [
           "cards:write"
         ],
         "usedModels": [
-          "ActionInput_ramp_sandbox_suspendphysicalcard",
-          "ActionOutput_ramp_sandbox_suspendphysicalcard"
+          "ActionInput_ramp_suspendphysicalcard",
+          "ActionOutput_ramp_suspendphysicalcard"
         ],
         "version": "1.0.0",
         "json_schema": {
           "definitions": {
-            "ActionInput_ramp_sandbox_suspendphysicalcard": {
+            "ActionInput_ramp_suspendphysicalcard": {
               "type": "object",
               "properties": {
                 "card_id": {
@@ -770525,7 +770321,7 @@
               "additionalProperties": false,
               "description": "Input for suspending a physical card."
             },
-            "ActionOutput_ramp_sandbox_suspendphysicalcard": {
+            "ActionOutput_ramp_suspendphysicalcard": {
               "type": "object",
               "properties": {
                 "id": {
@@ -770588,22 +770384,22 @@
         "type": "action",
         "description": "Permanently terminate a fund (spend limit), including any cards issued against it.",
         "endpoint": null,
-        "input": "ActionInput_ramp_sandbox_terminatefund",
+        "input": "ActionInput_ramp_terminatefund",
         "name": "terminate-fund",
         "output": [
-          "ActionOutput_ramp_sandbox_terminatefund"
+          "ActionOutput_ramp_terminatefund"
         ],
         "scopes": [
           "funds:write"
         ],
         "usedModels": [
-          "ActionInput_ramp_sandbox_terminatefund",
-          "ActionOutput_ramp_sandbox_terminatefund"
+          "ActionInput_ramp_terminatefund",
+          "ActionOutput_ramp_terminatefund"
         ],
         "version": "1.0.0",
         "json_schema": {
           "definitions": {
-            "ActionInput_ramp_sandbox_terminatefund": {
+            "ActionInput_ramp_terminatefund": {
               "type": "object",
               "properties": {
                 "fund_id": {
@@ -770617,7 +770413,7 @@
               "additionalProperties": false,
               "description": "Input identifying the fund to permanently terminate."
             },
-            "ActionOutput_ramp_sandbox_terminatefund": {
+            "ActionOutput_ramp_terminatefund": {
               "type": "object",
               "properties": {
                 "id": {
@@ -771052,22 +770848,22 @@
         "type": "action",
         "description": "Permanently terminate a physical card.",
         "endpoint": null,
-        "input": "ActionInput_ramp_sandbox_terminatephysicalcard",
+        "input": "ActionInput_ramp_terminatephysicalcard",
         "name": "terminate-physical-card",
         "output": [
-          "ActionOutput_ramp_sandbox_terminatephysicalcard"
+          "ActionOutput_ramp_terminatephysicalcard"
         ],
         "scopes": [
           "cards:write"
         ],
         "usedModels": [
-          "ActionInput_ramp_sandbox_terminatephysicalcard",
-          "ActionOutput_ramp_sandbox_terminatephysicalcard"
+          "ActionInput_ramp_terminatephysicalcard",
+          "ActionOutput_ramp_terminatephysicalcard"
         ],
         "version": "1.0.0",
         "json_schema": {
           "definitions": {
-            "ActionInput_ramp_sandbox_terminatephysicalcard": {
+            "ActionInput_ramp_terminatephysicalcard": {
               "type": "object",
               "properties": {
                 "card_id": {
@@ -771081,7 +770877,7 @@
               "additionalProperties": false,
               "description": "Identifies the physical card to terminate."
             },
-            "ActionOutput_ramp_sandbox_terminatephysicalcard": {
+            "ActionOutput_ramp_terminatephysicalcard": {
               "type": "object",
               "properties": {
                 "card_id": {
@@ -771141,22 +770937,22 @@
         "type": "action",
         "description": "Rename a department.",
         "endpoint": null,
-        "input": "ActionInput_ramp_sandbox_updatedepartment",
+        "input": "ActionInput_ramp_updatedepartment",
         "name": "update-department",
         "output": [
-          "ActionOutput_ramp_sandbox_updatedepartment"
+          "ActionOutput_ramp_updatedepartment"
         ],
         "scopes": [
           "departments:write"
         ],
         "usedModels": [
-          "ActionInput_ramp_sandbox_updatedepartment",
-          "ActionOutput_ramp_sandbox_updatedepartment"
+          "ActionInput_ramp_updatedepartment",
+          "ActionOutput_ramp_updatedepartment"
         ],
         "version": "1.0.0",
         "json_schema": {
           "definitions": {
-            "ActionInput_ramp_sandbox_updatedepartment": {
+            "ActionInput_ramp_updatedepartment": {
               "type": "object",
               "properties": {
                 "department_id": {
@@ -771175,7 +770971,7 @@
               "additionalProperties": false,
               "description": "Input for renaming an existing department."
             },
-            "ActionOutput_ramp_sandbox_updatedepartment": {
+            "ActionOutput_ramp_updatedepartment": {
               "type": "object",
               "properties": {
                 "id": {
@@ -771202,22 +770998,22 @@
         "type": "action",
         "description": "Update a fund.",
         "endpoint": null,
-        "input": "ActionInput_ramp_sandbox_updatefund",
+        "input": "ActionInput_ramp_updatefund",
         "name": "update-fund",
         "output": [
-          "ActionOutput_ramp_sandbox_updatefund"
+          "ActionOutput_ramp_updatefund"
         ],
         "scopes": [
           "funds:write"
         ],
         "usedModels": [
-          "ActionInput_ramp_sandbox_updatefund",
-          "ActionOutput_ramp_sandbox_updatefund"
+          "ActionInput_ramp_updatefund",
+          "ActionOutput_ramp_updatefund"
         ],
         "version": "1.0.0",
         "json_schema": {
           "definitions": {
-            "ActionInput_ramp_sandbox_updatefund": {
+            "ActionInput_ramp_updatefund": {
               "type": "object",
               "properties": {
                 "fund_id": {
@@ -771400,7 +771196,7 @@
               "additionalProperties": false,
               "description": "Parameters for updating a Ramp fund."
             },
-            "ActionOutput_ramp_sandbox_updatefund": {
+            "ActionOutput_ramp_updatefund": {
               "type": "object",
               "properties": {
                 "id": {
@@ -771835,22 +771631,22 @@
         "type": "action",
         "description": "Rename a location or reassign it to a different entity.",
         "endpoint": null,
-        "input": "ActionInput_ramp_sandbox_updatelocation",
+        "input": "ActionInput_ramp_updatelocation",
         "name": "update-location",
         "output": [
-          "ActionOutput_ramp_sandbox_updatelocation"
+          "ActionOutput_ramp_updatelocation"
         ],
         "scopes": [
           "locations:write"
         ],
         "usedModels": [
-          "ActionInput_ramp_sandbox_updatelocation",
-          "ActionOutput_ramp_sandbox_updatelocation"
+          "ActionInput_ramp_updatelocation",
+          "ActionOutput_ramp_updatelocation"
         ],
         "version": "1.0.0",
         "json_schema": {
           "definitions": {
-            "ActionInput_ramp_sandbox_updatelocation": {
+            "ActionInput_ramp_updatelocation": {
               "type": "object",
               "properties": {
                 "location_id": {
@@ -771873,7 +771669,7 @@
               "additionalProperties": false,
               "description": "Input for updating an existing Ramp location."
             },
-            "ActionOutput_ramp_sandbox_updatelocation": {
+            "ActionOutput_ramp_updatelocation": {
               "type": "object",
               "properties": {
                 "id": {
@@ -771905,22 +771701,22 @@
         "type": "action",
         "description": "Update the display name, fund assignment, or automatic-routing setting of a physical card.",
         "endpoint": null,
-        "input": "ActionInput_ramp_sandbox_updatephysicalcard",
+        "input": "ActionInput_ramp_updatephysicalcard",
         "name": "update-physical-card",
         "output": [
-          "ActionOutput_ramp_sandbox_updatephysicalcard"
+          "ActionOutput_ramp_updatephysicalcard"
         ],
         "scopes": [
           "cards:write"
         ],
         "usedModels": [
-          "ActionInput_ramp_sandbox_updatephysicalcard",
-          "ActionOutput_ramp_sandbox_updatephysicalcard"
+          "ActionInput_ramp_updatephysicalcard",
+          "ActionOutput_ramp_updatephysicalcard"
         ],
         "version": "1.0.0",
         "json_schema": {
           "definitions": {
-            "ActionInput_ramp_sandbox_updatephysicalcard": {
+            "ActionInput_ramp_updatephysicalcard": {
               "type": "object",
               "properties": {
                 "card_id": {
@@ -771953,7 +771749,7 @@
               "additionalProperties": false,
               "description": "The physical card to update and the settings to change. Provide at least one of display_name, fund_id, or automatic_routing_enabled."
             },
-            "ActionOutput_ramp_sandbox_updatephysicalcard": {
+            "ActionOutput_ramp_updatephysicalcard": {
               "type": "object",
               "properties": {
                 "id": {
@@ -772033,22 +771829,22 @@
         "type": "action",
         "description": "Set or replace the accounting line-item split (amount, memo, and accounting field selections) on a transaction.",
         "endpoint": null,
-        "input": "ActionInput_ramp_sandbox_updatetransactionlineitems",
+        "input": "ActionInput_ramp_updatetransactionlineitems",
         "name": "update-transaction-line-items",
         "output": [
-          "ActionOutput_ramp_sandbox_updatetransactionlineitems"
+          "ActionOutput_ramp_updatetransactionlineitems"
         ],
         "scopes": [
           "transactions:write"
         ],
         "usedModels": [
-          "ActionInput_ramp_sandbox_updatetransactionlineitems",
-          "ActionOutput_ramp_sandbox_updatetransactionlineitems"
+          "ActionInput_ramp_updatetransactionlineitems",
+          "ActionOutput_ramp_updatetransactionlineitems"
         ],
         "version": "1.0.0",
         "json_schema": {
           "definitions": {
-            "ActionInput_ramp_sandbox_updatetransactionlineitems": {
+            "ActionInput_ramp_updatetransactionlineitems": {
               "type": "object",
               "properties": {
                 "transaction_id": {
@@ -772124,7 +771920,7 @@
               "additionalProperties": false,
               "description": "Input for setting, replacing, or removing the line-item split of a transaction."
             },
-            "ActionOutput_ramp_sandbox_updatetransactionlineitems": {
+            "ActionOutput_ramp_updatetransactionlineitems": {
               "type": "object",
               "properties": {
                 "id": {
@@ -772358,23 +772154,23 @@
         "type": "action",
         "description": "Update a user's name, department, location, manager, or role.",
         "endpoint": null,
-        "input": "ActionInput_ramp_sandbox_updateuser",
+        "input": "ActionInput_ramp_updateuser",
         "name": "update-user",
         "output": [
-          "ActionOutput_ramp_sandbox_updateuser"
+          "ActionOutput_ramp_updateuser"
         ],
         "scopes": [
           "users:write",
           "users:read"
         ],
         "usedModels": [
-          "ActionInput_ramp_sandbox_updateuser",
-          "ActionOutput_ramp_sandbox_updateuser"
+          "ActionInput_ramp_updateuser",
+          "ActionOutput_ramp_updateuser"
         ],
         "version": "1.0.0",
         "json_schema": {
           "definitions": {
-            "ActionInput_ramp_sandbox_updateuser": {
+            "ActionInput_ramp_updateuser": {
               "type": "object",
               "properties": {
                 "user_id": {
@@ -772446,7 +772242,7 @@
               "additionalProperties": false,
               "description": "Fields to update on a Ramp user. Only the provided fields are changed."
             },
-            "ActionOutput_ramp_sandbox_updateuser": {
+            "ActionOutput_ramp_updateuser": {
               "type": "object",
               "properties": {
                 "id": {
@@ -772553,22 +772349,22 @@
         "type": "action",
         "description": "Update a vendor (name, address, payment terms, or active status) in Ramp.",
         "endpoint": null,
-        "input": "ActionInput_ramp_sandbox_updatevendor",
+        "input": "ActionInput_ramp_updatevendor",
         "name": "update-vendor",
         "output": [
-          "ActionOutput_ramp_sandbox_updatevendor"
+          "ActionOutput_ramp_updatevendor"
         ],
         "scopes": [
           "vendors:write"
         ],
         "usedModels": [
-          "ActionInput_ramp_sandbox_updatevendor",
-          "ActionOutput_ramp_sandbox_updatevendor"
+          "ActionInput_ramp_updatevendor",
+          "ActionOutput_ramp_updatevendor"
         ],
         "version": "1.0.0",
         "json_schema": {
           "definitions": {
-            "ActionInput_ramp_sandbox_updatevendor": {
+            "ActionInput_ramp_updatevendor": {
               "type": "object",
               "properties": {
                 "vendor_id": {
@@ -772702,7 +772498,7 @@
               "additionalProperties": false,
               "description": "Fields to update on an existing Ramp vendor; any omitted field is left unchanged."
             },
-            "ActionOutput_ramp_sandbox_updatevendor": {
+            "ActionOutput_ramp_updatevendor": {
               "type": "object",
               "properties": {
                 "id": {
@@ -772871,6 +772667,135 @@
       }
     ],
     "syncs": [
+      {
+        "type": "sync",
+        "description": "Sync employees/users, including suspended users.",
+        "auto_start": true,
+        "endpoints": [],
+        "input": null,
+        "name": "users",
+        "output": [
+          "User"
+        ],
+        "runs": "every hour",
+        "scopes": [
+          "users:read"
+        ],
+        "sync_type": "full",
+        "track_deletes": false,
+        "usedModels": [
+          "User"
+        ],
+        "version": "2.1.0",
+        "webhookSubscriptions": [],
+        "json_schema": {
+          "definitions": {
+            "User": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "description": "Unique identifier of the user (UUID)."
+                },
+                "first_name": {
+                  "description": "First name of the user, when Ramp reports it.",
+                  "type": "string"
+                },
+                "last_name": {
+                  "description": "Last name of the user, when Ramp reports it.",
+                  "type": "string"
+                },
+                "email": {
+                  "description": "Email address of the user, when Ramp reports it.",
+                  "type": "string"
+                },
+                "employee_id": {
+                  "description": "External employee identifier from an HR or ERP system, when present.",
+                  "type": "string"
+                },
+                "role": {
+                  "description": "Role of the user, when Ramp reports it, e.g. BUSINESS_USER, BUSINESS_ADMIN, BUSINESS_BOOKKEEPER, BUSINESS_OWNER, GUEST_USER, AUDITOR or IT_ADMIN.",
+                  "type": "string"
+                },
+                "status": {
+                  "type": "string",
+                  "description": "Lifecycle status of the user, e.g. USER_ACTIVE, USER_DRAFT, USER_INACTIVE, USER_SUSPENDED, INVITE_PENDING, INVITE_EXPIRED or USER_ONBOARDING."
+                },
+                "is_manager": {
+                  "type": "boolean",
+                  "description": "Whether the user is a manager."
+                },
+                "business_id": {
+                  "description": "Unique identifier of the business the user belongs to.",
+                  "type": "string"
+                },
+                "entity_id": {
+                  "description": "Unique identifier of the business entity the user is associated with.",
+                  "type": "string"
+                },
+                "department_id": {
+                  "description": "Unique identifier of the department the user belongs to, when assigned.",
+                  "type": "string"
+                },
+                "location_id": {
+                  "description": "Unique identifier of the location assigned to the user, when assigned.",
+                  "type": "string"
+                },
+                "manager_id": {
+                  "description": "Unique identifier of the user manager, when assigned.",
+                  "type": "string"
+                },
+                "phone": {
+                  "description": "Phone number of the user, when set.",
+                  "type": "string"
+                },
+                "scheduled_deactivation_date": {
+                  "description": "ISO 8601 date when the user is scheduled to be deactivated, when scheduled.",
+                  "type": "string"
+                },
+                "scheduled_invitation_date": {
+                  "description": "ISO 8601 date when a draft user is scheduled to be invited to Ramp, when scheduled.",
+                  "type": "string"
+                },
+                "custom_fields": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "type": "string",
+                        "description": "Name of the custom field."
+                      },
+                      "value": {
+                        "type": "string",
+                        "description": "Value of the custom field."
+                      }
+                    },
+                    "required": [
+                      "name",
+                      "value"
+                    ],
+                    "additionalProperties": false,
+                    "description": "A custom field name/value pair defined for the user."
+                  },
+                  "description": "Custom fields defined for the user."
+                }
+              },
+              "required": [
+                "id",
+                "status",
+                "is_manager",
+                "custom_fields"
+              ],
+              "additionalProperties": false,
+              "description": "A Ramp user (employee) record."
+            }
+          }
+        },
+        "features": [
+          "checkpoints"
+        ]
+      },
       {
         "type": "sync",
         "description": "Sync externally-linked bank accounts used as Bill Pay funding sources and vendor payment destinations.",
@@ -773917,7 +773842,7 @@
         "usedModels": [
           "Card"
         ],
-        "version": "1.0.0",
+        "version": "1.1.0",
         "webhookSubscriptions": [],
         "json_schema": {
           "definitions": {
@@ -775965,135 +775890,6 @@
               ],
               "additionalProperties": false,
               "description": "A single Ramp card transaction from the general ledger, including declined transactions."
-            }
-          }
-        },
-        "features": [
-          "checkpoints"
-        ]
-      },
-      {
-        "type": "sync",
-        "description": "Sync employees/users.",
-        "auto_start": true,
-        "endpoints": [],
-        "input": null,
-        "name": "users",
-        "output": [
-          "User"
-        ],
-        "runs": "every hour",
-        "scopes": [
-          "users:read"
-        ],
-        "sync_type": "full",
-        "track_deletes": false,
-        "usedModels": [
-          "User"
-        ],
-        "version": "2.0.0",
-        "webhookSubscriptions": [],
-        "json_schema": {
-          "definitions": {
-            "User": {
-              "type": "object",
-              "properties": {
-                "id": {
-                  "type": "string",
-                  "description": "Unique identifier of the user (UUID)."
-                },
-                "first_name": {
-                  "description": "First name of the user, when Ramp reports it.",
-                  "type": "string"
-                },
-                "last_name": {
-                  "description": "Last name of the user, when Ramp reports it.",
-                  "type": "string"
-                },
-                "email": {
-                  "description": "Email address of the user, when Ramp reports it.",
-                  "type": "string"
-                },
-                "employee_id": {
-                  "description": "External employee identifier from an HR or ERP system, when present.",
-                  "type": "string"
-                },
-                "role": {
-                  "description": "Role of the user, when Ramp reports it, e.g. BUSINESS_USER, BUSINESS_ADMIN, BUSINESS_BOOKKEEPER, BUSINESS_OWNER, GUEST_USER, AUDITOR or IT_ADMIN.",
-                  "type": "string"
-                },
-                "status": {
-                  "type": "string",
-                  "description": "Lifecycle status of the user, e.g. USER_ACTIVE, USER_DRAFT, USER_INACTIVE, USER_SUSPENDED, INVITE_PENDING, INVITE_EXPIRED or USER_ONBOARDING."
-                },
-                "is_manager": {
-                  "type": "boolean",
-                  "description": "Whether the user is a manager."
-                },
-                "business_id": {
-                  "description": "Unique identifier of the business the user belongs to.",
-                  "type": "string"
-                },
-                "entity_id": {
-                  "description": "Unique identifier of the business entity the user is associated with.",
-                  "type": "string"
-                },
-                "department_id": {
-                  "description": "Unique identifier of the department the user belongs to, when assigned.",
-                  "type": "string"
-                },
-                "location_id": {
-                  "description": "Unique identifier of the location assigned to the user, when assigned.",
-                  "type": "string"
-                },
-                "manager_id": {
-                  "description": "Unique identifier of the user manager, when assigned.",
-                  "type": "string"
-                },
-                "phone": {
-                  "description": "Phone number of the user, when set.",
-                  "type": "string"
-                },
-                "scheduled_deactivation_date": {
-                  "description": "ISO 8601 date when the user is scheduled to be deactivated, when scheduled.",
-                  "type": "string"
-                },
-                "scheduled_invitation_date": {
-                  "description": "ISO 8601 date when a draft user is scheduled to be invited to Ramp, when scheduled.",
-                  "type": "string"
-                },
-                "custom_fields": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "name": {
-                        "type": "string",
-                        "description": "Name of the custom field."
-                      },
-                      "value": {
-                        "type": "string",
-                        "description": "Value of the custom field."
-                      }
-                    },
-                    "required": [
-                      "name",
-                      "value"
-                    ],
-                    "additionalProperties": false,
-                    "description": "A custom field name/value pair defined for the user."
-                  },
-                  "description": "Custom fields defined for the user."
-                }
-              },
-              "required": [
-                "id",
-                "status",
-                "is_manager",
-                "custom_fields"
-              ],
-              "additionalProperties": false,
-              "description": "A Ramp user (employee) record."
             }
           }
         },
