@@ -1,14 +1,15 @@
 import { createSync, type ProxyConfiguration } from 'nango';
 import { z } from 'zod';
 
-// Raw provider schema (https://docs.ramp.com/openapi/developer-api.json, component User): spec-nullable fields are .nullable().
+// Raw provider schema (https://docs.ramp.com/openapi/developer-api.json, component User): spec-nullable fields are .nullable(),
+// and fields outside the spec's required list (first_name, last_name, email, role) are .optional().
 const ProviderUserSchema = z.object({
     id: z.string(),
-    first_name: z.string(),
-    last_name: z.string(),
-    email: z.string(),
+    first_name: z.string().optional(),
+    last_name: z.string().optional(),
+    email: z.string().optional(),
     employee_id: z.string().nullable(),
-    role: z.string(),
+    role: z.string().optional(),
     status: z.string(),
     is_manager: z.boolean(),
     business_id: z.string().nullable(),
@@ -30,13 +31,14 @@ const ProviderUserSchema = z.object({
 const UserSchema = z
     .object({
         id: z.string().describe('Unique identifier of the user (UUID).'),
-        first_name: z.string().describe('First name of the user.'),
-        last_name: z.string().describe('Last name of the user.'),
-        email: z.string().describe('Email address of the user.'),
+        first_name: z.string().optional().describe('First name of the user, when Ramp reports it.'),
+        last_name: z.string().optional().describe('Last name of the user, when Ramp reports it.'),
+        email: z.string().optional().describe('Email address of the user, when Ramp reports it.'),
         employee_id: z.string().optional().describe('External employee identifier from an HR or ERP system, when present.'),
         role: z
             .string()
-            .describe('Role of the user, e.g. BUSINESS_USER, BUSINESS_ADMIN, BUSINESS_BOOKKEEPER, BUSINESS_OWNER, GUEST_USER, AUDITOR or IT_ADMIN.'),
+            .optional()
+            .describe('Role of the user, when Ramp reports it, e.g. BUSINESS_USER, BUSINESS_ADMIN, BUSINESS_BOOKKEEPER, BUSINESS_OWNER, GUEST_USER, AUDITOR or IT_ADMIN.'),
         status: z
             .string()
             .describe(
@@ -67,10 +69,10 @@ const UserSchema = z
 function toUser(user: z.infer<typeof ProviderUserSchema>): z.infer<typeof UserSchema> {
     return {
         id: user.id,
-        first_name: user.first_name,
-        last_name: user.last_name,
-        email: user.email,
-        role: user.role,
+        ...(user.first_name !== undefined && { first_name: user.first_name }),
+        ...(user.last_name !== undefined && { last_name: user.last_name }),
+        ...(user.email !== undefined && { email: user.email }),
+        ...(user.role !== undefined && { role: user.role }),
         status: user.status,
         is_manager: user.is_manager,
         custom_fields: user.custom_fields,
@@ -92,7 +94,7 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync employees/users.',
-    version: '1.0.0',
+    version: '2.0.0',
     frequency: 'every hour',
     autoStart: true,
     scopes: ['users:read'],

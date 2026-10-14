@@ -4,9 +4,9 @@ import { createAction, ProxyConfiguration } from 'nango';
 const UserSchema = z.object({
     id: z.string().describe('Unique identifier of the user. Example: "bde8334e-042e-4f39-9a5d-355ae17342e6"'),
     business_id: z.string().nullable().describe('Unique identifier of the business the user belongs to.'),
-    first_name: z.string().describe('First name of the employee.'),
-    last_name: z.string().describe('Last name of the employee.'),
-    email: z.string().describe('Email address of the employee.'),
+    first_name: z.string().optional().describe('First name of the employee, when Ramp reports it.'),
+    last_name: z.string().optional().describe('Last name of the employee, when Ramp reports it.'),
+    email: z.string().optional().describe('Email address of the employee, when Ramp reports it.'),
     role: z
         .enum([
             'AUDITOR',
@@ -21,7 +21,8 @@ const UserSchema = z.object({
             'UNBUNDLED_OWNER',
             'UNBUNDLED_USER'
         ])
-        .describe('Role of the employee within the business.'),
+        .optional()
+        .describe('Role of the employee within the business, when Ramp reports it.'),
     status: z
         .enum(['INVITE_EXPIRED', 'INVITE_PENDING', 'USER_ACTIVE', 'USER_DRAFT', 'USER_INACTIVE', 'USER_ONBOARDING', 'USER_SUSPENDED'])
         .describe('Current status of the user account.'),

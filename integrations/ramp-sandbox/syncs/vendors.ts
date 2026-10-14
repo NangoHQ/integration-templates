@@ -49,7 +49,7 @@ const PaymentMethodPolicySchema = z
 
 const DefaultPaymentMethodSchema = z
     .object({
-        update_source: z.enum(['AUTO', 'MANUAL']).nullable().optional().describe('How the default payment method was last set: AUTO or MANUAL.'),
+        update_source: z.string().nullable().optional().describe('How the default payment method was last set, e.g. AUTO or MANUAL.'),
         policy: PaymentMethodPolicySchema.nullable().optional().describe('Payment policy details for the default payment method.')
     })
     .describe('The default payment method configured for a vendor.');
@@ -68,7 +68,7 @@ const VendorSchema = z
         external_vendor_id: z.string().nullable().optional().describe('Customer-defined external identifier for the vendor.'),
         country: z.string().describe('Two-letter ISO 3166-1 country code of the vendor.'),
         state: z.string().nullable().optional().describe('State or province of the vendor, when present.'),
-        vendor_type: z.enum(['BUSINESS', 'INDIVIDUAL']).nullable().optional().describe('Vendor type when the vendor is used for Bill Pay.'),
+        vendor_type: z.string().nullable().optional().describe('Vendor type when the vendor is used for Bill Pay, e.g. BUSINESS or INDIVIDUAL.'),
         status: z.string().nullable().optional().describe('Lifecycle status reported by Ramp, for example ACTIVE or UNMANAGED.'),
         is_active: z.boolean().describe('Whether the vendor is active.'),
         is_deletable: z.boolean().describe('Whether the vendor can be deleted.'),
@@ -103,7 +103,8 @@ const CheckpointSchema = z
             .describe('High-water mark ISO 8601 timestamp of the most recently completed scan; empty string when no completed scan exists.'),
         start: z.string().describe('Ramp pagination cursor (last entity id) for an interrupted scan; empty string when no scan is in progress.'),
         full_refresh_in_progress: z.boolean().describe('Whether the in-flight scan is a delete-tracked full refresh rather than an incremental scan.'),
-        last_full_refresh_at: z.string().describe('ISO 8601 timestamp of the last completed full refresh; empty string when no full refresh has completed.')
+        last_full_refresh_at: z.string().describe('ISO 8601 timestamp of the last completed full refresh; empty string when no full refresh has completed.'),
+        delete_tracking_pending: z.boolean().describe('True when a full refresh saved every vendor but its delete-tracking window has not been closed yet.')
     })
     .describe('Incremental sync progress for vendors.');
 
@@ -120,6 +121,11 @@ const sync = createSync({
 
     exec: async (nango) => {
         const checkpoint = await nango.getCheckpoint();
+
+        // A previous full refresh saved every vendor but failed before closing its delete-tracking window.
+        // This run closes it at the end; that is safe because every vendor that still existed was saved inside
+        // that window, and a full refresh started now reuses the still-open window.
+        const pendingFromPreviousRun = checkpoint?.delete_tracking_pending === true;
 
         const highWater = checkpoint?.updated_after || undefined;
         const lastFullRefreshAt = checkpoint?.last_full_refresh_at || undefined;
@@ -193,22 +199,27 @@ const sync = createSync({
                     updated_after: highWater ?? '',
                     start,
                     full_refresh_in_progress: fullRefresh,
-                    last_full_refresh_at: lastFullRefreshAt ?? ''
+                    last_full_refresh_at: lastFullRefreshAt ?? '',
+                    delete_tracking_pending: pendingFromPreviousRun
                 });
             }
         }
 
         // Persist the completed scan before closing the delete-tracking window, so a failure in between
-        // can never make a later run resume a half-finished walk under a fresh window.
-        await nango.saveCheckpoint({
+        // can never make a later run resume a half-finished walk under a fresh window. The pending flag
+        // makes the next run close the window if trackDeletesEnd fails here.
+        const completed = {
             updated_after: maxUpdatedAtMs !== undefined ? new Date(maxUpdatedAtMs).toISOString() : '',
             start: '',
             full_refresh_in_progress: false,
             last_full_refresh_at: fullRefresh ? new Date().toISOString() : (lastFullRefreshAt ?? '')
-        });
+        };
+        const closeDeleteTracking = fullRefresh || pendingFromPreviousRun;
+        await nango.saveCheckpoint({ ...completed, delete_tracking_pending: closeDeleteTracking });
 
-        if (fullRefresh) {
+        if (closeDeleteTracking) {
             await nango.trackDeletesEnd('Vendor');
+            await nango.saveCheckpoint({ ...completed, delete_tracking_pending: false });
         }
     }
 });

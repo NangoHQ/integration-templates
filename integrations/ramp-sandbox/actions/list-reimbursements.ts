@@ -27,13 +27,7 @@ const ReimbursementStateSchema = z.enum([
     'REJECTED'
 ]);
 
-const ReimbursementTypeSchema = z.enum(['MILEAGE', 'OUT_OF_POCKET', 'PAYBACK_FULL', 'PAYBACK_PARTIAL', 'PER_DIEM']);
-
 const ReimbursementDirectionSchema = z.enum(['BUSINESS_TO_USER', 'USER_TO_BUSINESS']);
-
-const SyncStatusSchema = z.enum(['NOT_SYNC_READY', 'SYNCED', 'SYNC_READY']);
-
-const FundingSourceSchema = z.enum(['NOT_RAMP_FUNDED', 'PAID_OUTSIDE_RAMP', 'PENDING', 'RAMP_FUNDED']);
 
 // Provider schemas mirror the Ramp Reimbursement object: spec-nullable fields are .nullable(); fields that are not in the
 // published required list (legacy amounts, trace_id, expense_group, ...) can be absent or null, so they use .nullish().
@@ -70,11 +64,11 @@ const ProviderAccountingFieldSelectionSchema = z.object({
 
 const ProviderReimbursementSchema = z.object({
     id: z.string(),
-    state: ReimbursementStateSchema,
-    type: ReimbursementTypeSchema,
-    direction: ReimbursementDirectionSchema,
-    sync_status: SyncStatusSchema,
-    funding_source: FundingSourceSchema.nullish(),
+    state: z.string(),
+    type: z.string(),
+    direction: z.string(),
+    sync_status: z.string(),
+    funding_source: z.string().nullish(),
     user_id: z.string(),
     user_email: z.string(),
     user_full_name: z.string(),
@@ -196,11 +190,11 @@ const ExpenseGroupSchema = z.object({
 
 const ReimbursementSchema = z.object({
     id: z.string().describe('Unique identifier of the reimbursement. Example: "e29e1b3b-5563-4ecf-b655-320f8ac04a12"'),
-    state: ReimbursementStateSchema.describe('Current state of the reimbursement.'),
-    type: ReimbursementTypeSchema.describe('Type of the reimbursement.'),
-    direction: ReimbursementDirectionSchema.describe('Direction of the reimbursement.'),
-    sync_status: SyncStatusSchema.describe('Accounting sync status of the reimbursement.'),
-    funding_source: FundingSourceSchema.optional().describe('Funding classification for the reimbursement. Omitted when Ramp cannot determine it.'),
+    state: z.string().describe('Current state of the reimbursement (e.g. PENDING, APPROVED, REIMBURSED, CANCELED, DELETED). Kept as a string so new Ramp states do not fail parsing.'),
+    type: z.string().describe('Type of the reimbursement (e.g. OUT_OF_POCKET, MILEAGE, PER_DIEM, PAYBACK_FULL, PAYBACK_PARTIAL).'),
+    direction: z.string().describe('Direction of the reimbursement: BUSINESS_TO_USER, or USER_TO_BUSINESS for repayments.'),
+    sync_status: z.string().describe('Accounting sync status of the reimbursement (e.g. NOT_SYNC_READY, SYNC_READY, SYNCED).'),
+    funding_source: z.string().optional().describe('Funding classification (e.g. RAMP_FUNDED, NOT_RAMP_FUNDED, PAID_OUTSIDE_RAMP, PENDING). Omitted when Ramp cannot determine it.'),
     user_id: z.string().describe('Unique identifier of the person who submitted the reimbursement.'),
     user_email: z.string().describe('Email of the person who submitted the reimbursement.'),
     user_full_name: z.string().describe('Full name of the person who submitted the reimbursement.'),

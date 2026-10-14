@@ -82,14 +82,14 @@ const AttendeeSchema = z.object({
 });
 
 const DisputeSchema = z.object({
-    id: z.string().describe('Unique identifier of the transaction dispute.'),
+    id: z.string().optional().describe('Unique identifier of the transaction dispute, when Ramp reports one.'),
     type: z.string().optional().describe('Dispute type. Example: "CREATED_MERCHANT_ERROR"'),
     memo: z.string().optional().describe('Free-form text regarding the dispute.'),
     created_at: z.string().optional().describe('Time the dispute was created, in ISO 8601 format.')
 });
 
 const PolicyViolationSchema = z.object({
-    id: z.string().describe('Unique identifier of the policy violation.'),
+    id: z.string().optional().describe('Unique identifier of the policy violation, when Ramp reports one.'),
     type: z.string().optional().describe('Type of the policy violation.'),
     memo: z.string().optional().describe('Free-form text regarding the policy violation.'),
     created_at: z.string().optional().describe('Time the policy violation was created, in ISO 8601 format.')
@@ -279,7 +279,7 @@ const ProviderTransactionSchema = z.object({
     disputes: z
         .array(
             z.object({
-                id: z.string(),
+                id: z.string().nullable().optional(),
                 type: z.string().nullable().optional(),
                 memo: z.string().nullable().optional(),
                 created_at: z.string().nullable().optional()
@@ -290,7 +290,7 @@ const ProviderTransactionSchema = z.object({
     policy_violations: z
         .array(
             z.object({
-                id: z.string(),
+                id: z.string().nullable().optional(),
                 type: z.string().nullable().optional(),
                 memo: z.string().nullable().optional(),
                 created_at: z.string().nullable().optional()
@@ -444,7 +444,7 @@ function mapTransaction(t: ProviderTransaction): Output {
         ...(t.accounting_field_selections != null && { accounting_field_selections: t.accounting_field_selections.map(mapAccountingFieldSelection) }),
         ...(t.disputes != null && {
             disputes: t.disputes.map((dispute) => ({
-                id: dispute.id,
+                ...(dispute.id != null && { id: dispute.id }),
                 ...(dispute.type != null && { type: dispute.type }),
                 ...(dispute.memo != null && { memo: dispute.memo }),
                 ...(dispute.created_at != null && { created_at: dispute.created_at })
@@ -452,7 +452,7 @@ function mapTransaction(t: ProviderTransaction): Output {
         }),
         ...(t.policy_violations != null && {
             policy_violations: t.policy_violations.map((violation) => ({
-                id: violation.id,
+                ...(violation.id != null && { id: violation.id }),
                 ...(violation.type != null && { type: violation.type }),
                 ...(violation.memo != null && { memo: violation.memo }),
                 ...(violation.created_at != null && { created_at: violation.created_at })

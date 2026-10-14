@@ -752902,70 +752902,23 @@
                 },
                 "state": {
                   "type": "string",
-                  "enum": [
-                    "APPROVED",
-                    "AWAITING_EXPORT",
-                    "AWAITING_PAYMENT",
-                    "AWAITING_PUSH_PAYMENT",
-                    "CANCELED",
-                    "DELETED",
-                    "DRAFT",
-                    "EXPORTED",
-                    "EXPORT_FAILED",
-                    "EXPORT_INITIATED",
-                    "EXPORT_MARKED_AS_FAILED",
-                    "EXPORT_SUCCESSFUL",
-                    "FAILED_REIMBURSEMENT",
-                    "INIT",
-                    "MANUALLY_REIMBURSED",
-                    "MISSING_ACH",
-                    "PENDING",
-                    "PROCESSING",
-                    "PUSH_PAYMENT_FAILED",
-                    "PUSH_PAYMENT_INITIATED",
-                    "REIMBURSED",
-                    "REIMBURSED_VIA_PUSH",
-                    "REJECTED"
-                  ],
-                  "description": "Current state of the reimbursement."
+                  "description": "Current state of the reimbursement (e.g. PENDING, APPROVED, REIMBURSED, CANCELED, DELETED). Kept as a string so new Ramp states do not fail parsing."
                 },
                 "type": {
                   "type": "string",
-                  "enum": [
-                    "MILEAGE",
-                    "OUT_OF_POCKET",
-                    "PAYBACK_FULL",
-                    "PAYBACK_PARTIAL",
-                    "PER_DIEM"
-                  ],
-                  "description": "Type of the reimbursement."
+                  "description": "Type of the reimbursement (e.g. OUT_OF_POCKET, MILEAGE, PER_DIEM, PAYBACK_FULL, PAYBACK_PARTIAL)."
                 },
                 "direction": {
                   "type": "string",
-                  "enum": [
-                    "BUSINESS_TO_USER",
-                    "USER_TO_BUSINESS"
-                  ],
-                  "description": "Direction of the reimbursement."
+                  "description": "Direction of the reimbursement: BUSINESS_TO_USER, or USER_TO_BUSINESS for repayments."
                 },
                 "sync_status": {
                   "type": "string",
-                  "enum": [
-                    "NOT_SYNC_READY",
-                    "SYNCED",
-                    "SYNC_READY"
-                  ],
-                  "description": "Accounting sync status of the reimbursement."
+                  "description": "Accounting sync status of the reimbursement (e.g. NOT_SYNC_READY, SYNC_READY, SYNCED)."
                 },
                 "funding_source": {
-                  "description": "Funding classification for the reimbursement. Omitted when Ramp cannot determine it.",
-                  "type": "string",
-                  "enum": [
-                    "NOT_RAMP_FUNDED",
-                    "PAID_OUTSIDE_RAMP",
-                    "PENDING",
-                    "RAMP_FUNDED"
-                  ]
+                  "description": "Funding classification (e.g. RAMP_FUNDED, NOT_RAMP_FUNDED, PAID_OUTSIDE_RAMP, PENDING). Omitted when Ramp cannot determine it.",
+                  "type": "string"
                 },
                 "user_id": {
                   "type": "string",
@@ -756260,8 +756213,8 @@
                     "type": "object",
                     "properties": {
                       "id": {
-                        "type": "string",
-                        "description": "Unique identifier of the transaction dispute."
+                        "description": "Unique identifier of the transaction dispute, when Ramp reports one.",
+                        "type": "string"
                       },
                       "type": {
                         "description": "Dispute type. Example: \"CREATED_MERCHANT_ERROR\"",
@@ -756276,9 +756229,6 @@
                         "type": "string"
                       }
                     },
-                    "required": [
-                      "id"
-                    ],
                     "additionalProperties": false
                   }
                 },
@@ -756289,8 +756239,8 @@
                     "type": "object",
                     "properties": {
                       "id": {
-                        "type": "string",
-                        "description": "Unique identifier of the policy violation."
+                        "description": "Unique identifier of the policy violation, when Ramp reports one.",
+                        "type": "string"
                       },
                       "type": {
                         "description": "Type of the policy violation.",
@@ -756305,9 +756255,6 @@
                         "type": "string"
                       }
                     },
-                    "required": [
-                      "id"
-                    ],
                     "additionalProperties": false
                   }
                 },
@@ -757634,13 +757581,14 @@
                 },
                 "entity_ids": {
                   "minItems": 1,
+                  "maxItems": 100,
                   "type": "array",
                   "items": {
                     "type": "string",
                     "format": "uuid",
                     "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
                   },
-                  "description": "Unique identifiers of the resources under approval. All matching approval chains are returned. Example: [\"79e87b94-b823-46f4-aed4-d05d9fc33463\"]."
+                  "description": "Unique identifiers of the resources under approval, at most 100 per call (split larger sets across calls). All matching approval chains are returned. Example: [\"79e87b94-b823-46f4-aed4-d05d9fc33463\"]."
                 }
               },
               "required": [
@@ -763968,70 +763916,23 @@
                       },
                       "state": {
                         "type": "string",
-                        "enum": [
-                          "APPROVED",
-                          "AWAITING_EXPORT",
-                          "AWAITING_PAYMENT",
-                          "AWAITING_PUSH_PAYMENT",
-                          "CANCELED",
-                          "DELETED",
-                          "DRAFT",
-                          "EXPORTED",
-                          "EXPORT_FAILED",
-                          "EXPORT_INITIATED",
-                          "EXPORT_MARKED_AS_FAILED",
-                          "EXPORT_SUCCESSFUL",
-                          "FAILED_REIMBURSEMENT",
-                          "INIT",
-                          "MANUALLY_REIMBURSED",
-                          "MISSING_ACH",
-                          "PENDING",
-                          "PROCESSING",
-                          "PUSH_PAYMENT_FAILED",
-                          "PUSH_PAYMENT_INITIATED",
-                          "REIMBURSED",
-                          "REIMBURSED_VIA_PUSH",
-                          "REJECTED"
-                        ],
-                        "description": "Current state of the reimbursement."
+                        "description": "Current state of the reimbursement (e.g. PENDING, APPROVED, REIMBURSED, CANCELED, DELETED). Kept as a string so new Ramp states do not fail parsing."
                       },
                       "type": {
                         "type": "string",
-                        "enum": [
-                          "MILEAGE",
-                          "OUT_OF_POCKET",
-                          "PAYBACK_FULL",
-                          "PAYBACK_PARTIAL",
-                          "PER_DIEM"
-                        ],
-                        "description": "Type of the reimbursement."
+                        "description": "Type of the reimbursement (e.g. OUT_OF_POCKET, MILEAGE, PER_DIEM, PAYBACK_FULL, PAYBACK_PARTIAL)."
                       },
                       "direction": {
                         "type": "string",
-                        "enum": [
-                          "BUSINESS_TO_USER",
-                          "USER_TO_BUSINESS"
-                        ],
-                        "description": "Direction of the reimbursement."
+                        "description": "Direction of the reimbursement: BUSINESS_TO_USER, or USER_TO_BUSINESS for repayments."
                       },
                       "sync_status": {
                         "type": "string",
-                        "enum": [
-                          "NOT_SYNC_READY",
-                          "SYNCED",
-                          "SYNC_READY"
-                        ],
-                        "description": "Accounting sync status of the reimbursement."
+                        "description": "Accounting sync status of the reimbursement (e.g. NOT_SYNC_READY, SYNC_READY, SYNCED)."
                       },
                       "funding_source": {
-                        "description": "Funding classification for the reimbursement. Omitted when Ramp cannot determine it.",
-                        "type": "string",
-                        "enum": [
-                          "NOT_RAMP_FUNDED",
-                          "PAID_OUTSIDE_RAMP",
-                          "PENDING",
-                          "RAMP_FUNDED"
-                        ]
+                        "description": "Funding classification (e.g. RAMP_FUNDED, NOT_RAMP_FUNDED, PAID_OUTSIDE_RAMP, PENDING). Omitted when Ramp cannot determine it.",
+                        "type": "string"
                       },
                       "user_id": {
                         "type": "string",
@@ -767745,18 +767646,19 @@
                         "description": "Unique identifier of the business the user belongs to."
                       },
                       "first_name": {
-                        "type": "string",
-                        "description": "First name of the employee."
+                        "description": "First name of the employee, when Ramp reports it.",
+                        "type": "string"
                       },
                       "last_name": {
-                        "type": "string",
-                        "description": "Last name of the employee."
+                        "description": "Last name of the employee, when Ramp reports it.",
+                        "type": "string"
                       },
                       "email": {
-                        "type": "string",
-                        "description": "Email address of the employee."
+                        "description": "Email address of the employee, when Ramp reports it.",
+                        "type": "string"
                       },
                       "role": {
+                        "description": "Role of the employee within the business, when Ramp reports it.",
                         "type": "string",
                         "enum": [
                           "AUDITOR",
@@ -767770,8 +767672,7 @@
                           "UNBUNDLED_BOOKKEEPER",
                           "UNBUNDLED_OWNER",
                           "UNBUNDLED_USER"
-                        ],
-                        "description": "Role of the employee within the business."
+                        ]
                       },
                       "status": {
                         "type": "string",
@@ -767904,10 +767805,6 @@
                     "required": [
                       "id",
                       "business_id",
-                      "first_name",
-                      "last_name",
-                      "email",
-                      "role",
                       "status",
                       "is_manager",
                       "employee_id",
@@ -776094,7 +775991,7 @@
         "usedModels": [
           "User"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "webhookSubscriptions": [],
         "json_schema": {
           "definitions": {
@@ -776106,24 +776003,24 @@
                   "description": "Unique identifier of the user (UUID)."
                 },
                 "first_name": {
-                  "type": "string",
-                  "description": "First name of the user."
+                  "description": "First name of the user, when Ramp reports it.",
+                  "type": "string"
                 },
                 "last_name": {
-                  "type": "string",
-                  "description": "Last name of the user."
+                  "description": "Last name of the user, when Ramp reports it.",
+                  "type": "string"
                 },
                 "email": {
-                  "type": "string",
-                  "description": "Email address of the user."
+                  "description": "Email address of the user, when Ramp reports it.",
+                  "type": "string"
                 },
                 "employee_id": {
                   "description": "External employee identifier from an HR or ERP system, when present.",
                   "type": "string"
                 },
                 "role": {
-                  "type": "string",
-                  "description": "Role of the user, e.g. BUSINESS_USER, BUSINESS_ADMIN, BUSINESS_BOOKKEEPER, BUSINESS_OWNER, GUEST_USER, AUDITOR or IT_ADMIN."
+                  "description": "Role of the user, when Ramp reports it, e.g. BUSINESS_USER, BUSINESS_ADMIN, BUSINESS_BOOKKEEPER, BUSINESS_OWNER, GUEST_USER, AUDITOR or IT_ADMIN.",
+                  "type": "string"
                 },
                 "status": {
                   "type": "string",
@@ -776191,10 +776088,6 @@
               },
               "required": [
                 "id",
-                "first_name",
-                "last_name",
-                "email",
-                "role",
                 "status",
                 "is_manager",
                 "custom_fields"
@@ -776302,14 +776195,10 @@
                   ]
                 },
                 "vendor_type": {
-                  "description": "Vendor type when the vendor is used for Bill Pay.",
+                  "description": "Vendor type when the vendor is used for Bill Pay, e.g. BUSINESS or INDIVIDUAL.",
                   "anyOf": [
                     {
-                      "type": "string",
-                      "enum": [
-                        "BUSINESS",
-                        "INDIVIDUAL"
-                      ]
+                      "type": "string"
                     },
                     {
                       "type": "null"
@@ -776758,14 +776647,10 @@
                       "type": "object",
                       "properties": {
                         "update_source": {
-                          "description": "How the default payment method was last set: AUTO or MANUAL.",
+                          "description": "How the default payment method was last set, e.g. AUTO or MANUAL.",
                           "anyOf": [
                             {
-                              "type": "string",
-                              "enum": [
-                                "AUTO",
-                                "MANUAL"
-                              ]
+                              "type": "string"
                             },
                             {
                               "type": "null"

@@ -29,8 +29,9 @@ const InputSchema = z
         entity_ids: z
             .array(z.string().uuid())
             .min(1)
+            .max(100)
             .describe(
-                'Unique identifiers of the resources under approval. All matching approval chains are returned. Example: ["79e87b94-b823-46f4-aed4-d05d9fc33463"].'
+                'Unique identifiers of the resources under approval, at most 100 per call (split larger sets across calls). All matching approval chains are returned. Example: ["79e87b94-b823-46f4-aed4-d05d9fc33463"].'
             )
     })
     .describe('Input for listing the approval chain and history of a set of bills, reimbursements, or transactions.');
@@ -76,7 +77,7 @@ const ENTITY_BATCH_SIZE = 50;
 /**
  * @tags: [read]
  * @tagReason: Reads approval chain and history for the requested bills, reimbursements, or transactions without modifying provider data.
- * @pitfalls: `entity_type` must match the supplied IDs or the response is empty. Ramp's pagination for this endpoint is unusable (its `next` link keeps only one of the requested entity_ids and the `start` cursor returns HTTP 500), so the action requests the IDs in batches of at most 50 with page_size=100 and returns every approval chain in a single response; resources without an approval chain are simply absent.
+ * @pitfalls: `entity_type` must match the supplied IDs or the response is empty. Ramp's pagination for this endpoint is unusable (its `next` link keeps only one of the requested entity_ids and the `start` cursor returns HTTP 500), so the action requests the IDs in batches of at most 50 with page_size=100 and returns every approval chain in a single response; resources without an approval chain are simply absent. At most 100 entity_ids are accepted per call, which bounds the request count and keeps the aggregated output well below Nango's 2MB action-output limit.
  */
 const action = createAction({
     description: 'List the approval chain and history for a set of bills, reimbursements, or transactions.',
