@@ -115,7 +115,9 @@ const CustomFormCollectionLogEntrySchema = z.object({
 });
 
 const CustomFormCollectionSchema = z.object({
-    custom_form_collection_log_entry: CustomFormCollectionLogEntrySchema.optional().describe('Latest revision of the form collection. Omitted when none exists.')
+    custom_form_collection_log_entry: CustomFormCollectionLogEntrySchema.optional().describe(
+        'Latest revision of the form collection. Omitted when none exists.'
+    )
 });
 
 const ProviderCurrencyAmountSchema = z.object({

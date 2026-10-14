@@ -9,11 +9,7 @@ const LocationSchema = z.object({
 
 const InputSchema = z
     .object({
-        cursor: z
-            .string()
-            .min(1)
-            .optional()
-            .describe('Opaque pagination cursor returned as next_cursor by a previous call. Omit to fetch the first page.'),
+        cursor: z.string().min(1).optional().describe('Opaque pagination cursor returned as next_cursor by a previous call. Omit to fetch the first page.'),
         page_size: z.number().int().min(2).max(100).optional().describe('Number of locations to return per page (between 2 and 100). Defaults to 20.'),
         entity_id: z.string().optional().describe('Filter locations by the associated business entity ID. Example: "a7587328-64fa-4b8b-ad30-a2d27806825b"')
     })

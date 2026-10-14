@@ -103,9 +103,7 @@ const CheckpointSchema = z
             .describe('High-water mark ISO 8601 timestamp of the most recently completed scan; empty string when no completed scan exists.'),
         start: z.string().describe('Ramp pagination cursor (last entity id) for an interrupted scan; empty string when no scan is in progress.'),
         full_refresh_in_progress: z.boolean().describe('Whether the in-flight scan is a delete-tracked full refresh rather than an incremental scan.'),
-        last_full_refresh_at: z
-            .string()
-            .describe('ISO 8601 timestamp of the last completed full refresh; empty string when no full refresh has completed.')
+        last_full_refresh_at: z.string().describe('ISO 8601 timestamp of the last completed full refresh; empty string when no full refresh has completed.')
     })
     .describe('Incremental sync progress for vendors.');
 

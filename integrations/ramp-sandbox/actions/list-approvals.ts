@@ -29,7 +29,9 @@ const InputSchema = z
         entity_ids: z
             .array(z.string().uuid())
             .min(1)
-            .describe('Unique identifiers of the resources under approval. All matching approval chains are returned. Example: ["79e87b94-b823-46f4-aed4-d05d9fc33463"].')
+            .describe(
+                'Unique identifiers of the resources under approval. All matching approval chains are returned. Example: ["79e87b94-b823-46f4-aed4-d05d9fc33463"].'
+            )
     })
     .describe('Input for listing the approval chain and history of a set of bills, reimbursements, or transactions.');
 

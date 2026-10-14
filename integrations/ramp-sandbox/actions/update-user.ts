@@ -84,7 +84,9 @@ const OutputSchema = z
             .describe('Date when a draft user is scheduled to be invited to Ramp, in ISO 8601 format. Omitted when none is scheduled.'),
         status: z
             .string()
-            .describe('Current status of the user: INVITE_EXPIRED, INVITE_PENDING, USER_ACTIVE, USER_DRAFT, USER_INACTIVE, USER_ONBOARDING, or USER_SUSPENDED.'),
+            .describe(
+                'Current status of the user: INVITE_EXPIRED, INVITE_PENDING, USER_ACTIVE, USER_DRAFT, USER_INACTIVE, USER_ONBOARDING, or USER_SUSPENDED.'
+            ),
         custom_fields: z
             .array(
                 z.object({

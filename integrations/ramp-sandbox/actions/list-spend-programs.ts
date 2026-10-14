@@ -37,7 +37,9 @@ const SpendProgramSchema = z.object({
     is_shareable: z.boolean().describe('Whether the program can be shared across users.'),
     issue_physical_card_if_needed: z.boolean().describe('Whether a physical card should be issued when a user does not already have one.'),
     permitted_spend_types: PermittedSpendTypesSchema.optional().describe('Spend types enabled for funds created from this program. Omitted when unspecified.'),
-    restrictions: SpendingRestrictionsSchema.optional().describe('Policy limits and category/vendor restrictions for the program. Omitted when none are configured.')
+    restrictions: SpendingRestrictionsSchema.optional().describe(
+        'Policy limits and category/vendor restrictions for the program. Omitted when none are configured.'
+    )
 });
 
 const ProviderCurrencyAmountSchema = z.object({

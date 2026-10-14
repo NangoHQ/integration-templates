@@ -117,11 +117,15 @@ const InputSchema = z
         from_date: z
             .string()
             .optional()
-            .describe('Full ISO-8601 datetime (e.g. "2026-01-01T00:00:00Z"). Returns trips that end on or after it, so a trip that started earlier but overlaps the window is included. A bare date is rejected.'),
+            .describe(
+                'Full ISO-8601 datetime (e.g. "2026-01-01T00:00:00Z"). Returns trips that end on or after it, so a trip that started earlier but overlaps the window is included. A bare date is rejected.'
+            ),
         to_date: z
             .string()
             .optional()
-            .describe('Full ISO-8601 datetime (e.g. "2026-12-31T23:59:59Z"). Returns trips that start on or before it; with from_date, every trip overlapping the window. A bare date is rejected.'),
+            .describe(
+                'Full ISO-8601 datetime (e.g. "2026-12-31T23:59:59Z"). Returns trips that start on or before it; with from_date, every trip overlapping the window. A bare date is rejected.'
+            ),
         trip_name: z.string().optional().describe('Return only trips with this exact name. Example: "Trip to Denver"'),
         user_ids: z.array(z.string()).optional().describe('Return only trips belonging to any of these traveler (Ramp user) IDs.'),
         min_amount: z.number().optional().describe('Return only trips whose total spend is greater than or equal to this value.'),

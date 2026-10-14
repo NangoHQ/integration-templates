@@ -174,10 +174,14 @@ const ReimbursementSchema = z
         memo: z.string().optional().describe('Reimbursement memo.'),
         amount: z.number().optional().describe('Legacy reimbursement amount in major currency units (e.g. 12.34). Prefer entity_amount.'),
         currency: z.string().optional().describe('Legacy ISO 4217 currency code of the reimbursement. Prefer entity_amount.currency.'),
-        original_reimbursement_amount: CurrencyAmountSchema.optional().describe('Legacy amount originally submitted for the reimbursement. Prefer merchant_amount.'),
+        original_reimbursement_amount: CurrencyAmountSchema.optional().describe(
+            'Legacy amount originally submitted for the reimbursement. Prefer merchant_amount.'
+        ),
         payee_amount: CurrencyAmountSchema.optional().describe('Amount and currency received by the payee.'),
         entity_amount: ReimbursementAmountSchema.optional().describe('Amount the payor entity pays, in the entity settlement currency.'),
-        merchant_amount: ReimbursementAmountSchema.optional().describe('Amount originally submitted for the reimbursement, in the currency it was submitted in.'),
+        merchant_amount: ReimbursementAmountSchema.optional().describe(
+            'Amount originally submitted for the reimbursement, in the currency it was submitted in.'
+        ),
         accounting_date: z.string().optional().describe('Date used for accounting purposes; falls back to the transaction date.'),
         approved_at: z.string().optional().describe('ISO8601 timestamp at which the reimbursement was approved.'),
         created_at: z.string().describe('ISO8601 timestamp at which the reimbursement was created.'),
@@ -206,7 +210,9 @@ const ReimbursementSchema = z
                     .object({
                         amount: CurrencyAmountSchema.optional().describe('Amount of the line item.'),
                         memo: z.string().optional().describe('Memo text for this line item.'),
-                        accounting_field_selections: z.array(AccountingFieldSelectionSchema).describe('Accounting field selections used to code this line item.')
+                        accounting_field_selections: z
+                            .array(AccountingFieldSelectionSchema)
+                            .describe('Accounting field selections used to code this line item.')
                     })
                     .describe('A line item of a reimbursement.')
             )

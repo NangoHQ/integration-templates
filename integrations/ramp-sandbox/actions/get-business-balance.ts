@@ -7,7 +7,9 @@ const CurrencyAmountSchema = z.object({
     minor_unit_conversion_rate: z
         .number()
         .optional()
-        .describe('Divisor that converts `amount` to the real currency value (e.g. 100 for USD, so 29763957 / 100 = 297639.57). Absent when Ramp does not provide one.')
+        .describe(
+            'Divisor that converts `amount` to the real currency value (e.g. 100 for USD, so 29763957 / 100 = 297639.57). Absent when Ramp does not provide one.'
+        )
 });
 
 const ProviderCurrencyAmountSchema = z.object({

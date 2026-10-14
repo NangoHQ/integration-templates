@@ -36,7 +36,9 @@ const OutputSchema = z
         entity_name: z.string().describe('Name of the business entity.'),
         currency: z.string().optional().describe('Currency used by the business entity. Absent when not set.'),
         is_primary: z.boolean().optional().describe('Whether this is the primary entity for the business. Absent when unknown.'),
-        connected_subsidiary: ConnectedSubsidiarySchema.optional().describe('The ERP subsidiary this entity is mapped to. Absent when the entity is not mapped.'),
+        connected_subsidiary: ConnectedSubsidiarySchema.optional().describe(
+            'The ERP subsidiary this entity is mapped to. Absent when the entity is not mapped.'
+        ),
         default_bill_pay_payment_account_id: z
             .string()
             .optional()

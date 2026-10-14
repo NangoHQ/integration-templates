@@ -212,8 +212,7 @@ const BillPaymentSchema = z.object({
     payment_date: z.string().optional().describe('Scheduled initiation date for non-card payments, or the scheduled card payment date.'),
     effective_date: z.string().optional().describe('For non-card payment methods, the date the payment is actually initiated.'),
     customer_friendly_payment_id: z.string().optional().describe('Customer-friendly payment identifier for non-card payment methods.'),
-    trace_id: BillTraceIdSchema.optional()
-        .describe('Trace ID for non-card payments; only returned by the single-bill endpoint, not the list endpoint.'),
+    trace_id: BillTraceIdSchema.optional().describe('Trace ID for non-card payments; only returned by the single-bill endpoint, not the list endpoint.'),
     bank_debit_trace_id: BillTraceIdSchema.optional().describe('Bank-facing trace reference for the business bank debit leg of the payment.'),
     details: BillPaymentDetailsSchema.optional().describe('Payment details specific to the payment method.')
 });
@@ -288,10 +287,7 @@ const BillSchema = z
         paid_at: z.string().optional().describe('Date the bill payment status was set to PAID; omitted while the bill is OPEN.'),
         posting_date: z.string().optional().describe('Date the bill was posted to the ERP; omitted if not yet posted.'),
         created_at: z.string().optional().describe('Date the bill was created in Ramp.'),
-        draft_bill_created_at: z
-            .string()
-            .optional()
-            .describe('Date the draft bill was created when this bill originated from a draft bill.'),
+        draft_bill_created_at: z.string().optional().describe('Date the draft bill was created when this bill originated from a draft bill.'),
         draft_bill_id: z.string().optional().describe('Identifier of the draft bill this bill was created from, if any.'),
         archived_at: z.string().optional().describe('Date the bill was archived; omitted when the bill is active.'),
         entity_id: z.string().optional().describe('Identifier of the business entity that owns the bill.'),
@@ -317,7 +313,6 @@ const BillSchema = z
         invoice_urls: z.array(z.string()).optional().describe('Pre-signed URLs for all business-visible bill attachments, including the invoice document.')
     })
     .describe('A Ramp Bill Pay bill with its status, approval, payment and line item details.');
-
 
 type Bill = z.infer<typeof BillSchema>;
 type ProviderBill = z.infer<typeof ProviderBillSchema>;

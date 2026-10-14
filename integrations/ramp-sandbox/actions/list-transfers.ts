@@ -33,10 +33,7 @@ const InputSchema = z
 const CurrencyAmountSchema = z.object({
     amount: z.number().describe('Amount in the smallest currency unit (for USD, cents). Example: 136620 means 1366.20 USD.'),
     currency_code: z.string().describe('ISO 4217 currency code. Example: "USD".'),
-    minor_unit_conversion_rate: z
-        .number()
-        .optional()
-        .describe('Divisor that converts the integer amount to the real currency value. For USD this is 100.')
+    minor_unit_conversion_rate: z.number().optional().describe('Divisor that converts the integer amount to the real currency value. For USD this is 100.')
 });
 
 const TransferSchema = z.object({

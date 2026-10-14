@@ -3,11 +3,7 @@ import { createAction } from 'nango';
 
 const InputSchema = z
     .object({
-        cursor: z
-            .string()
-            .min(1)
-            .optional()
-            .describe('Opaque pagination cursor returned as next_cursor by a previous call. Omit to fetch the first page.'),
+        cursor: z.string().min(1).optional().describe('Opaque pagination cursor returned as next_cursor by a previous call. Omit to fetch the first page.'),
         page_size: z
             .number()
             .int()

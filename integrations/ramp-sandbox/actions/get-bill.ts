@@ -158,7 +158,9 @@ const CurrencyAmountSchema = z.object({
     minor_unit_conversion_rate: z
         .number()
         .optional()
-        .describe('Factor to convert the minor-unit amount to the real value; divide amount by this. Example: 100 for USD. Omitted when Ramp does not report it')
+        .describe(
+            'Factor to convert the minor-unit amount to the real value; divide amount by this. Example: 100 for USD. Omitted when Ramp does not report it'
+        )
 });
 
 const AccountingFieldSchema = z.object({

@@ -2,29 +2,29 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const ReimbursementStateSchema = z.enum([
-        'APPROVED',
-        'AWAITING_EXPORT',
-        'AWAITING_PAYMENT',
-        'AWAITING_PUSH_PAYMENT',
-        'CANCELED',
-        'DELETED',
-        'DRAFT',
-        'EXPORTED',
-        'EXPORT_FAILED',
-        'EXPORT_INITIATED',
-        'EXPORT_MARKED_AS_FAILED',
-        'EXPORT_SUCCESSFUL',
-        'FAILED_REIMBURSEMENT',
-        'INIT',
-        'MANUALLY_REIMBURSED',
-        'MISSING_ACH',
-        'PENDING',
-        'PROCESSING',
-        'PUSH_PAYMENT_FAILED',
-        'PUSH_PAYMENT_INITIATED',
-        'REIMBURSED',
-        'REIMBURSED_VIA_PUSH',
-        'REJECTED'
+    'APPROVED',
+    'AWAITING_EXPORT',
+    'AWAITING_PAYMENT',
+    'AWAITING_PUSH_PAYMENT',
+    'CANCELED',
+    'DELETED',
+    'DRAFT',
+    'EXPORTED',
+    'EXPORT_FAILED',
+    'EXPORT_INITIATED',
+    'EXPORT_MARKED_AS_FAILED',
+    'EXPORT_SUCCESSFUL',
+    'FAILED_REIMBURSEMENT',
+    'INIT',
+    'MANUALLY_REIMBURSED',
+    'MISSING_ACH',
+    'PENDING',
+    'PROCESSING',
+    'PUSH_PAYMENT_FAILED',
+    'PUSH_PAYMENT_INITIATED',
+    'REIMBURSED',
+    'REIMBURSED_VIA_PUSH',
+    'REJECTED'
 ]);
 
 const ReimbursementTypeSchema = z.enum(['MILEAGE', 'OUT_OF_POCKET', 'PAYBACK_FULL', 'PAYBACK_PARTIAL', 'PER_DIEM']);
@@ -195,50 +195,50 @@ const ExpenseGroupSchema = z.object({
 });
 
 const ReimbursementSchema = z.object({
-        id: z.string().describe('Unique identifier of the reimbursement. Example: "e29e1b3b-5563-4ecf-b655-320f8ac04a12"'),
-        state: ReimbursementStateSchema.describe('Current state of the reimbursement.'),
-        type: ReimbursementTypeSchema.describe('Type of the reimbursement.'),
-        direction: ReimbursementDirectionSchema.describe('Direction of the reimbursement.'),
-        sync_status: SyncStatusSchema.describe('Accounting sync status of the reimbursement.'),
-        funding_source: FundingSourceSchema.optional().describe('Funding classification for the reimbursement. Omitted when Ramp cannot determine it.'),
-        user_id: z.string().describe('Unique identifier of the person who submitted the reimbursement.'),
-        user_email: z.string().describe('Email of the person who submitted the reimbursement.'),
-        user_full_name: z.string().describe('Full name of the person who submitted the reimbursement.'),
-        employee_id: z.string().optional().describe('Employee ID of the person who submitted the reimbursement.'),
-        entity_id: z.string().optional().describe('Unique identifier of the associated business entity.'),
-        fund_id: z.string().optional().describe('Fund the reimbursement is attributed to, when it exists.'),
-        spend_limit_id: z.string().optional().describe('Deprecated alias of fund_id.'),
-        trip_id: z.string().optional().describe('Trip ID associated with the reimbursement, when available.'),
-        merchant: z.string().optional().describe('Name of the merchant associated with the reimbursement.'),
-        merchant_id: z.string().optional().describe('Unique identifier of the merchant, when Ramp recognizes it.'),
-        memo: z.string().optional().describe('Reimbursement memo.'),
-        amount: z.number().optional().describe('Legacy reimbursement amount in major currency units. Prefer entity_amount.'),
-        currency: z.string().optional().describe('Legacy ISO 4217 currency code. Prefer entity_amount.'),
-        original_reimbursement_amount: CurrencyAmountSchema.optional().describe('Legacy originally submitted amount. Prefer merchant_amount.'),
-        payee_amount: CurrencyAmountSchema.optional().describe('Amount and currency received by the payee.'),
-        entity_amount: ReimbursementAmountSchema.optional().describe('Amount the payor entity pays, in the entity settlement currency.'),
-        merchant_amount: ReimbursementAmountSchema.optional().describe('Amount originally submitted, in the submission currency.'),
-        accounting_date: z.string().optional().describe('Date used for accounting purposes (ISO 8601).'),
-        approved_at: z.string().optional().describe('Time the reimbursement was approved (ISO 8601).'),
-        created_at: z.string().describe('Time the reimbursement was created (ISO 8601).'),
-        updated_at: z.string().optional().describe('Time the reimbursement was last updated (ISO 8601).'),
-        submitted_at: z.string().optional().describe('Time the reimbursement was most recently submitted (ISO 8601).'),
-        synced_at: z.string().optional().describe('Time the reimbursement was synced to the accounting provider (ISO 8601).'),
-        payment_processed_at: z.string().optional().describe('Time the reimbursement payment was processed (ISO 8601).'),
-        transaction_date: z.string().optional().describe('Date of the underlying transaction (YYYY-MM-DD).'),
-        distance: z.number().optional().describe('Distance in miles, for mileage reimbursements.'),
-        start_location: z.string().optional().describe('Starting location of the trip, for mileage reimbursements.'),
-        end_location: z.string().optional().describe('Ending location of the trip, for mileage reimbursements.'),
-        waypoints: z.array(z.string()).optional().describe('Intermediate stops during the trip, for mileage reimbursements.'),
-        attendees: z.array(AttendeeSchema).describe('Attendees associated with the reimbursement.'),
-        line_items: z.array(LineItemSchema).describe('Line items related to the reimbursement.'),
-        receipts: z.array(z.string()).describe('IDs of receipts attached to the reimbursement.'),
-        accounting_field_selections: z.array(AccountingFieldSelectionSchema).describe('Accounting fields selected to code the reimbursement.'),
-        payment_batch_id: z.string().optional().describe('Unique identifier of the reimbursement payment batch.'),
-        payment_id: z.string().optional().describe('Unique identifier of the payment, once paid.'),
-        repayment_transaction_id: z.string().optional().describe('Transaction ID of the repayment, for USER_TO_BUSINESS reimbursements.'),
-        trace_id: TraceIdSchema.optional().describe('Bank-facing accountability reference for the payment, when available.'),
-        expense_group: ExpenseGroupSchema.optional().describe('Expense group the reimbursement belongs to, when available.')
+    id: z.string().describe('Unique identifier of the reimbursement. Example: "e29e1b3b-5563-4ecf-b655-320f8ac04a12"'),
+    state: ReimbursementStateSchema.describe('Current state of the reimbursement.'),
+    type: ReimbursementTypeSchema.describe('Type of the reimbursement.'),
+    direction: ReimbursementDirectionSchema.describe('Direction of the reimbursement.'),
+    sync_status: SyncStatusSchema.describe('Accounting sync status of the reimbursement.'),
+    funding_source: FundingSourceSchema.optional().describe('Funding classification for the reimbursement. Omitted when Ramp cannot determine it.'),
+    user_id: z.string().describe('Unique identifier of the person who submitted the reimbursement.'),
+    user_email: z.string().describe('Email of the person who submitted the reimbursement.'),
+    user_full_name: z.string().describe('Full name of the person who submitted the reimbursement.'),
+    employee_id: z.string().optional().describe('Employee ID of the person who submitted the reimbursement.'),
+    entity_id: z.string().optional().describe('Unique identifier of the associated business entity.'),
+    fund_id: z.string().optional().describe('Fund the reimbursement is attributed to, when it exists.'),
+    spend_limit_id: z.string().optional().describe('Deprecated alias of fund_id.'),
+    trip_id: z.string().optional().describe('Trip ID associated with the reimbursement, when available.'),
+    merchant: z.string().optional().describe('Name of the merchant associated with the reimbursement.'),
+    merchant_id: z.string().optional().describe('Unique identifier of the merchant, when Ramp recognizes it.'),
+    memo: z.string().optional().describe('Reimbursement memo.'),
+    amount: z.number().optional().describe('Legacy reimbursement amount in major currency units. Prefer entity_amount.'),
+    currency: z.string().optional().describe('Legacy ISO 4217 currency code. Prefer entity_amount.'),
+    original_reimbursement_amount: CurrencyAmountSchema.optional().describe('Legacy originally submitted amount. Prefer merchant_amount.'),
+    payee_amount: CurrencyAmountSchema.optional().describe('Amount and currency received by the payee.'),
+    entity_amount: ReimbursementAmountSchema.optional().describe('Amount the payor entity pays, in the entity settlement currency.'),
+    merchant_amount: ReimbursementAmountSchema.optional().describe('Amount originally submitted, in the submission currency.'),
+    accounting_date: z.string().optional().describe('Date used for accounting purposes (ISO 8601).'),
+    approved_at: z.string().optional().describe('Time the reimbursement was approved (ISO 8601).'),
+    created_at: z.string().describe('Time the reimbursement was created (ISO 8601).'),
+    updated_at: z.string().optional().describe('Time the reimbursement was last updated (ISO 8601).'),
+    submitted_at: z.string().optional().describe('Time the reimbursement was most recently submitted (ISO 8601).'),
+    synced_at: z.string().optional().describe('Time the reimbursement was synced to the accounting provider (ISO 8601).'),
+    payment_processed_at: z.string().optional().describe('Time the reimbursement payment was processed (ISO 8601).'),
+    transaction_date: z.string().optional().describe('Date of the underlying transaction (YYYY-MM-DD).'),
+    distance: z.number().optional().describe('Distance in miles, for mileage reimbursements.'),
+    start_location: z.string().optional().describe('Starting location of the trip, for mileage reimbursements.'),
+    end_location: z.string().optional().describe('Ending location of the trip, for mileage reimbursements.'),
+    waypoints: z.array(z.string()).optional().describe('Intermediate stops during the trip, for mileage reimbursements.'),
+    attendees: z.array(AttendeeSchema).describe('Attendees associated with the reimbursement.'),
+    line_items: z.array(LineItemSchema).describe('Line items related to the reimbursement.'),
+    receipts: z.array(z.string()).describe('IDs of receipts attached to the reimbursement.'),
+    accounting_field_selections: z.array(AccountingFieldSelectionSchema).describe('Accounting fields selected to code the reimbursement.'),
+    payment_batch_id: z.string().optional().describe('Unique identifier of the reimbursement payment batch.'),
+    payment_id: z.string().optional().describe('Unique identifier of the payment, once paid.'),
+    repayment_transaction_id: z.string().optional().describe('Transaction ID of the repayment, for USER_TO_BUSINESS reimbursements.'),
+    trace_id: TraceIdSchema.optional().describe('Bank-facing accountability reference for the payment, when available.'),
+    expense_group: ExpenseGroupSchema.optional().describe('Expense group the reimbursement belongs to, when available.')
 });
 
 function mapCurrencyAmount(amount: z.infer<typeof ProviderCurrencyAmountSchema>): z.infer<typeof CurrencyAmountSchema> {
@@ -281,74 +281,74 @@ function mapAccountingFieldSelection(selection: z.infer<typeof ProviderAccountin
 }
 
 function mapReimbursement(reimbursement: z.infer<typeof ProviderReimbursementSchema>): z.infer<typeof ReimbursementSchema> {
-        const traceId = reimbursement.trace_id;
-        const expenseGroup = reimbursement.expense_group;
+    const traceId = reimbursement.trace_id;
+    const expenseGroup = reimbursement.expense_group;
 
-        return {
-            id: reimbursement.id,
-            state: reimbursement.state,
-            type: reimbursement.type,
-            direction: reimbursement.direction,
-            sync_status: reimbursement.sync_status,
-            ...(reimbursement.funding_source != null && { funding_source: reimbursement.funding_source }),
-            user_id: reimbursement.user_id,
-            user_email: reimbursement.user_email,
-            user_full_name: reimbursement.user_full_name,
-            ...(reimbursement.employee_id != null && { employee_id: reimbursement.employee_id }),
-            ...(reimbursement.entity_id != null && { entity_id: reimbursement.entity_id }),
-            ...(reimbursement.fund_id != null && { fund_id: reimbursement.fund_id }),
-            ...(reimbursement.spend_limit_id != null && { spend_limit_id: reimbursement.spend_limit_id }),
-            ...(reimbursement.trip_id != null && { trip_id: reimbursement.trip_id }),
-            ...(reimbursement.merchant != null && { merchant: reimbursement.merchant }),
-            ...(reimbursement.merchant_id != null && { merchant_id: reimbursement.merchant_id }),
-            ...(reimbursement.memo != null && { memo: reimbursement.memo }),
-            ...(reimbursement.amount != null && { amount: reimbursement.amount }),
-            ...(reimbursement.currency != null && { currency: reimbursement.currency }),
-            ...(reimbursement.original_reimbursement_amount != null && {
-                original_reimbursement_amount: mapCurrencyAmount(reimbursement.original_reimbursement_amount)
-            }),
-            ...(reimbursement.payee_amount != null && { payee_amount: mapCurrencyAmount(reimbursement.payee_amount) }),
-            ...(reimbursement.entity_amount != null && { entity_amount: mapReimbursementAmount(reimbursement.entity_amount) }),
-            ...(reimbursement.merchant_amount != null && { merchant_amount: mapReimbursementAmount(reimbursement.merchant_amount) }),
-            ...(reimbursement.accounting_date != null && { accounting_date: reimbursement.accounting_date }),
-            ...(reimbursement.approved_at != null && { approved_at: reimbursement.approved_at }),
-            created_at: reimbursement.created_at,
-            ...(reimbursement.updated_at != null && { updated_at: reimbursement.updated_at }),
-            ...(reimbursement.submitted_at != null && { submitted_at: reimbursement.submitted_at }),
-            ...(reimbursement.synced_at != null && { synced_at: reimbursement.synced_at }),
-            ...(reimbursement.payment_processed_at != null && { payment_processed_at: reimbursement.payment_processed_at }),
-            ...(reimbursement.transaction_date != null && { transaction_date: reimbursement.transaction_date }),
-            ...(reimbursement.distance != null && { distance: reimbursement.distance }),
-            ...(reimbursement.start_location != null && { start_location: reimbursement.start_location }),
-            ...(reimbursement.end_location != null && { end_location: reimbursement.end_location }),
-            ...(reimbursement.waypoints != null && { waypoints: reimbursement.waypoints }),
-            attendees: reimbursement.attendees.map((attendee) => ({
-                name: attendee.name,
-                ...(attendee.user_id != null && { user_id: attendee.user_id })
-            })),
-            line_items: reimbursement.line_items.map((lineItem) => ({
-                ...(lineItem.amount != null && { amount: mapCurrencyAmount(lineItem.amount) }),
-                ...(lineItem.memo != null && { memo: lineItem.memo }),
-                accounting_field_selections: lineItem.accounting_field_selections.map(mapAccountingFieldSelection)
-            })),
-            receipts: reimbursement.receipts,
-            accounting_field_selections: reimbursement.accounting_field_selections.map(mapAccountingFieldSelection),
-            ...(reimbursement.payment_batch_id != null && { payment_batch_id: reimbursement.payment_batch_id }),
-            ...(reimbursement.payment_id != null && { payment_id: reimbursement.payment_id }),
-            ...(reimbursement.repayment_transaction_id != null && { repayment_transaction_id: reimbursement.repayment_transaction_id }),
-            ...(traceId != null && {
-                trace_id: {
-                    ...(traceId.descriptor != null && { descriptor: traceId.descriptor }),
-                    ...(traceId.trace_id != null && { trace_id: traceId.trace_id })
-                }
-            }),
-            ...(expenseGroup != null && {
-                expense_group: {
-                    ...(expenseGroup.id != null && { id: expenseGroup.id }),
-                    ...(expenseGroup.name != null && { name: expenseGroup.name })
-                }
-            })
-        };
+    return {
+        id: reimbursement.id,
+        state: reimbursement.state,
+        type: reimbursement.type,
+        direction: reimbursement.direction,
+        sync_status: reimbursement.sync_status,
+        ...(reimbursement.funding_source != null && { funding_source: reimbursement.funding_source }),
+        user_id: reimbursement.user_id,
+        user_email: reimbursement.user_email,
+        user_full_name: reimbursement.user_full_name,
+        ...(reimbursement.employee_id != null && { employee_id: reimbursement.employee_id }),
+        ...(reimbursement.entity_id != null && { entity_id: reimbursement.entity_id }),
+        ...(reimbursement.fund_id != null && { fund_id: reimbursement.fund_id }),
+        ...(reimbursement.spend_limit_id != null && { spend_limit_id: reimbursement.spend_limit_id }),
+        ...(reimbursement.trip_id != null && { trip_id: reimbursement.trip_id }),
+        ...(reimbursement.merchant != null && { merchant: reimbursement.merchant }),
+        ...(reimbursement.merchant_id != null && { merchant_id: reimbursement.merchant_id }),
+        ...(reimbursement.memo != null && { memo: reimbursement.memo }),
+        ...(reimbursement.amount != null && { amount: reimbursement.amount }),
+        ...(reimbursement.currency != null && { currency: reimbursement.currency }),
+        ...(reimbursement.original_reimbursement_amount != null && {
+            original_reimbursement_amount: mapCurrencyAmount(reimbursement.original_reimbursement_amount)
+        }),
+        ...(reimbursement.payee_amount != null && { payee_amount: mapCurrencyAmount(reimbursement.payee_amount) }),
+        ...(reimbursement.entity_amount != null && { entity_amount: mapReimbursementAmount(reimbursement.entity_amount) }),
+        ...(reimbursement.merchant_amount != null && { merchant_amount: mapReimbursementAmount(reimbursement.merchant_amount) }),
+        ...(reimbursement.accounting_date != null && { accounting_date: reimbursement.accounting_date }),
+        ...(reimbursement.approved_at != null && { approved_at: reimbursement.approved_at }),
+        created_at: reimbursement.created_at,
+        ...(reimbursement.updated_at != null && { updated_at: reimbursement.updated_at }),
+        ...(reimbursement.submitted_at != null && { submitted_at: reimbursement.submitted_at }),
+        ...(reimbursement.synced_at != null && { synced_at: reimbursement.synced_at }),
+        ...(reimbursement.payment_processed_at != null && { payment_processed_at: reimbursement.payment_processed_at }),
+        ...(reimbursement.transaction_date != null && { transaction_date: reimbursement.transaction_date }),
+        ...(reimbursement.distance != null && { distance: reimbursement.distance }),
+        ...(reimbursement.start_location != null && { start_location: reimbursement.start_location }),
+        ...(reimbursement.end_location != null && { end_location: reimbursement.end_location }),
+        ...(reimbursement.waypoints != null && { waypoints: reimbursement.waypoints }),
+        attendees: reimbursement.attendees.map((attendee) => ({
+            name: attendee.name,
+            ...(attendee.user_id != null && { user_id: attendee.user_id })
+        })),
+        line_items: reimbursement.line_items.map((lineItem) => ({
+            ...(lineItem.amount != null && { amount: mapCurrencyAmount(lineItem.amount) }),
+            ...(lineItem.memo != null && { memo: lineItem.memo }),
+            accounting_field_selections: lineItem.accounting_field_selections.map(mapAccountingFieldSelection)
+        })),
+        receipts: reimbursement.receipts,
+        accounting_field_selections: reimbursement.accounting_field_selections.map(mapAccountingFieldSelection),
+        ...(reimbursement.payment_batch_id != null && { payment_batch_id: reimbursement.payment_batch_id }),
+        ...(reimbursement.payment_id != null && { payment_id: reimbursement.payment_id }),
+        ...(reimbursement.repayment_transaction_id != null && { repayment_transaction_id: reimbursement.repayment_transaction_id }),
+        ...(traceId != null && {
+            trace_id: {
+                ...(traceId.descriptor != null && { descriptor: traceId.descriptor }),
+                ...(traceId.trace_id != null && { trace_id: traceId.trace_id })
+            }
+        }),
+        ...(expenseGroup != null && {
+            expense_group: {
+                ...(expenseGroup.id != null && { id: expenseGroup.id }),
+                ...(expenseGroup.name != null && { name: expenseGroup.name })
+            }
+        })
+    };
 }
 
 const InputSchema = z
@@ -360,9 +360,7 @@ const InputSchema = z
             .describe('Pagination cursor returned as next_cursor by a previous call. Omit to fetch the first page.'),
         page_size: z.number().int().min(2).max(100).optional().describe('Number of results per page, between 2 and 100. Defaults to 20.'),
         direction: ReimbursementDirectionSchema.optional().describe('Filter by reimbursement direction. Defaults to BUSINESS_TO_USER.'),
-        state: ReimbursementStateSchema
-            .optional()
-            .describe('Filter by reimbursement state. Example: "PENDING"'),
+        state: ReimbursementStateSchema.optional().describe('Filter by reimbursement state. Example: "PENDING"'),
         updated_after: z
             .string()
             .optional()
