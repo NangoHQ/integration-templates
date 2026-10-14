@@ -30,7 +30,9 @@ const action = createAction({
         // https://docs.ramp.com/developer-api/v1/api-reference/vendors/delete-a-vendor
         await nango.delete({
             endpoint: `/developer/v1/vendors/${encodeURIComponent(input.vendor_id)}`,
-            retries: 3
+            // Not idempotent: replaying a delete whose response was lost fails with 404 DEVELOPER_7002 "does not exist", so retries must stay at 0.
+            // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries
+            retries: 0
         });
 
         return {

@@ -3,6 +3,7 @@ import { z } from 'zod';
 
 const OVERLAP_BUFFER_MS = 5 * 60 * 1000;
 const PAGE_SIZE = 100;
+const FULL_REFRESH_INTERVAL_MS = 24 * 60 * 60 * 1000;
 
 const AddressSchema = z
     .object({
@@ -100,15 +101,20 @@ const CheckpointSchema = z
         updated_after: z
             .string()
             .describe('High-water mark ISO 8601 timestamp of the most recently completed scan; empty string when no completed scan exists.'),
-        start: z.string().describe('Ramp pagination cursor (last entity id) for an interrupted scan; empty string when no scan is in progress.')
+        start: z.string().describe('Ramp pagination cursor (last entity id) for an interrupted scan; empty string when no scan is in progress.'),
+        full_refresh_in_progress: z.boolean().describe('Whether the in-flight scan is a delete-tracked full refresh rather than an incremental scan.'),
+        last_full_refresh_at: z
+            .string()
+            .describe('ISO 8601 timestamp of the last completed full refresh; empty string when no full refresh has completed.')
     })
     .describe('Incremental sync progress for vendors.');
 
 const sync = createSync({
-    description: 'Sync vendors, incrementally using the confirmed working updated_at range filter.',
+    description: 'Sync vendors incrementally by updated_at, with a daily full refresh that detects deleted vendors.',
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['vendors:read'],
     checkpoint: CheckpointSchema,
     models: {
         Vendor: VendorSchema
@@ -118,12 +124,30 @@ const sync = createSync({
         const checkpoint = await nango.getCheckpoint();
 
         const highWater = checkpoint?.updated_after || undefined;
+        const lastFullRefreshAt = checkpoint?.last_full_refresh_at || undefined;
         let start = checkpoint?.start || undefined;
+
+        // DELETE /developer/v1/vendors/{id} hard-deletes the vendor: it 404s afterwards and is never
+        // returned by the list endpoint again (with or without from_updated_at), so the incremental
+        // scan cannot see deletions. A periodic unfiltered scan with delete tracking catches them.
+        const lastFullRefreshMs = lastFullRefreshAt ? Date.parse(lastFullRefreshAt) : Number.NaN;
+        const resumingFullRefresh = checkpoint?.full_refresh_in_progress === true;
+        const fullRefresh = resumingFullRefresh || Number.isNaN(lastFullRefreshMs) || Date.now() - lastFullRefreshMs >= FULL_REFRESH_INTERVAL_MS;
+
+        if (fullRefresh && !resumingFullRefresh) {
+            // A new full refresh always starts from the first page; drop any interrupted incremental cursor.
+            start = undefined;
+        }
+
+        if (fullRefresh) {
+            // No-op when a window is already open, so a resumed full refresh keeps its original window.
+            await nango.trackDeletesStart('Vendor');
+        }
 
         const highWaterMs = highWater ? Date.parse(highWater) : undefined;
         let maxUpdatedAtMs = highWaterMs !== undefined && Number.isFinite(highWaterMs) ? highWaterMs : undefined;
 
-        const fromUpdatedAt = maxUpdatedAtMs !== undefined ? new Date(maxUpdatedAtMs - OVERLAP_BUFFER_MS).toISOString() : undefined;
+        const fromUpdatedAt = !fullRefresh && maxUpdatedAtMs !== undefined ? new Date(maxUpdatedAtMs - OVERLAP_BUFFER_MS).toISOString() : undefined;
 
         const proxyConfig: ProxyConfiguration = {
             // https://docs.ramp.com/openapi/developer-api.json (GET /developer/v1/vendors)
@@ -169,21 +193,25 @@ const sync = createSync({
             if (start !== undefined) {
                 await nango.saveCheckpoint({
                     updated_after: highWater ?? '',
-                    start
+                    start,
+                    full_refresh_in_progress: fullRefresh,
+                    last_full_refresh_at: lastFullRefreshAt ?? ''
                 });
             }
         }
 
-        if (maxUpdatedAtMs !== undefined) {
-            await nango.saveCheckpoint({
-                updated_after: new Date(maxUpdatedAtMs).toISOString(),
-                start: ''
-            });
+        // Persist the completed scan before closing the delete-tracking window, so a failure in between
+        // can never make a later run resume a half-finished walk under a fresh window.
+        await nango.saveCheckpoint({
+            updated_after: maxUpdatedAtMs !== undefined ? new Date(maxUpdatedAtMs).toISOString() : '',
+            start: '',
+            full_refresh_in_progress: false,
+            last_full_refresh_at: fullRefresh ? new Date().toISOString() : (lastFullRefreshAt ?? '')
+        });
 
-            return;
+        if (fullRefresh) {
+            await nango.trackDeletesEnd('Vendor');
         }
-
-        await nango.clearCheckpoint();
     }
 });
 

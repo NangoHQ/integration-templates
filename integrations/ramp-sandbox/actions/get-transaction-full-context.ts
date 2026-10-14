@@ -42,8 +42,8 @@ const LineItemSchema = z
     .object({
         id: z.string().nullable().optional().describe('Ramp ID of the persisted split line item.'),
         memo: z.string().nullable().optional().describe('Memo associated with the line item.'),
-        amount: AmountSchema.nullable().optional().describe('Line item amount in the transaction settlement currency.'),
-        converted_amount: AmountSchema.nullable().optional().describe('Line item amount converted to the card currency.')
+        amount: CurrencyAmountSchema.nullable().optional().describe('Line item amount in the transaction settlement currency, in minor units.'),
+        converted_amount: CurrencyAmountSchema.nullable().optional().describe('Line item amount converted to the card currency, in minor units.')
     })
     .passthrough();
 
@@ -150,9 +150,11 @@ const ReceiptListSchema = z.object({
 });
 
 const MemoSchema = z.object({
-    id: z.string(),
-    memo: z.string().nullable()
+    id: z.string().optional(),
+    memo: z.string().nullable().optional()
 });
+
+const RECEIPTS_PAGE_SIZE = 100;
 
 const InputSchema = z
     .object({
@@ -189,17 +191,26 @@ const action = createAction({
 
         const transaction = TransactionSchema.parse(transactionResponse.data);
 
-        const receiptsResponse = await nango.get({
-            // https://docs.ramp.com/developer-api/v1/overview/introduction - GET /developer/v1/receipts
-            endpoint: '/developer/v1/receipts',
-            params: {
-                transaction_id: input.transaction_id,
-                page_size: 100
-            },
-            retries: 3
-        });
+        const receipts: z.infer<typeof ReceiptSchema>[] = [];
+        let start: string | undefined;
+        do {
+            const receiptsResponse = await nango.get({
+                // https://docs.ramp.com/developer-api/v1/overview/introduction - GET /developer/v1/receipts
+                endpoint: '/developer/v1/receipts',
+                params: {
+                    transaction_id: input.transaction_id,
+                    page_size: RECEIPTS_PAGE_SIZE,
+                    ...(start !== undefined && { start })
+                },
+                retries: 3
+            });
 
-        const receipts = ReceiptListSchema.parse(receiptsResponse.data);
+            const page = ReceiptListSchema.parse(receiptsResponse.data);
+            receipts.push(...page.data);
+
+            const nextStart = page.page.next != null ? new URL(page.page.next).searchParams.get('start') : null;
+            start = nextStart != null && nextStart.length > 0 && nextStart !== start ? nextStart : undefined;
+        } while (start !== undefined);
 
         const memoResponse = await nango.get({
             // https://docs.ramp.com/developer-api/v1/overview/introduction - GET /developer/v1/memos/{transaction_id}
@@ -211,8 +222,8 @@ const action = createAction({
 
         return {
             transaction,
-            receipts: receipts.data,
-            memo: memo.memo
+            receipts,
+            memo: memo.memo ?? null
         };
     }
 });

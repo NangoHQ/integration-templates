@@ -30,18 +30,26 @@ const OutputSchema = z
     .object({
         user_id: z.string().describe('Unique identifier of the user whose invite lifecycle was managed.'),
         action: InviteActionSchema.describe('The invite action that was applied.'),
-        status: UserStatusSchema.describe('The user status observed immediately after the invite action was applied.'),
+        status: UserStatusSchema.optional().describe(
+            'The user status observed immediately after the invite action was applied. Omitted when the follow-up read failed (see readback_error).'
+        ),
         scheduled_invitation_date: z
             .string()
-            .nullable()
-            .describe('ISO 8601 datetime at which the user is scheduled to be invited, or null when no invitation is scheduled.')
+            .optional()
+            .describe('ISO 8601 datetime at which the user is scheduled to be invited. Omitted when no invitation is scheduled or the follow-up read failed.'),
+        readback_error: z
+            .string()
+            .optional()
+            .describe(
+                'Set when the invite action succeeded but reading the user back afterwards failed; the action was still applied, so do not retry it (SEND_NOW would send a duplicate email).'
+            )
     })
     .describe("Result of applying an invite action, including the user's status and pending scheduled invitation date.");
 
 /**
  * @tags: [write, destructive]
  * @tagReason: Applies a provider-side invite action (schedule, cancel, or immediately send) that mutates user state and sends an invite email, effects that are not easily reversed.
- * @pitfalls: SEND_NOW sends a real invite email that cannot be recalled, and DESCHEDULE silently does nothing when no invitation is scheduled. SCHEDULE and SEND_NOW require the user to be in DRAFT status, and invitation_time is required for SCHEDULE and must be an ISO 8601 datetime with a timezone offset.
+ * @pitfalls: SEND_NOW sends a real invite email that cannot be recalled, and DESCHEDULE silently does nothing when no invitation is scheduled. SCHEDULE and SEND_NOW require the user to be in DRAFT status, and invitation_time is required for SCHEDULE and must be an ISO 8601 datetime with a timezone offset. If the follow-up user read fails after the invite action succeeded, the action still returns (with readback_error set and status omitted) instead of failing, so do not retry it.
  */
 const action = createAction({
     description: "Schedule, reschedule, deschedule, or immediately send a user's pending invite.",
@@ -59,7 +67,7 @@ const action = createAction({
         }
 
         await nango.post({
-            // https://docs.ramp.com/developer-api/v1/overview/introduction
+            // https://docs.ramp.com/openapi/developer-api.json - POST /developer/v1/users/{user_id}/invite
             endpoint: `/developer/v1/users/${encodeURIComponent(input.user_id)}/invite`,
             data: {
                 action: input.action,
@@ -70,28 +78,36 @@ const action = createAction({
             retries: 0
         });
 
-        const response = await nango.get({
-            // https://docs.ramp.com/developer-api/v1/overview/introduction
-            endpoint: `/developer/v1/users/${encodeURIComponent(input.user_id)}`,
-            retries: 3
-        });
-
-        if (!response.data) {
-            throw new nango.ActionError({
-                type: 'not_found',
-                message: 'User not found after applying the invite action.',
-                user_id: input.user_id
+        // @allowTryCatch: The invite POST has already been applied (and SEND_NOW may have emailed the user), so a failed read-back must not fail the action and prompt a duplicate retry.
+        try {
+            const response = await nango.get({
+                // https://docs.ramp.com/openapi/developer-api.json - GET /developer/v1/users/{user_id}
+                endpoint: `/developer/v1/users/${encodeURIComponent(input.user_id)}`,
+                retries: 3
             });
+
+            const parsed = ProviderUserSchema.safeParse(response.data);
+            if (!parsed.success) {
+                return {
+                    user_id: input.user_id,
+                    action: input.action,
+                    readback_error: `Invite action applied, but the user read-back returned an unexpected shape: ${parsed.error.message}`
+                };
+            }
+
+            return {
+                user_id: parsed.data.id,
+                action: input.action,
+                status: parsed.data.status,
+                ...(parsed.data.scheduled_invitation_date != null && { scheduled_invitation_date: parsed.data.scheduled_invitation_date })
+            };
+        } catch (error) {
+            return {
+                user_id: input.user_id,
+                action: input.action,
+                readback_error: `Invite action applied, but reading the user back failed: ${error instanceof Error ? error.message : String(error)}`
+            };
         }
-
-        const user = ProviderUserSchema.parse(response.data);
-
-        return {
-            user_id: user.id,
-            action: input.action,
-            status: user.status,
-            scheduled_invitation_date: user.scheduled_invitation_date
-        };
     }
 });
 

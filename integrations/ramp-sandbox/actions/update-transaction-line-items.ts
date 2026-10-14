@@ -1,24 +1,39 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
-const AccountingFieldSelectionInputSchema = z.object({
-    field_id: z.string().optional().describe('Ramp UUID of the accounting field. Provide exactly one of field_id or field_external_id.'),
-    field_external_id: z.string().optional().describe('ERP remote ID of the accounting field. Provide exactly one of field_id or field_external_id.'),
-    field_option_id: z
-        .string()
-        .optional()
-        .describe('Ramp UUID of the accounting field option. Provide exactly one of field_option_id, field_option_external_id, or free_form_text.'),
-    field_option_external_id: z
-        .string()
-        .optional()
-        .describe('ERP remote ID of the accounting field option. Provide exactly one of field_option_id, field_option_external_id, or free_form_text.'),
-    free_form_text: z
-        .string()
-        .optional()
-        .describe(
-            'Free-form value for the accounting field (ISO date YYYY-MM-DD for date fields). Provide exactly one of field_option_id, field_option_external_id, or free_form_text.'
-        )
-});
+const AccountingFieldSelectionInputSchema = z
+    .object({
+        field_id: z.string().optional().describe('Ramp UUID of the accounting field. Provide exactly one of field_id or field_external_id.'),
+        field_external_id: z.string().optional().describe('ERP remote ID of the accounting field. Provide exactly one of field_id or field_external_id.'),
+        field_option_id: z
+            .string()
+            .optional()
+            .describe('Ramp UUID of the accounting field option. Provide exactly one of field_option_id, field_option_external_id, or free_form_text.'),
+        field_option_external_id: z
+            .string()
+            .optional()
+            .describe('ERP remote ID of the accounting field option. Provide exactly one of field_option_id, field_option_external_id, or free_form_text.'),
+        free_form_text: z
+            .string()
+            .min(1)
+            .optional()
+            .describe(
+                'Free-form value for the accounting field (ISO date YYYY-MM-DD for date fields). Provide exactly one of field_option_id, field_option_external_id, or free_form_text.'
+            )
+    })
+    // Ramp rejects selections that do not identify exactly one field and exactly one option (HTTP 422), so enforce both one-of constraints up front.
+    .refine((selection) => [selection.field_id, selection.field_external_id].filter((value) => value !== undefined).length === 1, {
+        message: 'Provide exactly one of field_id or field_external_id.',
+        path: ['field_id']
+    })
+    .refine(
+        (selection) =>
+            [selection.field_option_id, selection.field_option_external_id, selection.free_form_text].filter((value) => value !== undefined).length === 1,
+        {
+            message: 'Provide exactly one of field_option_id, field_option_external_id, or free_form_text.',
+            path: ['field_option_id']
+        }
+    );
 
 const LineItemInputSchema = z.object({
     amount: z
@@ -85,6 +100,49 @@ const OutputSchema = z
     })
     .describe('The transaction after its line-item split was set, replaced, or removed.');
 
+const ProviderCurrencyAmountSchema = z.object({
+    amount: z.number(),
+    currency_code: z.string(),
+    minor_unit_conversion_rate: z.number().nullable().optional()
+});
+
+const ProviderAccountingFieldSelectionSchema = z.object({
+    id: z.string().nullable().optional(),
+    name: z.string().nullable().optional(),
+    external_id: z.string().nullable().optional(),
+    external_code: z.string().nullable().optional(),
+    display_name: z.string().nullable().optional(),
+    type: z.string().nullable().optional(),
+    provider_name: z.string().nullable().optional()
+});
+
+const ProviderTransactionSchema = z.object({
+    id: z.string(),
+    line_items: z
+        .array(
+            z.object({
+                id: z.string().nullable().optional(),
+                amount: ProviderCurrencyAmountSchema.nullable().optional(),
+                converted_amount: ProviderCurrencyAmountSchema.nullable().optional(),
+                memo: z.string().nullable().optional(),
+                accounting_field_selections: z.array(ProviderAccountingFieldSelectionSchema).nullable().optional()
+            })
+        )
+        .nullable()
+        .optional(),
+    entity_amount: z
+        .object({
+            currency: z.string(),
+            value: z.number()
+        })
+        .nullable()
+        .optional(),
+    memo: z.string().nullable().optional(),
+    state: z.string(),
+    updated_at: z.string().nullable().optional(),
+    sync_status: z.string().nullable().optional()
+});
+
 /**
  * @tags: [write, destructive]
  * @tagReason: Replaces the transaction's existing line-item split, overwriting prior accounting coding; sending an empty array clears the split.
@@ -112,7 +170,33 @@ const action = createAction({
             retries: 3
         });
 
-        return OutputSchema.parse(response.data);
+        const transaction = ProviderTransactionSchema.parse(response.data);
+
+        return {
+            id: transaction.id,
+            line_items: (transaction.line_items ?? []).map((lineItem) => ({
+                ...(lineItem.id !== undefined && { id: lineItem.id }),
+                ...(lineItem.amount !== undefined && { amount: lineItem.amount }),
+                ...(lineItem.converted_amount !== undefined && { converted_amount: lineItem.converted_amount }),
+                ...(lineItem.memo !== undefined && { memo: lineItem.memo }),
+                ...(lineItem.accounting_field_selections != null && {
+                    accounting_field_selections: lineItem.accounting_field_selections.map((selection) => ({
+                        ...(selection.id != null && { id: selection.id }),
+                        ...(selection.name != null && { name: selection.name }),
+                        ...(selection.external_id != null && { external_id: selection.external_id }),
+                        ...(selection.external_code != null && { external_code: selection.external_code }),
+                        ...(selection.display_name !== undefined && { display_name: selection.display_name }),
+                        ...(selection.type != null && { type: selection.type }),
+                        ...(selection.provider_name != null && { provider_name: selection.provider_name })
+                    }))
+                })
+            })),
+            entity_amount: transaction.entity_amount ?? null,
+            memo: transaction.memo ?? null,
+            state: transaction.state,
+            updated_at: transaction.updated_at ?? null,
+            ...(transaction.sync_status != null && { sync_status: transaction.sync_status })
+        };
     }
 });
 

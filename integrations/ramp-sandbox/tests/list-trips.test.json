@@ -40,8 +40,7 @@
           }
         ],
         "spend_events": [],
-        "travel_types": [],
-        "total_spend_amount": null
+        "travel_types": []
       },
       {
         "id": "e5da039f-3047-4c02-b0df-9d71d9156d4a",
@@ -79,8 +78,7 @@
           }
         ],
         "spend_events": [],
-        "travel_types": [],
-        "total_spend_amount": null
+        "travel_types": []
       },
       {
         "id": "635c9868-fe5f-4124-bf3a-bf2a7df83396",

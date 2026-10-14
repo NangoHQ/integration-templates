@@ -28,7 +28,7 @@ const OutputSchema = z
         connection_provider: z
             .string()
             .describe('How the bank account was connected. One of "finicity", "manual", "plaid", "ramp_brokerage", "ramp_wallet" or "teller".'),
-        financial_institution_name: z.string().nullable().describe('Name of the associated financial institution, or null when unknown.'),
+        financial_institution_name: z.string().optional().describe('Name of the associated financial institution. Absent when unknown.'),
         has_ach_details: z.boolean().describe('Whether Ramp holds ACH routing and account numbers for the bank account.')
     })
     .describe('A single externally-linked bank account.');
@@ -36,14 +36,14 @@ const OutputSchema = z
 /**
  * @tags: [read]
  * @tagReason: Retrieves a single externally-linked bank account without modifying any provider state.
- * @pitfalls: Returns externally-linked bank accounts (connection_provider such as "manual", "plaid" or "ramp_wallet") that carry no balance data; Treasury/business account balances live in a separate banking resource, and financial_institution_name is frequently null.
+ * @pitfalls: Returns externally-linked bank accounts (connection_provider such as "manual", "plaid" or "ramp_wallet") that carry no balance data; Treasury/business account balances live in a separate banking resource, and financial_institution_name is frequently absent.
  */
 const action = createAction({
     description: 'Retrieve a single externally-linked bank account by ID.',
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['bank_accounts'],
+    scopes: ['bank_accounts:read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({
@@ -60,7 +60,7 @@ const action = createAction({
             account_number_last_four: bankAccount.account_number_last_four,
             account_subtype: bankAccount.account_subtype,
             connection_provider: bankAccount.connection_provider,
-            financial_institution_name: bankAccount.financial_institution_name,
+            ...(bankAccount.financial_institution_name != null && { financial_institution_name: bankAccount.financial_institution_name }),
             has_ach_details: bankAccount.has_ach_details
         };
     }

@@ -51,8 +51,8 @@ const BalanceHistoryEntrySchema = z.object({
     currency_code: z.string().describe('ISO 4217 currency code of the balance, e.g. USD.'),
     minor_unit_conversion_rate: z
         .number()
-        .nullable()
-        .describe('Divide amount by this value to get the real currency value (100 for USD). Null when the provider does not report it.')
+        .optional()
+        .describe('Divide amount by this value to get the real currency value (100 for USD). Absent when the provider does not report it.')
 });
 
 const TrendSummarySchema = z.object({
@@ -172,7 +172,7 @@ const action = createAction({
                     date: entry.date,
                     amount: entry.amount.amount,
                     currency_code: entry.amount.currency_code,
-                    minor_unit_conversion_rate: entry.amount.minor_unit_conversion_rate
+                    ...(entry.amount.minor_unit_conversion_rate != null && { minor_unit_conversion_rate: entry.amount.minor_unit_conversion_rate })
                 });
             }
         }

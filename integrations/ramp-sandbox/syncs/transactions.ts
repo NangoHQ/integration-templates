@@ -21,16 +21,29 @@ const CurrencyAmountSchema = z
     })
     .describe('A monetary amount, its currency, and the minor-unit conversion rate.');
 
+// Ramp documents every card_holder field as optional, and the source user fields (department_id,
+// location_id, employee_id) are nullable on /developer/v1/users, so the provider shape accepts both.
+const ProviderCardHolderSchema = z.object({
+    user_id: z.string().optional(),
+    first_name: z.string().optional(),
+    last_name: z.string().optional(),
+    department_id: z.string().nullish(),
+    department_name: z.string().nullish(),
+    location_id: z.string().nullish(),
+    location_name: z.string().nullish(),
+    employee_id: z.string().nullish()
+});
+
 const CardHolderSchema = z
     .object({
-        user_id: z.string().describe('Ramp user identifier of the card holder.'),
-        first_name: z.string().describe('First name of the card holder.'),
-        last_name: z.string().describe('Last name of the card holder.'),
-        department_id: z.string().describe('Identifier of the department the card holder belongs to.'),
-        department_name: z.string().describe('Name of the department the card holder belongs to.'),
-        location_id: z.string().describe('Identifier of the location the card holder belongs to.'),
-        location_name: z.string().describe('Name of the location the card holder belongs to.'),
-        employee_id: z.string().nullable().describe('External employee identifier of the card holder, when available.')
+        user_id: z.string().optional().describe('Ramp user identifier of the card holder.'),
+        first_name: z.string().optional().describe('First name of the card holder.'),
+        last_name: z.string().optional().describe('Last name of the card holder.'),
+        department_id: z.string().optional().describe('Identifier of the department the card holder belongs to, when the card holder has one.'),
+        department_name: z.string().optional().describe('Name of the department the card holder belongs to, when the card holder has one.'),
+        location_id: z.string().optional().describe('Identifier of the location the card holder belongs to, when the card holder has one.'),
+        location_name: z.string().optional().describe('Name of the location the card holder belongs to, when the card holder has one.'),
+        employee_id: z.string().optional().describe('External employee identifier of the card holder, when available.')
     })
     .describe('Information about the card holder who made the transaction.');
 
@@ -145,7 +158,7 @@ const TransactionSchema = z
             .describe('Whether the transaction is fully approved and all cardholder requirements are met.'),
         card_present: z.boolean().optional().describe('Whether the transaction was processed at a card-present terminal.'),
         card_id: z.string().optional().describe('Identifier of the physical or virtual card used for the transaction.'),
-        card_holder: CardHolderSchema.nullable().optional().describe('Information about the card holder who made the transaction.'),
+        card_holder: CardHolderSchema.optional().describe('Information about the card holder who made the transaction, when Ramp returns one.'),
         fund_id: z.string().optional().describe('Identifier of the fund associated with the transaction.'),
         limit_id: z.string().optional().describe('Deprecated alias of fund_id.'),
         spend_program_id: z.string().optional().describe('Identifier of the spend program that issued the fund.'),
@@ -174,7 +187,11 @@ const TransactionSchema = z
         attendees: z.array(AttendeeSchema).optional().describe('Attendees associated with the transaction, when applicable.'),
         decline_details: DeclineDetailsSchema.optional().describe('Details about the decline, present only for declined transactions.')
     })
-    .describe('A single Ramp card transaction from the general ledger.');
+    .describe('A single Ramp card transaction from the general ledger, including declined transactions.');
+
+const ProviderTransactionSchema = TransactionSchema.extend({
+    card_holder: ProviderCardHolderSchema.nullable().optional()
+});
 
 // Checkpoint fields must be plain string/number/boolean values, so "unset" string fields use an empty string sentinel.
 const CheckpointSchema = z.object({
@@ -185,7 +202,21 @@ const CheckpointSchema = z.object({
 });
 
 type Transaction = z.infer<typeof TransactionSchema>;
+type ProviderCardHolder = z.infer<typeof ProviderCardHolderSchema>;
 type Checkpoint = z.infer<typeof CheckpointSchema>;
+
+function mapCardHolder(cardHolder: ProviderCardHolder): z.infer<typeof CardHolderSchema> {
+    return {
+        ...(cardHolder.user_id != null && { user_id: cardHolder.user_id }),
+        ...(cardHolder.first_name != null && { first_name: cardHolder.first_name }),
+        ...(cardHolder.last_name != null && { last_name: cardHolder.last_name }),
+        ...(cardHolder.department_id != null && { department_id: cardHolder.department_id }),
+        ...(cardHolder.department_name != null && { department_name: cardHolder.department_name }),
+        ...(cardHolder.location_id != null && { location_id: cardHolder.location_id }),
+        ...(cardHolder.location_name != null && { location_name: cardHolder.location_name }),
+        ...(cardHolder.employee_id != null && { employee_id: cardHolder.employee_id })
+    };
+}
 
 function toCursorPath(link: string): string {
     if (link.startsWith('http://') || link.startsWith('https://')) {
@@ -205,10 +236,11 @@ function parseCursor(cursor: string): { endpoint: string; params: Record<string,
 }
 
 const sync = createSync({
-    description: 'Sync Ramp card transactions, incrementally by user_transaction_time with a periodic full refresh.',
+    description: 'Sync Ramp card transactions (including declined ones), incrementally by user_transaction_time with a periodic full refresh.',
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['transactions:read'],
     checkpoint: CheckpointSchema,
     models: {
         Transaction: TransactionSchema
@@ -241,7 +273,9 @@ const sync = createSync({
         const updatedAfter = checkpointUpdatedAfter;
         let maxSeen = updatedAfter;
 
-        const params: Record<string, string | number> = { page_size: PAGE_SIZE };
+        // Ramp omits DECLINED transactions unless state=ALL is sent, so request it on every scan
+        // (full and incremental). Ramp echoes it into page.next, so resumed cursors keep it too.
+        const params: Record<string, string | number> = { page_size: PAGE_SIZE, state: 'ALL' };
         if (!fullRefresh && updatedAfter !== undefined) {
             const updatedAfterMs = Date.parse(updatedAfter);
             if (!Number.isNaN(updatedAfterMs)) {
@@ -276,11 +310,15 @@ const sync = createSync({
         for await (const page of nango.paginate<unknown>(proxyConfig)) {
             const records: Transaction[] = [];
             for (const item of page) {
-                const parsed = TransactionSchema.safeParse(item);
+                const parsed = ProviderTransactionSchema.safeParse(item);
                 if (!parsed.success) {
                     throw new Error(`Unexpected Ramp transaction payload: ${parsed.error.message}`);
                 }
-                records.push(parsed.data);
+                const { card_holder: cardHolder, ...transaction } = parsed.data;
+                records.push({
+                    ...transaction,
+                    ...(cardHolder != null && { card_holder: mapCardHolder(cardHolder) })
+                });
             }
 
             if (records.length === 0) {

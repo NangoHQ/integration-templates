@@ -24,18 +24,12 @@
     "is_exempt_from_policy_agent": false,
     "is_shareable": false,
     "overrides_spend_program": false,
-    "spend_program_id": null,
     "permitted_spend_types": {
       "physical_card_enabled": false,
       "virtual_card_enabled": true,
       "reimbursements_enabled": false
     },
     "spending_restrictions": {
-      "allowed_category_codes": null,
-      "allowed_vendor_ids": null,
-      "auto_lock_date": null,
-      "blocked_category_codes": null,
-      "blocked_vendor_ids": null,
       "interval": "MONTHLY",
       "limit": {
         "amount": 100,
@@ -43,9 +37,7 @@
         "minor_unit_conversion_rate": 100
       },
       "next_interval_resets_at": "2026-11-01T00:00:00+00:00",
-      "start_of_interval": "2026-10-01T00:00:00+00:00",
-      "temporary_limit": null,
-      "transaction_amount_limit": null
+      "start_of_interval": "2026-10-01T00:00:00+00:00"
     },
     "balance": {
       "cleared": {
@@ -76,11 +68,9 @@
     ],
     "members": [
       {
-        "user_id": "c7df8ee0-aa5a-4351-a8c2-0d15d585a902",
-        "suspension": null
+        "user_id": "c7df8ee0-aa5a-4351-a8c2-0d15d585a902"
       }
-    ],
-    "suspension": null
+    ]
   },
   "nango": {},
   "api": {

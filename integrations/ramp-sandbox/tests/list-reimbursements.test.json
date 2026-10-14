@@ -10,7 +10,6 @@
         "user_id": "07323c8f-c449-4222-a970-8cc4cf673711",
         "user_email": "api@nango.dev",
         "user_full_name": "David Wallace",
-        "employee_id": null,
         "direction": "BUSINESS_TO_USER",
         "state": "REIMBURSED",
         "type": "OUT_OF_POCKET",
@@ -24,9 +23,7 @@
         "submitted_at": "2026-10-14T10:18:07+00:00",
         "approved_at": "2026-10-14T10:18:07+00:00",
         "payment_processed_at": "2026-10-14T10:18:10+00:00",
-        "synced_at": null,
         "merchant": "Trader Joe's",
-        "merchant_id": null,
         "merchant_amount": {
           "currency": "USD",
           "minor_unit_conversion_rate": 100,
@@ -48,30 +45,19 @@
           "minor_unit_conversion_rate": 100
         },
         "entity_id": "eb24fd81-de5d-43bd-8102-eb2cc53d3c3a",
-        "fund_id": null,
-        "spend_limit_id": null,
-        "trip_id": null,
-        "funding_source": null,
         "sync_status": "NOT_SYNC_READY",
         "payment_id": "JVTJVRJCER",
         "payment_batch_id": "f07b8d65-bee7-488e-b85b-73378317fcbc",
-        "repayment_transaction_id": null,
-        "start_location": null,
-        "end_location": null,
-        "distance": null,
-        "waypoints": null,
         "receipts": [],
         "attendees": [],
         "line_items": [],
-        "accounting_field_selections": [],
-        "expense_group": null
+        "accounting_field_selections": []
       },
       {
         "id": "00971e4a-ba72-460f-a34c-31176eec0421",
         "user_id": "db5b78e6-7cc8-4792-8e00-486569712745",
         "user_email": "api+cardholder_13@nango.dev",
         "user_full_name": "Katherine Mosley",
-        "employee_id": null,
         "direction": "BUSINESS_TO_USER",
         "state": "REIMBURSED",
         "type": "OUT_OF_POCKET",
@@ -85,9 +71,7 @@
         "submitted_at": "2024-10-20T10:05:32+00:00",
         "approved_at": "2024-10-22T10:05:32+00:00",
         "payment_processed_at": "2026-10-14T10:06:10+00:00",
-        "synced_at": null,
         "merchant": "Amtrak",
-        "merchant_id": null,
         "merchant_amount": {
           "currency": "USD",
           "minor_unit_conversion_rate": 100,
@@ -109,25 +93,15 @@
           "minor_unit_conversion_rate": 100
         },
         "entity_id": "a7587328-64fa-4b8b-ad30-a2d27806825b",
-        "fund_id": null,
-        "spend_limit_id": null,
-        "trip_id": null,
-        "funding_source": null,
         "sync_status": "NOT_SYNC_READY",
         "payment_id": "GE5SZNQZJX",
         "payment_batch_id": "b6f23910-f7fa-495d-8eda-2fb8f077cb9d",
-        "repayment_transaction_id": null,
-        "start_location": null,
-        "end_location": null,
-        "distance": null,
-        "waypoints": null,
         "receipts": [
           "e3496e01-6172-40d3-abbf-9adef5fec5b4"
         ],
         "attendees": [],
         "line_items": [],
-        "accounting_field_selections": [],
-        "expense_group": null
+        "accounting_field_selections": []
       }
     ],
     "next_cursor": "00971e4a-ba72-460f-a34c-31176eec0421"

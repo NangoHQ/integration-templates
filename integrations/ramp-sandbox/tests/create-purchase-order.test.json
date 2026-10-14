@@ -16,7 +16,6 @@
   "output": {
     "id": "01a13a1a-a6e4-764d-84a8-138fa25c2e40",
     "purchase_order_number": "200895",
-    "name": null,
     "memo": "Nango registry create-purchase-order action test",
     "entity_id": "eb24fd81-de5d-43bd-8102-eb2cc53d3c3a",
     "vendor_id": "effa4ecc-59f7-423b-9747-56dafc7c66da",
@@ -36,7 +35,6 @@
     "billing_status": "OPEN",
     "creation_source": "DEVELOPER_API",
     "created_at": "2026-10-14T11:09:47+00:00",
-    "archived_at": null,
     "ramp_url": "https://demo.ramp.com/s/procurement/purchase-orders/01a13a1a-a6e4-764d-84a8-138fa25c2e40",
     "line_items": [
       {
@@ -52,8 +50,7 @@
           "amount": 10000,
           "currency_code": "USD",
           "minor_unit_conversion_rate": 100
-        },
-        "external_id": null
+        }
       }
     ]
   },

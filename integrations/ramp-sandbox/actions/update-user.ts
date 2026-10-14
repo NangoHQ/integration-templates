@@ -1,7 +1,8 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
-const RoleSchema = z.enum(['AUDITOR', 'BUSINESS_ADMIN', 'BUSINESS_BOOKKEEPER', 'BUSINESS_OWNER', 'BUSINESS_USER', 'GUEST_USER', 'IT_ADMIN']);
+// BUSINESS_OWNER is excluded: Ramp rejects it on update with 403 BUSINESS_7022 "Owner is not an assignable role for this business".
+const RoleSchema = z.enum(['AUDITOR', 'BUSINESS_ADMIN', 'BUSINESS_BOOKKEEPER', 'BUSINESS_USER', 'GUEST_USER', 'IT_ADMIN']);
 
 const InputSchema = z
     .object({
@@ -11,7 +12,7 @@ const InputSchema = z
         department_id: z.string().optional().describe('UUID of the department to assign to the user.'),
         location_id: z.string().optional().describe('UUID of the location to assign to the user.'),
         direct_manager_id: z.string().nullable().optional().describe("UUID of the user's direct manager. Pass null to clear the current manager."),
-        role: RoleSchema.optional().describe('New role for the user. BUSINESS_OWNER is not a permissible value for updates.'),
+        role: RoleSchema.optional().describe('New role for the user. BUSINESS_OWNER cannot be assigned through this action.'),
         is_manager: z.boolean().optional().describe('Whether the user is a manager.'),
         auto_promote: z.boolean().optional().describe("Whether to automatically promote the user's manager to manager."),
         scheduled_deactivation_date: z
@@ -24,48 +25,103 @@ const InputSchema = z
     })
     .describe('Fields to update on a Ramp user. Only the provided fields are changed.');
 
+// https://docs.ramp.com/openapi/developer-api.json - User
+const ProviderUserSchema = z.object({
+    id: z.string(),
+    business_id: z.string().nullable(),
+    department_id: z.string().nullable(),
+    email: z.string().optional(),
+    employee_id: z.string().nullable(),
+    entity_id: z.string().nullable(),
+    first_name: z.string().optional(),
+    is_manager: z.boolean(),
+    last_name: z.string().optional(),
+    location_id: z.string().nullable(),
+    manager_id: z.string().nullable(),
+    phone: z.string().nullable(),
+    role: z.string().optional(),
+    scheduled_deactivation_date: z.string().nullable(),
+    scheduled_invitation_date: z.string().nullable(),
+    status: z.string(),
+    custom_fields: z.array(
+        z.object({
+            name: z.string(),
+            value: z.string()
+        })
+    )
+});
+
 const OutputSchema = z
     .object({
         id: z.string().describe('Unique identifier of the updated user.'),
-        business_id: z.string().nullable().optional().describe('Unique identifier of the business the user belongs to.'),
-        email: z.string().optional().describe("The user's email address."),
-        employee_id: z.string().nullable().optional().describe('External identifier for the employee, usable in place of the email.'),
-        entity_id: z.string().nullable().optional().describe('Unique identifier of the business entity the user is associated with.'),
-        first_name: z.string().optional().describe("The user's first name."),
-        last_name: z.string().optional().describe("The user's last name."),
-        department_id: z.string().nullable().optional().describe("Unique identifier of the user's department."),
-        location_id: z.string().nullable().optional().describe("Unique identifier of the user's location."),
-        manager_id: z.string().nullable().optional().describe("Unique identifier of the user's manager."),
-        role: z.string().optional().describe("The user's role."),
-        is_manager: z.boolean().optional().describe('Whether the user is a manager.'),
-        phone: z.string().nullable().optional().describe("The user's phone number."),
-        status: z.string().optional().describe('Lifecycle status of the user (for example USER_ACTIVE, USER_INACTIVE, or INVITE_PENDING).'),
+        business_id: z.string().optional().describe('Unique identifier of the company the user works for.'),
+        department_id: z.string().optional().describe('Unique identifier of the department the user belongs to. Omitted when unassigned.'),
+        email: z.string().optional().describe('Email address of the user.'),
+        employee_id: z
+            .string()
+            .optional()
+            .describe('Alternative identifier for the employee from an external system, usable in place of the email. Omitted when not set.'),
+        entity_id: z.string().optional().describe('Unique identifier of the business entity the user is associated with. Omitted when not set.'),
+        first_name: z.string().optional().describe('First name of the user.'),
+        is_manager: z.boolean().describe('Whether the user is a manager.'),
+        last_name: z.string().optional().describe('Last name of the user.'),
+        location_id: z.string().optional().describe('Unique identifier of the location the user is assigned to. Omitted when unassigned.'),
+        manager_id: z.string().optional().describe('Unique identifier of the user who manages this user. Omitted when the user has no manager.'),
+        phone: z.string().optional().describe('Phone number of the user. Omitted when not set.'),
+        role: z
+            .string()
+            .optional()
+            .describe(
+                'Role assigned to the user in Ramp: AUDITOR, BUSINESS_ADMIN, BUSINESS_BOOKKEEPER, BUSINESS_OWNER, BUSINESS_USER, GUEST_USER, IT_ADMIN, or an UNBUNDLED_* role.'
+            ),
         scheduled_deactivation_date: z
             .string()
-            .nullable()
             .optional()
-            .describe('ISO 8601 date-time when the user is scheduled to be deactivated, or null if none.'),
+            .describe('Date when the user is scheduled to be deactivated, in ISO 8601 format. Omitted when none is scheduled.'),
         scheduled_invitation_date: z
             .string()
-            .nullable()
             .optional()
-            .describe('ISO 8601 date-time when a draft user is scheduled to be invited, or null if none.'),
+            .describe('Date when a draft user is scheduled to be invited to Ramp, in ISO 8601 format. Omitted when none is scheduled.'),
+        status: z
+            .string()
+            .describe('Current status of the user: INVITE_EXPIRED, INVITE_PENDING, USER_ACTIVE, USER_DRAFT, USER_INACTIVE, USER_ONBOARDING, or USER_SUSPENDED.'),
         custom_fields: z
             .array(
                 z.object({
-                    name: z.string().describe('Name of the custom field.'),
-                    value: z.string().describe('Value of the custom field.')
+                    name: z.string().describe('Name of the custom field. Example: "Cost Center"'),
+                    value: z.string().describe('Value of the custom field. Example: "R&D - Data"')
                 })
             )
-            .optional()
-            .describe('Custom field values configured for the user.')
+            .describe('Custom fields configured for the user.')
     })
     .describe('The Ramp user after the update is applied.');
+
+function toUser(user: z.infer<typeof ProviderUserSchema>): z.infer<typeof OutputSchema> {
+    return {
+        id: user.id,
+        ...(user.business_id != null && { business_id: user.business_id }),
+        ...(user.department_id != null && { department_id: user.department_id }),
+        ...(user.email != null && { email: user.email }),
+        ...(user.employee_id != null && { employee_id: user.employee_id }),
+        ...(user.entity_id != null && { entity_id: user.entity_id }),
+        ...(user.first_name != null && { first_name: user.first_name }),
+        is_manager: user.is_manager,
+        ...(user.last_name != null && { last_name: user.last_name }),
+        ...(user.location_id != null && { location_id: user.location_id }),
+        ...(user.manager_id != null && { manager_id: user.manager_id }),
+        ...(user.phone != null && { phone: user.phone }),
+        ...(user.role != null && { role: user.role }),
+        ...(user.scheduled_deactivation_date != null && { scheduled_deactivation_date: user.scheduled_deactivation_date }),
+        ...(user.scheduled_invitation_date != null && { scheduled_invitation_date: user.scheduled_invitation_date }),
+        status: user.status,
+        custom_fields: user.custom_fields
+    };
+}
 
 /**
  * @tags: [read, write]
  * @tagReason: Writes the requested changes to the provider and reads back the updated user to return its current state.
- * @pitfalls: Omitting a field leaves it unchanged, while passing null clears direct_manager_id or scheduled_deactivation_date; scheduled_deactivation_date cannot be set for admins or owners, and setting it can change the user's lifecycle status (observed flipping an inactive user to invite-pending) even after the date is cleared.
+ * @pitfalls: Omitting a field leaves it unchanged, while passing null clears direct_manager_id or scheduled_deactivation_date; scheduled_deactivation_date cannot be set for admins or owners, and setting it can change the user's lifecycle status (observed flipping an inactive user to invite-pending) even after the date is cleared. Fields Ramp returns as null are omitted from the output.
  */
 const action = createAction({
     description: "Update a user's name, department, location, manager, or role.",
@@ -100,7 +156,7 @@ const action = createAction({
             retries: 3
         });
 
-        return OutputSchema.parse(response.data);
+        return toUser(ProviderUserSchema.parse(response.data));
     }
 });
 

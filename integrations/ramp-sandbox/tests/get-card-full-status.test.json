@@ -422,7 +422,7 @@
       "/developer/v1/transactions": {
         "response": {
           "page": {
-            "next": "https://demo-api.ramp.com/developer/v1/transactions?card_id=a2d25ac2-5528-4c16-ba51-cd258d8d09f7&page_size=10&order_by_date_desc=true&start=ac08d149-190f-4f61-b57a-4f3e9e1d8598",
+            "next": "https://demo-api.ramp.com/developer/v1/transactions?card_id=a2d25ac2-5528-4c16-ba51-cd258d8d09f7&state=ALL&page_size=10&order_by_date_desc=true&start=ac08d149-190f-4f61-b57a-4f3e9e1d8598",
             "total_count": null,
             "total_count_capped": null
           },
@@ -1151,12 +1151,13 @@
           "set-cookie": "__cf_bm=ZbCEHrUSC6WGxJw20v21_3izxpQTbhshBI9qnjfESFs-1791976404.4731557-1.0.1.1-IYNqOw6E5fCxiCJiuVrXQ_fjBAUF5fxxp7MVXn.4SUag_WXidsYzThYQ_TvDh9AUd38mCYXpWTnhZ2xb0.8aPGl7qz4oCxV8HOsDayPJm9QHGgwgkHPjeiqHbaX8hRHP; HttpOnly; SameSite=None; Secure; Path=/; Domain=ramp.com; Expires=Wed, 14 Oct 2026 11:43:24 GMT",
           "alt-svc": "h3=\":443\"; ma=86400"
         },
-        "hash": "96a0484840f4ee292cf5c6971eb2a3fb271d5b23",
+        "hash": "c16270dd9d813401bb6d3b396cbc18dc1a77df87",
         "request": {
           "params": {
             "card_id": "a2d25ac2-5528-4c16-ba51-cd258d8d09f7",
             "order_by_date_desc": "true",
-            "page_size": "10"
+            "page_size": "10",
+            "state": "ALL"
           }
         }
       }

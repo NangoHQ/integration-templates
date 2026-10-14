@@ -14,14 +14,14 @@ const ConnectedSubsidiarySchema = z.object({
     external_id: z.string().describe('External ID of the subsidiary in the connected ERP system.')
 });
 
-const ProviderAccountSchema = z.object({
-    bank_account_id: z.string().nullable().optional().describe('Unique identifier of the associated bank account, if one exists.'),
+const AccountSchema = z.object({
+    bank_account_id: z.string().optional().describe('Unique identifier of the associated bank account. Absent when none exists.'),
     classification: z.string().describe('Classification type of the account. Example: "ASSET", "LIABILITY", "EXPENSE".'),
     created_at: z.string().describe('When the account was created. Example: "2020-01-12T01:30:00+00:00"'),
     external_id: z.string().describe('External ID of the account, sourced from the remote ERP system when connected.'),
     external_name: z.string().describe('External name of the account, sourced from the remote ERP system when connected.'),
     internal_id: z.string().describe('Internal ID of the account as entered in Ramp.'),
-    usage_type: z.string().nullable().optional().describe('How the account is used within the system. Example: "BILL_PAY_BANK_ACCOUNT".')
+    usage_type: z.string().optional().describe('How the account is used within the system. Example: "BILL_PAY_BANK_ACCOUNT". Absent when unset.')
 });
 
 const CustomRecordFieldSchema = z.object({
@@ -33,25 +33,47 @@ const CustomRecordFieldSchema = z.object({
 const EntitySchema = z.object({
     id: z.string().describe('Unique identifier for the business entity. Example: "eb24fd81-de5d-43bd-8102-eb2cc53d3c3a"'),
     entity_name: z.string().describe('Name of the business entity. Example: "Save Time Inc"'),
-    is_primary: z.boolean().nullable().optional().describe('Whether this is the primary entity for the business.'),
-    currency: z.string().nullable().optional().describe('Currency used by this business entity. Example: "USD"'),
+    is_primary: z.boolean().optional().describe('Whether this is the primary entity for the business. Absent when unknown.'),
+    currency: z.string().optional().describe('Currency used by this business entity. Example: "USD". Absent when not set.'),
     location_ids: z.array(z.string()).describe('Identifiers of locations associated with this entity.'),
     default_bill_pay_payment_account_id: z
         .string()
-        .nullable()
         .optional()
-        .describe('Bank account UUID of the entity default Bill Pay payment account, if one is configured.'),
-    connected_subsidiary: ConnectedSubsidiarySchema.nullable().optional().describe('The ERP subsidiary this entity is mapped to, if any.'),
+        .describe('Bank account UUID of the entity default Bill Pay payment account. Absent when none is configured.'),
+    connected_subsidiary: ConnectedSubsidiarySchema.optional().describe('The ERP subsidiary this entity is mapped to. Absent when not mapped.'),
     payment_accounts: z.array(PaymentAccountSchema).describe('Bank accounts eligible for bill payment for this entity.'),
-    accounts: z.array(ProviderAccountSchema).describe('Active accounting accounts linked to this entity.'),
+    accounts: z.array(AccountSchema).describe('Active accounting accounts linked to this entity.'),
     custom_record_fields: z
         .array(CustomRecordFieldSchema)
         .optional()
         .describe('Custom record field values for this entity, returned only when include_custom_field_values is true.')
 });
 
+const ProviderAccountSchema = z.object({
+    bank_account_id: z.string().nullable(),
+    classification: z.string(),
+    created_at: z.string(),
+    external_id: z.string(),
+    external_name: z.string(),
+    internal_id: z.string(),
+    usage_type: z.string().nullable()
+});
+
+const ProviderEntitySchema = z.object({
+    id: z.string(),
+    entity_name: z.string(),
+    is_primary: z.boolean().nullable(),
+    currency: z.string().nullable(),
+    location_ids: z.array(z.string()),
+    default_bill_pay_payment_account_id: z.string().nullable(),
+    connected_subsidiary: ConnectedSubsidiarySchema.nullable(),
+    payment_accounts: z.array(PaymentAccountSchema),
+    accounts: z.array(ProviderAccountSchema),
+    custom_record_fields: z.array(CustomRecordFieldSchema).optional()
+});
+
 const PaginatedEntityResponseSchema = z.object({
-    data: z.array(EntitySchema),
+    data: z.array(ProviderEntitySchema),
     page: z.object({
         next: z.string().nullable()
     })
@@ -59,7 +81,7 @@ const PaginatedEntityResponseSchema = z.object({
 
 const InputSchema = z
     .object({
-        cursor: z.string().min(1).optional().describe('Pagination cursor: the ID of the last entity from the previous page. Omit to fetch the first page.'),
+        cursor: z.string().min(1).optional().describe('Opaque pagination cursor returned as next_cursor by a previous call. Omit to fetch the first page.'),
         page_size: z.number().int().min(2).max(100).optional().describe('Number of entities to return per page, between 2 and 100. Defaults to 20.'),
         entity_name: z.string().optional().describe('Filter entities by exact name. Example: "Save Money Inc"'),
         is_primary: z.boolean().optional().describe('When set, return only primary (true) or non-primary (false) entities.'),
@@ -104,11 +126,35 @@ const action = createAction({
 
         const parsed = PaginatedEntityResponseSchema.parse(response.data);
 
-        const lastEntity = parsed.data[parsed.data.length - 1];
-        const nextCursor = parsed.page.next != null && lastEntity != null ? lastEntity.id : undefined;
+        let nextCursor: string | undefined;
+        if (parsed.page.next != null) {
+            const start = new URL(parsed.page.next).searchParams.get('start');
+            if (start != null && start !== '') {
+                nextCursor = start;
+            }
+        }
 
         return {
-            entities: parsed.data,
+            entities: parsed.data.map((entity) => ({
+                id: entity.id,
+                entity_name: entity.entity_name,
+                ...(entity.is_primary != null && { is_primary: entity.is_primary }),
+                ...(entity.currency != null && { currency: entity.currency }),
+                location_ids: entity.location_ids,
+                ...(entity.default_bill_pay_payment_account_id != null && { default_bill_pay_payment_account_id: entity.default_bill_pay_payment_account_id }),
+                ...(entity.connected_subsidiary != null && { connected_subsidiary: entity.connected_subsidiary }),
+                payment_accounts: entity.payment_accounts,
+                accounts: entity.accounts.map((account) => ({
+                    classification: account.classification,
+                    created_at: account.created_at,
+                    external_id: account.external_id,
+                    external_name: account.external_name,
+                    internal_id: account.internal_id,
+                    ...(account.bank_account_id != null && { bank_account_id: account.bank_account_id }),
+                    ...(account.usage_type != null && { usage_type: account.usage_type })
+                })),
+                ...(entity.custom_record_fields !== undefined && { custom_record_fields: entity.custom_record_fields })
+            })),
             ...(nextCursor != null && { next_cursor: nextCursor })
         };
     }

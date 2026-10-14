@@ -14,6 +14,11 @@ const OutputSchema = z
     })
     .describe('The newly created department.');
 
+const ProviderDepartmentSchema = z.object({
+    id: z.string(),
+    name: z.string()
+});
+
 /**
  * @tags: [write]
  * @tagReason: Creates a new department through the provider's POST endpoint.
@@ -24,6 +29,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['departments:write'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://docs.ramp.com/openapi/developer-api.json (POST /developer/v1/departments)
@@ -37,9 +43,12 @@ const action = createAction({
             retries: 0
         });
 
-        const department = OutputSchema.parse(response.data);
+        const department = ProviderDepartmentSchema.parse(response.data);
 
-        return department;
+        return {
+            id: department.id,
+            name: department.name
+        };
     }
 });
 

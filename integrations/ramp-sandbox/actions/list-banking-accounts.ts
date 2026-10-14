@@ -5,7 +5,7 @@ const InputSchema = z
     .object({
         cursor: z
             .string()
-            .regex(/^[A-Za-z0-9_-]+$/)
+            .min(1)
             .optional()
             .describe('Opaque pagination cursor returned as next_cursor by a previous call. Omit to fetch the first page.'),
         page_size: z

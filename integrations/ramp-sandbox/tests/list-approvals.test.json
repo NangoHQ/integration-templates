@@ -21,8 +21,7 @@
         ],
         "next_approvers": []
       }
-    ],
-    "next": null
+    ]
   },
   "nango": {},
   "api": {
@@ -86,11 +85,12 @@
           "set-cookie": "__cf_bm=ZUH3q.zaFU3evuXNSjOu4GwyHoA3IRHAk4pJtSSEn74-1791976244.8728106-1.0.1.1-GKoKDzcNKMn44ZqgMyHcGsZd3JoiJN07NZ2PYGjRwsWKQHCJ5BxOP0u9YBky8g8yqOwIlY65au.ZEpeGvbCZ4LcBD7PxFMLT573b73cp2HEYe.EEq_x.lHkMfpp3bwlD; HttpOnly; SameSite=None; Secure; Path=/; Domain=ramp.com; Expires=Wed, 14 Oct 2026 11:40:45 GMT",
           "alt-svc": "h3=\":443\"; ma=86400"
         },
-        "hash": "97b8659b0acc05de3261b057fc8b2dd5cba946e1",
+        "hash": "139772fb6b50593390ff9173e3bbe9ba26f601f1",
         "request": {
           "params": {
             "entity_ids": "79e87b94-b823-46f4-aed4-d05d9fc33463",
-            "entity_type": "BILL"
+            "entity_type": "BILL",
+            "page_size": "100"
           }
         }
       }

@@ -119,13 +119,14 @@ function toVendor(vendor: z.infer<typeof ProviderVendorSchema>): z.infer<typeof 
 /**
  * @tags: [read, write]
  * @tagReason: Reads existing vendors by name and creates a new vendor when no exact match exists.
- * @pitfalls: Vendor names are not unique and Ramp's name search is a case-insensitive substring match, so only exact-name results count as matches and duplicates are merely flagged via multiple_matches_warning; a US vendor cannot be created without state; a vendor created by this action may not appear in subsequent default name searches until its creation approval completes.
+ * @pitfalls: Vendor names are not unique and Ramp's name search is a case-insensitive substring match, so only exact-name results count as matches and duplicates are merely flagged via multiple_matches_warning; a US vendor cannot be created without state; the lookup includes draft and pending-approval vendors (include_draft) so a vendor created by an earlier call is reused rather than duplicated, which means the returned vendor may not be approved yet.
  */
 const action = createAction({
     description: 'Find a vendor by exact name or create it when missing, flagging ambiguous duplicate names.',
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['vendors:read', 'vendors:write'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const targetName = input.name.trim();
@@ -139,6 +140,8 @@ const action = createAction({
                 params: {
                     name: targetName,
                     page_size: 100,
+                    // Without include_draft Ramp hides vendors still awaiting creation approval, so a repeat call before approval would create a duplicate.
+                    include_draft: 'true',
                     ...(start !== undefined && { start })
                 },
                 retries: 3

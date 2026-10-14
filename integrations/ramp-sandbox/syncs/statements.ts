@@ -58,6 +58,7 @@ const sync = createSync({
     version: '1.0.0',
     frequency: 'every half day',
     autoStart: true,
+    scopes: ['statements:read'],
     checkpoint: CheckpointSchema,
     models: {
         Statement: StatementSchema

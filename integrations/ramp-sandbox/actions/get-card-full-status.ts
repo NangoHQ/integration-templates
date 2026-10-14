@@ -84,6 +84,7 @@ const TransactionSchema = z.object({
         .optional(),
     amount: z.number().nullable().optional(),
     currency_code: z.string().nullable().optional(),
+    minor_unit_conversion_rate: z.number().nullable().optional(),
     sk_category_name: z.string().nullable().optional(),
     memo: z.string().nullable().optional(),
     user_transaction_time: z.string().nullable().optional(),
@@ -187,7 +188,7 @@ const InputSchema = z.object({
 const OutputSchema = z.object({
     card: CardOutputSchema.describe('The resolved card (physical or virtual).'),
     fund: FundOutputSchema.nullable().describe('The fund linked to the card, or null when the card has no linked fund.'),
-    recent_transactions: z.array(TransactionOutputSchema).describe('Most recent transactions on the card, newest first (up to 10).')
+    recent_transactions: z.array(TransactionOutputSchema).describe('Most recent transactions on the card, newest first (up to 10), including declined ones.')
 });
 
 function isNotFoundError(error: unknown): boolean {
@@ -251,7 +252,11 @@ function mapFund(fund: z.infer<typeof FundSchema>): z.infer<typeof FundOutputSch
 }
 
 function mapTransaction(transaction: z.infer<typeof TransactionSchema>): z.infer<typeof TransactionOutputSchema> {
-    const amount = transaction.entity_amount ?? (transaction.amount != null ? { value: transaction.amount, currency: transaction.currency_code } : null);
+    // The deprecated top-level `amount` is in major units (e.g. 428.49), so it is only used as a fallback once converted to minor units.
+    const rate = transaction.minor_unit_conversion_rate;
+    const amount =
+        transaction.entity_amount ??
+        (transaction.amount != null && rate != null ? { value: Math.round(transaction.amount * rate), currency: transaction.currency_code } : null);
     return {
         id: transaction.id,
         ...(transaction.card_id != null && { card_id: transaction.card_id }),
@@ -271,13 +276,14 @@ function mapTransaction(transaction: z.infer<typeof TransactionSchema>): z.infer
 /**
  * @tags: [read]
  * @tagReason: Resolves a card and reads its linked fund and recent transactions from Ramp; it never creates, updates, or deletes provider data.
- * @pitfalls: Physical cards may not expose a linked fund, so `fund` is null unless `fund_id` is supplied, and suspended or terminated cards can return `last_four` and `expiration` as "*REDACTED*".
+ * @pitfalls: Physical cards may not expose a linked fund, so `fund` is null unless `fund_id` is supplied, suspended or terminated cards can return `last_four` and `expiration` as "*REDACTED*", and `recent_transactions` includes declined attempts (state DECLINED, amount 0).
  */
 const action = createAction({
     description: "Composite: a card (physical or virtual) merged with its fund's current spending limit/balance and its recent transactions.",
     version: '1.0.0',
     input: InputSchema.describe('A card to inspect and an optional fund override.'),
     output: OutputSchema.describe('The resolved card, its linked fund, and its most recent transactions.'),
+    scopes: ['cards:read', 'funds:read', 'transactions:read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         let cardType: 'physical' | 'virtual';
@@ -401,6 +407,8 @@ const action = createAction({
             endpoint: '/developer/v1/transactions',
             params: {
                 card_id: input.card_id,
+                // Ramp excludes declined transactions unless state is ALL.
+                state: 'ALL',
                 page_size: 10,
                 order_by_date_desc: 'true'
             },

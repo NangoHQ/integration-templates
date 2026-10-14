@@ -8,7 +8,6 @@
         "id": "a1a98ac4-06bf-4df4-989c-b5e72ecac9e8",
         "display_name": "Nango Throwaway Fund",
         "entity_id": "eb24fd81-de5d-43bd-8102-eb2cc53d3c3a",
-        "spend_program_id": null,
         "created_at": "2026-10-14T11:08:28+00:00",
         "state": "TERMINATED",
         "is_shareable": false,
@@ -27,14 +26,7 @@
           },
           "interval": "MONTHLY",
           "start_of_interval": "2026-10-01T00:00:00+00:00",
-          "next_interval_resets_at": "2026-11-01T00:00:00+00:00",
-          "auto_lock_date": null,
-          "temporary_limit": null,
-          "transaction_amount_limit": null,
-          "allowed_category_codes": null,
-          "blocked_category_codes": null,
-          "allowed_vendor_ids": null,
-          "blocked_vendor_ids": null
+          "next_interval_resets_at": "2026-11-01T00:00:00+00:00"
         },
         "balance": {
           "cleared": {
@@ -56,17 +48,14 @@
         "cards": [],
         "members": [
           {
-            "user_id": "c7df8ee0-aa5a-4351-a8c2-0d15d585a902",
-            "suspension": null
+            "user_id": "c7df8ee0-aa5a-4351-a8c2-0d15d585a902"
           }
-        ],
-        "suspension": null
+        ]
       },
       {
         "id": "b8490410-759b-492d-9664-68eb8c00b3ab",
         "display_name": "Nango Update Fund Test Renamed",
         "entity_id": "eb24fd81-de5d-43bd-8102-eb2cc53d3c3a",
-        "spend_program_id": null,
         "created_at": "2026-10-14T11:07:53+00:00",
         "state": "ACTIVE",
         "is_shareable": false,
@@ -85,14 +74,7 @@
           },
           "interval": "MONTHLY",
           "start_of_interval": "2026-10-01T00:00:00+00:00",
-          "next_interval_resets_at": "2026-11-01T00:00:00+00:00",
-          "auto_lock_date": null,
-          "temporary_limit": null,
-          "transaction_amount_limit": null,
-          "allowed_category_codes": null,
-          "blocked_category_codes": null,
-          "allowed_vendor_ids": null,
-          "blocked_vendor_ids": null
+          "next_interval_resets_at": "2026-11-01T00:00:00+00:00"
         },
         "balance": {
           "cleared": {
@@ -123,17 +105,14 @@
         ],
         "members": [
           {
-            "user_id": "c7df8ee0-aa5a-4351-a8c2-0d15d585a902",
-            "suspension": null
+            "user_id": "c7df8ee0-aa5a-4351-a8c2-0d15d585a902"
           }
-        ],
-        "suspension": null
+        ]
       },
       {
         "id": "6e15e30b-1619-4490-8bb2-43aa4c2492b9",
         "display_name": "Nango Terminate Fund Test",
         "entity_id": "eb24fd81-de5d-43bd-8102-eb2cc53d3c3a",
-        "spend_program_id": null,
         "created_at": "2026-10-14T11:07:43+00:00",
         "state": "TERMINATED",
         "is_shareable": false,
@@ -152,14 +131,7 @@
           },
           "interval": "MONTHLY",
           "start_of_interval": "2026-10-01T00:00:00+00:00",
-          "next_interval_resets_at": "2026-11-01T00:00:00+00:00",
-          "auto_lock_date": null,
-          "temporary_limit": null,
-          "transaction_amount_limit": null,
-          "allowed_category_codes": null,
-          "blocked_category_codes": null,
-          "allowed_vendor_ids": null,
-          "blocked_vendor_ids": null
+          "next_interval_resets_at": "2026-11-01T00:00:00+00:00"
         },
         "balance": {
           "cleared": {
@@ -181,11 +153,9 @@
         "cards": [],
         "members": [
           {
-            "user_id": "c7df8ee0-aa5a-4351-a8c2-0d15d585a902",
-            "suspension": null
+            "user_id": "c7df8ee0-aa5a-4351-a8c2-0d15d585a902"
           }
-        ],
-        "suspension": null
+        ]
       }
     ],
     "next_cursor": "https://demo-api.ramp.com/developer/v1/funds?page_size=3&start=6e15e30b-1619-4490-8bb2-43aa4c2492b9"

@@ -19,6 +19,7 @@ const sync = createSync({
     version: '1.0.0',
     frequency: 'every day',
     autoStart: true,
+    scopes: ['locations:read'],
     checkpoint: CheckpointSchema,
     models: {
         Location: LocationSchema

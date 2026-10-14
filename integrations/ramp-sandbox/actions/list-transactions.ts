@@ -55,6 +55,14 @@ const AccountingFieldSelectionSchema = z.object({
         .describe('Information about the accounting field (category) the option belongs to.')
 });
 
+const LegacyAccountingCategorySchema = z.object({
+    category_id: z.string().nullable().optional().describe('User-selected category ID for the transaction.'),
+    category_name: z.string().nullable().optional().describe('User-selected category name for the transaction.'),
+    tracking_category_remote_id: z.string().nullable().optional().describe('Remote ID of the tracking category on the ERP.'),
+    tracking_category_remote_name: z.string().nullable().optional().describe('Remote name of the tracking category on the ERP.'),
+    tracking_category_remote_type: z.string().nullable().optional().describe('Remote type of the tracking category on the ERP.')
+});
+
 const LineItemSchema = z.object({
     id: z.string().nullable().optional().describe('Stable Ramp identifier for a persisted split line.'),
     amount: CurrencyAmountSchema.nullable().optional().describe('Amount of the line item in the transaction settlement currency.'),
@@ -138,7 +146,7 @@ const TransactionSchema = z.object({
         .nullable()
         .optional()
         .describe('Whether an accounting vendor must be created and coded before this transaction can sync.'),
-    accounting_categories: z.array(AccountingFieldSelectionSchema).nullable().optional().describe('Deprecated; use accounting_field_selections.'),
+    accounting_categories: z.array(LegacyAccountingCategorySchema).nullable().optional().describe('Deprecated; use accounting_field_selections.'),
     accounting_field_selections: z.array(AccountingFieldSelectionSchema).nullable().optional().describe('Accounting fields selected to code the transaction.'),
     attendees: z.array(AttendeeSchema).nullable().optional().describe('Attendees associated with the transaction.'),
     line_items: z.array(LineItemSchema).nullable().optional().describe('Split line items related to the transaction.'),

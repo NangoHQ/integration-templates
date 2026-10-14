@@ -17,9 +17,9 @@ const InputSchema = z
             .describe('Latest balance date to include, as a plain YYYY-MM-DD date (not a full datetime). Example: "2026-10-14"'),
         cursor: z
             .string()
-            .regex(/^\d{4}-\d{2}-\d{2}$/)
+            .min(1)
             .optional()
-            .describe('Pagination cursor (a YYYY-MM-DD date) returned as next_cursor by a previous call. Omit for the first page.'),
+            .describe('Opaque pagination cursor returned as next_cursor by a previous call (currently a YYYY-MM-DD date). Omit for the first page.'),
         page_size: z.number().int().min(2).max(100).optional().describe('Number of balance entries to return per page, between 2 and 100. Defaults to 20.')
     })
     .describe('Input for retrieving the daily available balance history of a Ramp Treasury/Business banking account.');
@@ -58,9 +58,9 @@ const OutputSchema = z
                             currency_code: z.string().describe('ISO 4217 currency code of the balance. Example: "USD"'),
                             minor_unit_conversion_rate: z
                                 .number()
-                                .nullable()
+                                .optional()
                                 .describe(
-                                    'Factor that converts the minor-unit amount to the decimal amount (100 for USD). Null when the provider does not supply it.'
+                                    'Factor that converts the minor-unit amount to the decimal amount (100 for USD). Absent when the provider does not supply it.'
                                 )
                         })
                         .describe('Available balance for the account on this date.')
@@ -115,7 +115,7 @@ const action = createAction({
                 amount: {
                     amount: entry.amount.amount,
                     currency_code: entry.amount.currency_code,
-                    minor_unit_conversion_rate: entry.amount.minor_unit_conversion_rate
+                    ...(entry.amount.minor_unit_conversion_rate != null && { minor_unit_conversion_rate: entry.amount.minor_unit_conversion_rate })
                 }
             })),
             ...(nextCursor !== undefined && { next_cursor: nextCursor })

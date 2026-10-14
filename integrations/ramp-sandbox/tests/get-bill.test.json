@@ -5,7 +5,6 @@
   "output": {
     "id": "93d8436a-1cc7-596b-ace0-7c69f5bcb5ce",
     "invoice_number": "DD-MANUAL-1",
-    "remote_id": null,
     "status": "OPEN",
     "status_summary": "WAITING_FOR_TRANSFER_MATCH",
     "approval_status": "APPROVED",
@@ -16,25 +15,18 @@
       "minor_unit_conversion_rate": 100
     },
     "memo": "Salesforce monthly subscription",
-    "vendor_memo": null,
     "issued_at": "2026-10-07T00:00:00+00:00",
     "due_at": "2026-10-15T00:00:00+00:00",
-    "paid_at": null,
     "accounting_date": "2026-10-14T00:00:00+00:00",
     "posting_date": "2026-10-14T00:00:00+00:00",
     "created_at": "2026-10-14T10:17:13+00:00",
-    "draft_bill_created_at": null,
-    "draft_bill_id": null,
-    "archived_at": null,
     "entity_id": "eb24fd81-de5d-43bd-8102-eb2cc53d3c3a",
     "vendor_contact_id": "ad05d647-e524-4c39-8e1f-50d73a4b881b",
-    "purchase_order_id": null,
     "purchase_order_ids": [],
     "item_receipt_ids": [],
     "enable_accounting_sync": true,
     "is_payment_sync_ready": false,
     "fx_conversion_rate": "1.0",
-    "deep_link_url": null,
     "bill_owner": {
       "id": "9d3d3246-8235-40fa-a5c1-56ae8583d945",
       "first_name": "Angela",
@@ -54,8 +46,6 @@
           "minor_unit_conversion_rate": 100
         },
         "memo": "Salesforce monthly subscription",
-        "posting_gl_account": null,
-        "purchase_order_line_item_id": null,
         "item_receipt_line_item_ids": [],
         "accounting_field_selections": []
       }
@@ -81,18 +71,10 @@
         "minor_unit_conversion_rate": 100
       },
       "payment_method": "DIRECT_DEBIT",
-      "payment_date": null,
-      "effective_date": null,
-      "customer_friendly_payment_id": null,
-      "trace_id": {
-        "trace_id": null,
-        "descriptor": null
-      },
+      "trace_id": {},
       "details": {
         "schema_type": "VendorPaymentDetailsSchema",
         "source_bank_account_id": "0cb665b6-49d5-4723-b29a-71ce8af70751",
-        "vendor_account_id": null,
-        "approval_status": null,
         "is_same_day": false
       }
     },
@@ -105,18 +87,10 @@
           "minor_unit_conversion_rate": 100
         },
         "payment_method": "DIRECT_DEBIT",
-        "payment_date": null,
-        "effective_date": null,
-        "customer_friendly_payment_id": null,
-        "trace_id": {
-          "trace_id": null,
-          "descriptor": null
-        },
+        "trace_id": {},
         "details": {
           "schema_type": "VendorPaymentDetailsSchema",
           "source_bank_account_id": "0cb665b6-49d5-4723-b29a-71ce8af70751",
-          "vendor_account_id": null,
-          "approval_status": null,
           "is_same_day": false
         }
       }

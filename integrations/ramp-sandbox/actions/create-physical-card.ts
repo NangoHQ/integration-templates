@@ -51,7 +51,7 @@ const InputSchema = z
 const OutputSchema = z
     .object({
         id: z.string().describe('Unique identifier of the created physical card.'),
-        cardholder_id: z.string().describe('ID of the user the card was issued to.'),
+        cardholder_id: z.string().optional().describe('ID of the user the card was issued to.'),
         cardholder_name: z.string().optional().describe('Full name of the card holder.'),
         created_at: z.string().optional().describe('ISO 8601 timestamp when the card was created.'),
         display_name: z.string().describe('Cosmetic display name of the card.'),
@@ -67,6 +67,84 @@ const OutputSchema = z
         fulfillment: FulfillmentSchema.nullable().describe('Shipping and fulfillment details for the physical card, or null when not applicable.')
     })
     .describe('The physical card that was issued to the user.');
+
+const ProviderShippingAddressSchema = z.object({
+    address1: z.string(),
+    address2: z.string().nullable().optional(),
+    city: z.string(),
+    country: z.string(),
+    first_name: z.string().nullable().optional(),
+    last_name: z.string().nullable().optional(),
+    phone: z.string().nullable().optional(),
+    postal_code: z.string(),
+    state: z.string().nullable().optional()
+});
+
+const ProviderPhysicalCardSchema = z.object({
+    id: z.string(),
+    cardholder_id: z.string().nullable().optional(),
+    cardholder_name: z.string().nullable().optional(),
+    created_at: z.string().nullable().optional(),
+    display_name: z.string(),
+    expiration: z.string(),
+    fund_id: z.string().nullable().optional(),
+    has_program_overridden: z.boolean(),
+    is_physical: z.boolean().nullable().optional(),
+    is_primary: z.boolean().nullable().optional(),
+    is_suspended: z.boolean(),
+    last_four: z.string(),
+    state: z.string().nullable().optional(),
+    automatic_routing_enabled: z.boolean().nullable().optional(),
+    fulfillment: z
+        .object({
+            fulfillment_status: z.string().nullable().optional(),
+            shipping_date: z.string().nullable().optional(),
+            shipping_eta: z.string().nullable().optional(),
+            shipping_tracking_url: z.string().nullable().optional(),
+            shipping: z
+                .object({
+                    method: z.string().nullable().optional(),
+                    recipient_address: ProviderShippingAddressSchema.nullable().optional(),
+                    recipient_address_verification_state: z.string().nullable().optional()
+                })
+                .nullable()
+                .optional()
+        })
+        .nullable()
+        .optional()
+});
+
+function mapFulfillment(fulfillment: NonNullable<z.infer<typeof ProviderPhysicalCardSchema>['fulfillment']>): z.infer<typeof FulfillmentSchema> {
+    const shipping = fulfillment.shipping;
+    const address = shipping?.recipient_address;
+    return {
+        ...(fulfillment.fulfillment_status != null && { fulfillment_status: fulfillment.fulfillment_status }),
+        ...(fulfillment.shipping_date !== undefined && { shipping_date: fulfillment.shipping_date }),
+        ...(fulfillment.shipping_eta !== undefined && { shipping_eta: fulfillment.shipping_eta }),
+        ...(fulfillment.shipping_tracking_url !== undefined && { shipping_tracking_url: fulfillment.shipping_tracking_url }),
+        ...(shipping != null && {
+            shipping: {
+                ...(shipping.method !== undefined && { method: shipping.method }),
+                ...(address != null && {
+                    recipient_address: {
+                        address1: address.address1,
+                        ...(address.address2 !== undefined && { address2: address.address2 }),
+                        city: address.city,
+                        country: address.country,
+                        ...(address.first_name != null && { first_name: address.first_name }),
+                        ...(address.last_name != null && { last_name: address.last_name }),
+                        ...(address.phone !== undefined && { phone: address.phone }),
+                        postal_code: address.postal_code,
+                        ...(address.state !== undefined && { state: address.state })
+                    }
+                }),
+                ...(shipping.recipient_address_verification_state !== undefined && {
+                    recipient_address_verification_state: shipping.recipient_address_verification_state
+                })
+            }
+        })
+    };
+}
 
 /**
  * @tags: [write]
@@ -102,7 +180,25 @@ const action = createAction({
             retries: 0
         });
 
-        return OutputSchema.parse(response.data);
+        const card = ProviderPhysicalCardSchema.parse(response.data);
+
+        return {
+            id: card.id,
+            ...(card.cardholder_id != null && { cardholder_id: card.cardholder_id }),
+            ...(card.cardholder_name != null && { cardholder_name: card.cardholder_name }),
+            ...(card.created_at != null && { created_at: card.created_at }),
+            display_name: card.display_name,
+            expiration: card.expiration,
+            ...(card.fund_id !== undefined && { fund_id: card.fund_id }),
+            has_program_overridden: card.has_program_overridden,
+            ...(card.is_physical != null && { is_physical: card.is_physical }),
+            ...(card.is_primary != null && { is_primary: card.is_primary }),
+            is_suspended: card.is_suspended,
+            last_four: card.last_four,
+            ...(card.state != null && { state: card.state }),
+            ...(card.automatic_routing_enabled != null && { automatic_routing_enabled: card.automatic_routing_enabled }),
+            fulfillment: card.fulfillment != null ? mapFulfillment(card.fulfillment) : null
+        };
     }
 });
 

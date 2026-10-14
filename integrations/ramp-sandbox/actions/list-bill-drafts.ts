@@ -126,7 +126,7 @@ const InputSchema = z
 const OutputSchema = z
     .object({
         draft_bills: z.array(DraftBillSchema).describe('Draft bills returned for this page.'),
-        next_cursor: z.string().nullable().describe('Cursor to pass as `cursor` to fetch the next page, or null when there are no more pages.')
+        next_cursor: z.string().optional().describe('Cursor to pass as `cursor` to fetch the next page. Absent when there are no more pages.')
     })
     .describe('A single page of draft bills along with the cursor for the next page.');
 
@@ -165,15 +165,17 @@ const action = createAction({
 
         const parsed = DraftBillsResponseSchema.parse(response.data);
 
-        let next_cursor: string | null = null;
+        let next_cursor: string | undefined;
         if (parsed.page.next) {
-            const nextUrl = new URL(parsed.page.next);
-            next_cursor = nextUrl.searchParams.get('start');
+            const start = new URL(parsed.page.next).searchParams.get('start');
+            if (start) {
+                next_cursor = start;
+            }
         }
 
         return {
             draft_bills: parsed.data,
-            next_cursor
+            ...(next_cursor !== undefined && { next_cursor })
         };
     }
 });

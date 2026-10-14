@@ -7,7 +7,6 @@
           "first_name": "Nango",
           "last_name": "Status Test",
           "email": "nango-status-test-1791977286@nango.dev",
-          "employee_id": null,
           "role": "BUSINESS_USER",
           "status": "USER_INACTIVE",
           "is_manager": false,
@@ -15,10 +14,6 @@
           "entity_id": "eb24fd81-de5d-43bd-8102-eb2cc53d3c3a",
           "department_id": "2e34edf5-9603-4986-8aaa-bbec47d56674",
           "location_id": "154e0ad1-03b4-4ec8-937f-772dbfc300fd",
-          "manager_id": null,
-          "phone": null,
-          "scheduled_deactivation_date": null,
-          "scheduled_invitation_date": null,
           "custom_fields": []
         },
         {
@@ -26,7 +21,6 @@
           "first_name": "Nango",
           "last_name": "Registry",
           "email": "nango-create-user-invite-test2@nango.dev",
-          "employee_id": null,
           "role": "BUSINESS_USER",
           "status": "USER_INACTIVE",
           "is_manager": false,
@@ -34,10 +28,6 @@
           "entity_id": "a7587328-64fa-4b8b-ad30-a2d27806825b",
           "department_id": "d61c1484-0b2f-4a78-aba1-d56ba1b0c43b",
           "location_id": "2025b3cd-280c-46f7-9d01-8eeff5a9c5af",
-          "manager_id": null,
-          "phone": null,
-          "scheduled_deactivation_date": null,
-          "scheduled_invitation_date": null,
           "custom_fields": []
         },
         {
@@ -45,7 +35,6 @@
           "first_name": "Nango",
           "last_name": "Registry",
           "email": "nango-create-user-invite-test@nango.dev",
-          "employee_id": null,
           "role": "BUSINESS_USER",
           "status": "USER_INACTIVE",
           "is_manager": false,
@@ -53,10 +42,6 @@
           "entity_id": "a7587328-64fa-4b8b-ad30-a2d27806825b",
           "department_id": "d61c1484-0b2f-4a78-aba1-d56ba1b0c43b",
           "location_id": "2025b3cd-280c-46f7-9d01-8eeff5a9c5af",
-          "manager_id": null,
-          "phone": null,
-          "scheduled_deactivation_date": null,
-          "scheduled_invitation_date": null,
           "custom_fields": []
         },
         {
@@ -64,7 +49,6 @@
           "first_name": "Nango",
           "last_name": "Registrytest",
           "email": "nango-registry-test-user@nango.dev",
-          "employee_id": null,
           "role": "BUSINESS_USER",
           "status": "USER_INACTIVE",
           "is_manager": false,
@@ -72,10 +56,6 @@
           "entity_id": "eb24fd81-de5d-43bd-8102-eb2cc53d3c3a",
           "department_id": "72139263-f303-4aea-93de-35a5111c0c03",
           "location_id": "09af6124-80ac-4d46-a5b2-7517f56e6cdf",
-          "manager_id": null,
-          "phone": null,
-          "scheduled_deactivation_date": null,
-          "scheduled_invitation_date": null,
           "custom_fields": []
         },
         {
@@ -83,7 +63,6 @@
           "first_name": "Marouane",
           "last_name": "Fawzi",
           "email": "api+guest_0@nango.dev",
-          "employee_id": null,
           "role": "GUEST_USER",
           "status": "USER_ACTIVE",
           "is_manager": false,
@@ -93,8 +72,6 @@
           "location_id": "9c0ae38c-91a0-4f5e-8092-2b6db8a02113",
           "manager_id": "e2e4cd18-83d9-4668-abd3-550971080d40",
           "phone": "+15005550006",
-          "scheduled_deactivation_date": null,
-          "scheduled_invitation_date": null,
           "custom_fields": []
         },
         {
@@ -102,7 +79,6 @@
           "first_name": "Sawyer",
           "last_name": "Maloney",
           "email": "api+cardholder_29@nango.dev",
-          "employee_id": null,
           "role": "BUSINESS_USER",
           "status": "USER_DRAFT",
           "is_manager": false,
@@ -112,8 +88,6 @@
           "location_id": "154e0ad1-03b4-4ec8-937f-772dbfc300fd",
           "manager_id": "e2e4cd18-83d9-4668-abd3-550971080d40",
           "phone": "+15005550006",
-          "scheduled_deactivation_date": null,
-          "scheduled_invitation_date": null,
           "custom_fields": []
         },
         {
@@ -121,7 +95,6 @@
           "first_name": "David",
           "last_name": "Jiang",
           "email": "api+cardholder_28@nango.dev",
-          "employee_id": null,
           "role": "BUSINESS_USER",
           "status": "USER_DRAFT",
           "is_manager": false,
@@ -131,8 +104,6 @@
           "location_id": "154e0ad1-03b4-4ec8-937f-772dbfc300fd",
           "manager_id": "ae2ad268-e63d-438a-bfe3-02ddaa4f68af",
           "phone": "+15005550006",
-          "scheduled_deactivation_date": null,
-          "scheduled_invitation_date": null,
           "custom_fields": []
         },
         {
@@ -140,7 +111,6 @@
           "first_name": "Pam",
           "last_name": "Beesly",
           "email": "api+cardholder_27@nango.dev",
-          "employee_id": null,
           "role": "BUSINESS_USER",
           "status": "USER_ACTIVE",
           "is_manager": false,
@@ -150,8 +120,6 @@
           "location_id": "154e0ad1-03b4-4ec8-937f-772dbfc300fd",
           "manager_id": "b42522c3-e364-4507-9a8e-9a4c56ed7848",
           "phone": "+15005550006",
-          "scheduled_deactivation_date": null,
-          "scheduled_invitation_date": null,
           "custom_fields": []
         },
         {
@@ -159,7 +127,6 @@
           "first_name": "Holly",
           "last_name": "Flax",
           "email": "api+cardholder_26@nango.dev",
-          "employee_id": null,
           "role": "BUSINESS_USER",
           "status": "USER_ACTIVE",
           "is_manager": false,
@@ -169,8 +136,6 @@
           "location_id": "154e0ad1-03b4-4ec8-937f-772dbfc300fd",
           "manager_id": "6200bcff-d274-4ff9-83a7-4276e3a57997",
           "phone": "+15005550006",
-          "scheduled_deactivation_date": null,
-          "scheduled_invitation_date": null,
           "custom_fields": []
         },
         {
@@ -178,7 +143,6 @@
           "first_name": "Toby",
           "last_name": "Flenderson",
           "email": "api+cardholder_25@nango.dev",
-          "employee_id": null,
           "role": "BUSINESS_USER",
           "status": "USER_ACTIVE",
           "is_manager": false,
@@ -188,8 +152,6 @@
           "location_id": "154e0ad1-03b4-4ec8-937f-772dbfc300fd",
           "manager_id": "6200bcff-d274-4ff9-83a7-4276e3a57997",
           "phone": "+15005550006",
-          "scheduled_deactivation_date": null,
-          "scheduled_invitation_date": null,
           "custom_fields": []
         },
         {
@@ -197,7 +159,6 @@
           "first_name": "Dana",
           "last_name": "Alhasawi",
           "email": "api+cardholder_24@nango.dev",
-          "employee_id": null,
           "role": "BUSINESS_USER",
           "status": "USER_ACTIVE",
           "is_manager": false,
@@ -207,8 +168,6 @@
           "location_id": "631a502c-1498-4749-be78-f85b83eda6c6",
           "manager_id": "e2e4cd18-83d9-4668-abd3-550971080d40",
           "phone": "+15005550006",
-          "scheduled_deactivation_date": null,
-          "scheduled_invitation_date": null,
           "custom_fields": []
         },
         {
@@ -216,7 +175,6 @@
           "first_name": "Akshit",
           "last_name": "Khurana",
           "email": "api+cardholder_23@nango.dev",
-          "employee_id": null,
           "role": "BUSINESS_USER",
           "status": "USER_ACTIVE",
           "is_manager": false,
@@ -226,8 +184,6 @@
           "location_id": "2025b3cd-280c-46f7-9d01-8eeff5a9c5af",
           "manager_id": "e2e4cd18-83d9-4668-abd3-550971080d40",
           "phone": "+15005550006",
-          "scheduled_deactivation_date": null,
-          "scheduled_invitation_date": null,
           "custom_fields": []
         },
         {
@@ -235,7 +191,6 @@
           "first_name": "Stanley",
           "last_name": "Hudson",
           "email": "api+cardholder_22@nango.dev",
-          "employee_id": null,
           "role": "BUSINESS_USER",
           "status": "USER_ACTIVE",
           "is_manager": false,
@@ -245,8 +200,6 @@
           "location_id": "1d2260ec-7992-4a39-b3b8-393d7a942f50",
           "manager_id": "e2e4cd18-83d9-4668-abd3-550971080d40",
           "phone": "+15005550006",
-          "scheduled_deactivation_date": null,
-          "scheduled_invitation_date": null,
           "custom_fields": []
         },
         {
@@ -254,7 +207,6 @@
           "first_name": "Avni",
           "last_name": "Tripathi",
           "email": "api+cardholder_21@nango.dev",
-          "employee_id": null,
           "role": "BUSINESS_USER",
           "status": "USER_ACTIVE",
           "is_manager": false,
@@ -264,8 +216,6 @@
           "location_id": "154e0ad1-03b4-4ec8-937f-772dbfc300fd",
           "manager_id": "ae2ad268-e63d-438a-bfe3-02ddaa4f68af",
           "phone": "+15005550006",
-          "scheduled_deactivation_date": null,
-          "scheduled_invitation_date": null,
           "custom_fields": []
         },
         {
@@ -273,7 +223,6 @@
           "first_name": "Jose",
           "last_name": "Millan",
           "email": "api+cardholder_20@nango.dev",
-          "employee_id": null,
           "role": "BUSINESS_USER",
           "status": "USER_ACTIVE",
           "is_manager": false,
@@ -283,8 +232,6 @@
           "location_id": "84020a8c-695c-4b61-a1ee-cdcf31efbea6",
           "manager_id": "b42522c3-e364-4507-9a8e-9a4c56ed7848",
           "phone": "+15005550006",
-          "scheduled_deactivation_date": null,
-          "scheduled_invitation_date": null,
           "custom_fields": []
         },
         {
@@ -292,7 +239,6 @@
           "first_name": "Laisa",
           "last_name": "Alam",
           "email": "api+cardholder_19@nango.dev",
-          "employee_id": null,
           "role": "BUSINESS_USER",
           "status": "USER_ACTIVE",
           "is_manager": false,
@@ -302,8 +248,6 @@
           "location_id": "154e0ad1-03b4-4ec8-937f-772dbfc300fd",
           "manager_id": "b42522c3-e364-4507-9a8e-9a4c56ed7848",
           "phone": "+15005550006",
-          "scheduled_deactivation_date": null,
-          "scheduled_invitation_date": null,
           "custom_fields": []
         },
         {
@@ -311,7 +255,6 @@
           "first_name": "Jordan",
           "last_name": "Moore",
           "email": "api+cardholder_18@nango.dev",
-          "employee_id": null,
           "role": "BUSINESS_USER",
           "status": "USER_ACTIVE",
           "is_manager": false,
@@ -321,8 +264,6 @@
           "location_id": "84020a8c-695c-4b61-a1ee-cdcf31efbea6",
           "manager_id": "92539a3b-9151-4dfc-8a8c-b5dd5114b865",
           "phone": "+15005550006",
-          "scheduled_deactivation_date": null,
-          "scheduled_invitation_date": null,
           "custom_fields": []
         },
         {
@@ -330,7 +271,6 @@
           "first_name": "John",
           "last_name": "Mosca",
           "email": "api+cardholder_17@nango.dev",
-          "employee_id": null,
           "role": "BUSINESS_USER",
           "status": "USER_ACTIVE",
           "is_manager": false,
@@ -340,8 +280,6 @@
           "location_id": "154e0ad1-03b4-4ec8-937f-772dbfc300fd",
           "manager_id": "6200bcff-d274-4ff9-83a7-4276e3a57997",
           "phone": "+15005550006",
-          "scheduled_deactivation_date": null,
-          "scheduled_invitation_date": null,
           "custom_fields": []
         },
         {
@@ -349,7 +287,6 @@
           "first_name": "Andrew",
           "last_name": "Suiter",
           "email": "api+cardholder_16@nango.dev",
-          "employee_id": null,
           "role": "BUSINESS_USER",
           "status": "USER_ACTIVE",
           "is_manager": false,
@@ -359,8 +296,6 @@
           "location_id": "154e0ad1-03b4-4ec8-937f-772dbfc300fd",
           "manager_id": "ae2ad268-e63d-438a-bfe3-02ddaa4f68af",
           "phone": "+15005550006",
-          "scheduled_deactivation_date": null,
-          "scheduled_invitation_date": null,
           "custom_fields": []
         },
         {
@@ -368,7 +303,6 @@
           "first_name": "Christopher",
           "last_name": "Nguyen",
           "email": "api+cardholder_15@nango.dev",
-          "employee_id": null,
           "role": "BUSINESS_USER",
           "status": "USER_ACTIVE",
           "is_manager": false,
@@ -378,8 +312,6 @@
           "location_id": "154e0ad1-03b4-4ec8-937f-772dbfc300fd",
           "manager_id": "ae2ad268-e63d-438a-bfe3-02ddaa4f68af",
           "phone": "+15005550006",
-          "scheduled_deactivation_date": null,
-          "scheduled_invitation_date": null,
           "custom_fields": []
         },
         {
@@ -387,7 +319,6 @@
           "first_name": "Matt",
           "last_name": "Mayer",
           "email": "api+cardholder_14@nango.dev",
-          "employee_id": null,
           "role": "BUSINESS_USER",
           "status": "USER_ACTIVE",
           "is_manager": false,
@@ -397,8 +328,6 @@
           "location_id": "154e0ad1-03b4-4ec8-937f-772dbfc300fd",
           "manager_id": "6200bcff-d274-4ff9-83a7-4276e3a57997",
           "phone": "+15005550006",
-          "scheduled_deactivation_date": null,
-          "scheduled_invitation_date": null,
           "custom_fields": []
         },
         {
@@ -406,7 +335,6 @@
           "first_name": "Katherine",
           "last_name": "Mosley",
           "email": "api+cardholder_13@nango.dev",
-          "employee_id": null,
           "role": "BUSINESS_USER",
           "status": "USER_ACTIVE",
           "is_manager": false,
@@ -416,8 +344,6 @@
           "location_id": "84020a8c-695c-4b61-a1ee-cdcf31efbea6",
           "manager_id": "e2e4cd18-83d9-4668-abd3-550971080d40",
           "phone": "+15005550006",
-          "scheduled_deactivation_date": null,
-          "scheduled_invitation_date": null,
           "custom_fields": []
         },
         {
@@ -425,7 +351,6 @@
           "first_name": "Jack",
           "last_name": "McDaniel",
           "email": "api+cardholder_12@nango.dev",
-          "employee_id": null,
           "role": "BUSINESS_USER",
           "status": "USER_ACTIVE",
           "is_manager": false,
@@ -435,8 +360,6 @@
           "location_id": "9c0ae38c-91a0-4f5e-8092-2b6db8a02113",
           "manager_id": "e2e4cd18-83d9-4668-abd3-550971080d40",
           "phone": "+15005550006",
-          "scheduled_deactivation_date": null,
-          "scheduled_invitation_date": null,
           "custom_fields": []
         },
         {
@@ -444,7 +367,6 @@
           "first_name": "Darryl",
           "last_name": "Philbin",
           "email": "api+cardholder_11@nango.dev",
-          "employee_id": null,
           "role": "BUSINESS_USER",
           "status": "USER_ACTIVE",
           "is_manager": false,
@@ -454,8 +376,6 @@
           "location_id": "9c0ae38c-91a0-4f5e-8092-2b6db8a02113",
           "manager_id": "ae2ad268-e63d-438a-bfe3-02ddaa4f68af",
           "phone": "+15005550006",
-          "scheduled_deactivation_date": null,
-          "scheduled_invitation_date": null,
           "custom_fields": []
         },
         {
@@ -463,7 +383,6 @@
           "first_name": "Erin",
           "last_name": "Hannon",
           "email": "api+cardholder_10@nango.dev",
-          "employee_id": null,
           "role": "BUSINESS_USER",
           "status": "USER_ACTIVE",
           "is_manager": false,
@@ -473,8 +392,6 @@
           "location_id": "631a502c-1498-4749-be78-f85b83eda6c6",
           "manager_id": "e2e4cd18-83d9-4668-abd3-550971080d40",
           "phone": "+15005550006",
-          "scheduled_deactivation_date": null,
-          "scheduled_invitation_date": null,
           "custom_fields": []
         },
         {
@@ -482,7 +399,6 @@
           "first_name": "Kelly",
           "last_name": "Kapoor",
           "email": "api+cardholder_9@nango.dev",
-          "employee_id": null,
           "role": "BUSINESS_USER",
           "status": "USER_ACTIVE",
           "is_manager": false,
@@ -492,8 +408,6 @@
           "location_id": "84020a8c-695c-4b61-a1ee-cdcf31efbea6",
           "manager_id": "e2e4cd18-83d9-4668-abd3-550971080d40",
           "phone": "+15005550006",
-          "scheduled_deactivation_date": null,
-          "scheduled_invitation_date": null,
           "custom_fields": []
         },
         {
@@ -501,7 +415,6 @@
           "first_name": "Shaun",
           "last_name": "Flemming",
           "email": "api+cardholder_8@nango.dev",
-          "employee_id": null,
           "role": "BUSINESS_USER",
           "status": "USER_ACTIVE",
           "is_manager": false,
@@ -511,8 +424,6 @@
           "location_id": "154e0ad1-03b4-4ec8-937f-772dbfc300fd",
           "manager_id": "69d80729-a6b1-4bd6-b82b-eb1dda1ad981",
           "phone": "+15005550006",
-          "scheduled_deactivation_date": null,
-          "scheduled_invitation_date": null,
           "custom_fields": []
         },
         {
@@ -520,7 +431,6 @@
           "first_name": "Andy",
           "last_name": "Bernard",
           "email": "api+cardholder_7@nango.dev",
-          "employee_id": null,
           "role": "BUSINESS_USER",
           "status": "USER_ACTIVE",
           "is_manager": false,
@@ -530,8 +440,6 @@
           "location_id": "9c0ae38c-91a0-4f5e-8092-2b6db8a02113",
           "manager_id": "69d80729-a6b1-4bd6-b82b-eb1dda1ad981",
           "phone": "+15005550006",
-          "scheduled_deactivation_date": null,
-          "scheduled_invitation_date": null,
           "custom_fields": []
         },
         {
@@ -539,7 +447,6 @@
           "first_name": "Jim",
           "last_name": "Halpert",
           "email": "api+cardholder_6@nango.dev",
-          "employee_id": null,
           "role": "BUSINESS_USER",
           "status": "USER_ACTIVE",
           "is_manager": false,
@@ -549,8 +456,6 @@
           "location_id": "154e0ad1-03b4-4ec8-937f-772dbfc300fd",
           "manager_id": "69d80729-a6b1-4bd6-b82b-eb1dda1ad981",
           "phone": "+15005550006",
-          "scheduled_deactivation_date": null,
-          "scheduled_invitation_date": null,
           "custom_fields": []
         },
         {
@@ -558,7 +463,6 @@
           "first_name": "Dwight",
           "last_name": "Schrute",
           "email": "api+cardholder_5@nango.dev",
-          "employee_id": null,
           "role": "BUSINESS_USER",
           "status": "USER_ACTIVE",
           "is_manager": false,
@@ -568,8 +472,6 @@
           "location_id": "154e0ad1-03b4-4ec8-937f-772dbfc300fd",
           "manager_id": "69d80729-a6b1-4bd6-b82b-eb1dda1ad981",
           "phone": "+15005550006",
-          "scheduled_deactivation_date": null,
-          "scheduled_invitation_date": null,
           "custom_fields": []
         },
         {
@@ -577,7 +479,6 @@
           "first_name": "Curtis",
           "last_name": "Breidenthal",
           "email": "api+cardholder_4@nango.dev",
-          "employee_id": null,
           "role": "BUSINESS_USER",
           "status": "USER_ACTIVE",
           "is_manager": false,
@@ -587,8 +488,6 @@
           "location_id": "154e0ad1-03b4-4ec8-937f-772dbfc300fd",
           "manager_id": "92539a3b-9151-4dfc-8a8c-b5dd5114b865",
           "phone": "+15005550006",
-          "scheduled_deactivation_date": null,
-          "scheduled_invitation_date": null,
           "custom_fields": []
         },
         {
@@ -596,7 +495,6 @@
           "first_name": "Ryan",
           "last_name": "Howard",
           "email": "api+cardholder_3@nango.dev",
-          "employee_id": null,
           "role": "BUSINESS_USER",
           "status": "USER_ACTIVE",
           "is_manager": false,
@@ -606,8 +504,6 @@
           "location_id": "154e0ad1-03b4-4ec8-937f-772dbfc300fd",
           "manager_id": "92539a3b-9151-4dfc-8a8c-b5dd5114b865",
           "phone": "+15005550006",
-          "scheduled_deactivation_date": null,
-          "scheduled_invitation_date": null,
           "custom_fields": []
         },
         {
@@ -615,7 +511,6 @@
           "first_name": "Creed",
           "last_name": "Bratton",
           "email": "api+cardholder_2@nango.dev",
-          "employee_id": null,
           "role": "BUSINESS_USER",
           "status": "USER_ACTIVE",
           "is_manager": false,
@@ -625,8 +520,6 @@
           "location_id": "9c0ae38c-91a0-4f5e-8092-2b6db8a02113",
           "manager_id": "b42522c3-e364-4507-9a8e-9a4c56ed7848",
           "phone": "+15005550006",
-          "scheduled_deactivation_date": null,
-          "scheduled_invitation_date": null,
           "custom_fields": []
         },
         {
@@ -634,7 +527,6 @@
           "first_name": "Gabriel",
           "last_name": "Rogoff",
           "email": "api+cardholder_1@nango.dev",
-          "employee_id": null,
           "role": "BUSINESS_USER",
           "status": "USER_ACTIVE",
           "is_manager": false,
@@ -644,8 +536,6 @@
           "location_id": "631a502c-1498-4749-be78-f85b83eda6c6",
           "manager_id": "e2e4cd18-83d9-4668-abd3-550971080d40",
           "phone": "+15005550006",
-          "scheduled_deactivation_date": null,
-          "scheduled_invitation_date": null,
           "custom_fields": []
         },
         {
@@ -653,7 +543,6 @@
           "first_name": "Paola",
           "last_name": "Noun",
           "email": "api+cardholder_0@nango.dev",
-          "employee_id": null,
           "role": "BUSINESS_USER",
           "status": "USER_ACTIVE",
           "is_manager": false,
@@ -663,8 +552,6 @@
           "location_id": "9c0ae38c-91a0-4f5e-8092-2b6db8a02113",
           "manager_id": "e2e4cd18-83d9-4668-abd3-550971080d40",
           "phone": "+15005550006",
-          "scheduled_deactivation_date": null,
-          "scheduled_invitation_date": null,
           "custom_fields": []
         },
         {
@@ -672,7 +559,6 @@
           "first_name": "Elizabeth",
           "last_name": "Smith",
           "email": "api+ap_clerk_1@nango.dev",
-          "employee_id": null,
           "role": "BUSINESS_USER",
           "status": "USER_ACTIVE",
           "is_manager": false,
@@ -682,8 +568,6 @@
           "location_id": "84020a8c-695c-4b61-a1ee-cdcf31efbea6",
           "manager_id": "6200bcff-d274-4ff9-83a7-4276e3a57997",
           "phone": "+15005550006",
-          "scheduled_deactivation_date": null,
-          "scheduled_invitation_date": null,
           "custom_fields": []
         },
         {
@@ -691,7 +575,6 @@
           "first_name": "Angela",
           "last_name": "Martin",
           "email": "api+ap_clerk_0@nango.dev",
-          "employee_id": null,
           "role": "BUSINESS_USER",
           "status": "USER_ACTIVE",
           "is_manager": false,
@@ -701,8 +584,6 @@
           "location_id": "84020a8c-695c-4b61-a1ee-cdcf31efbea6",
           "manager_id": "6200bcff-d274-4ff9-83a7-4276e3a57997",
           "phone": "+15005550006",
-          "scheduled_deactivation_date": null,
-          "scheduled_invitation_date": null,
           "custom_fields": []
         },
         {
@@ -710,7 +591,6 @@
           "first_name": "Kevin",
           "last_name": "Malone",
           "email": "api+bookkeeper_0@nango.dev",
-          "employee_id": null,
           "role": "BUSINESS_BOOKKEEPER",
           "status": "USER_ACTIVE",
           "is_manager": false,
@@ -720,8 +600,6 @@
           "location_id": "631a502c-1498-4749-be78-f85b83eda6c6",
           "manager_id": "6200bcff-d274-4ff9-83a7-4276e3a57997",
           "phone": "+15005550006",
-          "scheduled_deactivation_date": null,
-          "scheduled_invitation_date": null,
           "custom_fields": []
         },
         {
@@ -729,7 +607,6 @@
           "first_name": "Sanil",
           "last_name": "Sawlani",
           "email": "api+manager_4@nango.dev",
-          "employee_id": null,
           "role": "BUSINESS_USER",
           "status": "USER_ACTIVE",
           "is_manager": true,
@@ -739,8 +616,6 @@
           "location_id": "154e0ad1-03b4-4ec8-937f-772dbfc300fd",
           "manager_id": "45e9786d-3469-4275-85fe-3e01ae8bacd2",
           "phone": "+15005550006",
-          "scheduled_deactivation_date": null,
-          "scheduled_invitation_date": null,
           "custom_fields": []
         },
         {
@@ -748,7 +623,6 @@
           "first_name": "Laura",
           "last_name": "Van Lenten",
           "email": "api+manager_3@nango.dev",
-          "employee_id": null,
           "role": "BUSINESS_USER",
           "status": "USER_ACTIVE",
           "is_manager": true,
@@ -758,8 +632,6 @@
           "location_id": "154e0ad1-03b4-4ec8-937f-772dbfc300fd",
           "manager_id": "c63ebe4b-b653-4099-9847-76672723c3e3",
           "phone": "+15005550006",
-          "scheduled_deactivation_date": null,
-          "scheduled_invitation_date": null,
           "custom_fields": []
         },
         {
@@ -767,7 +639,6 @@
           "first_name": "Noel",
           "last_name": "Vierra",
           "email": "api+manager_2@nango.dev",
-          "employee_id": null,
           "role": "BUSINESS_USER",
           "status": "USER_ACTIVE",
           "is_manager": true,
@@ -777,8 +648,6 @@
           "location_id": "84020a8c-695c-4b61-a1ee-cdcf31efbea6",
           "manager_id": "45e9786d-3469-4275-85fe-3e01ae8bacd2",
           "phone": "+15005550006",
-          "scheduled_deactivation_date": null,
-          "scheduled_invitation_date": null,
           "custom_fields": []
         },
         {
@@ -786,7 +655,6 @@
           "first_name": "Calvin",
           "last_name": "Lee",
           "email": "api+manager_1@nango.dev",
-          "employee_id": null,
           "role": "BUSINESS_USER",
           "status": "USER_ACTIVE",
           "is_manager": true,
@@ -796,8 +664,6 @@
           "location_id": "154e0ad1-03b4-4ec8-937f-772dbfc300fd",
           "manager_id": "c63ebe4b-b653-4099-9847-76672723c3e3",
           "phone": "+15005550006",
-          "scheduled_deactivation_date": null,
-          "scheduled_invitation_date": null,
           "custom_fields": []
         },
         {
@@ -805,7 +671,6 @@
           "first_name": "Meredith",
           "last_name": "Palmer",
           "email": "api+manager_0@nango.dev",
-          "employee_id": null,
           "role": "BUSINESS_USER",
           "status": "USER_ACTIVE",
           "is_manager": true,
@@ -815,8 +680,6 @@
           "location_id": "2025b3cd-280c-46f7-9d01-8eeff5a9c5af",
           "manager_id": "45e9786d-3469-4275-85fe-3e01ae8bacd2",
           "phone": "+15005550006",
-          "scheduled_deactivation_date": null,
-          "scheduled_invitation_date": null,
           "custom_fields": []
         },
         {
@@ -824,7 +687,6 @@
           "first_name": "Jan",
           "last_name": "Levinson",
           "email": "api+admin_2@nango.dev",
-          "employee_id": null,
           "role": "BUSINESS_ADMIN",
           "status": "USER_ACTIVE",
           "is_manager": true,
@@ -834,8 +696,6 @@
           "location_id": "2025b3cd-280c-46f7-9d01-8eeff5a9c5af",
           "manager_id": "07323c8f-c449-4222-a970-8cc4cf673711",
           "phone": "+15005550006",
-          "scheduled_deactivation_date": null,
-          "scheduled_invitation_date": null,
           "custom_fields": []
         },
         {
@@ -843,7 +703,6 @@
           "first_name": "Oscar",
           "last_name": "Martinez",
           "email": "api+admin_1@nango.dev",
-          "employee_id": null,
           "role": "BUSINESS_ADMIN",
           "status": "USER_ACTIVE",
           "is_manager": true,
@@ -853,8 +712,6 @@
           "location_id": "631a502c-1498-4749-be78-f85b83eda6c6",
           "manager_id": "07323c8f-c449-4222-a970-8cc4cf673711",
           "phone": "+15005550006",
-          "scheduled_deactivation_date": null,
-          "scheduled_invitation_date": null,
           "custom_fields": []
         },
         {
@@ -862,7 +719,6 @@
           "first_name": "Michael",
           "last_name": "Scott",
           "email": "api+admin_0@nango.dev",
-          "employee_id": null,
           "role": "BUSINESS_ADMIN",
           "status": "USER_ACTIVE",
           "is_manager": true,
@@ -872,8 +728,6 @@
           "location_id": "154e0ad1-03b4-4ec8-937f-772dbfc300fd",
           "manager_id": "07323c8f-c449-4222-a970-8cc4cf673711",
           "phone": "+15005550006",
-          "scheduled_deactivation_date": null,
-          "scheduled_invitation_date": null,
           "custom_fields": []
         },
         {
@@ -881,7 +735,6 @@
           "first_name": "David",
           "last_name": "Wallace",
           "email": "api@nango.dev",
-          "employee_id": null,
           "role": "BUSINESS_OWNER",
           "status": "USER_ACTIVE",
           "is_manager": true,
@@ -889,10 +742,6 @@
           "entity_id": "eb24fd81-de5d-43bd-8102-eb2cc53d3c3a",
           "department_id": "2e34edf5-9603-4986-8aaa-bbec47d56674",
           "location_id": "154e0ad1-03b4-4ec8-937f-772dbfc300fd",
-          "manager_id": null,
-          "phone": null,
-          "scheduled_deactivation_date": null,
-          "scheduled_invitation_date": null,
           "custom_fields": []
         }
       ]

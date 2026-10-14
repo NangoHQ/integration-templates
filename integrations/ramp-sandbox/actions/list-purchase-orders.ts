@@ -54,7 +54,7 @@ const PurchaseOrderSchema = z.object({
     amount: CurrencyAmountSchema.describe('Total amount of the purchase order.'),
     archived_at: z.string().nullable().describe('Timestamp when the purchase order was archived, if applicable.'),
     bill_ids: z.array(z.string()).describe('Identifiers of bills attached to the purchase order.'),
-    billing_status: z.string().nullable().describe('Billing status. Example: "OPEN", "PARTIALLY_BILLED", "FULLY_BILLED", "CLOSED", "DELETED"'),
+    billing_status: z.string().nullish().describe('Billing status. Example: "OPEN", "PARTIALLY_BILLED", "FULLY_BILLED", "CLOSED", "DELETED"'),
     created_at: z.string().describe('Creation timestamp in ISO 8601 format.'),
     creation_source: z.string().describe('How the purchase order was created. Example: "RAMP", "DEVELOPER_API", "ACCOUNTING_PROVIDER", "EXTERNAL_IMPORT"'),
     entity_id: z.string().describe('Identifier of the associated business entity.'),

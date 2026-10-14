@@ -1,10 +1,19 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
+const ProviderCurrencyAmountSchema = z.object({
+    amount: z.number(),
+    currency_code: z.string(),
+    minor_unit_conversion_rate: z.number().nullable()
+});
+
 const CurrencyAmountSchema = z.object({
     amount: z.number().describe('Amount in the smallest denomination of the currency (e.g. cents for USD). Example: 2050000'),
     currency_code: z.string().describe('ISO 4217 currency code. Example: "USD"'),
-    minor_unit_conversion_rate: z.number().describe('Divisor used to convert the amount to the major currency unit. Example: 100')
+    minor_unit_conversion_rate: z
+        .number()
+        .optional()
+        .describe('Divisor used to convert the amount to the major currency unit. Example: 100. Omitted when Ramp does not report it.')
 });
 
 const AddressSchema = z.object({
@@ -23,37 +32,37 @@ const AccountingFieldSchema = z.object({
     type: z.string().describe('Accounting field type. Example: "GL_ACCOUNT"')
 });
 
-const AccountingFieldSelectionSchema = z.object({
-    id: z.string().describe('Unique identifier of the selected accounting field option.'),
-    name: z.string().describe('Name of the accounting field option.'),
-    display_name: z.string().describe('Customer-facing display name of the accounting field option.'),
-    external_id: z.string().describe('External identifier of the accounting field option.'),
-    external_code: z.string().nullable().describe('External code of the accounting field option.'),
-    provider_name: z.string().nullable().describe('Name of the accounting provider.'),
-    category_info: AccountingFieldSchema.describe('Accounting field this option belongs to.')
+const ProviderAccountingFieldSelectionSchema = z.object({
+    id: z.string(),
+    name: z.string(),
+    display_name: z.string().nullable(),
+    external_id: z.string(),
+    external_code: z.string().nullish(),
+    provider_name: z.string().nullable(),
+    category_info: AccountingFieldSchema
 });
 
 const ProviderLineItemSchema = z.object({
     id: z.string(),
     description: z.string().nullable(),
     quantity: z.number().nullable(),
-    unit_price: CurrencyAmountSchema.nullable(),
-    amount: CurrencyAmountSchema,
+    unit_price: ProviderCurrencyAmountSchema.nullable(),
+    amount: ProviderCurrencyAmountSchema,
     start_date: z.string().nullable(),
     end_date: z.string().nullable(),
     external_id: z.string().nullable(),
     remote_id: z.string().nullable(),
     withholding_rate: z.string().nullable(),
-    accounting_field_selections: z.array(AccountingFieldSelectionSchema)
+    accounting_field_selections: z.array(ProviderAccountingFieldSelectionSchema)
 });
 
 const ProviderPurchaseOrderSchema = z.object({
     id: z.string(),
     purchase_order_number: z.string().nullable(),
     name: z.string().nullable(),
-    amount: CurrencyAmountSchema,
-    spend_total_amount: CurrencyAmountSchema.nullable(),
-    billing_status: z.string().nullable(),
+    amount: ProviderCurrencyAmountSchema,
+    spend_total_amount: ProviderCurrencyAmountSchema.nullable(),
+    billing_status: z.string().nullish(),
     receipt_status: z.string(),
     creation_source: z.string(),
     three_way_match_enabled: z.boolean(),
@@ -83,7 +92,7 @@ const ProviderPurchaseOrderSchema = z.object({
     transaction_ids: z.array(z.string()),
     item_receipt_ids: z.array(z.string()),
     line_items: z.array(ProviderLineItemSchema),
-    accounting_field_selections: z.array(AccountingFieldSelectionSchema)
+    accounting_field_selections: z.array(ProviderAccountingFieldSelectionSchema)
 });
 
 const AddressOutputSchema = z.object({
@@ -98,7 +107,7 @@ const AddressOutputSchema = z.object({
 const AccountingFieldSelectionOutputSchema = z.object({
     id: z.string().describe('Unique identifier of the selected accounting field option.'),
     name: z.string().describe('Name of the accounting field option.'),
-    display_name: z.string().describe('Customer-facing display name of the accounting field option.'),
+    display_name: z.string().optional().describe('Customer-facing display name override of the accounting field option, when set.'),
     external_id: z.string().describe('External identifier of the accounting field option.'),
     external_code: z.string().optional().describe('External code of the accounting field option.'),
     provider_name: z.string().optional().describe('Name of the accounting provider.'),
@@ -166,6 +175,14 @@ const OutputSchema = z
     })
     .describe('A single purchase order retrieved from Ramp.');
 
+function toCurrencyAmount(amount: z.infer<typeof ProviderCurrencyAmountSchema>): z.infer<typeof CurrencyAmountSchema> {
+    return {
+        amount: amount.amount,
+        currency_code: amount.currency_code,
+        ...(amount.minor_unit_conversion_rate != null && { minor_unit_conversion_rate: amount.minor_unit_conversion_rate })
+    };
+}
+
 function toAddress(address: z.infer<typeof AddressSchema>): z.infer<typeof AddressOutputSchema> {
     return {
         address1: address.address1,
@@ -177,11 +194,10 @@ function toAddress(address: z.infer<typeof AddressSchema>): z.infer<typeof Addre
     };
 }
 
-function toAccountingFieldSelection(selection: z.infer<typeof AccountingFieldSelectionSchema>): z.infer<typeof AccountingFieldSelectionOutputSchema> {
+function toAccountingFieldSelection(selection: z.infer<typeof ProviderAccountingFieldSelectionSchema>): z.infer<typeof AccountingFieldSelectionOutputSchema> {
     return {
         id: selection.id,
         name: selection.name,
-        display_name: selection.display_name,
         external_id: selection.external_id,
         category_info: {
             id: selection.category_info.id,
@@ -189,6 +205,7 @@ function toAccountingFieldSelection(selection: z.infer<typeof AccountingFieldSel
             external_id: selection.category_info.external_id,
             type: selection.category_info.type
         },
+        ...(selection.display_name != null && { display_name: selection.display_name }),
         ...(selection.external_code != null && { external_code: selection.external_code }),
         ...(selection.provider_name != null && { provider_name: selection.provider_name })
     };
@@ -197,11 +214,11 @@ function toAccountingFieldSelection(selection: z.infer<typeof AccountingFieldSel
 function toLineItem(lineItem: z.infer<typeof ProviderLineItemSchema>): z.infer<typeof LineItemOutputSchema> {
     return {
         id: lineItem.id,
-        amount: lineItem.amount,
+        amount: toCurrencyAmount(lineItem.amount),
         accounting_field_selections: lineItem.accounting_field_selections.map(toAccountingFieldSelection),
         ...(lineItem.description != null && { description: lineItem.description }),
         ...(lineItem.quantity != null && { quantity: lineItem.quantity }),
-        ...(lineItem.unit_price != null && { unit_price: lineItem.unit_price }),
+        ...(lineItem.unit_price != null && { unit_price: toCurrencyAmount(lineItem.unit_price) }),
         ...(lineItem.start_date != null && { start_date: lineItem.start_date }),
         ...(lineItem.end_date != null && { end_date: lineItem.end_date }),
         ...(lineItem.external_id != null && { external_id: lineItem.external_id }),
@@ -233,7 +250,7 @@ const action = createAction({
 
         return {
             id: purchaseOrder.id,
-            amount: purchaseOrder.amount,
+            amount: toCurrencyAmount(purchaseOrder.amount),
             receipt_status: purchaseOrder.receipt_status,
             creation_source: purchaseOrder.creation_source,
             three_way_match_enabled: purchaseOrder.three_way_match_enabled,
@@ -246,7 +263,7 @@ const action = createAction({
             accounting_field_selections: purchaseOrder.accounting_field_selections.map(toAccountingFieldSelection),
             ...(purchaseOrder.purchase_order_number != null && { purchase_order_number: purchaseOrder.purchase_order_number }),
             ...(purchaseOrder.name != null && { name: purchaseOrder.name }),
-            ...(purchaseOrder.spend_total_amount != null && { spend_total_amount: purchaseOrder.spend_total_amount }),
+            ...(purchaseOrder.spend_total_amount != null && { spend_total_amount: toCurrencyAmount(purchaseOrder.spend_total_amount) }),
             ...(purchaseOrder.billing_status != null && { billing_status: purchaseOrder.billing_status }),
             ...(purchaseOrder.memo != null && { memo: purchaseOrder.memo }),
             ...(purchaseOrder.external_id != null && { external_id: purchaseOrder.external_id }),

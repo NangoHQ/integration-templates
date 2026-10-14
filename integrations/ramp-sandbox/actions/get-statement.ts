@@ -66,6 +66,52 @@ const OutputSchema = z
     })
     .describe('A single Ramp statement with its period, balances, balance sections, and statement line items.');
 
+const ProviderCurrencyAmountSchema = z.object({
+    amount: z.number(),
+    currency_code: z.string(),
+    minor_unit_conversion_rate: z.number().nullable().optional()
+});
+
+const ProviderStatementSchema = z.object({
+    id: z.string(),
+    start_date: z.string(),
+    end_date: z.string(),
+    opening_balance: ProviderCurrencyAmountSchema,
+    ending_balance: ProviderCurrencyAmountSchema,
+    charges: ProviderCurrencyAmountSchema,
+    credits: ProviderCurrencyAmountSchema,
+    payments: ProviderCurrencyAmountSchema,
+    balance_sections: z.array(
+        z.object({
+            id: z.string(),
+            entity_id: z.string(),
+            opening_balance: ProviderCurrencyAmountSchema,
+            ending_balance: ProviderCurrencyAmountSchema,
+            charges: ProviderCurrencyAmountSchema,
+            credits: ProviderCurrencyAmountSchema,
+            payments: ProviderCurrencyAmountSchema
+        })
+    ),
+    statement_lines: z.array(
+        z.object({
+            id: z.string().nullable().optional(),
+            type: z.enum(['CARD_TRANSACTION', 'CASHBACK', 'TRANSFER_PAYMENT']).nullable().optional(),
+            created_at: z.string(),
+            cleared_at: z.string().nullable().optional()
+        })
+    ),
+    preceding_statement_id: z.string().nullable().optional(),
+    statement_url: z.string().nullable().optional()
+});
+
+function mapAmount(amount: z.infer<typeof ProviderCurrencyAmountSchema>): z.infer<typeof CurrencyAmountSchema> {
+    return {
+        amount: amount.amount,
+        currency_code: amount.currency_code,
+        minor_unit_conversion_rate: amount.minor_unit_conversion_rate ?? null
+    };
+}
+
 /**
  * @tags: [read]
  * @tagReason: Retrieves an existing statement from the provider without modifying any data.
@@ -93,7 +139,35 @@ const action = createAction({
             });
         }
 
-        return OutputSchema.parse(response.data);
+        const statement = ProviderStatementSchema.parse(response.data);
+
+        return {
+            id: statement.id,
+            start_date: statement.start_date,
+            end_date: statement.end_date,
+            opening_balance: mapAmount(statement.opening_balance),
+            ending_balance: mapAmount(statement.ending_balance),
+            charges: mapAmount(statement.charges),
+            credits: mapAmount(statement.credits),
+            payments: mapAmount(statement.payments),
+            balance_sections: statement.balance_sections.map((section) => ({
+                id: section.id,
+                entity_id: section.entity_id,
+                opening_balance: mapAmount(section.opening_balance),
+                ending_balance: mapAmount(section.ending_balance),
+                charges: mapAmount(section.charges),
+                credits: mapAmount(section.credits),
+                payments: mapAmount(section.payments)
+            })),
+            statement_lines: statement.statement_lines.map((line) => ({
+                ...(line.id != null && { id: line.id }),
+                ...(line.type != null && { type: line.type }),
+                created_at: line.created_at,
+                ...(line.cleared_at !== undefined && { cleared_at: line.cleared_at })
+            })),
+            ...(statement.preceding_statement_id != null && { preceding_statement_id: statement.preceding_statement_id }),
+            ...(statement.statement_url != null && { statement_url: statement.statement_url })
+        };
     }
 });
 

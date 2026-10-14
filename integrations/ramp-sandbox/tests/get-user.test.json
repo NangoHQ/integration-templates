@@ -7,7 +7,6 @@
     "business_id": "e15cd7ee-ab7e-4173-a82f-00f33901c1ca",
     "department_id": "f03e9fc2-7dea-4457-a34f-7c9d45b10e8e",
     "email": "api+guest_0@nango.dev",
-    "employee_id": null,
     "entity_id": "eb24fd81-de5d-43bd-8102-eb2cc53d3c3a",
     "first_name": "Marouane",
     "is_manager": false,
@@ -16,8 +15,6 @@
     "manager_id": "e2e4cd18-83d9-4668-abd3-550971080d40",
     "phone": "+15005550006",
     "role": "GUEST_USER",
-    "scheduled_deactivation_date": null,
-    "scheduled_invitation_date": null,
     "status": "USER_ACTIVE",
     "custom_fields": []
   },

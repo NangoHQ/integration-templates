@@ -7,7 +7,6 @@
     "entity_name": "Save Time Inc",
     "currency": "USD",
     "is_primary": true,
-    "connected_subsidiary": null,
     "default_bill_pay_payment_account_id": "0cb665b6-49d5-4723-b29a-71ce8af70751",
     "location_ids": [
       "154e0ad1-03b4-4ec8-937f-772dbfc300fd",

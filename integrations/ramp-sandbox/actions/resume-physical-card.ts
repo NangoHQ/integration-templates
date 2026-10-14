@@ -39,6 +39,7 @@ const OutputSchema = z
         id: z.string().describe('Unique identifier of the physical card.'),
         state: z
             .string()
+            .optional()
             .describe(
                 'Provider state of the card: ACTIVE, CHIP_LOCKED, SUSPENDED, TERMINATED, or UNACTIVATED. Suspension is tracked separately in is_suspended.'
             ),
@@ -57,6 +58,86 @@ const OutputSchema = z
         fulfillment: FulfillmentSchema.nullable().optional().describe('Fulfillment details for the physical card, if available.')
     })
     .describe('The physical card after its suspension was reversed.');
+
+const ProviderAddressSchema = z.object({
+    address1: z.string().nullable().optional(),
+    address2: z.string().nullable().optional(),
+    city: z.string().nullable().optional(),
+    country: z.string().nullable().optional(),
+    first_name: z.string().nullable().optional(),
+    last_name: z.string().nullable().optional(),
+    phone: z.string().nullable().optional(),
+    postal_code: z.string().nullable().optional(),
+    state: z.string().nullable().optional()
+});
+
+const ProviderPhysicalCardSchema = z.object({
+    id: z.string(),
+    state: z.string().nullable().optional(),
+    is_suspended: z.boolean(),
+    display_name: z.string(),
+    cardholder_id: z.string().nullable().optional(),
+    cardholder_name: z.string().nullable().optional(),
+    last_four: z.string().nullable().optional(),
+    expiration: z.string().nullable().optional(),
+    is_physical: z.boolean().nullable().optional(),
+    is_primary: z.boolean().nullable().optional(),
+    automatic_routing_enabled: z.boolean().nullable().optional(),
+    has_program_overridden: z.boolean().nullable().optional(),
+    fund_id: z.string().nullable().optional(),
+    created_at: z.string().nullable().optional(),
+    fulfillment: z
+        .object({
+            fulfillment_status: z.string().nullable().optional(),
+            shipping_date: z.string().nullable().optional(),
+            shipping_eta: z.string().nullable().optional(),
+            shipping_tracking_url: z.string().nullable().optional(),
+            shipping: z
+                .object({
+                    method: z.string().nullable().optional(),
+                    recipient_address: ProviderAddressSchema.nullable().optional()
+                })
+                .nullable()
+                .optional()
+        })
+        .nullable()
+        .optional()
+});
+
+function mapFulfillment(fulfillment: NonNullable<z.infer<typeof ProviderPhysicalCardSchema>['fulfillment']>): z.infer<typeof FulfillmentSchema> {
+    const shipping = fulfillment.shipping;
+    const address = shipping?.recipient_address;
+    return {
+        ...(fulfillment.fulfillment_status != null && { fulfillment_status: fulfillment.fulfillment_status }),
+        ...(fulfillment.shipping_date !== undefined && { shipping_date: fulfillment.shipping_date }),
+        ...(fulfillment.shipping_eta !== undefined && { shipping_eta: fulfillment.shipping_eta }),
+        ...(fulfillment.shipping_tracking_url !== undefined && { shipping_tracking_url: fulfillment.shipping_tracking_url }),
+        ...(shipping !== undefined && {
+            shipping:
+                shipping === null
+                    ? null
+                    : {
+                          ...(shipping.method !== undefined && { method: shipping.method }),
+                          ...(address !== undefined && {
+                              recipient_address:
+                                  address === null
+                                      ? null
+                                      : {
+                                            ...(address.address1 != null && { address1: address.address1 }),
+                                            ...(address.address2 !== undefined && { address2: address.address2 }),
+                                            ...(address.city != null && { city: address.city }),
+                                            ...(address.country != null && { country: address.country }),
+                                            ...(address.first_name != null && { first_name: address.first_name }),
+                                            ...(address.last_name != null && { last_name: address.last_name }),
+                                            ...(address.phone !== undefined && { phone: address.phone }),
+                                            ...(address.postal_code != null && { postal_code: address.postal_code }),
+                                            ...(address.state !== undefined && { state: address.state })
+                                        }
+                          })
+                      }
+        })
+    };
+}
 
 /**
  * @tags: [write]
@@ -79,7 +160,25 @@ const action = createAction({
             retries: 0
         });
 
-        return OutputSchema.parse(response.data);
+        const card = ProviderPhysicalCardSchema.parse(response.data);
+
+        return {
+            id: card.id,
+            ...(card.state != null && { state: card.state }),
+            is_suspended: card.is_suspended,
+            display_name: card.display_name,
+            ...(card.cardholder_id != null && { cardholder_id: card.cardholder_id }),
+            ...(card.cardholder_name != null && { cardholder_name: card.cardholder_name }),
+            ...(card.last_four != null && { last_four: card.last_four }),
+            ...(card.expiration != null && { expiration: card.expiration }),
+            ...(card.is_physical != null && { is_physical: card.is_physical }),
+            ...(card.is_primary != null && { is_primary: card.is_primary }),
+            ...(card.automatic_routing_enabled != null && { automatic_routing_enabled: card.automatic_routing_enabled }),
+            ...(card.has_program_overridden != null && { has_program_overridden: card.has_program_overridden }),
+            ...(card.fund_id !== undefined && { fund_id: card.fund_id }),
+            ...(card.created_at != null && { created_at: card.created_at }),
+            ...(card.fulfillment !== undefined && { fulfillment: card.fulfillment === null ? null : mapFulfillment(card.fulfillment) })
+        };
     }
 });
 

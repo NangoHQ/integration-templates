@@ -8,7 +8,6 @@
     "account_number_last_four": "6653",
     "account_subtype": "checking",
     "connection_provider": "manual",
-    "financial_institution_name": null,
     "has_ach_details": false
   },
   "nango": {},

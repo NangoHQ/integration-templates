@@ -43,6 +43,8 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
+    // Ramp requires users:write (not users:read) for GET /developer/v1/users/deferred/status/{task_id}.
+    scopes: ['users:write'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://docs.ramp.com/openapi/developer-api.json - GET /developer/v1/users/deferred/status/{task_id}

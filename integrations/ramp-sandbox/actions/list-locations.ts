@@ -13,7 +13,7 @@ const InputSchema = z
             .string()
             .min(1)
             .optional()
-            .describe('Pagination cursor from the previous response (the ID of the last location on that page). Omit to fetch the first page.'),
+            .describe('Opaque pagination cursor returned as next_cursor by a previous call. Omit to fetch the first page.'),
         page_size: z.number().int().min(2).max(100).optional().describe('Number of locations to return per page (between 2 and 100). Defaults to 20.'),
         entity_id: z.string().optional().describe('Filter locations by the associated business entity ID. Example: "a7587328-64fa-4b8b-ad30-a2d27806825b"')
     })
@@ -22,12 +22,18 @@ const InputSchema = z
 const OutputSchema = z
     .object({
         locations: z.array(LocationSchema).describe('Locations returned on this page.'),
-        next_cursor: z.string().nullable().describe('Cursor to pass as `cursor` to fetch the next page, or null when there are no more results.')
+        next_cursor: z.string().optional().describe('Cursor to pass as `cursor` to fetch the next page. Absent when there are no more results.')
     })
     .describe('A page of office/work locations and the cursor for the following page.');
 
+const ProviderLocationSchema = z.object({
+    id: z.string(),
+    name: z.string(),
+    entity_id: z.string()
+});
+
 const ProviderPageSchema = z.object({
-    data: z.array(LocationSchema),
+    data: z.array(ProviderLocationSchema),
     page: z.object({
         next: z.string().nullable()
     })
@@ -43,6 +49,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['locations:read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({
@@ -58,20 +65,25 @@ const action = createAction({
 
         const page = ProviderPageSchema.parse(response.data);
 
-        let nextCursor: string | null = null;
+        let nextCursor: string | undefined;
         if (page.page.next != null) {
-            nextCursor = new URL(page.page.next).searchParams.get('start');
-            if (nextCursor === null) {
+            const start = new URL(page.page.next).searchParams.get('start');
+            if (start === null || start === '') {
                 throw new nango.ActionError({
                     type: 'invalid_pagination',
                     message: 'Could not determine the next page cursor from the provider response.'
                 });
             }
+            nextCursor = start;
         }
 
         return {
-            locations: page.data,
-            next_cursor: nextCursor
+            locations: page.data.map((location) => ({
+                id: location.id,
+                name: location.name,
+                entity_id: location.entity_id
+            })),
+            ...(nextCursor !== undefined && { next_cursor: nextCursor })
         };
     }
 });

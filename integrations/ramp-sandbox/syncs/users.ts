@@ -1,13 +1,39 @@
 import { createSync, type ProxyConfiguration } from 'nango';
 import { z } from 'zod';
 
+// Raw provider schema (https://docs.ramp.com/openapi/developer-api.json, component User): spec-nullable fields are .nullable().
+const ProviderUserSchema = z.object({
+    id: z.string(),
+    first_name: z.string(),
+    last_name: z.string(),
+    email: z.string(),
+    employee_id: z.string().nullable(),
+    role: z.string(),
+    status: z.string(),
+    is_manager: z.boolean(),
+    business_id: z.string().nullable(),
+    entity_id: z.string().nullable(),
+    department_id: z.string().nullable(),
+    location_id: z.string().nullable(),
+    manager_id: z.string().nullable(),
+    phone: z.string().nullable(),
+    scheduled_deactivation_date: z.string().nullable(),
+    scheduled_invitation_date: z.string().nullable(),
+    custom_fields: z.array(
+        z.object({
+            name: z.string(),
+            value: z.string()
+        })
+    )
+});
+
 const UserSchema = z
     .object({
         id: z.string().describe('Unique identifier of the user (UUID).'),
         first_name: z.string().describe('First name of the user.'),
         last_name: z.string().describe('Last name of the user.'),
         email: z.string().describe('Email address of the user.'),
-        employee_id: z.string().nullable().describe('External employee identifier from an HR or ERP system, when present.'),
+        employee_id: z.string().optional().describe('External employee identifier from an HR or ERP system, when present.'),
         role: z
             .string()
             .describe('Role of the user, e.g. BUSINESS_USER, BUSINESS_ADMIN, BUSINESS_BOOKKEEPER, BUSINESS_OWNER, GUEST_USER, AUDITOR or IT_ADMIN.'),
@@ -17,17 +43,14 @@ const UserSchema = z
                 'Lifecycle status of the user, e.g. USER_ACTIVE, USER_DRAFT, USER_INACTIVE, USER_SUSPENDED, INVITE_PENDING, INVITE_EXPIRED or USER_ONBOARDING.'
             ),
         is_manager: z.boolean().describe('Whether the user is a manager.'),
-        business_id: z.string().nullable().describe('Unique identifier of the business the user belongs to.'),
-        entity_id: z.string().nullable().describe('Unique identifier of the business entity the user is associated with.'),
-        department_id: z.string().nullable().describe('Unique identifier of the department the user belongs to.'),
-        location_id: z.string().nullable().describe('Unique identifier of the location assigned to the user.'),
-        manager_id: z.string().nullable().describe('Unique identifier of the user manager.'),
-        phone: z.union([z.string(), z.number()]).nullable().describe('Phone number of the user.'),
-        scheduled_deactivation_date: z.string().nullable().describe('ISO 8601 date when the user is scheduled to be deactivated.'),
-        scheduled_invitation_date: z
-            .string()
-            .nullable()
-            .describe('ISO 8601 date when a draft user is scheduled to be invited to Ramp, or null if no invite is scheduled.'),
+        business_id: z.string().optional().describe('Unique identifier of the business the user belongs to.'),
+        entity_id: z.string().optional().describe('Unique identifier of the business entity the user is associated with.'),
+        department_id: z.string().optional().describe('Unique identifier of the department the user belongs to, when assigned.'),
+        location_id: z.string().optional().describe('Unique identifier of the location assigned to the user, when assigned.'),
+        manager_id: z.string().optional().describe('Unique identifier of the user manager, when assigned.'),
+        phone: z.string().optional().describe('Phone number of the user, when set.'),
+        scheduled_deactivation_date: z.string().optional().describe('ISO 8601 date when the user is scheduled to be deactivated, when scheduled.'),
+        scheduled_invitation_date: z.string().optional().describe('ISO 8601 date when a draft user is scheduled to be invited to Ramp, when scheduled.'),
         custom_fields: z
             .array(
                 z
@@ -41,6 +64,28 @@ const UserSchema = z
     })
     .describe('A Ramp user (employee) record.');
 
+function toUser(user: z.infer<typeof ProviderUserSchema>): z.infer<typeof UserSchema> {
+    return {
+        id: user.id,
+        first_name: user.first_name,
+        last_name: user.last_name,
+        email: user.email,
+        role: user.role,
+        status: user.status,
+        is_manager: user.is_manager,
+        custom_fields: user.custom_fields,
+        ...(user.employee_id != null && { employee_id: user.employee_id }),
+        ...(user.business_id != null && { business_id: user.business_id }),
+        ...(user.entity_id != null && { entity_id: user.entity_id }),
+        ...(user.department_id != null && { department_id: user.department_id }),
+        ...(user.location_id != null && { location_id: user.location_id }),
+        ...(user.manager_id != null && { manager_id: user.manager_id }),
+        ...(user.phone != null && { phone: user.phone }),
+        ...(user.scheduled_deactivation_date != null && { scheduled_deactivation_date: user.scheduled_deactivation_date }),
+        ...(user.scheduled_invitation_date != null && { scheduled_invitation_date: user.scheduled_invitation_date })
+    };
+}
+
 const CheckpointSchema = z.object({
     start: z.string().describe('Ramp pagination cursor extracted from `page.next`, or an empty string when no full refresh is in progress.')
 });
@@ -50,6 +95,7 @@ const sync = createSync({
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['users:read'],
     checkpoint: CheckpointSchema,
     models: {
         User: UserSchema
@@ -85,7 +131,7 @@ const sync = createSync({
         };
 
         for await (const page of nango.paginate<unknown>(proxyConfig)) {
-            const users = page.map((record) => UserSchema.parse(record));
+            const users = page.map((record) => toUser(ProviderUserSchema.parse(record)));
 
             if (users.length > 0) {
                 await nango.batchSave(users, 'User');

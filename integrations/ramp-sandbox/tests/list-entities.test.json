@@ -11,8 +11,6 @@
           "84020a8c-695c-4b61-a1ee-cdcf31efbea6",
           "2025b3cd-280c-46f7-9d01-8eeff5a9c5af"
         ],
-        "default_bill_pay_payment_account_id": null,
-        "connected_subsidiary": null,
         "payment_accounts": [
           {
             "id": "7bc1bb89-5ed5-48cd-a71c-9de9e383f745",
@@ -74,7 +72,6 @@
           "8e7195ac-3a36-49d4-abb6-185fcfca1a1d"
         ],
         "default_bill_pay_payment_account_id": "0cb665b6-49d5-4723-b29a-71ce8af70751",
-        "connected_subsidiary": null,
         "payment_accounts": [
           {
             "id": "7bc1bb89-5ed5-48cd-a71c-9de9e383f745",

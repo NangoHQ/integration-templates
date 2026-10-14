@@ -72,8 +72,9 @@ const action = createAction({
             data: {
                 ...(input.reason !== undefined && { reason: input.reason })
             },
-            // Placing a hold is a non-idempotent state change; a retry after a lost response could fail or double-apply.
-            retries: 10
+            // Not idempotent: a retry after a lost response is rejected with 400 "Bill is already on hold" (BILL_PAY_7274), so retries must stay at 0.
+            // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries
+            retries: 0
         });
 
         const bill = ProviderBillSchema.parse(response.data);

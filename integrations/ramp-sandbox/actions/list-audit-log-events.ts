@@ -9,7 +9,7 @@ const EntityReferenceSchema = z.object({
 });
 
 const PrimaryReferenceSchema = z.object({
-    id: z.string().nullable().optional().describe('Unique identifier of the primary referenced object, when available.'),
+    id: z.string().optional().describe('Unique identifier of the primary referenced object, when available.'),
     label: z.string().describe('Human-readable label of the primary referenced object.'),
     resource_name: z.string().describe('Type of the primary referenced resource, for example "Transaction" or "Vendor / Merchant".'),
     url: z.string().describe('Ramp app-relative URL for the primary referenced object.')
@@ -17,12 +17,12 @@ const PrimaryReferenceSchema = z.object({
 
 const ActorDetailsSchema = z.object({
     actor_type: z.string().optional().describe('Type of the actor: "policy_agent", "ramp", "spend_request_agent", or "user".'),
-    id: z.string().nullable().optional().describe('Unique identifier of the actor user, when the actor is a user.')
+    id: z.string().optional().describe('Unique identifier of the actor user, when the actor is a user.')
 });
 
 const UserDetailsSchema = z.object({
     actor_type: z.string().describe('Type of the actor the event is attributed to.'),
-    id: z.string().nullable().optional().describe('Unique identifier of the user, when available.')
+    id: z.string().optional().describe('Unique identifier of the user, when available.')
 });
 
 const AgentDetailsSchema = z.object({
@@ -38,17 +38,48 @@ const AuditLogEventSchema = z.object({
     event_type: z.string().describe('Type of the audit log event, for example "Transaction cleared" or "Transaction paid".'),
     event_time: z.string().describe('ISO-8601 timestamp of when the event occurred.'),
     actor_type: z.string().optional().describe('Type of the actor the event is attributed to.'),
-    actor_id: z.string().nullable().optional().describe('Unique identifier of the actor, when available.'),
-    additional_details: z.string().nullable().optional().describe('Extra free-text context about the event, when available.'),
-    actor_details: ActorDetailsSchema.nullable().optional().describe('Details of the actor the event is attributed to.'),
-    agent_details: AgentDetailsSchema.nullable().optional().describe("Agent that executed the action on the user's behalf, when applicable."),
-    user_details: UserDetailsSchema.nullable().optional().describe('User the event is attributed to, when applicable.'),
-    primary_reference: PrimaryReferenceSchema.nullable().optional().describe('Primary object referenced by the event, when available.'),
+    actor_id: z.string().optional().describe('Unique identifier of the actor, when available.'),
+    additional_details: z.string().optional().describe('Extra free-text context about the event, when available.'),
+    actor_details: ActorDetailsSchema.optional().describe('Details of the actor the event is attributed to.'),
+    agent_details: AgentDetailsSchema.optional().describe("Agent that executed the action on the user's behalf, when applicable."),
+    user_details: UserDetailsSchema.optional().describe('User the event is attributed to, when applicable.'),
+    primary_reference: PrimaryReferenceSchema.optional().describe('Primary object referenced by the event, when available.'),
     event_details: EventDetailsSchema.optional().describe('References to the objects involved in the event.')
 });
 
+const ProviderAuditLogEventSchema = z.object({
+    id: z.string(),
+    event_type: z.string(),
+    event_time: z.string(),
+    actor_type: z.string().optional(),
+    actor_id: z.string().nullish(),
+    additional_details: z.string().nullish(),
+    actor_details: z
+        .object({
+            actor_type: z.string().optional(),
+            id: z.string().nullish()
+        })
+        .nullish(),
+    agent_details: AgentDetailsSchema.nullish(),
+    user_details: z
+        .object({
+            actor_type: z.string(),
+            id: z.string().nullish()
+        })
+        .nullish(),
+    primary_reference: z
+        .object({
+            id: z.string().nullish(),
+            label: z.string(),
+            resource_name: z.string(),
+            url: z.string()
+        })
+        .nullish(),
+    event_details: EventDetailsSchema.optional()
+});
+
 const ResponseSchema = z.object({
-    data: z.array(AuditLogEventSchema),
+    data: z.array(ProviderAuditLogEventSchema),
     page: z
         .object({
             next: z.string().nullable().optional()
@@ -72,7 +103,7 @@ const InputSchema = z
         object_id: z
             .string()
             .optional()
-            .describe('Only return events referencing this object ID, for example a transaction or vendor ID. Must be paired with resource_name.'),
+            .describe('Only return events referencing this object ID, for example a transaction or vendor ID. Must be provided together with resource_name.'),
         resource_name: z
             .enum([
                 'Accounting rule group',
@@ -109,7 +140,7 @@ const InputSchema = z
                 'Workflow'
             ])
             .optional()
-            .describe('Only return events referencing this resource type. Must be paired with object_id.'),
+            .describe('Only return events referencing this resource type. Must be provided together with object_id.'),
         agent_names: z.array(z.string()).optional().describe('Only return events performed by agents with these customer-visible labels.'),
         cursor: z
             .string()
@@ -117,6 +148,11 @@ const InputSchema = z
             .optional()
             .describe('Opaque pagination cursor returned as next_cursor by the previous call. Omit for the first page.'),
         page_size: z.number().int().min(2).max(100).optional().describe('Number of events to return per page, between 2 and 100. Defaults to 20.')
+    })
+    // Ramp rejects either filter on its own with a 422 ("object_id and resource_name must be provided together").
+    .refine((data) => (data.object_id === undefined) === (data.resource_name === undefined), {
+        message: 'object_id and resource_name must be provided together.',
+        path: ['object_id']
     })
     .describe('Filters and pagination options for listing business-wide audit log events.');
 
@@ -133,7 +169,7 @@ const OutputSchema = z
 /**
  * @tags: [read]
  * @tagReason: Lists business-wide audit log events; it only reads provider data and never mutates it.
- * @pitfalls: from_date/to_date must be full ISO-8601 datetimes, object_id only filters when supplied together with resource_name (and vice versa), and event_types must exactly match Ramp's event type strings such as "Transaction cleared".
+ * @pitfalls: from_date/to_date must be full ISO-8601 datetimes, object_id and resource_name must be supplied together (Ramp rejects either one alone with a 422), and event_types must exactly match Ramp's event type strings such as "Transaction cleared".
  */
 const action = createAction({
     description: 'List business-wide audit log events (logins, approvals, transaction state changes, settings changes, etc).',
@@ -196,7 +232,36 @@ const action = createAction({
         }
 
         return {
-            items: parsed.data,
+            items: parsed.data.map((event) => ({
+                id: event.id,
+                event_type: event.event_type,
+                event_time: event.event_time,
+                ...(event.actor_type != null && { actor_type: event.actor_type }),
+                ...(event.actor_id != null && { actor_id: event.actor_id }),
+                ...(event.additional_details != null && { additional_details: event.additional_details }),
+                ...(event.actor_details != null && {
+                    actor_details: {
+                        ...(event.actor_details.actor_type != null && { actor_type: event.actor_details.actor_type }),
+                        ...(event.actor_details.id != null && { id: event.actor_details.id })
+                    }
+                }),
+                ...(event.agent_details != null && { agent_details: event.agent_details }),
+                ...(event.user_details != null && {
+                    user_details: {
+                        actor_type: event.user_details.actor_type,
+                        ...(event.user_details.id != null && { id: event.user_details.id })
+                    }
+                }),
+                ...(event.primary_reference != null && {
+                    primary_reference: {
+                        ...(event.primary_reference.id != null && { id: event.primary_reference.id }),
+                        label: event.primary_reference.label,
+                        resource_name: event.primary_reference.resource_name,
+                        url: event.primary_reference.url
+                    }
+                }),
+                ...(event.event_details != null && { event_details: event.event_details })
+            })),
             ...(next_cursor !== undefined && { next_cursor })
         };
     }

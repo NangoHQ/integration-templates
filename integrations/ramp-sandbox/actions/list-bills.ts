@@ -24,7 +24,7 @@ const AccountingFieldSelectionSchema = z
         name: z.string().describe('Name of the accounting field option.'),
         display_name: z.string().nullable().describe('Customer-set display name for the accounting field option.'),
         external_id: z.string().describe('External identifier of the accounting field option.'),
-        external_code: z.string().nullable().describe('External code of the accounting field option.'),
+        external_code: z.string().nullish().describe('External code of the accounting field option.'),
         provider_name: z.string().nullable().describe('Name of the accounting provider.'),
         category_info: AccountingFieldSchema.nullable().describe('Information about the accounting category/field.')
     })
@@ -42,7 +42,7 @@ const VendorSchema = z
     .object({
         id: z.string().describe('Unique identifier of the vendor.'),
         name: z.string().describe('Name of the vendor.'),
-        type: z.string().nullable().describe('Vendor type. Example: "BUSINESS".'),
+        type: z.string().nullish().describe('Vendor type. Example: "BUSINESS".'),
         remote_id: z.string().nullish().describe('External ID that identifies the vendor on the client side.'),
         remote_code: z.string().nullish().describe('Code of the vendor in the ERP.'),
         remote_name: z.string().nullish().describe('Name of the vendor in the ERP.')
@@ -52,8 +52,8 @@ const VendorSchema = z
 const BillOwnerSchema = z
     .object({
         id: z.string().describe('Unique identifier of the bill owner.'),
-        first_name: z.string().nullable().describe('Bill owner first name.'),
-        last_name: z.string().nullable().describe('Bill owner last name.')
+        first_name: z.string().nullish().describe('Bill owner first name.'),
+        last_name: z.string().nullish().describe('Bill owner last name.')
     })
     .describe('User who owns the bill.');
 
@@ -82,7 +82,7 @@ const LineItemSchema = z
     .object({
         id: z.string().describe('Unique identifier of the line item.'),
         amount: CurrencyAmountSchema.nullable().describe('Amount of the line item in minor units.'),
-        memo: z.string().nullable().describe('Memo of the line item.'),
+        memo: z.string().nullish().describe('Memo of the line item.'),
         purchase_order_line_item_id: z.string().nullable().describe('Matched purchase order line item identifier, if any.'),
         accounting_field_selections: z.array(AccountingFieldSelectionSchema).describe('Accounting field options selected to code the line item.'),
         item_receipt_line_item_ids: z.array(z.string()).describe('Item receipt line item identifiers associated with the line item.'),
@@ -96,7 +96,7 @@ const InventoryLineItemSchema = z
         amount: CurrencyAmountSchema.nullable().describe('Amount of the inventory line item in minor units.'),
         unit_price: CurrencyAmountSchema.nullable().describe('Unit price of the inventory line item in minor units.'),
         quantity: z.number().nullable().describe('Quantity of the inventory line item.'),
-        memo: z.string().nullable().describe('Memo of the inventory line item.'),
+        memo: z.string().nullish().describe('Memo of the inventory line item.'),
         purchase_order_line_item_id: z.string().nullable().describe('Matched purchase order line item identifier, if any.'),
         accounting_field_selections: z.array(AccountingFieldSelectionSchema).describe('Accounting field options selected to code the inventory line item.'),
         item_receipt_line_item_ids: z.array(z.string()).describe('Item receipt line item identifiers associated with the inventory line item.'),
@@ -281,6 +281,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['bills:read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const params = {

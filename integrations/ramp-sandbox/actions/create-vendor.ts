@@ -102,6 +102,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['vendors:write'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         if (input.country.toUpperCase() === 'US' && !input.state) {

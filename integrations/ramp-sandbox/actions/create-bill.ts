@@ -22,14 +22,14 @@ const InputSchema = z
         entity_id: z.string().describe('ID of the business entity the bill belongs to. Example: "1cc4b57c-fe4a-4425-90f1-9019d06376b3".'),
         vendor_id: z.string().describe('ID of the vendor the bill is owed to. Example: "c0c89fa8-976e-428d-938d-a5ec89838474".'),
         due_at: z.string().describe('Payment due date in YYYY-MM-DD format. Example: "2024-10-15".'),
-        invoice_number: z.string().describe('Invoice number for the bill.'),
+        invoice_number: z.string().max(84).describe('Invoice number for the bill.'),
         issued_at: z.string().describe('Date the invoice was issued in YYYY-MM-DD format. Example: "2024-08-15".'),
         invoice_currency: z.string().describe('ISO 4217 currency code of the invoice, e.g. "USD".'),
         line_items: z.array(LineItemSchema).optional().describe('Line items that make up the bill.'),
         accounting_field_selections: z.array(AccountingFieldSelectionSchema).optional().describe('Accounting field options that code the whole bill.'),
         enable_accounting_sync: z.boolean().optional().describe('Whether the bill should sync to the connected ERP. Must be true when remote_id is provided.'),
-        memo: z.string().nullable().optional().describe('Internal memo for the bill.'),
-        vendor_memo: z.string().nullable().optional().describe('Memo shown to the vendor.'),
+        memo: z.string().max(1000).nullable().optional().describe('Internal memo for the bill.'),
+        vendor_memo: z.string().max(400).nullable().optional().describe('Memo shown to the vendor.'),
         payment_method: z
             .enum([
                 'ACH',
@@ -132,8 +132,8 @@ const OutputSchema = z
     .describe('The bill created in Ramp.');
 
 /**
- * @tags: [write]
- * @tagReason: Creates a new provider-side bill via POST /bills; it reads no existing resource and is not a delete, revocation, or other hard-to-reverse effect.
+ * @tags: [write, destructive]
+ * @tagReason: Creates a provider-side bill via POST /bills that can be auto-approved and immediately scheduled for a real payment to the vendor, a money-moving effect that is not safely reversible.
  * @pitfalls: Line-item amount is supplied in major currency units (e.g. 10.5 for $10.50) while all returned amounts are in minor units (cents); the request is rejected unless either payment_method or use_default_payment_method=true is set and either vendor_contact_id or use_default_vendor_contact=true is set; remote_id requires enable_accounting_sync=true; and created bills are auto-approved and can immediately schedule a real payment using the vendor's default method.
  */
 const action = createAction({
@@ -141,6 +141,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['bills:write'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const data = {

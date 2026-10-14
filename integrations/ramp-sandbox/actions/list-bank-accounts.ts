@@ -5,7 +5,7 @@ const InputSchema = z
     .object({
         cursor: z
             .string()
-            .regex(/^[A-Za-z0-9_\-=]+$/)
+            .min(1)
             .optional()
             .describe('Opaque pagination cursor returned as `next_cursor` by a previous call. Omit to fetch the first page.')
     })
@@ -38,9 +38,8 @@ const BankAccountSchema = z.object({
         .describe('How the account was linked: one of "finicity", "manual", "plaid", "ramp_brokerage", "ramp_wallet", or "teller". Example: "manual"'),
     financial_institution_name: z
         .string()
-        .nullable()
         .optional()
-        .describe('Name of the associated financial institution, or null when unknown (for example manually-added accounts).'),
+        .describe('Name of the associated financial institution. Absent when unknown (for example manually-added accounts).'),
     has_ach_details: z
         .boolean()
         .describe('Whether Ramp has ACH routing and account numbers for this account; external accounts without ACH details cannot fund USD payments.')
@@ -84,7 +83,7 @@ const action = createAction({
             account_number_last_four: account.account_number_last_four,
             account_subtype: account.account_subtype,
             connection_provider: account.connection_provider,
-            financial_institution_name: account.financial_institution_name,
+            ...(account.financial_institution_name != null && { financial_institution_name: account.financial_institution_name }),
             has_ach_details: account.has_ach_details
         }));
 

@@ -47,13 +47,15 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['cards:write'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.post<unknown>({
             // https://docs.ramp.com/openapi/developer-api.json (POST /developer/v1/cards/physical/{card_id}/suspension)
             endpoint: `/developer/v1/cards/physical/${encodeURIComponent(input.card_id)}/suspension`,
-            // Suspension converges to the same state when repeated, so a transient failure is safe to retry.
-            retries: 3
+            // Non-idempotent: a retry after a lost response hits the provider's "already suspended" error (HTTP 400), so do not replay.
+            // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries
+            retries: 0
         });
 
         if (response.data == null) {

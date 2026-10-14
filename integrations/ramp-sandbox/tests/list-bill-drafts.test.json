@@ -227,8 +227,7 @@
         "inventory_line_items": [],
         "accounting_field_selections": []
       }
-    ],
-    "next_cursor": null
+    ]
   },
   "nango": {},
   "api": {

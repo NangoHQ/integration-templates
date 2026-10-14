@@ -6,18 +6,18 @@ const CurrencyAmountSchema = z.object({
     currency_code: z.string().describe('ISO 4217 currency code of the amount. Example: "USD".'),
     minor_unit_conversion_rate: z
         .number()
-        .nullable()
-        .describe('Divisor used to convert `amount` to the major currency unit (100 for USD), or null when not reported.')
+        .optional()
+        .describe('Divisor used to convert `amount` to the major currency unit (100 for USD). Omitted when not reported.')
 });
 
 const SpendingRestrictionsSchema = z.object({
     interval: z.string().describe('Reset cadence the restrictions apply on. Example: "MONTHLY", "QUARTERLY", "CUSTOM".'),
-    limit: CurrencyAmountSchema.nullable().describe('Total amount allowed per interval, or null when no limit is set.'),
-    temporary_limit: CurrencyAmountSchema.nullable().describe('Temporary per-interval limit, or null when not set.'),
-    transaction_amount_limit: CurrencyAmountSchema.nullable().describe('Maximum amount allowed on a single transaction, or null when not set.'),
-    auto_lock_date: z.string().nullable().describe('ISO-8601 timestamp when funds under this program auto-lock, or null.'),
-    start_of_interval: z.string().nullable().describe('ISO-8601 timestamp marking the start of the current interval, or null.'),
-    next_interval_reset: z.string().nullable().describe('ISO-8601 timestamp of the next interval reset, or null.'),
+    limit: CurrencyAmountSchema.optional().describe('Total amount allowed per interval. Omitted when no limit is set.'),
+    temporary_limit: CurrencyAmountSchema.optional().describe('Temporary per-interval limit. Omitted when not set.'),
+    transaction_amount_limit: CurrencyAmountSchema.optional().describe('Maximum amount allowed on a single transaction. Omitted when not set.'),
+    auto_lock_date: z.string().optional().describe('ISO-8601 timestamp when funds under this program auto-lock. Omitted when not set.'),
+    start_of_interval: z.string().optional().describe('ISO-8601 timestamp marking the start of the current interval. Omitted when no interval applies.'),
+    next_interval_reset: z.string().optional().describe('ISO-8601 timestamp of the next interval reset. Omitted when no interval applies.'),
     allowed_categories: z.array(z.number()).describe('Ramp category codes that are explicitly allowed.'),
     blocked_categories: z.array(z.number()).describe('Ramp category codes that are explicitly blocked.'),
     allowed_vendors: z.array(z.string()).describe('Merchant/vendor IDs that are explicitly allowed.'),
@@ -36,9 +36,69 @@ const SpendProgramSchema = z.object({
     icon: z.string().describe('Icon identifier Ramp uses for the template. Example: "PerDiemCardIcon".'),
     is_shareable: z.boolean().describe('Whether the program can be shared across users.'),
     issue_physical_card_if_needed: z.boolean().describe('Whether a physical card should be issued when a user does not already have one.'),
-    permitted_spend_types: PermittedSpendTypesSchema.nullable().describe('Spend types enabled for funds created from this program, or null.'),
-    restrictions: SpendingRestrictionsSchema.nullable().describe('Policy limits and category/vendor restrictions for the program, or null.')
+    permitted_spend_types: PermittedSpendTypesSchema.optional().describe('Spend types enabled for funds created from this program. Omitted when unspecified.'),
+    restrictions: SpendingRestrictionsSchema.optional().describe('Policy limits and category/vendor restrictions for the program. Omitted when none are configured.')
 });
+
+const ProviderCurrencyAmountSchema = z.object({
+    amount: z.number(),
+    currency_code: z.string(),
+    minor_unit_conversion_rate: z.number().nullable()
+});
+
+const ProviderSpendingRestrictionsSchema = z.object({
+    interval: z.string(),
+    limit: ProviderCurrencyAmountSchema.nullable(),
+    temporary_limit: ProviderCurrencyAmountSchema.nullable(),
+    transaction_amount_limit: ProviderCurrencyAmountSchema.nullable(),
+    auto_lock_date: z.string().nullable(),
+    start_of_interval: z.string().nullable(),
+    next_interval_reset: z.string().nullable(),
+    allowed_categories: z.array(z.number()),
+    blocked_categories: z.array(z.number()),
+    allowed_vendors: z.array(z.string()),
+    blocked_vendors: z.array(z.string())
+});
+
+const ProviderPermittedSpendTypesSchema = z.object({
+    primary_card_enabled: z.boolean(),
+    reimbursements_enabled: z.boolean()
+});
+
+const ProviderSpendProgramSchema = z.object({
+    id: z.string(),
+    display_name: z.string(),
+    description: z.string(),
+    icon: z.string(),
+    is_shareable: z.boolean(),
+    issue_physical_card_if_needed: z.boolean(),
+    permitted_spend_types: ProviderPermittedSpendTypesSchema.nullable(),
+    restrictions: ProviderSpendingRestrictionsSchema.nullable()
+});
+
+function mapCurrencyAmount(amount: z.infer<typeof ProviderCurrencyAmountSchema>): z.infer<typeof CurrencyAmountSchema> {
+    return {
+        amount: amount.amount,
+        currency_code: amount.currency_code,
+        ...(amount.minor_unit_conversion_rate != null && { minor_unit_conversion_rate: amount.minor_unit_conversion_rate })
+    };
+}
+
+function mapRestrictions(restrictions: z.infer<typeof ProviderSpendingRestrictionsSchema>): z.infer<typeof SpendingRestrictionsSchema> {
+    return {
+        interval: restrictions.interval,
+        ...(restrictions.limit != null && { limit: mapCurrencyAmount(restrictions.limit) }),
+        ...(restrictions.temporary_limit != null && { temporary_limit: mapCurrencyAmount(restrictions.temporary_limit) }),
+        ...(restrictions.transaction_amount_limit != null && { transaction_amount_limit: mapCurrencyAmount(restrictions.transaction_amount_limit) }),
+        ...(restrictions.auto_lock_date != null && { auto_lock_date: restrictions.auto_lock_date }),
+        ...(restrictions.start_of_interval != null && { start_of_interval: restrictions.start_of_interval }),
+        ...(restrictions.next_interval_reset != null && { next_interval_reset: restrictions.next_interval_reset }),
+        allowed_categories: restrictions.allowed_categories,
+        blocked_categories: restrictions.blocked_categories,
+        allowed_vendors: restrictions.allowed_vendors,
+        blocked_vendors: restrictions.blocked_vendors
+    };
+}
 
 const InputSchema = z
     .object({
@@ -54,7 +114,7 @@ const InputSchema = z
     .describe('Filters for listing spend program templates.');
 
 const ProviderResponseSchema = z.object({
-    data: z.array(SpendProgramSchema),
+    data: z.array(ProviderSpendProgramSchema),
     page: z.object({
         next: z.string().nullable()
     })
@@ -95,7 +155,16 @@ const action = createAction({
         const hasNextPage = response.page.next !== null && lastItem !== undefined;
 
         return {
-            items: response.data,
+            items: response.data.map((program) => ({
+                id: program.id,
+                display_name: program.display_name,
+                description: program.description,
+                icon: program.icon,
+                is_shareable: program.is_shareable,
+                issue_physical_card_if_needed: program.issue_physical_card_if_needed,
+                ...(program.permitted_spend_types != null && { permitted_spend_types: program.permitted_spend_types }),
+                ...(program.restrictions != null && { restrictions: mapRestrictions(program.restrictions) })
+            })),
             ...(hasNextPage && { next_cursor: lastItem.id })
         };
     }

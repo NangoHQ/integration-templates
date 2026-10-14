@@ -50,10 +50,11 @@ const action = createAction({
         const cardId = encodeURIComponent(input.card_id);
 
         await nango.delete({
-            // Destructive and irreversible: a repeated terminate returns HTTP 400, so keep retries minimal.
+            // Destructive and non-idempotent: a retry after a lost response hits a provider HTTP 400 on the already-terminated card, so do not replay.
             // Ramp API reference (machine-readable): https://docs.ramp.com/llms-api.txt - "Terminate a card" (DELETE /developer/v1/cards/physical/{card_id})
             endpoint: `/developer/v1/cards/physical/${cardId}`,
-            retries: 1
+            // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries
+            retries: 0
         });
 
         const response = await nango.get({

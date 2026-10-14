@@ -30,7 +30,11 @@ const InputSchema = z
             .boolean()
             .describe('Whether three-way match is enabled, i.e. whether an item receipt will be attached to indicate goods were received.'),
         line_items: z.array(PurchaseOrderLineItemInputSchema).min(1).describe('Line items for the purchase order. At least one is required.'),
-        name: z.string().optional().describe('Name of the purchase order. Must contain at least one non-whitespace character.'),
+        name: z
+            .string()
+            .regex(/\S/, 'name must contain at least one non-whitespace character')
+            .optional()
+            .describe('Name of the purchase order. Must contain at least one non-whitespace character.'),
         memo: z.string().optional().describe('Memo for the purchase order.'),
         owner_id: z.string().optional().describe('Unique identifier (UUID) of the purchase order owner. Defaults to the API caller when omitted.'),
         net_payment_terms: z.number().int().optional().describe('Number of days an invoice must be paid within after receipt. Example: 30'),
@@ -88,36 +92,36 @@ const OutputCurrencyAmountSchema = z.object({
     currency_code: z.string().describe('ISO 4217 currency code of the amount. Example: "USD"'),
     minor_unit_conversion_rate: z
         .number()
-        .nullable()
-        .describe('Divide amount by this rate to get the real currency value (100 for USD). Null when the provider does not report it.')
+        .optional()
+        .describe('Divide amount by this rate to get the real currency value (100 for USD). Omitted when the provider does not report it.')
 });
 
 const OutputLineItemSchema = z.object({
     id: z.string().describe('Unique identifier of the line item.'),
-    description: z.string().nullable().describe('Description of the line item.'),
-    quantity: z.number().nullable().describe('Quantity of the line item.'),
-    unit_price: OutputCurrencyAmountSchema.nullable().describe('Unit price of the line item in minor units.'),
+    description: z.string().optional().describe('Description of the line item, when set.'),
+    quantity: z.number().optional().describe('Quantity of the line item, when set.'),
+    unit_price: OutputCurrencyAmountSchema.optional().describe('Unit price of the line item in minor units, when set.'),
     amount: OutputCurrencyAmountSchema.describe('Total amount of the line item in minor units.'),
-    external_id: z.string().nullable().describe('Caller-side identifier for the line item, if one was provided.')
+    external_id: z.string().optional().describe('Caller-side identifier for the line item, if one was provided.')
 });
 
 const OutputSchema = z
     .object({
         id: z.string().describe('Unique identifier of the created purchase order.'),
-        purchase_order_number: z.string().nullable().describe('Purchase order number in <PREFIX>-<number> format.'),
-        name: z.string().nullable().describe('Name of the purchase order.'),
-        memo: z.string().nullable().describe('Memo on the purchase order.'),
+        purchase_order_number: z.string().optional().describe('Purchase order number in <PREFIX>-<number> format, when assigned.'),
+        name: z.string().optional().describe('Name of the purchase order, when set.'),
+        memo: z.string().optional().describe('Memo on the purchase order, when set.'),
         entity_id: z.string().describe('Identifier of the business entity the purchase order belongs to.'),
-        vendor_id: z.string().nullable().describe('Identifier of the vendor the purchase order is placed with.'),
-        owner_id: z.string().nullable().describe('Identifier of the purchase order owner.'),
+        vendor_id: z.string().optional().describe('Identifier of the vendor the purchase order is placed with.'),
+        owner_id: z.string().optional().describe('Identifier of the purchase order owner, when set.'),
         amount: OutputCurrencyAmountSchema.describe('Total amount of the purchase order in minor units.'),
-        spend_total_amount: OutputCurrencyAmountSchema.nullable().describe('Total spend amount of the purchase order in minor units.'),
+        spend_total_amount: OutputCurrencyAmountSchema.optional().describe('Total spend amount of the purchase order in minor units, when reported.'),
         three_way_match_enabled: z.boolean().describe('Whether three-way match is enabled for the purchase order.'),
         receipt_status: z.string().describe('Receipt status of the purchase order. Example: "NOT_RECEIVED"'),
-        billing_status: z.string().nullable().describe('Billing status of the purchase order, if any. Example: "OPEN"'),
+        billing_status: z.string().optional().describe('Billing status of the purchase order, if any. Example: "OPEN"'),
         creation_source: z.string().describe('Source that created the purchase order. Example: "DEVELOPER_API"'),
         created_at: z.string().describe('ISO 8601 timestamp when the purchase order was created.'),
-        archived_at: z.string().nullable().describe('ISO 8601 timestamp when the purchase order was archived, or null if it is not archived.'),
+        archived_at: z.string().optional().describe('ISO 8601 timestamp when the purchase order was archived; omitted when it is not archived.'),
         ramp_url: z.string().describe('Stable URL linking to the purchase order in the Ramp web application.'),
         line_items: z.array(OutputLineItemSchema).describe('Line items on the created purchase order.')
     })
@@ -126,7 +130,7 @@ const OutputSchema = z
 const toCurrencyAmount = (amount: z.infer<typeof ProviderCurrencyAmountSchema>): z.infer<typeof OutputCurrencyAmountSchema> => ({
     amount: amount.amount,
     currency_code: amount.currency_code,
-    minor_unit_conversion_rate: amount.minor_unit_conversion_rate ?? null
+    ...(amount.minor_unit_conversion_rate != null && { minor_unit_conversion_rate: amount.minor_unit_conversion_rate })
 });
 
 /**
@@ -183,29 +187,29 @@ const action = createAction({
 
         return {
             id: purchaseOrder.id,
-            purchase_order_number: purchaseOrder.purchase_order_number ?? null,
-            name: purchaseOrder.name ?? null,
-            memo: purchaseOrder.memo ?? null,
             entity_id: purchaseOrder.entity_id,
-            vendor_id: purchaseOrder.vendor_id ?? null,
-            owner_id: purchaseOrder.owner_id ?? null,
             amount: toCurrencyAmount(purchaseOrder.amount),
-            spend_total_amount: purchaseOrder.spend_total_amount != null ? toCurrencyAmount(purchaseOrder.spend_total_amount) : null,
             three_way_match_enabled: purchaseOrder.three_way_match_enabled,
             receipt_status: purchaseOrder.receipt_status,
-            billing_status: purchaseOrder.billing_status ?? null,
             creation_source: purchaseOrder.creation_source,
             created_at: purchaseOrder.created_at,
-            archived_at: purchaseOrder.archived_at ?? null,
             ramp_url: purchaseOrder.ramp_url,
             line_items: purchaseOrder.line_items.map((item) => ({
                 id: item.id,
-                description: item.description ?? null,
-                quantity: item.quantity ?? null,
-                unit_price: item.unit_price != null ? toCurrencyAmount(item.unit_price) : null,
                 amount: toCurrencyAmount(item.amount),
-                external_id: item.external_id ?? null
-            }))
+                ...(item.description != null && { description: item.description }),
+                ...(item.quantity != null && { quantity: item.quantity }),
+                ...(item.unit_price != null && { unit_price: toCurrencyAmount(item.unit_price) }),
+                ...(item.external_id != null && { external_id: item.external_id })
+            })),
+            ...(purchaseOrder.purchase_order_number != null && { purchase_order_number: purchaseOrder.purchase_order_number }),
+            ...(purchaseOrder.name != null && { name: purchaseOrder.name }),
+            ...(purchaseOrder.memo != null && { memo: purchaseOrder.memo }),
+            ...(purchaseOrder.vendor_id != null && { vendor_id: purchaseOrder.vendor_id }),
+            ...(purchaseOrder.owner_id != null && { owner_id: purchaseOrder.owner_id }),
+            ...(purchaseOrder.spend_total_amount != null && { spend_total_amount: toCurrencyAmount(purchaseOrder.spend_total_amount) }),
+            ...(purchaseOrder.billing_status != null && { billing_status: purchaseOrder.billing_status }),
+            ...(purchaseOrder.archived_at != null && { archived_at: purchaseOrder.archived_at })
         };
     }
 });

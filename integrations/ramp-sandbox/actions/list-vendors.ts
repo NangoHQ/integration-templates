@@ -118,13 +118,14 @@ const OutputSchema = z
 /**
  * @tags: [read]
  * @tagReason: Lists vendors from the provider without mutating any provider state.
- * @pitfalls: Vendor `name` is not unique, so a name filter can return multiple distinct vendors that share the same name; disambiguate by `id`. Vendors that are still drafts or awaiting approval are excluded unless `include_draft` is true, so a just-created vendor may not appear immediately. Date filters require a full ISO-8601 datetime.
+ * @pitfalls: Vendor `name` is not unique, so a name filter can return multiple distinct vendors that share the same name; disambiguate by `id`. Vendors that are still drafts or awaiting approval are excluded unless `include_draft` is true, so a just-created vendor may not appear immediately. Date filters require a full ISO-8601 datetime. The `is_active` filter is forwarded as documented, but the Ramp demo environment was observed returning only active vendors for `is_active=false`, so check each vendor's `is_active` value rather than relying on the filter.
  */
 const action = createAction({
     description: 'List vendors (payees for bills and purchase orders).',
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['vendors:read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const params: Record<string, string | number> = {};

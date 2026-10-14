@@ -92,14 +92,16 @@ const action = createAction({
                       data: {
                           ...(input.reason !== undefined && { reason: input.reason })
                       },
-                      // Retrying is safe: re-applying an existing hold is rejected without duplicating any side effect.
-                      retries: 3
+                      // Not idempotent: a retry after a lost response is rejected with 400 "Bill is already on hold" (BILL_PAY_7274), so retries must stay at 0.
+                      // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries
+                      retries: 0
                   })
                 : await nango.post({
                       // Ramp API docs: https://docs.ramp.com/developer-api/v1/overview/introduction (OpenAPI: https://docs.ramp.com/openapi/developer-api.json)
                       endpoint: `${billPath}/release`,
-                      // Retrying is safe: re-releasing an already-released bill is rejected without duplicating any side effect.
-                      retries: 3
+                      // Not idempotent: a retry after a lost response is rejected with 400 "Bill is not on hold" (BILL_PAY_7275), so retries must stay at 0.
+                      // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries
+                      retries: 0
                   });
 
         const updated = ProviderBillSchema.parse(mutationResponse.data);

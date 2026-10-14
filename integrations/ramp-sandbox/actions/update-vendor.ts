@@ -44,7 +44,9 @@ const InputSchema = z
             .string()
             .nullable()
             .optional()
-            .describe('New two-letter US state abbreviation for the vendor (required when country is US). Pass null to clear it, omit to leave it unchanged.'),
+            .describe(
+                'New two-letter US state abbreviation for the vendor. Required (non-null) whenever country is "US", even if the vendor already has a state. Ignored by Ramp for non-US vendors. Omit to leave it unchanged.'
+            ),
         external_vendor_id: z
             .string()
             .nullable()
@@ -95,7 +97,7 @@ const OutputSchema = z
 /**
  * @tags: [write]
  * @tagReason: Updates fields on an existing vendor through a provider mutation and does not read the vendor beforehand or delete any provider data.
- * @pitfalls: Providing address replaces the entire default address (address_line_1, city, country and postal_code must all be sent together) and does not change the separate vendor-level state field; omitting a field leaves it unchanged while passing null clears net_payment_terms, state, external_vendor_id or default_entity_id.
+ * @pitfalls: Providing address replaces the entire default address (address_line_1, city, country and postal_code must all be sent together) and does not change the separate vendor-level state field; omitting a field leaves it unchanged while passing null clears net_payment_terms, external_vendor_id or default_entity_id; sending country "US" requires a non-null state in the same call, and Ramp ignores state=null on a US vendor rather than clearing it.
  */
 const action = createAction({
     description: 'Update a vendor (name, address, payment terms, or active status) in Ramp.',
@@ -105,6 +107,14 @@ const action = createAction({
     scopes: ['vendors:write'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        // Ramp rejects any PATCH that sets country "US" without a non-null state (DEVELOPER_7080), even when the vendor already has a state.
+        if (input.country?.toUpperCase() === 'US' && input.state == null) {
+            throw new nango.ActionError({
+                type: 'missing_state',
+                message: 'state (a two-letter US state abbreviation) is required whenever country is set to "US".'
+            });
+        }
+
         const data = {
             ...(input.name !== undefined && { name: input.name }),
             ...(input.description !== undefined && { description: input.description }),

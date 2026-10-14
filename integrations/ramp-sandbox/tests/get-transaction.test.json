@@ -64,6 +64,7 @@
       "3699b8d4-5e2c-4f67-8d5e-9e07b62bc483"
     ],
     "receipt_affidavit": null,
+    "original_transaction_id": null,
     "line_items": [],
     "accounting_categories": [],
     "accounting_field_selections": [],

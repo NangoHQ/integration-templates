@@ -5,7 +5,8 @@ const MAX_POLL_ATTEMPTS = 10;
 const POLL_INTERVAL_MS = 1000;
 const INITIAL_POLL_DELAY_MS = 2000;
 
-const RoleSchema = z.enum(['AUDITOR', 'BUSINESS_ADMIN', 'BUSINESS_BOOKKEEPER', 'BUSINESS_OWNER', 'BUSINESS_USER', 'GUEST_USER', 'IT_ADMIN']);
+// BUSINESS_OWNER is excluded: Ramp accepts the request but the async task fails with "Owner is not an invitable role for this business".
+const RoleSchema = z.enum(['AUDITOR', 'BUSINESS_ADMIN', 'BUSINESS_BOOKKEEPER', 'BUSINESS_USER', 'GUEST_USER', 'IT_ADMIN']);
 
 const InputSchema = z
     .object({
@@ -31,15 +32,17 @@ const DeferredTaskSchema = z.object({
     id: z.string()
 });
 
+// Same provider shape as get-user-creation-task-status (UserDeferredTask): every field may be omitted or null,
+// e.g. a failed task returns data without user_id.
 const TaskStatusSchema = z.object({
-    id: z.string().optional(),
-    status: z.string().optional(),
+    id: z.string().nullish(),
+    status: z.string().nullish(),
     data: z
         .object({
-            user_id: z.string().optional(),
-            error: z.string().optional()
+            user_id: z.string().nullish(),
+            error: z.string().nullish()
         })
-        .optional()
+        .nullish()
 });
 
 const UserSchema = z.object({
@@ -81,7 +84,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['users:write'],
+    scopes: ['users:write', 'users:read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const body = {
@@ -95,11 +98,13 @@ const action = createAction({
         };
 
         // https://docs.ramp.com/developer-api/v1/api-reference/users/post-users-deferred
-        // retries are safe here because idempotency_key lets Ramp deduplicate a repeated create.
         const createResponse = await nango.post({
             endpoint: '/developer/v1/users/deferred',
             data: body,
-            retries: 3
+            // Not replay-safe: resending the same idempotency_key after a lost response is rejected with 400 DEVELOPER_7005
+            // "Idempotency key already exists" instead of returning the original task, so retries must stay at 0.
+            // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries
+            retries: 0
         });
 
         const task = DeferredTaskSchema.parse(createResponse.data);
@@ -107,7 +112,7 @@ const action = createAction({
 
         await sleep(INITIAL_POLL_DELAY_MS);
 
-        let taskStatus: z.infer<typeof TaskStatusSchema> | null = null;
+        let taskStatus: z.infer<typeof TaskStatusSchema> | undefined;
         for (let attempt = 0; attempt < MAX_POLL_ATTEMPTS; attempt++) {
             if (attempt > 0) {
                 await sleep(POLL_INTERVAL_MS);
@@ -124,7 +129,7 @@ const action = createAction({
             }
         }
 
-        if (!taskStatus) {
+        if (taskStatus === undefined) {
             throw new nango.ActionError({
                 type: 'task_not_started',
                 message: 'The user creation task did not return a status.',
@@ -146,7 +151,7 @@ const action = createAction({
                 type: 'task_incomplete',
                 message: 'The user creation task did not finish within the polling window.',
                 task_id: taskId,
-                status: taskStatus.status
+                ...(taskStatus.status != null && { status: taskStatus.status })
             });
         }
 

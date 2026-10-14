@@ -35,7 +35,6 @@ const CurrencyAmountSchema = z.object({
     currency_code: z.string().describe('ISO 4217 currency code. Example: "USD".'),
     minor_unit_conversion_rate: z
         .number()
-        .nullable()
         .optional()
         .describe('Divisor that converts the integer amount to the real currency value. For USD this is 100.')
 });
@@ -48,7 +47,7 @@ const TransferSchema = z.object({
     payment_id: z.string().optional().describe('Payment identifier for the transfer.'),
     created_at: z.string().optional().describe('ISO-8601 timestamp when the transfer was created.'),
     entity_id: z.string().optional().describe('ID of the business entity associated with the transfer.'),
-    sync_status: z.string().optional().describe('Accounting sync status of the transfer. Example: "SYNC_READY".')
+    sync_status: z.string().describe('Accounting sync status of the transfer. Example: "SYNC_READY".')
 });
 
 const OutputSchema = z
@@ -61,18 +60,18 @@ const OutputSchema = z
 const ProviderCurrencyAmountSchema = z.object({
     amount: z.number(),
     currency_code: z.string(),
-    minor_unit_conversion_rate: z.number().nullable().optional()
+    minor_unit_conversion_rate: z.number().nullable()
 });
 
 const ProviderTransferSchema = z.object({
     id: z.string(),
     status: z.string().optional(),
     amount: ProviderCurrencyAmountSchema.optional(),
-    bank_account_id: z.string().nullable().optional(),
+    bank_account_id: z.string().nullable(),
     payment_id: z.string().optional(),
     created_at: z.string().optional(),
     entity_id: z.string().optional(),
-    sync_status: z.string().optional()
+    sync_status: z.string()
 });
 
 const PaginatedResponseSchema = z.object({
@@ -136,7 +135,7 @@ const action = createAction({
                 ...(transfer.payment_id != null && { payment_id: transfer.payment_id }),
                 ...(transfer.created_at != null && { created_at: transfer.created_at }),
                 ...(transfer.entity_id != null && { entity_id: transfer.entity_id }),
-                ...(transfer.sync_status != null && { sync_status: transfer.sync_status })
+                sync_status: transfer.sync_status
             })),
             ...(next_cursor != null && { next_cursor })
         };

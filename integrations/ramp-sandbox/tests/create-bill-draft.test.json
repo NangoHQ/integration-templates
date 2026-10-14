@@ -25,9 +25,6 @@
     "entity_id": "eb24fd81-de5d-43bd-8102-eb2cc53d3c3a",
     "invoice_number": "NANGO-DRAFT-TEST-1",
     "memo": "Nango create-bill-draft live-verification test",
-    "vendor_memo": null,
-    "remote_id": null,
-    "posting_date": null,
     "amount": {
       "amount": 10000,
       "currency_code": "USD",
@@ -35,8 +32,7 @@
     },
     "vendor": {
       "id": "6716c7e6-1c53-47ef-a368-7b8490e8c83d",
-      "name": "Lopez, Diaz and Parker",
-      "type": null
+      "name": "Lopez, Diaz and Parker"
     },
     "bill_owner": {
       "id": "07323c8f-c449-4222-a970-8cc4cf673711",

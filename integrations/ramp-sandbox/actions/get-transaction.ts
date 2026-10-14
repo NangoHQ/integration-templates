@@ -138,6 +138,11 @@ const OutputSchema = z
         memo: z.string().nullable().optional().describe('Free-form memo attached to the transaction.'),
         receipts: z.array(z.string()).optional().describe('Identifiers of receipts attached to the transaction, in ascending creation order.'),
         receipt_affidavit: z.string().nullable().optional().describe('Receipt affidavit text, if any.'),
+        original_transaction_id: z
+            .string()
+            .nullable()
+            .optional()
+            .describe('Identifier of the original transaction this refund relates to; null for non-refund transactions.'),
         line_items: z.array(LineItemSchema).optional().describe('Line items related to the transaction.'),
         accounting_categories: z.array(AccountingCategorySchema).optional().describe('Deprecated. Use accounting_field_selections instead.'),
         accounting_field_selections: z.array(AccountingFieldSelectionSchema).optional().describe('Accounting fields selected to code the transaction.'),
@@ -158,6 +163,320 @@ const OutputSchema = z
     })
     .describe('A single Ramp transaction, including amounts, merchant, card holder, accounting coding, receipts, disputes, and policy violations.');
 
+const ProviderSignedAmountSchema = z.object({
+    currency: z.string(),
+    value: z.number()
+});
+
+const ProviderCurrencyAmountSchema = z.object({
+    amount: z.number(),
+    currency_code: z.string(),
+    minor_unit_conversion_rate: z.number().nullable().optional()
+});
+
+const ProviderAccountingFieldSelectionSchema = z.object({
+    id: z.string().nullable().optional(),
+    name: z.string().nullable().optional(),
+    external_id: z.string().nullable().optional(),
+    external_code: z.string().nullable().optional(),
+    display_name: z.string().nullable().optional(),
+    provider_name: z.string().nullable().optional(),
+    type: z.string().nullable().optional(),
+    source: z.object({ type: z.string().nullable().optional() }).nullable().optional(),
+    category_info: z
+        .object({
+            id: z.string().nullable().optional(),
+            name: z.string().nullable().optional(),
+            external_id: z.string().nullable().optional(),
+            type: z.string().nullable().optional()
+        })
+        .nullable()
+        .optional()
+});
+
+const ProviderTransactionSchema = z.object({
+    id: z.string(),
+    amount: z.number().nullable().optional(),
+    currency_code: z.string().nullable().optional(),
+    entity_amount: ProviderSignedAmountSchema.nullable().optional(),
+    merchant_amount: ProviderSignedAmountSchema.nullable().optional(),
+    original_transaction_amount: ProviderCurrencyAmountSchema.nullable().optional(),
+    minor_unit_conversion_rate: z.number().nullable().optional(),
+    user_transaction_time: z.string().nullable().optional(),
+    updated_at: z.string().nullable().optional(),
+    settlement_date: z.string().nullable().optional(),
+    accounting_date: z.string().nullable().optional(),
+    state: z.string().nullable().optional(),
+    sync_status: z.string().nullable().optional(),
+    synced_at: z.string().nullable().optional(),
+    card_id: z.string().nullable().optional(),
+    card_holder: z
+        .object({
+            user_id: z.string().nullable().optional(),
+            first_name: z.string().nullable().optional(),
+            last_name: z.string().nullable().optional(),
+            employee_id: z.string().nullable().optional(),
+            department_id: z.string().nullable().optional(),
+            department_name: z.string().nullable().optional(),
+            location_id: z.string().nullable().optional(),
+            location_name: z.string().nullable().optional()
+        })
+        .nullable()
+        .optional(),
+    card_present: z.boolean().nullable().optional(),
+    fund_id: z.string().nullable().optional(),
+    limit_id: z.string().nullable().optional(),
+    entity_id: z.string().nullable().optional(),
+    merchant_id: z.string().nullable().optional(),
+    merchant_name: z.string().nullable().optional(),
+    merchant_descriptor: z.string().nullable().optional(),
+    merchant_category_code: z.string().nullable().optional(),
+    merchant_category_code_description: z.string().nullable().optional(),
+    merchant_location: z
+        .object({
+            city: z.string().nullable().optional(),
+            country: z.string().nullable().optional(),
+            state: z.string().nullable().optional(),
+            postal_code: z.string().nullable().optional()
+        })
+        .nullable()
+        .optional(),
+    network_merchant_id: z.string().nullable().optional(),
+    sk_category_id: z.number().nullable().optional(),
+    sk_category_name: z.string().nullable().optional(),
+    trip_id: z.string().nullable().optional(),
+    trip_name: z.string().nullable().optional(),
+    statement_id: z.string().nullable().optional(),
+    memo: z.string().nullable().optional(),
+    receipts: z.array(z.string()).nullable().optional(),
+    receipt_affidavit: z.string().nullable().optional(),
+    original_transaction_id: z.string().nullable().optional(),
+    line_items: z
+        .array(
+            z.object({
+                id: z.string().nullable().optional(),
+                amount: ProviderCurrencyAmountSchema.nullable().optional(),
+                converted_amount: ProviderCurrencyAmountSchema.nullable().optional(),
+                memo: z.string().nullable().optional(),
+                accounting_field_selections: z.array(ProviderAccountingFieldSelectionSchema).nullable().optional()
+            })
+        )
+        .nullable()
+        .optional(),
+    accounting_categories: z
+        .array(
+            z.object({
+                category_id: z.string().nullable().optional(),
+                category_name: z.string().nullable().optional(),
+                tracking_category_remote_id: z.string().nullable().optional(),
+                tracking_category_remote_name: z.string().nullable().optional(),
+                tracking_category_remote_type: z.string().nullable().optional()
+            })
+        )
+        .nullable()
+        .optional(),
+    accounting_field_selections: z.array(ProviderAccountingFieldSelectionSchema).nullable().optional(),
+    disputes: z
+        .array(
+            z.object({
+                id: z.string(),
+                type: z.string().nullable().optional(),
+                memo: z.string().nullable().optional(),
+                created_at: z.string().nullable().optional()
+            })
+        )
+        .nullable()
+        .optional(),
+    policy_violations: z
+        .array(
+            z.object({
+                id: z.string(),
+                type: z.string().nullable().optional(),
+                memo: z.string().nullable().optional(),
+                created_at: z.string().nullable().optional()
+            })
+        )
+        .nullable()
+        .optional(),
+    attendees: z
+        .array(
+            z.object({
+                name: z.string(),
+                user_id: z.string().nullable().optional()
+            })
+        )
+        .nullable()
+        .optional(),
+    all_requirements_met_and_approved: z.boolean().nullable().optional(),
+    spend_program_id: z.string().nullable().optional(),
+    posting_gl_account: z.string().nullable().optional(),
+    decline_details: z
+        .object({
+            amount: z.number().nullable().optional(),
+            declined_amount: ProviderSignedAmountSchema.nullable().optional(),
+            reason: z.string().nullable().optional()
+        })
+        .nullable()
+        .optional(),
+    requires_accounting_vendor_creation_to_sync: z.boolean().nullable().optional()
+});
+
+type ProviderTransaction = z.infer<typeof ProviderTransactionSchema>;
+type ProviderAccountingFieldSelection = z.infer<typeof ProviderAccountingFieldSelectionSchema>;
+type Output = z.infer<typeof OutputSchema>;
+
+function mapCurrencyAmount(amount: z.infer<typeof ProviderCurrencyAmountSchema>): z.infer<typeof CurrencyAmountSchema> {
+    return {
+        amount: amount.amount,
+        currency_code: amount.currency_code,
+        ...(amount.minor_unit_conversion_rate !== undefined && { minor_unit_conversion_rate: amount.minor_unit_conversion_rate })
+    };
+}
+
+function mapAccountingFieldSelection(selection: ProviderAccountingFieldSelection): z.infer<typeof AccountingFieldSelectionSchema> {
+    const info = selection.category_info;
+    return {
+        ...(selection.id != null && { id: selection.id }),
+        ...(selection.name != null && { name: selection.name }),
+        ...(selection.external_id != null && { external_id: selection.external_id }),
+        ...(selection.external_code != null && { external_code: selection.external_code }),
+        ...(selection.display_name !== undefined && { display_name: selection.display_name }),
+        ...(selection.provider_name != null && { provider_name: selection.provider_name }),
+        ...(selection.type != null && { type: selection.type }),
+        ...(selection.source != null && { source: { ...(selection.source.type != null && { type: selection.source.type }) } }),
+        ...(info != null && {
+            category_info: {
+                ...(info.id != null && { id: info.id }),
+                ...(info.name != null && { name: info.name }),
+                ...(info.external_id != null && { external_id: info.external_id }),
+                ...(info.type != null && { type: info.type })
+            }
+        })
+    };
+}
+
+function mapTransaction(t: ProviderTransaction): Output {
+    const holder = t.card_holder;
+    const location = t.merchant_location;
+    const decline = t.decline_details;
+    return {
+        id: t.id,
+        ...(t.amount !== undefined && { amount: t.amount }),
+        ...(t.currency_code !== undefined && { currency_code: t.currency_code }),
+        ...(t.entity_amount !== undefined && { entity_amount: t.entity_amount }),
+        ...(t.merchant_amount !== undefined && { merchant_amount: t.merchant_amount }),
+        ...(t.original_transaction_amount !== undefined && {
+            original_transaction_amount: t.original_transaction_amount === null ? null : mapCurrencyAmount(t.original_transaction_amount)
+        }),
+        ...(t.minor_unit_conversion_rate !== undefined && { minor_unit_conversion_rate: t.minor_unit_conversion_rate }),
+        ...(t.user_transaction_time != null && { user_transaction_time: t.user_transaction_time }),
+        ...(t.updated_at !== undefined && { updated_at: t.updated_at }),
+        ...(t.settlement_date != null && { settlement_date: t.settlement_date }),
+        ...(t.accounting_date !== undefined && { accounting_date: t.accounting_date }),
+        ...(t.state != null && { state: t.state }),
+        ...(t.sync_status != null && { sync_status: t.sync_status }),
+        ...(t.synced_at !== undefined && { synced_at: t.synced_at }),
+        ...(t.card_id != null && { card_id: t.card_id }),
+        ...(holder != null && {
+            card_holder: {
+                ...(holder.user_id != null && { user_id: holder.user_id }),
+                ...(holder.first_name != null && { first_name: holder.first_name }),
+                ...(holder.last_name != null && { last_name: holder.last_name }),
+                ...(holder.employee_id !== undefined && { employee_id: holder.employee_id }),
+                ...(holder.department_id != null && { department_id: holder.department_id }),
+                ...(holder.department_name != null && { department_name: holder.department_name }),
+                ...(holder.location_id != null && { location_id: holder.location_id }),
+                ...(holder.location_name != null && { location_name: holder.location_name })
+            }
+        }),
+        ...(t.card_present != null && { card_present: t.card_present }),
+        ...(t.fund_id != null && { fund_id: t.fund_id }),
+        ...(t.limit_id !== undefined && { limit_id: t.limit_id }),
+        ...(t.entity_id !== undefined && { entity_id: t.entity_id }),
+        ...(t.merchant_id !== undefined && { merchant_id: t.merchant_id }),
+        ...(t.merchant_name !== undefined && { merchant_name: t.merchant_name }),
+        ...(t.merchant_descriptor !== undefined && { merchant_descriptor: t.merchant_descriptor }),
+        ...(t.merchant_category_code !== undefined && { merchant_category_code: t.merchant_category_code }),
+        ...(t.merchant_category_code_description !== undefined && { merchant_category_code_description: t.merchant_category_code_description }),
+        ...(location !== undefined && {
+            merchant_location:
+                location === null
+                    ? null
+                    : {
+                          city: location.city ?? null,
+                          country: location.country ?? null,
+                          state: location.state ?? null,
+                          postal_code: location.postal_code ?? null
+                      }
+        }),
+        ...(t.network_merchant_id !== undefined && { network_merchant_id: t.network_merchant_id }),
+        ...(t.sk_category_id !== undefined && { sk_category_id: t.sk_category_id }),
+        ...(t.sk_category_name !== undefined && { sk_category_name: t.sk_category_name }),
+        ...(t.trip_id !== undefined && { trip_id: t.trip_id }),
+        ...(t.trip_name !== undefined && { trip_name: t.trip_name }),
+        ...(t.statement_id !== undefined && { statement_id: t.statement_id }),
+        ...(t.memo !== undefined && { memo: t.memo }),
+        ...(t.receipts != null && { receipts: t.receipts }),
+        ...(t.receipt_affidavit !== undefined && { receipt_affidavit: t.receipt_affidavit }),
+        ...(t.original_transaction_id !== undefined && { original_transaction_id: t.original_transaction_id }),
+        ...(t.line_items != null && {
+            line_items: t.line_items.map((item) => ({
+                ...(item.id !== undefined && { id: item.id }),
+                ...(item.amount !== undefined && { amount: item.amount === null ? null : mapCurrencyAmount(item.amount) }),
+                ...(item.converted_amount !== undefined && {
+                    converted_amount: item.converted_amount === null ? null : mapCurrencyAmount(item.converted_amount)
+                }),
+                ...(item.memo != null && { memo: item.memo }),
+                ...(item.accounting_field_selections != null && {
+                    accounting_field_selections: item.accounting_field_selections.map(mapAccountingFieldSelection)
+                })
+            }))
+        }),
+        ...(t.accounting_categories != null && {
+            accounting_categories: t.accounting_categories.map((category) => ({
+                ...(category.category_id != null && { category_id: category.category_id }),
+                ...(category.category_name != null && { category_name: category.category_name }),
+                ...(category.tracking_category_remote_id != null && { tracking_category_remote_id: category.tracking_category_remote_id }),
+                ...(category.tracking_category_remote_name != null && { tracking_category_remote_name: category.tracking_category_remote_name }),
+                ...(category.tracking_category_remote_type != null && { tracking_category_remote_type: category.tracking_category_remote_type })
+            }))
+        }),
+        ...(t.accounting_field_selections != null && { accounting_field_selections: t.accounting_field_selections.map(mapAccountingFieldSelection) }),
+        ...(t.disputes != null && {
+            disputes: t.disputes.map((dispute) => ({
+                id: dispute.id,
+                ...(dispute.type != null && { type: dispute.type }),
+                ...(dispute.memo != null && { memo: dispute.memo }),
+                ...(dispute.created_at != null && { created_at: dispute.created_at })
+            }))
+        }),
+        ...(t.policy_violations != null && {
+            policy_violations: t.policy_violations.map((violation) => ({
+                id: violation.id,
+                ...(violation.type != null && { type: violation.type }),
+                ...(violation.memo != null && { memo: violation.memo }),
+                ...(violation.created_at != null && { created_at: violation.created_at })
+            }))
+        }),
+        ...(t.attendees != null && {
+            attendees: t.attendees.map((attendee) => ({ name: attendee.name, user_id: attendee.user_id ?? null }))
+        }),
+        ...(t.all_requirements_met_and_approved != null && { all_requirements_met_and_approved: t.all_requirements_met_and_approved }),
+        ...(t.spend_program_id !== undefined && { spend_program_id: t.spend_program_id }),
+        ...(t.posting_gl_account !== undefined && { posting_gl_account: t.posting_gl_account }),
+        ...(decline != null && {
+            decline_details: {
+                ...(decline.amount !== undefined && { amount: decline.amount }),
+                ...(decline.declined_amount !== undefined && { declined_amount: decline.declined_amount }),
+                ...(decline.reason != null && { reason: decline.reason })
+            }
+        }),
+        ...(t.requires_accounting_vendor_creation_to_sync != null && {
+            requires_accounting_vendor_creation_to_sync: t.requires_accounting_vendor_creation_to_sync
+        })
+    };
+}
+
 /**
  * @tags: [read]
  * @tagReason: Retrieves a single transaction from the provider without modifying any provider state.
@@ -177,7 +496,7 @@ const action = createAction({
             retries: 3
         });
 
-        return OutputSchema.parse(response.data);
+        return mapTransaction(ProviderTransactionSchema.parse(response.data));
     }
 });
 
