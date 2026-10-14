@@ -1,0 +1,215 @@
+{
+  "input": {},
+  "output": {
+    "items": [
+      {
+        "id": "9128effa-03f6-4302-b895-3468ab319cd2",
+        "account_name": "Brown Ltd",
+        "account_number_last_four": "6653",
+        "account_subtype": "checking",
+        "connection_provider": "manual",
+        "has_ach_details": false
+      },
+      {
+        "id": "fc37ae7e-ef76-4eb1-acf6-30e4c6d9ac3a",
+        "account_name": "Jones and Sons",
+        "account_number_last_four": "1264",
+        "account_subtype": "checking",
+        "connection_provider": "manual",
+        "has_ach_details": false
+      },
+      {
+        "id": "54f70182-c32a-43d4-8286-8b6a032adac0",
+        "account_name": "Stokes and Sons",
+        "account_number_last_four": "1832",
+        "account_subtype": "checking",
+        "connection_provider": "manual",
+        "financial_institution_name": "Test Bank",
+        "has_ach_details": true
+      },
+      {
+        "id": "db922c01-2e70-4b72-97a2-b3d92fb547f4",
+        "account_name": "Stablecoin Account",
+        "account_number_last_four": "4242",
+        "account_subtype": "checking",
+        "connection_provider": "ramp_wallet",
+        "has_ach_details": false
+      },
+      {
+        "id": "cd205940-83a7-469c-9585-296f11e8b351",
+        "account_name": "Investment Account - 2W487EG",
+        "account_number_last_four": "1234",
+        "account_subtype": "investment",
+        "connection_provider": "ramp_brokerage",
+        "has_ach_details": false
+      },
+      {
+        "id": "0cb665b6-49d5-4723-b29a-71ce8af70751",
+        "account_name": "Checking Account",
+        "account_number_last_four": "0001",
+        "account_subtype": "savings",
+        "connection_provider": "ramp_wallet",
+        "has_ach_details": false
+      },
+      {
+        "id": "63e1fe7c-418b-46e3-ba38-53ce229be26c",
+        "account_name": "Savings",
+        "account_number_last_four": "7777",
+        "account_subtype": "savings",
+        "connection_provider": "manual",
+        "has_ach_details": false
+      },
+      {
+        "id": "89e39479-281a-499d-a123-56a616921589",
+        "account_name": "Savings",
+        "account_number_last_four": "4512",
+        "account_subtype": "savings",
+        "connection_provider": "manual",
+        "has_ach_details": false
+      },
+      {
+        "id": "7bc1bb89-5ed5-48cd-a71c-9de9e383f745",
+        "account_name": "Checking",
+        "account_number_last_four": "9752",
+        "account_subtype": "savings",
+        "connection_provider": "manual",
+        "financial_institution_name": "Test Bank",
+        "has_ach_details": true
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/developer/v1/bank-accounts": {
+        "response": {
+          "data": [
+            {
+              "financial_institution_name": null,
+              "account_number_last_four": "6653",
+              "has_ach_details": false,
+              "account_name": "Brown Ltd",
+              "id": "9128effa-03f6-4302-b895-3468ab319cd2",
+              "connection_provider": "manual",
+              "account_subtype": "checking"
+            },
+            {
+              "financial_institution_name": null,
+              "account_number_last_four": "1264",
+              "has_ach_details": false,
+              "account_name": "Jones and Sons",
+              "id": "fc37ae7e-ef76-4eb1-acf6-30e4c6d9ac3a",
+              "connection_provider": "manual",
+              "account_subtype": "checking"
+            },
+            {
+              "financial_institution_name": "Test Bank",
+              "account_number_last_four": "1832",
+              "has_ach_details": true,
+              "account_name": "Stokes and Sons",
+              "id": "54f70182-c32a-43d4-8286-8b6a032adac0",
+              "connection_provider": "manual",
+              "account_subtype": "checking"
+            },
+            {
+              "financial_institution_name": null,
+              "account_number_last_four": "4242",
+              "has_ach_details": false,
+              "account_name": "Stablecoin Account",
+              "id": "db922c01-2e70-4b72-97a2-b3d92fb547f4",
+              "connection_provider": "ramp_wallet",
+              "account_subtype": "checking"
+            },
+            {
+              "financial_institution_name": null,
+              "account_number_last_four": "1234",
+              "has_ach_details": false,
+              "account_name": "Investment Account - 2W487EG",
+              "id": "cd205940-83a7-469c-9585-296f11e8b351",
+              "connection_provider": "ramp_brokerage",
+              "account_subtype": "investment"
+            },
+            {
+              "financial_institution_name": null,
+              "account_number_last_four": "0001",
+              "has_ach_details": false,
+              "account_name": "Checking Account",
+              "id": "0cb665b6-49d5-4723-b29a-71ce8af70751",
+              "connection_provider": "ramp_wallet",
+              "account_subtype": "savings"
+            },
+            {
+              "financial_institution_name": null,
+              "account_number_last_four": "7777",
+              "has_ach_details": false,
+              "account_name": "Savings",
+              "id": "63e1fe7c-418b-46e3-ba38-53ce229be26c",
+              "connection_provider": "manual",
+              "account_subtype": "savings"
+            },
+            {
+              "financial_institution_name": null,
+              "account_number_last_four": "4512",
+              "has_ach_details": false,
+              "account_name": "Savings",
+              "id": "89e39479-281a-499d-a123-56a616921589",
+              "connection_provider": "manual",
+              "account_subtype": "savings"
+            },
+            {
+              "financial_institution_name": "Test Bank",
+              "account_number_last_four": "9752",
+              "has_ach_details": true,
+              "account_name": "Checking",
+              "id": "7bc1bb89-5ed5-48cd-a71c-9de9e383f745",
+              "connection_provider": "manual",
+              "account_subtype": "savings"
+            }
+          ],
+          "page": {
+            "next": null
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 14 Oct 2026 11:07:34 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1877",
+          "x-ratelimit-reset": "1791976088",
+          "cf-ray": "a4a61f0158309811-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "server": "cloudflare",
+          "vary": "Origin, accept-encoding",
+          "content-security-policy": "upgrade-insecure-requests; frame-ancestors 'self' https://demo.ramp.com; report-uri https://ramp.report-uri.com/r/d/csp/enforce",
+          "ramp-worker-name": "demo-app-worker",
+          "server-timing": "gt;dur=164.347, ge;dur=0.164, px;dur=164.098, fw;dur=254.00, fwe;dur=0.00, fwx;dur=254.00",
+          "x-debug-cell-id": "none",
+          "x-debug-routing-key": "none",
+          "x-debug-upstream-cache-control": "none",
+          "x-ramp-body-source": "others",
+          "x-ramp-business-id": "e15cd7ee-ab7e-4173-a82f-00f33901c1ca",
+          "x-ramp-cf-ray": "a4a61f015a4a20eb-PDX",
+          "x-ramp-request-id": "01a13a18-9d05-7cea-a822-2fe7fb8c728e",
+          "x-trace-id": "ramp-0e2c9aff49544596a9abc87b286a67ae",
+          "set-cookie": "__cf_bm=rZC5fr6ueX7CGxOzb3Brvb0BHk10Q8uuSUQ_S3lUrEc-1791976053.9724455-1.0.1.1-AV_Q7UvUBtMgVcvXuQiI8m5BpBSVZl5m_oZEARxx8qsv2HfS9R0Np1I0qgOMWAriaNZWtQeRtZg4HOA5IxymrtzeDN8Uv3dQdxr07IYa8FXZ5h5S8YVPwJGmqylig.g_; HttpOnly; SameSite=None; Secure; Path=/; Domain=ramp.com; Expires=Wed, 14 Oct 2026 11:37:34 GMT",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "hash": "5a9c94b56fc4180d95cfdaf306615427cfc8b5eb",
+        "request": {}
+      }
+    }
+  }
+}

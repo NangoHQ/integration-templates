@@ -1,0 +1,182 @@
+{
+  "input": {
+    "vendor_id": "17766cbb-c2e3-4269-9af9-3d06abe82a49",
+    "name": "Nango Update Vendor Test",
+    "description": "Updated by the Nango update-vendor action.",
+    "net_payment_terms": 15,
+    "is_active": true,
+    "address": {
+      "address_line_1": "100 Market St",
+      "address_line_2": "Suite 5",
+      "city": "San Francisco",
+      "country": "US",
+      "postal_code": "94105",
+      "state": "CA"
+    }
+  },
+  "output": {
+    "id": "17766cbb-c2e3-4269-9af9-3d06abe82a49",
+    "name": "Nango Update Vendor Test",
+    "description": "Updated by the Nango update-vendor action.",
+    "is_active": true,
+    "country": "US",
+    "state": "NY",
+    "net_payment_terms": 15,
+    "external_vendor_id": "EXT-NAngo-TEST-1",
+    "default_entity_id": null,
+    "address": {
+      "address_line_1": "100 Market St",
+      "address_line_2": "Suite 5",
+      "city": "San Francisco",
+      "country": "US",
+      "postal_code": "94105",
+      "state": "CA"
+    },
+    "status": "ACTIVE",
+    "created_at": "2026-10-14T11:04:21+00:00",
+    "updated_at": "2026-10-14T11:05:46+00:00"
+  },
+  "nango": {},
+  "api": {
+    "patch": {
+      "/developer/v1/vendors/17766cbb-c2e3-4269-9af9-3d06abe82a49": {
+        "response": {
+          "total_spend_last_30_days": {
+            "currency_code": "USD",
+            "minor_unit_conversion_rate": 100,
+            "amount": 0
+          },
+          "updated_at": "2026-10-14T11:05:46+00:00",
+          "country": "US",
+          "default_payment_method": {
+            "update_source": "MANUAL",
+            "policy": {
+              "kind": "ADDRESS",
+              "data": {
+                "state": "CA",
+                "city": "San Francisco",
+                "country": "US",
+                "postal_code": "94105",
+                "address_line_2": "Suite 5",
+                "address_line_1": "100 Market St"
+              }
+            }
+          },
+          "status": "ACTIVE",
+          "default_entity_id": null,
+          "federal_tax_classification": null,
+          "created_at": "2026-10-14T11:04:21+00:00",
+          "addresses": [
+            {
+              "state": "CA",
+              "city": "San Francisco",
+              "id": "bc8bdfaf-991c-455d-9f48-e00b3f9ebbd8",
+              "country": "US",
+              "postal_code": "94105",
+              "address_line_2": "Suite 5",
+              "is_default": true,
+              "address_line_1": "100 Market St"
+            }
+          ],
+          "vendor_owner_id": null,
+          "name_legal": null,
+          "name": "Nango Update Vendor Test",
+          "sk_category_id": null,
+          "parent_vendor_id": null,
+          "state": "NY",
+          "external_vendor_id": "EXT-NAngo-TEST-1",
+          "accounting_vendor_remote_id": null,
+          "id": "17766cbb-c2e3-4269-9af9-3d06abe82a49",
+          "address": {
+            "state": "CA",
+            "city": "San Francisco",
+            "country": "US",
+            "postal_code": "94105",
+            "address_line_2": "Suite 5",
+            "address_line_1": "100 Market St"
+          },
+          "total_spend_all_time": {
+            "currency_code": "USD",
+            "minor_unit_conversion_rate": 100,
+            "amount": 0
+          },
+          "merchant_id": null,
+          "total_spend_ytd": {
+            "currency_code": "USD",
+            "minor_unit_conversion_rate": 100,
+            "amount": 0
+          },
+          "billing_frequency": null,
+          "total_spend_last_365_days": {
+            "currency_code": "USD",
+            "minor_unit_conversion_rate": 100,
+            "amount": 0
+          },
+          "is_active": true,
+          "vendor_type": "BUSINESS",
+          "net_payment_terms": 15,
+          "description": "Updated by the Nango update-vendor action.",
+          "is_deletable": true,
+          "contacts": [
+            "e5ada9a3-ae1c-4e34-8a6e-d03871eae366"
+          ],
+          "tax_address": null
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 14 Oct 2026 11:05:52 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1837",
+          "x-ratelimit-reset": "1791975968",
+          "cf-ray": "a4a61c84182d5ee6-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "server": "cloudflare",
+          "vary": "Origin, accept-encoding",
+          "content-security-policy": "upgrade-insecure-requests; frame-ancestors 'self' https://demo.ramp.com; report-uri https://ramp.report-uri.com/r/d/csp/enforce",
+          "ramp-worker-name": "demo-app-worker",
+          "server-timing": "gt;dur=452.752, ge;dur=0.178, px;dur=452.507, fw;dur=528.00, fwe;dur=0.00, fwx;dur=528.00",
+          "x-debug-cell-id": "none",
+          "x-debug-routing-key": "none",
+          "x-debug-upstream-cache-control": "none",
+          "x-ramp-body-source": "others",
+          "x-ramp-business-id": "e15cd7ee-ab7e-4173-a82f-00f33901c1ca",
+          "x-ramp-cf-ray": "a4a61c8429c7d0a0-IAD",
+          "x-ramp-request-id": "01a13a17-0ec2-7ea2-b3cc-adf3e965693a",
+          "x-trace-id": "ramp-8164b6980daa476aa4e29c9c5e57c6ff",
+          "set-cookie": "__cf_bm=PbdaRhaMBW5hFFsZrzbW8f2SXesTB0ahHrAMW17bJ5w-1791975952.013803-1.0.1.1-2aMgzPDyKKG7KDCAYO_GoFbm_bI06_cQZp7QOH89DIQJhSjaFtGyr1zzsSqu5UjgmT_JPpPj9tA.bSdZ4F4gJM0gQY_DehsrgVK3E8FybaVJLVhpse7y6SL7aTGQ3iWD; HttpOnly; SameSite=None; Secure; Path=/; Domain=ramp.com; Expires=Wed, 14 Oct 2026 11:35:52 GMT",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "hash": "ad6645d8a33210c085f10d99143783185e3a5085",
+        "request": {
+          "data": {
+            "name": "Nango Update Vendor Test",
+            "description": "Updated by the Nango update-vendor action.",
+            "address": {
+              "address_line_1": "100 Market St",
+              "address_line_2": "Suite 5",
+              "city": "San Francisco",
+              "country": "US",
+              "postal_code": "94105",
+              "state": "CA"
+            },
+            "net_payment_terms": 15,
+            "is_active": true
+          }
+        }
+      }
+    }
+  }
+}

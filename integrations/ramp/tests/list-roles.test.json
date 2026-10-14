@@ -1,0 +1,159 @@
+{
+  "input": {},
+  "output": {
+    "roles": [
+      {
+        "id": "c3200176-8cb7-4391-8728-f18cab288427",
+        "name": "Router Admin",
+        "base_role": "CUSTOM",
+        "description": "Use and manage Router",
+        "product_capabilities": [
+          {
+            "name": "ROUTER_ACCESS",
+            "access": null,
+            "description": "Use Router"
+          },
+          {
+            "name": "ROUTER_MANAGE_API_KEYS",
+            "access": "global",
+            "description": "Manage Router API keys"
+          },
+          {
+            "name": "ROUTER_MANAGE_BILLING",
+            "access": "global",
+            "description": "Manage Router billing"
+          },
+          {
+            "name": "ROUTER_MANAGE_PEOPLE",
+            "access": "global",
+            "description": "Manage Router people"
+          },
+          {
+            "name": "ROUTER_MANAGE_POLICIES",
+            "access": "global",
+            "description": "Manage Router policies and limits"
+          },
+          {
+            "name": "ROUTER_VIEW_DATA",
+            "access": "global",
+            "description": "View Router workspace and usage data"
+          }
+        ]
+      },
+      {
+        "id": "bfe843cc-657e-4cab-9283-d55cea9314b5",
+        "name": "Router User",
+        "base_role": "CUSTOM",
+        "description": "Use Router",
+        "product_capabilities": [
+          {
+            "name": "ROUTER_ACCESS",
+            "access": null,
+            "description": "Use Router"
+          }
+        ]
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/developer/v1/roles": {
+        "response": {
+          "data": [
+            {
+              "name": "Router Admin",
+              "id": "c3200176-8cb7-4391-8728-f18cab288427",
+              "description": "Use and manage Router",
+              "base_role": "CUSTOM",
+              "product_capabilities": [
+                {
+                  "name": "ROUTER_ACCESS",
+                  "description": "Use Router",
+                  "access": null
+                },
+                {
+                  "name": "ROUTER_MANAGE_API_KEYS",
+                  "description": "Manage Router API keys",
+                  "access": "global"
+                },
+                {
+                  "name": "ROUTER_MANAGE_BILLING",
+                  "description": "Manage Router billing",
+                  "access": "global"
+                },
+                {
+                  "name": "ROUTER_MANAGE_PEOPLE",
+                  "description": "Manage Router people",
+                  "access": "global"
+                },
+                {
+                  "name": "ROUTER_MANAGE_POLICIES",
+                  "description": "Manage Router policies and limits",
+                  "access": "global"
+                },
+                {
+                  "name": "ROUTER_VIEW_DATA",
+                  "description": "View Router workspace and usage data",
+                  "access": "global"
+                }
+              ]
+            },
+            {
+              "name": "Router User",
+              "id": "bfe843cc-657e-4cab-9283-d55cea9314b5",
+              "description": "Use Router",
+              "base_role": "CUSTOM",
+              "product_capabilities": [
+                {
+                  "name": "ROUTER_ACCESS",
+                  "description": "Use Router",
+                  "access": null
+                }
+              ]
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 14 Oct 2026 11:05:31 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1911",
+          "x-ratelimit-reset": "1791975968",
+          "cf-ray": "a4a61c055f8696ba-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "server": "cloudflare",
+          "vary": "Origin, accept-encoding",
+          "content-security-policy": "upgrade-insecure-requests; frame-ancestors 'self' https://demo.ramp.com; report-uri https://ramp.report-uri.com/r/d/csp/enforce",
+          "ramp-worker-name": "demo-app-worker",
+          "server-timing": "gt;dur=133.152, ge;dur=0.162, px;dur=132.923, fw;dur=205.00, fwe;dur=0.00, fwx;dur=205.00",
+          "x-debug-cell-id": "none",
+          "x-debug-routing-key": "none",
+          "x-debug-upstream-cache-control": "none",
+          "x-ramp-body-source": "others",
+          "x-ramp-business-id": "e15cd7ee-ab7e-4173-a82f-00f33901c1ca",
+          "x-ramp-cf-ray": "a4a61c055c0320eb-IAD",
+          "x-ramp-request-id": "01a13a16-bf86-7ebc-8c94-5543b468e5c5",
+          "x-trace-id": "ramp-ace47bdbf8084fde9c34d8a7cee2c0bc",
+          "set-cookie": "__cf_bm=Dpq2NyTSXVyMM7.2MMs0twguAgq0VjYUKxayz0NLJgc-1791975931.7331128-1.0.1.1-lem50ILVgcr4AcVvQ7AKBmbOMIdjt0bAC45yB3yBwLtjtxt4ie12OQSDHUmqDn8Cf1eCjefEMut8hBT_QI9FexQbXf9U6vL2Az3UPwa82fRf9ga8PRSNcUgU5OMWPUkq; HttpOnly; SameSite=None; Secure; Path=/; Domain=ramp.com; Expires=Wed, 14 Oct 2026 11:35:31 GMT",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "hash": "6be4f5c6c1d26ad310829a44daa8fb274681d387",
+        "request": {}
+      }
+    }
+  }
+}

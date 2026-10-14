@@ -1,0 +1,279 @@
+{
+  "input": {
+    "page_size": 2
+  },
+  "output": {
+    "items": [
+      {
+        "id": "01a139e8-f0d6-70bf-84e9-ce1112f89886",
+        "item_receipt_number": "IR001",
+        "purchase_order_id": "01a139e8-d9d2-71ff-93af-a4f8ddb984d2",
+        "received_at": "2026-10-14T00:00:00+00:00",
+        "created_at": "2026-10-14T10:15:29+00:00",
+        "archived_at": null,
+        "memo": null,
+        "remote_id": null,
+        "documents": [],
+        "line_items": [
+          {
+            "id": "01a139e8-f117-7015-ae57-85703d07ca68",
+            "purchase_order_line_item_id": "681db054-6e1c-48d6-a39e-a852c0cd5415",
+            "quantity": 30,
+            "unit_quantity": 30,
+            "unit_price": {
+              "amount": 3960,
+              "currency_code": "USD",
+              "minor_unit_conversion_rate": 100
+            },
+            "amount": {
+              "amount": 118800,
+              "currency_code": "USD",
+              "minor_unit_conversion_rate": 100
+            },
+            "memo": null,
+            "remote_id": null,
+            "accounting_field_selections": [],
+            "inventory_assignments": []
+          },
+          {
+            "id": "01a139e8-f118-77e4-b62d-3af6ba97d046",
+            "purchase_order_line_item_id": "0bd84609-602f-4c97-ae03-c14ec07283c0",
+            "quantity": 25,
+            "unit_quantity": 25,
+            "unit_price": {
+              "amount": 12999,
+              "currency_code": "USD",
+              "minor_unit_conversion_rate": 100
+            },
+            "amount": {
+              "amount": 324975,
+              "currency_code": "USD",
+              "minor_unit_conversion_rate": 100
+            },
+            "memo": null,
+            "remote_id": null,
+            "accounting_field_selections": [],
+            "inventory_assignments": []
+          },
+          {
+            "id": "01a139e8-f119-7ad0-a11e-d4e21054344c",
+            "purchase_order_line_item_id": "205a7012-907c-49e9-b375-8198e9dac964",
+            "quantity": 1,
+            "unit_quantity": 1,
+            "unit_price": {
+              "amount": 52516,
+              "currency_code": "USD",
+              "minor_unit_conversion_rate": 100
+            },
+            "amount": {
+              "amount": 52516,
+              "currency_code": "USD",
+              "minor_unit_conversion_rate": 100
+            },
+            "memo": null,
+            "remote_id": null,
+            "accounting_field_selections": [],
+            "inventory_assignments": []
+          }
+        ]
+      },
+      {
+        "id": "01a139e8-c25c-7440-819f-3cbc578214d2",
+        "item_receipt_number": "IR-3",
+        "purchase_order_id": "01a139e8-b450-724f-b0df-f957a4bdaeb2",
+        "received_at": "2026-10-14T00:00:00+00:00",
+        "created_at": "2026-10-14T10:15:16+00:00",
+        "archived_at": null,
+        "memo": null,
+        "remote_id": null,
+        "documents": [],
+        "line_items": [
+          {
+            "id": "01a139e8-c2a0-718b-be0d-897dc048b5cd",
+            "purchase_order_line_item_id": "7e9dd252-0477-4d27-abcb-700183c7230b",
+            "quantity": 5,
+            "unit_quantity": 5,
+            "unit_price": {
+              "amount": 6798,
+              "currency_code": "USD",
+              "minor_unit_conversion_rate": 100
+            },
+            "amount": {
+              "amount": 33990,
+              "currency_code": "USD",
+              "minor_unit_conversion_rate": 100
+            },
+            "memo": null,
+            "remote_id": null,
+            "accounting_field_selections": [],
+            "inventory_assignments": []
+          }
+        ]
+      }
+    ],
+    "next_cursor": "01a139e8-c25c-7440-819f-3cbc578214d2"
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/developer/v1/item-receipts": {
+        "response": {
+          "data": [
+            {
+              "documents": [],
+              "purchase_order_id": "01a139e8-d9d2-71ff-93af-a4f8ddb984d2",
+              "remote_id": null,
+              "id": "01a139e8-f0d6-70bf-84e9-ce1112f89886",
+              "line_items": [
+                {
+                  "inventory_assignments": [],
+                  "remote_id": null,
+                  "quantity": 30,
+                  "id": "01a139e8-f117-7015-ae57-85703d07ca68",
+                  "accounting_field_selections": [],
+                  "unit_price": {
+                    "currency_code": "USD",
+                    "minor_unit_conversion_rate": 100,
+                    "amount": 3960
+                  },
+                  "memo": null,
+                  "purchase_order_line_item_id": "681db054-6e1c-48d6-a39e-a852c0cd5415",
+                  "unit_quantity": 30,
+                  "amount": {
+                    "currency_code": "USD",
+                    "minor_unit_conversion_rate": 100,
+                    "amount": 118800
+                  }
+                },
+                {
+                  "inventory_assignments": [],
+                  "remote_id": null,
+                  "quantity": 25,
+                  "id": "01a139e8-f118-77e4-b62d-3af6ba97d046",
+                  "accounting_field_selections": [],
+                  "unit_price": {
+                    "currency_code": "USD",
+                    "minor_unit_conversion_rate": 100,
+                    "amount": 12999
+                  },
+                  "memo": null,
+                  "purchase_order_line_item_id": "0bd84609-602f-4c97-ae03-c14ec07283c0",
+                  "unit_quantity": 25,
+                  "amount": {
+                    "currency_code": "USD",
+                    "minor_unit_conversion_rate": 100,
+                    "amount": 324975
+                  }
+                },
+                {
+                  "inventory_assignments": [],
+                  "remote_id": null,
+                  "quantity": 1,
+                  "id": "01a139e8-f119-7ad0-a11e-d4e21054344c",
+                  "accounting_field_selections": [],
+                  "unit_price": {
+                    "currency_code": "USD",
+                    "minor_unit_conversion_rate": 100,
+                    "amount": 52516
+                  },
+                  "memo": null,
+                  "purchase_order_line_item_id": "205a7012-907c-49e9-b375-8198e9dac964",
+                  "unit_quantity": 1,
+                  "amount": {
+                    "currency_code": "USD",
+                    "minor_unit_conversion_rate": 100,
+                    "amount": 52516
+                  }
+                }
+              ],
+              "received_at": "2026-10-14T00:00:00+00:00",
+              "memo": null,
+              "archived_at": null,
+              "created_at": "2026-10-14T10:15:29+00:00",
+              "item_receipt_number": "IR001"
+            },
+            {
+              "documents": [],
+              "purchase_order_id": "01a139e8-b450-724f-b0df-f957a4bdaeb2",
+              "remote_id": null,
+              "id": "01a139e8-c25c-7440-819f-3cbc578214d2",
+              "line_items": [
+                {
+                  "inventory_assignments": [],
+                  "remote_id": null,
+                  "quantity": 5,
+                  "id": "01a139e8-c2a0-718b-be0d-897dc048b5cd",
+                  "accounting_field_selections": [],
+                  "unit_price": {
+                    "currency_code": "USD",
+                    "minor_unit_conversion_rate": 100,
+                    "amount": 6798
+                  },
+                  "memo": null,
+                  "purchase_order_line_item_id": "7e9dd252-0477-4d27-abcb-700183c7230b",
+                  "unit_quantity": 5,
+                  "amount": {
+                    "currency_code": "USD",
+                    "minor_unit_conversion_rate": 100,
+                    "amount": 33990
+                  }
+                }
+              ],
+              "received_at": "2026-10-14T00:00:00+00:00",
+              "memo": null,
+              "archived_at": null,
+              "created_at": "2026-10-14T10:15:16+00:00",
+              "item_receipt_number": "IR-3"
+            }
+          ],
+          "page": {
+            "next": "https://demo-api.ramp.com/developer/v1/item-receipts?page_size=2&start=01a139e8-c25c-7440-819f-3cbc578214d2"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 14 Oct 2026 11:35:31 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1988",
+          "x-ratelimit-reset": "1791977776",
+          "cf-ray": "a4a647f05f4bfef8-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "server": "cloudflare",
+          "vary": "Origin, accept-encoding",
+          "content-security-policy": "upgrade-insecure-requests; frame-ancestors 'self' https://demo.ramp.com; report-uri https://ramp.report-uri.com/r/d/csp/enforce",
+          "ramp-worker-name": "demo-app-worker",
+          "server-timing": "gt;dur=396.210, ge;dur=0.294, px;dur=395.836, fw;dur=476.00, fwe;dur=0.00, fwx;dur=476.00",
+          "x-debug-cell-id": "none",
+          "x-debug-routing-key": "none",
+          "x-debug-upstream-cache-control": "none",
+          "x-ramp-body-source": "others",
+          "x-ramp-business-id": "e15cd7ee-ab7e-4173-a82f-00f33901c1ca",
+          "x-ramp-cf-ray": "a4a647f06bb3ef63-PDX",
+          "x-ramp-request-id": "01a13a32-3277-79ae-9a97-de56c561735a",
+          "x-trace-id": "ramp-d58e84deacd7400aabb7366691cfd304",
+          "set-cookie": "__cf_bm=IO_73.6c.Jw8IiiHXCbxeVd52eX1DqmJen6IEkEPntk-1791977730.6123514-1.0.1.1-O0S2nJtUrfiLHgLVoyybc5bVnf5bxkNV21DYTxzmI5f8nzutbFD0OIy2WNOGIclFP6tA8F6Kge2evHqyCsQ9voCLAuL1Uy.th7PiutCJTMdoDZI3h7x4gyKUecxRJ.8v; HttpOnly; SameSite=None; Secure; Path=/; Domain=ramp.com; Expires=Wed, 14 Oct 2026 12:05:31 GMT",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "hash": "f4be67c5e2ef9298b9e0735c29b405288b6d86a1",
+        "request": {
+          "params": {
+            "page_size": "2"
+          }
+        }
+      }
+    }
+  }
+}

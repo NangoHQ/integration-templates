@@ -1,0 +1,189 @@
+{
+  "input": null,
+  "output": {
+    "card_balance_including_pending_amount": {
+      "amount": 29763957,
+      "currency_code": "USD",
+      "minor_unit_conversion_rate": 100
+    },
+    "card_balance_excluding_pending_amount": {
+      "amount": 29763957,
+      "currency_code": "USD",
+      "minor_unit_conversion_rate": 100
+    },
+    "statement_balance_amount": {
+      "amount": 29763957,
+      "currency_code": "USD",
+      "minor_unit_conversion_rate": 100
+    },
+    "balance_including_pending_amount": {
+      "amount": 29763957,
+      "currency_code": "USD",
+      "minor_unit_conversion_rate": 100
+    },
+    "card_limit_amount": {
+      "amount": 100000000,
+      "currency_code": "USD",
+      "minor_unit_conversion_rate": 100
+    },
+    "available_card_limit_amount": {
+      "amount": 100000000,
+      "currency_code": "USD",
+      "minor_unit_conversion_rate": 100
+    },
+    "global_limit_amount": {
+      "amount": 100000000,
+      "currency_code": "USD",
+      "minor_unit_conversion_rate": 100
+    },
+    "max_balance_amount": {
+      "amount": 100000000,
+      "currency_code": "USD",
+      "minor_unit_conversion_rate": 100
+    },
+    "flex_limit_amount": {
+      "amount": 0,
+      "currency_code": "USD",
+      "minor_unit_conversion_rate": 100
+    },
+    "flex_balance_amount": {
+      "amount": 0,
+      "currency_code": "USD",
+      "minor_unit_conversion_rate": 100
+    },
+    "available_flex_limit_amount": {
+      "amount": 0,
+      "currency_code": "USD",
+      "minor_unit_conversion_rate": 100
+    },
+    "float_balance_excluding_pending_amount": {
+      "amount": 0,
+      "currency_code": "USD",
+      "minor_unit_conversion_rate": 100
+    },
+    "prev_billing_date": "10/14/2026",
+    "next_billing_date": "11/14/2026"
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/developer/v1/business/balance": {
+        "response": {
+          "statement_balance_amount": {
+            "amount": 29763957,
+            "currency_code": "USD",
+            "minor_unit_conversion_rate": 100
+          },
+          "card_limit_amount": {
+            "amount": 100000000,
+            "currency_code": "USD",
+            "minor_unit_conversion_rate": 100
+          },
+          "flex_limit_amount": {
+            "amount": 0,
+            "currency_code": "USD",
+            "minor_unit_conversion_rate": 100
+          },
+          "available_card_limit": 1000000,
+          "max_balance_amount": {
+            "amount": 100000000,
+            "currency_code": "USD",
+            "minor_unit_conversion_rate": 100
+          },
+          "available_flex_limit": 0,
+          "next_billing_date": "11/14/2026",
+          "card_balance_excluding_pending_amount": {
+            "amount": 29763957,
+            "currency_code": "USD",
+            "minor_unit_conversion_rate": 100
+          },
+          "prev_billing_date": "10/14/2026",
+          "max_balance": 1000000,
+          "card_balance_including_pending_amount": {
+            "amount": 29763957,
+            "currency_code": "USD",
+            "minor_unit_conversion_rate": 100
+          },
+          "statement_balance": 297639.57,
+          "balance_including_pending_amount": {
+            "amount": 29763957,
+            "currency_code": "USD",
+            "minor_unit_conversion_rate": 100
+          },
+          "flex_balance_amount": {
+            "amount": 0,
+            "currency_code": "USD",
+            "minor_unit_conversion_rate": 100
+          },
+          "float_balance_excluding_pending": 0,
+          "card_balance_excluding_pending": 297639.57,
+          "available_card_limit_amount": {
+            "amount": 100000000,
+            "currency_code": "USD",
+            "minor_unit_conversion_rate": 100
+          },
+          "flex_limit": 0,
+          "card_balance_including_pending": 297639.57,
+          "global_limit_amount": {
+            "amount": 100000000,
+            "currency_code": "USD",
+            "minor_unit_conversion_rate": 100
+          },
+          "available_flex_limit_amount": {
+            "amount": 0,
+            "currency_code": "USD",
+            "minor_unit_conversion_rate": 100
+          },
+          "flex_balance": 0,
+          "balance_including_pending": 297639.57,
+          "global_limit": 1000000,
+          "float_balance_excluding_pending_amount": {
+            "amount": 0,
+            "currency_code": "USD",
+            "minor_unit_conversion_rate": 100
+          },
+          "card_limit": 1000000
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 14 Oct 2026 11:30:43 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1972",
+          "x-ratelimit-reset": "1791977465",
+          "cf-ray": "a4a640ea4ee7121f-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "server": "cloudflare",
+          "vary": "Origin, accept-encoding",
+          "content-security-policy": "upgrade-insecure-requests; frame-ancestors 'self' https://demo.ramp.com; report-uri https://ramp.report-uri.com/r/d/csp/enforce",
+          "ramp-worker-name": "demo-app-worker",
+          "server-timing": "gt;dur=197.876, ge;dur=0.157, px;dur=197.658, fw;dur=272.00, fwe;dur=0.00, fwx;dur=272.00",
+          "x-debug-cell-id": "none",
+          "x-debug-routing-key": "none",
+          "x-debug-upstream-cache-control": "none",
+          "x-ramp-body-source": "others",
+          "x-ramp-business-id": "e15cd7ee-ab7e-4173-a82f-00f33901c1ca",
+          "x-ramp-cf-ray": "a4a640ea587c20eb-IAD",
+          "x-ramp-request-id": "01a13a2d-cea2-721e-980f-39d3be7fd244",
+          "x-trace-id": "ramp-f4602756b8b4426d8c41356bb37b9fe3",
+          "set-cookie": "__cf_bm=56N.K9BXgV44JjBTTxZpPN5r1w9_ZG_dZjG0ySWCPhY-1791977442.9276745-1.0.1.1-Y.nrLevJdYVFRcW6F9ONsTpVLtACbG2mq3sGF8hyxsMXNkSmEmBZMmikJmH_IVa5JXsCE3Lpp3H9_um5NB4HF2zladYY01S_o276RkLOC8Jpb5Ts9OsP26ihsH58xybQ; HttpOnly; SameSite=None; Secure; Path=/; Domain=ramp.com; Expires=Wed, 14 Oct 2026 12:00:43 GMT",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "hash": "b36269db77527f2f4190403e3c2e52bb2a070898",
+        "request": {}
+      }
+    }
+  }
+}

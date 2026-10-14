@@ -1,0 +1,312 @@
+{
+  "input": {
+    "transaction_id": "1e132a4f-392b-4e12-8f35-2788034a9ead"
+  },
+  "output": {
+    "transaction": {
+      "id": "1e132a4f-392b-4e12-8f35-2788034a9ead",
+      "state": "CLEARED",
+      "user_transaction_time": "2026-11-02T10:07:14+00:00",
+      "settlement_date": "2026-11-03T10:07:14+00:00",
+      "accounting_date": "2026-11-03T10:07:14+00:00",
+      "updated_at": "2026-11-03T10:07:14+00:00",
+      "synced_at": null,
+      "sync_status": "NOT_SYNC_READY",
+      "all_requirements_met_and_approved": true,
+      "card_id": "a2d25ac2-5528-4c16-ba51-cd258d8d09f7",
+      "card_present": false,
+      "card_holder": {
+        "user_id": "07323c8f-c449-4222-a970-8cc4cf673711",
+        "first_name": "David",
+        "last_name": "Wallace",
+        "employee_id": null,
+        "department_id": "2e34edf5-9603-4986-8aaa-bbec47d56674",
+        "department_name": "Executive",
+        "location_id": "154e0ad1-03b4-4ec8-937f-772dbfc300fd",
+        "location_name": "New York City"
+      },
+      "fund_id": "325a12bc-75c4-4022-8855-8e0dba170103",
+      "entity_id": "eb24fd81-de5d-43bd-8102-eb2cc53d3c3a",
+      "trip_id": "44d0d756-1a32-42cf-a055-84371218bf95",
+      "trip_name": "Client Visits in Toronto",
+      "statement_id": "77b892f3-c92e-4841-9a13-18284f56020b",
+      "memo": "Flight to Toronto",
+      "merchant_id": "0d000cde-cfff-4eb0-ae50-e73a6a3e65bb",
+      "merchant_name": "Air Canada",
+      "merchant_descriptor": "Air Canada",
+      "merchant_category_code": null,
+      "merchant_category_code_description": null,
+      "merchant_location": {
+        "city": "North Janetton",
+        "state": "NM",
+        "country": "US",
+        "postal_code": "65352"
+      },
+      "sk_category_id": 4,
+      "sk_category_name": "Airlines",
+      "amount": 428.49,
+      "currency_code": "USD",
+      "entity_amount": {
+        "currency": "USD",
+        "value": 42849
+      },
+      "merchant_amount": {
+        "currency": "CAD",
+        "value": 60898
+      },
+      "original_transaction_amount": {
+        "amount": 60898,
+        "currency_code": "CAD",
+        "minor_unit_conversion_rate": 100
+      },
+      "minor_unit_conversion_rate": 100,
+      "network_merchant_id": "252211693454715",
+      "original_transaction_id": null,
+      "receipt_affidavit": null,
+      "receipts": [
+        "3699b8d4-5e2c-4f67-8d5e-9e07b62bc483"
+      ],
+      "line_items": [],
+      "accounting_field_selections": [],
+      "policy_violations": [],
+      "disputes": [],
+      "limit_id": "325a12bc-75c4-4022-8855-8e0dba170103",
+      "posting_gl_account": null,
+      "accounting_categories": []
+    },
+    "receipts": [
+      {
+        "id": "3699b8d4-5e2c-4f67-8d5e-9e07b62bc483",
+        "receipt_url": "https://demo-shared.ramp.com/.DEMO_RECEIPTS/navan_1.pdf?Expires=1791979754&Signature=MEYCIQC36SZ50nafCnRz0Po0aYzOM0u-6Hgc2xUoAggFoSWWNQIhAJnQ5iIshmZ6ESQ0P~~NzaYZo4Vxp5dU7PGOTIs0KZqK&Key-Pair-Id=KFZNDX6YTEXVI&Hash-Algorithm=SHA256",
+        "transaction_id": "1e132a4f-392b-4e12-8f35-2788034a9ead",
+        "user_id": "07323c8f-c449-4222-a970-8cc4cf673711",
+        "created_at": "2026-10-14T10:07:14+00:00"
+      }
+    ],
+    "memo": "Flight to Toronto"
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/developer/v1/transactions/1e132a4f-392b-4e12-8f35-2788034a9ead": {
+        "response": {
+          "network_merchant_id": "252211693454715",
+          "merchant_id": "0d000cde-cfff-4eb0-ae50-e73a6a3e65bb",
+          "policy_violations": [],
+          "all_requirements_met_and_approved": true,
+          "merchant_category_code": null,
+          "merchant_amount": {
+            "currency": "CAD",
+            "value": 60898
+          },
+          "user_transaction_time": "2026-11-02T10:07:14+00:00",
+          "accounting_field_selections": [],
+          "settlement_date": "2026-11-03T10:07:14+00:00",
+          "card_present": false,
+          "merchant_name": "Air Canada",
+          "card_id": "a2d25ac2-5528-4c16-ba51-cd258d8d09f7",
+          "sk_category_id": 4,
+          "merchant_descriptor": "Air Canada",
+          "fund_id": "325a12bc-75c4-4022-8855-8e0dba170103",
+          "card_holder": {
+            "location_id": "154e0ad1-03b4-4ec8-937f-772dbfc300fd",
+            "department_id": "2e34edf5-9603-4986-8aaa-bbec47d56674",
+            "location_name": "New York City",
+            "department_name": "Executive",
+            "user_id": "07323c8f-c449-4222-a970-8cc4cf673711",
+            "last_name": "Wallace",
+            "employee_id": null,
+            "first_name": "David"
+          },
+          "entity_id": "eb24fd81-de5d-43bd-8102-eb2cc53d3c3a",
+          "trip_id": "44d0d756-1a32-42cf-a055-84371218bf95",
+          "limit_id": "325a12bc-75c4-4022-8855-8e0dba170103",
+          "line_items": [],
+          "accounting_date": "2026-11-03T10:07:14+00:00",
+          "trip_name": "Client Visits in Toronto",
+          "sync_status": "NOT_SYNC_READY",
+          "statement_id": "77b892f3-c92e-4841-9a13-18284f56020b",
+          "merchant_category_code_description": null,
+          "sk_category_name": "Airlines",
+          "memo": "Flight to Toronto",
+          "state": "CLEARED",
+          "merchant_location": {
+            "country": "US",
+            "state": "NM",
+            "postal_code": "65352",
+            "city": "North Janetton"
+          },
+          "original_transaction_id": null,
+          "disputes": [],
+          "original_transaction_amount": {
+            "currency_code": "CAD",
+            "minor_unit_conversion_rate": 100,
+            "amount": 60898
+          },
+          "updated_at": "2026-11-03T10:07:14+00:00",
+          "receipt_affidavit": null,
+          "posting_gl_account": null,
+          "amount": 428.49,
+          "currency_code": "USD",
+          "minor_unit_conversion_rate": 100,
+          "id": "1e132a4f-392b-4e12-8f35-2788034a9ead",
+          "synced_at": null,
+          "entity_amount": {
+            "currency": "USD",
+            "value": 42849
+          },
+          "accounting_categories": [],
+          "receipts": [
+            "3699b8d4-5e2c-4f67-8d5e-9e07b62bc483"
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 14 Oct 2026 11:09:14 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1983",
+          "x-ratelimit-reset": "1791976210",
+          "cf-ray": "a4a62174aafa8d3a-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "server": "cloudflare",
+          "vary": "Origin, accept-encoding",
+          "content-security-policy": "upgrade-insecure-requests; frame-ancestors 'self' https://demo.ramp.com; report-uri https://ramp.report-uri.com/r/d/csp/enforce",
+          "ramp-worker-name": "demo-app-worker",
+          "server-timing": "gt;dur=261.437, ge;dur=0.185, px;dur=261.176, fw;dur=333.00, fwe;dur=0.00, fwx;dur=333.00",
+          "x-debug-cell-id": "none",
+          "x-debug-routing-key": "none",
+          "x-debug-upstream-cache-control": "none",
+          "x-ramp-body-source": "others",
+          "x-ramp-business-id": "e15cd7ee-ab7e-4173-a82f-00f33901c1ca",
+          "x-ramp-cf-ray": "a4a62174ab209694-IAD",
+          "x-ramp-request-id": "01a13a1a-2517-70cd-aa76-64cb0d8ae812",
+          "x-ramp-sensitive-fields": "card_holder.location_name,memo",
+          "x-trace-id": "ramp-9d3dceb374af46aca5a350d13c74f0e0",
+          "set-cookie": "__cf_bm=1tDBmm5IZbJXHdCC9TFDlBKl1.fcZIARsqnkE_08mk8-1791976154.3432088-1.0.1.1-6qL12_GJDcDupGb8iHwiaZUFRXVFuMCBApzjrrZmmTlfds6VhUN_TGT4Argzhnh7ntjBJiz6tVcF0ekTgvBHETzGRBxwxOVwQ1EOgldFLgG7Ulf1K2jEZoXF72pnsbNi; HttpOnly; SameSite=None; Secure; Path=/; Domain=ramp.com; Expires=Wed, 14 Oct 2026 11:39:14 GMT",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "hash": "74a30dc7a9f06cf0a524ed2616c14bef9b99baf0",
+        "request": {}
+      },
+      "/developer/v1/receipts": {
+        "response": {
+          "page": {
+            "next": null
+          },
+          "data": [
+            {
+              "id": "3699b8d4-5e2c-4f67-8d5e-9e07b62bc483",
+              "receipt_url": "https://demo-shared.ramp.com/.DEMO_RECEIPTS/navan_1.pdf?Expires=1791979754&Signature=MEYCIQC36SZ50nafCnRz0Po0aYzOM0u-6Hgc2xUoAggFoSWWNQIhAJnQ5iIshmZ6ESQ0P~~NzaYZo4Vxp5dU7PGOTIs0KZqK&Key-Pair-Id=KFZNDX6YTEXVI&Hash-Algorithm=SHA256",
+              "created_at": "2026-10-14T10:07:14+00:00",
+              "transaction_id": "1e132a4f-392b-4e12-8f35-2788034a9ead",
+              "user_id": "07323c8f-c449-4222-a970-8cc4cf673711"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 14 Oct 2026 11:09:15 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1977",
+          "x-ratelimit-reset": "1791976210",
+          "cf-ray": "a4a621772c090d87-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "server": "cloudflare",
+          "vary": "Origin, accept-encoding",
+          "content-security-policy": "upgrade-insecure-requests; frame-ancestors 'self' https://demo.ramp.com; report-uri https://ramp.report-uri.com/r/d/csp/enforce",
+          "ramp-worker-name": "demo-app-worker",
+          "server-timing": "gt;dur=171.895, ge;dur=0.262, px;dur=171.555, fw;dur=246.00, fwe;dur=0.00, fwx;dur=246.00",
+          "x-debug-cell-id": "none",
+          "x-debug-routing-key": "none",
+          "x-debug-upstream-cache-control": "none",
+          "x-ramp-body-source": "others",
+          "x-ramp-business-id": "e15cd7ee-ab7e-4173-a82f-00f33901c1ca",
+          "x-ramp-cf-ray": "a4a621773ce89d6b-PDX",
+          "x-ramp-request-id": "01a13a1a-26af-7571-a6da-2a6885285e5d",
+          "x-trace-id": "ramp-bae9e574e34642f2a4da14e3dafbb0c4",
+          "set-cookie": "__cf_bm=luaeh463A7EVGyjLPu09tX1QOQ99Yx3wetCZsgDo8BU-1791976154.7461588-1.0.1.1-piDoVRU3PTnq.FTyhzlDYOv4BozytmU7DUHeyJKFvIE6j4ZKXoz9kEDxyP20PgIrp28K9zBDIgvcgRKQyvwaFkpGrOhLUc7_mXKVCKWuNGrlxv2eFhjzX4JGkVs8gg1f; HttpOnly; SameSite=None; Secure; Path=/; Domain=ramp.com; Expires=Wed, 14 Oct 2026 11:39:14 GMT",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "hash": "2054cbe55c0abb309bd64e01431e95ecd390f13b",
+        "request": {
+          "params": {
+            "page_size": "100",
+            "transaction_id": "1e132a4f-392b-4e12-8f35-2788034a9ead"
+          }
+        }
+      },
+      "/developer/v1/memos/1e132a4f-392b-4e12-8f35-2788034a9ead": {
+        "response": {
+          "id": "1e132a4f-392b-4e12-8f35-2788034a9ead",
+          "memo": "Flight to Toronto"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 14 Oct 2026 11:09:15 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1972",
+          "x-ratelimit-reset": "1791976210",
+          "cf-ray": "a4a6217918f2b332-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "server": "cloudflare",
+          "vary": "Origin, accept-encoding",
+          "content-security-policy": "upgrade-insecure-requests; frame-ancestors 'self' https://demo.ramp.com; report-uri https://ramp.report-uri.com/r/d/csp/enforce",
+          "ramp-worker-name": "demo-app-worker",
+          "server-timing": "gt;dur=227.435, ge;dur=0.185, px;dur=227.195, fw;dur=301.00, fwe;dur=0.00, fwx;dur=301.00",
+          "x-debug-cell-id": "none",
+          "x-debug-routing-key": "none",
+          "x-debug-upstream-cache-control": "none",
+          "x-ramp-body-source": "others",
+          "x-ramp-business-id": "e15cd7ee-ab7e-4173-a82f-00f33901c1ca",
+          "x-ramp-cf-ray": "a4a621792f6720eb-PDX",
+          "x-ramp-request-id": "01a13a1a-27e0-7b15-9522-e7ea42b608c0",
+          "x-ramp-sensitive-fields": "memo",
+          "x-trace-id": "ramp-54c1e7d3e1144a9d941da880ad0cdd0c",
+          "set-cookie": "__cf_bm=oxYZnq8R36EQ7AH9kSfjS0DS7Sw0z09NcQHrDRZJ4no-1791976155.0527565-1.0.1.1-iccDygJY3R01leW0tIuflWRw.WG496HypCHPaDDG1tIz.Zj_vdqit.LxycfgVrCQLTU_7GNzVdOecYskvrFCpT2EzzOIRl27lzrFg5AOBcl_hfTgXY7wMEg28ZRXwxOO; HttpOnly; SameSite=None; Secure; Path=/; Domain=ramp.com; Expires=Wed, 14 Oct 2026 11:39:15 GMT",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "hash": "7c958c69c1d45e758cdfaaa606e4acb6eb6c4223",
+        "request": {}
+      }
+    }
+  }
+}
