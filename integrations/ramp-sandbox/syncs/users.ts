@@ -38,7 +38,9 @@ const UserSchema = z
         role: z
             .string()
             .optional()
-            .describe('Role of the user, when Ramp reports it, e.g. BUSINESS_USER, BUSINESS_ADMIN, BUSINESS_BOOKKEEPER, BUSINESS_OWNER, GUEST_USER, AUDITOR or IT_ADMIN.'),
+            .describe(
+                'Role of the user, when Ramp reports it, e.g. BUSINESS_USER, BUSINESS_ADMIN, BUSINESS_BOOKKEEPER, BUSINESS_OWNER, GUEST_USER, AUDITOR or IT_ADMIN.'
+            ),
         status: z
             .string()
             .describe(

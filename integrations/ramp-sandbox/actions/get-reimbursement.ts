@@ -168,11 +168,18 @@ const ExpenseGroupSchema = z.object({
 
 const ReimbursementSchema = z.object({
     id: z.string().describe('Unique identifier of the reimbursement. Example: "e29e1b3b-5563-4ecf-b655-320f8ac04a12"'),
-    state: z.string().describe('Current state of the reimbursement (e.g. PENDING, APPROVED, REIMBURSED, CANCELED, DELETED). Kept as a string so new Ramp states do not fail parsing.'),
+    state: z
+        .string()
+        .describe(
+            'Current state of the reimbursement (e.g. PENDING, APPROVED, REIMBURSED, CANCELED, DELETED). Kept as a string so new Ramp states do not fail parsing.'
+        ),
     type: z.string().describe('Type of the reimbursement (e.g. OUT_OF_POCKET, MILEAGE, PER_DIEM, PAYBACK_FULL, PAYBACK_PARTIAL).'),
     direction: z.string().describe('Direction of the reimbursement: BUSINESS_TO_USER, or USER_TO_BUSINESS for repayments.'),
     sync_status: z.string().describe('Accounting sync status of the reimbursement (e.g. NOT_SYNC_READY, SYNC_READY, SYNCED).'),
-    funding_source: z.string().optional().describe('Funding classification (e.g. RAMP_FUNDED, NOT_RAMP_FUNDED, PAID_OUTSIDE_RAMP, PENDING). Omitted when Ramp cannot determine it.'),
+    funding_source: z
+        .string()
+        .optional()
+        .describe('Funding classification (e.g. RAMP_FUNDED, NOT_RAMP_FUNDED, PAID_OUTSIDE_RAMP, PENDING). Omitted when Ramp cannot determine it.'),
     user_id: z.string().describe('Unique identifier of the person who submitted the reimbursement.'),
     user_email: z.string().describe('Email of the person who submitted the reimbursement.'),
     user_full_name: z.string().describe('Full name of the person who submitted the reimbursement.'),
