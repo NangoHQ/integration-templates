@@ -97,8 +97,12 @@ const SUSPENDED_STATUS = 'USER_SUSPENDED';
 const CheckpointSchema = z.object({
     status: z
         .string()
-        .describe('Status filter of the pass in progress: an empty string for the default (non-suspended) pass, or USER_SUSPENDED for the suspended-users pass.'),
-    start: z.string().describe('Ramp pagination cursor extracted from `page.next` within the current pass, or an empty string to start that pass from its first page.')
+        .describe(
+            'Status filter of the pass in progress: an empty string for the default (non-suspended) pass, or USER_SUSPENDED for the suspended-users pass.'
+        ),
+    start: z
+        .string()
+        .describe('Ramp pagination cursor extracted from `page.next` within the current pass, or an empty string to start that pass from its first page.')
 });
 
 const sync = createSync({
