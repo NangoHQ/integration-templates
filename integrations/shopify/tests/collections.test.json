@@ -50,7 +50,7 @@
   },
   "api": {
     "post": {
-      "/admin/api/2024-10/graphql.json": [
+      "/admin/api/2026-04/graphql.json": [
         {
           "response": {
             "data": {
@@ -144,7 +144,7 @@
             "x-stats-userid": "",
             "x-stats-apiclientid": "376951341057",
             "x-stats-apipermissionid": "695964696713",
-            "x-shopify-api-version": "2025-07",
+            "x-shopify-api-version": "2026-04",
             "x-shopify-api-version-warning": "https://shopify.dev/concepts/about-apis/versioning",
             "content-language": "en",
             "alt-svc": "h3=\":443\"; ma=86400",
@@ -160,7 +160,7 @@
             "reporting-endpoints": "shopify-csp=\"/csp-report?source%5Baction%5D=query&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fgraphql&source%5Bsection%5D=admin_api&source%5Buuid%5D=4b79e03b-a6e3-4ace-be5c-d820dfbc8517-1780570748\"",
             "cf-ray": "a0666d2b183e121f-PDX"
           },
-          "hash": "2b0a3687f4b0ba08629fd9427b7f1f63133b7542",
+          "hash": "7d156333b192014cbf58bbbc75a1a2b9b83fc960",
           "request": {
             "data": {
               "query": "\n                    query Collections($first: Int!, $after: String, $query: String) {\n                        collections(first: $first, after: $after, query: $query, sortKey: UPDATED_AT) {\n                            nodes {\n                                id\n                                title\n                                handle\n                                descriptionHtml\n                                updatedAt\n                                sortOrder\n                                templateSuffix\n                            }\n                            pageInfo {\n                                hasNextPage\n                                endCursor\n                            }\n                        }\n                    }\n                ",
@@ -217,7 +217,7 @@
             "x-stats-userid": "",
             "x-stats-apiclientid": "376951341057",
             "x-stats-apipermissionid": "695964696713",
-            "x-shopify-api-version": "2025-07",
+            "x-shopify-api-version": "2026-04",
             "x-shopify-api-version-warning": "https://shopify.dev/concepts/about-apis/versioning",
             "content-language": "en",
             "alt-svc": "h3=\":443\"; ma=86400",
@@ -233,7 +233,7 @@
             "reporting-endpoints": "shopify-csp=\"/csp-report?source%5Baction%5D=query&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fgraphql&source%5Bsection%5D=admin_api&source%5Buuid%5D=82b904fd-3fbb-43c9-ba02-927770e895e3-1780570748\"",
             "cf-ray": "a0666d2caee7bd22-PDX"
           },
-          "hash": "e5573333cc5325ea2fdd2fc2d1fad6037a8d2b84",
+          "hash": "e7203e6386fb862a407c7177f07566e8b681cbab",
           "request": {
             "data": {
               "query": "\n                    query Collections($first: Int!, $after: String, $query: String) {\n                        collections(first: $first, after: $after, query: $query, sortKey: UPDATED_AT) {\n                            nodes {\n                                id\n                                title\n                                handle\n                                descriptionHtml\n                                updatedAt\n                                sortOrder\n                                templateSuffix\n                            }\n                            pageInfo {\n                                hasNextPage\n                                endCursor\n                            }\n                        }\n                    }\n                ",

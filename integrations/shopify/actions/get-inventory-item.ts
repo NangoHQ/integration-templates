@@ -65,9 +65,9 @@ const action = createAction({
     scopes: ['read_inventory'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        // https://shopify.dev/docs/api/admin-graphql/2025-01/queries/inventoryItem
+        // https://shopify.dev/docs/api/admin-graphql/2026-04/queries/inventoryItem
         const response = await nango.post({
-            endpoint: '/admin/api/2025-01/graphql.json',
+            endpoint: '/admin/api/2026-04/graphql.json',
             data: {
                 query: `
                     query GetInventoryItem($id: ID!) {

@@ -40,8 +40,8 @@ const action = createAction({
 
     exec: async (nango, _input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.post({
-            // https://shopify.dev/docs/api/admin-graphql/2025-01/queries/shop
-            endpoint: '/admin/api/2025-01/graphql.json',
+            // https://shopify.dev/docs/api/admin-graphql/2026-04/queries/shop
+            endpoint: '/admin/api/2026-04/graphql.json',
             data: {
                 query: `
                     query {

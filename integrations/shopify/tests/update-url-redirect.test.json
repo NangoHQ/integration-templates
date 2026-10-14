@@ -15,7 +15,7 @@
   "nango": {},
   "api": {
     "post": {
-      "/admin/api/2025-07/graphql.json": {
+      "/admin/api/2026-04/graphql.json": {
         "response": {
           "data": {
             "urlRedirectUpdate": {
@@ -63,7 +63,7 @@
           "x-stats-userid": "",
           "x-stats-apiclientid": "376951341057",
           "x-stats-apipermissionid": "695964696713",
-          "x-shopify-api-version": "2025-07",
+          "x-shopify-api-version": "2026-04",
           "x-shopify-api-version-warning": "https://shopify.dev/concepts/about-apis/versioning",
           "content-language": "en",
           "alt-svc": "h3=\":443\"; ma=86400",
@@ -79,7 +79,7 @@
           "reporting-endpoints": "shopify-csp=\"/csp-report?source%5Baction%5D=query&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fgraphql&source%5Bsection%5D=admin_api&source%5Buuid%5D=f56d938e-0ef6-4ab7-891c-119f0c03be3b-1780577269\"",
           "cf-ray": "a0670c5c9db52fbe-PDX"
         },
-        "hash": "6d1a4caac943a4b5691b80c56c3c4ad817501816",
+        "hash": "5724dd4c46194816286067360403b67b717ab4d5",
         "request": {
           "data": {
             "query": "\n                    mutation UrlRedirectUpdate($id: ID!, $urlRedirect: UrlRedirectInput!) {\n                        urlRedirectUpdate(id: $id, urlRedirect: $urlRedirect) {\n                            urlRedirect {\n                                id\n                                path\n                                target\n                            }\n                            userErrors {\n                                field\n                                message\n                            }\n                        }\n                    }\n                ",

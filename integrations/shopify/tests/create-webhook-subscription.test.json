@@ -19,7 +19,7 @@
   "nango": {},
   "api": {
     "post": {
-      "/admin/api/2025-10/graphql.json": {
+      "/admin/api/2026-04/graphql.json": {
         "response": {
           "data": {
             "webhookSubscriptionCreate": {
@@ -69,7 +69,7 @@
           "x-stats-userid": "",
           "x-stats-apiclientid": "376951341057",
           "x-stats-apipermissionid": "695964696713",
-          "x-shopify-api-version": "2025-10",
+          "x-shopify-api-version": "2026-04",
           "content-language": "en",
           "alt-svc": "h3=\":443\"; ma=86400",
           "x-shopify-api-gql-engine": "cardinal",
@@ -85,7 +85,7 @@
           "reporting-endpoints": "shopify-csp=\"/csp-report?source%5Baction%5D=query&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fgraphql&source%5Bsection%5D=admin_api&source%5Buuid%5D=cafb2552-2f91-4007-89b8-6fd1a559b973-1780566499\"",
           "cf-ray": "a066056f8ffd69d4-PDX"
         },
-        "hash": "32d9c0bb6e442df57638ebd36f4d42c92c46e00e",
+        "hash": "c116dabbcd7353d7df319943e75df6315729f64a",
         "request": {
           "data": {
             "query": "\n            mutation webhookSubscriptionCreate($topic: WebhookSubscriptionTopic!, $webhookSubscription: WebhookSubscriptionInput!) {\n                webhookSubscriptionCreate(topic: $topic, webhookSubscription: $webhookSubscription) {\n                    webhookSubscription {\n                        id\n                        topic\n                        callbackUrl\n                        format\n                        includeFields\n                    }\n                    userErrors {\n                        field\n                        message\n                    }\n                }\n            }\n        ",

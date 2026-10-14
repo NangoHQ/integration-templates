@@ -51,7 +51,7 @@ const action = createAction({
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.post({
             // https://shopify.dev/docs/api/admin-graphql/latest/queries/node
-            endpoint: '/admin/api/2025-01/graphql.json',
+            endpoint: '/admin/api/2026-04/graphql.json',
             data: {
                 query: `
                     query GetFile($id: ID!) {

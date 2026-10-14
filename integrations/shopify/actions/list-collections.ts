@@ -65,8 +65,8 @@ const action = createAction({
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const config: ProxyConfiguration = {
-            // https://shopify.dev/docs/api/admin-graphql/2025-04/queries/collections
-            endpoint: '/admin/api/2025-04/graphql.json',
+            // https://shopify.dev/docs/api/admin-graphql/2026-04/queries/collections
+            endpoint: '/admin/api/2026-04/graphql.json',
             data: {
                 query: `
                     query collections($first: Int!, $after: String, $sortKey: CollectionSortKeys, $reverse: Boolean, $query: String) {

@@ -125,7 +125,7 @@ const action = createAction({
 
         const response = await nango.post({
             // https://shopify.dev/docs/api/admin-graphql/latest/mutations/discountAutomaticBasicCreate
-            endpoint: '/admin/api/2025-04/graphql.json',
+            endpoint: '/admin/api/2026-04/graphql.json',
             data: {
                 query,
                 variables: {

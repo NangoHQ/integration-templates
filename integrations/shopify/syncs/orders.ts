@@ -158,8 +158,8 @@ const sync = createSync({
         const queryFilter = updatedAfter ? `updated_at:>${updatedAfter}` : '';
 
         const proxyConfig: ProxyConfiguration = {
-            // https://shopify.dev/docs/api/admin-graphql/2024-01/queries/orders
-            endpoint: '/admin/api/2024-01/graphql.json',
+            // https://shopify.dev/docs/api/admin-graphql/2026-04/queries/orders
+            endpoint: '/admin/api/2026-04/graphql.json',
             method: 'POST',
             data: {
                 query: `

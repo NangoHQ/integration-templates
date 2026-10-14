@@ -38,8 +38,8 @@ const action = createAction({
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const config: ProxyConfiguration = {
-            // https://shopify.dev/docs/api/admin-graphql/2025-07/mutations/urlRedirectUpdate
-            endpoint: '/admin/api/2025-07/graphql.json',
+            // https://shopify.dev/docs/api/admin-graphql/2026-04/mutations/urlRedirectUpdate
+            endpoint: '/admin/api/2026-04/graphql.json',
             data: {
                 query: `
                     mutation UrlRedirectUpdate($id: ID!, $urlRedirect: UrlRedirectInput!) {

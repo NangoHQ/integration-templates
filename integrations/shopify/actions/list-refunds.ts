@@ -172,7 +172,7 @@ const action = createAction({
 
         const response = await nango.post({
             // https://shopify.dev/docs/api/admin-graphql
-            endpoint: '/admin/api/2025-01/graphql.json',
+            endpoint: '/admin/api/2026-04/graphql.json',
             data: {
                 query: `
                     query GetOrderRefunds($id: ID!) {

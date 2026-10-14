@@ -16,7 +16,7 @@
   "nango": {},
   "api": {
     "post": {
-      "/admin/api/2025-01/graphql.json": {
+      "/admin/api/2026-04/graphql.json": {
         "response": {
           "data": {
             "fulfillmentOrderReleaseHold": {
@@ -68,7 +68,7 @@
           "x-stats-userid": "",
           "x-stats-apiclientid": "376951341057",
           "x-stats-apipermissionid": "695964696713",
-          "x-shopify-api-version": "2025-07",
+          "x-shopify-api-version": "2026-04",
           "x-shopify-api-version-warning": "https://shopify.dev/concepts/about-apis/versioning",
           "content-language": "en",
           "alt-svc": "h3=\":443\"; ma=86400",
@@ -84,7 +84,7 @@
           "reporting-endpoints": "shopify-csp=\"/csp-report?source%5Baction%5D=query&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fgraphql&source%5Bsection%5D=admin_api&source%5Buuid%5D=76b73439-846b-46c7-9250-0f6e42a8b529-1780571001\"",
           "cf-ray": "a066735659a01319-PDX"
         },
-        "hash": "ad5ab33ca3fc023373ce7e64f9287dbe7a13c85f",
+        "hash": "86d012b3ac178dcf0423afd9ce752613a6808071",
         "request": {
           "data": {
             "query": "\n                    mutation fulfillmentOrderReleaseHold($id: ID!, $externalId: String, $holdIds: [ID!]) {\n                        fulfillmentOrderReleaseHold(id: $id, externalId: $externalId, holdIds: $holdIds) {\n                            fulfillmentOrder {\n                                id\n                                status\n                                requestStatus\n                            }\n                            userErrors {\n                                field\n                                message\n                                code\n                            }\n                        }\n                    }\n                ",

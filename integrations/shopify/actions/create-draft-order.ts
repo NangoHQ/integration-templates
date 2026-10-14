@@ -1,13 +1,13 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
-// https://shopify.dev/docs/api/admin-graphql/2025-04/input-objects/AttributeInput
+// https://shopify.dev/docs/api/admin-graphql/2026-04/input-objects/AttributeInput
 const AttributeInputSchema = z.object({
     key: z.string(),
     value: z.string()
 });
 
-// https://shopify.dev/docs/api/admin-graphql/2025-04/input-objects/MailingAddressInput
+// https://shopify.dev/docs/api/admin-graphql/2026-04/input-objects/MailingAddressInput
 const AddressInputSchema = z.object({
     address1: z.string().optional(),
     address2: z.string().optional(),
@@ -23,7 +23,7 @@ const AddressInputSchema = z.object({
     zip: z.string().optional()
 });
 
-// https://shopify.dev/docs/api/admin-graphql/2025-04/input-objects/DraftOrderAppliedDiscountInput
+// https://shopify.dev/docs/api/admin-graphql/2026-04/input-objects/DraftOrderAppliedDiscountInput
 const AppliedDiscountInputSchema = z.object({
     description: z.string().optional(),
     title: z.string().optional(),
@@ -32,7 +32,7 @@ const AppliedDiscountInputSchema = z.object({
     amount: z.number().optional()
 });
 
-// https://shopify.dev/docs/api/admin-graphql/2025-04/input-objects/DraftOrderLineItemInput
+// https://shopify.dev/docs/api/admin-graphql/2026-04/input-objects/DraftOrderLineItemInput
 const LineItemInputSchema = z.object({
     variantId: z.string().optional(),
     title: z.string().optional(),
@@ -55,20 +55,20 @@ const LineItemInputSchema = z.object({
     uuid: z.string().optional()
 });
 
-// https://shopify.dev/docs/api/admin-graphql/2025-04/input-objects/PurchasingCompanyInput
+// https://shopify.dev/docs/api/admin-graphql/2026-04/input-objects/PurchasingCompanyInput
 const PurchasingCompanyInputSchema = z.object({
     companyId: z.string(),
     companyContactId: z.string(),
     companyLocationId: z.string()
 });
 
-// https://shopify.dev/docs/api/admin-graphql/2025-04/input-objects/PurchasingEntityInput
+// https://shopify.dev/docs/api/admin-graphql/2026-04/input-objects/PurchasingEntityInput
 const PurchasingEntityInputSchema = z.object({
     customerId: z.string().optional(),
     purchasingCompany: PurchasingCompanyInputSchema.optional()
 });
 
-// https://shopify.dev/docs/api/admin-graphql/2025-04/input-objects/ShippingLineInput
+// https://shopify.dev/docs/api/admin-graphql/2026-04/input-objects/ShippingLineInput
 const ShippingLineInputSchema = z.object({
     title: z.string().optional(),
     price: z.number().optional(),
@@ -81,7 +81,7 @@ const ShippingLineInputSchema = z.object({
     shippingRateHandle: z.string().optional()
 });
 
-// https://shopify.dev/docs/api/admin-graphql/2025-04/mutations/draftOrderCreate
+// https://shopify.dev/docs/api/admin-graphql/2026-04/mutations/draftOrderCreate
 const InputSchema = z.object({
     lineItems: z.array(LineItemInputSchema).min(1),
     customerId: z.string().optional(),
@@ -469,9 +469,9 @@ const action = createAction({
 
         const variables = buildGraphQLVariables(input);
 
-        // https://shopify.dev/docs/api/admin-graphql/2025-04/mutations/draftOrderCreate
+        // https://shopify.dev/docs/api/admin-graphql/2026-04/mutations/draftOrderCreate
         const response = await nango.post({
-            endpoint: '/admin/api/2025-04/graphql.json',
+            endpoint: '/admin/api/2026-04/graphql.json',
             data: {
                 query,
                 variables

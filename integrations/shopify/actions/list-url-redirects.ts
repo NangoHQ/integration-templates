@@ -105,8 +105,8 @@ async function fetchViaGraphQL(
     }
 
     const response = await nango.post({
-        // https://shopify.dev/docs/api/admin-graphql/2025-01/queries/urlRedirects
-        endpoint: '/admin/api/2025-01/graphql.json',
+        // https://shopify.dev/docs/api/admin-graphql/2026-04/queries/urlRedirects
+        endpoint: '/admin/api/2026-04/graphql.json',
         data: {
             query: graphqlQuery,
             variables
@@ -161,8 +161,8 @@ async function fetchViaRest(nango: Parameters<(typeof action)['exec']>[0], input
     }
 
     const response = await nango.get({
-        // https://shopify.dev/docs/api/admin-rest/2025-01/resources/redirect
-        endpoint: '/admin/api/2025-01/redirects.json',
+        // https://shopify.dev/docs/api/admin-rest/2026-04/resources/redirect
+        endpoint: '/admin/api/2026-04/redirects.json',
         params,
         retries: 3
     });

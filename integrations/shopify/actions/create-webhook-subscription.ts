@@ -79,7 +79,7 @@ const action = createAction({
 
         const config: ProxyConfiguration = {
             // https://shopify.dev/docs/api/admin-graphql/latest/mutations/webhookSubscriptionCreate
-            endpoint: '/admin/api/2025-10/graphql.json',
+            endpoint: '/admin/api/2026-04/graphql.json',
             data: {
                 query,
                 variables

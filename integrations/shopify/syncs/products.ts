@@ -136,7 +136,7 @@ const sync = createSync({
 
         const proxyConfig: ProxyConfiguration = {
             // https://shopify.dev/docs/api/admin-graphql/latest/queries/products
-            endpoint: '/admin/api/2025-01/graphql.json',
+            endpoint: '/admin/api/2026-04/graphql.json',
             method: 'POST',
             data: {
                 query: `

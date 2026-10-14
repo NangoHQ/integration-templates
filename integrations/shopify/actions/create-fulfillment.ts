@@ -139,7 +139,7 @@ const action = createAction({
         };
 
         const config: Omit<ProxyConfiguration, 'method'> = {
-            endpoint: '/admin/api/2025-04/graphql.json',
+            endpoint: '/admin/api/2026-04/graphql.json',
             data: {
                 query,
                 variables
@@ -147,7 +147,7 @@ const action = createAction({
             retries: 3
         };
 
-        // https://shopify.dev/docs/api/admin-graphql/2025-04/mutations/fulfillmentCreate
+        // https://shopify.dev/docs/api/admin-graphql/2026-04/mutations/fulfillmentCreate
         const response = await nango.post(config);
 
         const parsed = GraphQLResponseSchema.parse(response.data);

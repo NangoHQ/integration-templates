@@ -2038,7 +2038,7 @@
   },
   "api": {
     "post": {
-      "/admin/api/2024-10/graphql.json": [
+      "/admin/api/2026-04/graphql.json": [
         {
           "response": {
             "data": {
@@ -2093,7 +2093,7 @@
             "x-stats-userid": "",
             "x-stats-apiclientid": "376951341057",
             "x-stats-apipermissionid": "695964696713",
-            "x-shopify-api-version": "2025-07",
+            "x-shopify-api-version": "2026-04",
             "x-shopify-api-version-warning": "https://shopify.dev/concepts/about-apis/versioning",
             "content-language": "en",
             "alt-svc": "h3=\":443\"; ma=86400",
@@ -2109,7 +2109,7 @@
             "reporting-endpoints": "shopify-csp=\"/csp-report?source%5Baction%5D=query&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fgraphql&source%5Bsection%5D=admin_api&source%5Buuid%5D=87795ff0-d6b7-4cef-9af4-4c70211e0611-1780581450\"",
             "cf-ray": "a067726f5adbdabf-PDX"
           },
-          "hash": "128c3d1cdcc92b8f05265d6ab4d5d64477ae86a0",
+          "hash": "bbcaace9f04cedae70c4ad744870f94ee16b4136",
           "request": {
             "data": {
               "query": "\n                        query Locations($first: Int!, $after: String) {\n                            locations(first: $first, after: $after) {\n                                nodes {\n                                    id\n                                }\n                                pageInfo {\n                                    hasNextPage\n                                    endCursor\n                                }\n                            }\n                        }\n                    ",
@@ -2330,7 +2330,7 @@
             "x-stats-userid": "",
             "x-stats-apiclientid": "376951341057",
             "x-stats-apipermissionid": "695964696713",
-            "x-shopify-api-version": "2025-07",
+            "x-shopify-api-version": "2026-04",
             "x-shopify-api-version-warning": "https://shopify.dev/concepts/about-apis/versioning",
             "content-language": "en",
             "alt-svc": "h3=\":443\"; ma=86400",
@@ -2346,7 +2346,7 @@
             "reporting-endpoints": "shopify-csp=\"/csp-report?source%5Baction%5D=query&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fgraphql&source%5Bsection%5D=admin_api&source%5Buuid%5D=8771e998-2f82-4288-8c16-89b252e164cc-1780581450\"",
             "cf-ray": "a06772727978dd6a-PDX"
           },
-          "hash": "2a481af13244d7209a7a47ec2641275b3f798a92",
+          "hash": "ec07eec0fc4bfa086f56ee3d97909cc4f10c8fd1",
           "request": {
             "data": "sha1:f194cd4720cf8a7a1dc655b083795008506e1fa3"
           }
@@ -2601,7 +2601,7 @@
             "x-stats-userid": "",
             "x-stats-apiclientid": "376951341057",
             "x-stats-apipermissionid": "695964696713",
-            "x-shopify-api-version": "2025-07",
+            "x-shopify-api-version": "2026-04",
             "x-shopify-api-version-warning": "https://shopify.dev/concepts/about-apis/versioning",
             "content-language": "en",
             "alt-svc": "h3=\":443\"; ma=86400",
@@ -2617,7 +2617,7 @@
             "reporting-endpoints": "shopify-csp=\"/csp-report?source%5Baction%5D=query&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fgraphql&source%5Bsection%5D=admin_api&source%5Buuid%5D=e8f40d64-3fb9-4b39-bfca-7abf5dafe8ea-1780581451\"",
             "cf-ray": "a06772763f05150f-PDX"
           },
-          "hash": "896acfc9b2474c454fa1a844c9b68375631e625a",
+          "hash": "40449a4bd0a73c917d6605dc5d43a653ebdeb586",
           "request": {
             "data": "sha1:c60e55d2e84ac30ec8f2521d502babe7f2b16e8e"
           }
@@ -2872,7 +2872,7 @@
             "x-stats-userid": "",
             "x-stats-apiclientid": "376951341057",
             "x-stats-apipermissionid": "695964696713",
-            "x-shopify-api-version": "2025-07",
+            "x-shopify-api-version": "2026-04",
             "x-shopify-api-version-warning": "https://shopify.dev/concepts/about-apis/versioning",
             "content-language": "en",
             "alt-svc": "h3=\":443\"; ma=86400",
@@ -2888,7 +2888,7 @@
             "reporting-endpoints": "shopify-csp=\"/csp-report?source%5Baction%5D=query&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fgraphql&source%5Bsection%5D=admin_api&source%5Buuid%5D=503238b4-af12-4722-9058-5645dc174be1-1780581451\"",
             "cf-ray": "a067727a186eac0d-PDX"
           },
-          "hash": "3680d3f63b8d890d691803a96d9289e6671a5735",
+          "hash": "16995a3ab560f3442dcc597ce3058f715e46e016",
           "request": {
             "data": "sha1:74c36748220b07575574e8ad1697588cf2331dc8"
           }
@@ -3143,7 +3143,7 @@
             "x-stats-userid": "",
             "x-stats-apiclientid": "376951341057",
             "x-stats-apipermissionid": "695964696713",
-            "x-shopify-api-version": "2025-07",
+            "x-shopify-api-version": "2026-04",
             "x-shopify-api-version-warning": "https://shopify.dev/concepts/about-apis/versioning",
             "content-language": "en",
             "alt-svc": "h3=\":443\"; ma=86400",
@@ -3159,7 +3159,7 @@
             "reporting-endpoints": "shopify-csp=\"/csp-report?source%5Baction%5D=query&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fgraphql&source%5Bsection%5D=admin_api&source%5Buuid%5D=68b84ce6-4ce7-4e23-b914-ff9cb6aaa7a5-1780581452\"",
             "cf-ray": "a067727d9920dabf-PDX"
           },
-          "hash": "ba369b60da0b8b6c20dd38a7e9db3f937ef5ea40",
+          "hash": "b461b26cd4932cbb0922d52fe9253abc387d3b86",
           "request": {
             "data": "sha1:96ce2bc58706da7a58937e0ca54b8aef38e709d3"
           }
@@ -3414,7 +3414,7 @@
             "x-stats-userid": "",
             "x-stats-apiclientid": "376951341057",
             "x-stats-apipermissionid": "695964696713",
-            "x-shopify-api-version": "2025-07",
+            "x-shopify-api-version": "2026-04",
             "x-shopify-api-version-warning": "https://shopify.dev/concepts/about-apis/versioning",
             "content-language": "en",
             "alt-svc": "h3=\":443\"; ma=86400",
@@ -3430,7 +3430,7 @@
             "reporting-endpoints": "shopify-csp=\"/csp-report?source%5Baction%5D=query&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fgraphql&source%5Bsection%5D=admin_api&source%5Buuid%5D=a5e54733-ec0d-4fcf-a9c1-b670b6f5bbbc-1780581452\"",
             "cf-ray": "a0677280fb93b298-PDX"
           },
-          "hash": "2cb51db599354914f8c3a94a471889139e88d5ba",
+          "hash": "eb3c901293af421775bb0b2325737e0086865c52",
           "request": {
             "data": "sha1:3f87c0860217d37913cf7c46cfc53aa0a2f4eb18"
           }
@@ -3685,7 +3685,7 @@
             "x-stats-userid": "",
             "x-stats-apiclientid": "376951341057",
             "x-stats-apipermissionid": "695964696713",
-            "x-shopify-api-version": "2025-07",
+            "x-shopify-api-version": "2026-04",
             "x-shopify-api-version-warning": "https://shopify.dev/concepts/about-apis/versioning",
             "content-language": "en",
             "alt-svc": "h3=\":443\"; ma=86400",
@@ -3701,7 +3701,7 @@
             "reporting-endpoints": "shopify-csp=\"/csp-report?source%5Baction%5D=query&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fgraphql&source%5Bsection%5D=admin_api&source%5Buuid%5D=f528e370-93be-4f46-8984-7434c9c90502-1780581453\"",
             "cf-ray": "a06772847b24ff16-PDX"
           },
-          "hash": "3ee2a0297d5de7d9772fbba9fed3543f4737090b",
+          "hash": "0b091f694cb9737af1243b6e129bb65558a0ac1e",
           "request": {
             "data": "sha1:b725272ffc5709c75a4ee8ab3c8c2ba13ca481fe"
           }
@@ -3956,7 +3956,7 @@
             "x-stats-userid": "",
             "x-stats-apiclientid": "376951341057",
             "x-stats-apipermissionid": "695964696713",
-            "x-shopify-api-version": "2025-07",
+            "x-shopify-api-version": "2026-04",
             "x-shopify-api-version-warning": "https://shopify.dev/concepts/about-apis/versioning",
             "content-language": "en",
             "alt-svc": "h3=\":443\"; ma=86400",
@@ -3972,7 +3972,7 @@
             "reporting-endpoints": "shopify-csp=\"/csp-report?source%5Baction%5D=query&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fgraphql&source%5Bsection%5D=admin_api&source%5Buuid%5D=49793ba2-8d1a-4816-bbab-4971a417bc8c-1780581454\"",
             "cf-ray": "a0677287c8fd150f-PDX"
           },
-          "hash": "8d9b0224c7bcb6ebcd920b1f8fd0909179e92cba",
+          "hash": "7780c04a06d8103516592873a6040c2ceb22a674",
           "request": {
             "data": "sha1:1d61aee9da24322337d42a70fd9100aefcfc0ff0"
           }
@@ -4227,7 +4227,7 @@
             "x-stats-userid": "",
             "x-stats-apiclientid": "376951341057",
             "x-stats-apipermissionid": "695964696713",
-            "x-shopify-api-version": "2025-07",
+            "x-shopify-api-version": "2026-04",
             "x-shopify-api-version-warning": "https://shopify.dev/concepts/about-apis/versioning",
             "content-language": "en",
             "alt-svc": "h3=\":443\"; ma=86400",
@@ -4243,7 +4243,7 @@
             "reporting-endpoints": "shopify-csp=\"/csp-report?source%5Baction%5D=query&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fgraphql&source%5Bsection%5D=admin_api&source%5Buuid%5D=a5f65922-683b-469b-940e-818a01619789-1780581454\"",
             "cf-ray": "a067728b3b27ac0d-PDX"
           },
-          "hash": "2cec6efadb3b06fb25ebbdd25c32c4bae2d3b8ba",
+          "hash": "40f25690e7f4566a9c53977ca451a3f55ca59d72",
           "request": {
             "data": "sha1:a7e93c0b652f8ebc168f7063e1abf4ec16c4fca2"
           }
@@ -4498,7 +4498,7 @@
             "x-stats-userid": "",
             "x-stats-apiclientid": "376951341057",
             "x-stats-apipermissionid": "695964696713",
-            "x-shopify-api-version": "2025-07",
+            "x-shopify-api-version": "2026-04",
             "x-shopify-api-version-warning": "https://shopify.dev/concepts/about-apis/versioning",
             "content-language": "en",
             "alt-svc": "h3=\":443\"; ma=86400",
@@ -4514,7 +4514,7 @@
             "reporting-endpoints": "shopify-csp=\"/csp-report?source%5Baction%5D=query&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fgraphql&source%5Bsection%5D=admin_api&source%5Buuid%5D=44cecdbc-c40b-45c6-a2a9-15466ab5c7ce-1780581455\"",
             "cf-ray": "a06772913d930eda-PDX"
           },
-          "hash": "97e30426810056828a271696b358c40cf096dda2",
+          "hash": "92e3e2f754a501d01bbba5a2d4874fdaad7f805e",
           "request": {
             "data": "sha1:cd979c34b5c9c5552f967c677982395b999afc33"
           }
@@ -4769,7 +4769,7 @@
             "x-stats-userid": "",
             "x-stats-apiclientid": "376951341057",
             "x-stats-apipermissionid": "695964696713",
-            "x-shopify-api-version": "2025-07",
+            "x-shopify-api-version": "2026-04",
             "x-shopify-api-version-warning": "https://shopify.dev/concepts/about-apis/versioning",
             "content-language": "en",
             "alt-svc": "h3=\":443\"; ma=86400",
@@ -4785,7 +4785,7 @@
             "reporting-endpoints": "shopify-csp=\"/csp-report?source%5Baction%5D=query&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fgraphql&source%5Bsection%5D=admin_api&source%5Buuid%5D=9151be86-57b9-44e4-a6a9-51027781abd0-1780581456\"",
             "cf-ray": "a0677294cd4a0dcf-PDX"
           },
-          "hash": "310294c57c54715eddcc45d9cbd11726abf0a8d4",
+          "hash": "0a9ffd758ade593e220bbff7303ea6681c11b6c0",
           "request": {
             "data": "sha1:b877c30417902b16b38cbc143c006dd71466953a"
           }
@@ -4960,7 +4960,7 @@
             "x-stats-userid": "",
             "x-stats-apiclientid": "376951341057",
             "x-stats-apipermissionid": "695964696713",
-            "x-shopify-api-version": "2025-07",
+            "x-shopify-api-version": "2026-04",
             "x-shopify-api-version-warning": "https://shopify.dev/concepts/about-apis/versioning",
             "content-language": "en",
             "alt-svc": "h3=\":443\"; ma=86400",
@@ -4976,7 +4976,7 @@
             "reporting-endpoints": "shopify-csp=\"/csp-report?source%5Baction%5D=query&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fgraphql&source%5Bsection%5D=admin_api&source%5Buuid%5D=175e350f-f696-4a3d-b389-f2c8d97f1d07-1780581456\"",
             "cf-ray": "a067729849aca509-PDX"
           },
-          "hash": "d9b2f8d557e676da29023cd9207a91fc6bd03dd9",
+          "hash": "dc246d7c17e6fc925595f1e52728377166c9b6df",
           "request": {
             "data": "sha1:7c35556bd3bb3a7b9fadf0fee5a49906f0eafde6"
           }

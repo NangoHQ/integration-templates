@@ -82,8 +82,8 @@ const action = createAction({
         };
 
         const response = await nango.post({
-            // https://shopify.dev/docs/api/admin-graphql/2025-10/mutations/inventoryItemUpdate
-            endpoint: 'admin/api/2025-10/graphql.json',
+            // https://shopify.dev/docs/api/admin-graphql/2026-04/mutations/inventoryItemUpdate
+            endpoint: 'admin/api/2026-04/graphql.json',
             data: {
                 query: `
                     mutation inventoryItemUpdate($id: ID!, $input: InventoryItemInput!) {

@@ -85,8 +85,8 @@ const sync = createSync({
         let maxUpdatedAt: string | undefined;
 
         const proxyConfig: ProxyConfiguration = {
-            // https://shopify.dev/docs/api/admin-graphql/2025-01/queries/inventoryItems
-            endpoint: '/admin/api/2025-01/graphql.json',
+            // https://shopify.dev/docs/api/admin-graphql/2026-04/queries/inventoryItems
+            endpoint: '/admin/api/2026-04/graphql.json',
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

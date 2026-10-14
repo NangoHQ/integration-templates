@@ -76,8 +76,8 @@ const action = createAction({
         const orderId = input.order_id.startsWith('gid://') ? input.order_id : `gid://shopify/Order/${input.order_id}`;
 
         const response = await nango.post({
-            // https://shopify.dev/docs/api/admin-graphql/2025-10/mutations/orderOpen
-            endpoint: '/admin/api/2025-10/graphql.json',
+            // https://shopify.dev/docs/api/admin-graphql/2026-04/mutations/orderOpen
+            endpoint: '/admin/api/2026-04/graphql.json',
             data: {
                 query: `
                     mutation orderOpen($input: OrderOpenInput!) {

@@ -119,11 +119,11 @@ const action = createAction({
         }
 
         const config: ProxyConfiguration = {
-            // https://shopify.dev/docs/api/admin-graphql/2025-01/mutations/collectionUpdate
-            endpoint: '/admin/api/2025-01/graphql.json',
+            // https://shopify.dev/docs/api/admin-graphql/2026-07/mutations/collectionUpdate
+            endpoint: '/admin/api/2026-07/graphql.json',
             data: {
-                query: `mutation CollectionUpdate($input: CollectionInput!) {
-                    collectionUpdate(input: $input) {
+                query: `mutation CollectionUpdate($collection: CollectionUpdateInput!) {
+                    collectionUpdate(collection: $collection) {
                         collection {
                             id
                             title
@@ -147,7 +147,7 @@ const action = createAction({
                     }
                 }`,
                 variables: {
-                    input: collectionInput
+                    collection: collectionInput
                 }
             },
             retries: 1

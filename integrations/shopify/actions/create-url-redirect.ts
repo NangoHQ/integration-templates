@@ -31,8 +31,8 @@ const action = createAction({
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.post({
-            // https://shopify.dev/docs/api/admin-rest/2025-10/resources/redirect#post-redirects
-            endpoint: 'admin/api/2025-10/redirects.json',
+            // https://shopify.dev/docs/api/admin-rest/2026-04/resources/redirect#post-redirects
+            endpoint: 'admin/api/2026-04/redirects.json',
             data: {
                 redirect: {
                     path: input.path,

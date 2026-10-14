@@ -42,7 +42,7 @@
   "nango": {},
   "api": {
     "post": {
-      "/admin/api/2025-10/graphql.json": {
+      "/admin/api/2026-04/graphql.json": {
         "response": {
           "data": {
             "segments": {
@@ -139,7 +139,7 @@
           "x-stats-userid": "",
           "x-stats-apiclientid": "376951341057",
           "x-stats-apipermissionid": "695964696713",
-          "x-shopify-api-version": "2025-10",
+          "x-shopify-api-version": "2026-04",
           "content-language": "en",
           "alt-svc": "h3=\":443\"; ma=86400",
           "x-shopify-api-gql-engine": "cardinal",
@@ -154,7 +154,7 @@
           "reporting-endpoints": "shopify-csp=\"/csp-report?source%5Baction%5D=query&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fgraphql&source%5Bsection%5D=admin_api&source%5Buuid%5D=60a4d71f-35fb-4403-a5ad-0527c7515b1c-1780566582\"",
           "cf-ray": "a0660774286aef10-PDX"
         },
-        "hash": "0f45b54524c970447171a2eb6499f658816a9d26",
+        "hash": "cd0b3bae482b407952f8945482b527dbd4708b18",
         "request": {
           "data": {
             "query": "\n            query segments($first: Int, $after: String, $sortKey: SegmentSortKeys, $reverse: Boolean, $query: String) {\n                segments(first: $first, after: $after, sortKey: $sortKey, reverse: $reverse, query: $query) {\n                    edges {\n                        cursor\n                        node {\n                            id\n                            name\n                            creationDate\n                            lastEditDate\n                            query\n                        }\n                    }\n                    pageInfo {\n                        hasNextPage\n                    }\n                }\n            }\n        ",

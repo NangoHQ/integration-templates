@@ -9,7 +9,7 @@
   },
   "api": {
     "post": {
-      "/admin/api/2025-10/graphql.json": {
+      "/admin/api/2026-04/graphql.json": {
         "response": {
           "data": {
             "abandonedCheckouts": {
@@ -56,7 +56,7 @@
           "x-stats-userid": "",
           "x-stats-apiclientid": "376951341057",
           "x-stats-apipermissionid": "695964696713",
-          "x-shopify-api-version": "2025-10",
+          "x-shopify-api-version": "2026-04",
           "content-language": "en",
           "alt-svc": "h3=\":443\"; ma=86400",
           "x-shopify-api-gql-engine": "cardinal",
@@ -72,7 +72,7 @@
           "reporting-endpoints": "shopify-csp=\"/csp-report?source%5Baction%5D=query&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fgraphql&source%5Bsection%5D=admin_api&source%5Buuid%5D=971fd79b-986b-47ba-95e9-2215a9e176a1-1780581352\"",
           "cf-ray": "a067700d4e545ed8-PDX"
         },
-        "hash": "f4ae41a584aa9342bb5686729f32f67a1fa9ec75",
+        "hash": "6f3464838a03b0713db14a416360a15cae46b975",
         "request": {
           "data": "sha1:ddc1a8680a2894e4d428f9fc243403d007a1b9f9"
         }

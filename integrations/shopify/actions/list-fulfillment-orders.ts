@@ -87,9 +87,9 @@ const action = createAction({
             ...(input.reverse !== undefined && { reverse: input.reverse })
         };
 
-        // https://shopify.dev/docs/api/admin-graphql/2025-04/queries/fulfillmentOrders
+        // https://shopify.dev/docs/api/admin-graphql/2026-04/queries/fulfillmentOrders
         const response = await nango.post({
-            endpoint: '/admin/api/2025-04/graphql.json',
+            endpoint: '/admin/api/2026-04/graphql.json',
             data: {
                 query: graphQuery,
                 variables: variables

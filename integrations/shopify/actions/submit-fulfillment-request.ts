@@ -83,9 +83,9 @@ const action = createAction({
             ...(input.notifyCustomer !== undefined && { notifyCustomer: input.notifyCustomer })
         };
 
-        // https://shopify.dev/docs/api/admin-graphql/2025-07/mutations/fulfillmentOrderSubmitFulfillmentRequest
+        // https://shopify.dev/docs/api/admin-graphql/2026-04/mutations/fulfillmentOrderSubmitFulfillmentRequest
         const response = await nango.post({
-            endpoint: '/admin/api/2025-07/graphql.json',
+            endpoint: '/admin/api/2026-04/graphql.json',
             data: {
                 query: mutation,
                 variables

@@ -77,9 +77,9 @@ const action = createAction({
             variables.notifyCustomer = input.notifyCustomer;
         }
 
-        // https://shopify.dev/docs/api/admin-graphql/2025-04/mutations/fulfillmentTrackingInfoUpdate
+        // https://shopify.dev/docs/api/admin-graphql/2026-04/mutations/fulfillmentTrackingInfoUpdate
         const response = await nango.post({
-            endpoint: '/admin/api/2025-04/graphql.json',
+            endpoint: '/admin/api/2026-04/graphql.json',
             data: {
                 query: `
                     mutation FulfillmentTrackingInfoUpdate($fulfillmentId: ID!, $trackingInfoInput: FulfillmentTrackingInput!, $notifyCustomer: Boolean) {

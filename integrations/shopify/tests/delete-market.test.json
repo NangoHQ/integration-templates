@@ -10,7 +10,7 @@
   "nango": {},
   "api": {
     "post": {
-      "/admin/api/2025-04/graphql.json": {
+      "/admin/api/2026-04/graphql.json": {
         "response": {
           "data": {
             "marketDelete": {
@@ -54,7 +54,7 @@
           "x-stats-userid": "",
           "x-stats-apiclientid": "376951341057",
           "x-stats-apipermissionid": "695964696713",
-          "x-shopify-api-version": "2025-07",
+          "x-shopify-api-version": "2026-04",
           "x-shopify-api-version-warning": "https://shopify.dev/concepts/about-apis/versioning",
           "content-language": "en",
           "alt-svc": "h3=\":443\"; ma=86400",
@@ -70,7 +70,7 @@
           "reporting-endpoints": "shopify-csp=\"/csp-report?source%5Baction%5D=query&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fgraphql&source%5Bsection%5D=admin_api&source%5Buuid%5D=82923a5a-564a-402f-8400-fbe0e33847a8-1780566508\"",
           "cf-ray": "a06605a49eec5ecc-PDX"
         },
-        "hash": "8c007e9821047029e5d57ab7ef7e4d2804b1eab0",
+        "hash": "b8e6389f5d2f888ab41c8400458a92f39ecae7a4",
         "request": {
           "data": {
             "query": "\n                    mutation MarketDelete($id: ID!) {\n                        marketDelete(id: $id) {\n                            deletedId\n                            userErrors {\n                                field\n                                message\n                            }\n                        }\n                    }\n                ",

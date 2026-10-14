@@ -14,7 +14,7 @@
   "nango": {},
   "api": {
     "post": {
-      "/admin/api/2025-10/redirects.json": {
+      "/admin/api/2026-04/redirects.json": {
         "response": {
           "redirect": {
             "id": 468335165577,
@@ -45,7 +45,7 @@
           "x-stats-userid": "",
           "x-stats-apiclientid": "376951341057",
           "x-stats-apipermissionid": "695964696713",
-          "x-shopify-api-version": "2025-10",
+          "x-shopify-api-version": "2026-04",
           "x-shopify-shop-api-call-limit": "1/80",
           "vary": "Sec-Fetch-Site",
           "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=GPKxXA4UrZf47B%2Bl%2BKBEOMMwoaDIG1UqgiiKf%2BgKfWUFs%2B9wX4PVSRgoUVBShdVADiA%2BuSRHE5D7kl7zMMMoPmsKlZArYcNgkzM8Kg2a7CLW%2FxeBKPvn9oDyzN4Z3E%2FbrAT8hBbQX%2Fc%3D\"}]}",
@@ -60,7 +60,7 @@
           "x-request-id": "5a56e778-6db1-48e4-9ed4-fdae38bffd21-1780570416",
           "cf-ray": "a066650df87423a3-PDX"
         },
-        "hash": "8690788ad80a1e5247c2d7e721fe8fc4cc2e39b3",
+        "hash": "4bede2e91bebbb9712b1e7325d61d2dfd66a02db",
         "request": {
           "data": {
             "redirect": {

@@ -43,7 +43,7 @@ const action = createAction({
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://shopify.dev/docs/api/admin-graphql/latest/objects/Order#field-Order.fields.transactions
         const response = await nango.post({
-            endpoint: '/admin/api/2025-01/graphql.json',
+            endpoint: '/admin/api/2026-04/graphql.json',
             data: {
                 query: `
                     query getOrderTransactions($id: ID!) {

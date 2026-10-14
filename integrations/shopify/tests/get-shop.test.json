@@ -14,7 +14,7 @@
   "nango": {},
   "api": {
     "post": {
-      "/admin/api/2025-01/graphql.json": {
+      "/admin/api/2026-04/graphql.json": {
         "response": {
           "data": {
             "shop": {
@@ -65,7 +65,7 @@
           "x-stats-userid": "",
           "x-stats-apiclientid": "376951341057",
           "x-stats-apipermissionid": "695964696713",
-          "x-shopify-api-version": "2025-07",
+          "x-shopify-api-version": "2026-04",
           "x-shopify-api-version-warning": "https://shopify.dev/concepts/about-apis/versioning",
           "content-language": "en",
           "alt-svc": "h3=\":443\"; ma=86400",
@@ -82,7 +82,7 @@
           "reporting-endpoints": "shopify-csp=\"/csp-report?source%5Baction%5D=query&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fgraphql&source%5Bsection%5D=admin_api&source%5Buuid%5D=f813a9ef-581d-4acf-864b-34f217c3c405-1780565957\"",
           "cf-ray": "a065f833daad9b19-PDX"
         },
-        "hash": "521f1b02ce157e9c85b3e77711d7b44ddf725c9d",
+        "hash": "af502751121685b6e8411eab374c0be4f34a031f",
         "request": {
           "data": {
             "query": "\n                    query {\n                        shop {\n                            name\n                            email\n                            myshopifyDomain\n                            currencyCode\n                            plan {\n                                displayName\n                                partnerDevelopment\n                                shopifyPlus\n                            }\n                        }\n                    }\n                "

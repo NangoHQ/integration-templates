@@ -103,8 +103,8 @@ const action = createAction({
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.post({
-            // https://shopify.dev/docs/api/admin-graphql/2025-04/queries/orders
-            endpoint: '/admin/api/2025-04/graphql.json',
+            // https://shopify.dev/docs/api/admin-graphql/2026-04/queries/orders
+            endpoint: '/admin/api/2026-04/graphql.json',
             data: {
                 query: `query Orders($first: Int, $after: String, $sortKey: OrderSortKeys, $reverse: Boolean, $query: String) {
                     orders(first: $first, after: $after, sortKey: $sortKey, reverse: $reverse, query: $query) {

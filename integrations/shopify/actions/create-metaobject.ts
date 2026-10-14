@@ -107,9 +107,9 @@ const action = createAction({
             }
         };
 
-        // https://shopify.dev/docs/api/admin-graphql/2025-04/mutations/metaobjectCreate
+        // https://shopify.dev/docs/api/admin-graphql/2026-04/mutations/metaobjectCreate
         const response = await nango.post({
-            endpoint: '/admin/api/2025-04/graphql.json',
+            endpoint: '/admin/api/2026-04/graphql.json',
             data: {
                 query,
                 variables

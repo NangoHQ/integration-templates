@@ -590,7 +590,7 @@
   },
   "api": {
     "post": {
-      "/admin/api/2025-01/graphql.json": [
+      "/admin/api/2026-04/graphql.json": [
         {
           "response": {
             "data": {
@@ -1503,7 +1503,7 @@
             "x-stats-userid": "",
             "x-stats-apiclientid": "376951341057",
             "x-stats-apipermissionid": "695964696713",
-            "x-shopify-api-version": "2025-07",
+            "x-shopify-api-version": "2026-04",
             "x-shopify-api-version-warning": "https://shopify.dev/concepts/about-apis/versioning",
             "content-language": "en",
             "alt-svc": "h3=\":443\"; ma=86400",
@@ -1519,7 +1519,7 @@
             "reporting-endpoints": "shopify-csp=\"/csp-report?source%5Baction%5D=query&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fgraphql&source%5Bsection%5D=admin_api&source%5Buuid%5D=ee02aea3-bce4-43b3-8df6-028f52ee56c1-1780572192\"",
             "cf-ray": "a066906d08b3ac0d-PDX"
           },
-          "hash": "6dba397ccd9a56316175128c3a3f3f9eb46e73e1",
+          "hash": "0d204dd6931aadd0596d8cf7e91cffcf665dde2d",
           "request": {
             "data": "sha1:0ca1441b74827a63558b796c99b3425c754fb44e"
           }
@@ -1571,7 +1571,7 @@
             "x-stats-userid": "",
             "x-stats-apiclientid": "376951341057",
             "x-stats-apipermissionid": "695964696713",
-            "x-shopify-api-version": "2025-07",
+            "x-shopify-api-version": "2026-04",
             "x-shopify-api-version-warning": "https://shopify.dev/concepts/about-apis/versioning",
             "content-language": "en",
             "alt-svc": "h3=\":443\"; ma=86400",
@@ -1587,7 +1587,7 @@
             "reporting-endpoints": "shopify-csp=\"/csp-report?source%5Baction%5D=query&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fgraphql&source%5Bsection%5D=admin_api&source%5Buuid%5D=2cf91251-7121-40b6-bb34-963a97f36f25-1780572193\"",
             "cf-ray": "a066906f3bf569da-PDX"
           },
-          "hash": "6e43badd96c630fa1fc272827b7b3292a7e8f6f8",
+          "hash": "de0b8018b6a9e88be37660fcbce0d5b3079bde7c",
           "request": {
             "data": "sha1:dfe30fb3df3f293656418b9b1bad5e9a4e31af0a"
           }

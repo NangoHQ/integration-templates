@@ -199,8 +199,8 @@ const action = createAction({
         }
 
         const response = await nango.post({
-            // https://shopify.dev/docs/api/admin-graphql/2025-01/mutations/draftOrderInvoiceSend
-            endpoint: '/admin/api/2025-01/graphql.json',
+            // https://shopify.dev/docs/api/admin-graphql/2026-04/mutations/draftOrderInvoiceSend
+            endpoint: '/admin/api/2026-04/graphql.json',
             data: {
                 query,
                 variables

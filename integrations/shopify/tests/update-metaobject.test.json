@@ -28,7 +28,7 @@
   "nango": {},
   "api": {
     "post": {
-      "/admin/api/2025-10/graphql.json": {
+      "/admin/api/2026-04/graphql.json": {
         "response": {
           "data": {
             "metaobjectUpdate": {
@@ -88,7 +88,7 @@
           "x-stats-userid": "",
           "x-stats-apiclientid": "376951341057",
           "x-stats-apipermissionid": "695964696713",
-          "x-shopify-api-version": "2025-10",
+          "x-shopify-api-version": "2026-04",
           "content-language": "en",
           "alt-svc": "h3=\":443\"; ma=86400",
           "x-shopify-api-gql-engine": "cardinal",
@@ -103,7 +103,7 @@
           "reporting-endpoints": "shopify-csp=\"/csp-report?source%5Baction%5D=query&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fgraphql&source%5Bsection%5D=admin_api&source%5Buuid%5D=6638f314-6615-44b4-bd53-f57acb44927f-1780572411\"",
           "cf-ray": "a06695c178825ed3-PDX"
         },
-        "hash": "c8a37617c691a04eb79c680c2d6e14cfb54a7ccc",
+        "hash": "9541a90bc1554b383cd91fc40b75c32e080d7e67",
         "request": {
           "data": {
             "query": "\n            mutation UpdateMetaobject($id: ID!, $metaobject: MetaobjectUpdateInput!) {\n                metaobjectUpdate(id: $id, metaobject: $metaobject) {\n                    metaobject {\n                        id\n                        handle\n                        type\n                        displayName\n                        updatedAt\n                        fields {\n                            key\n                            value\n                        }\n                    }\n                    userErrors {\n                        field\n                        message\n                        code\n                    }\n                }\n            }\n        ",

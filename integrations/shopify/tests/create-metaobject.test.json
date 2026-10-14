@@ -29,7 +29,7 @@
   "nango": {},
   "api": {
     "post": {
-      "/admin/api/2025-04/graphql.json": {
+      "/admin/api/2026-04/graphql.json": {
         "response": {
           "data": {
             "metaobjectCreate": {
@@ -90,7 +90,7 @@
           "x-stats-userid": "",
           "x-stats-apiclientid": "376951341057",
           "x-stats-apipermissionid": "695964696713",
-          "x-shopify-api-version": "2025-07",
+          "x-shopify-api-version": "2026-04",
           "x-shopify-api-version-warning": "https://shopify.dev/concepts/about-apis/versioning",
           "content-language": "en",
           "alt-svc": "h3=\":443\"; ma=86400",
@@ -106,7 +106,7 @@
           "reporting-endpoints": "shopify-csp=\"/csp-report?source%5Baction%5D=query&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fgraphql&source%5Bsection%5D=admin_api&source%5Buuid%5D=dae41463-28de-4085-8ae0-28d299a026fd-1780566719\"",
           "cf-ray": "a0660acb4e466e10-PDX"
         },
-        "hash": "f949b8207f128356dd8212487f3ea6e962a9b300",
+        "hash": "27fd17ecfae7d734def879c1bf02aeab25469d38",
         "request": {
           "data": {
             "query": "\n            mutation MetaobjectCreate($metaobject: MetaobjectCreateInput!) {\n                metaobjectCreate(metaobject: $metaobject) {\n                    metaobject {\n                        id\n                        type\n                        handle\n                        displayName\n                        fields {\n                            key\n                            value\n                            type\n                        }\n                    }\n                    userErrors {\n                        field\n                        message\n                        code\n                    }\n                }\n            }\n        ",

@@ -9,7 +9,7 @@
   "nango": {},
   "api": {
     "post": {
-      "/admin/api/2025-07/graphql.json": {
+      "/admin/api/2026-04/graphql.json": {
         "response": {
           "data": {
             "urlRedirectDelete": {
@@ -53,7 +53,7 @@
           "x-stats-userid": "",
           "x-stats-apiclientid": "376951341057",
           "x-stats-apipermissionid": "695964696713",
-          "x-shopify-api-version": "2025-07",
+          "x-shopify-api-version": "2026-04",
           "x-shopify-api-version-warning": "https://shopify.dev/concepts/about-apis/versioning",
           "content-language": "en",
           "alt-svc": "h3=\":443\"; ma=86400",
@@ -69,7 +69,7 @@
           "reporting-endpoints": "shopify-csp=\"/csp-report?source%5Baction%5D=query&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fgraphql&source%5Bsection%5D=admin_api&source%5Buuid%5D=a0600bf5-575d-450c-ba83-a763c47674cc-1780577010\"",
           "cf-ray": "a067060899e4fc1e-PDX"
         },
-        "hash": "d0161d6b90456b0e7511b7e7f60d1c7247a3edb2",
+        "hash": "8bc288dbfb64b120ea937d9a5dbb2d42221b5f7f",
         "request": {
           "data": {
             "query": "\n                    mutation UrlRedirectDelete($id: ID!) {\n                        urlRedirectDelete(id: $id) {\n                            deletedUrlRedirectId\n                            userErrors {\n                                field\n                                message\n                            }\n                        }\n                    }\n                ",

@@ -41,7 +41,7 @@
   "nango": {},
   "api": {
     "post": {
-      "/admin/api/2025-04/graphql.json": {
+      "/admin/api/2026-04/graphql.json": {
         "response": {
           "data": {
             "publications": {
@@ -121,7 +121,7 @@
           "x-stats-userid": "",
           "x-stats-apiclientid": "376951341057",
           "x-stats-apipermissionid": "695964696713",
-          "x-shopify-api-version": "2025-07",
+          "x-shopify-api-version": "2026-04",
           "x-shopify-api-version-warning": "https://shopify.dev/concepts/about-apis/versioning",
           "content-language": "en",
           "alt-svc": "h3=\":443\"; ma=86400",
@@ -138,7 +138,7 @@
           "reporting-endpoints": "shopify-csp=\"/csp-report?source%5Baction%5D=query&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fgraphql&source%5Bsection%5D=admin_api&source%5Buuid%5D=09fc69b4-1f35-4877-a9fe-2b754e896e92-1780570254\"",
           "cf-ray": "a066611c8832ff19-PDX"
         },
-        "hash": "ed68c2302a136b6a6ce402cc07ee8576e47fecfd",
+        "hash": "24b1adc6b3f1788efa7f14adaabe3a099a573c1e",
         "request": {
           "data": {
             "query": "\n                    query publications($first: Int, $after: String) {\n                        publications(first: $first, after: $after) {\n                            nodes {\n                                id\n                                name\n                                app {\n                                    id\n                                    title\n                                }\n                            }\n                            pageInfo {\n                                hasNextPage\n                                endCursor\n                            }\n                        }\n                    }\n                ",
