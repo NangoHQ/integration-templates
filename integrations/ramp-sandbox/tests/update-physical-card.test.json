@@ -1,0 +1,113 @@
+{
+  "input": {
+    "card_id": "950792a7-fb5a-41b9-a127-29b7f3f94384",
+    "display_name": "Nango Registry Test Card"
+  },
+  "output": {
+    "id": "950792a7-fb5a-41b9-a127-29b7f3f94384",
+    "display_name": "Nango Registry Test Card",
+    "automatic_routing_enabled": true,
+    "cardholder_id": "92539a3b-9151-4dfc-8a8c-b5dd5114b865",
+    "cardholder_name": "Laura Van Lenten",
+    "state": "ACTIVE",
+    "is_suspended": false,
+    "last_four": "5062",
+    "expiration": "0830",
+    "created_at": "2026-10-14T10:06:19+00:00"
+  },
+  "nango": {},
+  "api": {
+    "patch": {
+      "/developer/v1/cards/physical/950792a7-fb5a-41b9-a127-29b7f3f94384": {
+        "response": {
+          "expiration": "0830",
+          "cardholder_name": "Laura Van Lenten",
+          "cardholder_id": "92539a3b-9151-4dfc-8a8c-b5dd5114b865",
+          "id": "950792a7-fb5a-41b9-a127-29b7f3f94384",
+          "display_name": "Nango Registry Test Card",
+          "is_suspended": false,
+          "automatic_routing_enabled": true,
+          "created_at": "2026-10-14T10:06:19+00:00",
+          "is_physical": true,
+          "state": "ACTIVE",
+          "fulfillment": {
+            "shipping_eta": null,
+            "card_personalization": {
+              "text": {
+                "name_line_1": {
+                  "value": "Laura Van Lenten"
+                },
+                "name_line_2": {
+                  "value": "nango-dev"
+                }
+              }
+            },
+            "shipping_tracking_url": null,
+            "fulfillment_status": "DELIVERED",
+            "shipping": {
+              "recipient_address": {
+                "city": "New York",
+                "postal_code": "10010",
+                "phone": "+15005550006",
+                "country": "US",
+                "state": "NY",
+                "last_name": "Van Lenten",
+                "address1": "28 W 23rd St, Floor 2",
+                "first_name": "Laura"
+              },
+              "method": "LOCAL_MAIL"
+            },
+            "shipping_date": "2026-10-13T00:00:00+00:00"
+          },
+          "has_program_overridden": false,
+          "last_four": "5062",
+          "is_primary": true
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 14 Oct 2026 11:10:09 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1601",
+          "x-ratelimit-reset": "1791976210",
+          "cf-ray": "a4a622ca3af3ac0d-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "server": "cloudflare",
+          "vary": "Origin, accept-encoding",
+          "content-security-policy": "upgrade-insecure-requests; frame-ancestors 'self' https://demo.ramp.com; report-uri https://ramp.report-uri.com/r/d/csp/enforce",
+          "ramp-worker-name": "demo-app-worker",
+          "server-timing": "gt;dur=181.870, ge;dur=0.193, px;dur=181.601, fw;dur=253.00, fwe;dur=0.00, fwx;dur=253.00",
+          "x-debug-cell-id": "none",
+          "x-debug-routing-key": "none",
+          "x-debug-upstream-cache-control": "none",
+          "x-ramp-body-source": "others",
+          "x-ramp-business-id": "e15cd7ee-ab7e-4173-a82f-00f33901c1ca",
+          "x-ramp-cf-ray": "a4a622ca4fd2c12a-PDX",
+          "x-ramp-request-id": "01a13a1a-fa9b-7e86-a199-190ed5cf5a17",
+          "x-ramp-sensitive-fields": "fulfillment.shipping.recipient_address.phone,fulfillment.shipping.recipient_address.address1",
+          "x-trace-id": "ramp-126dd63364bf4f5290dbaa004fe4b75b",
+          "set-cookie": "__cf_bm=MpX1vtUQOxyvfK4Mf.89nojVKG2kdmCgGFYdrMh3gDo-1791976208.9983392-1.0.1.1-scg1kD5ycziZp2i5SQC3XSNUb895JNTY1wRfehj_0uftB.UWIXmvETQ1jlevkRaH1l._WZlwj73HvHI27XIzv12uYZTNzDQEtIzyatAzmI3I02mPRS50edRVB0axQ6_w; HttpOnly; SameSite=None; Secure; Path=/; Domain=ramp.com; Expires=Wed, 14 Oct 2026 11:40:09 GMT",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "hash": "703087fa86b59df9ba6aba58cba59c2b7ee18e79",
+        "request": {
+          "data": {
+            "display_name": "Nango Registry Test Card"
+          }
+        }
+      }
+    }
+  }
+}

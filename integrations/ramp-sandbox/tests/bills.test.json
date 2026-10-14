@@ -1,0 +1,1183 @@
+{
+  "nango": {
+    "batchSave": {
+      "Bill": [
+        {
+          "accounting_field_selections": [],
+          "accounting_date": "2026-10-14T00:00:00+00:00",
+          "fx_conversion_rate": "1.0",
+          "remote_id": null,
+          "inventory_line_items": [],
+          "status": "PAID",
+          "item_receipt_ids": [],
+          "invoice_number": "806696",
+          "status_summary": "PAYMENT_COMPLETED",
+          "bill_owner": {
+            "id": "07323c8f-c449-4222-a970-8cc4cf673711",
+            "last_name": "Wallace",
+            "first_name": "David"
+          },
+          "invoice_urls": [
+            "https://demo-shared.ramp.com/invoices/save-time-inc/2026_10_14_f6c5f4b4-41a1-4a3a-8488-0052d68a0311.pdf?Expires=1791980562&Signature=fB2szT61VzQ21AUoGDv0mD~qFPYKkcLGnyM0PMRDqvjIWoT8vWjbsSkVqr47z5R1gOk-VYvEul2r63MagvMgdNg3NRZlExnqttvMcmNNjj~cnCClJaLnSy3UUIZ2fNhkZHMnVHhb7sm0sEj6MtcJrXRI0LohW2M3Hmjr~AIpfkxa6evFeqvvaMZ6zgD1j1d-tBfKUL1WRzWOBl0qBh3rIPjri7GiRi-1YJmkHikgdkrhM2F78K-YyRAVMZzIHg1WQP7Qa0i-iPN4XZjMohH8vsNHdBlsDmVsM0K-Fc7O5uaJessQNKiJdnfvwWAE7w-3ibLD5W3t-LvejcVsJT~l8g__&Key-Pair-Id=KSUO74XX4KMAT&Hash-Algorithm=SHA256",
+            "https://demo-shared.ramp.com/bill_pay_raw_email_invoice/business_e15cd7ee-ab7e-4173-a82f-00f33901c1ca/20261014_01a139eb-58c1-745a-9beb-3d94ac733190.txt?Expires=1791980562&Signature=bvJMon7rrBPVMRgoGsqvqz9tHQfOsK~ptYYbR60EIVjnAr~Zvr1~qf7zVoFiVNNb4ak1wqDXAyShNaeY1~0BUir4U6MioeE1F3~U4XuILGjbv4ywPirTeW7IzsiVfGM-Mda~sRcJMlt9Wc2NNqfUKQ6CsMOB9eux2GW8WaAz-c98t9AgcOnAIN9WrJyG2tQScnfqBjyPRX35ts7~rdPHFD2DLiv6ixWwXyJNW8g3Qrw7f04U-bSrd-RAwKp24rUV49OgJRDdgCV8Tk3ZGEuuZLP0d2y0EE-rii8xhHMeEkQygi4I3qjrZJr4-S6f~gcR6bPuljdHNbkecljBfn1jvA__&Key-Pair-Id=KSUO74XX4KMAT&Hash-Algorithm=SHA256"
+          ],
+          "purchase_order_ids": [],
+          "amount": {
+            "minor_unit_conversion_rate": 100,
+            "currency_code": "USD",
+            "amount": 73005
+          },
+          "sync_status": "NOT_SYNCED",
+          "enable_accounting_sync": true,
+          "archived_at": null,
+          "entity_id": "eb24fd81-de5d-43bd-8102-eb2cc53d3c3a",
+          "attachments": [
+            {
+              "id": "10051b4f-8773-4add-9b9e-e58cf94b62c9",
+              "url": "https://demo-shared.ramp.com/invoices/save-time-inc/2026_10_14_f6c5f4b4-41a1-4a3a-8488-0052d68a0311.pdf?Expires=1791980562&Signature=fB2szT61VzQ21AUoGDv0mD~qFPYKkcLGnyM0PMRDqvjIWoT8vWjbsSkVqr47z5R1gOk-VYvEul2r63MagvMgdNg3NRZlExnqttvMcmNNjj~cnCClJaLnSy3UUIZ2fNhkZHMnVHhb7sm0sEj6MtcJrXRI0LohW2M3Hmjr~AIpfkxa6evFeqvvaMZ6zgD1j1d-tBfKUL1WRzWOBl0qBh3rIPjri7GiRi-1YJmkHikgdkrhM2F78K-YyRAVMZzIHg1WQP7Qa0i-iPN4XZjMohH8vsNHdBlsDmVsM0K-Fc7O5uaJessQNKiJdnfvwWAE7w-3ibLD5W3t-LvejcVsJT~l8g__&Key-Pair-Id=KSUO74XX4KMAT&Hash-Algorithm=SHA256",
+              "attachment_type": "INVOICE"
+            },
+            {
+              "id": "d63370fe-897c-49b4-89cc-ef53757a7cee",
+              "url": "https://demo-shared.ramp.com/bill_pay_raw_email_invoice/business_e15cd7ee-ab7e-4173-a82f-00f33901c1ca/20261014_01a139eb-58c1-745a-9beb-3d94ac733190.txt?Expires=1791980562&Signature=bvJMon7rrBPVMRgoGsqvqz9tHQfOsK~ptYYbR60EIVjnAr~Zvr1~qf7zVoFiVNNb4ak1wqDXAyShNaeY1~0BUir4U6MioeE1F3~U4XuILGjbv4ywPirTeW7IzsiVfGM-Mda~sRcJMlt9Wc2NNqfUKQ6CsMOB9eux2GW8WaAz-c98t9AgcOnAIN9WrJyG2tQScnfqBjyPRX35ts7~rdPHFD2DLiv6ixWwXyJNW8g3Qrw7f04U-bSrd-RAwKp24rUV49OgJRDdgCV8Tk3ZGEuuZLP0d2y0EE-rii8xhHMeEkQygi4I3qjrZJr4-S6f~gcR6bPuljdHNbkecljBfn1jvA__&Key-Pair-Id=KSUO74XX4KMAT&Hash-Algorithm=SHA256",
+              "attachment_type": "EMAIL"
+            }
+          ],
+          "memo": "My bill memo",
+          "id": "79e87b94-b823-46f4-aed4-d05d9fc33463",
+          "line_items": [
+            {
+              "accounting_field_selections": [],
+              "posting_gl_account": null,
+              "memo": "My line item memo",
+              "id": "01a139eb-5147-7978-8065-51254f2e66f2",
+              "purchase_order_line_item_id": null,
+              "amount": {
+                "minor_unit_conversion_rate": 100,
+                "currency_code": "USD",
+                "amount": 73005
+              },
+              "item_receipt_line_item_ids": []
+            }
+          ],
+          "draft_bill_created_at": null,
+          "draft_bill_id": null,
+          "deep_link_url": null,
+          "posting_date": "2026-10-14T00:00:00+00:00",
+          "issued_at": "2026-10-14T00:00:00+00:00",
+          "paid_at": "2026-10-14T10:18:16+00:00",
+          "due_at": "2026-11-13T00:00:00+00:00",
+          "vendor": {
+            "type": "BUSINESS",
+            "id": "effa4ecc-59f7-423b-9747-56dafc7c66da",
+            "name": "Figma"
+          },
+          "purchase_order_id": null,
+          "applied_vendor_credits": [],
+          "vendor_contact_id": "694ffb89-6e85-4320-bc82-aaa8961b8e6e",
+          "approval_status": "APPROVED",
+          "is_payment_sync_ready": true,
+          "created_at": "2026-10-14T10:17:59+00:00",
+          "payment": {
+            "payment_date": "2026-10-14T00:00:00+00:00",
+            "trace_id": null,
+            "customer_friendly_payment_id": "HPE6KJ7ZEY",
+            "id": "385bdd97-98ec-4d44-87c3-fbda791775d5",
+            "payment_method": "ACH",
+            "amount": {
+              "minor_unit_conversion_rate": 100,
+              "currency_code": "USD",
+              "amount": 73005
+            },
+            "details": {
+              "vendor_account_id": "e521d107-ad27-481d-96c2-1e05c15900e1",
+              "is_same_day": false,
+              "source_bank_account_id": "0cb665b6-49d5-4723-b29a-71ce8af70751",
+              "approval_status": null,
+              "schema_type": "VendorPaymentDetailsSchema"
+            },
+            "effective_date": "2026-10-14T00:00:00+00:00"
+          },
+          "vendor_memo": null
+        },
+        {
+          "accounting_field_selections": [],
+          "accounting_date": "2026-10-14T00:00:00+00:00",
+          "fx_conversion_rate": "1.0",
+          "remote_id": null,
+          "inventory_line_items": [],
+          "status": "PAID",
+          "item_receipt_ids": [],
+          "invoice_number": "DD-PAID",
+          "status_summary": "PAYMENT_COMPLETED",
+          "bill_owner": {
+            "id": "9d3d3246-8235-40fa-a5c1-56ae8583d945",
+            "last_name": "Martin",
+            "first_name": "Angela"
+          },
+          "invoice_urls": [
+            "https://demo-shared.ramp.com/invoices/save-time-inc/2026_10_14_5b975217-0f60-4631-b155-de3e75b157c2.pdf?Expires=1791980562&Signature=44cxsYJ3JgS6oVgJNW58U3i390PKqNPsEo4w9triuJFCTBM54MTS6sZtIgu~ilppDLNjND40SmeE-cD8ylXUzVDWXhM-cED8eAYAdiU~3VJNjkoBwBNrhT0I~38l9~zYUgqZT80Q67m3YEsZ1hTGkj2m6lYVZeMSaQ7vQQ3VweDrbG8bwVUXMoefWOL5jEbMEgIkM7qmR-QkA5sd7k1S2mo57FkJ~ecaDNHV5W~37esWaaj3Uln4PYXVVIuMP8m~fGVBcvbBaNImxiw3D2X~dgWSyq2mIxYBSfX3HvmmB-KeF05dUcd-HzFzLX4U4b3wFyNswhdJrb3fSt1iSO0~hA__&Key-Pair-Id=KSUO74XX4KMAT&Hash-Algorithm=SHA256"
+          ],
+          "purchase_order_ids": [],
+          "amount": {
+            "minor_unit_conversion_rate": 100,
+            "currency_code": "USD",
+            "amount": 48000
+          },
+          "sync_status": "NOT_SYNCED",
+          "enable_accounting_sync": true,
+          "archived_at": null,
+          "entity_id": "eb24fd81-de5d-43bd-8102-eb2cc53d3c3a",
+          "attachments": [
+            {
+              "id": "50b6cd2d-37bc-42e8-8577-fa634840e779",
+              "url": "https://demo-shared.ramp.com/invoices/save-time-inc/2026_10_14_5b975217-0f60-4631-b155-de3e75b157c2.pdf?Expires=1791980562&Signature=44cxsYJ3JgS6oVgJNW58U3i390PKqNPsEo4w9triuJFCTBM54MTS6sZtIgu~ilppDLNjND40SmeE-cD8ylXUzVDWXhM-cED8eAYAdiU~3VJNjkoBwBNrhT0I~38l9~zYUgqZT80Q67m3YEsZ1hTGkj2m6lYVZeMSaQ7vQQ3VweDrbG8bwVUXMoefWOL5jEbMEgIkM7qmR-QkA5sd7k1S2mo57FkJ~ecaDNHV5W~37esWaaj3Uln4PYXVVIuMP8m~fGVBcvbBaNImxiw3D2X~dgWSyq2mIxYBSfX3HvmmB-KeF05dUcd-HzFzLX4U4b3wFyNswhdJrb3fSt1iSO0~hA__&Key-Pair-Id=KSUO74XX4KMAT&Hash-Algorithm=SHA256",
+              "attachment_type": "INVOICE"
+            }
+          ],
+          "memo": "Slack Enterprise Grid monthly subscription",
+          "id": "05825c77-e69e-567e-a44e-a484a58fe6d2",
+          "line_items": [
+            {
+              "accounting_field_selections": [],
+              "posting_gl_account": null,
+              "memo": "Slack Enterprise Grid monthly subscription",
+              "id": "01a139ea-886f-7ad2-9108-e08c5243d907",
+              "purchase_order_line_item_id": null,
+              "amount": {
+                "minor_unit_conversion_rate": 100,
+                "currency_code": "USD",
+                "amount": 48000
+              },
+              "item_receipt_line_item_ids": []
+            }
+          ],
+          "draft_bill_created_at": null,
+          "draft_bill_id": null,
+          "deep_link_url": null,
+          "posting_date": "2026-10-14T00:00:00+00:00",
+          "issued_at": "2026-10-07T00:00:00+00:00",
+          "paid_at": "2026-10-13T10:17:24+00:00",
+          "due_at": "2026-10-15T00:00:00+00:00",
+          "vendor": {
+            "type": "BUSINESS",
+            "id": "9834d774-97a4-42c5-a6cc-4a41806267df",
+            "name": "Slack"
+          },
+          "purchase_order_id": null,
+          "applied_vendor_credits": [],
+          "vendor_contact_id": "9f730a15-f687-467f-a9bb-2f554ab6e28a",
+          "approval_status": "APPROVED",
+          "is_payment_sync_ready": true,
+          "created_at": "2026-10-14T10:17:13+00:00",
+          "payment": {
+            "payment_date": null,
+            "trace_id": null,
+            "customer_friendly_payment_id": null,
+            "id": "03714ede-9cf1-421f-bac0-eb174ab39629",
+            "payment_method": "DIRECT_DEBIT",
+            "amount": {
+              "minor_unit_conversion_rate": 100,
+              "currency_code": "USD",
+              "amount": 48000
+            },
+            "details": {
+              "vendor_account_id": null,
+              "is_same_day": false,
+              "source_bank_account_id": "0cb665b6-49d5-4723-b29a-71ce8af70751",
+              "approval_status": null,
+              "schema_type": "VendorPaymentDetailsSchema"
+            },
+            "effective_date": null
+          },
+          "vendor_memo": null
+        },
+        {
+          "accounting_field_selections": [],
+          "accounting_date": "2026-10-14T00:00:00+00:00",
+          "fx_conversion_rate": "1.0",
+          "remote_id": null,
+          "inventory_line_items": [],
+          "status": "OPEN",
+          "item_receipt_ids": [],
+          "invoice_number": "DD-MANUAL-1",
+          "status_summary": "WAITING_FOR_TRANSFER_MATCH",
+          "bill_owner": {
+            "id": "9d3d3246-8235-40fa-a5c1-56ae8583d945",
+            "last_name": "Martin",
+            "first_name": "Angela"
+          },
+          "invoice_urls": [
+            "https://demo-shared.ramp.com/invoices/save-time-inc/2026_10_14_d9a8dc17-98ee-431e-8e74-9fe265a033f6.pdf?Expires=1791980562&Signature=K4q3Y~7tVH8m13RrMRRKqaJbBYUtiUjOOal3fyisU4rP1zM5LSVttCb4im7sk-P6ancRMgizWnRU3ODWw7qyulzVeY9TopS-cyVUdo4h8LTYPou97qLO1KVYCgHiRJNSX6nUQho3d5CdqHCyXfWbhWhLgGZZ1WO1W~9USEmMS340DRMQoPWZHLR4Wv7qDihhOp~C65sLr0EZMqzQDxMrnjQl3Su78PUhzuU8417~2-FJJUQ1Siz9RKLh~fQHhDIO~SARuAil-mBrrb5kUbdessn43Yd43r~cF9a4UTbr3o~Y2qxreu6noKJNVX8AiVuzHqpFsmoi6yDBI3iAuymMrg__&Key-Pair-Id=KSUO74XX4KMAT&Hash-Algorithm=SHA256"
+          ],
+          "purchase_order_ids": [],
+          "amount": {
+            "minor_unit_conversion_rate": 100,
+            "currency_code": "USD",
+            "amount": 125000
+          },
+          "sync_status": "NOT_SYNCED",
+          "enable_accounting_sync": true,
+          "archived_at": null,
+          "entity_id": "eb24fd81-de5d-43bd-8102-eb2cc53d3c3a",
+          "attachments": [
+            {
+              "id": "6ee79510-3815-4ec2-8d09-0d4dfae53f34",
+              "url": "https://demo-shared.ramp.com/invoices/save-time-inc/2026_10_14_d9a8dc17-98ee-431e-8e74-9fe265a033f6.pdf?Expires=1791980562&Signature=K4q3Y~7tVH8m13RrMRRKqaJbBYUtiUjOOal3fyisU4rP1zM5LSVttCb4im7sk-P6ancRMgizWnRU3ODWw7qyulzVeY9TopS-cyVUdo4h8LTYPou97qLO1KVYCgHiRJNSX6nUQho3d5CdqHCyXfWbhWhLgGZZ1WO1W~9USEmMS340DRMQoPWZHLR4Wv7qDihhOp~C65sLr0EZMqzQDxMrnjQl3Su78PUhzuU8417~2-FJJUQ1Siz9RKLh~fQHhDIO~SARuAil-mBrrb5kUbdessn43Yd43r~cF9a4UTbr3o~Y2qxreu6noKJNVX8AiVuzHqpFsmoi6yDBI3iAuymMrg__&Key-Pair-Id=KSUO74XX4KMAT&Hash-Algorithm=SHA256",
+              "attachment_type": "INVOICE"
+            }
+          ],
+          "memo": "Salesforce monthly subscription",
+          "id": "93d8436a-1cc7-596b-ace0-7c69f5bcb5ce",
+          "line_items": [
+            {
+              "accounting_field_selections": [],
+              "posting_gl_account": null,
+              "memo": "Salesforce monthly subscription",
+              "id": "01a139ea-90c2-7ffa-8031-8a46d151eb39",
+              "purchase_order_line_item_id": null,
+              "amount": {
+                "minor_unit_conversion_rate": 100,
+                "currency_code": "USD",
+                "amount": 125000
+              },
+              "item_receipt_line_item_ids": []
+            }
+          ],
+          "draft_bill_created_at": null,
+          "draft_bill_id": null,
+          "deep_link_url": null,
+          "posting_date": "2026-10-14T00:00:00+00:00",
+          "issued_at": "2026-10-07T00:00:00+00:00",
+          "paid_at": null,
+          "due_at": "2026-10-15T00:00:00+00:00",
+          "vendor": {
+            "type": "BUSINESS",
+            "id": "ece8d100-7737-4b28-abe8-d9afa74a921d",
+            "name": "Salesforce"
+          },
+          "purchase_order_id": null,
+          "applied_vendor_credits": [],
+          "vendor_contact_id": "ad05d647-e524-4c39-8e1f-50d73a4b881b",
+          "approval_status": "APPROVED",
+          "is_payment_sync_ready": false,
+          "created_at": "2026-10-14T10:17:13+00:00",
+          "payment": {
+            "payment_date": null,
+            "trace_id": null,
+            "customer_friendly_payment_id": null,
+            "id": "f4e0fe5f-2ae2-4d74-b0b3-ce355cc1d318",
+            "payment_method": "DIRECT_DEBIT",
+            "amount": {
+              "minor_unit_conversion_rate": 100,
+              "currency_code": "USD",
+              "amount": 125000
+            },
+            "details": {
+              "vendor_account_id": null,
+              "is_same_day": false,
+              "source_bank_account_id": "0cb665b6-49d5-4723-b29a-71ce8af70751",
+              "approval_status": null,
+              "schema_type": "VendorPaymentDetailsSchema"
+            },
+            "effective_date": null
+          },
+          "vendor_memo": null
+        },
+        {
+          "accounting_field_selections": [],
+          "accounting_date": "2026-10-14T00:00:00+00:00",
+          "fx_conversion_rate": "1.0",
+          "remote_id": null,
+          "inventory_line_items": [],
+          "status": "OPEN",
+          "item_receipt_ids": [],
+          "invoice_number": "DD-MANUAL-GROUP-1",
+          "status_summary": "WAITING_FOR_TRANSFER_MATCH",
+          "bill_owner": {
+            "id": "9d3d3246-8235-40fa-a5c1-56ae8583d945",
+            "last_name": "Martin",
+            "first_name": "Angela"
+          },
+          "invoice_urls": [
+            "https://demo-shared.ramp.com/invoices/save-time-inc/2026_10_14_a5344510-b85e-4f35-bbaf-4dd07ab11ad5.pdf?Expires=1791980562&Signature=uVAX438yLnH4x1oT2pOd7nvvMMNPkeXWS9bK-x8zvVJz4xY7lYZ-abq8NfXJ7xsu0UPe4mik4TPWG2-35Em3xeN7vmg9Zx1ClUPBnO66M5yeHx89R6JKDWj4b8ohZ1Xugbkr7LzGXn6Bz5jrptRmJABtC4szb1Baz-DT8kfDA8i~dWkCAzSs1ObydnfKxe86QDKKMMf~P0QBe6QE4630XTmbFgVqTyOqsWyNoGACbj4~E-zyOgenk02nKLyP9LXiscG3PxyWZF3p0x7TdEZM6RsXboOY7VCP5jFLAib0QmYiBkqEwnm-Og46DmWMxCn6PHLe9fl6IQLx5uLF9-NcTg__&Key-Pair-Id=KSUO74XX4KMAT&Hash-Algorithm=SHA256"
+          ],
+          "purchase_order_ids": [],
+          "amount": {
+            "minor_unit_conversion_rate": 100,
+            "currency_code": "USD",
+            "amount": 65000
+          },
+          "sync_status": "NOT_SYNCED",
+          "enable_accounting_sync": true,
+          "archived_at": null,
+          "entity_id": "eb24fd81-de5d-43bd-8102-eb2cc53d3c3a",
+          "attachments": [
+            {
+              "id": "adc9779c-feef-45b3-a042-0d5aa3f3b1d7",
+              "url": "https://demo-shared.ramp.com/invoices/save-time-inc/2026_10_14_a5344510-b85e-4f35-bbaf-4dd07ab11ad5.pdf?Expires=1791980562&Signature=uVAX438yLnH4x1oT2pOd7nvvMMNPkeXWS9bK-x8zvVJz4xY7lYZ-abq8NfXJ7xsu0UPe4mik4TPWG2-35Em3xeN7vmg9Zx1ClUPBnO66M5yeHx89R6JKDWj4b8ohZ1Xugbkr7LzGXn6Bz5jrptRmJABtC4szb1Baz-DT8kfDA8i~dWkCAzSs1ObydnfKxe86QDKKMMf~P0QBe6QE4630XTmbFgVqTyOqsWyNoGACbj4~E-zyOgenk02nKLyP9LXiscG3PxyWZF3p0x7TdEZM6RsXboOY7VCP5jFLAib0QmYiBkqEwnm-Og46DmWMxCn6PHLe9fl6IQLx5uLF9-NcTg__&Key-Pair-Id=KSUO74XX4KMAT&Hash-Algorithm=SHA256",
+              "attachment_type": "INVOICE"
+            }
+          ],
+          "memo": "AWS compute usage",
+          "id": "e5dfb39c-504f-58e9-9f55-f3fe9fd6db92",
+          "line_items": [
+            {
+              "accounting_field_selections": [],
+              "posting_gl_account": null,
+              "memo": "AWS compute usage",
+              "id": "01a139ea-9e96-7547-a668-6c844f4cf4b4",
+              "purchase_order_line_item_id": null,
+              "amount": {
+                "minor_unit_conversion_rate": 100,
+                "currency_code": "USD",
+                "amount": 65000
+              },
+              "item_receipt_line_item_ids": []
+            }
+          ],
+          "draft_bill_created_at": null,
+          "draft_bill_id": null,
+          "deep_link_url": null,
+          "posting_date": "2026-10-14T00:00:00+00:00",
+          "issued_at": "2026-10-07T00:00:00+00:00",
+          "paid_at": null,
+          "due_at": "2026-10-15T00:00:00+00:00",
+          "vendor": {
+            "type": "BUSINESS",
+            "id": "065e1c8c-8584-4d04-8fe6-e9a9092dc728",
+            "name": "Amazon Web Services"
+          },
+          "purchase_order_id": null,
+          "applied_vendor_credits": [],
+          "vendor_contact_id": "6280962f-aa47-4231-b280-7c643983ef02",
+          "approval_status": "APPROVED",
+          "is_payment_sync_ready": false,
+          "created_at": "2026-10-14T10:17:13+00:00",
+          "payment": {
+            "payment_date": null,
+            "trace_id": null,
+            "customer_friendly_payment_id": null,
+            "id": "5f9eb582-4b02-4a3b-ab43-2c95353ace10",
+            "payment_method": "DIRECT_DEBIT",
+            "amount": {
+              "minor_unit_conversion_rate": 100,
+              "currency_code": "USD",
+              "amount": 65000
+            },
+            "details": {
+              "vendor_account_id": null,
+              "is_same_day": false,
+              "source_bank_account_id": "0cb665b6-49d5-4723-b29a-71ce8af70751",
+              "approval_status": null,
+              "schema_type": "VendorPaymentDetailsSchema"
+            },
+            "effective_date": null
+          },
+          "vendor_memo": null
+        },
+        {
+          "accounting_field_selections": [],
+          "accounting_date": "2026-10-14T00:00:00+00:00",
+          "fx_conversion_rate": "1.0",
+          "remote_id": null,
+          "inventory_line_items": [],
+          "status": "OPEN",
+          "item_receipt_ids": [],
+          "invoice_number": "DD-MANUAL-GROUP-2",
+          "status_summary": "WAITING_FOR_TRANSFER_MATCH",
+          "bill_owner": {
+            "id": "9d3d3246-8235-40fa-a5c1-56ae8583d945",
+            "last_name": "Martin",
+            "first_name": "Angela"
+          },
+          "invoice_urls": [
+            "https://demo-shared.ramp.com/invoices/save-time-inc/2026_10_14_849f22e9-dda8-42c0-a618-b5e6ed0451b6.pdf?Expires=1791980562&Signature=Fd6AE5Vc1JMaPteif5~YijGw5aUyxTb9RO9G1om-1yjxXBKNnkyCvbGi69I9Jj0V8F8mvdSRhp2AaiZ14RuDPA0EuOV7LOCy~HMOPb3uc~xSWw3Ez1jSBvrfx2UrNrrg0jr0bj61w~i~4p6Rdi2G5VbNzstPeGXvaj15Y0EopP1kr8ovWId9t4AR9K1I6~PTq1vJMoQcWTdcZc7nGK6DhqWYlIT8nBwXlUdvCLc9vlb3Gk28cE~er7e8Dw5ijyJD6OB84kfmwoKPSpKo00oN3wpFzx8U96iE4vj2fLSZl58gnvNV-Qs4-qo1RJ37JVK38Lnmwlgfsl5sqm-CIFsyKA__&Key-Pair-Id=KSUO74XX4KMAT&Hash-Algorithm=SHA256"
+          ],
+          "purchase_order_ids": [],
+          "amount": {
+            "minor_unit_conversion_rate": 100,
+            "currency_code": "USD",
+            "amount": 35000
+          },
+          "sync_status": "NOT_SYNCED",
+          "enable_accounting_sync": true,
+          "archived_at": null,
+          "entity_id": "eb24fd81-de5d-43bd-8102-eb2cc53d3c3a",
+          "attachments": [
+            {
+              "id": "9869a124-ea88-485e-b9cc-24c5ba2470f7",
+              "url": "https://demo-shared.ramp.com/invoices/save-time-inc/2026_10_14_849f22e9-dda8-42c0-a618-b5e6ed0451b6.pdf?Expires=1791980562&Signature=Fd6AE5Vc1JMaPteif5~YijGw5aUyxTb9RO9G1om-1yjxXBKNnkyCvbGi69I9Jj0V8F8mvdSRhp2AaiZ14RuDPA0EuOV7LOCy~HMOPb3uc~xSWw3Ez1jSBvrfx2UrNrrg0jr0bj61w~i~4p6Rdi2G5VbNzstPeGXvaj15Y0EopP1kr8ovWId9t4AR9K1I6~PTq1vJMoQcWTdcZc7nGK6DhqWYlIT8nBwXlUdvCLc9vlb3Gk28cE~er7e8Dw5ijyJD6OB84kfmwoKPSpKo00oN3wpFzx8U96iE4vj2fLSZl58gnvNV-Qs4-qo1RJ37JVK38Lnmwlgfsl5sqm-CIFsyKA__&Key-Pair-Id=KSUO74XX4KMAT&Hash-Algorithm=SHA256",
+              "attachment_type": "INVOICE"
+            }
+          ],
+          "memo": "AWS storage usage",
+          "id": "f2b0753e-cfc2-5842-9e35-3764cd9edaa1",
+          "line_items": [
+            {
+              "accounting_field_selections": [],
+              "posting_gl_account": null,
+              "memo": "AWS storage usage",
+              "id": "01a139ea-a6b3-7895-a941-2da44ec32f2f",
+              "purchase_order_line_item_id": null,
+              "amount": {
+                "minor_unit_conversion_rate": 100,
+                "currency_code": "USD",
+                "amount": 35000
+              },
+              "item_receipt_line_item_ids": []
+            }
+          ],
+          "draft_bill_created_at": null,
+          "draft_bill_id": null,
+          "deep_link_url": null,
+          "posting_date": "2026-10-14T00:00:00+00:00",
+          "issued_at": "2026-10-07T00:00:00+00:00",
+          "paid_at": null,
+          "due_at": "2026-10-15T00:00:00+00:00",
+          "vendor": {
+            "type": "BUSINESS",
+            "id": "065e1c8c-8584-4d04-8fe6-e9a9092dc728",
+            "name": "Amazon Web Services"
+          },
+          "purchase_order_id": null,
+          "applied_vendor_credits": [],
+          "vendor_contact_id": "2e87379c-fd94-4af7-9ce9-1396275f410c",
+          "approval_status": "APPROVED",
+          "is_payment_sync_ready": false,
+          "created_at": "2026-10-14T10:17:13+00:00",
+          "payment": {
+            "payment_date": null,
+            "trace_id": null,
+            "customer_friendly_payment_id": null,
+            "id": "8b7e5582-1c4c-4eff-9714-b3765fa94dd5",
+            "payment_method": "DIRECT_DEBIT",
+            "amount": {
+              "minor_unit_conversion_rate": 100,
+              "currency_code": "USD",
+              "amount": 35000
+            },
+            "details": {
+              "vendor_account_id": null,
+              "is_same_day": false,
+              "source_bank_account_id": "0cb665b6-49d5-4723-b29a-71ce8af70751",
+              "approval_status": null,
+              "schema_type": "VendorPaymentDetailsSchema"
+            },
+            "effective_date": null
+          },
+          "vendor_memo": null
+        },
+        {
+          "accounting_field_selections": [],
+          "accounting_date": "2026-10-14T00:00:00+00:00",
+          "fx_conversion_rate": "1.0",
+          "remote_id": null,
+          "inventory_line_items": [],
+          "status": "OPEN",
+          "item_receipt_ids": [],
+          "invoice_number": "DD-PREAPPROVAL",
+          "status_summary": "APPROVAL_PENDING",
+          "bill_owner": {
+            "id": "9d3d3246-8235-40fa-a5c1-56ae8583d945",
+            "last_name": "Martin",
+            "first_name": "Angela"
+          },
+          "invoice_urls": [
+            "https://demo-shared.ramp.com/invoices/save-time-inc/2026_10_14_90369e26-7b9a-4cda-8527-23ecac1f769a.pdf?Expires=1791980562&Signature=178TaQBMhRgDdhIebs84hyXUvummESktm1G~gwq~~RZ2f66FWYY~ld0mYXj-CcwD-2p0tbVV5D5IQh4E3ZwgmDBfH~-JKLkXayiS-u5osNv-GEnixZPDHk2CwkN~3yycgL7ubXAIfqVzAQCUcy0Q-oaR04GWLqCchgBOoYHpmmf0BbK6ObpZUFl52paCQuETf-tbq4DilvzhSDk25apSwnEouyWYVqfQ3ztLwZOf4WkCzWl0UJQI~8~E9j0gtinOy~xHEVqW96lyIjHUrpb~WddzD~AOJ~NOpvtZF7ct95JJRU7zn7MC2G4oG9-B-QpkehJtYPEa4l7wXdalkzAL2w__&Key-Pair-Id=KSUO74XX4KMAT&Hash-Algorithm=SHA256"
+          ],
+          "purchase_order_ids": [],
+          "amount": {
+            "minor_unit_conversion_rate": 100,
+            "currency_code": "USD",
+            "amount": 84000
+          },
+          "sync_status": "NOT_SYNCED",
+          "enable_accounting_sync": true,
+          "archived_at": null,
+          "entity_id": "eb24fd81-de5d-43bd-8102-eb2cc53d3c3a",
+          "attachments": [
+            {
+              "id": "edc41e49-57fd-422c-a604-ee4e6948fb0a",
+              "url": "https://demo-shared.ramp.com/invoices/save-time-inc/2026_10_14_90369e26-7b9a-4cda-8527-23ecac1f769a.pdf?Expires=1791980562&Signature=178TaQBMhRgDdhIebs84hyXUvummESktm1G~gwq~~RZ2f66FWYY~ld0mYXj-CcwD-2p0tbVV5D5IQh4E3ZwgmDBfH~-JKLkXayiS-u5osNv-GEnixZPDHk2CwkN~3yycgL7ubXAIfqVzAQCUcy0Q-oaR04GWLqCchgBOoYHpmmf0BbK6ObpZUFl52paCQuETf-tbq4DilvzhSDk25apSwnEouyWYVqfQ3ztLwZOf4WkCzWl0UJQI~8~E9j0gtinOy~xHEVqW96lyIjHUrpb~WddzD~AOJ~NOpvtZF7ct95JJRU7zn7MC2G4oG9-B-QpkehJtYPEa4l7wXdalkzAL2w__&Key-Pair-Id=KSUO74XX4KMAT&Hash-Algorithm=SHA256",
+              "attachment_type": "INVOICE"
+            }
+          ],
+          "memo": "DocuSign Business Pro subscription",
+          "id": "27365dbc-0612-5edc-86b9-5e1ed27c1202",
+          "line_items": [
+            {
+              "accounting_field_selections": [],
+              "posting_gl_account": null,
+              "memo": "DocuSign Business Pro subscription",
+              "id": "01a139ea-ae25-7432-b5ab-c2024d3f6b23",
+              "purchase_order_line_item_id": null,
+              "amount": {
+                "minor_unit_conversion_rate": 100,
+                "currency_code": "USD",
+                "amount": 84000
+              },
+              "item_receipt_line_item_ids": []
+            }
+          ],
+          "draft_bill_created_at": null,
+          "draft_bill_id": null,
+          "deep_link_url": null,
+          "posting_date": "2026-10-14T00:00:00+00:00",
+          "issued_at": "2026-10-07T00:00:00+00:00",
+          "paid_at": null,
+          "due_at": "2026-10-15T00:00:00+00:00",
+          "vendor": {
+            "type": "BUSINESS",
+            "id": "929ebd76-959a-44ba-979d-3e05a725e54b",
+            "name": "DocuSign"
+          },
+          "purchase_order_id": null,
+          "applied_vendor_credits": [],
+          "vendor_contact_id": "33f9ac4d-6a58-49e0-9a47-ef789b1af5d5",
+          "approval_status": "PENDING",
+          "is_payment_sync_ready": false,
+          "created_at": "2026-10-14T10:17:13+00:00",
+          "payment": {
+            "payment_date": null,
+            "trace_id": null,
+            "customer_friendly_payment_id": null,
+            "id": "685bbef4-1099-4629-a671-f4f7e89d0746",
+            "payment_method": "DIRECT_DEBIT",
+            "amount": {
+              "minor_unit_conversion_rate": 100,
+              "currency_code": "USD",
+              "amount": 84000
+            },
+            "details": {
+              "vendor_account_id": null,
+              "is_same_day": false,
+              "source_bank_account_id": "0cb665b6-49d5-4723-b29a-71ce8af70751",
+              "approval_status": null,
+              "schema_type": "VendorPaymentDetailsSchema"
+            },
+            "effective_date": null
+          },
+          "vendor_memo": null
+        }
+      ]
+    },
+    "batchDelete": {
+      "Bill": []
+    }
+  },
+  "api": {
+    "get": {
+      "/developer/v1/bills": {
+        "response": {
+          "data": [
+            {
+              "accounting_field_selections": [],
+              "accounting_date": "2026-10-14T00:00:00+00:00",
+              "fx_conversion_rate": "1.0",
+              "remote_id": null,
+              "inventory_line_items": [],
+              "status": "PAID",
+              "item_receipt_ids": [],
+              "invoice_number": "806696",
+              "status_summary": "PAYMENT_COMPLETED",
+              "bill_owner": {
+                "id": "07323c8f-c449-4222-a970-8cc4cf673711",
+                "last_name": "Wallace",
+                "first_name": "David"
+              },
+              "invoice_urls": [
+                "https://demo-shared.ramp.com/invoices/save-time-inc/2026_10_14_f6c5f4b4-41a1-4a3a-8488-0052d68a0311.pdf?Expires=1791980562&Signature=fB2szT61VzQ21AUoGDv0mD~qFPYKkcLGnyM0PMRDqvjIWoT8vWjbsSkVqr47z5R1gOk-VYvEul2r63MagvMgdNg3NRZlExnqttvMcmNNjj~cnCClJaLnSy3UUIZ2fNhkZHMnVHhb7sm0sEj6MtcJrXRI0LohW2M3Hmjr~AIpfkxa6evFeqvvaMZ6zgD1j1d-tBfKUL1WRzWOBl0qBh3rIPjri7GiRi-1YJmkHikgdkrhM2F78K-YyRAVMZzIHg1WQP7Qa0i-iPN4XZjMohH8vsNHdBlsDmVsM0K-Fc7O5uaJessQNKiJdnfvwWAE7w-3ibLD5W3t-LvejcVsJT~l8g__&Key-Pair-Id=KSUO74XX4KMAT&Hash-Algorithm=SHA256",
+                "https://demo-shared.ramp.com/bill_pay_raw_email_invoice/business_e15cd7ee-ab7e-4173-a82f-00f33901c1ca/20261014_01a139eb-58c1-745a-9beb-3d94ac733190.txt?Expires=1791980562&Signature=bvJMon7rrBPVMRgoGsqvqz9tHQfOsK~ptYYbR60EIVjnAr~Zvr1~qf7zVoFiVNNb4ak1wqDXAyShNaeY1~0BUir4U6MioeE1F3~U4XuILGjbv4ywPirTeW7IzsiVfGM-Mda~sRcJMlt9Wc2NNqfUKQ6CsMOB9eux2GW8WaAz-c98t9AgcOnAIN9WrJyG2tQScnfqBjyPRX35ts7~rdPHFD2DLiv6ixWwXyJNW8g3Qrw7f04U-bSrd-RAwKp24rUV49OgJRDdgCV8Tk3ZGEuuZLP0d2y0EE-rii8xhHMeEkQygi4I3qjrZJr4-S6f~gcR6bPuljdHNbkecljBfn1jvA__&Key-Pair-Id=KSUO74XX4KMAT&Hash-Algorithm=SHA256"
+              ],
+              "purchase_order_ids": [],
+              "amount": {
+                "minor_unit_conversion_rate": 100,
+                "currency_code": "USD",
+                "amount": 73005
+              },
+              "sync_status": "NOT_SYNCED",
+              "enable_accounting_sync": true,
+              "archived_at": null,
+              "entity_id": "eb24fd81-de5d-43bd-8102-eb2cc53d3c3a",
+              "attachments": [
+                {
+                  "id": "10051b4f-8773-4add-9b9e-e58cf94b62c9",
+                  "url": "https://demo-shared.ramp.com/invoices/save-time-inc/2026_10_14_f6c5f4b4-41a1-4a3a-8488-0052d68a0311.pdf?Expires=1791980562&Signature=fB2szT61VzQ21AUoGDv0mD~qFPYKkcLGnyM0PMRDqvjIWoT8vWjbsSkVqr47z5R1gOk-VYvEul2r63MagvMgdNg3NRZlExnqttvMcmNNjj~cnCClJaLnSy3UUIZ2fNhkZHMnVHhb7sm0sEj6MtcJrXRI0LohW2M3Hmjr~AIpfkxa6evFeqvvaMZ6zgD1j1d-tBfKUL1WRzWOBl0qBh3rIPjri7GiRi-1YJmkHikgdkrhM2F78K-YyRAVMZzIHg1WQP7Qa0i-iPN4XZjMohH8vsNHdBlsDmVsM0K-Fc7O5uaJessQNKiJdnfvwWAE7w-3ibLD5W3t-LvejcVsJT~l8g__&Key-Pair-Id=KSUO74XX4KMAT&Hash-Algorithm=SHA256",
+                  "attachment_type": "INVOICE"
+                },
+                {
+                  "id": "d63370fe-897c-49b4-89cc-ef53757a7cee",
+                  "url": "https://demo-shared.ramp.com/bill_pay_raw_email_invoice/business_e15cd7ee-ab7e-4173-a82f-00f33901c1ca/20261014_01a139eb-58c1-745a-9beb-3d94ac733190.txt?Expires=1791980562&Signature=bvJMon7rrBPVMRgoGsqvqz9tHQfOsK~ptYYbR60EIVjnAr~Zvr1~qf7zVoFiVNNb4ak1wqDXAyShNaeY1~0BUir4U6MioeE1F3~U4XuILGjbv4ywPirTeW7IzsiVfGM-Mda~sRcJMlt9Wc2NNqfUKQ6CsMOB9eux2GW8WaAz-c98t9AgcOnAIN9WrJyG2tQScnfqBjyPRX35ts7~rdPHFD2DLiv6ixWwXyJNW8g3Qrw7f04U-bSrd-RAwKp24rUV49OgJRDdgCV8Tk3ZGEuuZLP0d2y0EE-rii8xhHMeEkQygi4I3qjrZJr4-S6f~gcR6bPuljdHNbkecljBfn1jvA__&Key-Pair-Id=KSUO74XX4KMAT&Hash-Algorithm=SHA256",
+                  "attachment_type": "EMAIL"
+                }
+              ],
+              "memo": "My bill memo",
+              "id": "79e87b94-b823-46f4-aed4-d05d9fc33463",
+              "line_items": [
+                {
+                  "accounting_field_selections": [],
+                  "posting_gl_account": null,
+                  "memo": "My line item memo",
+                  "id": "01a139eb-5147-7978-8065-51254f2e66f2",
+                  "purchase_order_line_item_id": null,
+                  "amount": {
+                    "minor_unit_conversion_rate": 100,
+                    "currency_code": "USD",
+                    "amount": 73005
+                  },
+                  "item_receipt_line_item_ids": []
+                }
+              ],
+              "draft_bill_created_at": null,
+              "draft_bill_id": null,
+              "deep_link_url": null,
+              "posting_date": "2026-10-14T00:00:00+00:00",
+              "issued_at": "2026-10-14T00:00:00+00:00",
+              "paid_at": "2026-10-14T10:18:16+00:00",
+              "due_at": "2026-11-13T00:00:00+00:00",
+              "vendor": {
+                "type": "BUSINESS",
+                "id": "effa4ecc-59f7-423b-9747-56dafc7c66da",
+                "name": "Figma"
+              },
+              "purchase_order_id": null,
+              "applied_vendor_credits": [],
+              "vendor_contact_id": "694ffb89-6e85-4320-bc82-aaa8961b8e6e",
+              "approval_status": "APPROVED",
+              "is_payment_sync_ready": true,
+              "created_at": "2026-10-14T10:17:59+00:00",
+              "payment": {
+                "payment_date": "2026-10-14T00:00:00+00:00",
+                "trace_id": null,
+                "customer_friendly_payment_id": "HPE6KJ7ZEY",
+                "id": "385bdd97-98ec-4d44-87c3-fbda791775d5",
+                "payment_method": "ACH",
+                "amount": {
+                  "minor_unit_conversion_rate": 100,
+                  "currency_code": "USD",
+                  "amount": 73005
+                },
+                "details": {
+                  "vendor_account_id": "e521d107-ad27-481d-96c2-1e05c15900e1",
+                  "is_same_day": false,
+                  "source_bank_account_id": "0cb665b6-49d5-4723-b29a-71ce8af70751",
+                  "approval_status": null,
+                  "schema_type": "VendorPaymentDetailsSchema"
+                },
+                "effective_date": "2026-10-14T00:00:00+00:00"
+              },
+              "vendor_memo": null
+            },
+            {
+              "accounting_field_selections": [],
+              "accounting_date": "2026-10-14T00:00:00+00:00",
+              "fx_conversion_rate": "1.0",
+              "remote_id": null,
+              "inventory_line_items": [],
+              "status": "PAID",
+              "item_receipt_ids": [],
+              "invoice_number": "DD-PAID",
+              "status_summary": "PAYMENT_COMPLETED",
+              "bill_owner": {
+                "id": "9d3d3246-8235-40fa-a5c1-56ae8583d945",
+                "last_name": "Martin",
+                "first_name": "Angela"
+              },
+              "invoice_urls": [
+                "https://demo-shared.ramp.com/invoices/save-time-inc/2026_10_14_5b975217-0f60-4631-b155-de3e75b157c2.pdf?Expires=1791980562&Signature=44cxsYJ3JgS6oVgJNW58U3i390PKqNPsEo4w9triuJFCTBM54MTS6sZtIgu~ilppDLNjND40SmeE-cD8ylXUzVDWXhM-cED8eAYAdiU~3VJNjkoBwBNrhT0I~38l9~zYUgqZT80Q67m3YEsZ1hTGkj2m6lYVZeMSaQ7vQQ3VweDrbG8bwVUXMoefWOL5jEbMEgIkM7qmR-QkA5sd7k1S2mo57FkJ~ecaDNHV5W~37esWaaj3Uln4PYXVVIuMP8m~fGVBcvbBaNImxiw3D2X~dgWSyq2mIxYBSfX3HvmmB-KeF05dUcd-HzFzLX4U4b3wFyNswhdJrb3fSt1iSO0~hA__&Key-Pair-Id=KSUO74XX4KMAT&Hash-Algorithm=SHA256"
+              ],
+              "purchase_order_ids": [],
+              "amount": {
+                "minor_unit_conversion_rate": 100,
+                "currency_code": "USD",
+                "amount": 48000
+              },
+              "sync_status": "NOT_SYNCED",
+              "enable_accounting_sync": true,
+              "archived_at": null,
+              "entity_id": "eb24fd81-de5d-43bd-8102-eb2cc53d3c3a",
+              "attachments": [
+                {
+                  "id": "50b6cd2d-37bc-42e8-8577-fa634840e779",
+                  "url": "https://demo-shared.ramp.com/invoices/save-time-inc/2026_10_14_5b975217-0f60-4631-b155-de3e75b157c2.pdf?Expires=1791980562&Signature=44cxsYJ3JgS6oVgJNW58U3i390PKqNPsEo4w9triuJFCTBM54MTS6sZtIgu~ilppDLNjND40SmeE-cD8ylXUzVDWXhM-cED8eAYAdiU~3VJNjkoBwBNrhT0I~38l9~zYUgqZT80Q67m3YEsZ1hTGkj2m6lYVZeMSaQ7vQQ3VweDrbG8bwVUXMoefWOL5jEbMEgIkM7qmR-QkA5sd7k1S2mo57FkJ~ecaDNHV5W~37esWaaj3Uln4PYXVVIuMP8m~fGVBcvbBaNImxiw3D2X~dgWSyq2mIxYBSfX3HvmmB-KeF05dUcd-HzFzLX4U4b3wFyNswhdJrb3fSt1iSO0~hA__&Key-Pair-Id=KSUO74XX4KMAT&Hash-Algorithm=SHA256",
+                  "attachment_type": "INVOICE"
+                }
+              ],
+              "memo": "Slack Enterprise Grid monthly subscription",
+              "id": "05825c77-e69e-567e-a44e-a484a58fe6d2",
+              "line_items": [
+                {
+                  "accounting_field_selections": [],
+                  "posting_gl_account": null,
+                  "memo": "Slack Enterprise Grid monthly subscription",
+                  "id": "01a139ea-886f-7ad2-9108-e08c5243d907",
+                  "purchase_order_line_item_id": null,
+                  "amount": {
+                    "minor_unit_conversion_rate": 100,
+                    "currency_code": "USD",
+                    "amount": 48000
+                  },
+                  "item_receipt_line_item_ids": []
+                }
+              ],
+              "draft_bill_created_at": null,
+              "draft_bill_id": null,
+              "deep_link_url": null,
+              "posting_date": "2026-10-14T00:00:00+00:00",
+              "issued_at": "2026-10-07T00:00:00+00:00",
+              "paid_at": "2026-10-13T10:17:24+00:00",
+              "due_at": "2026-10-15T00:00:00+00:00",
+              "vendor": {
+                "type": "BUSINESS",
+                "id": "9834d774-97a4-42c5-a6cc-4a41806267df",
+                "name": "Slack"
+              },
+              "purchase_order_id": null,
+              "applied_vendor_credits": [],
+              "vendor_contact_id": "9f730a15-f687-467f-a9bb-2f554ab6e28a",
+              "approval_status": "APPROVED",
+              "is_payment_sync_ready": true,
+              "created_at": "2026-10-14T10:17:13+00:00",
+              "payment": {
+                "payment_date": null,
+                "trace_id": null,
+                "customer_friendly_payment_id": null,
+                "id": "03714ede-9cf1-421f-bac0-eb174ab39629",
+                "payment_method": "DIRECT_DEBIT",
+                "amount": {
+                  "minor_unit_conversion_rate": 100,
+                  "currency_code": "USD",
+                  "amount": 48000
+                },
+                "details": {
+                  "vendor_account_id": null,
+                  "is_same_day": false,
+                  "source_bank_account_id": "0cb665b6-49d5-4723-b29a-71ce8af70751",
+                  "approval_status": null,
+                  "schema_type": "VendorPaymentDetailsSchema"
+                },
+                "effective_date": null
+              },
+              "vendor_memo": null
+            },
+            {
+              "accounting_field_selections": [],
+              "accounting_date": "2026-10-14T00:00:00+00:00",
+              "fx_conversion_rate": "1.0",
+              "remote_id": null,
+              "inventory_line_items": [],
+              "status": "OPEN",
+              "item_receipt_ids": [],
+              "invoice_number": "DD-MANUAL-1",
+              "status_summary": "WAITING_FOR_TRANSFER_MATCH",
+              "bill_owner": {
+                "id": "9d3d3246-8235-40fa-a5c1-56ae8583d945",
+                "last_name": "Martin",
+                "first_name": "Angela"
+              },
+              "invoice_urls": [
+                "https://demo-shared.ramp.com/invoices/save-time-inc/2026_10_14_d9a8dc17-98ee-431e-8e74-9fe265a033f6.pdf?Expires=1791980562&Signature=K4q3Y~7tVH8m13RrMRRKqaJbBYUtiUjOOal3fyisU4rP1zM5LSVttCb4im7sk-P6ancRMgizWnRU3ODWw7qyulzVeY9TopS-cyVUdo4h8LTYPou97qLO1KVYCgHiRJNSX6nUQho3d5CdqHCyXfWbhWhLgGZZ1WO1W~9USEmMS340DRMQoPWZHLR4Wv7qDihhOp~C65sLr0EZMqzQDxMrnjQl3Su78PUhzuU8417~2-FJJUQ1Siz9RKLh~fQHhDIO~SARuAil-mBrrb5kUbdessn43Yd43r~cF9a4UTbr3o~Y2qxreu6noKJNVX8AiVuzHqpFsmoi6yDBI3iAuymMrg__&Key-Pair-Id=KSUO74XX4KMAT&Hash-Algorithm=SHA256"
+              ],
+              "purchase_order_ids": [],
+              "amount": {
+                "minor_unit_conversion_rate": 100,
+                "currency_code": "USD",
+                "amount": 125000
+              },
+              "sync_status": "NOT_SYNCED",
+              "enable_accounting_sync": true,
+              "archived_at": null,
+              "entity_id": "eb24fd81-de5d-43bd-8102-eb2cc53d3c3a",
+              "attachments": [
+                {
+                  "id": "6ee79510-3815-4ec2-8d09-0d4dfae53f34",
+                  "url": "https://demo-shared.ramp.com/invoices/save-time-inc/2026_10_14_d9a8dc17-98ee-431e-8e74-9fe265a033f6.pdf?Expires=1791980562&Signature=K4q3Y~7tVH8m13RrMRRKqaJbBYUtiUjOOal3fyisU4rP1zM5LSVttCb4im7sk-P6ancRMgizWnRU3ODWw7qyulzVeY9TopS-cyVUdo4h8LTYPou97qLO1KVYCgHiRJNSX6nUQho3d5CdqHCyXfWbhWhLgGZZ1WO1W~9USEmMS340DRMQoPWZHLR4Wv7qDihhOp~C65sLr0EZMqzQDxMrnjQl3Su78PUhzuU8417~2-FJJUQ1Siz9RKLh~fQHhDIO~SARuAil-mBrrb5kUbdessn43Yd43r~cF9a4UTbr3o~Y2qxreu6noKJNVX8AiVuzHqpFsmoi6yDBI3iAuymMrg__&Key-Pair-Id=KSUO74XX4KMAT&Hash-Algorithm=SHA256",
+                  "attachment_type": "INVOICE"
+                }
+              ],
+              "memo": "Salesforce monthly subscription",
+              "id": "93d8436a-1cc7-596b-ace0-7c69f5bcb5ce",
+              "line_items": [
+                {
+                  "accounting_field_selections": [],
+                  "posting_gl_account": null,
+                  "memo": "Salesforce monthly subscription",
+                  "id": "01a139ea-90c2-7ffa-8031-8a46d151eb39",
+                  "purchase_order_line_item_id": null,
+                  "amount": {
+                    "minor_unit_conversion_rate": 100,
+                    "currency_code": "USD",
+                    "amount": 125000
+                  },
+                  "item_receipt_line_item_ids": []
+                }
+              ],
+              "draft_bill_created_at": null,
+              "draft_bill_id": null,
+              "deep_link_url": null,
+              "posting_date": "2026-10-14T00:00:00+00:00",
+              "issued_at": "2026-10-07T00:00:00+00:00",
+              "paid_at": null,
+              "due_at": "2026-10-15T00:00:00+00:00",
+              "vendor": {
+                "type": "BUSINESS",
+                "id": "ece8d100-7737-4b28-abe8-d9afa74a921d",
+                "name": "Salesforce"
+              },
+              "purchase_order_id": null,
+              "applied_vendor_credits": [],
+              "vendor_contact_id": "ad05d647-e524-4c39-8e1f-50d73a4b881b",
+              "approval_status": "APPROVED",
+              "is_payment_sync_ready": false,
+              "created_at": "2026-10-14T10:17:13+00:00",
+              "payment": {
+                "payment_date": null,
+                "trace_id": null,
+                "customer_friendly_payment_id": null,
+                "id": "f4e0fe5f-2ae2-4d74-b0b3-ce355cc1d318",
+                "payment_method": "DIRECT_DEBIT",
+                "amount": {
+                  "minor_unit_conversion_rate": 100,
+                  "currency_code": "USD",
+                  "amount": 125000
+                },
+                "details": {
+                  "vendor_account_id": null,
+                  "is_same_day": false,
+                  "source_bank_account_id": "0cb665b6-49d5-4723-b29a-71ce8af70751",
+                  "approval_status": null,
+                  "schema_type": "VendorPaymentDetailsSchema"
+                },
+                "effective_date": null
+              },
+              "vendor_memo": null
+            },
+            {
+              "accounting_field_selections": [],
+              "accounting_date": "2026-10-14T00:00:00+00:00",
+              "fx_conversion_rate": "1.0",
+              "remote_id": null,
+              "inventory_line_items": [],
+              "status": "OPEN",
+              "item_receipt_ids": [],
+              "invoice_number": "DD-MANUAL-GROUP-1",
+              "status_summary": "WAITING_FOR_TRANSFER_MATCH",
+              "bill_owner": {
+                "id": "9d3d3246-8235-40fa-a5c1-56ae8583d945",
+                "last_name": "Martin",
+                "first_name": "Angela"
+              },
+              "invoice_urls": [
+                "https://demo-shared.ramp.com/invoices/save-time-inc/2026_10_14_a5344510-b85e-4f35-bbaf-4dd07ab11ad5.pdf?Expires=1791980562&Signature=uVAX438yLnH4x1oT2pOd7nvvMMNPkeXWS9bK-x8zvVJz4xY7lYZ-abq8NfXJ7xsu0UPe4mik4TPWG2-35Em3xeN7vmg9Zx1ClUPBnO66M5yeHx89R6JKDWj4b8ohZ1Xugbkr7LzGXn6Bz5jrptRmJABtC4szb1Baz-DT8kfDA8i~dWkCAzSs1ObydnfKxe86QDKKMMf~P0QBe6QE4630XTmbFgVqTyOqsWyNoGACbj4~E-zyOgenk02nKLyP9LXiscG3PxyWZF3p0x7TdEZM6RsXboOY7VCP5jFLAib0QmYiBkqEwnm-Og46DmWMxCn6PHLe9fl6IQLx5uLF9-NcTg__&Key-Pair-Id=KSUO74XX4KMAT&Hash-Algorithm=SHA256"
+              ],
+              "purchase_order_ids": [],
+              "amount": {
+                "minor_unit_conversion_rate": 100,
+                "currency_code": "USD",
+                "amount": 65000
+              },
+              "sync_status": "NOT_SYNCED",
+              "enable_accounting_sync": true,
+              "archived_at": null,
+              "entity_id": "eb24fd81-de5d-43bd-8102-eb2cc53d3c3a",
+              "attachments": [
+                {
+                  "id": "adc9779c-feef-45b3-a042-0d5aa3f3b1d7",
+                  "url": "https://demo-shared.ramp.com/invoices/save-time-inc/2026_10_14_a5344510-b85e-4f35-bbaf-4dd07ab11ad5.pdf?Expires=1791980562&Signature=uVAX438yLnH4x1oT2pOd7nvvMMNPkeXWS9bK-x8zvVJz4xY7lYZ-abq8NfXJ7xsu0UPe4mik4TPWG2-35Em3xeN7vmg9Zx1ClUPBnO66M5yeHx89R6JKDWj4b8ohZ1Xugbkr7LzGXn6Bz5jrptRmJABtC4szb1Baz-DT8kfDA8i~dWkCAzSs1ObydnfKxe86QDKKMMf~P0QBe6QE4630XTmbFgVqTyOqsWyNoGACbj4~E-zyOgenk02nKLyP9LXiscG3PxyWZF3p0x7TdEZM6RsXboOY7VCP5jFLAib0QmYiBkqEwnm-Og46DmWMxCn6PHLe9fl6IQLx5uLF9-NcTg__&Key-Pair-Id=KSUO74XX4KMAT&Hash-Algorithm=SHA256",
+                  "attachment_type": "INVOICE"
+                }
+              ],
+              "memo": "AWS compute usage",
+              "id": "e5dfb39c-504f-58e9-9f55-f3fe9fd6db92",
+              "line_items": [
+                {
+                  "accounting_field_selections": [],
+                  "posting_gl_account": null,
+                  "memo": "AWS compute usage",
+                  "id": "01a139ea-9e96-7547-a668-6c844f4cf4b4",
+                  "purchase_order_line_item_id": null,
+                  "amount": {
+                    "minor_unit_conversion_rate": 100,
+                    "currency_code": "USD",
+                    "amount": 65000
+                  },
+                  "item_receipt_line_item_ids": []
+                }
+              ],
+              "draft_bill_created_at": null,
+              "draft_bill_id": null,
+              "deep_link_url": null,
+              "posting_date": "2026-10-14T00:00:00+00:00",
+              "issued_at": "2026-10-07T00:00:00+00:00",
+              "paid_at": null,
+              "due_at": "2026-10-15T00:00:00+00:00",
+              "vendor": {
+                "type": "BUSINESS",
+                "id": "065e1c8c-8584-4d04-8fe6-e9a9092dc728",
+                "name": "Amazon Web Services"
+              },
+              "purchase_order_id": null,
+              "applied_vendor_credits": [],
+              "vendor_contact_id": "6280962f-aa47-4231-b280-7c643983ef02",
+              "approval_status": "APPROVED",
+              "is_payment_sync_ready": false,
+              "created_at": "2026-10-14T10:17:13+00:00",
+              "payment": {
+                "payment_date": null,
+                "trace_id": null,
+                "customer_friendly_payment_id": null,
+                "id": "5f9eb582-4b02-4a3b-ab43-2c95353ace10",
+                "payment_method": "DIRECT_DEBIT",
+                "amount": {
+                  "minor_unit_conversion_rate": 100,
+                  "currency_code": "USD",
+                  "amount": 65000
+                },
+                "details": {
+                  "vendor_account_id": null,
+                  "is_same_day": false,
+                  "source_bank_account_id": "0cb665b6-49d5-4723-b29a-71ce8af70751",
+                  "approval_status": null,
+                  "schema_type": "VendorPaymentDetailsSchema"
+                },
+                "effective_date": null
+              },
+              "vendor_memo": null
+            },
+            {
+              "accounting_field_selections": [],
+              "accounting_date": "2026-10-14T00:00:00+00:00",
+              "fx_conversion_rate": "1.0",
+              "remote_id": null,
+              "inventory_line_items": [],
+              "status": "OPEN",
+              "item_receipt_ids": [],
+              "invoice_number": "DD-MANUAL-GROUP-2",
+              "status_summary": "WAITING_FOR_TRANSFER_MATCH",
+              "bill_owner": {
+                "id": "9d3d3246-8235-40fa-a5c1-56ae8583d945",
+                "last_name": "Martin",
+                "first_name": "Angela"
+              },
+              "invoice_urls": [
+                "https://demo-shared.ramp.com/invoices/save-time-inc/2026_10_14_849f22e9-dda8-42c0-a618-b5e6ed0451b6.pdf?Expires=1791980562&Signature=Fd6AE5Vc1JMaPteif5~YijGw5aUyxTb9RO9G1om-1yjxXBKNnkyCvbGi69I9Jj0V8F8mvdSRhp2AaiZ14RuDPA0EuOV7LOCy~HMOPb3uc~xSWw3Ez1jSBvrfx2UrNrrg0jr0bj61w~i~4p6Rdi2G5VbNzstPeGXvaj15Y0EopP1kr8ovWId9t4AR9K1I6~PTq1vJMoQcWTdcZc7nGK6DhqWYlIT8nBwXlUdvCLc9vlb3Gk28cE~er7e8Dw5ijyJD6OB84kfmwoKPSpKo00oN3wpFzx8U96iE4vj2fLSZl58gnvNV-Qs4-qo1RJ37JVK38Lnmwlgfsl5sqm-CIFsyKA__&Key-Pair-Id=KSUO74XX4KMAT&Hash-Algorithm=SHA256"
+              ],
+              "purchase_order_ids": [],
+              "amount": {
+                "minor_unit_conversion_rate": 100,
+                "currency_code": "USD",
+                "amount": 35000
+              },
+              "sync_status": "NOT_SYNCED",
+              "enable_accounting_sync": true,
+              "archived_at": null,
+              "entity_id": "eb24fd81-de5d-43bd-8102-eb2cc53d3c3a",
+              "attachments": [
+                {
+                  "id": "9869a124-ea88-485e-b9cc-24c5ba2470f7",
+                  "url": "https://demo-shared.ramp.com/invoices/save-time-inc/2026_10_14_849f22e9-dda8-42c0-a618-b5e6ed0451b6.pdf?Expires=1791980562&Signature=Fd6AE5Vc1JMaPteif5~YijGw5aUyxTb9RO9G1om-1yjxXBKNnkyCvbGi69I9Jj0V8F8mvdSRhp2AaiZ14RuDPA0EuOV7LOCy~HMOPb3uc~xSWw3Ez1jSBvrfx2UrNrrg0jr0bj61w~i~4p6Rdi2G5VbNzstPeGXvaj15Y0EopP1kr8ovWId9t4AR9K1I6~PTq1vJMoQcWTdcZc7nGK6DhqWYlIT8nBwXlUdvCLc9vlb3Gk28cE~er7e8Dw5ijyJD6OB84kfmwoKPSpKo00oN3wpFzx8U96iE4vj2fLSZl58gnvNV-Qs4-qo1RJ37JVK38Lnmwlgfsl5sqm-CIFsyKA__&Key-Pair-Id=KSUO74XX4KMAT&Hash-Algorithm=SHA256",
+                  "attachment_type": "INVOICE"
+                }
+              ],
+              "memo": "AWS storage usage",
+              "id": "f2b0753e-cfc2-5842-9e35-3764cd9edaa1",
+              "line_items": [
+                {
+                  "accounting_field_selections": [],
+                  "posting_gl_account": null,
+                  "memo": "AWS storage usage",
+                  "id": "01a139ea-a6b3-7895-a941-2da44ec32f2f",
+                  "purchase_order_line_item_id": null,
+                  "amount": {
+                    "minor_unit_conversion_rate": 100,
+                    "currency_code": "USD",
+                    "amount": 35000
+                  },
+                  "item_receipt_line_item_ids": []
+                }
+              ],
+              "draft_bill_created_at": null,
+              "draft_bill_id": null,
+              "deep_link_url": null,
+              "posting_date": "2026-10-14T00:00:00+00:00",
+              "issued_at": "2026-10-07T00:00:00+00:00",
+              "paid_at": null,
+              "due_at": "2026-10-15T00:00:00+00:00",
+              "vendor": {
+                "type": "BUSINESS",
+                "id": "065e1c8c-8584-4d04-8fe6-e9a9092dc728",
+                "name": "Amazon Web Services"
+              },
+              "purchase_order_id": null,
+              "applied_vendor_credits": [],
+              "vendor_contact_id": "2e87379c-fd94-4af7-9ce9-1396275f410c",
+              "approval_status": "APPROVED",
+              "is_payment_sync_ready": false,
+              "created_at": "2026-10-14T10:17:13+00:00",
+              "payment": {
+                "payment_date": null,
+                "trace_id": null,
+                "customer_friendly_payment_id": null,
+                "id": "8b7e5582-1c4c-4eff-9714-b3765fa94dd5",
+                "payment_method": "DIRECT_DEBIT",
+                "amount": {
+                  "minor_unit_conversion_rate": 100,
+                  "currency_code": "USD",
+                  "amount": 35000
+                },
+                "details": {
+                  "vendor_account_id": null,
+                  "is_same_day": false,
+                  "source_bank_account_id": "0cb665b6-49d5-4723-b29a-71ce8af70751",
+                  "approval_status": null,
+                  "schema_type": "VendorPaymentDetailsSchema"
+                },
+                "effective_date": null
+              },
+              "vendor_memo": null
+            },
+            {
+              "accounting_field_selections": [],
+              "accounting_date": "2026-10-14T00:00:00+00:00",
+              "fx_conversion_rate": "1.0",
+              "remote_id": null,
+              "inventory_line_items": [],
+              "status": "OPEN",
+              "item_receipt_ids": [],
+              "invoice_number": "DD-PREAPPROVAL",
+              "status_summary": "APPROVAL_PENDING",
+              "bill_owner": {
+                "id": "9d3d3246-8235-40fa-a5c1-56ae8583d945",
+                "last_name": "Martin",
+                "first_name": "Angela"
+              },
+              "invoice_urls": [
+                "https://demo-shared.ramp.com/invoices/save-time-inc/2026_10_14_90369e26-7b9a-4cda-8527-23ecac1f769a.pdf?Expires=1791980562&Signature=178TaQBMhRgDdhIebs84hyXUvummESktm1G~gwq~~RZ2f66FWYY~ld0mYXj-CcwD-2p0tbVV5D5IQh4E3ZwgmDBfH~-JKLkXayiS-u5osNv-GEnixZPDHk2CwkN~3yycgL7ubXAIfqVzAQCUcy0Q-oaR04GWLqCchgBOoYHpmmf0BbK6ObpZUFl52paCQuETf-tbq4DilvzhSDk25apSwnEouyWYVqfQ3ztLwZOf4WkCzWl0UJQI~8~E9j0gtinOy~xHEVqW96lyIjHUrpb~WddzD~AOJ~NOpvtZF7ct95JJRU7zn7MC2G4oG9-B-QpkehJtYPEa4l7wXdalkzAL2w__&Key-Pair-Id=KSUO74XX4KMAT&Hash-Algorithm=SHA256"
+              ],
+              "purchase_order_ids": [],
+              "amount": {
+                "minor_unit_conversion_rate": 100,
+                "currency_code": "USD",
+                "amount": 84000
+              },
+              "sync_status": "NOT_SYNCED",
+              "enable_accounting_sync": true,
+              "archived_at": null,
+              "entity_id": "eb24fd81-de5d-43bd-8102-eb2cc53d3c3a",
+              "attachments": [
+                {
+                  "id": "edc41e49-57fd-422c-a604-ee4e6948fb0a",
+                  "url": "https://demo-shared.ramp.com/invoices/save-time-inc/2026_10_14_90369e26-7b9a-4cda-8527-23ecac1f769a.pdf?Expires=1791980562&Signature=178TaQBMhRgDdhIebs84hyXUvummESktm1G~gwq~~RZ2f66FWYY~ld0mYXj-CcwD-2p0tbVV5D5IQh4E3ZwgmDBfH~-JKLkXayiS-u5osNv-GEnixZPDHk2CwkN~3yycgL7ubXAIfqVzAQCUcy0Q-oaR04GWLqCchgBOoYHpmmf0BbK6ObpZUFl52paCQuETf-tbq4DilvzhSDk25apSwnEouyWYVqfQ3ztLwZOf4WkCzWl0UJQI~8~E9j0gtinOy~xHEVqW96lyIjHUrpb~WddzD~AOJ~NOpvtZF7ct95JJRU7zn7MC2G4oG9-B-QpkehJtYPEa4l7wXdalkzAL2w__&Key-Pair-Id=KSUO74XX4KMAT&Hash-Algorithm=SHA256",
+                  "attachment_type": "INVOICE"
+                }
+              ],
+              "memo": "DocuSign Business Pro subscription",
+              "id": "27365dbc-0612-5edc-86b9-5e1ed27c1202",
+              "line_items": [
+                {
+                  "accounting_field_selections": [],
+                  "posting_gl_account": null,
+                  "memo": "DocuSign Business Pro subscription",
+                  "id": "01a139ea-ae25-7432-b5ab-c2024d3f6b23",
+                  "purchase_order_line_item_id": null,
+                  "amount": {
+                    "minor_unit_conversion_rate": 100,
+                    "currency_code": "USD",
+                    "amount": 84000
+                  },
+                  "item_receipt_line_item_ids": []
+                }
+              ],
+              "draft_bill_created_at": null,
+              "draft_bill_id": null,
+              "deep_link_url": null,
+              "posting_date": "2026-10-14T00:00:00+00:00",
+              "issued_at": "2026-10-07T00:00:00+00:00",
+              "paid_at": null,
+              "due_at": "2026-10-15T00:00:00+00:00",
+              "vendor": {
+                "type": "BUSINESS",
+                "id": "929ebd76-959a-44ba-979d-3e05a725e54b",
+                "name": "DocuSign"
+              },
+              "purchase_order_id": null,
+              "applied_vendor_credits": [],
+              "vendor_contact_id": "33f9ac4d-6a58-49e0-9a47-ef789b1af5d5",
+              "approval_status": "PENDING",
+              "is_payment_sync_ready": false,
+              "created_at": "2026-10-14T10:17:13+00:00",
+              "payment": {
+                "payment_date": null,
+                "trace_id": null,
+                "customer_friendly_payment_id": null,
+                "id": "685bbef4-1099-4629-a671-f4f7e89d0746",
+                "payment_method": "DIRECT_DEBIT",
+                "amount": {
+                  "minor_unit_conversion_rate": 100,
+                  "currency_code": "USD",
+                  "amount": 84000
+                },
+                "details": {
+                  "vendor_account_id": null,
+                  "is_same_day": false,
+                  "source_bank_account_id": "0cb665b6-49d5-4723-b29a-71ce8af70751",
+                  "approval_status": null,
+                  "schema_type": "VendorPaymentDetailsSchema"
+                },
+                "effective_date": null
+              },
+              "vendor_memo": null
+            }
+          ],
+          "page": {
+            "next": null
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 14 Oct 2026 11:22:42 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1996",
+          "x-ratelimit-reset": "1791977019",
+          "cf-ray": "a4a6352c79e7b8b9-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "server": "cloudflare",
+          "vary": "Origin, accept-encoding",
+          "content-security-policy": "upgrade-insecure-requests; frame-ancestors 'self' https://demo.ramp.com; report-uri https://ramp.report-uri.com/r/d/csp/enforce",
+          "ramp-worker-name": "demo-app-worker",
+          "server-timing": "gt;dur=911.593, ge;dur=0.190, px;dur=911.325, fw;dur=990.00, fwe;dur=0.00, fwx;dur=990.00",
+          "x-debug-cell-id": "none",
+          "x-debug-routing-key": "none",
+          "x-debug-upstream-cache-control": "none",
+          "x-ramp-body-source": "others",
+          "x-ramp-business-id": "e15cd7ee-ab7e-4173-a82f-00f33901c1ca",
+          "x-ramp-cf-ray": "a4a6352c8b62cb90-IAD",
+          "x-ramp-request-id": "01a13a26-77fd-77e9-8ac6-fbbf7b0c0cc3",
+          "x-trace-id": "ramp-2807d6a8f93c47fdb066da93830e0b64",
+          "set-cookie": "<redacted>",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "hash": "70827181a077f49d26f409ba1207fa1eb5f2f18c",
+        "request": {
+          "params": {
+            "page_size": "100"
+          }
+        }
+      }
+    }
+  }
+}

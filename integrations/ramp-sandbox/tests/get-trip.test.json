@@ -1,0 +1,163 @@
+{
+  "input": {
+    "trip_id": "635c9868-fe5f-4124-bf3a-bf2a7df83396"
+  },
+  "output": {
+    "id": "635c9868-fe5f-4124-bf3a-bf2a7df83396",
+    "name": "Sales onsite in Chicago",
+    "description": "Sales onsite meeting in Chicago",
+    "status": "completed",
+    "user_id": "69d80729-a6b1-4bd6-b82b-eb1dda1ad981",
+    "start_date": "2026-07-18T10:05:12+00:00",
+    "end_date": "2026-07-21T10:05:12+00:00",
+    "length_in_days": 4,
+    "locations": [
+      {
+        "start_date": "2026-07-18T10:05:12+00:00",
+        "end_date": "2026-07-18T10:07:12+00:00",
+        "location": {
+          "city": "New York",
+          "country": "United States",
+          "state": "NY",
+          "latitude": 40.7127753,
+          "longitude": -74.0059728
+        }
+      },
+      {
+        "start_date": "2026-07-18T10:07:12+00:00",
+        "end_date": "2026-07-21T10:05:12+00:00",
+        "location": {
+          "city": "Chicago",
+          "country": "United States",
+          "state": "IL",
+          "latitude": 41.8781136,
+          "longitude": -87.6297982
+        }
+      }
+    ],
+    "spend_events": [
+      {
+        "id": "029e8768-19ad-4828-9a0f-324a729b80b6",
+        "spend_type": "TRANSACTION"
+      },
+      {
+        "id": "5d2a10a2-75c6-466a-aecd-7034d95760fc",
+        "spend_type": "TRANSACTION"
+      },
+      {
+        "id": "c8ee7db9-4960-4499-a46b-9393b284433e",
+        "spend_type": "TRANSACTION"
+      }
+    ],
+    "travel_types": [],
+    "total_spend": 973,
+    "total_spend_amount": {
+      "currency": "USD",
+      "value": 97300
+    },
+    "created_at": "2026-10-14T10:05:16+00:00",
+    "updated_at": "2026-10-14T10:05:16+00:00"
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/developer/v1/trips/635c9868-fe5f-4124-bf3a-bf2a7df83396": {
+        "response": {
+          "locations": [
+            {
+              "location": {
+                "city": "New York",
+                "country": "United States",
+                "latitude": 40.7127753,
+                "longitude": -74.0059728,
+                "state": "NY"
+              },
+              "start_date": "2026-07-18T10:05:12+00:00",
+              "end_date": "2026-07-18T10:07:12+00:00"
+            },
+            {
+              "location": {
+                "city": "Chicago",
+                "country": "United States",
+                "latitude": 41.8781136,
+                "longitude": -87.6297982,
+                "state": "IL"
+              },
+              "start_date": "2026-07-18T10:07:12+00:00",
+              "end_date": "2026-07-21T10:05:12+00:00"
+            }
+          ],
+          "spend_events": [
+            {
+              "spend_type": "TRANSACTION",
+              "id": "029e8768-19ad-4828-9a0f-324a729b80b6"
+            },
+            {
+              "spend_type": "TRANSACTION",
+              "id": "5d2a10a2-75c6-466a-aecd-7034d95760fc"
+            },
+            {
+              "spend_type": "TRANSACTION",
+              "id": "c8ee7db9-4960-4499-a46b-9393b284433e"
+            }
+          ],
+          "id": "635c9868-fe5f-4124-bf3a-bf2a7df83396",
+          "name": "Sales onsite in Chicago",
+          "total_spend_amount": {
+            "currency": "USD",
+            "value": 97300
+          },
+          "status": "completed",
+          "total_spend": 973,
+          "user_id": "69d80729-a6b1-4bd6-b82b-eb1dda1ad981",
+          "description": "Sales onsite meeting in Chicago",
+          "travel_types": [],
+          "created_at": "2026-10-14T10:05:16+00:00",
+          "end_date": "2026-07-21T10:05:12+00:00",
+          "length_in_days": 4,
+          "start_date": "2026-07-18T10:05:12+00:00",
+          "updated_at": "2026-10-14T10:05:16+00:00"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 14 Oct 2026 11:06:41 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1856",
+          "x-ratelimit-reset": "1791976028",
+          "cf-ray": "a4a61db8cafc2095-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "server": "cloudflare",
+          "vary": "Origin, accept-encoding",
+          "content-security-policy": "upgrade-insecure-requests; frame-ancestors 'self' https://demo.ramp.com; report-uri https://ramp.report-uri.com/r/d/csp/enforce",
+          "ramp-worker-name": "demo-app-worker",
+          "server-timing": "gt;dur=199.862, ge;dur=0.459, px;dur=199.186, fw;dur=279.00, fwe;dur=0.00, fwx;dur=279.00",
+          "x-debug-cell-id": "none",
+          "x-debug-routing-key": "none",
+          "x-debug-upstream-cache-control": "none",
+          "x-ramp-body-source": "others",
+          "x-ramp-business-id": "e15cd7ee-ab7e-4173-a82f-00f33901c1ca",
+          "x-ramp-cf-ray": "a4a61db8df8a20eb-PDX",
+          "x-ramp-request-id": "01a13a17-cfb9-741e-8489-833a573858d5",
+          "x-trace-id": "ramp-9117a771adc7486c822b49184f497dd7",
+          "set-cookie": "__cf_bm=OUfkYmabp1T6t8Zw9zN8YaYV0Yci5zi1hqvPw3FyYgk-1791976001.4107614-1.0.1.1-89_8c59OWJoy.r248DHxbGrnlSD8K19l0FbsK5.8j9prYuR4gyvnbAgGgs6c4tO0Fp.DeMUET8KCz2S6OiWiyj3s74oMxs5uBbVjFnVwCGcuVp4fCIOD.QgJYgOa0atf; HttpOnly; SameSite=None; Secure; Path=/; Domain=ramp.com; Expires=Wed, 14 Oct 2026 11:36:41 GMT",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "hash": "6e8262e877bd783fc5090d6071f3c3b3ed1c176b",
+        "request": {}
+      }
+    }
+  }
+}

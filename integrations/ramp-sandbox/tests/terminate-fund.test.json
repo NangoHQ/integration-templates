@@ -1,0 +1,144 @@
+{
+  "input": {
+    "fund_id": "6e15e30b-1619-4490-8bb2-43aa4c2492b9"
+  },
+  "output": {
+    "id": "6e15e30b-1619-4490-8bb2-43aa4c2492b9",
+    "display_name": "Nango Terminate Fund Test",
+    "state": "TERMINATED",
+    "created_at": "2026-10-14T11:07:43+00:00",
+    "entity_id": "eb24fd81-de5d-43bd-8102-eb2cc53d3c3a",
+    "spend_program_id": null,
+    "is_shareable": false,
+    "is_exempt_from_policy_agent": false,
+    "permitted_spend_types": {
+      "physical_card_enabled": false,
+      "virtual_card_enabled": true,
+      "reimbursements_enabled": false
+    },
+    "cards": [],
+    "members": [
+      {
+        "user_id": "c7df8ee0-aa5a-4351-a8c2-0d15d585a902"
+      }
+    ],
+    "balance": {
+      "cleared": {
+        "amount": 0,
+        "currency_code": "USD"
+      },
+      "pending": {
+        "amount": 0,
+        "currency_code": "USD"
+      },
+      "total": {
+        "amount": 0,
+        "currency_code": "USD"
+      }
+    }
+  },
+  "nango": {},
+  "api": {
+    "delete": {
+      "/developer/v1/funds/6e15e30b-1619-4490-8bb2-43aa4c2492b9": {
+        "response": {
+          "spend_program_id": null,
+          "entity_id": "eb24fd81-de5d-43bd-8102-eb2cc53d3c3a",
+          "state": "TERMINATED",
+          "spending_restrictions": {
+            "interval": "MONTHLY",
+            "limit": {
+              "currency_code": "USD",
+              "minor_unit_conversion_rate": 100,
+              "amount": 100
+            },
+            "start_of_interval": "2026-10-01T00:00:00+00:00",
+            "next_interval_resets_at": "2026-11-01T00:00:00+00:00",
+            "auto_lock_date": null,
+            "blocked_category_codes": null,
+            "allowed_vendor_ids": null,
+            "allowed_category_codes": null,
+            "temporary_limit": null,
+            "transaction_amount_limit": null,
+            "blocked_vendor_ids": null
+          },
+          "members": [
+            {
+              "suspension": null,
+              "user_id": "c7df8ee0-aa5a-4351-a8c2-0d15d585a902"
+            }
+          ],
+          "cards": [],
+          "permitted_spend_types": {
+            "physical_card_enabled": false,
+            "virtual_card_enabled": true,
+            "reimbursements_enabled": false
+          },
+          "balance": {
+            "pending": {
+              "currency_code": "USD",
+              "minor_unit_conversion_rate": 100,
+              "amount": 0
+            },
+            "cleared": {
+              "currency_code": "USD",
+              "minor_unit_conversion_rate": 100,
+              "amount": 0
+            },
+            "total": {
+              "currency_code": "USD",
+              "minor_unit_conversion_rate": 100,
+              "amount": 0
+            }
+          },
+          "suspension": null,
+          "id": "6e15e30b-1619-4490-8bb2-43aa4c2492b9",
+          "overrides_spend_program": false,
+          "display_name": "Nango Terminate Fund Test",
+          "created_at": "2026-10-14T11:07:43+00:00",
+          "is_shareable": false,
+          "is_exempt_from_policy_agent": false
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 14 Oct 2026 11:09:14 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1984",
+          "x-ratelimit-reset": "1791976210",
+          "cf-ray": "a4a621748dbb121f-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "server": "cloudflare",
+          "vary": "Origin, accept-encoding",
+          "content-security-policy": "upgrade-insecure-requests; frame-ancestors 'self' https://demo.ramp.com; report-uri https://ramp.report-uri.com/r/d/csp/enforce",
+          "ramp-worker-name": "demo-app-worker",
+          "server-timing": "gt;dur=200.309, ge;dur=0.187, px;dur=200.052, fw;dur=294.00, fwe;dur=0.00, fwx;dur=294.00",
+          "x-debug-cell-id": "none",
+          "x-debug-routing-key": "none",
+          "x-debug-upstream-cache-control": "none",
+          "x-ramp-body-source": "others",
+          "x-ramp-business-id": "e15cd7ee-ab7e-4173-a82f-00f33901c1ca",
+          "x-ramp-cf-ray": "a4a621748b5a20eb-PDX",
+          "x-ramp-request-id": "01a13a1a-2508-75a3-884f-fe520b8778bb",
+          "x-trace-id": "ramp-704f7d6268764ff384009ac00cb7a3f3",
+          "set-cookie": "<redacted>",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "hash": "dbe7229a3bd32065bf105434692c61b9882feb4b",
+        "request": {}
+      }
+    }
+  }
+}

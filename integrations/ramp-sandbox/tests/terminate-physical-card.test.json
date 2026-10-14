@@ -1,0 +1,151 @@
+{
+  "input": {
+    "card_id": "c7bcaf5e-df14-4a09-9ed6-e7bbb945d0ca"
+  },
+  "output": {
+    "card_id": "c7bcaf5e-df14-4a09-9ed6-e7bbb945d0ca",
+    "state": "TERMINATED",
+    "terminated": true,
+    "is_suspended": false,
+    "last_four": "*REDACTED*",
+    "expiration": "*REDACTED*",
+    "cardholder_id": "12d3ccab-6314-4c65-9ac8-835fe16536b9",
+    "cardholder_name": "Stanley Hudson",
+    "fund_id": "07acc4c8-62b5-4fed-8e9c-26c52ef267c2",
+    "display_name": "Physical Card"
+  },
+  "nango": {},
+  "api": {
+    "delete": {
+      "/developer/v1/cards/physical/c7bcaf5e-df14-4a09-9ed6-e7bbb945d0ca": {
+        "response": "",
+        "status": 204,
+        "headers": {
+          "date": "Wed, 14 Oct 2026 11:10:13 GMT",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1981",
+          "x-ratelimit-reset": "1791976271",
+          "cf-ray": "a4a622e63929dfd2-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "server": "cloudflare",
+          "vary": "Origin, accept-encoding",
+          "content-security-policy": "upgrade-insecure-requests; frame-ancestors 'self' https://demo.ramp.com; report-uri https://ramp.report-uri.com/r/d/csp/enforce",
+          "ramp-worker-name": "demo-app-worker",
+          "server-timing": "gt;dur=371.552, ge;dur=0.186, px;dur=371.277, fw;dur=446.00, fwe;dur=0.00, fwx;dur=446.00",
+          "x-debug-cell-id": "none",
+          "x-debug-routing-key": "none",
+          "x-debug-upstream-cache-control": "none",
+          "x-ramp-body-source": "others",
+          "x-ramp-business-id": "e15cd7ee-ab7e-4173-a82f-00f33901c1ca",
+          "x-ramp-cf-ray": "a4a622e64da620eb-IAD",
+          "x-ramp-request-id": "01a13a1b-0c1a-7219-a060-52294276979d",
+          "x-trace-id": "ramp-6a014cbef6b84bb491e7b3f7e51d796f",
+          "set-cookie": "__cf_bm=3M7bt6YD0mEP5mEgzA5SlKnPTCg35fWmXq6I0_J.0VQ-1791976213.4783611-1.0.1.1-lcYxYObbQ3i_OoN1vlizNjH4PIcv1R.BxO3y.a3MZTeXosHkDxvjtzujdwVn1OOdDajeRh7M6vNW.lY8SSFJKqR48GjogLbcLoHAwVi5zYxhSR2rO9yEvT.1II8RiISD; HttpOnly; SameSite=None; Secure; Path=/; Domain=ramp.com; Expires=Wed, 14 Oct 2026 11:40:13 GMT",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "hash": "6c4bcb5d8e2a0fc9714e02b7a2c0d917376788c6",
+        "request": {}
+      }
+    },
+    "get": {
+      "/developer/v1/cards/physical/c7bcaf5e-df14-4a09-9ed6-e7bbb945d0ca": {
+        "response": {
+          "state": "TERMINATED",
+          "is_suspended": false,
+          "cardholder_name": "Stanley Hudson",
+          "automatic_routing_enabled": false,
+          "expiration": "*REDACTED*",
+          "id": "c7bcaf5e-df14-4a09-9ed6-e7bbb945d0ca",
+          "is_primary": true,
+          "fund_id": "07acc4c8-62b5-4fed-8e9c-26c52ef267c2",
+          "spend_limit_id": "07acc4c8-62b5-4fed-8e9c-26c52ef267c2",
+          "cardholder_id": "12d3ccab-6314-4c65-9ac8-835fe16536b9",
+          "has_program_overridden": false,
+          "last_four": "*REDACTED*",
+          "fulfillment": {
+            "shipping": {
+              "method": "LOCAL_MAIL",
+              "recipient_address": {
+                "state": "NY",
+                "city": "New York City",
+                "country": "US",
+                "postal_code": "10003",
+                "first_name": "Stanley",
+                "last_name": "Hudson",
+                "address1": "123 Main St"
+              }
+            },
+            "shipping_eta": null,
+            "card_personalization": {
+              "text": {
+                "name_line_1": {
+                  "value": "Stanley Hudson"
+                },
+                "name_line_2": {
+                  "value": "nango-dev"
+                }
+              }
+            },
+            "shipping_tracking_url": null,
+            "fulfillment_status": "ISSUED",
+            "shipping_date": null
+          },
+          "display_name": "Physical Card",
+          "created_at": "2026-10-14T11:10:01+00:00",
+          "is_physical": true
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 14 Oct 2026 11:10:14 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1979",
+          "x-ratelimit-reset": "1791976271",
+          "cf-ray": "a4a622e97a62121f-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "server": "cloudflare",
+          "vary": "Origin, accept-encoding",
+          "content-security-policy": "upgrade-insecure-requests; frame-ancestors 'self' https://demo.ramp.com; report-uri https://ramp.report-uri.com/r/d/csp/enforce",
+          "ramp-worker-name": "demo-app-worker",
+          "server-timing": "gt;dur=162.043, ge;dur=0.217, px;dur=161.754, fw;dur=238.00, fwe;dur=0.00, fwx;dur=238.00",
+          "x-debug-cell-id": "none",
+          "x-debug-routing-key": "none",
+          "x-debug-upstream-cache-control": "none",
+          "x-ramp-body-source": "others",
+          "x-ramp-business-id": "e15cd7ee-ab7e-4173-a82f-00f33901c1ca",
+          "x-ramp-cf-ray": "a4a622e988330ba9-IAD",
+          "x-ramp-request-id": "01a13a1b-0e22-7aac-be75-49de0ccd6975",
+          "x-ramp-sensitive-fields": "fulfillment.shipping.recipient_address.address1",
+          "x-trace-id": "ramp-b309b5ea3f0b481586831a34c7469191",
+          "set-cookie": "__cf_bm=ip9nBJMlimhc2JoTyI4c04ksiPzbyodAc6roMYL_Zwo-1791976213.9979823-1.0.1.1-_6gqlwcjEbaiSAoIi8Oc78_XxIOUsFynoZaFtygrDJO6PZX45jzYWd_M5GuwyI4NuGXwPgBBFzmonWnQk9e2sN.CI8PIy_KJXpJ3EPCYrbCn5b3EJik_VZjXG7AMMA7q; HttpOnly; SameSite=None; Secure; Path=/; Domain=ramp.com; Expires=Wed, 14 Oct 2026 11:40:14 GMT",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "hash": "095d05d74cd0d66270f947e3f26dcf49859295a6",
+        "request": {}
+      }
+    }
+  }
+}

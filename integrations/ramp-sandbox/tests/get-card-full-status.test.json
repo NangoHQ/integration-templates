@@ -1,0 +1,1165 @@
+{
+  "input": {
+    "card_id": "a2d25ac2-5528-4c16-ba51-cd258d8d09f7"
+  },
+  "output": {
+    "card": {
+      "id": "a2d25ac2-5528-4c16-ba51-cd258d8d09f7",
+      "card_type": "virtual",
+      "is_suspended": false,
+      "fund_id": "325a12bc-75c4-4022-8855-8e0dba170103",
+      "cardholder_id": "07323c8f-c449-4222-a970-8cc4cf673711",
+      "created_at": "2026-10-14T10:06:20+00:00"
+    },
+    "fund": {
+      "id": "325a12bc-75c4-4022-8855-8e0dba170103",
+      "display_name": "Executive Travel",
+      "state": "ACTIVE",
+      "balance": {
+        "cleared": {
+          "amount": 517735,
+          "currency_code": "USD",
+          "minor_unit_conversion_rate": 100
+        },
+        "pending": {
+          "amount": 0,
+          "currency_code": "USD",
+          "minor_unit_conversion_rate": 100
+        },
+        "total": {
+          "amount": 517735,
+          "currency_code": "USD",
+          "minor_unit_conversion_rate": 100
+        }
+      },
+      "spending_restrictions": {
+        "limit": {
+          "amount": 800000,
+          "currency_code": "USD",
+          "minor_unit_conversion_rate": 100
+        },
+        "interval": "MONTHLY",
+        "next_interval_resets_at": "2026-11-01T00:00:00+00:00",
+        "start_of_interval": "2026-10-01T00:00:00+00:00"
+      },
+      "permitted_spend_types": {
+        "physical_card_enabled": true,
+        "virtual_card_enabled": true,
+        "reimbursements_enabled": false
+      },
+      "entity_id": "eb24fd81-de5d-43bd-8102-eb2cc53d3c3a",
+      "is_shareable": false,
+      "created_at": "2026-10-14T10:06:19+00:00"
+    },
+    "recent_transactions": [
+      {
+        "id": "1e132a4f-392b-4e12-8f35-2788034a9ead",
+        "card_id": "a2d25ac2-5528-4c16-ba51-cd258d8d09f7",
+        "fund_id": "325a12bc-75c4-4022-8855-8e0dba170103",
+        "merchant_name": "Air Canada",
+        "state": "CLEARED",
+        "amount": 42849,
+        "currency_code": "USD",
+        "sk_category_name": "Airlines",
+        "memo": "Flight to Toronto",
+        "user_transaction_time": "2026-11-02T10:07:14+00:00",
+        "updated_at": "2026-11-03T10:07:14+00:00",
+        "all_requirements_met_and_approved": true,
+        "card_present": false
+      },
+      {
+        "id": "866fc8f1-1924-46a5-98f7-0194628a34ac",
+        "card_id": "a2d25ac2-5528-4c16-ba51-cd258d8d09f7",
+        "fund_id": "325a12bc-75c4-4022-8855-8e0dba170103",
+        "merchant_name": "Hertz",
+        "state": "CLEARED",
+        "amount": 84267,
+        "currency_code": "USD",
+        "sk_category_name": "Car Rental",
+        "memo": "Hertz car rental for vegas trip",
+        "user_transaction_time": "2026-10-14T10:07:22+00:00",
+        "updated_at": "2026-10-15T10:07:22+00:00",
+        "all_requirements_met_and_approved": true,
+        "card_present": false
+      },
+      {
+        "id": "c0586763-7877-4a47-8116-5631eef7a4f7",
+        "card_id": "a2d25ac2-5528-4c16-ba51-cd258d8d09f7",
+        "fund_id": "325a12bc-75c4-4022-8855-8e0dba170103",
+        "merchant_name": "United Airlines",
+        "state": "CLEARED",
+        "amount": 35000,
+        "currency_code": "USD",
+        "sk_category_name": "Other",
+        "memo": "Flight to TechCon",
+        "user_transaction_time": "2026-10-14T10:07:22+00:00",
+        "updated_at": "2026-10-15T10:07:22+00:00",
+        "all_requirements_met_and_approved": true,
+        "card_present": false
+      },
+      {
+        "id": "cbf18906-835b-4ef8-8a68-ddf74822de34",
+        "card_id": "a2d25ac2-5528-4c16-ba51-cd258d8d09f7",
+        "fund_id": "325a12bc-75c4-4022-8855-8e0dba170103",
+        "merchant_name": "CVS",
+        "state": "CLEARED",
+        "amount": 1214,
+        "currency_code": "USD",
+        "sk_category_name": "General Merchandise",
+        "memo": "Water and advil",
+        "user_transaction_time": "2026-10-11T03:24:18+00:00",
+        "updated_at": "2026-10-14T10:07:22+00:00",
+        "all_requirements_met_and_approved": true,
+        "card_present": false
+      },
+      {
+        "id": "9ee530e4-fb85-4619-b91f-a92894712cc2",
+        "card_id": "a2d25ac2-5528-4c16-ba51-cd258d8d09f7",
+        "fund_id": "325a12bc-75c4-4022-8855-8e0dba170103",
+        "merchant_name": "sweetgreen",
+        "state": "CLEARED",
+        "amount": 2988,
+        "currency_code": "USD",
+        "sk_category_name": "Restaurants",
+        "memo": "Lunch with CBO",
+        "user_transaction_time": "2026-10-10T16:19:29+00:00",
+        "updated_at": "2026-10-14T10:07:22+00:00",
+        "all_requirements_met_and_approved": true,
+        "card_present": false
+      },
+      {
+        "id": "d0a5273b-51af-4255-b8c2-ae86731cd867",
+        "card_id": "a2d25ac2-5528-4c16-ba51-cd258d8d09f7",
+        "fund_id": "325a12bc-75c4-4022-8855-8e0dba170103",
+        "merchant_name": "Philz Coffee",
+        "state": "CLEARED",
+        "amount": 553,
+        "currency_code": "USD",
+        "sk_category_name": "Restaurants",
+        "memo": "Coffee and breakfast",
+        "user_transaction_time": "2026-10-09T22:40:29+00:00",
+        "updated_at": "2026-10-14T10:07:22+00:00",
+        "all_requirements_met_and_approved": true,
+        "card_present": false
+      },
+      {
+        "id": "ee925915-3a02-48bb-beb2-24a8f7b14811",
+        "card_id": "a2d25ac2-5528-4c16-ba51-cd258d8d09f7",
+        "fund_id": "325a12bc-75c4-4022-8855-8e0dba170103",
+        "merchant_name": "Delta",
+        "state": "CLEARED",
+        "amount": 90235,
+        "currency_code": "USD",
+        "sk_category_name": "Fuel and Gas",
+        "memo": "Flight to Denver for Executive Offsite",
+        "user_transaction_time": "2026-10-09T08:08:31+00:00",
+        "updated_at": "2026-10-14T10:07:22+00:00",
+        "all_requirements_met_and_approved": true,
+        "card_present": false
+      },
+      {
+        "id": "6d0786eb-192f-4148-857a-236e445e0650",
+        "card_id": "a2d25ac2-5528-4c16-ba51-cd258d8d09f7",
+        "fund_id": "325a12bc-75c4-4022-8855-8e0dba170103",
+        "merchant_name": "Lyft",
+        "state": "CLEARED",
+        "amount": 4200,
+        "currency_code": "USD",
+        "sk_category_name": "Taxi and Rideshare",
+        "memo": "Lyft to offsite dinner",
+        "user_transaction_time": "2026-10-08T20:00:25+00:00",
+        "updated_at": "2026-10-14T10:07:22+00:00",
+        "all_requirements_met_and_approved": true,
+        "card_present": false
+      },
+      {
+        "id": "9e531ee4-dace-4f3a-b13e-0e61799c17b8",
+        "card_id": "a2d25ac2-5528-4c16-ba51-cd258d8d09f7",
+        "fund_id": "325a12bc-75c4-4022-8855-8e0dba170103",
+        "merchant_name": "Marriott",
+        "state": "CLEARED",
+        "amount": 81092,
+        "currency_code": "USD",
+        "sk_category_name": "Lodging",
+        "memo": "Hotel for executive offsite",
+        "user_transaction_time": "2026-10-08T16:24:30+00:00",
+        "updated_at": "2026-10-14T10:07:22+00:00",
+        "all_requirements_met_and_approved": true,
+        "card_present": false
+      },
+      {
+        "id": "ac08d149-190f-4f61-b57a-4f3e9e1d8598",
+        "card_id": "a2d25ac2-5528-4c16-ba51-cd258d8d09f7",
+        "fund_id": "325a12bc-75c4-4022-8855-8e0dba170103",
+        "merchant_name": "Salesforce",
+        "state": "CLEARED",
+        "amount": 72219,
+        "currency_code": "USD",
+        "sk_category_name": "SaaS / Software",
+        "memo": "Dinner last night of off-site",
+        "user_transaction_time": "2026-10-07T15:55:08+00:00",
+        "updated_at": "2026-10-14T10:07:22+00:00",
+        "all_requirements_met_and_approved": true,
+        "card_present": false
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/developer/v1/cards/physical/a2d25ac2-5528-4c16-ba51-cd258d8d09f7": {
+        "response": {
+          "error_v2": {
+            "message": "The requested Card (a2d25ac2-5528-4c16-ba51-cd258d8d09f7) does not exist.",
+            "error_code": "DEVELOPER_7002",
+            "additional_info": {},
+            "error_id": "ebe7edd1",
+            "notes": ""
+          },
+          "error": {
+            "message": "The requested Card (a2d25ac2-5528-4c16-ba51-cd258d8d09f7) does not exist.",
+            "details": {}
+          }
+        },
+        "status": 404,
+        "headers": {
+          "date": "Wed, 14 Oct 2026 11:13:23 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "294",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1989",
+          "x-ratelimit-reset": "1791976453",
+          "cf-ray": "a4a6278a4c2d1ef3-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "server": "cloudflare",
+          "vary": "Origin, accept-encoding",
+          "content-security-policy": "upgrade-insecure-requests; frame-ancestors 'self' https://demo.ramp.com; report-uri https://ramp.report-uri.com/r/d/csp/enforce",
+          "ramp-worker-name": "demo-app-worker",
+          "server-timing": "gt;dur=135.898, ge;dur=0.181, px;dur=135.645, fw;dur=215.00, fwe;dur=0.00, fwx;dur=215.00",
+          "x-debug-cell-id": "none",
+          "x-debug-routing-key": "none",
+          "x-debug-upstream-cache-control": "none",
+          "x-ramp-body-source": "others",
+          "x-ramp-business-id": "e15cd7ee-ab7e-4173-a82f-00f33901c1ca",
+          "x-ramp-cf-ray": "a4a6278a5cf9f7ed-PDX",
+          "x-ramp-request-id": "01a13a1d-f2a3-7ec9-a441-0386bf27b5b1",
+          "x-trace-id": "ramp-678f3f4bea5e4bd6b2149a5e1fba6367",
+          "set-cookie": "__cf_bm=jABD6EHbt3JAqjQWpDrd2ZJeWuchJPlhl85rJuH6h50-1791976403.5639462-1.0.1.1-WkshmqI5FxGkD_cyLi4x.QPN8tcusBKqqXxduuGZV90YFEk4wfw4MSIc1wGnhNJFix6eGkXREqkKtaCcXp4Sbm49mxHyzGDcOgcPEw81jEJUsOWlmxrPNnx34qSmzQ2a; HttpOnly; SameSite=None; Secure; Path=/; Domain=ramp.com; Expires=Wed, 14 Oct 2026 11:43:23 GMT",
+          "alt-svc": "h3=\":443\"; ma=86400",
+          "etag": "W/\"126-2hRsUiLaSrRM0R3iE++Q3EwZ5pU\""
+        },
+        "hash": "b0f37a8fc72454227cff840dceed053d8e757d1f",
+        "request": {}
+      },
+      "/developer/v1/cards/virtual/a2d25ac2-5528-4c16-ba51-cd258d8d09f7": {
+        "response": {
+          "id": "a2d25ac2-5528-4c16-ba51-cd258d8d09f7",
+          "user_id": "07323c8f-c449-4222-a970-8cc4cf673711",
+          "is_card_suspended": false,
+          "created_at": "2026-10-14T10:06:20+00:00",
+          "fund_id": "325a12bc-75c4-4022-8855-8e0dba170103"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 14 Oct 2026 11:13:24 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1988",
+          "x-ratelimit-reset": "1791976453",
+          "cf-ray": "a4a6278c19bf9790-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "server": "cloudflare",
+          "vary": "Origin, accept-encoding",
+          "content-security-policy": "upgrade-insecure-requests; frame-ancestors 'self' https://demo.ramp.com; report-uri https://ramp.report-uri.com/r/d/csp/enforce",
+          "ramp-worker-name": "demo-app-worker",
+          "server-timing": "gt;dur=128.592, ge;dur=0.217, px;dur=128.301, fw;dur=200.00, fwe;dur=0.00, fwx;dur=200.00",
+          "x-debug-cell-id": "none",
+          "x-debug-routing-key": "none",
+          "x-debug-upstream-cache-control": "none",
+          "x-ramp-body-source": "others",
+          "x-ramp-business-id": "e15cd7ee-ab7e-4173-a82f-00f33901c1ca",
+          "x-ramp-cf-ray": "a4a6278c2b3720eb-IAD",
+          "x-ramp-request-id": "01a13a1d-f3bf-734d-b08d-06404c97ab18",
+          "x-trace-id": "ramp-a5ff421f44d54b3a9e7de868693937a5",
+          "set-cookie": "__cf_bm=1fNh4J.nT1rHc3aYJDNLXIyldIbQCZg3yIYU4h9iGgo-1791976403.852433-1.0.1.1-.xdmf__nMmLNbI6EC4SmsCxvG39ngpZ4xipf4sfCjVmeiBckC_IeF.N9ZY2Ipc8vSvAh4nKESZSsR_wKLD9D3fSekJR8uKI8Ve6R79J0AeJEjtx2wxZ0_lU1R3MPdG3C; HttpOnly; SameSite=None; Secure; Path=/; Domain=ramp.com; Expires=Wed, 14 Oct 2026 11:43:24 GMT",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "hash": "24d13b22a1532eb890df507704db9dbaa813d25d",
+        "request": {}
+      },
+      "/developer/v1/funds/325a12bc-75c4-4022-8855-8e0dba170103": {
+        "response": {
+          "permitted_spend_types": {
+            "virtual_card_enabled": true,
+            "reimbursements_enabled": false,
+            "physical_card_enabled": true
+          },
+          "id": "325a12bc-75c4-4022-8855-8e0dba170103",
+          "display_name": "Executive Travel",
+          "is_exempt_from_policy_agent": false,
+          "spend_program_id": null,
+          "members": [
+            {
+              "suspension": null,
+              "user_id": "07323c8f-c449-4222-a970-8cc4cf673711"
+            }
+          ],
+          "suspension": null,
+          "state": "ACTIVE",
+          "created_at": "2026-10-14T10:06:19+00:00",
+          "spending_restrictions": {
+            "auto_lock_date": null,
+            "interval": "MONTHLY",
+            "blocked_vendor_ids": null,
+            "next_interval_resets_at": "2026-11-01T00:00:00+00:00",
+            "allowed_vendor_ids": null,
+            "start_of_interval": "2026-10-01T00:00:00+00:00",
+            "blocked_category_codes": null,
+            "allowed_category_codes": null,
+            "temporary_limit": null,
+            "limit": {
+              "minor_unit_conversion_rate": 100,
+              "amount": 800000,
+              "currency_code": "USD"
+            },
+            "transaction_amount_limit": null
+          },
+          "cards": [
+            {
+              "expiration": "0830",
+              "display_name": "Executive Travel",
+              "user_id": "07323c8f-c449-4222-a970-8cc4cf673711",
+              "created_at": "2026-10-14T10:06:20+00:00",
+              "last_four": "3734",
+              "card_id": "a2d25ac2-5528-4c16-ba51-cd258d8d09f7"
+            }
+          ],
+          "is_shareable": false,
+          "overrides_spend_program": false,
+          "entity_id": "eb24fd81-de5d-43bd-8102-eb2cc53d3c3a",
+          "custom_form_collection_response": null,
+          "balance": {
+            "cleared": {
+              "minor_unit_conversion_rate": 100,
+              "amount": 517735,
+              "currency_code": "USD"
+            },
+            "pending": {
+              "minor_unit_conversion_rate": 100,
+              "amount": 0,
+              "currency_code": "USD"
+            },
+            "total": {
+              "minor_unit_conversion_rate": 100,
+              "amount": 517735,
+              "currency_code": "USD"
+            }
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 14 Oct 2026 11:13:24 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1987",
+          "x-ratelimit-reset": "1791976453",
+          "cf-ray": "a4a6278dbca4121f-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "server": "cloudflare",
+          "vary": "Origin, accept-encoding",
+          "content-security-policy": "upgrade-insecure-requests; frame-ancestors 'self' https://demo.ramp.com; report-uri https://ramp.report-uri.com/r/d/csp/enforce",
+          "ramp-worker-name": "demo-app-worker",
+          "server-timing": "gt;dur=203.021, ge;dur=0.178, px;dur=202.772, fw;dur=278.00, fwe;dur=0.00, fwx;dur=278.00",
+          "x-debug-cell-id": "none",
+          "x-debug-routing-key": "none",
+          "x-debug-upstream-cache-control": "none",
+          "x-ramp-body-source": "others",
+          "x-ramp-business-id": "e15cd7ee-ab7e-4173-a82f-00f33901c1ca",
+          "x-ramp-cf-ray": "a4a6278dc8ac0ba9-IAD",
+          "x-ramp-request-id": "01a13a1d-f4c7-711d-89a9-bb323b3781b7",
+          "x-trace-id": "ramp-fb0f6b2d263e44ca9e63cc62ed6cf7ed",
+          "set-cookie": "__cf_bm=a1cNinDFdcsAWyWr1nZc9pNR9c6Fesl8rLXwhGMim6w-1791976404.1150684-1.0.1.1-qtykkVElHJ2KaNHo7AuEL8up0w0zR4aFuc4VGtmspOMudx0YC4dVNDnvrUrg4amMgamaTd0.v1pa2U83Evb8evEznlluopaLHWo0yVSkChhLkauxb_GCVhlJJZkkT14z; HttpOnly; SameSite=None; Secure; Path=/; Domain=ramp.com; Expires=Wed, 14 Oct 2026 11:43:24 GMT",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "hash": "a85f55391759ce718abe7d8fb1593183671523ff",
+        "request": {}
+      },
+      "/developer/v1/transactions": {
+        "response": {
+          "page": {
+            "next": "https://demo-api.ramp.com/developer/v1/transactions?card_id=a2d25ac2-5528-4c16-ba51-cd258d8d09f7&page_size=10&order_by_date_desc=true&start=ac08d149-190f-4f61-b57a-4f3e9e1d8598",
+            "total_count": null,
+            "total_count_capped": null
+          },
+          "data": [
+            {
+              "merchant_name": "Air Canada",
+              "settlement_date": "2026-11-03T10:07:14+00:00",
+              "entity_amount": {
+                "currency": "USD",
+                "value": 42849
+              },
+              "card_holder": {
+                "employee_id": null,
+                "department_id": "2e34edf5-9603-4986-8aaa-bbec47d56674",
+                "user_id": "07323c8f-c449-4222-a970-8cc4cf673711",
+                "location_id": "154e0ad1-03b4-4ec8-937f-772dbfc300fd",
+                "location_name": "New York City",
+                "last_name": "Wallace",
+                "first_name": "David",
+                "department_name": "Executive"
+              },
+              "original_transaction_amount": {
+                "minor_unit_conversion_rate": 100,
+                "amount": 60898,
+                "currency_code": "CAD"
+              },
+              "merchant_category_code_description": null,
+              "merchant_location": {
+                "city": "North Janetton",
+                "country": "US",
+                "state": "NM",
+                "postal_code": "65352"
+              },
+              "receipts": [
+                "3699b8d4-5e2c-4f67-8d5e-9e07b62bc483"
+              ],
+              "merchant_id": "0d000cde-cfff-4eb0-ae50-e73a6a3e65bb",
+              "currency_code": "USD",
+              "sk_category_name": "Airlines",
+              "trip_name": "Client Visits in Toronto",
+              "policy_violations": [],
+              "posting_gl_account": null,
+              "sk_category_id": 4,
+              "state": "CLEARED",
+              "fund_id": "325a12bc-75c4-4022-8855-8e0dba170103",
+              "limit_id": "325a12bc-75c4-4022-8855-8e0dba170103",
+              "line_items": [],
+              "entity_id": "eb24fd81-de5d-43bd-8102-eb2cc53d3c3a",
+              "memo": "Flight to Toronto",
+              "updated_at": "2026-11-03T10:07:14+00:00",
+              "all_requirements_met_and_approved": true,
+              "original_transaction_id": null,
+              "statement_id": "77b892f3-c92e-4841-9a13-18284f56020b",
+              "network_merchant_id": "252211693454715",
+              "amount": 428.49,
+              "card_present": false,
+              "accounting_categories": [],
+              "card_id": "a2d25ac2-5528-4c16-ba51-cd258d8d09f7",
+              "user_transaction_time": "2026-11-02T10:07:14+00:00",
+              "sync_status": "NOT_SYNC_READY",
+              "merchant_category_code": null,
+              "merchant_amount": {
+                "currency": "CAD",
+                "value": 60898
+              },
+              "accounting_date": "2026-11-03T10:07:14+00:00",
+              "id": "1e132a4f-392b-4e12-8f35-2788034a9ead",
+              "disputes": [],
+              "minor_unit_conversion_rate": 100,
+              "synced_at": null,
+              "merchant_descriptor": "Air Canada",
+              "accounting_field_selections": [],
+              "trip_id": "44d0d756-1a32-42cf-a055-84371218bf95"
+            },
+            {
+              "merchant_name": "Hertz",
+              "settlement_date": "2026-10-15T10:07:22+00:00",
+              "entity_amount": {
+                "currency": "USD",
+                "value": 84267
+              },
+              "card_holder": {
+                "employee_id": null,
+                "department_id": "2e34edf5-9603-4986-8aaa-bbec47d56674",
+                "user_id": "07323c8f-c449-4222-a970-8cc4cf673711",
+                "location_id": "154e0ad1-03b4-4ec8-937f-772dbfc300fd",
+                "location_name": "New York City",
+                "last_name": "Wallace",
+                "first_name": "David",
+                "department_name": "Executive"
+              },
+              "original_transaction_amount": {
+                "minor_unit_conversion_rate": 100,
+                "amount": 84267,
+                "currency_code": "USD"
+              },
+              "merchant_category_code_description": null,
+              "merchant_location": {
+                "city": "Lake Kellyland",
+                "country": "US",
+                "state": "WY",
+                "postal_code": "17189"
+              },
+              "receipts": [],
+              "merchant_id": "97bbe640-0a72-47a6-965e-59acf76f8943",
+              "currency_code": "USD",
+              "sk_category_name": "Car Rental",
+              "trip_name": "ERP Conference",
+              "policy_violations": [],
+              "posting_gl_account": null,
+              "sk_category_id": 5,
+              "state": "CLEARED",
+              "fund_id": "325a12bc-75c4-4022-8855-8e0dba170103",
+              "limit_id": "325a12bc-75c4-4022-8855-8e0dba170103",
+              "line_items": [],
+              "entity_id": "eb24fd81-de5d-43bd-8102-eb2cc53d3c3a",
+              "memo": "Hertz car rental for vegas trip",
+              "updated_at": "2026-10-15T10:07:22+00:00",
+              "all_requirements_met_and_approved": true,
+              "original_transaction_id": null,
+              "statement_id": "77b892f3-c92e-4841-9a13-18284f56020b",
+              "network_merchant_id": "353558649826477",
+              "amount": 842.67,
+              "card_present": false,
+              "accounting_categories": [],
+              "card_id": "a2d25ac2-5528-4c16-ba51-cd258d8d09f7",
+              "user_transaction_time": "2026-10-14T10:07:22+00:00",
+              "sync_status": "NOT_SYNC_READY",
+              "merchant_category_code": null,
+              "merchant_amount": {
+                "currency": "USD",
+                "value": 84267
+              },
+              "accounting_date": "2026-10-15T10:07:22+00:00",
+              "id": "866fc8f1-1924-46a5-98f7-0194628a34ac",
+              "disputes": [],
+              "minor_unit_conversion_rate": 100,
+              "synced_at": null,
+              "merchant_descriptor": "Hertz",
+              "accounting_field_selections": [],
+              "trip_id": "2ab96b16-4f39-417d-817b-f264d2ce895c"
+            },
+            {
+              "merchant_name": "United Airlines",
+              "settlement_date": "2026-10-15T10:07:22+00:00",
+              "entity_amount": {
+                "currency": "USD",
+                "value": 35000
+              },
+              "card_holder": {
+                "employee_id": null,
+                "department_id": "2e34edf5-9603-4986-8aaa-bbec47d56674",
+                "user_id": "07323c8f-c449-4222-a970-8cc4cf673711",
+                "location_id": "154e0ad1-03b4-4ec8-937f-772dbfc300fd",
+                "location_name": "New York City",
+                "last_name": "Wallace",
+                "first_name": "David",
+                "department_name": "Executive"
+              },
+              "original_transaction_amount": {
+                "minor_unit_conversion_rate": 100,
+                "amount": 35000,
+                "currency_code": "USD"
+              },
+              "merchant_category_code_description": null,
+              "merchant_location": {
+                "city": "Fisherton",
+                "country": "US",
+                "state": "DE",
+                "postal_code": "33560"
+              },
+              "receipts": [],
+              "merchant_id": "5461f1c8-daee-4883-9b6d-fbd0a1891b38",
+              "currency_code": "USD",
+              "sk_category_name": "Other",
+              "trip_name": "ERP Conference",
+              "policy_violations": [],
+              "posting_gl_account": null,
+              "sk_category_id": 2,
+              "state": "CLEARED",
+              "fund_id": "325a12bc-75c4-4022-8855-8e0dba170103",
+              "limit_id": "325a12bc-75c4-4022-8855-8e0dba170103",
+              "line_items": [],
+              "entity_id": "eb24fd81-de5d-43bd-8102-eb2cc53d3c3a",
+              "memo": "Flight to TechCon",
+              "updated_at": "2026-10-15T10:07:22+00:00",
+              "all_requirements_met_and_approved": true,
+              "original_transaction_id": null,
+              "statement_id": "77b892f3-c92e-4841-9a13-18284f56020b",
+              "network_merchant_id": "216901311758597",
+              "amount": 350,
+              "card_present": false,
+              "accounting_categories": [],
+              "card_id": "a2d25ac2-5528-4c16-ba51-cd258d8d09f7",
+              "user_transaction_time": "2026-10-14T10:07:22+00:00",
+              "sync_status": "NOT_SYNC_READY",
+              "merchant_category_code": null,
+              "merchant_amount": {
+                "currency": "USD",
+                "value": 35000
+              },
+              "accounting_date": "2026-10-15T10:07:22+00:00",
+              "id": "c0586763-7877-4a47-8116-5631eef7a4f7",
+              "disputes": [],
+              "minor_unit_conversion_rate": 100,
+              "synced_at": null,
+              "merchant_descriptor": "United Airlines",
+              "accounting_field_selections": [],
+              "trip_id": "2ab96b16-4f39-417d-817b-f264d2ce895c"
+            },
+            {
+              "merchant_name": "CVS",
+              "settlement_date": "2026-10-12T03:24:18+00:00",
+              "entity_amount": {
+                "currency": "USD",
+                "value": 1214
+              },
+              "card_holder": {
+                "employee_id": null,
+                "department_id": "2e34edf5-9603-4986-8aaa-bbec47d56674",
+                "user_id": "07323c8f-c449-4222-a970-8cc4cf673711",
+                "location_id": "154e0ad1-03b4-4ec8-937f-772dbfc300fd",
+                "location_name": "New York City",
+                "last_name": "Wallace",
+                "first_name": "David",
+                "department_name": "Executive"
+              },
+              "original_transaction_amount": {
+                "minor_unit_conversion_rate": 100,
+                "amount": 1214,
+                "currency_code": "USD"
+              },
+              "merchant_category_code_description": null,
+              "merchant_location": {
+                "city": "Meadowsville",
+                "country": "US",
+                "state": "VA",
+                "postal_code": "53081"
+              },
+              "receipts": [],
+              "merchant_id": "a8833194-0fe4-499a-b8c6-0948a033a6eb",
+              "currency_code": "USD",
+              "sk_category_name": "General Merchandise",
+              "trip_name": "Trip to Denver",
+              "policy_violations": [],
+              "posting_gl_account": null,
+              "sk_category_id": 13,
+              "state": "CLEARED",
+              "fund_id": "325a12bc-75c4-4022-8855-8e0dba170103",
+              "limit_id": "325a12bc-75c4-4022-8855-8e0dba170103",
+              "line_items": [],
+              "entity_id": "eb24fd81-de5d-43bd-8102-eb2cc53d3c3a",
+              "memo": "Water and advil",
+              "updated_at": "2026-10-14T10:07:22+00:00",
+              "all_requirements_met_and_approved": true,
+              "original_transaction_id": null,
+              "statement_id": "77b892f3-c92e-4841-9a13-18284f56020b",
+              "network_merchant_id": "256823612122466",
+              "amount": 12.14,
+              "card_present": false,
+              "accounting_categories": [],
+              "card_id": "a2d25ac2-5528-4c16-ba51-cd258d8d09f7",
+              "user_transaction_time": "2026-10-11T03:24:18+00:00",
+              "sync_status": "NOT_SYNC_READY",
+              "merchant_category_code": null,
+              "merchant_amount": {
+                "currency": "USD",
+                "value": 1214
+              },
+              "accounting_date": "2026-10-12T03:24:18+00:00",
+              "id": "cbf18906-835b-4ef8-8a68-ddf74822de34",
+              "disputes": [],
+              "minor_unit_conversion_rate": 100,
+              "synced_at": null,
+              "merchant_descriptor": "CVS",
+              "accounting_field_selections": [],
+              "trip_id": "bdfd68a8-204e-44b4-92de-32357d27016b"
+            },
+            {
+              "merchant_name": "sweetgreen",
+              "settlement_date": "2026-10-11T16:19:29+00:00",
+              "entity_amount": {
+                "currency": "USD",
+                "value": 2988
+              },
+              "card_holder": {
+                "employee_id": null,
+                "department_id": "2e34edf5-9603-4986-8aaa-bbec47d56674",
+                "user_id": "07323c8f-c449-4222-a970-8cc4cf673711",
+                "location_id": "154e0ad1-03b4-4ec8-937f-772dbfc300fd",
+                "location_name": "New York City",
+                "last_name": "Wallace",
+                "first_name": "David",
+                "department_name": "Executive"
+              },
+              "original_transaction_amount": {
+                "minor_unit_conversion_rate": 100,
+                "amount": 2988,
+                "currency_code": "USD"
+              },
+              "merchant_category_code_description": null,
+              "merchant_location": {
+                "city": "Davidton",
+                "country": "US",
+                "state": "AZ",
+                "postal_code": "99560"
+              },
+              "receipts": [],
+              "merchant_id": "200cd69a-5da5-490e-9ab7-727979ec4406",
+              "currency_code": "USD",
+              "sk_category_name": "Restaurants",
+              "trip_name": "Trip to Denver",
+              "policy_violations": [],
+              "posting_gl_account": null,
+              "sk_category_id": 19,
+              "state": "CLEARED",
+              "fund_id": "325a12bc-75c4-4022-8855-8e0dba170103",
+              "limit_id": "325a12bc-75c4-4022-8855-8e0dba170103",
+              "line_items": [],
+              "entity_id": "eb24fd81-de5d-43bd-8102-eb2cc53d3c3a",
+              "memo": "Lunch with CBO",
+              "updated_at": "2026-10-14T10:07:22+00:00",
+              "all_requirements_met_and_approved": true,
+              "original_transaction_id": null,
+              "statement_id": "77b892f3-c92e-4841-9a13-18284f56020b",
+              "network_merchant_id": "432403123229187",
+              "amount": 29.88,
+              "card_present": false,
+              "accounting_categories": [],
+              "card_id": "a2d25ac2-5528-4c16-ba51-cd258d8d09f7",
+              "user_transaction_time": "2026-10-10T16:19:29+00:00",
+              "sync_status": "NOT_SYNC_READY",
+              "merchant_category_code": null,
+              "merchant_amount": {
+                "currency": "USD",
+                "value": 2988
+              },
+              "accounting_date": "2026-10-11T16:19:29+00:00",
+              "id": "9ee530e4-fb85-4619-b91f-a92894712cc2",
+              "disputes": [],
+              "minor_unit_conversion_rate": 100,
+              "synced_at": null,
+              "merchant_descriptor": "sweetgreen",
+              "accounting_field_selections": [],
+              "trip_id": "bdfd68a8-204e-44b4-92de-32357d27016b"
+            },
+            {
+              "merchant_name": "Philz Coffee",
+              "settlement_date": "2026-10-10T22:40:29+00:00",
+              "entity_amount": {
+                "currency": "USD",
+                "value": 553
+              },
+              "card_holder": {
+                "employee_id": null,
+                "department_id": "2e34edf5-9603-4986-8aaa-bbec47d56674",
+                "user_id": "07323c8f-c449-4222-a970-8cc4cf673711",
+                "location_id": "154e0ad1-03b4-4ec8-937f-772dbfc300fd",
+                "location_name": "New York City",
+                "last_name": "Wallace",
+                "first_name": "David",
+                "department_name": "Executive"
+              },
+              "original_transaction_amount": {
+                "minor_unit_conversion_rate": 100,
+                "amount": 553,
+                "currency_code": "USD"
+              },
+              "merchant_category_code_description": null,
+              "merchant_location": {
+                "city": "Nicholston",
+                "country": "US",
+                "state": "GA",
+                "postal_code": "54216"
+              },
+              "receipts": [],
+              "merchant_id": "67f09f25-87de-4407-9671-5301816c7305",
+              "currency_code": "USD",
+              "sk_category_name": "Restaurants",
+              "trip_name": "Trip to Denver",
+              "policy_violations": [],
+              "posting_gl_account": null,
+              "sk_category_id": 19,
+              "state": "CLEARED",
+              "fund_id": "325a12bc-75c4-4022-8855-8e0dba170103",
+              "limit_id": "325a12bc-75c4-4022-8855-8e0dba170103",
+              "line_items": [],
+              "entity_id": "eb24fd81-de5d-43bd-8102-eb2cc53d3c3a",
+              "memo": "Coffee and breakfast",
+              "updated_at": "2026-10-14T10:07:22+00:00",
+              "all_requirements_met_and_approved": true,
+              "original_transaction_id": null,
+              "statement_id": "77b892f3-c92e-4841-9a13-18284f56020b",
+              "network_merchant_id": "625313062027607",
+              "amount": 5.53,
+              "card_present": false,
+              "accounting_categories": [],
+              "card_id": "a2d25ac2-5528-4c16-ba51-cd258d8d09f7",
+              "user_transaction_time": "2026-10-09T22:40:29+00:00",
+              "sync_status": "NOT_SYNC_READY",
+              "merchant_category_code": null,
+              "merchant_amount": {
+                "currency": "USD",
+                "value": 553
+              },
+              "accounting_date": "2026-10-10T22:40:29+00:00",
+              "id": "d0a5273b-51af-4255-b8c2-ae86731cd867",
+              "disputes": [],
+              "minor_unit_conversion_rate": 100,
+              "synced_at": null,
+              "merchant_descriptor": "Philz Coffee",
+              "accounting_field_selections": [],
+              "trip_id": "bdfd68a8-204e-44b4-92de-32357d27016b"
+            },
+            {
+              "merchant_name": "Delta",
+              "settlement_date": "2026-10-10T08:08:31+00:00",
+              "entity_amount": {
+                "currency": "USD",
+                "value": 90235
+              },
+              "card_holder": {
+                "employee_id": null,
+                "department_id": "2e34edf5-9603-4986-8aaa-bbec47d56674",
+                "user_id": "07323c8f-c449-4222-a970-8cc4cf673711",
+                "location_id": "154e0ad1-03b4-4ec8-937f-772dbfc300fd",
+                "location_name": "New York City",
+                "last_name": "Wallace",
+                "first_name": "David",
+                "department_name": "Executive"
+              },
+              "original_transaction_amount": {
+                "minor_unit_conversion_rate": 100,
+                "amount": 90235,
+                "currency_code": "USD"
+              },
+              "merchant_category_code_description": null,
+              "merchant_location": {
+                "city": "Ryanberg",
+                "country": "US",
+                "state": "MS",
+                "postal_code": "30372"
+              },
+              "receipts": [],
+              "merchant_id": "940b0b48-9ae6-4418-bf9a-e50dfe98c5aa",
+              "currency_code": "USD",
+              "sk_category_name": "Fuel and Gas",
+              "trip_name": "Trip to Denver",
+              "policy_violations": [],
+              "posting_gl_account": null,
+              "sk_category_id": 18,
+              "state": "CLEARED",
+              "fund_id": "325a12bc-75c4-4022-8855-8e0dba170103",
+              "limit_id": "325a12bc-75c4-4022-8855-8e0dba170103",
+              "line_items": [],
+              "entity_id": "eb24fd81-de5d-43bd-8102-eb2cc53d3c3a",
+              "memo": "Flight to Denver for Executive Offsite",
+              "updated_at": "2026-10-14T10:07:22+00:00",
+              "all_requirements_met_and_approved": true,
+              "original_transaction_id": null,
+              "statement_id": "77b892f3-c92e-4841-9a13-18284f56020b",
+              "network_merchant_id": "824270739548121",
+              "amount": 902.35,
+              "card_present": false,
+              "accounting_categories": [],
+              "card_id": "a2d25ac2-5528-4c16-ba51-cd258d8d09f7",
+              "user_transaction_time": "2026-10-09T08:08:31+00:00",
+              "sync_status": "NOT_SYNC_READY",
+              "merchant_category_code": null,
+              "merchant_amount": {
+                "currency": "USD",
+                "value": 90235
+              },
+              "accounting_date": "2026-10-10T08:08:31+00:00",
+              "id": "ee925915-3a02-48bb-beb2-24a8f7b14811",
+              "disputes": [],
+              "minor_unit_conversion_rate": 100,
+              "synced_at": null,
+              "merchant_descriptor": "Delta",
+              "accounting_field_selections": [],
+              "trip_id": "bdfd68a8-204e-44b4-92de-32357d27016b"
+            },
+            {
+              "merchant_name": "Lyft",
+              "settlement_date": "2026-10-09T20:00:25+00:00",
+              "entity_amount": {
+                "currency": "USD",
+                "value": 4200
+              },
+              "card_holder": {
+                "employee_id": null,
+                "department_id": "2e34edf5-9603-4986-8aaa-bbec47d56674",
+                "user_id": "07323c8f-c449-4222-a970-8cc4cf673711",
+                "location_id": "154e0ad1-03b4-4ec8-937f-772dbfc300fd",
+                "location_name": "New York City",
+                "last_name": "Wallace",
+                "first_name": "David",
+                "department_name": "Executive"
+              },
+              "original_transaction_amount": {
+                "minor_unit_conversion_rate": 100,
+                "amount": 4200,
+                "currency_code": "USD"
+              },
+              "merchant_category_code_description": null,
+              "merchant_location": {
+                "city": "Martinezmouth",
+                "country": "US",
+                "state": "AL",
+                "postal_code": "96401"
+              },
+              "receipts": [],
+              "merchant_id": "ce1039cb-4d4b-48d0-968f-41f8d2028c2f",
+              "currency_code": "USD",
+              "sk_category_name": "Taxi and Rideshare",
+              "trip_name": "Trip to Denver",
+              "policy_violations": [],
+              "posting_gl_account": null,
+              "sk_category_id": 8,
+              "state": "CLEARED",
+              "fund_id": "325a12bc-75c4-4022-8855-8e0dba170103",
+              "limit_id": "325a12bc-75c4-4022-8855-8e0dba170103",
+              "line_items": [],
+              "entity_id": "eb24fd81-de5d-43bd-8102-eb2cc53d3c3a",
+              "memo": "Lyft to offsite dinner",
+              "updated_at": "2026-10-14T10:07:22+00:00",
+              "all_requirements_met_and_approved": true,
+              "original_transaction_id": null,
+              "statement_id": "77b892f3-c92e-4841-9a13-18284f56020b",
+              "network_merchant_id": "084069014365661",
+              "amount": 42,
+              "card_present": false,
+              "accounting_categories": [],
+              "card_id": "a2d25ac2-5528-4c16-ba51-cd258d8d09f7",
+              "user_transaction_time": "2026-10-08T20:00:25+00:00",
+              "sync_status": "NOT_SYNC_READY",
+              "merchant_category_code": null,
+              "merchant_amount": {
+                "currency": "USD",
+                "value": 4200
+              },
+              "accounting_date": "2026-10-09T20:00:25+00:00",
+              "id": "6d0786eb-192f-4148-857a-236e445e0650",
+              "disputes": [],
+              "minor_unit_conversion_rate": 100,
+              "synced_at": null,
+              "merchant_descriptor": "Lyft",
+              "accounting_field_selections": [],
+              "trip_id": "bdfd68a8-204e-44b4-92de-32357d27016b"
+            },
+            {
+              "merchant_name": "Marriott",
+              "settlement_date": "2026-10-09T16:24:30+00:00",
+              "entity_amount": {
+                "currency": "USD",
+                "value": 81092
+              },
+              "card_holder": {
+                "employee_id": null,
+                "department_id": "2e34edf5-9603-4986-8aaa-bbec47d56674",
+                "user_id": "07323c8f-c449-4222-a970-8cc4cf673711",
+                "location_id": "154e0ad1-03b4-4ec8-937f-772dbfc300fd",
+                "location_name": "New York City",
+                "last_name": "Wallace",
+                "first_name": "David",
+                "department_name": "Executive"
+              },
+              "original_transaction_amount": {
+                "minor_unit_conversion_rate": 100,
+                "amount": 81092,
+                "currency_code": "USD"
+              },
+              "merchant_category_code_description": null,
+              "merchant_location": {
+                "city": "Scottborough",
+                "country": "US",
+                "state": "WV",
+                "postal_code": "24109"
+              },
+              "receipts": [
+                "a27979f8-c1cb-42ba-9a3c-61762377b3f4"
+              ],
+              "merchant_id": "ca22248f-be5b-4e21-b5df-2837573c04aa",
+              "currency_code": "USD",
+              "sk_category_name": "Lodging",
+              "trip_name": "Trip to Denver",
+              "policy_violations": [],
+              "posting_gl_account": null,
+              "sk_category_id": 6,
+              "state": "CLEARED",
+              "fund_id": "325a12bc-75c4-4022-8855-8e0dba170103",
+              "limit_id": "325a12bc-75c4-4022-8855-8e0dba170103",
+              "line_items": [],
+              "entity_id": "eb24fd81-de5d-43bd-8102-eb2cc53d3c3a",
+              "memo": "Hotel for executive offsite",
+              "updated_at": "2026-10-14T10:07:22+00:00",
+              "all_requirements_met_and_approved": true,
+              "original_transaction_id": null,
+              "statement_id": "77b892f3-c92e-4841-9a13-18284f56020b",
+              "network_merchant_id": "842917847507924",
+              "amount": 810.92,
+              "card_present": false,
+              "accounting_categories": [],
+              "card_id": "a2d25ac2-5528-4c16-ba51-cd258d8d09f7",
+              "user_transaction_time": "2026-10-08T16:24:30+00:00",
+              "sync_status": "NOT_SYNC_READY",
+              "merchant_category_code": null,
+              "merchant_amount": {
+                "currency": "USD",
+                "value": 81092
+              },
+              "accounting_date": "2026-10-09T16:24:30+00:00",
+              "id": "9e531ee4-dace-4f3a-b13e-0e61799c17b8",
+              "disputes": [],
+              "minor_unit_conversion_rate": 100,
+              "synced_at": null,
+              "merchant_descriptor": "Marriott",
+              "accounting_field_selections": [],
+              "trip_id": "bdfd68a8-204e-44b4-92de-32357d27016b"
+            },
+            {
+              "merchant_name": "Salesforce",
+              "settlement_date": "2026-10-08T15:55:08+00:00",
+              "entity_amount": {
+                "currency": "USD",
+                "value": 72219
+              },
+              "card_holder": {
+                "employee_id": null,
+                "department_id": "2e34edf5-9603-4986-8aaa-bbec47d56674",
+                "user_id": "07323c8f-c449-4222-a970-8cc4cf673711",
+                "location_id": "154e0ad1-03b4-4ec8-937f-772dbfc300fd",
+                "location_name": "New York City",
+                "last_name": "Wallace",
+                "first_name": "David",
+                "department_name": "Executive"
+              },
+              "original_transaction_amount": {
+                "minor_unit_conversion_rate": 100,
+                "amount": 72219,
+                "currency_code": "USD"
+              },
+              "merchant_category_code_description": null,
+              "merchant_location": {
+                "city": "West Danielview",
+                "country": "US",
+                "state": "FL",
+                "postal_code": "74595"
+              },
+              "receipts": [],
+              "merchant_id": "e7f1a13c-150e-4e27-9144-cbb4985e2384",
+              "currency_code": "USD",
+              "sk_category_name": "SaaS / Software",
+              "trip_name": "Trip to Denver",
+              "policy_violations": [],
+              "posting_gl_account": null,
+              "sk_category_id": 40,
+              "state": "CLEARED",
+              "fund_id": "325a12bc-75c4-4022-8855-8e0dba170103",
+              "limit_id": "325a12bc-75c4-4022-8855-8e0dba170103",
+              "line_items": [],
+              "entity_id": "eb24fd81-de5d-43bd-8102-eb2cc53d3c3a",
+              "memo": "Dinner last night of off-site",
+              "updated_at": "2026-10-14T10:07:22+00:00",
+              "all_requirements_met_and_approved": true,
+              "original_transaction_id": null,
+              "statement_id": "77b892f3-c92e-4841-9a13-18284f56020b",
+              "network_merchant_id": "245491308061435",
+              "amount": 722.19,
+              "card_present": false,
+              "accounting_categories": [],
+              "card_id": "a2d25ac2-5528-4c16-ba51-cd258d8d09f7",
+              "user_transaction_time": "2026-10-07T15:55:08+00:00",
+              "sync_status": "NOT_SYNC_READY",
+              "merchant_category_code": null,
+              "merchant_amount": {
+                "currency": "USD",
+                "value": 72219
+              },
+              "accounting_date": "2026-10-08T15:55:08+00:00",
+              "id": "ac08d149-190f-4f61-b57a-4f3e9e1d8598",
+              "disputes": [],
+              "minor_unit_conversion_rate": 100,
+              "synced_at": null,
+              "merchant_descriptor": "Salesforce",
+              "accounting_field_selections": [],
+              "trip_id": "bdfd68a8-204e-44b4-92de-32357d27016b"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 14 Oct 2026 11:13:24 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1986",
+          "x-ratelimit-reset": "1791976453",
+          "cf-ray": "a4a6278fffb5dfd2-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "server": "cloudflare",
+          "vary": "Origin, accept-encoding",
+          "content-security-policy": "upgrade-insecure-requests; frame-ancestors 'self' https://demo.ramp.com; report-uri https://ramp.report-uri.com/r/d/csp/enforce",
+          "ramp-worker-name": "demo-app-worker",
+          "server-timing": "gt;dur=277.781, ge;dur=0.184, px;dur=277.536, fw;dur=353.00, fwe;dur=0.00, fwx;dur=353.00",
+          "x-debug-cell-id": "none",
+          "x-debug-routing-key": "none",
+          "x-debug-upstream-cache-control": "none",
+          "x-ramp-body-source": "others",
+          "x-ramp-business-id": "e15cd7ee-ab7e-4173-a82f-00f33901c1ca",
+          "x-ramp-cf-ray": "a4a6278fff1712b1-IAD",
+          "x-ramp-request-id": "01a13a1d-f62c-7fe9-92fa-94b9b21cbabf",
+          "x-ramp-sensitive-fields": "data[*].card_holder.location_name,data[*].memo",
+          "x-trace-id": "ramp-1ae6dfa6370a45a3b4132e1dd30570bd",
+          "set-cookie": "__cf_bm=ZbCEHrUSC6WGxJw20v21_3izxpQTbhshBI9qnjfESFs-1791976404.4731557-1.0.1.1-IYNqOw6E5fCxiCJiuVrXQ_fjBAUF5fxxp7MVXn.4SUag_WXidsYzThYQ_TvDh9AUd38mCYXpWTnhZ2xb0.8aPGl7qz4oCxV8HOsDayPJm9QHGgwgkHPjeiqHbaX8hRHP; HttpOnly; SameSite=None; Secure; Path=/; Domain=ramp.com; Expires=Wed, 14 Oct 2026 11:43:24 GMT",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "hash": "96a0484840f4ee292cf5c6971eb2a3fb271d5b23",
+        "request": {
+          "params": {
+            "card_id": "a2d25ac2-5528-4c16-ba51-cd258d8d09f7",
+            "order_by_date_desc": "true",
+            "page_size": "10"
+          }
+        }
+      }
+    }
+  }
+}

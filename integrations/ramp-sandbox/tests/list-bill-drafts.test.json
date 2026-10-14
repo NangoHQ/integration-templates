@@ -1,0 +1,512 @@
+{
+  "input": {},
+  "output": {
+    "draft_bills": [
+      {
+        "id": "757c5d4c-cce5-4b60-8568-00117b3f23e5",
+        "created_at": "2026-10-14T11:09:49+00:00",
+        "status": "DRAFT",
+        "sync_status": "NOT_SYNCED",
+        "accounting_date": "2026-10-14T00:00:00+00:00",
+        "issued_at": "2026-10-14T00:00:00+00:00",
+        "due_at": "2026-11-14T00:00:00+00:00",
+        "posting_date": null,
+        "amount": {
+          "amount": 10000,
+          "currency_code": "USD",
+          "minor_unit_conversion_rate": 100
+        },
+        "entity_id": "eb24fd81-de5d-43bd-8102-eb2cc53d3c3a",
+        "invoice_number": "NANGO-DRAFT-TEST-1",
+        "remote_id": null,
+        "memo": "Nango create-bill-draft live-verification test",
+        "vendor_memo": null,
+        "invoice_urls": [],
+        "bill_owner": {
+          "id": "07323c8f-c449-4222-a970-8cc4cf673711",
+          "first_name": "David",
+          "last_name": "Wallace"
+        },
+        "vendor": {
+          "id": "6716c7e6-1c53-47ef-a368-7b8490e8c83d",
+          "name": "Lopez, Diaz and Parker",
+          "type": null
+        },
+        "line_items": [
+          {
+            "id": "01a13a1a-af96-7a7c-8966-638a035e5e86",
+            "amount": {
+              "amount": 10000,
+              "currency_code": "USD",
+              "minor_unit_conversion_rate": 100
+            },
+            "memo": "Consulting services",
+            "accounting_field_selections": []
+          }
+        ],
+        "inventory_line_items": [],
+        "accounting_field_selections": []
+      },
+      {
+        "id": "ce522237-043a-4eea-9933-7776dab60c51",
+        "created_at": "2026-10-14T11:09:39+00:00",
+        "status": "DRAFT",
+        "sync_status": "NOT_SYNCED",
+        "accounting_date": "2026-10-14T00:00:00+00:00",
+        "issued_at": "2026-10-14T00:00:00+00:00",
+        "due_at": "2026-11-14T00:00:00+00:00",
+        "posting_date": null,
+        "amount": {
+          "amount": 10000,
+          "currency_code": "USD",
+          "minor_unit_conversion_rate": 100
+        },
+        "entity_id": "eb24fd81-de5d-43bd-8102-eb2cc53d3c3a",
+        "invoice_number": "NANGO-DRAFT-TEST-1",
+        "remote_id": null,
+        "memo": "Nango create-bill-draft live-verification test",
+        "vendor_memo": null,
+        "invoice_urls": [],
+        "bill_owner": {
+          "id": "07323c8f-c449-4222-a970-8cc4cf673711",
+          "first_name": "David",
+          "last_name": "Wallace"
+        },
+        "vendor": {
+          "id": "6716c7e6-1c53-47ef-a368-7b8490e8c83d",
+          "name": "Lopez, Diaz and Parker",
+          "type": null
+        },
+        "line_items": [
+          {
+            "id": "01a13a1a-88d8-70d6-9549-9c00428f19f5",
+            "amount": {
+              "amount": 10000,
+              "currency_code": "USD",
+              "minor_unit_conversion_rate": 100
+            },
+            "memo": "Consulting services",
+            "accounting_field_selections": []
+          }
+        ],
+        "inventory_line_items": [],
+        "accounting_field_selections": []
+      },
+      {
+        "id": "b003a159-d875-4b0c-9432-aa055d1775b2",
+        "created_at": "2026-10-14T11:06:36+00:00",
+        "status": "DRAFT",
+        "sync_status": "NOT_SYNCED",
+        "accounting_date": null,
+        "issued_at": null,
+        "due_at": null,
+        "posting_date": null,
+        "amount": {
+          "amount": 10000,
+          "currency_code": "USD",
+          "minor_unit_conversion_rate": 100
+        },
+        "entity_id": null,
+        "invoice_number": null,
+        "remote_id": null,
+        "memo": "Nango create-bill-draft live-verification probe",
+        "vendor_memo": null,
+        "invoice_urls": [],
+        "bill_owner": {
+          "id": "07323c8f-c449-4222-a970-8cc4cf673711",
+          "first_name": "David",
+          "last_name": "Wallace"
+        },
+        "vendor": {
+          "id": "6716c7e6-1c53-47ef-a368-7b8490e8c83d",
+          "name": "Lopez, Diaz and Parker",
+          "type": null
+        },
+        "line_items": [
+          {
+            "id": "01a13a17-bd5d-7bf9-b2e4-1560ee184118",
+            "amount": {
+              "amount": 10000,
+              "currency_code": "USD",
+              "minor_unit_conversion_rate": 100
+            },
+            "memo": "Probe line item",
+            "accounting_field_selections": []
+          }
+        ],
+        "inventory_line_items": [],
+        "accounting_field_selections": []
+      },
+      {
+        "id": "97e4020a-778c-42f0-9115-18aaa2d3f1af",
+        "created_at": "2026-10-14T11:05:34+00:00",
+        "status": "DRAFT",
+        "sync_status": "NOT_SYNCED",
+        "accounting_date": "2026-10-14T00:00:00+00:00",
+        "issued_at": "2026-10-14T00:00:00+00:00",
+        "due_at": "2026-11-14T00:00:00+00:00",
+        "posting_date": null,
+        "amount": {
+          "amount": 100000,
+          "currency_code": "USD",
+          "minor_unit_conversion_rate": 100
+        },
+        "entity_id": null,
+        "invoice_number": "NANGO-SUBMIT-TEST-2",
+        "remote_id": null,
+        "memo": "Nango registry submit-bill-draft test 2",
+        "vendor_memo": null,
+        "invoice_urls": [],
+        "bill_owner": {
+          "id": "07323c8f-c449-4222-a970-8cc4cf673711",
+          "first_name": "David",
+          "last_name": "Wallace"
+        },
+        "vendor": {
+          "id": "effa4ecc-59f7-423b-9747-56dafc7c66da",
+          "name": "Figma",
+          "type": "BUSINESS"
+        },
+        "line_items": [
+          {
+            "id": "01a13a16-cbd8-76f8-85d1-08d55fe8516f",
+            "amount": {
+              "amount": 100000,
+              "currency_code": "USD",
+              "minor_unit_conversion_rate": 100
+            },
+            "memo": "Test line item",
+            "accounting_field_selections": []
+          }
+        ],
+        "inventory_line_items": [],
+        "accounting_field_selections": []
+      },
+      {
+        "id": "faaf5154-3ef7-49e4-986d-acdd5be2b9ec",
+        "created_at": "2026-10-14T11:05:10+00:00",
+        "status": "DRAFT",
+        "sync_status": "NOT_SYNCED",
+        "accounting_date": null,
+        "issued_at": null,
+        "due_at": null,
+        "posting_date": null,
+        "amount": {
+          "amount": 100000,
+          "currency_code": "USD",
+          "minor_unit_conversion_rate": 100
+        },
+        "entity_id": null,
+        "invoice_number": "NANGO-SUBMIT-TEST-1",
+        "remote_id": null,
+        "memo": "Nango registry submit-bill-draft test",
+        "vendor_memo": null,
+        "invoice_urls": [],
+        "bill_owner": {
+          "id": "07323c8f-c449-4222-a970-8cc4cf673711",
+          "first_name": "David",
+          "last_name": "Wallace"
+        },
+        "vendor": {
+          "id": "effa4ecc-59f7-423b-9747-56dafc7c66da",
+          "name": "Figma",
+          "type": "BUSINESS"
+        },
+        "line_items": [
+          {
+            "id": "01a13a16-6e06-76c3-86c7-b314f956cded",
+            "amount": {
+              "amount": 100000,
+              "currency_code": "USD",
+              "minor_unit_conversion_rate": 100
+            },
+            "memo": "Test line item",
+            "accounting_field_selections": []
+          }
+        ],
+        "inventory_line_items": [],
+        "accounting_field_selections": []
+      }
+    ],
+    "next_cursor": null
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/developer/v1/bills/drafts": {
+        "response": {
+          "page": {
+            "next": null
+          },
+          "data": [
+            {
+              "issued_at": "2026-10-14T00:00:00+00:00",
+              "entity_id": "eb24fd81-de5d-43bd-8102-eb2cc53d3c3a",
+              "amount": {
+                "currency_code": "USD",
+                "minor_unit_conversion_rate": 100,
+                "amount": 10000
+              },
+              "due_at": "2026-11-14T00:00:00+00:00",
+              "bill_owner": {
+                "first_name": "David",
+                "id": "07323c8f-c449-4222-a970-8cc4cf673711",
+                "last_name": "Wallace"
+              },
+              "sync_status": "NOT_SYNCED",
+              "accounting_date": "2026-10-14T00:00:00+00:00",
+              "status": "DRAFT",
+              "invoice_urls": [],
+              "id": "757c5d4c-cce5-4b60-8568-00117b3f23e5",
+              "remote_id": null,
+              "accounting_field_selections": [],
+              "invoice_number": "NANGO-DRAFT-TEST-1",
+              "memo": "Nango create-bill-draft live-verification test",
+              "vendor_memo": null,
+              "vendor": {
+                "name": "Lopez, Diaz and Parker",
+                "id": "6716c7e6-1c53-47ef-a368-7b8490e8c83d",
+                "type": null
+              },
+              "posting_date": null,
+              "line_items": [
+                {
+                  "amount": {
+                    "currency_code": "USD",
+                    "minor_unit_conversion_rate": 100,
+                    "amount": 10000
+                  },
+                  "id": "01a13a1a-af96-7a7c-8966-638a035e5e86",
+                  "memo": "Consulting services",
+                  "accounting_field_selections": []
+                }
+              ],
+              "created_at": "2026-10-14T11:09:49+00:00",
+              "inventory_line_items": []
+            },
+            {
+              "issued_at": "2026-10-14T00:00:00+00:00",
+              "entity_id": "eb24fd81-de5d-43bd-8102-eb2cc53d3c3a",
+              "amount": {
+                "currency_code": "USD",
+                "minor_unit_conversion_rate": 100,
+                "amount": 10000
+              },
+              "due_at": "2026-11-14T00:00:00+00:00",
+              "bill_owner": {
+                "first_name": "David",
+                "id": "07323c8f-c449-4222-a970-8cc4cf673711",
+                "last_name": "Wallace"
+              },
+              "sync_status": "NOT_SYNCED",
+              "accounting_date": "2026-10-14T00:00:00+00:00",
+              "status": "DRAFT",
+              "invoice_urls": [],
+              "id": "ce522237-043a-4eea-9933-7776dab60c51",
+              "remote_id": null,
+              "accounting_field_selections": [],
+              "invoice_number": "NANGO-DRAFT-TEST-1",
+              "memo": "Nango create-bill-draft live-verification test",
+              "vendor_memo": null,
+              "vendor": {
+                "name": "Lopez, Diaz and Parker",
+                "id": "6716c7e6-1c53-47ef-a368-7b8490e8c83d",
+                "type": null
+              },
+              "posting_date": null,
+              "line_items": [
+                {
+                  "amount": {
+                    "currency_code": "USD",
+                    "minor_unit_conversion_rate": 100,
+                    "amount": 10000
+                  },
+                  "id": "01a13a1a-88d8-70d6-9549-9c00428f19f5",
+                  "memo": "Consulting services",
+                  "accounting_field_selections": []
+                }
+              ],
+              "created_at": "2026-10-14T11:09:39+00:00",
+              "inventory_line_items": []
+            },
+            {
+              "issued_at": null,
+              "entity_id": null,
+              "amount": {
+                "currency_code": "USD",
+                "minor_unit_conversion_rate": 100,
+                "amount": 10000
+              },
+              "due_at": null,
+              "bill_owner": {
+                "first_name": "David",
+                "id": "07323c8f-c449-4222-a970-8cc4cf673711",
+                "last_name": "Wallace"
+              },
+              "sync_status": "NOT_SYNCED",
+              "accounting_date": null,
+              "status": "DRAFT",
+              "invoice_urls": [],
+              "id": "b003a159-d875-4b0c-9432-aa055d1775b2",
+              "remote_id": null,
+              "accounting_field_selections": [],
+              "invoice_number": null,
+              "memo": "Nango create-bill-draft live-verification probe",
+              "vendor_memo": null,
+              "vendor": {
+                "name": "Lopez, Diaz and Parker",
+                "id": "6716c7e6-1c53-47ef-a368-7b8490e8c83d",
+                "type": null
+              },
+              "posting_date": null,
+              "line_items": [
+                {
+                  "amount": {
+                    "currency_code": "USD",
+                    "minor_unit_conversion_rate": 100,
+                    "amount": 10000
+                  },
+                  "id": "01a13a17-bd5d-7bf9-b2e4-1560ee184118",
+                  "memo": "Probe line item",
+                  "accounting_field_selections": []
+                }
+              ],
+              "created_at": "2026-10-14T11:06:36+00:00",
+              "inventory_line_items": []
+            },
+            {
+              "issued_at": "2026-10-14T00:00:00+00:00",
+              "entity_id": null,
+              "amount": {
+                "currency_code": "USD",
+                "minor_unit_conversion_rate": 100,
+                "amount": 100000
+              },
+              "due_at": "2026-11-14T00:00:00+00:00",
+              "bill_owner": {
+                "first_name": "David",
+                "id": "07323c8f-c449-4222-a970-8cc4cf673711",
+                "last_name": "Wallace"
+              },
+              "sync_status": "NOT_SYNCED",
+              "accounting_date": "2026-10-14T00:00:00+00:00",
+              "status": "DRAFT",
+              "invoice_urls": [],
+              "id": "97e4020a-778c-42f0-9115-18aaa2d3f1af",
+              "remote_id": null,
+              "accounting_field_selections": [],
+              "invoice_number": "NANGO-SUBMIT-TEST-2",
+              "memo": "Nango registry submit-bill-draft test 2",
+              "vendor_memo": null,
+              "vendor": {
+                "name": "Figma",
+                "id": "effa4ecc-59f7-423b-9747-56dafc7c66da",
+                "type": "BUSINESS"
+              },
+              "posting_date": null,
+              "line_items": [
+                {
+                  "amount": {
+                    "currency_code": "USD",
+                    "minor_unit_conversion_rate": 100,
+                    "amount": 100000
+                  },
+                  "id": "01a13a16-cbd8-76f8-85d1-08d55fe8516f",
+                  "memo": "Test line item",
+                  "accounting_field_selections": []
+                }
+              ],
+              "created_at": "2026-10-14T11:05:34+00:00",
+              "inventory_line_items": []
+            },
+            {
+              "issued_at": null,
+              "entity_id": null,
+              "amount": {
+                "currency_code": "USD",
+                "minor_unit_conversion_rate": 100,
+                "amount": 100000
+              },
+              "due_at": null,
+              "bill_owner": {
+                "first_name": "David",
+                "id": "07323c8f-c449-4222-a970-8cc4cf673711",
+                "last_name": "Wallace"
+              },
+              "sync_status": "NOT_SYNCED",
+              "accounting_date": null,
+              "status": "DRAFT",
+              "invoice_urls": [],
+              "id": "faaf5154-3ef7-49e4-986d-acdd5be2b9ec",
+              "remote_id": null,
+              "accounting_field_selections": [],
+              "invoice_number": "NANGO-SUBMIT-TEST-1",
+              "memo": "Nango registry submit-bill-draft test",
+              "vendor_memo": null,
+              "vendor": {
+                "name": "Figma",
+                "id": "effa4ecc-59f7-423b-9747-56dafc7c66da",
+                "type": "BUSINESS"
+              },
+              "posting_date": null,
+              "line_items": [
+                {
+                  "amount": {
+                    "currency_code": "USD",
+                    "minor_unit_conversion_rate": 100,
+                    "amount": 100000
+                  },
+                  "id": "01a13a16-6e06-76c3-86c7-b314f956cded",
+                  "memo": "Test line item",
+                  "accounting_field_selections": []
+                }
+              ],
+              "created_at": "2026-10-14T11:05:10+00:00",
+              "inventory_line_items": []
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 14 Oct 2026 11:10:33 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1914",
+          "x-ratelimit-reset": "1791976271",
+          "cf-ray": "a4a6235d1e858d3a-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "server": "cloudflare",
+          "vary": "Origin, accept-encoding",
+          "content-security-policy": "upgrade-insecure-requests; frame-ancestors 'self' https://demo.ramp.com; report-uri https://ramp.report-uri.com/r/d/csp/enforce",
+          "ramp-worker-name": "demo-app-worker",
+          "server-timing": "gt;dur=477.488, ge;dur=0.190, px;dur=477.223, fw;dur=567.00, fwe;dur=0.00, fwx;dur=567.00",
+          "x-debug-cell-id": "none",
+          "x-debug-routing-key": "none",
+          "x-debug-upstream-cache-control": "none",
+          "x-ramp-body-source": "others",
+          "x-ramp-business-id": "e15cd7ee-ab7e-4173-a82f-00f33901c1ca",
+          "x-ramp-cf-ray": "a4a6235d281f20eb-PDX",
+          "x-ramp-request-id": "01a13a1b-5660-749f-8e27-cc5254c67fa1",
+          "x-ramp-sensitive-fields": "data[*].memo",
+          "x-trace-id": "ramp-9f537d4daecf44ecb0f5d1efcf98b54c",
+          "set-cookie": "__cf_bm=VWuyPhepewJ1zTN0yRu0gdvfb2YSZT9kDcX2209Tm2g-1791976232.4958887-1.0.1.1-KXkTJTjEhDjoKXnqvLmnOD1fw4GM6ccfPiGTh49VFHc60KNFgQfY7AQX4.ajsfBZ1sWvB8FCNhuej.uvjqDI0v5qBMdwtCbcvYbFCkpY.KNh37y3iShcxmYgOMT.qLj7; HttpOnly; SameSite=None; Secure; Path=/; Domain=ramp.com; Expires=Wed, 14 Oct 2026 11:40:33 GMT",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "hash": "260e1951e5ac1a4236cf85985f823ade4f1ab5d5",
+        "request": {}
+      }
+    }
+  }
+}

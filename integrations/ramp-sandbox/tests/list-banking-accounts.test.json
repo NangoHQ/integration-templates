@@ -1,0 +1,87 @@
+{
+  "input": {
+    "page_size": 2
+  },
+  "output": {
+    "accounts": [
+      {
+        "id": "01a139ea-d2f8-7a15-8af6-53cb91605643",
+        "name": "Investment Account",
+        "account_type": "MANAGED_PORTFOLIO_ACCOUNT"
+      },
+      {
+        "id": "65c9931a-88c3-4e32-8abf-b707d3f74716",
+        "name": "Checking Account",
+        "account_type": "WALLET_ACCOUNT"
+      }
+    ],
+    "next_cursor": "gAAAAABqz2I7l3CWkXL-Zq0zalSNthvGN27xX1N2g6WFvadtfGjFeaU4ptUDEzE7ZgUF_VIRqe4qPY9MMgTbXtlMS10cv_PGWlZiRzyL4mzkzpXRhqlbLJPtnkIgrxQtnjC9fYYiq127"
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/developer/v1/banking/accounts": {
+        "response": {
+          "data": [
+            {
+              "id": "01a139ea-d2f8-7a15-8af6-53cb91605643",
+              "name": "Investment Account",
+              "account_type": "MANAGED_PORTFOLIO_ACCOUNT"
+            },
+            {
+              "id": "65c9931a-88c3-4e32-8abf-b707d3f74716",
+              "name": "Checking Account",
+              "account_type": "WALLET_ACCOUNT"
+            }
+          ],
+          "page": {
+            "next": "https://demo-api.ramp.com/developer/v1/banking/accounts?page_size=2&start=gAAAAABqz2I7l3CWkXL-Zq0zalSNthvGN27xX1N2g6WFvadtfGjFeaU4ptUDEzE7ZgUF_VIRqe4qPY9MMgTbXtlMS10cv_PGWlZiRzyL4mzkzpXRhqlbLJPtnkIgrxQtnjC9fYYiq127"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 14 Oct 2026 11:06:35 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1876",
+          "x-ratelimit-reset": "1791976028",
+          "cf-ray": "a4a61d93ac57d0a0-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "server": "cloudflare",
+          "vary": "Origin, accept-encoding",
+          "content-security-policy": "upgrade-insecure-requests; frame-ancestors 'self' https://demo.ramp.com; report-uri https://ramp.report-uri.com/r/d/csp/enforce",
+          "ramp-worker-name": "demo-app-worker",
+          "server-timing": "gt;dur=131.546, ge;dur=0.175, px;dur=131.310, fw;dur=206.00, fwe;dur=0.00, fwx;dur=206.00",
+          "x-debug-cell-id": "none",
+          "x-debug-routing-key": "none",
+          "x-debug-upstream-cache-control": "none",
+          "x-ramp-body-source": "others",
+          "x-ramp-business-id": "e15cd7ee-ab7e-4173-a82f-00f33901c1ca",
+          "x-ramp-cf-ray": "a4a61d93bca7706c-IAD",
+          "x-ramp-request-id": "01a13a17-b87d-7315-909b-4e5462f69bd3",
+          "x-trace-id": "ramp-bdb03682d5384dff984de9e6ab987a90",
+          "set-cookie": "__cf_bm=UuUwyLf1kRaxcH44Qam5tmrFTdKUJv3Gd9FvSS25wgs-1791975995.4654877-1.0.1.1-kPq8ApnoqZa5sSnrXXRoSa03NqDcPv3YqtCtkSHogBCc7taFPbadOxbwbJAYLSnmJgzckjC_GeXfStVtj3HFboGj8AGJKhOO3lFB81Tm8ZwQbD2KMTHIXy8ASCImtjYL; HttpOnly; SameSite=None; Secure; Path=/; Domain=ramp.com; Expires=Wed, 14 Oct 2026 11:36:35 GMT",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "hash": "1a415d5220b49b358ef05b6458f6bb21d1b742bd",
+        "request": {
+          "params": {
+            "page_size": "2"
+          }
+        }
+      }
+    }
+  }
+}

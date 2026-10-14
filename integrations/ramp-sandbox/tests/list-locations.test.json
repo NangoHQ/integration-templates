@@ -1,0 +1,132 @@
+{
+  "input": {},
+  "output": {
+    "locations": [
+      {
+        "id": "84020a8c-695c-4b61-a1ee-cdcf31efbea6",
+        "name": "Seattle",
+        "entity_id": "a7587328-64fa-4b8b-ad30-a2d27806825b"
+      },
+      {
+        "id": "2025b3cd-280c-46f7-9d01-8eeff5a9c5af",
+        "name": "San Francisco",
+        "entity_id": "a7587328-64fa-4b8b-ad30-a2d27806825b"
+      },
+      {
+        "id": "154e0ad1-03b4-4ec8-937f-772dbfc300fd",
+        "name": "New York City",
+        "entity_id": "eb24fd81-de5d-43bd-8102-eb2cc53d3c3a"
+      },
+      {
+        "id": "09af6124-80ac-4d46-a5b2-7517f56e6cdf",
+        "name": "Nango Registry Test Location",
+        "entity_id": "eb24fd81-de5d-43bd-8102-eb2cc53d3c3a"
+      },
+      {
+        "id": "1d2260ec-7992-4a39-b3b8-393d7a942f50",
+        "name": "Miami",
+        "entity_id": "eb24fd81-de5d-43bd-8102-eb2cc53d3c3a"
+      },
+      {
+        "id": "9c0ae38c-91a0-4f5e-8092-2b6db8a02113",
+        "name": "London",
+        "entity_id": "eb24fd81-de5d-43bd-8102-eb2cc53d3c3a"
+      },
+      {
+        "id": "631a502c-1498-4749-be78-f85b83eda6c6",
+        "name": "Boston",
+        "entity_id": "eb24fd81-de5d-43bd-8102-eb2cc53d3c3a"
+      }
+    ],
+    "next_cursor": null
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/developer/v1/locations": {
+        "response": {
+          "page": {
+            "next": null
+          },
+          "data": [
+            {
+              "entity_id": "a7587328-64fa-4b8b-ad30-a2d27806825b",
+              "name": "Seattle",
+              "id": "84020a8c-695c-4b61-a1ee-cdcf31efbea6"
+            },
+            {
+              "entity_id": "a7587328-64fa-4b8b-ad30-a2d27806825b",
+              "name": "San Francisco",
+              "id": "2025b3cd-280c-46f7-9d01-8eeff5a9c5af"
+            },
+            {
+              "entity_id": "eb24fd81-de5d-43bd-8102-eb2cc53d3c3a",
+              "name": "New York City",
+              "id": "154e0ad1-03b4-4ec8-937f-772dbfc300fd"
+            },
+            {
+              "entity_id": "eb24fd81-de5d-43bd-8102-eb2cc53d3c3a",
+              "name": "Nango Registry Test Location",
+              "id": "09af6124-80ac-4d46-a5b2-7517f56e6cdf"
+            },
+            {
+              "entity_id": "eb24fd81-de5d-43bd-8102-eb2cc53d3c3a",
+              "name": "Miami",
+              "id": "1d2260ec-7992-4a39-b3b8-393d7a942f50"
+            },
+            {
+              "entity_id": "eb24fd81-de5d-43bd-8102-eb2cc53d3c3a",
+              "name": "London",
+              "id": "9c0ae38c-91a0-4f5e-8092-2b6db8a02113"
+            },
+            {
+              "entity_id": "eb24fd81-de5d-43bd-8102-eb2cc53d3c3a",
+              "name": "Boston",
+              "id": "631a502c-1498-4749-be78-f85b83eda6c6"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 14 Oct 2026 11:08:25 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1940",
+          "x-ratelimit-reset": "1791976149",
+          "cf-ray": "a4a6203f0eddb332-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "server": "cloudflare",
+          "vary": "Origin, accept-encoding",
+          "content-security-policy": "upgrade-insecure-requests; frame-ancestors 'self' https://demo.ramp.com; report-uri https://ramp.report-uri.com/r/d/csp/enforce",
+          "ramp-worker-name": "demo-app-worker",
+          "server-timing": "gt;dur=121.725, ge;dur=0.161, px;dur=121.500, fw;dur=194.00, fwe;dur=0.00, fwx;dur=194.00",
+          "x-debug-cell-id": "none",
+          "x-debug-routing-key": "none",
+          "x-debug-upstream-cache-control": "none",
+          "x-ramp-body-source": "others",
+          "x-ramp-business-id": "e15cd7ee-ab7e-4173-a82f-00f33901c1ca",
+          "x-ramp-cf-ray": "a4a6203f1a2b20eb-IAD",
+          "x-ramp-request-id": "01a13a19-6395-7eb3-b538-83ac4f70b207",
+          "x-ramp-sensitive-fields": "data[*].name",
+          "x-trace-id": "ramp-c9e70d38d2324f2bb74af37dc8079a63",
+          "set-cookie": "<redacted>",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "hash": "c5d5f5d0863897b82d3e8a6c7afa5a0d827c8420",
+        "request": {}
+      }
+    }
+  }
+}

@@ -1,0 +1,270 @@
+{
+  "input": {
+    "name": "Figma"
+  },
+  "output": {
+    "created": false,
+    "multiple_matches_warning": true,
+    "matching_vendors": [
+      {
+        "id": "effa4ecc-59f7-423b-9747-56dafc7c66da",
+        "name": "Figma",
+        "name_legal": "Figma",
+        "country": "US",
+        "state": "NJ",
+        "status": "ACTIVE",
+        "is_active": true,
+        "is_deletable": false,
+        "vendor_owner_id": "07323c8f-c449-4222-a970-8cc4cf673711",
+        "vendor_type": "BUSINESS",
+        "federal_tax_classification": "C_CORPORATION",
+        "contacts": [
+          "8a855e01-2123-4730-b117-4fc0647051e5",
+          "694ffb89-6e85-4320-bc82-aaa8961b8e6e"
+        ],
+        "created_at": "2026-10-14T10:17:59+00:00",
+        "updated_at": "2026-10-14T10:17:59+00:00"
+      },
+      {
+        "id": "8a9b8d4e-af8f-47a5-845f-631bc4939e39",
+        "name": "Figma",
+        "name_legal": "Figma",
+        "country": "US",
+        "state": "NJ",
+        "status": "ACTIVE",
+        "is_active": true,
+        "is_deletable": false,
+        "description": "Collaborative design platform for teams to build products together.",
+        "merchant_id": "72f7d98d-9938-4645-a9a9-e108525216a1",
+        "vendor_owner_id": "92539a3b-9151-4dfc-8a8c-b5dd5114b865",
+        "sk_category_id": 40,
+        "sk_category_name": "SaaS / Software",
+        "vendor_type": "BUSINESS",
+        "federal_tax_classification": "C_CORPORATION",
+        "contacts": [
+          "46356587-1a2a-474e-801c-437b0d127bad"
+        ],
+        "created_at": "2026-10-14T10:05:40+00:00",
+        "updated_at": "2026-10-14T10:05:40+00:00"
+      }
+    ],
+    "vendor": {
+      "id": "effa4ecc-59f7-423b-9747-56dafc7c66da",
+      "name": "Figma",
+      "name_legal": "Figma",
+      "country": "US",
+      "state": "NJ",
+      "status": "ACTIVE",
+      "is_active": true,
+      "is_deletable": false,
+      "vendor_owner_id": "07323c8f-c449-4222-a970-8cc4cf673711",
+      "vendor_type": "BUSINESS",
+      "federal_tax_classification": "C_CORPORATION",
+      "contacts": [
+        "8a855e01-2123-4730-b117-4fc0647051e5",
+        "694ffb89-6e85-4320-bc82-aaa8961b8e6e"
+      ],
+      "created_at": "2026-10-14T10:17:59+00:00",
+      "updated_at": "2026-10-14T10:17:59+00:00"
+    }
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/developer/v1/vendors": {
+        "response": {
+          "page": {
+            "next": null
+          },
+          "data": [
+            {
+              "name_legal": "Figma",
+              "federal_tax_classification": "C_CORPORATION",
+              "address": null,
+              "accounting_vendor_remote_id": null,
+              "billing_frequency": null,
+              "created_at": "2026-10-14T10:17:59+00:00",
+              "contacts": [
+                "8a855e01-2123-4730-b117-4fc0647051e5",
+                "694ffb89-6e85-4320-bc82-aaa8961b8e6e"
+              ],
+              "total_spend_ytd": {
+                "minor_unit_conversion_rate": 100,
+                "amount": 73005,
+                "currency_code": "USD"
+              },
+              "merchant_id": null,
+              "vendor_type": "BUSINESS",
+              "is_active": true,
+              "total_spend_last_30_days": {
+                "minor_unit_conversion_rate": 100,
+                "amount": 73005,
+                "currency_code": "USD"
+              },
+              "sk_category_id": null,
+              "state": "NJ",
+              "tax_address": null,
+              "status": "ACTIVE",
+              "updated_at": "2026-10-14T10:17:59+00:00",
+              "country": "US",
+              "vendor_owner_id": "07323c8f-c449-4222-a970-8cc4cf673711",
+              "default_payment_method": {
+                "update_source": "MANUAL",
+                "policy": {
+                  "data": {
+                    "is_default": true,
+                    "id": "e521d107-ad27-481d-96c2-1e05c15900e1",
+                    "currency": "USD",
+                    "payment_method": "ACH",
+                    "account_number_last_four": "6789",
+                    "account_nickname": null
+                  },
+                  "kind": "BANK_ACCOUNT"
+                }
+              },
+              "addresses": [],
+              "is_deletable": false,
+              "default_entity_id": null,
+              "name": "Figma",
+              "total_spend_all_time": {
+                "minor_unit_conversion_rate": 100,
+                "amount": 73005,
+                "currency_code": "USD"
+              },
+              "id": "effa4ecc-59f7-423b-9747-56dafc7c66da",
+              "description": null,
+              "external_vendor_id": null,
+              "total_spend_last_365_days": {
+                "minor_unit_conversion_rate": 100,
+                "amount": 73005,
+                "currency_code": "USD"
+              },
+              "parent_vendor_id": null,
+              "net_payment_terms": null
+            },
+            {
+              "name_legal": "Figma",
+              "federal_tax_classification": "C_CORPORATION",
+              "address": null,
+              "accounting_vendor_remote_id": null,
+              "billing_frequency": null,
+              "created_at": "2026-10-14T10:05:40+00:00",
+              "contacts": [
+                "46356587-1a2a-474e-801c-437b0d127bad"
+              ],
+              "total_spend_ytd": {
+                "minor_unit_conversion_rate": 100,
+                "amount": 12757,
+                "currency_code": "USD"
+              },
+              "merchant_id": "72f7d98d-9938-4645-a9a9-e108525216a1",
+              "vendor_type": "BUSINESS",
+              "is_active": true,
+              "sk_category_name": "SaaS / Software",
+              "total_spend_last_30_days": {
+                "minor_unit_conversion_rate": 100,
+                "amount": 800,
+                "currency_code": "USD"
+              },
+              "sk_category_id": 40,
+              "state": "NJ",
+              "tax_address": null,
+              "status": "ACTIVE",
+              "updated_at": "2026-10-14T10:05:40+00:00",
+              "country": "US",
+              "vendor_owner_id": "92539a3b-9151-4dfc-8a8c-b5dd5114b865",
+              "default_payment_method": {
+                "update_source": "MANUAL",
+                "policy": {
+                  "data": {
+                    "is_default": true,
+                    "id": "0d5bf828-1e48-4ab1-8300-cb25b5967d63",
+                    "currency": "USD",
+                    "payment_method": "ACH",
+                    "account_number_last_four": "6789",
+                    "account_nickname": null
+                  },
+                  "kind": "BANK_ACCOUNT"
+                }
+              },
+              "addresses": [
+                {
+                  "city": "San Francisco",
+                  "is_default": false,
+                  "postal_code": "94102",
+                  "id": "fcd0af35-a838-4ad2-b2e5-131944663fbf",
+                  "country": "US",
+                  "address_line_2": null,
+                  "state": "CA",
+                  "address_line_1": "760 Market St"
+                }
+              ],
+              "is_deletable": false,
+              "default_entity_id": null,
+              "name": "Figma",
+              "total_spend_all_time": {
+                "minor_unit_conversion_rate": 100,
+                "amount": 17547,
+                "currency_code": "USD"
+              },
+              "id": "8a9b8d4e-af8f-47a5-845f-631bc4939e39",
+              "description": "Collaborative design platform for teams to build products together.",
+              "external_vendor_id": null,
+              "total_spend_last_365_days": {
+                "minor_unit_conversion_rate": 100,
+                "amount": 17547,
+                "currency_code": "USD"
+              },
+              "parent_vendor_id": null,
+              "net_payment_terms": null
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 14 Oct 2026 11:09:22 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1937",
+          "x-ratelimit-reset": "1791976210",
+          "cf-ray": "a4a621a75f9ab332-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "server": "cloudflare",
+          "vary": "Origin, accept-encoding",
+          "content-security-policy": "upgrade-insecure-requests; frame-ancestors 'self' https://demo.ramp.com; report-uri https://ramp.report-uri.com/r/d/csp/enforce",
+          "ramp-worker-name": "demo-app-worker",
+          "server-timing": "gt;dur=437.054, ge;dur=0.241, px;dur=436.739, fw;dur=511.00, fwe;dur=0.00, fwx;dur=511.00",
+          "x-debug-cell-id": "none",
+          "x-debug-routing-key": "none",
+          "x-debug-upstream-cache-control": "none",
+          "x-ramp-body-source": "others",
+          "x-ramp-business-id": "e15cd7ee-ab7e-4173-a82f-00f33901c1ca",
+          "x-ramp-cf-ray": "a4a621a76a6b20eb-IAD",
+          "x-ramp-request-id": "01a13a1a-44c7-729b-8383-1c7b5fbd3acf",
+          "x-trace-id": "ramp-12e2dfd09b8a4191b9190303a8a874ec",
+          "set-cookie": "__cf_bm=7qcanei5IqQNbwBwge6W3PddxjoqJF6LAmJTSsYBBnc-1791976162.4549334-1.0.1.1-W9vC6qxPeY8fMos_iNaoulCgIQX5qVAk6hZNKaxfaOPtp5vU1z3gzNUVtrEZFzKvrXMHdJ3wUDD5pR.GvvCP0IQ6nUDIJjH.FTgUpoU7qvuIXoVrxyrInpJN1di6A3Zi; HttpOnly; SameSite=None; Secure; Path=/; Domain=ramp.com; Expires=Wed, 14 Oct 2026 11:39:22 GMT",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "hash": "d8b17b578c8bb526082c977cb2cb28451ce31897",
+        "request": {
+          "params": {
+            "name": "Figma",
+            "page_size": "100"
+          }
+        }
+      }
+    }
+  }
+}

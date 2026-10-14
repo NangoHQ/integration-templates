@@ -1,0 +1,171 @@
+{
+  "input": {
+    "entity_id": "eb24fd81-de5d-43bd-8102-eb2cc53d3c3a"
+  },
+  "output": {
+    "id": "eb24fd81-de5d-43bd-8102-eb2cc53d3c3a",
+    "entity_name": "Save Time Inc",
+    "currency": "USD",
+    "is_primary": true,
+    "connected_subsidiary": null,
+    "default_bill_pay_payment_account_id": "0cb665b6-49d5-4723-b29a-71ce8af70751",
+    "location_ids": [
+      "154e0ad1-03b4-4ec8-937f-772dbfc300fd",
+      "631a502c-1498-4749-be78-f85b83eda6c6",
+      "1d2260ec-7992-4a39-b3b8-393d7a942f50",
+      "9c0ae38c-91a0-4f5e-8092-2b6db8a02113",
+      "09af6124-80ac-4d46-a5b2-7517f56e6cdf"
+    ],
+    "accounts": [],
+    "payment_accounts": [
+      {
+        "account_name": "Checking",
+        "account_number_last_four": "9752",
+        "currency": "USD",
+        "id": "7bc1bb89-5ed5-48cd-a71c-9de9e383f745"
+      },
+      {
+        "account_name": "Savings",
+        "account_number_last_four": "7777",
+        "currency": "GBP",
+        "id": "63e1fe7c-418b-46e3-ba38-53ce229be26c"
+      },
+      {
+        "account_name": "Checking Account",
+        "account_number_last_four": "0001",
+        "currency": "USD",
+        "id": "0cb665b6-49d5-4723-b29a-71ce8af70751"
+      },
+      {
+        "account_name": "Stablecoin Account",
+        "account_number_last_four": "4242",
+        "currency": "USDC",
+        "id": "db922c01-2e70-4b72-97a2-b3d92fb547f4"
+      },
+      {
+        "account_name": "Jones and Sons",
+        "account_number_last_four": "1264",
+        "currency": "EUR",
+        "id": "fc37ae7e-ef76-4eb1-acf6-30e4c6d9ac3a"
+      },
+      {
+        "account_name": "Stokes and Sons",
+        "account_number_last_four": "1832",
+        "currency": "USD",
+        "id": "54f70182-c32a-43d4-8286-8b6a032adac0"
+      },
+      {
+        "account_name": "Brown Ltd",
+        "account_number_last_four": "6653",
+        "currency": "GBP",
+        "id": "9128effa-03f6-4302-b895-3468ab319cd2"
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/developer/v1/entities/eb24fd81-de5d-43bd-8102-eb2cc53d3c3a": {
+        "response": {
+          "entity_name": "Save Time Inc",
+          "connected_subsidiary": null,
+          "payment_accounts": [
+            {
+              "account_name": "Checking",
+              "id": "7bc1bb89-5ed5-48cd-a71c-9de9e383f745",
+              "account_number_last_four": "9752",
+              "currency": "USD"
+            },
+            {
+              "account_name": "Savings",
+              "id": "63e1fe7c-418b-46e3-ba38-53ce229be26c",
+              "account_number_last_four": "7777",
+              "currency": "GBP"
+            },
+            {
+              "account_name": "Checking Account",
+              "id": "0cb665b6-49d5-4723-b29a-71ce8af70751",
+              "account_number_last_four": "0001",
+              "currency": "USD"
+            },
+            {
+              "account_name": "Stablecoin Account",
+              "id": "db922c01-2e70-4b72-97a2-b3d92fb547f4",
+              "account_number_last_four": "4242",
+              "currency": "USDC"
+            },
+            {
+              "account_name": "Jones and Sons",
+              "id": "fc37ae7e-ef76-4eb1-acf6-30e4c6d9ac3a",
+              "account_number_last_four": "1264",
+              "currency": "EUR"
+            },
+            {
+              "account_name": "Stokes and Sons",
+              "id": "54f70182-c32a-43d4-8286-8b6a032adac0",
+              "account_number_last_four": "1832",
+              "currency": "USD"
+            },
+            {
+              "account_name": "Brown Ltd",
+              "id": "9128effa-03f6-4302-b895-3468ab319cd2",
+              "account_number_last_four": "6653",
+              "currency": "GBP"
+            }
+          ],
+          "id": "eb24fd81-de5d-43bd-8102-eb2cc53d3c3a",
+          "is_primary": true,
+          "location_ids": [
+            "154e0ad1-03b4-4ec8-937f-772dbfc300fd",
+            "631a502c-1498-4749-be78-f85b83eda6c6",
+            "1d2260ec-7992-4a39-b3b8-393d7a942f50",
+            "9c0ae38c-91a0-4f5e-8092-2b6db8a02113",
+            "09af6124-80ac-4d46-a5b2-7517f56e6cdf"
+          ],
+          "currency": "USD",
+          "default_bill_pay_payment_account_id": "0cb665b6-49d5-4723-b29a-71ce8af70751",
+          "accounts": []
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 14 Oct 2026 11:07:06 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1820",
+          "x-ratelimit-reset": "1791976028",
+          "cf-ray": "a4a61e510a51ac0d-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "server": "cloudflare",
+          "vary": "Origin, accept-encoding",
+          "content-security-policy": "upgrade-insecure-requests; frame-ancestors 'self' https://demo.ramp.com; report-uri https://ramp.report-uri.com/r/d/csp/enforce",
+          "ramp-worker-name": "demo-app-worker",
+          "server-timing": "gt;dur=193.588, ge;dur=0.185, px;dur=193.320, fw;dur=302.00, fwe;dur=0.00, fwx;dur=302.00",
+          "x-debug-cell-id": "none",
+          "x-debug-routing-key": "none",
+          "x-debug-upstream-cache-control": "none",
+          "x-ramp-body-source": "others",
+          "x-ramp-business-id": "e15cd7ee-ab7e-4173-a82f-00f33901c1ca",
+          "x-ramp-cf-ray": "a4a61e511fed0ba9-PDX",
+          "x-ramp-request-id": "01a13a18-2ee6-7b06-8ca2-17b821f901d7",
+          "x-trace-id": "ramp-4bbd92d22fda4bd38d0f03c4a314ecee",
+          "set-cookie": "<redacted>",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "hash": "93b98b2d4df5372af159e02bce7b3547842265f0",
+        "request": {}
+      }
+    }
+  }
+}

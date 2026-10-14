@@ -1,0 +1,267 @@
+{
+  "input": {
+    "page_size": 2
+  },
+  "output": {
+    "vendors": [
+      {
+        "id": "6716c7e6-1c53-47ef-a368-7b8490e8c83d",
+        "name": "Lopez, Diaz and Parker",
+        "name_legal": null,
+        "description": null,
+        "external_vendor_id": null,
+        "accounting_vendor_remote_id": null,
+        "status": "UNMANAGED",
+        "is_active": true,
+        "is_deletable": false,
+        "country": "US",
+        "state": null,
+        "vendor_type": null,
+        "billing_frequency": null,
+        "federal_tax_classification": null,
+        "net_payment_terms": null,
+        "sk_category_id": 38,
+        "sk_category_name": "Government Services",
+        "merchant_id": "fe9ce95f-c2de-4c56-b801-9a54e05199aa",
+        "parent_vendor_id": null,
+        "vendor_owner_id": null,
+        "default_entity_id": null,
+        "contacts": [],
+        "address": null,
+        "addresses": [],
+        "tax_address": null,
+        "default_payment_method": null,
+        "total_spend_all_time": {
+          "amount": 1800000,
+          "currency_code": "USD",
+          "minor_unit_conversion_rate": 100
+        },
+        "total_spend_last_30_days": {
+          "amount": 0,
+          "currency_code": "USD",
+          "minor_unit_conversion_rate": 100
+        },
+        "total_spend_last_365_days": {
+          "amount": 1800000,
+          "currency_code": "USD",
+          "minor_unit_conversion_rate": 100
+        },
+        "total_spend_ytd": {
+          "amount": 1800000,
+          "currency_code": "USD",
+          "minor_unit_conversion_rate": 100
+        },
+        "created_at": "2026-10-14T10:19:39+00:00",
+        "updated_at": "2026-10-14T10:19:39+00:00"
+      },
+      {
+        "id": "b50d129e-0e43-49e5-906c-9c70975db171",
+        "name": "Smith, Garrison and Harvey",
+        "name_legal": null,
+        "description": null,
+        "external_vendor_id": null,
+        "accounting_vendor_remote_id": null,
+        "status": "UNMANAGED",
+        "is_active": true,
+        "is_deletable": true,
+        "country": "US",
+        "state": null,
+        "vendor_type": null,
+        "billing_frequency": null,
+        "federal_tax_classification": null,
+        "net_payment_terms": null,
+        "sk_category_id": 36,
+        "sk_category_name": "Religious Organizations",
+        "merchant_id": "64743a8d-515e-48cb-ab98-1ecad347cfd3",
+        "parent_vendor_id": null,
+        "vendor_owner_id": null,
+        "default_entity_id": null,
+        "contacts": [],
+        "address": null,
+        "addresses": [],
+        "tax_address": null,
+        "default_payment_method": null,
+        "total_spend_all_time": {
+          "amount": 14320,
+          "currency_code": "USD",
+          "minor_unit_conversion_rate": 100
+        },
+        "total_spend_last_30_days": {
+          "amount": 14320,
+          "currency_code": "USD",
+          "minor_unit_conversion_rate": 100
+        },
+        "total_spend_last_365_days": {
+          "amount": 14320,
+          "currency_code": "USD",
+          "minor_unit_conversion_rate": 100
+        },
+        "total_spend_ytd": {
+          "amount": 14320,
+          "currency_code": "USD",
+          "minor_unit_conversion_rate": 100
+        },
+        "created_at": "2026-10-14T10:19:39+00:00",
+        "updated_at": "2026-10-14T10:19:39+00:00"
+      }
+    ],
+    "next_cursor": "b50d129e-0e43-49e5-906c-9c70975db171"
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/developer/v1/vendors": {
+        "response": {
+          "page": {
+            "next": "https://demo-api.ramp.com/developer/v1/vendors?page_size=2&start=b50d129e-0e43-49e5-906c-9c70975db171"
+          },
+          "data": [
+            {
+              "total_spend_last_365_days": {
+                "amount": 1800000,
+                "minor_unit_conversion_rate": 100,
+                "currency_code": "USD"
+              },
+              "federal_tax_classification": null,
+              "sk_category_id": 38,
+              "parent_vendor_id": null,
+              "contacts": [],
+              "total_spend_last_30_days": {
+                "amount": 0,
+                "minor_unit_conversion_rate": 100,
+                "currency_code": "USD"
+              },
+              "address": null,
+              "created_at": "2026-10-14T10:19:39+00:00",
+              "addresses": [],
+              "name_legal": null,
+              "status": "UNMANAGED",
+              "default_entity_id": null,
+              "sk_category_name": "Government Services",
+              "name": "Lopez, Diaz and Parker",
+              "external_vendor_id": null,
+              "description": null,
+              "is_deletable": false,
+              "accounting_vendor_remote_id": null,
+              "updated_at": "2026-10-14T10:19:39+00:00",
+              "id": "6716c7e6-1c53-47ef-a368-7b8490e8c83d",
+              "vendor_owner_id": null,
+              "is_active": true,
+              "default_payment_method": null,
+              "country": "US",
+              "billing_frequency": null,
+              "net_payment_terms": null,
+              "state": null,
+              "tax_address": null,
+              "vendor_type": null,
+              "merchant_id": "fe9ce95f-c2de-4c56-b801-9a54e05199aa",
+              "total_spend_all_time": {
+                "amount": 1800000,
+                "minor_unit_conversion_rate": 100,
+                "currency_code": "USD"
+              },
+              "total_spend_ytd": {
+                "amount": 1800000,
+                "minor_unit_conversion_rate": 100,
+                "currency_code": "USD"
+              }
+            },
+            {
+              "total_spend_last_365_days": {
+                "amount": 14320,
+                "minor_unit_conversion_rate": 100,
+                "currency_code": "USD"
+              },
+              "federal_tax_classification": null,
+              "sk_category_id": 36,
+              "parent_vendor_id": null,
+              "contacts": [],
+              "total_spend_last_30_days": {
+                "amount": 14320,
+                "minor_unit_conversion_rate": 100,
+                "currency_code": "USD"
+              },
+              "address": null,
+              "created_at": "2026-10-14T10:19:39+00:00",
+              "addresses": [],
+              "name_legal": null,
+              "status": "UNMANAGED",
+              "default_entity_id": null,
+              "sk_category_name": "Religious Organizations",
+              "name": "Smith, Garrison and Harvey",
+              "external_vendor_id": null,
+              "description": null,
+              "is_deletable": true,
+              "accounting_vendor_remote_id": null,
+              "updated_at": "2026-10-14T10:19:39+00:00",
+              "id": "b50d129e-0e43-49e5-906c-9c70975db171",
+              "vendor_owner_id": null,
+              "is_active": true,
+              "default_payment_method": null,
+              "country": "US",
+              "billing_frequency": null,
+              "net_payment_terms": null,
+              "state": null,
+              "tax_address": null,
+              "vendor_type": null,
+              "merchant_id": "64743a8d-515e-48cb-ab98-1ecad347cfd3",
+              "total_spend_all_time": {
+                "amount": 14320,
+                "minor_unit_conversion_rate": 100,
+                "currency_code": "USD"
+              },
+              "total_spend_ytd": {
+                "amount": 14320,
+                "minor_unit_conversion_rate": 100,
+                "currency_code": "USD"
+              }
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 14 Oct 2026 11:38:26 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1995",
+          "x-ratelimit-reset": "1791977964",
+          "cf-ray": "a4a64c397d1dff15-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "server": "cloudflare",
+          "vary": "Origin, accept-encoding",
+          "content-security-policy": "upgrade-insecure-requests; frame-ancestors 'self' https://demo.ramp.com; report-uri https://ramp.report-uri.com/r/d/csp/enforce",
+          "ramp-worker-name": "demo-app-worker",
+          "server-timing": "gt;dur=413.818, ge;dur=0.158, px;dur=413.593, fw;dur=517.00, fwe;dur=0.00, fwx;dur=517.00",
+          "x-debug-cell-id": "none",
+          "x-debug-routing-key": "none",
+          "x-debug-upstream-cache-control": "none",
+          "x-ramp-body-source": "others",
+          "x-ramp-business-id": "e15cd7ee-ab7e-4173-a82f-00f33901c1ca",
+          "x-ramp-cf-ray": "a4a64c39aef7ef63-PDX",
+          "x-ramp-request-id": "01a13a34-e039-7464-8837-9db6e4d6b2ee",
+          "x-trace-id": "ramp-d982617c623b43e2b9c765830a1f6117",
+          "set-cookie": "__cf_bm=srswF3Y1QMb_NUqWeZfUVMaw.vlYkialhtqmsN1t4Hs-1791977906.1564252-1.0.1.1-sNZ4E09audKFQr8Ori9Q7vqT5.LjOSb1_ybm2dLDCmFY3K8zyE7CKwPiewobin.UYLEVVgVg83365uzJZmcZ_bgyDcAYvDAXC6oKQyAXt2qO4pfd6ZS38k0tdig25FUM; HttpOnly; SameSite=None; Secure; Path=/; Domain=ramp.com; Expires=Wed, 14 Oct 2026 12:08:26 GMT",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "hash": "0f0b8a6b21ba1172ad7e41f51c1cfce7a0d5fee4",
+        "request": {
+          "params": {
+            "page_size": "2"
+          }
+        }
+      }
+    }
+  }
+}

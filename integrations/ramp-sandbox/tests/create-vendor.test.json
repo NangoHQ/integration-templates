@@ -1,0 +1,135 @@
+{
+  "input": {
+    "name": "Nango Create Vendor Test",
+    "country": "US",
+    "state": "NY",
+    "business_vendor_contacts": {
+      "email": "nango-create-vendor-test@nango.dev",
+      "first_name": "Nango",
+      "last_name": "Test",
+      "phone": "+13525342357"
+    }
+  },
+  "output": {
+    "id": "71b9ff72-9efb-4052-bde0-8f1db2696119",
+    "name": "Nango Create Vendor Test",
+    "country": "US",
+    "state": "NY",
+    "is_active": true,
+    "is_deletable": true,
+    "contacts": [
+      "52d2e0e3-c433-4976-b519-8aff7723f4f9"
+    ],
+    "created_at": "2026-10-14T11:11:56+00:00",
+    "updated_at": "2026-10-14T11:11:56+00:00"
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/developer/v1/vendors": {
+        "response": {
+          "name_legal": null,
+          "federal_tax_classification": null,
+          "address": null,
+          "accounting_vendor_remote_id": null,
+          "billing_frequency": null,
+          "created_at": "2026-10-14T11:11:56+00:00",
+          "contacts": [
+            "52d2e0e3-c433-4976-b519-8aff7723f4f9"
+          ],
+          "total_spend_ytd": {
+            "minor_unit_conversion_rate": 100,
+            "amount": 0,
+            "currency_code": "USD"
+          },
+          "merchant_id": null,
+          "vendor_type": "BUSINESS",
+          "is_active": true,
+          "total_spend_last_30_days": {
+            "minor_unit_conversion_rate": 100,
+            "amount": 0,
+            "currency_code": "USD"
+          },
+          "sk_category_id": null,
+          "state": "NY",
+          "tax_address": null,
+          "status": "ACTIVE",
+          "updated_at": "2026-10-14T11:11:56+00:00",
+          "country": "US",
+          "vendor_owner_id": null,
+          "default_payment_method": null,
+          "addresses": [],
+          "is_deletable": true,
+          "default_entity_id": null,
+          "name": "Nango Create Vendor Test",
+          "total_spend_all_time": {
+            "minor_unit_conversion_rate": 100,
+            "amount": 0,
+            "currency_code": "USD"
+          },
+          "id": "71b9ff72-9efb-4052-bde0-8f1db2696119",
+          "description": null,
+          "external_vendor_id": null,
+          "total_spend_last_365_days": {
+            "minor_unit_conversion_rate": 100,
+            "amount": 0,
+            "currency_code": "USD"
+          },
+          "parent_vendor_id": null,
+          "net_payment_terms": null
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 14 Oct 2026 11:11:57 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1823",
+          "x-ratelimit-reset": "1791976331",
+          "cf-ray": "a4a6256ccd71121f-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "server": "cloudflare",
+          "vary": "Origin, accept-encoding",
+          "content-security-policy": "upgrade-insecure-requests; frame-ancestors 'self' https://demo.ramp.com; report-uri https://ramp.report-uri.com/r/d/csp/enforce",
+          "ramp-worker-name": "demo-app-worker",
+          "server-timing": "gt;dur=806.697, ge;dur=0.145, px;dur=806.499, fw;dur=877.00, fwe;dur=0.00, fwx;dur=877.00",
+          "x-debug-cell-id": "none",
+          "x-debug-routing-key": "none",
+          "x-debug-upstream-cache-control": "none",
+          "x-ramp-body-source": "others",
+          "x-ramp-business-id": "e15cd7ee-ab7e-4173-a82f-00f33901c1ca",
+          "x-ramp-cf-ray": "a4a6256cdd5b20eb-IAD",
+          "x-ramp-request-id": "01a13a1c-a02e-7ee6-944f-15cc918217cf",
+          "x-trace-id": "ramp-3edea044379f40508155a80d24f10fa0",
+          "set-cookie": "__cf_bm=pUpYiXEevds0Aq.gdOzsAXMALsTsPF9R3W601InJUsw-1791976316.9271486-1.0.1.1-RUdL_4Ai4JwxbCC8S64bvspxApfcjKKFzzh5NCBEurK0f.clqTIdakUObgFbkMU1DA3O4jFNGC5OpkA2xIInAxBXowGGtA5kHH4rnGuyfTRTFGYD7bXPBY6PQEv1Fw5E; HttpOnly; SameSite=None; Secure; Path=/; Domain=ramp.com; Expires=Wed, 14 Oct 2026 11:41:57 GMT",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "hash": "fac090f2e382822feb3a2d17b705cf357d43e04f",
+        "request": {
+          "data": {
+            "name": "Nango Create Vendor Test",
+            "country": "US",
+            "business_vendor_contacts": {
+              "email": "nango-create-vendor-test@nango.dev",
+              "first_name": "Nango",
+              "last_name": "Test",
+              "phone": "+13525342357"
+            },
+            "state": "NY"
+          }
+        }
+      }
+    }
+  }
+}

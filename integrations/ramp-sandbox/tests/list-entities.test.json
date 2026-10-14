@@ -1,0 +1,298 @@
+{
+  "input": {},
+  "output": {
+    "entities": [
+      {
+        "id": "a7587328-64fa-4b8b-ad30-a2d27806825b",
+        "entity_name": "Save Money Inc",
+        "is_primary": false,
+        "currency": "USD",
+        "location_ids": [
+          "84020a8c-695c-4b61-a1ee-cdcf31efbea6",
+          "2025b3cd-280c-46f7-9d01-8eeff5a9c5af"
+        ],
+        "default_bill_pay_payment_account_id": null,
+        "connected_subsidiary": null,
+        "payment_accounts": [
+          {
+            "id": "7bc1bb89-5ed5-48cd-a71c-9de9e383f745",
+            "account_name": "Checking",
+            "account_number_last_four": "9752",
+            "currency": "USD"
+          },
+          {
+            "id": "63e1fe7c-418b-46e3-ba38-53ce229be26c",
+            "account_name": "Savings",
+            "account_number_last_four": "7777",
+            "currency": "GBP"
+          },
+          {
+            "id": "0cb665b6-49d5-4723-b29a-71ce8af70751",
+            "account_name": "Checking Account",
+            "account_number_last_four": "0001",
+            "currency": "USD"
+          },
+          {
+            "id": "db922c01-2e70-4b72-97a2-b3d92fb547f4",
+            "account_name": "Stablecoin Account",
+            "account_number_last_four": "4242",
+            "currency": "USDC"
+          },
+          {
+            "id": "fc37ae7e-ef76-4eb1-acf6-30e4c6d9ac3a",
+            "account_name": "Jones and Sons",
+            "account_number_last_four": "1264",
+            "currency": "EUR"
+          },
+          {
+            "id": "54f70182-c32a-43d4-8286-8b6a032adac0",
+            "account_name": "Stokes and Sons",
+            "account_number_last_four": "1832",
+            "currency": "USD"
+          },
+          {
+            "id": "9128effa-03f6-4302-b895-3468ab319cd2",
+            "account_name": "Brown Ltd",
+            "account_number_last_four": "6653",
+            "currency": "GBP"
+          }
+        ],
+        "accounts": []
+      },
+      {
+        "id": "eb24fd81-de5d-43bd-8102-eb2cc53d3c3a",
+        "entity_name": "Save Time Inc",
+        "is_primary": true,
+        "currency": "USD",
+        "location_ids": [
+          "154e0ad1-03b4-4ec8-937f-772dbfc300fd",
+          "631a502c-1498-4749-be78-f85b83eda6c6",
+          "1d2260ec-7992-4a39-b3b8-393d7a942f50",
+          "9c0ae38c-91a0-4f5e-8092-2b6db8a02113",
+          "09af6124-80ac-4d46-a5b2-7517f56e6cdf",
+          "ba61e06c-12db-4731-b791-0ced50a7c9c0",
+          "8e7195ac-3a36-49d4-abb6-185fcfca1a1d"
+        ],
+        "default_bill_pay_payment_account_id": "0cb665b6-49d5-4723-b29a-71ce8af70751",
+        "connected_subsidiary": null,
+        "payment_accounts": [
+          {
+            "id": "7bc1bb89-5ed5-48cd-a71c-9de9e383f745",
+            "account_name": "Checking",
+            "account_number_last_four": "9752",
+            "currency": "USD"
+          },
+          {
+            "id": "63e1fe7c-418b-46e3-ba38-53ce229be26c",
+            "account_name": "Savings",
+            "account_number_last_four": "7777",
+            "currency": "GBP"
+          },
+          {
+            "id": "0cb665b6-49d5-4723-b29a-71ce8af70751",
+            "account_name": "Checking Account",
+            "account_number_last_four": "0001",
+            "currency": "USD"
+          },
+          {
+            "id": "db922c01-2e70-4b72-97a2-b3d92fb547f4",
+            "account_name": "Stablecoin Account",
+            "account_number_last_four": "4242",
+            "currency": "USDC"
+          },
+          {
+            "id": "fc37ae7e-ef76-4eb1-acf6-30e4c6d9ac3a",
+            "account_name": "Jones and Sons",
+            "account_number_last_four": "1264",
+            "currency": "EUR"
+          },
+          {
+            "id": "54f70182-c32a-43d4-8286-8b6a032adac0",
+            "account_name": "Stokes and Sons",
+            "account_number_last_four": "1832",
+            "currency": "USD"
+          },
+          {
+            "id": "9128effa-03f6-4302-b895-3468ab319cd2",
+            "account_name": "Brown Ltd",
+            "account_number_last_four": "6653",
+            "currency": "GBP"
+          }
+        ],
+        "accounts": []
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/developer/v1/entities": {
+        "response": {
+          "data": [
+            {
+              "id": "a7587328-64fa-4b8b-ad30-a2d27806825b",
+              "currency": "USD",
+              "default_bill_pay_payment_account_id": null,
+              "is_primary": false,
+              "connected_subsidiary": null,
+              "accounts": [],
+              "location_ids": [
+                "84020a8c-695c-4b61-a1ee-cdcf31efbea6",
+                "2025b3cd-280c-46f7-9d01-8eeff5a9c5af"
+              ],
+              "payment_accounts": [
+                {
+                  "currency": "USD",
+                  "account_name": "Checking",
+                  "account_number_last_four": "9752",
+                  "id": "7bc1bb89-5ed5-48cd-a71c-9de9e383f745"
+                },
+                {
+                  "currency": "GBP",
+                  "account_name": "Savings",
+                  "account_number_last_four": "7777",
+                  "id": "63e1fe7c-418b-46e3-ba38-53ce229be26c"
+                },
+                {
+                  "currency": "USD",
+                  "account_name": "Checking Account",
+                  "account_number_last_four": "0001",
+                  "id": "0cb665b6-49d5-4723-b29a-71ce8af70751"
+                },
+                {
+                  "currency": "USDC",
+                  "account_name": "Stablecoin Account",
+                  "account_number_last_four": "4242",
+                  "id": "db922c01-2e70-4b72-97a2-b3d92fb547f4"
+                },
+                {
+                  "currency": "EUR",
+                  "account_name": "Jones and Sons",
+                  "account_number_last_four": "1264",
+                  "id": "fc37ae7e-ef76-4eb1-acf6-30e4c6d9ac3a"
+                },
+                {
+                  "currency": "USD",
+                  "account_name": "Stokes and Sons",
+                  "account_number_last_four": "1832",
+                  "id": "54f70182-c32a-43d4-8286-8b6a032adac0"
+                },
+                {
+                  "currency": "GBP",
+                  "account_name": "Brown Ltd",
+                  "account_number_last_four": "6653",
+                  "id": "9128effa-03f6-4302-b895-3468ab319cd2"
+                }
+              ],
+              "entity_name": "Save Money Inc"
+            },
+            {
+              "id": "eb24fd81-de5d-43bd-8102-eb2cc53d3c3a",
+              "currency": "USD",
+              "default_bill_pay_payment_account_id": "0cb665b6-49d5-4723-b29a-71ce8af70751",
+              "is_primary": true,
+              "connected_subsidiary": null,
+              "accounts": [],
+              "location_ids": [
+                "154e0ad1-03b4-4ec8-937f-772dbfc300fd",
+                "631a502c-1498-4749-be78-f85b83eda6c6",
+                "1d2260ec-7992-4a39-b3b8-393d7a942f50",
+                "9c0ae38c-91a0-4f5e-8092-2b6db8a02113",
+                "09af6124-80ac-4d46-a5b2-7517f56e6cdf",
+                "ba61e06c-12db-4731-b791-0ced50a7c9c0",
+                "8e7195ac-3a36-49d4-abb6-185fcfca1a1d"
+              ],
+              "payment_accounts": [
+                {
+                  "currency": "USD",
+                  "account_name": "Checking",
+                  "account_number_last_four": "9752",
+                  "id": "7bc1bb89-5ed5-48cd-a71c-9de9e383f745"
+                },
+                {
+                  "currency": "GBP",
+                  "account_name": "Savings",
+                  "account_number_last_four": "7777",
+                  "id": "63e1fe7c-418b-46e3-ba38-53ce229be26c"
+                },
+                {
+                  "currency": "USD",
+                  "account_name": "Checking Account",
+                  "account_number_last_four": "0001",
+                  "id": "0cb665b6-49d5-4723-b29a-71ce8af70751"
+                },
+                {
+                  "currency": "USDC",
+                  "account_name": "Stablecoin Account",
+                  "account_number_last_four": "4242",
+                  "id": "db922c01-2e70-4b72-97a2-b3d92fb547f4"
+                },
+                {
+                  "currency": "EUR",
+                  "account_name": "Jones and Sons",
+                  "account_number_last_four": "1264",
+                  "id": "fc37ae7e-ef76-4eb1-acf6-30e4c6d9ac3a"
+                },
+                {
+                  "currency": "USD",
+                  "account_name": "Stokes and Sons",
+                  "account_number_last_four": "1832",
+                  "id": "54f70182-c32a-43d4-8286-8b6a032adac0"
+                },
+                {
+                  "currency": "GBP",
+                  "account_name": "Brown Ltd",
+                  "account_number_last_four": "6653",
+                  "id": "9128effa-03f6-4302-b895-3468ab319cd2"
+                }
+              ],
+              "entity_name": "Save Time Inc"
+            }
+          ],
+          "page": {
+            "next": null
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 14 Oct 2026 11:32:06 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1982",
+          "x-ratelimit-reset": "1791977532",
+          "cf-ray": "a4a642f09bda758f-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "server": "cloudflare",
+          "vary": "Origin, accept-encoding",
+          "content-security-policy": "upgrade-insecure-requests; frame-ancestors 'self' https://demo.ramp.com; report-uri https://ramp.report-uri.com/r/d/csp/enforce",
+          "ramp-worker-name": "demo-app-worker",
+          "server-timing": "gt;dur=176.566, ge;dur=0.160, px;dur=176.336, fw;dur=280.00, fwe;dur=0.00, fwx;dur=280.00",
+          "x-debug-cell-id": "none",
+          "x-debug-routing-key": "none",
+          "x-debug-upstream-cache-control": "none",
+          "x-ramp-body-source": "others",
+          "x-ramp-business-id": "e15cd7ee-ab7e-4173-a82f-00f33901c1ca",
+          "x-ramp-cf-ray": "a4a642f09a0cc36d-PDX",
+          "x-ramp-request-id": "01a13a2f-1299-773b-9cca-ae275c2ac86f",
+          "x-trace-id": "ramp-787d2cd110e64a2fa634df70d405e4ab",
+          "set-cookie": "__cf_bm=OyfZfrwCli8UBhdU9xPzpBLHKHXAQrrwI5_YOBpQHsU-1791977525.851185-1.0.1.1-NfBjVuzy6914AawkQ_wrG__DPRzLUq8T8hxzNWH8gc7JU4My_Vqak3P84cgIAeSnE2UdQQLUDognbVmKJYrdmRxWCYaWHUmJ05hF1eFm53vqcHHYzwfp6Uqh8xdXdG6H; HttpOnly; SameSite=None; Secure; Path=/; Domain=ramp.com; Expires=Wed, 14 Oct 2026 12:02:06 GMT",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "hash": "8f11610b98cd75856f049de300ca072ab0843330",
+        "request": {}
+      }
+    }
+  }
+}

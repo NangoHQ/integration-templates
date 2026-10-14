@@ -1,0 +1,108 @@
+{
+  "input": {
+    "card_id": "58cb9b33-d372-4aa1-825f-30bf11ef3fc1"
+  },
+  "output": {
+    "id": "58cb9b33-d372-4aa1-825f-30bf11ef3fc1",
+    "is_suspended": true,
+    "state": "ACTIVE",
+    "cardholder_id": "07323c8f-c449-4222-a970-8cc4cf673711",
+    "cardholder_name": "David Wallace",
+    "display_name": "Physical Card",
+    "last_four": "8071",
+    "expiration": "0930",
+    "is_physical": true,
+    "created_at": "2026-10-14T10:06:22+00:00"
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/developer/v1/cards/physical/58cb9b33-d372-4aa1-825f-30bf11ef3fc1/suspension": {
+        "response": {
+          "expiration": "0930",
+          "cardholder_name": "David Wallace",
+          "cardholder_id": "07323c8f-c449-4222-a970-8cc4cf673711",
+          "id": "58cb9b33-d372-4aa1-825f-30bf11ef3fc1",
+          "display_name": "Physical Card",
+          "is_suspended": true,
+          "automatic_routing_enabled": true,
+          "created_at": "2026-10-14T10:06:22+00:00",
+          "is_physical": true,
+          "state": "ACTIVE",
+          "fulfillment": {
+            "shipping_eta": null,
+            "card_personalization": {
+              "text": {
+                "name_line_1": {
+                  "value": "David Wallace"
+                },
+                "name_line_2": {
+                  "value": "nango-dev"
+                }
+              }
+            },
+            "shipping_tracking_url": null,
+            "fulfillment_status": "DELIVERED",
+            "shipping": {
+              "recipient_address": {
+                "city": "New York",
+                "postal_code": "10010",
+                "phone": null,
+                "country": "US",
+                "state": "NY",
+                "last_name": "Wallace",
+                "address1": "28 W 23rd St, Floor 2",
+                "first_name": "David"
+              },
+              "method": "LOCAL_MAIL"
+            },
+            "shipping_date": "2026-10-13T00:00:00+00:00"
+          },
+          "has_program_overridden": false,
+          "last_four": "8071",
+          "is_primary": true
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 14 Oct 2026 11:08:52 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1810",
+          "x-ratelimit-reset": "1791976149",
+          "cf-ray": "a4a620eb38d12095-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "server": "cloudflare",
+          "vary": "Origin, accept-encoding",
+          "content-security-policy": "upgrade-insecure-requests; frame-ancestors 'self' https://demo.ramp.com; report-uri https://ramp.report-uri.com/r/d/csp/enforce",
+          "ramp-worker-name": "demo-app-worker",
+          "server-timing": "gt;dur=221.643, ge;dur=0.169, px;dur=221.404, fw;dur=296.00, fwe;dur=0.00, fwx;dur=296.00",
+          "x-debug-cell-id": "none",
+          "x-debug-routing-key": "none",
+          "x-debug-upstream-cache-control": "none",
+          "x-ramp-body-source": "others",
+          "x-ramp-business-id": "e15cd7ee-ab7e-4173-a82f-00f33901c1ca",
+          "x-ramp-cf-ray": "a4a620eb4fbd0ba9-IAD",
+          "x-ramp-request-id": "01a13a19-cf38-7124-a72c-34f2a566cd16",
+          "x-ramp-sensitive-fields": "fulfillment.shipping.recipient_address.address1",
+          "x-trace-id": "ramp-185c44050465454d95175870571fa06a",
+          "set-cookie": "<redacted>",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "hash": "fd7964b049c21345da038571b9f6488e3ef24dbe",
+        "request": {}
+      }
+    }
+  }
+}

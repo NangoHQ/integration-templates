@@ -1,0 +1,193 @@
+{
+  "input": {
+    "transaction_id": "1e132a4f-392b-4e12-8f35-2788034a9ead"
+  },
+  "output": {
+    "id": "1e132a4f-392b-4e12-8f35-2788034a9ead",
+    "amount": 428.49,
+    "currency_code": "USD",
+    "entity_amount": {
+      "currency": "USD",
+      "value": 42849
+    },
+    "merchant_amount": {
+      "currency": "CAD",
+      "value": 60898
+    },
+    "original_transaction_amount": {
+      "amount": 60898,
+      "currency_code": "CAD",
+      "minor_unit_conversion_rate": 100
+    },
+    "minor_unit_conversion_rate": 100,
+    "user_transaction_time": "2026-11-02T10:07:14+00:00",
+    "updated_at": "2026-11-03T10:07:14+00:00",
+    "settlement_date": "2026-11-03T10:07:14+00:00",
+    "accounting_date": "2026-11-03T10:07:14+00:00",
+    "state": "CLEARED",
+    "sync_status": "NOT_SYNC_READY",
+    "synced_at": null,
+    "card_id": "a2d25ac2-5528-4c16-ba51-cd258d8d09f7",
+    "card_holder": {
+      "user_id": "07323c8f-c449-4222-a970-8cc4cf673711",
+      "first_name": "David",
+      "last_name": "Wallace",
+      "employee_id": null,
+      "department_id": "2e34edf5-9603-4986-8aaa-bbec47d56674",
+      "department_name": "Executive",
+      "location_id": "154e0ad1-03b4-4ec8-937f-772dbfc300fd",
+      "location_name": "New York City"
+    },
+    "card_present": false,
+    "fund_id": "325a12bc-75c4-4022-8855-8e0dba170103",
+    "limit_id": "325a12bc-75c4-4022-8855-8e0dba170103",
+    "entity_id": "eb24fd81-de5d-43bd-8102-eb2cc53d3c3a",
+    "merchant_id": "0d000cde-cfff-4eb0-ae50-e73a6a3e65bb",
+    "merchant_name": "Air Canada",
+    "merchant_descriptor": "Air Canada",
+    "merchant_category_code": null,
+    "merchant_category_code_description": null,
+    "merchant_location": {
+      "city": "North Janetton",
+      "country": "US",
+      "state": "NM",
+      "postal_code": "65352"
+    },
+    "network_merchant_id": "252211693454715",
+    "sk_category_id": 4,
+    "sk_category_name": "Airlines",
+    "trip_id": "44d0d756-1a32-42cf-a055-84371218bf95",
+    "trip_name": "Client Visits in Toronto",
+    "statement_id": "77b892f3-c92e-4841-9a13-18284f56020b",
+    "memo": "Flight to Toronto",
+    "receipts": [
+      "3699b8d4-5e2c-4f67-8d5e-9e07b62bc483"
+    ],
+    "receipt_affidavit": null,
+    "line_items": [],
+    "accounting_categories": [],
+    "accounting_field_selections": [],
+    "disputes": [],
+    "policy_violations": [],
+    "all_requirements_met_and_approved": true,
+    "posting_gl_account": null
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/developer/v1/transactions/1e132a4f-392b-4e12-8f35-2788034a9ead": {
+        "response": {
+          "currency_code": "USD",
+          "merchant_category_code_description": null,
+          "original_transaction_amount": {
+            "currency_code": "CAD",
+            "minor_unit_conversion_rate": 100,
+            "amount": 60898
+          },
+          "merchant_category_code": null,
+          "minor_unit_conversion_rate": 100,
+          "sync_status": "NOT_SYNC_READY",
+          "posting_gl_account": null,
+          "limit_id": "325a12bc-75c4-4022-8855-8e0dba170103",
+          "user_transaction_time": "2026-11-02T10:07:14+00:00",
+          "receipts": [
+            "3699b8d4-5e2c-4f67-8d5e-9e07b62bc483"
+          ],
+          "line_items": [],
+          "synced_at": null,
+          "merchant_descriptor": "Air Canada",
+          "amount": 428.49,
+          "card_holder": {
+            "department_id": "2e34edf5-9603-4986-8aaa-bbec47d56674",
+            "user_id": "07323c8f-c449-4222-a970-8cc4cf673711",
+            "location_id": "154e0ad1-03b4-4ec8-937f-772dbfc300fd",
+            "employee_id": null,
+            "last_name": "Wallace",
+            "first_name": "David",
+            "department_name": "Executive",
+            "location_name": "New York City"
+          },
+          "merchant_name": "Air Canada",
+          "network_merchant_id": "252211693454715",
+          "statement_id": "77b892f3-c92e-4841-9a13-18284f56020b",
+          "trip_name": "Client Visits in Toronto",
+          "sk_category_id": 4,
+          "merchant_amount": {
+            "value": 60898,
+            "currency": "CAD"
+          },
+          "merchant_location": {
+            "state": "NM",
+            "country": "US",
+            "postal_code": "65352",
+            "city": "North Janetton"
+          },
+          "receipt_affidavit": null,
+          "state": "CLEARED",
+          "accounting_categories": [],
+          "entity_id": "eb24fd81-de5d-43bd-8102-eb2cc53d3c3a",
+          "settlement_date": "2026-11-03T10:07:14+00:00",
+          "trip_id": "44d0d756-1a32-42cf-a055-84371218bf95",
+          "all_requirements_met_and_approved": true,
+          "id": "1e132a4f-392b-4e12-8f35-2788034a9ead",
+          "fund_id": "325a12bc-75c4-4022-8855-8e0dba170103",
+          "policy_violations": [],
+          "accounting_date": "2026-11-03T10:07:14+00:00",
+          "merchant_id": "0d000cde-cfff-4eb0-ae50-e73a6a3e65bb",
+          "card_id": "a2d25ac2-5528-4c16-ba51-cd258d8d09f7",
+          "sk_category_name": "Airlines",
+          "card_present": false,
+          "disputes": [],
+          "memo": "Flight to Toronto",
+          "accounting_field_selections": [],
+          "updated_at": "2026-11-03T10:07:14+00:00",
+          "entity_amount": {
+            "value": 42849,
+            "currency": "USD"
+          },
+          "original_transaction_id": null
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 14 Oct 2026 11:08:38 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1863",
+          "x-ratelimit-reset": "1791976149",
+          "cf-ray": "a4a62093ad4cff02-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "server": "cloudflare",
+          "vary": "Origin, accept-encoding",
+          "content-security-policy": "upgrade-insecure-requests; frame-ancestors 'self' https://demo.ramp.com; report-uri https://ramp.report-uri.com/r/d/csp/enforce",
+          "ramp-worker-name": "demo-app-worker",
+          "server-timing": "gt;dur=288.668, ge;dur=0.145, px;dur=288.474, fw;dur=360.00, fwe;dur=0.00, fwx;dur=360.00",
+          "x-debug-cell-id": "none",
+          "x-debug-routing-key": "none",
+          "x-debug-upstream-cache-control": "none",
+          "x-ramp-body-source": "others",
+          "x-ramp-business-id": "e15cd7ee-ab7e-4173-a82f-00f33901c1ca",
+          "x-ramp-cf-ray": "a4a62093bcc1a60a-IAD",
+          "x-ramp-request-id": "01a13a19-987f-7f79-adfd-fade63dd4f35",
+          "x-ramp-sensitive-fields": "card_holder.location_name,memo",
+          "x-trace-id": "ramp-35a73310cc224186b5f246b96054e6fa",
+          "set-cookie": "<redacted>",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "hash": "74a30dc7a9f06cf0a524ed2616c14bef9b99baf0",
+        "request": {}
+      }
+    }
+  }
+}

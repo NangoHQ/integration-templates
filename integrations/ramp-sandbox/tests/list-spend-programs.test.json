@@ -1,0 +1,167 @@
+{
+  "input": {
+    "page_size": 2
+  },
+  "output": {
+    "items": [
+      {
+        "id": "5989f3c3-b95a-4df5-ac63-a6af949a2721",
+        "display_name": "Manager Review",
+        "description": "Demo requests awaiting manager review.",
+        "icon": "PerDiemCardIcon",
+        "is_shareable": false,
+        "issue_physical_card_if_needed": false,
+        "permitted_spend_types": {
+          "primary_card_enabled": true,
+          "reimbursements_enabled": true
+        },
+        "restrictions": {
+          "interval": "CUSTOM",
+          "limit": null,
+          "temporary_limit": null,
+          "transaction_amount_limit": null,
+          "auto_lock_date": null,
+          "start_of_interval": null,
+          "next_interval_reset": null,
+          "allowed_categories": [],
+          "blocked_categories": [],
+          "allowed_vendors": [],
+          "blocked_vendors": []
+        }
+      },
+      {
+        "id": "18030d57-a5bf-401d-93eb-7c65f8428681",
+        "display_name": "Procurement Agents Demo",
+        "description": "Demo procurement program for completed procurement agent runs.",
+        "icon": "OnboardingIcon",
+        "is_shareable": false,
+        "issue_physical_card_if_needed": false,
+        "permitted_spend_types": {
+          "primary_card_enabled": true,
+          "reimbursements_enabled": true
+        },
+        "restrictions": {
+          "interval": "CUSTOM",
+          "limit": null,
+          "temporary_limit": null,
+          "transaction_amount_limit": null,
+          "auto_lock_date": null,
+          "start_of_interval": null,
+          "next_interval_reset": null,
+          "allowed_categories": [],
+          "blocked_categories": [],
+          "allowed_vendors": [],
+          "blocked_vendors": []
+        }
+      }
+    ],
+    "next_cursor": "18030d57-a5bf-401d-93eb-7c65f8428681"
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/developer/v1/spend-programs": {
+        "response": {
+          "data": [
+            {
+              "icon": "PerDiemCardIcon",
+              "id": "5989f3c3-b95a-4df5-ac63-a6af949a2721",
+              "restrictions": {
+                "transaction_amount_limit": null,
+                "allowed_vendors": [],
+                "blocked_vendors": [],
+                "start_of_interval": null,
+                "auto_lock_date": null,
+                "allowed_categories": [],
+                "next_interval_reset": null,
+                "temporary_limit": null,
+                "interval": "CUSTOM",
+                "limit": null,
+                "blocked_categories": []
+              },
+              "issue_physical_card_if_needed": false,
+              "is_shareable": false,
+              "permitted_spend_types": {
+                "primary_card_enabled": true,
+                "reimbursements_enabled": true
+              },
+              "description": "Demo requests awaiting manager review.",
+              "display_name": "Manager Review"
+            },
+            {
+              "icon": "OnboardingIcon",
+              "id": "18030d57-a5bf-401d-93eb-7c65f8428681",
+              "restrictions": {
+                "transaction_amount_limit": null,
+                "allowed_vendors": [],
+                "blocked_vendors": [],
+                "start_of_interval": null,
+                "auto_lock_date": null,
+                "allowed_categories": [],
+                "next_interval_reset": null,
+                "temporary_limit": null,
+                "interval": "CUSTOM",
+                "limit": null,
+                "blocked_categories": []
+              },
+              "issue_physical_card_if_needed": false,
+              "is_shareable": false,
+              "permitted_spend_types": {
+                "primary_card_enabled": true,
+                "reimbursements_enabled": true
+              },
+              "description": "Demo procurement program for completed procurement agent runs.",
+              "display_name": "Procurement Agents Demo"
+            }
+          ],
+          "page": {
+            "next": "https://demo-api.ramp.com/developer/v1/spend-programs?page_size=2&start=18030d57-a5bf-401d-93eb-7c65f8428681"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 14 Oct 2026 11:33:49 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1951",
+          "x-ratelimit-reset": "1791977654",
+          "cf-ray": "a4a64573ddd4fef8-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "server": "cloudflare",
+          "vary": "Origin, accept-encoding",
+          "content-security-policy": "upgrade-insecure-requests; frame-ancestors 'self' https://demo.ramp.com; report-uri https://ramp.report-uri.com/r/d/csp/enforce",
+          "ramp-worker-name": "demo-app-worker",
+          "server-timing": "gt;dur=162.918, ge;dur=0.168, px;dur=162.683, fw;dur=239.00, fwe;dur=0.00, fwx;dur=239.00",
+          "x-debug-cell-id": "none",
+          "x-debug-routing-key": "none",
+          "x-debug-upstream-cache-control": "none",
+          "x-ramp-body-source": "others",
+          "x-ramp-business-id": "e15cd7ee-ab7e-4173-a82f-00f33901c1ca",
+          "x-ramp-cf-ray": "a4a64573ee31ef63-PDX",
+          "x-ramp-request-id": "01a13a30-a4a1-70fb-8fa9-d5b29d61d88f",
+          "x-trace-id": "ramp-8514e2c9f3f5467086fa47d3967008d9",
+          "set-cookie": "<redacted>",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "hash": "2206748225b18b5e7a38b8ef974034dc2bb67e72",
+        "request": {
+          "params": {
+            "page_size": "2"
+          }
+        }
+      }
+    }
+  }
+}

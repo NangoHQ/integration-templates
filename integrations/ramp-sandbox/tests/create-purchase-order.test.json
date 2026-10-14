@@ -1,0 +1,191 @@
+{
+  "input": {
+    "entity_id": "eb24fd81-de5d-43bd-8102-eb2cc53d3c3a",
+    "vendor_id": "effa4ecc-59f7-423b-9747-56dafc7c66da",
+    "currency": "USD",
+    "three_way_match_enabled": false,
+    "line_items": [
+      {
+        "description": "Nango registry live-verification PO",
+        "unit_quantity": 1,
+        "unit_price": 100
+      }
+    ],
+    "memo": "Nango registry create-purchase-order action test"
+  },
+  "output": {
+    "id": "01a13a1a-a6e4-764d-84a8-138fa25c2e40",
+    "purchase_order_number": "200895",
+    "name": null,
+    "memo": "Nango registry create-purchase-order action test",
+    "entity_id": "eb24fd81-de5d-43bd-8102-eb2cc53d3c3a",
+    "vendor_id": "effa4ecc-59f7-423b-9747-56dafc7c66da",
+    "owner_id": "07323c8f-c449-4222-a970-8cc4cf673711",
+    "amount": {
+      "amount": 10000,
+      "currency_code": "USD",
+      "minor_unit_conversion_rate": 100
+    },
+    "spend_total_amount": {
+      "amount": 10000,
+      "currency_code": "USD",
+      "minor_unit_conversion_rate": 100
+    },
+    "three_way_match_enabled": false,
+    "receipt_status": "NOT_RECEIVED",
+    "billing_status": "OPEN",
+    "creation_source": "DEVELOPER_API",
+    "created_at": "2026-10-14T11:09:47+00:00",
+    "archived_at": null,
+    "ramp_url": "https://demo.ramp.com/s/procurement/purchase-orders/01a13a1a-a6e4-764d-84a8-138fa25c2e40",
+    "line_items": [
+      {
+        "id": "66226270-eb3f-4b4b-9668-1a387f02df06",
+        "description": "Nango registry live-verification PO",
+        "quantity": 1,
+        "unit_price": {
+          "amount": 10000,
+          "currency_code": "USD",
+          "minor_unit_conversion_rate": 100
+        },
+        "amount": {
+          "amount": 10000,
+          "currency_code": "USD",
+          "minor_unit_conversion_rate": 100
+        },
+        "external_id": null
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/developer/v1/purchase-orders": {
+        "response": {
+          "entity_id": "eb24fd81-de5d-43bd-8102-eb2cc53d3c3a",
+          "three_way_match_enabled": false,
+          "amount": {
+            "currency_code": "USD",
+            "minor_unit_conversion_rate": 100,
+            "amount": 10000
+          },
+          "vendor_id": "effa4ecc-59f7-423b-9747-56dafc7c66da",
+          "user_id": "07323c8f-c449-4222-a970-8cc4cf673711",
+          "owner_id": "07323c8f-c449-4222-a970-8cc4cf673711",
+          "archived_at": null,
+          "name": null,
+          "transaction_ids": [],
+          "withholding_default_rate": null,
+          "spend_start_date": null,
+          "id": "01a13a1a-a6e4-764d-84a8-138fa25c2e40",
+          "creation_source": "DEVELOPER_API",
+          "remote_id": null,
+          "accounting_field_selections": [],
+          "ramp_url": "https://demo.ramp.com/s/procurement/purchase-orders/01a13a1a-a6e4-764d-84a8-138fa25c2e40",
+          "bill_ids": [],
+          "shipping_contact_email": "api@nango.dev",
+          "spend_program_id": null,
+          "spend_request_id": "ac11a257-720c-4e07-8d15-5ef6f57076f5",
+          "shipping_contact_last_name": "Wallace",
+          "shipping_contact_phone_number": null,
+          "spend_end_date": null,
+          "memo": "Nango registry create-purchase-order action test",
+          "shipping_contact_first_name": "David",
+          "receipt_status": "NOT_RECEIVED",
+          "promise_date": null,
+          "purchase_order_number": "200895",
+          "spend_total_amount": {
+            "currency_code": "USD",
+            "minor_unit_conversion_rate": 100,
+            "amount": 10000
+          },
+          "external_id": null,
+          "billing_status": "OPEN",
+          "line_items": [
+            {
+              "end_date": null,
+              "amount": {
+                "currency_code": "USD",
+                "minor_unit_conversion_rate": 100,
+                "amount": 10000
+              },
+              "external_id": null,
+              "quantity": 1,
+              "id": "66226270-eb3f-4b4b-9668-1a387f02df06",
+              "start_date": null,
+              "remote_id": null,
+              "description": "Nango registry live-verification PO",
+              "unit_quantity": 1,
+              "withholding_rate": null,
+              "accounting_field_selections": [],
+              "unit_price": {
+                "currency_code": "USD",
+                "minor_unit_conversion_rate": 100,
+                "amount": 10000
+              }
+            }
+          ],
+          "created_at": "2026-10-14T11:09:47+00:00",
+          "ship_to_company_name": null,
+          "item_receipt_ids": [],
+          "net_payment_terms": null,
+          "ship_to_address": null
+        },
+        "status": 201,
+        "headers": {
+          "date": "Wed, 14 Oct 2026 11:09:48 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1762",
+          "x-ratelimit-reset": "1791976210",
+          "cf-ray": "a4a622409850758f-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "server": "cloudflare",
+          "vary": "Origin, accept-encoding",
+          "content-security-policy": "upgrade-insecure-requests; frame-ancestors 'self' https://demo.ramp.com; report-uri https://ramp.report-uri.com/r/d/csp/enforce",
+          "ramp-worker-name": "demo-app-worker",
+          "server-timing": "gt;dur=1345.226, ge;dur=0.158, px;dur=1344.993, fw;dur=1439.00, fwe;dur=0.00, fwx;dur=1439.00",
+          "x-debug-cell-id": "none",
+          "x-debug-routing-key": "none",
+          "x-debug-upstream-cache-control": "none",
+          "x-ramp-body-source": "others",
+          "x-ramp-business-id": "e15cd7ee-ab7e-4173-a82f-00f33901c1ca",
+          "x-ramp-cf-ray": "a4a622409b2720eb-PDX",
+          "x-ramp-request-id": "01a13a1a-a492-7c15-9ac6-4216aa36a22d",
+          "x-trace-id": "ramp-6ead9d6f74c74b509c4c25529882e2e8",
+          "set-cookie": "__cf_bm=fDgh12iXNuXSSGe6_.H1Rtg67C9H9wGwZki1MTCb9QU-1791976186.9723957-1.0.1.1-QUZzR6cN6edjlW5wYdRdP0ajbDUHFSurWhzPseR0BquJ.Oy5KpgwVPKmq4Mhpzlys86EXZgocyuYcqhBRcT2BeDFrnjoeMMUPKQoKCLXv6PvFR3IIb71FCMMfmscvX7B; HttpOnly; SameSite=None; Secure; Path=/; Domain=ramp.com; Expires=Wed, 14 Oct 2026 11:39:48 GMT",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "hash": "5fc9470ddd1823dde56beeda20e506c14d3a21cd",
+        "request": {
+          "data": {
+            "entity_id": "eb24fd81-de5d-43bd-8102-eb2cc53d3c3a",
+            "vendor_id": "effa4ecc-59f7-423b-9747-56dafc7c66da",
+            "currency": "USD",
+            "three_way_match_enabled": false,
+            "line_items": [
+              {
+                "unit_quantity": 1,
+                "unit_price": 100,
+                "description": "Nango registry live-verification PO"
+              }
+            ],
+            "memo": "Nango registry create-purchase-order action test"
+          }
+        }
+      }
+    }
+  }
+}
