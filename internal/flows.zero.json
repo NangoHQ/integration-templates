@@ -826373,7 +826373,7 @@
                 "sync_type": "full",
                 "track_deletes": false,
                 "usedModels": ["Employee", "SyncMetadata_sap_success_factors_employees"],
-                "version": "2.1.0",
+                "version": "2.2.0",
                 "webhookSubscriptions": [],
                 "json_schema": {
                     "definitions": {
@@ -826610,7 +826610,7 @@
                 "sync_type": "full",
                 "track_deletes": false,
                 "usedModels": ["Location", "SyncMetadata_sap_success_factors_locations"],
-                "version": "2.1.0",
+                "version": "2.2.0",
                 "webhookSubscriptions": [],
                 "json_schema": {
                     "definitions": {
@@ -826756,7 +826756,7 @@
                 "sync_type": "full",
                 "track_deletes": false,
                 "usedModels": ["StandardEmployee", "SyncMetadata_sap_success_factors_unifiedemployees"],
-                "version": "2.1.0",
+                "version": "2.2.0",
                 "webhookSubscriptions": [],
                 "json_schema": {
                     "definitions": {
