@@ -35,15 +35,15 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Delete one or more variants from a Shopify product.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['write_products'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.post({
-            // https://shopify.dev/docs/api/admin-graphql/2025-10/mutations/productVariantsBulkDelete
-            endpoint: '/admin/api/2025-10/graphql.json',
+            // https://shopify.dev/docs/api/admin-graphql/2026-04/mutations/productVariantsBulkDelete
+            endpoint: '/admin/api/2026-04/graphql.json',
             data: {
                 query: `mutation ProductVariantsDelete($productId: ID!, $variantsIds: [ID!]!) {
                     productVariantsBulkDelete(productId: $productId, variantsIds: $variantsIds) {

@@ -75,7 +75,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Activate tracking for a Shopify inventory item at a location.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['write_inventory'],
@@ -95,8 +95,8 @@ const action = createAction({
         }
 
         const response = await nango.post({
-            // https://shopify.dev/docs/api/admin-graphql/2025-10/mutations/inventoryActivate
-            endpoint: '/admin/api/2025-10/graphql.json',
+            // https://shopify.dev/docs/api/admin-graphql/2026-04/mutations/inventoryActivate
+            endpoint: '/admin/api/2026-04/graphql.json',
             data: {
                 query: `
                     mutation ActivateInventoryItem($inventoryItemId: ID!, $locationId: ID!, $onHand: Int, $available: Int) {

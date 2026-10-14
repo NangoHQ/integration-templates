@@ -38,7 +38,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Decline a return request on a Shopify order.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['write_returns'],
@@ -68,9 +68,9 @@ const action = createAction({
             }
         `;
 
-        // https://shopify.dev/docs/api/admin-graphql/2025-07/mutations/returnDeclineRequest
+        // https://shopify.dev/docs/api/admin-graphql/2026-04/mutations/returnDeclineRequest
         const response = await nango.post({
-            endpoint: '/admin/api/2025-07/graphql.json',
+            endpoint: '/admin/api/2026-04/graphql.json',
             data: {
                 query: mutation,
                 variables: {

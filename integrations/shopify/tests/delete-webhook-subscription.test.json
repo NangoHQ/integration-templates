@@ -9,7 +9,7 @@
   "nango": {},
   "api": {
     "post": {
-      "/admin/api/2025-01/graphql.json": {
+      "/admin/api/2026-04/graphql.json": {
         "response": {
           "data": {
             "webhookSubscriptionDelete": {
@@ -53,7 +53,7 @@
           "x-stats-userid": "",
           "x-stats-apiclientid": "376951341057",
           "x-stats-apipermissionid": "695964696713",
-          "x-shopify-api-version": "2025-07",
+          "x-shopify-api-version": "2026-04",
           "x-shopify-api-version-warning": "https://shopify.dev/concepts/about-apis/versioning",
           "content-language": "en",
           "alt-svc": "h3=\":443\"; ma=86400",
@@ -69,7 +69,7 @@
           "reporting-endpoints": "shopify-csp=\"/csp-report?source%5Baction%5D=query&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fgraphql&source%5Bsection%5D=admin_api&source%5Buuid%5D=f02f1d8f-a0e1-4327-a2ad-8132a3f9a37f-1780566583\"",
           "cf-ray": "a06607786a13b18c-PDX"
         },
-        "hash": "47141983e8cbfa24e3d113d9524cfd32f70960ac",
+        "hash": "75d8b460348aa51bdfaaaeaf60b004846d0dd8f2",
         "request": {
           "data": {
             "query": "\n            mutation webhookSubscriptionDelete($id: ID!) {\n                webhookSubscriptionDelete(id: $id) {\n                    deletedWebhookSubscriptionId\n                    userErrors {\n                        field\n                        message\n                    }\n                }\n            }\n        ",

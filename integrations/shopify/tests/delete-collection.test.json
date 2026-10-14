@@ -9,7 +9,7 @@
   "nango": {},
   "api": {
     "post": {
-      "/admin/api/2025-04/graphql.json": {
+      "/admin/api/2026-04/graphql.json": {
         "response": {
           "data": {
             "collectionDelete": {
@@ -53,7 +53,7 @@
           "x-stats-userid": "",
           "x-stats-apiclientid": "376951341057",
           "x-stats-apipermissionid": "695964696713",
-          "x-shopify-api-version": "2025-07",
+          "x-shopify-api-version": "2026-04",
           "x-shopify-api-version-warning": "https://shopify.dev/concepts/about-apis/versioning",
           "content-language": "en",
           "alt-svc": "h3=\":443\"; ma=86400",
@@ -69,7 +69,7 @@
           "reporting-endpoints": "shopify-csp=\"/csp-report?source%5Baction%5D=query&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fgraphql&source%5Bsection%5D=admin_api&source%5Buuid%5D=a9464d40-d82f-4fa8-85f2-96d884b01ef8-1780566441\"",
           "cf-ray": "a06604020c51ca84-PDX"
         },
-        "hash": "012ee8af16647b43937ac1075ce9332233e03bd7",
+        "hash": "0e372f6bfa2239540903919b91c12a1cd26ff084",
         "request": {
           "data": {
             "query": "\n                    mutation collectionDelete($input: CollectionDeleteInput!) {\n                        collectionDelete(input: $input) {\n                            deletedCollectionId\n                            userErrors {\n                                field\n                                message\n                            }\n                        }\n                    }\n                ",

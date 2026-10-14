@@ -162,7 +162,7 @@ const GraphQLErrorSchema = z.object({
 
 const action = createAction({
     description: 'List refunds for a Shopify order.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['read_orders'],
@@ -172,7 +172,7 @@ const action = createAction({
 
         const response = await nango.post({
             // https://shopify.dev/docs/api/admin-graphql
-            endpoint: '/admin/api/2025-01/graphql.json',
+            endpoint: '/admin/api/2026-04/graphql.json',
             data: {
                 query: `
                     query GetOrderRefunds($id: ID!) {

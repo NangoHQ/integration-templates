@@ -24,15 +24,15 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a URL redirect in a Shopify store.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['write_content'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.post({
-            // https://shopify.dev/docs/api/admin-rest/2025-10/resources/redirect#post-redirects
-            endpoint: 'admin/api/2025-10/redirects.json',
+            // https://shopify.dev/docs/api/admin-rest/2026-04/resources/redirect#post-redirects
+            endpoint: 'admin/api/2026-04/redirects.json',
             data: {
                 redirect: {
                     path: input.path,

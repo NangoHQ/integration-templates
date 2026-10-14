@@ -42,7 +42,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Update a Shopify metaobject entry.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['write_metaobjects'],
@@ -90,9 +90,9 @@ const action = createAction({
             variables.metaobject.fields = input.fields;
         }
 
-        // https://shopify.dev/docs/api/admin-graphql/2025-01/mutations/metaobjectUpdate
+        // https://shopify.dev/docs/api/admin-graphql/2026-04/mutations/metaobjectUpdate
         const response = await nango.post({
-            endpoint: '/admin/api/2025-10/graphql.json',
+            endpoint: '/admin/api/2026-04/graphql.json',
             data: {
                 query: mutation,
                 variables

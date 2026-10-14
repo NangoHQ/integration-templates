@@ -16,7 +16,7 @@
   "nango": {},
   "api": {
     "post": {
-      "/admin/api/2025-04/graphql.json": {
+      "/admin/api/2026-04/graphql.json": {
         "response": {
           "data": {
             "giftCardDeactivate": {
@@ -68,7 +68,7 @@
           "x-stats-userid": "",
           "x-stats-apiclientid": "376951341057",
           "x-stats-apipermissionid": "695964696713",
-          "x-shopify-api-version": "2025-07",
+          "x-shopify-api-version": "2026-04",
           "x-shopify-api-version-warning": "https://shopify.dev/concepts/about-apis/versioning",
           "content-language": "en",
           "alt-svc": "h3=\":443\"; ma=86400",
@@ -84,7 +84,7 @@
           "reporting-endpoints": "shopify-csp=\"/csp-report?source%5Baction%5D=query&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fgraphql&source%5Bsection%5D=admin_api&source%5Buuid%5D=ed49c949-ba8b-4224-b8ca-7cafbda29311-1780566687\"",
           "cf-ray": "a0660a049c008bee-PDX"
         },
-        "hash": "0a6d1ea59ad45f94bd8722c83b518c67587d10b5",
+        "hash": "16358e16a081eeff48ee0d15244f7a17c5e202ec",
         "request": {
           "data": "sha1:c9a26fe65b85ba6f90605bc70b0614ece05a5a1f"
         }

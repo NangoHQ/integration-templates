@@ -95,7 +95,7 @@ const ProviderResponseSchema = z.object({
 
 const action = createAction({
     description: 'List inventory levels for a location or inventory item.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['read_inventory'],
@@ -195,7 +195,7 @@ const action = createAction({
 
         const response = await nango.post({
             // https://shopify.dev/docs/api/admin-graphql
-            endpoint: '/admin/api/2025-10/graphql.json',
+            endpoint: '/admin/api/2026-04/graphql.json',
             data: {
                 query: graphQLQuery,
                 variables

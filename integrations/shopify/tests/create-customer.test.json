@@ -10,7 +10,7 @@
   "nango": {},
   "api": {
     "post": {
-      "/admin/api/2025-10/graphql.json": {
+      "/admin/api/2026-04/graphql.json": {
         "response": {
           "data": {
             "customerCreate": {
@@ -53,7 +53,7 @@
           "x-stats-userid": "",
           "x-stats-apiclientid": "376951341057",
           "x-stats-apipermissionid": "695964696713",
-          "x-shopify-api-version": "2025-10",
+          "x-shopify-api-version": "2026-04",
           "content-language": "en",
           "alt-svc": "h3=\":443\"; ma=86400",
           "x-shopify-api-gql-engine": "cardinal",
@@ -68,7 +68,7 @@
           "reporting-endpoints": "shopify-csp=\"/csp-report?source%5Baction%5D=query&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fgraphql&source%5Bsection%5D=admin_api&source%5Buuid%5D=48aac04d-7bf1-4c6a-a6e4-201a274caa43-1780567022\"",
           "cf-ray": "a06612318ce2cb5f-PDX"
         },
-        "hash": "b0a066c5708f65545fc0ab508f1830e41151019e",
+        "hash": "c49011aa3dcc9f10680207f5c6fced0953e6b45d",
         "request": {
           "data": {
             "query": "\n            mutation customerCreate($input: CustomerInput!) {\n                customerCreate(input: $input) {\n                    userErrors {\n                        field\n                        message\n                    }\n                }\n            }\n        ",

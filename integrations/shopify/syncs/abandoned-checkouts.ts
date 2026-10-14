@@ -103,7 +103,7 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync Shopify abandoned checkouts for retargeting workflows.',
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
@@ -131,9 +131,9 @@ const sync = createSync({
         while (hasNextPage) {
             const queryFilter = updatedAfter ? `updated_at:>"${updatedAfter}"` : undefined;
 
-            // https://shopify.dev/docs/api/admin-graphql/2025-10/queries/abandonedCheckouts
+            // https://shopify.dev/docs/api/admin-graphql/2026-04/queries/abandonedCheckouts
             const response = await nango.post({
-                endpoint: '/admin/api/2025-10/graphql.json',
+                endpoint: '/admin/api/2026-04/graphql.json',
                 data: {
                     query: `
                         query AbandonedCheckouts($first: Int!, $after: String, $query: String) {

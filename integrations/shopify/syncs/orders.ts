@@ -136,7 +136,7 @@ const OrderEdgeSchema = z.object({
 
 const sync = createSync({
     description: 'Fetches a list of orders from Shopify.',
-    version: '2.0.0',
+    version: '2.0.1',
     frequency: 'every hour',
     autoStart: false,
     checkpoint: CheckpointSchema,
@@ -158,8 +158,8 @@ const sync = createSync({
         const queryFilter = updatedAfter ? `updated_at:>${updatedAfter}` : '';
 
         const proxyConfig: ProxyConfiguration = {
-            // https://shopify.dev/docs/api/admin-graphql/2024-01/queries/orders
-            endpoint: '/admin/api/2024-01/graphql.json',
+            // https://shopify.dev/docs/api/admin-graphql/2026-04/queries/orders
+            endpoint: '/admin/api/2026-04/graphql.json',
             method: 'POST',
             data: {
                 query: `

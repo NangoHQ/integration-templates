@@ -65,7 +65,7 @@ const GraphQLResponseSchema = z.object({
 
 const action = createAction({
     description: 'Reject a fulfillment request on a Shopify fulfillment order.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['write_assigned_fulfillment_orders'],
@@ -83,9 +83,9 @@ const action = createAction({
             ...(input.reason !== undefined && { reason: input.reason })
         };
 
-        // https://shopify.dev/docs/api/admin-graphql/2025-07/mutations/fulfillmentOrderRejectFulfillmentRequest
+        // https://shopify.dev/docs/api/admin-graphql/2026-04/mutations/fulfillmentOrderRejectFulfillmentRequest
         const response = await nango.post({
-            endpoint: '/admin/api/2025-07/graphql.json',
+            endpoint: '/admin/api/2026-04/graphql.json',
             data: {
                 query: `
                     mutation fulfillmentOrderRejectFulfillmentRequest($id: ID!, $lineItems: [IncomingRequestLineItemInput!], $message: String, $reason: FulfillmentOrderRejectionReason) {

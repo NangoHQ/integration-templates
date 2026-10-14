@@ -38,7 +38,7 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync Shopify store events for audit and activity feed use cases.',
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
@@ -61,8 +61,8 @@ const sync = createSync({
         let maxCreatedAt: string | undefined;
 
         const proxyConfig: ProxyConfiguration = {
-            // https://shopify.dev/docs/api/admin-graphql/2025-01/queries/events
-            endpoint: '/admin/api/2025-04/graphql.json',
+            // https://shopify.dev/docs/api/admin-graphql/2026-04/queries/events
+            endpoint: '/admin/api/2026-04/graphql.json',
             method: 'POST',
             data: {
                 query: 'query Events($query: String, $first: Int!, $after: String) { events(query: $query, first: $first, after: $after, sortKey: CREATED_AT, reverse: false) { nodes { id action createdAt message appTitle attributeToApp attributeToUser criticalAlert ... on BasicEvent { arguments subjectId subjectType additionalContent } } pageInfo { hasNextPage endCursor } } }',

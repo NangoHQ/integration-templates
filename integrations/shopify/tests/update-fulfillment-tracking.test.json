@@ -19,7 +19,7 @@
   "nango": {},
   "api": {
     "post": {
-      "/admin/api/2025-04/graphql.json": {
+      "/admin/api/2026-04/graphql.json": {
         "response": {
           "data": {
             "fulfillmentTrackingInfoUpdate": {
@@ -62,7 +62,7 @@
           "x-stats-userid": "",
           "x-stats-apiclientid": "376951341057",
           "x-stats-apipermissionid": "695964696713",
-          "x-shopify-api-version": "2025-07",
+          "x-shopify-api-version": "2026-04",
           "x-shopify-api-version-warning": "https://shopify.dev/concepts/about-apis/versioning",
           "content-language": "en",
           "alt-svc": "h3=\":443\"; ma=86400",
@@ -78,7 +78,7 @@
           "reporting-endpoints": "shopify-csp=\"/csp-report?source%5Baction%5D=query&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fgraphql&source%5Bsection%5D=admin_api&source%5Buuid%5D=8b0615c2-7122-40e5-a61a-e69923767f0b-1780570678\"",
           "cf-ray": "a0666b729f8d20eb-PDX"
         },
-        "hash": "b36fba55c7d8995064fd8382239d1e9e30bac95e",
+        "hash": "2a18acb70799001d493fa7080d9016ea0e80a471",
         "request": {
           "data": {
             "query": "\n                    mutation FulfillmentTrackingInfoUpdate($fulfillmentId: ID!, $trackingInfoInput: FulfillmentTrackingInput!, $notifyCustomer: Boolean) {\n                        fulfillmentTrackingInfoUpdate(\n                            fulfillmentId: $fulfillmentId,\n                            trackingInfoInput: $trackingInfoInput,\n                            notifyCustomer: $notifyCustomer\n                        ) {\n                            userErrors {\n                                field\n                                message\n                            }\n                        }\n                    }\n                ",

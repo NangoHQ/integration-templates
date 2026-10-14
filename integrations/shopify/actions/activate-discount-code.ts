@@ -49,15 +49,15 @@ const ProviderResponseSchema = z.object({
 
 const action = createAction({
     description: 'Activate a code-based Shopify discount',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['write_discounts'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const config: ProxyConfiguration = {
-            // https://shopify.dev/docs/api/admin-graphql/2025-10/mutations/discountCodeActivate
-            endpoint: '/admin/api/2025-10/graphql.json',
+            // https://shopify.dev/docs/api/admin-graphql/2026-04/mutations/discountCodeActivate
+            endpoint: '/admin/api/2026-04/graphql.json',
             data: {
                 query: `
                     mutation discountCodeActivate($id: ID!) {

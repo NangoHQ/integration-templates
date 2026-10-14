@@ -53,7 +53,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List Shopify store events for the activity feed.',
-    version: '1.0.2',
+    version: '1.0.3',
     input: InputSchema,
     output: OutputSchema,
     scopes: [],
@@ -88,7 +88,7 @@ const action = createAction({
 
         const response = await nango.post({
             // https://shopify.dev/docs/api/admin-graphql/latest/queries/events
-            endpoint: '/admin/api/2025-10/graphql.json',
+            endpoint: '/admin/api/2026-04/graphql.json',
             data: {
                 query: `
                     query ListEvents($first: Int!, $after: String, $sortKey: EventSortKeys, $reverse: Boolean, $query: String) {

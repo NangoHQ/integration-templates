@@ -1366,7 +1366,7 @@
   },
   "api": {
     "post": {
-      "/admin/api/2025-01/graphql.json": [
+      "/admin/api/2026-04/graphql.json": [
         {
           "response": {
             "data": {
@@ -3338,7 +3338,7 @@
             "x-stats-userid": "",
             "x-stats-apiclientid": "376951341057",
             "x-stats-apipermissionid": "695964696713",
-            "x-shopify-api-version": "2025-07",
+            "x-shopify-api-version": "2026-04",
             "x-shopify-api-version-warning": "https://shopify.dev/concepts/about-apis/versioning",
             "content-language": "en",
             "alt-svc": "h3=\":443\"; ma=86400",
@@ -3354,7 +3354,7 @@
             "reporting-endpoints": "shopify-csp=\"/csp-report?source%5Baction%5D=query&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fgraphql&source%5Bsection%5D=admin_api&source%5Buuid%5D=ebc82f8f-0a1f-4c40-805c-8a254d4a4ea1-1780581486\"",
             "cf-ray": "a06773544f93ac0d-PDX"
           },
-          "hash": "0f46f8d8930a88757bd3c6f465d89c5038435e81",
+          "hash": "bc47ec28f1edc57fb55dbb6a065e2cd78110f730",
           "request": {
             "data": "sha1:03c57e38d2d055531941f8047491598d4de9279d"
           }
@@ -3406,7 +3406,7 @@
             "x-stats-userid": "",
             "x-stats-apiclientid": "376951341057",
             "x-stats-apipermissionid": "695964696713",
-            "x-shopify-api-version": "2025-07",
+            "x-shopify-api-version": "2026-04",
             "x-shopify-api-version-warning": "https://shopify.dev/concepts/about-apis/versioning",
             "content-language": "en",
             "alt-svc": "h3=\":443\"; ma=86400",
@@ -3422,7 +3422,7 @@
             "reporting-endpoints": "shopify-csp=\"/csp-report?source%5Baction%5D=query&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fgraphql&source%5Bsection%5D=admin_api&source%5Buuid%5D=3cca2c87-0211-4afb-8e64-4e835f909f1d-1780581487\"",
             "cf-ray": "a06773587865dabf-PDX"
           },
-          "hash": "afa6e0633ca51187a68902f44c04760aace284a1",
+          "hash": "0616d640a0ddf12604da4e727506895f54e8b22a",
           "request": {
             "data": "sha1:4b89c69b8e60daeeb3a72e8b25c74d057bc406e9"
           }

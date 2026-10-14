@@ -15,7 +15,7 @@
   "nango": {},
   "api": {
     "post": {
-      "/admin/api/2025-10/graphql.json": {
+      "/admin/api/2026-04/graphql.json": {
         "response": {
           "data": {
             "productVariantsBulkDelete": {
@@ -62,7 +62,7 @@
           "x-stats-userid": "",
           "x-stats-apiclientid": "376951341057",
           "x-stats-apipermissionid": "695964696713",
-          "x-shopify-api-version": "2025-10",
+          "x-shopify-api-version": "2026-04",
           "content-language": "en",
           "alt-svc": "h3=\":443\"; ma=86400",
           "x-shopify-api-gql-engine": "cardinal",
@@ -77,7 +77,7 @@
           "reporting-endpoints": "shopify-csp=\"/csp-report?source%5Baction%5D=query&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fgraphql&source%5Bsection%5D=admin_api&source%5Buuid%5D=fbe2ec9f-f244-4095-9bc8-143d3fca37db-1780566579\"",
           "cf-ray": "a0660763ef113e6d-PDX"
         },
-        "hash": "815b53b8680f4c61e8aeb6d4bf0b533072b3812e",
+        "hash": "d94e5581dff1277eb1ea26060a4de45ac21b7266",
         "request": {
           "data": {
             "query": "mutation ProductVariantsDelete($productId: ID!, $variantsIds: [ID!]!) {\n                    productVariantsBulkDelete(productId: $productId, variantsIds: $variantsIds) {\n                        product {\n                            id\n                            title\n                        }\n                        userErrors {\n                            field\n                            message\n                        }\n                    }\n                }",

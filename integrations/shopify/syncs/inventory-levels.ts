@@ -68,7 +68,7 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync Shopify inventory quantities across all locations.',
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
@@ -92,8 +92,8 @@ const sync = createSync({
 
         do {
             const locationsResponse = await nango.post({
-                // https://shopify.dev/docs/api/admin-graphql/2024-10/queries/locations
-                endpoint: '/admin/api/2024-10/graphql.json',
+                // https://shopify.dev/docs/api/admin-graphql/2026-04/queries/locations
+                endpoint: '/admin/api/2026-04/graphql.json',
                 data: {
                     query: `
                         query Locations($first: Int!, $after: String) {
@@ -146,8 +146,8 @@ const sync = createSync({
 
             while (hasNextPage) {
                 const response = await nango.post({
-                    // https://shopify.dev/docs/api/admin-graphql/2024-10/objects/InventoryLevel
-                    endpoint: '/admin/api/2024-10/graphql.json',
+                    // https://shopify.dev/docs/api/admin-graphql/2026-04/objects/InventoryLevel
+                    endpoint: '/admin/api/2026-04/graphql.json',
                     data: {
                         query: `
                             query InventoryLevels($locationId: ID!, $first: Int!, $after: String) {

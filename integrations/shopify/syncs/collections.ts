@@ -20,7 +20,7 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync Shopify collections with pagination and optional search filters.',
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
@@ -29,7 +29,7 @@ const sync = createSync({
         Collection: CollectionSchema
     },
     endpoints: [
-        // https://shopify.dev/docs/api/admin-graphql/2024-10/queries/collections
+        // https://shopify.dev/docs/api/admin-graphql/2026-04/queries/collections
         {
             method: 'POST',
             path: '/syncs/collections'
@@ -44,8 +44,8 @@ const sync = createSync({
         const queryFilter = updatedAfter ? "updated_at:>'" + updatedAfter + "'" : undefined;
 
         const proxyConfig: ProxyConfiguration = {
-            // https://shopify.dev/docs/api/admin-graphql/2024-10/queries/collections
-            endpoint: '/admin/api/2024-10/graphql.json',
+            // https://shopify.dev/docs/api/admin-graphql/2026-04/queries/collections
+            endpoint: '/admin/api/2026-04/graphql.json',
             method: 'POST',
             data: {
                 query: `
