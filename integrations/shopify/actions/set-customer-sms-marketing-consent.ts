@@ -70,7 +70,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Update SMS marketing consent for a Shopify customer.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['write_customers'],

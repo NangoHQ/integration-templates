@@ -874728,7 +874728,7 @@
                 "output": ["ActionOutput_shopify_acceptfulfillmentrequest"],
                 "scopes": ["write_assigned_fulfillment_orders"],
                 "usedModels": ["ActionInput_shopify_acceptfulfillmentrequest", "ActionOutput_shopify_acceptfulfillmentrequest"],
-                "version": "1.0.1",
+                "version": "1.0.2",
                 "json_schema": {
                     "definitions": {
                         "ActionInput_shopify_acceptfulfillmentrequest": {
@@ -874856,7 +874856,7 @@
                 "output": ["ActionOutput_shopify_activatediscountcode"],
                 "scopes": ["write_discounts"],
                 "usedModels": ["ActionInput_shopify_activatediscountcode", "ActionOutput_shopify_activatediscountcode"],
-                "version": "1.0.1",
+                "version": "1.0.2",
                 "json_schema": {
                     "definitions": {
                         "ActionInput_shopify_activatediscountcode": {
@@ -874922,7 +874922,7 @@
                 "output": ["ActionOutput_shopify_activateinventoryitematlocation"],
                 "scopes": ["write_inventory"],
                 "usedModels": ["ActionInput_shopify_activateinventoryitematlocation", "ActionOutput_shopify_activateinventoryitematlocation"],
-                "version": "1.0.1",
+                "version": "1.0.2",
                 "json_schema": {
                     "definitions": {
                         "ActionInput_shopify_activateinventoryitematlocation": {
@@ -875177,7 +875177,7 @@
                 "output": ["ActionOutput_shopify_approvereturn"],
                 "scopes": ["write_returns"],
                 "usedModels": ["ActionInput_shopify_approvereturn", "ActionOutput_shopify_approvereturn"],
-                "version": "1.0.1",
+                "version": "1.0.2",
                 "json_schema": {
                     "definitions": {
                         "ActionInput_shopify_approvereturn": {
@@ -875266,7 +875266,7 @@
                 "output": ["ActionOutput_shopify_cancelfulfillmentrequest"],
                 "scopes": ["write_merchant_managed_fulfillment_orders", "write_third_party_fulfillment_orders"],
                 "usedModels": ["ActionInput_shopify_cancelfulfillmentrequest", "ActionOutput_shopify_cancelfulfillmentrequest"],
-                "version": "1.0.1",
+                "version": "1.0.2",
                 "json_schema": {
                     "definitions": {
                         "ActionInput_shopify_cancelfulfillmentrequest": {
@@ -875408,7 +875408,7 @@
                 "output": ["ActionOutput_shopify_cancelorder"],
                 "scopes": ["write_orders"],
                 "usedModels": ["ActionInput_shopify_cancelorder", "ActionOutput_shopify_cancelorder"],
-                "version": "1.0.1",
+                "version": "1.0.2",
                 "json_schema": {
                     "definitions": {
                         "ActionInput_shopify_cancelorder": {
@@ -875507,7 +875507,7 @@
                 "output": ["ActionOutput_shopify_cancelreturn"],
                 "scopes": ["write_returns"],
                 "usedModels": ["ActionInput_shopify_cancelreturn", "ActionOutput_shopify_cancelreturn"],
-                "version": "1.0.1",
+                "version": "1.0.2",
                 "json_schema": {
                     "definitions": {
                         "ActionInput_shopify_cancelreturn": {
@@ -875575,7 +875575,7 @@
                 "output": ["ActionOutput_shopify_closeorder"],
                 "scopes": ["read_orders", "write_orders"],
                 "usedModels": ["ActionInput_shopify_closeorder", "ActionOutput_shopify_closeorder"],
-                "version": "1.0.1",
+                "version": "1.0.2",
                 "json_schema": {
                     "definitions": {
                         "ActionInput_shopify_closeorder": {
@@ -875791,7 +875791,7 @@
                 "output": ["ActionOutput_shopify_createautomaticdiscountbxgy"],
                 "scopes": ["write_discounts"],
                 "usedModels": ["ActionInput_shopify_createautomaticdiscountbxgy", "ActionOutput_shopify_createautomaticdiscountbxgy"],
-                "version": "1.0.1",
+                "version": "1.0.2",
                 "json_schema": {
                     "definitions": {
                         "ActionInput_shopify_createautomaticdiscountbxgy": {
@@ -876384,7 +876384,7 @@
                 "output": ["ActionOutput_shopify_createautomaticdiscount"],
                 "scopes": ["write_discounts", "read_discounts"],
                 "usedModels": ["ActionInput_shopify_createautomaticdiscount", "ActionOutput_shopify_createautomaticdiscount"],
-                "version": "1.0.1",
+                "version": "1.0.2",
                 "json_schema": {
                     "definitions": {
                         "ActionInput_shopify_createautomaticdiscount": {
@@ -876998,7 +876998,7 @@
                 "output": ["ActionOutput_shopify_createcustomer"],
                 "scopes": ["write_customers"],
                 "usedModels": ["ActionInput_shopify_createcustomer", "ActionOutput_shopify_createcustomer"],
-                "version": "1.0.1",
+                "version": "1.0.2",
                 "json_schema": {
                     "definitions": {
                         "ActionInput_shopify_createcustomer": {
@@ -878233,7 +878233,7 @@
                 "output": ["ActionOutput_shopify_createmarket"],
                 "scopes": ["read_markets", "write_markets"],
                 "usedModels": ["ActionInput_shopify_createmarket", "ActionOutput_shopify_createmarket"],
-                "version": "1.0.1",
+                "version": "1.0.2",
                 "json_schema": {
                     "definitions": {
                         "ActionInput_shopify_createmarket": {
@@ -878347,7 +878347,7 @@
                 "output": ["ActionOutput_shopify_createmetafielddefinition"],
                 "scopes": ["write_products"],
                 "usedModels": ["ActionInput_shopify_createmetafielddefinition", "ActionOutput_shopify_createmetafielddefinition"],
-                "version": "1.0.3",
+                "version": "1.0.4",
                 "json_schema": {
                     "definitions": {
                         "ActionInput_shopify_createmetafielddefinition": {
@@ -878559,7 +878559,7 @@
                 "output": ["ActionOutput_shopify_createmetaobject"],
                 "scopes": ["write_metaobjects"],
                 "usedModels": ["ActionInput_shopify_createmetaobject", "ActionOutput_shopify_createmetaobject"],
-                "version": "1.0.1",
+                "version": "1.0.2",
                 "json_schema": {
                     "definitions": {
                         "ActionInput_shopify_createmetaobject": {
@@ -879688,7 +879688,7 @@
                 "output": ["ActionOutput_shopify_createurlredirect"],
                 "scopes": ["write_content"],
                 "usedModels": ["ActionInput_shopify_createurlredirect", "ActionOutput_shopify_createurlredirect"],
-                "version": "1.0.1",
+                "version": "1.0.2",
                 "json_schema": {
                     "definitions": {
                         "ActionInput_shopify_createurlredirect": {
@@ -879761,7 +879761,7 @@
                 "output": ["ActionOutput_shopify_createwebhooksubscription"],
                 "scopes": [],
                 "usedModels": ["ActionInput_shopify_createwebhooksubscription", "ActionOutput_shopify_createwebhooksubscription"],
-                "version": "1.0.2",
+                "version": "1.0.3",
                 "json_schema": {
                     "definitions": {
                         "ActionInput_shopify_createwebhooksubscription": {
@@ -880058,7 +880058,7 @@
                 "output": ["ActionOutput_shopify_declinereturn"],
                 "scopes": ["write_returns"],
                 "usedModels": ["ActionInput_shopify_declinereturn", "ActionOutput_shopify_declinereturn"],
-                "version": "1.0.1",
+                "version": "1.0.2",
                 "json_schema": {
                     "definitions": {
                         "ActionInput_shopify_declinereturn": {
@@ -880263,7 +880263,7 @@
                 "output": ["ActionOutput_shopify_deletecollection"],
                 "scopes": ["write_products"],
                 "usedModels": ["ActionInput_shopify_deletecollection", "ActionOutput_shopify_deletecollection"],
-                "version": "1.0.1",
+                "version": "1.0.2",
                 "json_schema": {
                     "definitions": {
                         "ActionInput_shopify_deletecollection": {
@@ -880319,7 +880319,7 @@
                 "output": ["ActionOutput_shopify_deletecustomer"],
                 "scopes": ["write_customers"],
                 "usedModels": ["ActionInput_shopify_deletecustomer", "ActionOutput_shopify_deletecustomer"],
-                "version": "1.0.1",
+                "version": "1.0.2",
                 "json_schema": {
                     "definitions": {
                         "ActionInput_shopify_deletecustomer": {
@@ -880436,7 +880436,7 @@
                 "output": ["ActionOutput_shopify_deletedraftorder"],
                 "scopes": ["write_draft_orders"],
                 "usedModels": ["ActionInput_shopify_deletedraftorder", "ActionOutput_shopify_deletedraftorder"],
-                "version": "1.0.1",
+                "version": "1.0.2",
                 "json_schema": {
                     "definitions": {
                         "ActionInput_shopify_deletedraftorder": {
@@ -880584,7 +880584,7 @@
                 "output": ["ActionOutput_shopify_deletemarket"],
                 "scopes": ["read_markets", "write_markets"],
                 "usedModels": ["ActionInput_shopify_deletemarket", "ActionOutput_shopify_deletemarket"],
-                "version": "1.0.1",
+                "version": "1.0.2",
                 "json_schema": {
                     "definitions": {
                         "ActionInput_shopify_deletemarket": {
@@ -881043,7 +881043,7 @@
                 "output": ["ActionOutput_shopify_deleteproductvariants"],
                 "scopes": ["write_products"],
                 "usedModels": ["ActionInput_shopify_deleteproductvariants", "ActionOutput_shopify_deleteproductvariants"],
-                "version": "1.0.1",
+                "version": "1.0.2",
                 "json_schema": {
                     "definitions": {
                         "ActionInput_shopify_deleteproductvariants": {
@@ -881096,7 +881096,7 @@
                 "output": ["ActionOutput_shopify_deleteproduct"],
                 "scopes": ["write_products"],
                 "usedModels": ["ActionInput_shopify_deleteproduct", "ActionOutput_shopify_deleteproduct"],
-                "version": "1.0.1",
+                "version": "1.0.2",
                 "json_schema": {
                     "definitions": {
                         "ActionInput_shopify_deleteproduct": {
@@ -881159,7 +881159,7 @@
                 "output": ["ActionOutput_shopify_deleteurlredirect"],
                 "scopes": ["write_online_store_navigation"],
                 "usedModels": ["ActionInput_shopify_deleteurlredirect", "ActionOutput_shopify_deleteurlredirect"],
-                "version": "1.0.1",
+                "version": "1.0.2",
                 "json_schema": {
                     "definitions": {
                         "ActionInput_shopify_deleteurlredirect": {
@@ -881215,7 +881215,7 @@
                 "output": ["ActionOutput_shopify_deletewebhooksubscription"],
                 "scopes": [],
                 "usedModels": ["ActionInput_shopify_deletewebhooksubscription", "ActionOutput_shopify_deletewebhooksubscription"],
-                "version": "1.0.2",
+                "version": "1.0.3",
                 "json_schema": {
                     "definitions": {
                         "ActionInput_shopify_deletewebhooksubscription": {
@@ -881271,7 +881271,7 @@
                 "output": ["ActionOutput_shopify_disablegiftcard"],
                 "scopes": ["write_gift_cards", "read_gift_cards"],
                 "usedModels": ["ActionInput_shopify_disablegiftcard", "ActionOutput_shopify_disablegiftcard"],
-                "version": "1.0.1",
+                "version": "1.0.2",
                 "json_schema": {
                     "definitions": {
                         "ActionInput_shopify_disablegiftcard": {
@@ -881443,7 +881443,7 @@
                 "output": ["ActionOutput_shopify_getcollection"],
                 "scopes": ["read_products"],
                 "usedModels": ["ActionInput_shopify_getcollection", "ActionOutput_shopify_getcollection"],
-                "version": "1.0.1",
+                "version": "1.0.2",
                 "json_schema": {
                     "definitions": {
                         "ActionInput_shopify_getcollection": {
@@ -881652,7 +881652,7 @@
                 "output": ["ActionOutput_shopify_getcustomersegment"],
                 "scopes": ["read_customers"],
                 "usedModels": ["ActionInput_shopify_getcustomersegment", "ActionOutput_shopify_getcustomersegment"],
-                "version": "1.0.1",
+                "version": "1.0.2",
                 "json_schema": {
                     "definitions": {
                         "ActionInput_shopify_getcustomersegment": {
@@ -881698,7 +881698,7 @@
                 "output": ["ActionOutput_shopify_getdiscount"],
                 "scopes": ["read_discounts"],
                 "usedModels": ["ActionInput_shopify_getdiscount", "ActionOutput_shopify_getdiscount"],
-                "version": "1.0.1",
+                "version": "1.0.2",
                 "json_schema": {
                     "definitions": {
                         "ActionInput_shopify_getdiscount": {
@@ -881747,7 +881747,7 @@
                 "output": ["ActionOutput_shopify_getfile"],
                 "scopes": ["read_files"],
                 "usedModels": ["ActionInput_shopify_getfile", "ActionOutput_shopify_getfile"],
-                "version": "1.0.1",
+                "version": "1.0.2",
                 "json_schema": {
                     "definitions": {
                         "ActionInput_shopify_getfile": {
@@ -881807,7 +881807,7 @@
                 "output": ["ActionOutput_shopify_getinventoryitem"],
                 "scopes": ["read_inventory"],
                 "usedModels": ["ActionInput_shopify_getinventoryitem", "ActionOutput_shopify_getinventoryitem"],
-                "version": "1.0.1",
+                "version": "1.0.2",
                 "json_schema": {
                     "definitions": {
                         "ActionInput_shopify_getinventoryitem": {
@@ -882301,7 +882301,7 @@
                 "output": ["ActionOutput_shopify_getmetaobject"],
                 "scopes": ["read_metaobjects"],
                 "usedModels": ["ActionInput_shopify_getmetaobject", "ActionOutput_shopify_getmetaobject"],
-                "version": "1.0.1",
+                "version": "1.0.2",
                 "json_schema": {
                     "definitions": {
                         "ActionInput_shopify_getmetaobject": {
@@ -883327,7 +883327,7 @@
                 "output": ["ActionOutput_shopify_getorder"],
                 "scopes": ["read_orders"],
                 "usedModels": ["ActionInput_shopify_getorder", "ActionOutput_shopify_getorder"],
-                "version": "1.0.1",
+                "version": "1.0.2",
                 "json_schema": {
                     "definitions": {
                         "ActionInput_shopify_getorder": {
@@ -883430,7 +883430,7 @@
                 "output": ["ActionOutput_shopify_getproductbyidentifier"],
                 "scopes": ["read_products"],
                 "usedModels": ["ActionInput_shopify_getproductbyidentifier", "ActionOutput_shopify_getproductbyidentifier"],
-                "version": "1.0.1",
+                "version": "1.0.2",
                 "json_schema": {
                     "definitions": {
                         "ActionInput_shopify_getproductbyidentifier": {
@@ -883669,7 +883669,7 @@
                 "output": ["ActionOutput_shopify_getproduct"],
                 "scopes": ["read_products"],
                 "usedModels": ["ActionInput_shopify_getproduct", "ActionOutput_shopify_getproduct"],
-                "version": "1.0.1",
+                "version": "1.0.2",
                 "json_schema": {
                     "definitions": {
                         "ActionInput_shopify_getproduct": {
@@ -883922,7 +883922,7 @@
                 "output": ["ActionOutput_shopify_getshop"],
                 "scopes": ["read_products"],
                 "usedModels": ["ActionInput_shopify_getshop", "ActionOutput_shopify_getshop"],
-                "version": "1.0.1",
+                "version": "1.0.2",
                 "json_schema": {
                     "definitions": {
                         "ActionInput_shopify_getshop": {
@@ -884229,7 +884229,7 @@
                 "output": ["ActionOutput_shopify_listcollections"],
                 "scopes": ["read_products"],
                 "usedModels": ["ActionInput_shopify_listcollections", "ActionOutput_shopify_listcollections"],
-                "version": "1.0.1",
+                "version": "1.0.2",
                 "json_schema": {
                     "definitions": {
                         "ActionInput_shopify_listcollections": {
@@ -884329,7 +884329,7 @@
                 "output": ["ActionOutput_shopify_listcompanies"],
                 "scopes": ["read_companies", "read_customers"],
                 "usedModels": ["ActionInput_shopify_listcompanies", "ActionOutput_shopify_listcompanies"],
-                "version": "1.0.1",
+                "version": "1.0.2",
                 "json_schema": {
                     "definitions": {
                         "ActionInput_shopify_listcompanies": {
@@ -884438,7 +884438,7 @@
                 "output": ["ActionOutput_shopify_listcustomersegments"],
                 "scopes": ["read_customers"],
                 "usedModels": ["ActionInput_shopify_listcustomersegments", "ActionOutput_shopify_listcustomersegments"],
-                "version": "1.0.1",
+                "version": "1.0.2",
                 "json_schema": {
                     "definitions": {
                         "ActionInput_shopify_listcustomersegments": {
@@ -884592,7 +884592,7 @@
                 "output": ["ActionOutput_shopify_listevents"],
                 "scopes": [],
                 "usedModels": ["ActionInput_shopify_listevents", "ActionOutput_shopify_listevents"],
-                "version": "1.0.2",
+                "version": "1.0.3",
                 "json_schema": {
                     "definitions": {
                         "ActionInput_shopify_listevents": {
@@ -884803,7 +884803,7 @@
                 "output": ["ActionOutput_shopify_listinventorylevels"],
                 "scopes": ["read_inventory"],
                 "usedModels": ["ActionInput_shopify_listinventorylevels", "ActionOutput_shopify_listinventorylevels"],
-                "version": "1.0.1",
+                "version": "1.0.2",
                 "json_schema": {
                     "definitions": {
                         "ActionInput_shopify_listinventorylevels": {
@@ -884914,7 +884914,7 @@
                 "output": ["ActionOutput_shopify_listlocations"],
                 "scopes": ["read_locations"],
                 "usedModels": ["ActionInput_shopify_listlocations", "ActionOutput_shopify_listlocations"],
-                "version": "1.0.1",
+                "version": "1.0.2",
                 "json_schema": {
                     "definitions": {
                         "ActionInput_shopify_listlocations": {
@@ -885552,7 +885552,7 @@
                 "output": ["ActionOutput_shopify_listpublications"],
                 "scopes": ["read_publications"],
                 "usedModels": ["ActionInput_shopify_listpublications", "ActionOutput_shopify_listpublications"],
-                "version": "1.0.1",
+                "version": "1.0.2",
                 "json_schema": {
                     "definitions": {
                         "ActionInput_shopify_listpublications": {
@@ -885623,7 +885623,7 @@
                 "output": ["ActionOutput_shopify_listurlredirects"],
                 "scopes": ["read_online_store_navigation"],
                 "usedModels": ["ActionInput_shopify_listurlredirects", "ActionOutput_shopify_listurlredirects"],
-                "version": "1.0.1",
+                "version": "1.0.2",
                 "json_schema": {
                     "definitions": {
                         "ActionInput_shopify_listurlredirects": {
@@ -885772,7 +885772,7 @@
                 "output": ["ActionOutput_shopify_markorderaspaid"],
                 "scopes": ["write_orders"],
                 "usedModels": ["ActionInput_shopify_markorderaspaid", "ActionOutput_shopify_markorderaspaid"],
-                "version": "1.0.1",
+                "version": "1.0.2",
                 "json_schema": {
                     "definitions": {
                         "ActionInput_shopify_markorderaspaid": {
@@ -885866,7 +885866,7 @@
                 "output": ["ActionOutput_shopify_movefulfillmentorder"],
                 "scopes": ["write_merchant_managed_fulfillment_orders", "write_third_party_fulfillment_orders"],
                 "usedModels": ["ActionInput_shopify_movefulfillmentorder", "ActionOutput_shopify_movefulfillmentorder"],
-                "version": "1.0.1",
+                "version": "1.0.2",
                 "json_schema": {
                     "definitions": {
                         "ActionInput_shopify_movefulfillmentorder": {
@@ -886179,7 +886179,7 @@
                 "output": ["ActionOutput_shopify_openorder"],
                 "scopes": ["write_orders"],
                 "usedModels": ["ActionInput_shopify_openorder", "ActionOutput_shopify_openorder"],
-                "version": "1.0.1",
+                "version": "1.0.2",
                 "json_schema": {
                     "definitions": {
                         "ActionInput_shopify_openorder": {
@@ -886388,7 +886388,7 @@
                 "output": ["ActionOutput_shopify_rejectfulfillmentrequest"],
                 "scopes": ["write_assigned_fulfillment_orders"],
                 "usedModels": ["ActionInput_shopify_rejectfulfillmentrequest", "ActionOutput_shopify_rejectfulfillmentrequest"],
-                "version": "1.0.1",
+                "version": "1.0.2",
                 "json_schema": {
                     "definitions": {
                         "ActionInput_shopify_rejectfulfillmentrequest": {
@@ -886500,7 +886500,7 @@
                 "output": ["ActionOutput_shopify_releasefulfillmenthold"],
                 "scopes": ["write_merchant_managed_fulfillment_orders"],
                 "usedModels": ["ActionInput_shopify_releasefulfillmenthold", "ActionOutput_shopify_releasefulfillmenthold"],
-                "version": "1.0.1",
+                "version": "1.0.2",
                 "json_schema": {
                     "definitions": {
                         "ActionInput_shopify_releasefulfillmenthold": {
@@ -886668,7 +886668,7 @@
                 "output": ["ActionOutput_shopify_senddraftorderinvoice"],
                 "scopes": ["write_draft_orders"],
                 "usedModels": ["ActionInput_shopify_senddraftorderinvoice", "ActionOutput_shopify_senddraftorderinvoice"],
-                "version": "1.0.1",
+                "version": "1.0.2",
                 "json_schema": {
                     "definitions": {
                         "ActionInput_shopify_senddraftorderinvoice": {
@@ -887949,7 +887949,7 @@
                 "output": ["ActionOutput_shopify_updatecollection"],
                 "scopes": ["write_products"],
                 "usedModels": ["ActionInput_shopify_updatecollection", "ActionOutput_shopify_updatecollection"],
-                "version": "1.0.1",
+                "version": "1.0.2",
                 "json_schema": {
                     "definitions": {
                         "ActionInput_shopify_updatecollection": {
@@ -888993,7 +888993,7 @@
                 "output": ["ActionOutput_shopify_updatefile"],
                 "scopes": ["write_files"],
                 "usedModels": ["ActionInput_shopify_updatefile", "ActionOutput_shopify_updatefile"],
-                "version": "1.0.1",
+                "version": "1.0.2",
                 "json_schema": {
                     "definitions": {
                         "ActionInput_shopify_updatefile": {
@@ -889114,7 +889114,7 @@
                 "output": ["ActionOutput_shopify_updatefulfillmenttracking"],
                 "scopes": ["write_assigned_fulfillment_orders", "write_merchant_managed_fulfillment_orders", "write_third_party_fulfillment_orders"],
                 "usedModels": ["ActionInput_shopify_updatefulfillmenttracking", "ActionOutput_shopify_updatefulfillmenttracking"],
-                "version": "1.0.1",
+                "version": "1.0.2",
                 "json_schema": {
                     "definitions": {
                         "ActionInput_shopify_updatefulfillmenttracking": {
@@ -889346,7 +889346,7 @@
                 "output": ["ActionOutput_shopify_updateinventoryitem"],
                 "scopes": ["write_inventory"],
                 "usedModels": ["ActionInput_shopify_updateinventoryitem", "ActionOutput_shopify_updateinventoryitem"],
-                "version": "1.0.1",
+                "version": "1.0.2",
                 "json_schema": {
                     "definitions": {
                         "ActionInput_shopify_updateinventoryitem": {
@@ -890015,7 +890015,7 @@
                 "output": ["ActionOutput_shopify_updatemetaobject"],
                 "scopes": ["write_metaobjects"],
                 "usedModels": ["ActionInput_shopify_updatemetaobject", "ActionOutput_shopify_updatemetaobject"],
-                "version": "1.0.1",
+                "version": "1.0.2",
                 "json_schema": {
                     "definitions": {
                         "ActionInput_shopify_updatemetaobject": {
@@ -890101,7 +890101,7 @@
                 "output": ["ActionOutput_shopify_updateorder"],
                 "scopes": ["write_orders"],
                 "usedModels": ["ActionInput_shopify_updateorder", "ActionOutput_shopify_updateorder"],
-                "version": "1.0.1",
+                "version": "1.0.2",
                 "json_schema": {
                     "definitions": {
                         "ActionInput_shopify_updateorder": {
@@ -890726,7 +890726,7 @@
                 "output": ["ActionOutput_shopify_updateproduct"],
                 "scopes": ["write_products"],
                 "usedModels": ["ActionInput_shopify_updateproduct", "ActionOutput_shopify_updateproduct"],
-                "version": "1.0.1",
+                "version": "1.0.2",
                 "json_schema": {
                     "definitions": {
                         "ActionInput_shopify_updateproduct": {
@@ -890822,7 +890822,7 @@
                 "output": ["ActionOutput_shopify_updateurlredirect"],
                 "scopes": ["read_online_store_navigation", "write_online_store_navigation"],
                 "usedModels": ["ActionInput_shopify_updateurlredirect", "ActionOutput_shopify_updateurlredirect"],
-                "version": "1.0.1",
+                "version": "1.0.2",
                 "json_schema": {
                     "definitions": {
                         "ActionInput_shopify_updateurlredirect": {
@@ -891174,7 +891174,7 @@
                 "sync_type": "full",
                 "track_deletes": false,
                 "usedModels": ["AbandonedCheckout"],
-                "version": "1.0.1",
+                "version": "1.0.2",
                 "webhookSubscriptions": [],
                 "json_schema": {
                     "definitions": {
@@ -891286,7 +891286,7 @@
                 "sync_type": "full",
                 "track_deletes": false,
                 "usedModels": ["Collection"],
-                "version": "1.0.1",
+                "version": "1.0.2",
                 "webhookSubscriptions": [],
                 "json_schema": {
                     "definitions": {
@@ -891576,7 +891576,7 @@
                 "sync_type": "full",
                 "track_deletes": false,
                 "usedModels": ["Event"],
-                "version": "1.0.1",
+                "version": "1.0.2",
                 "webhookSubscriptions": [],
                 "json_schema": {
                     "definitions": {
@@ -891898,7 +891898,7 @@
                 "sync_type": "full",
                 "track_deletes": false,
                 "usedModels": ["InventoryItem"],
-                "version": "1.0.1",
+                "version": "1.0.2",
                 "webhookSubscriptions": [],
                 "json_schema": {
                     "definitions": {
@@ -891983,7 +891983,7 @@
                 "sync_type": "full",
                 "track_deletes": false,
                 "usedModels": ["InventoryLevel"],
-                "version": "1.0.1",
+                "version": "1.0.2",
                 "webhookSubscriptions": [],
                 "json_schema": {
                     "definitions": {
@@ -892310,7 +892310,7 @@
                 "sync_type": "full",
                 "track_deletes": false,
                 "usedModels": ["Order"],
-                "version": "2.0.0",
+                "version": "2.0.1",
                 "webhookSubscriptions": [],
                 "json_schema": {
                     "definitions": {
@@ -892717,7 +892717,7 @@
                 "sync_type": "full",
                 "track_deletes": false,
                 "usedModels": ["Product"],
-                "version": "1.0.1",
+                "version": "1.0.2",
                 "webhookSubscriptions": [],
                 "json_schema": {
                     "definitions": {

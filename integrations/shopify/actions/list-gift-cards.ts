@@ -49,7 +49,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List Shopify gift cards with cursor pagination.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['read_gift_cards'],

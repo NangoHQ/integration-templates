@@ -46,7 +46,7 @@ const MutationResponseSchema = z.object({
 
 const action = createAction({
     description: 'Create an automatic basic Shopify discount.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['write_discounts', 'read_discounts'],

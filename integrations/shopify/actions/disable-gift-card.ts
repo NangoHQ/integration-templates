@@ -79,7 +79,7 @@ const ProviderResponseSchema = z.object({
 
 const action = createAction({
     description: 'Disable a Shopify gift card.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['write_gift_cards', 'read_gift_cards'],

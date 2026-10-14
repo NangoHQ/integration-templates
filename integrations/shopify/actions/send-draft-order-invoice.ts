@@ -111,7 +111,7 @@ const ResponseSchema = z.object({
 
 const action = createAction({
     description: 'Send the invoice email for a Shopify draft order.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['write_draft_orders'],

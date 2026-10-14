@@ -359,7 +359,7 @@ function buildGraphQLVariables(input: z.infer<typeof InputSchema>) {
 
 const action = createAction({
     description: 'Create a Shopify draft order with line items and customer details.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['write_draft_orders'],

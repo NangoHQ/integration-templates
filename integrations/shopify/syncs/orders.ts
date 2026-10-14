@@ -136,7 +136,7 @@ const OrderEdgeSchema = z.object({
 
 const sync = createSync({
     description: 'Fetches a list of orders from Shopify.',
-    version: '2.0.0',
+    version: '2.0.1',
     frequency: 'every hour',
     autoStart: false,
     checkpoint: CheckpointSchema,

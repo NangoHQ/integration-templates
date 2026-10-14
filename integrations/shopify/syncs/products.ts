@@ -113,7 +113,7 @@ const ProductEdgeSchema = z.object({
 
 const sync = createSync({
     description: 'Sync Shopify products with variants, tags, status, and merchandising fields.',
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,

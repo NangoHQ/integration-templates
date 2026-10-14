@@ -57,7 +57,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve a Shopify metaobject by GraphQL ID.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['read_metaobjects'],

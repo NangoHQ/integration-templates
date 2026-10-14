@@ -53,7 +53,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List Shopify store events for the activity feed.',
-    version: '1.0.2',
+    version: '1.0.3',
     input: InputSchema,
     output: OutputSchema,
     scopes: [],

@@ -44,7 +44,7 @@ const GraphQLResponseSchema = z.object({
 
 const action = createAction({
     description: 'Create a webhook subscription in Shopify.',
-    version: '1.0.2',
+    version: '1.0.3',
     input: InputSchema,
     output: OutputSchema,
     scopes: [],

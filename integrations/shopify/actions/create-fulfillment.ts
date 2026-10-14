@@ -91,7 +91,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a fulfillment for fulfillable order line items.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['write_assigned_fulfillment_orders', 'write_merchant_managed_fulfillment_orders', 'write_third_party_fulfillment_orders'],

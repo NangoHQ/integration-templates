@@ -32,7 +32,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Delete a Shopify webhook subscription.',
-    version: '1.0.2',
+    version: '1.0.3',
     input: InputSchema,
     output: OutputSchema,
     scopes: [],

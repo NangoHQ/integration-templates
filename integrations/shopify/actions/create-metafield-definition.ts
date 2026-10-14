@@ -64,7 +64,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a Shopify metafield definition for a resource type.',
-    version: '1.0.3',
+    version: '1.0.4',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['write_products'],
