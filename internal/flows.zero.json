@@ -2078,7 +2078,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -9826,7 +9826,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -13569,7 +13569,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -13918,7 +13918,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -15282,7 +15282,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -19106,7 +19106,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -22930,7 +22930,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": "aircall"
     },
     {
@@ -26179,7 +26179,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -29428,7 +29428,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": "airtable"
     },
     {
@@ -32567,7 +32567,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -39602,7 +39602,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -40305,7 +40305,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -42497,7 +42497,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -47064,7 +47064,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -51631,7 +51631,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": "apollo"
     },
     {
@@ -57700,7 +57700,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -61732,7 +61732,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -67085,7 +67085,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -75995,7 +75995,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": "auth0-cc"
     },
     {
@@ -84905,7 +84905,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -86120,7 +86120,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -87335,7 +87335,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": "avalara"
     },
     {
@@ -87490,7 +87490,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -91467,7 +91467,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -97826,7 +97826,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": "bamboohr-basic"
     },
     {
@@ -104185,7 +104185,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -122103,7 +122103,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -123235,7 +123235,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -126925,7 +126925,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -134684,7 +134684,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -134842,7 +134842,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -135000,7 +135000,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": "bill"
     },
     {
@@ -139257,7 +139257,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -139327,7 +139327,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -142988,7 +142988,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -151052,7 +151052,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -153033,7 +153033,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -162140,7 +162140,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": "cal-com-v2"
     },
     {
@@ -171247,7 +171247,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -174029,7 +174029,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -177968,7 +177968,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -182721,7 +182721,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -183291,7 +183291,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -183465,7 +183465,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -183740,7 +183740,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -184054,7 +184054,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -188034,7 +188034,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -188300,7 +188300,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -192957,7 +192957,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -197910,7 +197910,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -201604,7 +201604,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -207107,7 +207107,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -208842,7 +208842,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -213524,7 +213524,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -213658,7 +213658,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -225213,7 +225213,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -236768,7 +236768,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": "datadog"
     },
     {
@@ -236929,7 +236929,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -237090,7 +237090,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": "dialpad"
     },
     {
@@ -239187,7 +239187,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -241284,7 +241284,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -245916,7 +245916,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -246228,7 +246228,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -254367,7 +254367,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -262506,7 +262506,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": "docusign"
     },
     {
@@ -264543,7 +264543,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -267659,7 +267659,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -269169,7 +269169,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -272856,7 +272856,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -275846,7 +275846,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -280106,7 +280106,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -280295,7 +280295,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -281337,7 +281337,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -285034,7 +285034,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -288673,7 +288673,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -288989,7 +288989,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -290401,7 +290401,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -294936,7 +294936,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -298846,7 +298846,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -304460,7 +304460,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -317964,7 +317964,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -318748,7 +318748,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -321238,7 +321238,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -328385,7 +328385,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -329174,7 +329174,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -339853,7 +339853,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -350026,7 +350026,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -363394,7 +363394,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -376762,7 +376762,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": "gong"
     },
     {
@@ -377136,7 +377136,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -379662,7 +379662,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -381737,7 +381737,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -388061,7 +388061,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -391884,7 +391884,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -394428,7 +394428,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -395546,7 +395546,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -399823,7 +399823,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -401696,7 +401696,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -413495,7 +413495,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -425294,7 +425294,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": "gorgias"
     },
     {
@@ -425396,7 +425396,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -426363,7 +426363,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -427077,7 +427077,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": "greenhouse-basic"
     },
     {
@@ -427791,7 +427791,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -428478,7 +428478,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -429165,7 +429165,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": "gusto"
     },
     {
@@ -430206,7 +430206,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -430431,7 +430431,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -430971,7 +430971,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -439856,7 +439856,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -444196,7 +444196,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -446059,7 +446059,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -458340,7 +458340,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -468857,7 +468857,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -479374,7 +479374,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": "ingenious-build"
     },
     {
@@ -494124,7 +494124,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -499069,7 +499069,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -503464,7 +503464,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -507505,7 +507505,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -507712,7 +507712,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -509855,7 +509855,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -511535,7 +511535,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -511779,7 +511779,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -517738,7 +517738,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -523697,7 +523697,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": "klaviyo"
     },
     {
@@ -523769,7 +523769,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -523939,7 +523939,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -524003,7 +524003,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -526586,7 +526586,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -532323,7 +532323,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -538060,7 +538060,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": "lever"
     },
     {
@@ -543797,7 +543797,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": "lever"
     },
     {
@@ -549534,7 +549534,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": "lever"
     },
     {
@@ -554565,7 +554565,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -555577,7 +555577,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -555800,7 +555800,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -561693,7 +561693,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -565073,7 +565073,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -571024,7 +571024,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -578680,7 +578680,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -579331,7 +579331,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -579669,7 +579669,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -583275,7 +583275,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -592520,7 +592520,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -598528,7 +598528,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": "microsoft-dynamics-365-finance-and-operations-cc"
     },
     {
@@ -604536,7 +604536,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -606442,7 +606442,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": "microsoft-excel-oauth2-cc"
     },
     {
@@ -608348,7 +608348,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -610434,7 +610434,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -612107,7 +612107,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -615521,7 +615521,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -617051,7 +617051,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": "microsoft-word-oauth2-cc"
     },
     {
@@ -618581,7 +618581,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -619209,7 +619209,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -621925,7 +621925,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -625215,7 +625215,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -625287,12 +625287,12 @@
                                     "type": "string"
                                 },
                                 "width": {
-                                    "type": "number",
-                                    "description": "Width of the mural canvas in pixels, derived from the template."
+                                    "description": "Width of the mural canvas in pixels, derived from the template.",
+                                    "type": "number"
                                 },
                                 "height": {
-                                    "type": "number",
-                                    "description": "Height of the mural canvas in pixels, derived from the template."
+                                    "description": "Height of the mural canvas in pixels, derived from the template.",
+                                    "type": "number"
                                 },
                                 "status": {
                                     "type": "string",
@@ -625353,7 +625353,7 @@
                                     "additionalProperties": false
                                 }
                             },
-                            "required": ["id", "title", "workspaceId", "roomId", "width", "height", "status", "createdOn", "updatedOn"],
+                            "required": ["id", "title", "workspaceId", "roomId", "status", "createdOn", "updatedOn"],
                             "additionalProperties": false,
                             "description": "The newly created mural."
                         }
@@ -625368,7 +625368,7 @@
                 "input": "ActionInput_mural_createmuraltag",
                 "name": "create-mural-tag",
                 "output": ["ActionOutput_mural_createmuraltag"],
-                "scopes": [],
+                "scopes": ["murals:write"],
                 "usedModels": ["ActionInput_mural_createmuraltag", "ActionOutput_mural_createmuraltag"],
                 "version": "1.0.0",
                 "json_schema": {
@@ -625463,7 +625463,7 @@
                 "input": "ActionInput_mural_createmural",
                 "name": "create-mural",
                 "output": ["ActionOutput_mural_createmural"],
-                "scopes": [],
+                "scopes": ["murals:write"],
                 "usedModels": ["ActionInput_mural_createmural", "ActionOutput_mural_createmural"],
                 "version": "1.0.0",
                 "json_schema": {
@@ -625483,7 +625483,8 @@
                                 },
                                 "backgroundColor": {
                                     "description": "Background color of the mural as an 8-digit hex string (#RRGGBBAA). Example: \"#FAFAFAFF\"",
-                                    "type": "string"
+                                    "type": "string",
+                                    "pattern": "^#[0-9A-Fa-f]{8}$"
                                 },
                                 "folderId": {
                                     "description": "UUID of the folder within the room that will contain the mural. Example: \"70b817c1-b5df-46e5-974e-1c87681b0581\"",
@@ -625526,16 +625527,16 @@
                                     "description": "ID of the workspace containing the mural. Example: \"nangodev4776\""
                                 },
                                 "backgroundColor": {
-                                    "type": "string",
-                                    "description": "Background color of the mural as an 8-digit hex string. Example: \"#FAFAFAFF\""
+                                    "description": "Background color of the mural as an 8-digit hex string. Example: \"#FAFAFAFF\"",
+                                    "type": "string"
                                 },
                                 "width": {
-                                    "type": "number",
-                                    "description": "Width of the mural in pixels. Example: 9216"
+                                    "description": "Width of the mural in pixels. Example: 9216",
+                                    "type": "number"
                                 },
                                 "height": {
-                                    "type": "number",
-                                    "description": "Height of the mural in pixels. Example: 6237"
+                                    "description": "Height of the mural in pixels. Example: 6237",
+                                    "type": "number"
                                 },
                                 "infinite": {
                                     "description": "Whether the mural canvas is borderless and grows as widgets are added.",
@@ -625664,7 +625665,7 @@
                                     "additionalProperties": false
                                 }
                             },
-                            "required": ["id", "title", "workspaceId", "backgroundColor", "width", "height", "status", "createdOn", "updatedOn"],
+                            "required": ["id", "title", "workspaceId", "status", "createdOn", "updatedOn"],
                             "additionalProperties": false,
                             "description": "The newly created mural."
                         }
@@ -625679,7 +625680,7 @@
                 "input": "ActionInput_mural_createroomfolder",
                 "name": "create-room-folder",
                 "output": ["ActionOutput_mural_createroomfolder"],
-                "scopes": [],
+                "scopes": ["rooms:write"],
                 "usedModels": ["ActionInput_mural_createroomfolder", "ActionOutput_mural_createroomfolder"],
                 "version": "1.0.0",
                 "json_schema": {
@@ -625734,7 +625735,7 @@
                 "input": "ActionInput_mural_createroom",
                 "name": "create-room",
                 "output": ["ActionOutput_mural_createroom"],
-                "scopes": [],
+                "scopes": ["rooms:write"],
                 "usedModels": ["ActionInput_mural_createroom", "ActionOutput_mural_createroom"],
                 "version": "1.0.0",
                 "json_schema": {
@@ -625897,7 +625898,7 @@
                 "input": "ActionInput_mural_createshapes",
                 "name": "create-shapes",
                 "output": ["ActionOutput_mural_createshapes"],
-                "scopes": [],
+                "scopes": ["murals:write"],
                 "usedModels": ["ActionInput_mural_createshapes", "ActionOutput_mural_createshapes"],
                 "version": "1.0.0",
                 "json_schema": {
@@ -625962,7 +625963,9 @@
                                             },
                                             "rotation": {
                                                 "description": "Rotation of the shape in degrees.",
-                                                "type": "number"
+                                                "type": "number",
+                                                "minimum": 0,
+                                                "exclusiveMaximum": 360
                                             },
                                             "stackingOrder": {
                                                 "description": "Z-index stacking order of the shape.",
@@ -626432,7 +626435,8 @@
                                                 "properties": {
                                                     "backgroundColor": {
                                                         "description": "Background color in 8-digit hex with alpha (e.g. \"#FCFE7DFF\"). Omitted properties keep their provider defaults.",
-                                                        "type": "string"
+                                                        "type": "string",
+                                                        "pattern": "^#[0-9A-Fa-f]{8}$"
                                                     },
                                                     "bold": {
                                                         "description": "Whether the text is bold.",
@@ -626470,7 +626474,8 @@
                                                     },
                                                     "fontSize": {
                                                         "description": "Text size in points.",
-                                                        "type": "number"
+                                                        "type": "number",
+                                                        "minimum": 1
                                                     },
                                                     "textAlign": {
                                                         "description": "Horizontal text alignment.",
@@ -626498,7 +626503,9 @@
                                             },
                                             "rotation": {
                                                 "description": "Rotation angle in degrees (0 to less than 360). Default: 0.",
-                                                "type": "number"
+                                                "type": "number",
+                                                "minimum": 0,
+                                                "exclusiveMaximum": 360
                                             },
                                             "stackingOrder": {
                                                 "description": "Z-index stacking order of the sticky note.",
@@ -626654,7 +626661,8 @@
                                                 "properties": {
                                                     "backgroundColor": {
                                                         "description": "Background color in 8-digit hex with alpha (e.g. \"#FCFE7DFF\"). Omitted properties keep their provider defaults.",
-                                                        "type": "string"
+                                                        "type": "string",
+                                                        "pattern": "^#[0-9A-Fa-f]{8}$"
                                                     },
                                                     "bold": {
                                                         "description": "Whether the text is bold.",
@@ -626692,7 +626700,8 @@
                                                     },
                                                     "fontSize": {
                                                         "description": "Text size in points.",
-                                                        "type": "number"
+                                                        "type": "number",
+                                                        "minimum": 1
                                                     },
                                                     "textAlign": {
                                                         "description": "Horizontal text alignment.",
@@ -626858,7 +626867,8 @@
                                                 "properties": {
                                                     "backgroundColor": {
                                                         "description": "Background color as 8-digit hex with alpha, e.g. \"#FFFFFF00\" for fully transparent.",
-                                                        "type": "string"
+                                                        "type": "string",
+                                                        "pattern": "^#[0-9A-Fa-f]{8}$"
                                                     },
                                                     "font": {
                                                         "description": "Font family of the text.",
@@ -626876,7 +626886,8 @@
                                                     },
                                                     "fontSize": {
                                                         "description": "Text size in px. Minimum 1.",
-                                                        "type": "number"
+                                                        "type": "number",
+                                                        "minimum": 1
                                                     },
                                                     "textAlign": {
                                                         "description": "Horizontal alignment of the text.",
@@ -626912,7 +626923,9 @@
                                             },
                                             "rotation": {
                                                 "description": "Rotation angle in degrees (0 inclusive, 360 exclusive). Defaults to 0.",
-                                                "type": "number"
+                                                "type": "number",
+                                                "minimum": 0,
+                                                "exclusiveMaximum": 360
                                             },
                                             "stackingOrder": {
                                                 "description": "Z-index stacking order of the widget.",
@@ -626980,7 +626993,8 @@
                                                 "properties": {
                                                     "backgroundColor": {
                                                         "description": "Background color as 8-digit hex with alpha, e.g. \"#FFFFFF00\" for fully transparent.",
-                                                        "type": "string"
+                                                        "type": "string",
+                                                        "pattern": "^#[0-9A-Fa-f]{8}$"
                                                     },
                                                     "font": {
                                                         "description": "Font family of the text.",
@@ -626998,7 +627012,8 @@
                                                     },
                                                     "fontSize": {
                                                         "description": "Text size in px. Minimum 1.",
-                                                        "type": "number"
+                                                        "type": "number",
+                                                        "minimum": 1
                                                     },
                                                     "textAlign": {
                                                         "description": "Horizontal alignment of the text.",
@@ -627207,7 +627222,7 @@
                 "input": "ActionInput_mural_deletemuralwidget",
                 "name": "delete-mural-widget",
                 "output": ["ActionOutput_mural_deletemuralwidget"],
-                "scopes": [],
+                "scopes": ["murals:write"],
                 "usedModels": ["ActionInput_mural_deletemuralwidget", "ActionOutput_mural_deletemuralwidget"],
                 "version": "1.0.0",
                 "json_schema": {
@@ -627259,7 +627274,7 @@
                 "input": "ActionInput_mural_deletemural",
                 "name": "delete-mural",
                 "output": ["ActionOutput_mural_deletemural"],
-                "scopes": [],
+                "scopes": ["murals:write"],
                 "usedModels": ["ActionInput_mural_deletemural", "ActionOutput_mural_deletemural"],
                 "version": "1.0.0",
                 "json_schema": {
@@ -627424,7 +627439,7 @@
                 "input": "ActionInput_mural_deleteroom",
                 "name": "delete-room",
                 "output": ["ActionOutput_mural_deleteroom"],
-                "scopes": [],
+                "scopes": ["rooms:write"],
                 "usedModels": ["ActionInput_mural_deleteroom", "ActionOutput_mural_deleteroom"],
                 "version": "1.0.0",
                 "json_schema": {
@@ -627466,7 +627481,7 @@
                 "input": "ActionInput_mural_duplicatemuralintoroom",
                 "name": "duplicate-mural-into-room",
                 "output": ["ActionOutput_mural_duplicatemuralintoroom"],
-                "scopes": [],
+                "scopes": ["rooms:read", "rooms:write", "murals:write"],
                 "usedModels": ["ActionInput_mural_duplicatemuralintoroom", "ActionOutput_mural_duplicatemuralintoroom"],
                 "version": "1.0.0",
                 "json_schema": {
@@ -627655,16 +627670,16 @@
                                     "type": "boolean"
                                 },
                                 "width": {
-                                    "type": "number",
-                                    "description": "Width of the mural in pixels."
+                                    "description": "Width of the mural in pixels.",
+                                    "type": "number"
                                 },
                                 "height": {
-                                    "type": "number",
-                                    "description": "Height of the mural in pixels."
+                                    "description": "Height of the mural in pixels.",
+                                    "type": "number"
                                 },
                                 "backgroundColor": {
-                                    "type": "string",
-                                    "description": "Background color of the mural as an #RRGGBBAA hex string."
+                                    "description": "Background color of the mural as an #RRGGBBAA hex string.",
+                                    "type": "string"
                                 },
                                 "thumbnailUrl": {
                                     "description": "URL of the latest thumbnail generated for the mural.",
@@ -627797,7 +627812,7 @@
                                     "additionalProperties": false
                                 }
                             },
-                            "required": ["id", "title", "workspaceId", "status", "width", "height", "backgroundColor", "createdOn", "updatedOn"],
+                            "required": ["id", "title", "workspaceId", "status", "createdOn", "updatedOn"],
                             "additionalProperties": false,
                             "description": "The newly created duplicate mural."
                         }
@@ -627812,7 +627827,7 @@
                 "input": "ActionInput_mural_exportmural",
                 "name": "export-mural",
                 "output": ["ActionOutput_mural_exportmural"],
-                "scopes": [],
+                "scopes": ["murals:read"],
                 "usedModels": ["ActionInput_mural_exportmural", "ActionOutput_mural_exportmural"],
                 "version": "1.0.0",
                 "json_schema": {
@@ -627968,16 +627983,16 @@
                                     "type": "string"
                                 },
                                 "avatar": {
-                                    "type": "string",
-                                    "description": "URL of the authenticated user's avatar image."
+                                    "description": "URL of the authenticated user's avatar image, when set.",
+                                    "type": "string"
                                 },
                                 "firstName": {
-                                    "type": "string",
-                                    "description": "First name of the authenticated user. Example: \"John\""
+                                    "description": "First name of the authenticated user, when set. Example: \"John\"",
+                                    "type": "string"
                                 },
                                 "lastName": {
-                                    "type": "string",
-                                    "description": "Last name of the authenticated user. Example: \"Smith\""
+                                    "description": "Last name of the authenticated user, when set. Example: \"Smith\"",
+                                    "type": "string"
                                 },
                                 "type": {
                                     "type": "string",
@@ -628000,7 +628015,7 @@
                                     "type": "string"
                                 }
                             },
-                            "required": ["id", "avatar", "firstName", "lastName", "type"],
+                            "required": ["id", "type"],
                             "additionalProperties": false,
                             "description": "Profile of the user this connection authenticates as."
                         }
@@ -628077,7 +628092,7 @@
                 "input": "ActionInput_mural_getmuralfullcontent",
                 "name": "get-mural-full-content",
                 "output": ["ActionOutput_mural_getmuralfullcontent"],
-                "scopes": [],
+                "scopes": ["murals:read", "users:read"],
                 "usedModels": ["ActionInput_mural_getmuralfullcontent", "ActionOutput_mural_getmuralfullcontent"],
                 "version": "1.0.0",
                 "json_schema": {
@@ -628722,7 +628737,7 @@
                 "input": "ActionInput_mural_getmuralwidget",
                 "name": "get-mural-widget",
                 "output": ["ActionOutput_mural_getmuralwidget"],
-                "scopes": [],
+                "scopes": ["murals:read"],
                 "usedModels": ["ActionInput_mural_getmuralwidget", "ActionOutput_mural_getmuralwidget"],
                 "version": "1.0.0",
                 "json_schema": {
@@ -629350,7 +629365,7 @@
                 "input": "ActionInput_mural_getmural",
                 "name": "get-mural",
                 "output": ["ActionOutput_mural_getmural"],
-                "scopes": [],
+                "scopes": ["murals:read"],
                 "usedModels": ["ActionInput_mural_getmural", "ActionOutput_mural_getmural"],
                 "version": "1.0.0",
                 "json_schema": {
@@ -629695,7 +629710,7 @@
                 "input": "ActionInput_mural_getworkspace",
                 "name": "get-workspace",
                 "output": ["ActionOutput_mural_getworkspace"],
-                "scopes": [],
+                "scopes": ["workspaces:read"],
                 "usedModels": ["ActionInput_mural_getworkspace", "ActionOutput_mural_getworkspace"],
                 "version": "1.0.0",
                 "json_schema": {
@@ -629798,7 +629813,7 @@
                 "input": "ActionInput_mural_invitemuralmembers",
                 "name": "invite-mural-members",
                 "output": ["ActionOutput_mural_invitemuralmembers"],
-                "scopes": [],
+                "scopes": ["murals:write"],
                 "usedModels": ["ActionInput_mural_invitemuralmembers", "ActionOutput_mural_invitemuralmembers"],
                 "version": "1.0.0",
                 "json_schema": {
@@ -629817,7 +629832,7 @@
                                         "type": "object",
                                         "properties": {
                                             "email": {
-                                                "description": "Email address of the person to invite. Provide this or `username`. Example: \"teammate@example.com\"",
+                                                "description": "Email address of the person to invite. Provide exactly one of this or `username`. Example: \"teammate@example.com\"",
                                                 "type": "string",
                                                 "format": "email",
                                                 "pattern": "^(?!\\.)(?!.*\\.\\.)([A-Za-z0-9_'+\\-\\.]*)[A-Za-z0-9_+-]@([A-Za-z0-9][A-Za-z0-9\\-]*\\.)+[A-Za-z]{2,}$"
@@ -629917,7 +629932,9 @@
                                     "minItems": 1,
                                     "type": "array",
                                     "items": {
-                                        "type": "string"
+                                        "type": "string",
+                                        "format": "email",
+                                        "pattern": "^(?!\\.)(?!.*\\.\\.)([A-Za-z0-9_'+\\-\\.]*)[A-Za-z0-9_+-]@([A-Za-z0-9][A-Za-z0-9\\-]*\\.)+[A-Za-z]{2,}$"
                                     },
                                     "description": "Email addresses of the people to invite to the room."
                                 },
@@ -630002,10 +630019,10 @@
                                     "minLength": 1
                                 },
                                 "limit": {
-                                    "description": "Maximum number of members to return. Example: 50",
+                                    "description": "Maximum number of members to return per page (1-100). Example: 50",
                                     "type": "integer",
-                                    "exclusiveMinimum": 0,
-                                    "maximum": 9007199254740991
+                                    "minimum": 1,
+                                    "maximum": 100
                                 }
                             },
                             "required": ["muralId"],
@@ -630070,7 +630087,7 @@
                                     "description": "Members and guests with access to the mural."
                                 },
                                 "nextCursor": {
-                                    "description": "Opaque token to fetch the next page of members. Absent when no further pages are returned.",
+                                    "description": "Opaque token to fetch another page of members. It can still be returned on the final page, so stop when `members` is empty.",
                                     "type": "string"
                                 }
                             },
@@ -630156,7 +630173,7 @@
                 "input": "ActionInput_mural_listmuralwidgets",
                 "name": "list-mural-widgets",
                 "output": ["ActionOutput_mural_listmuralwidgets"],
-                "scopes": [],
+                "scopes": ["murals:read"],
                 "usedModels": ["ActionInput_mural_listmuralwidgets", "ActionOutput_mural_listmuralwidgets"],
                 "version": "1.0.0",
                 "json_schema": {
@@ -630358,7 +630375,7 @@
                                     "description": "Widgets on the mural canvas."
                                 },
                                 "nextCursor": {
-                                    "description": "Token to fetch the next page of widgets. Absent when there are no more results.",
+                                    "description": "Token to fetch another page of widgets. It can still be returned on the final page, so stop when `widgets` is empty.",
                                     "type": "string"
                                 }
                             },
@@ -630390,10 +630407,10 @@
                                     "description": "Unique identifier of the workspace whose open rooms to list. Example: \"workspace1234\""
                                 },
                                 "limit": {
-                                    "description": "Maximum number of rooms to return per page.",
+                                    "description": "Maximum number of rooms to return per page (1-100).",
                                     "type": "integer",
-                                    "exclusiveMinimum": 0,
-                                    "maximum": 9007199254740991
+                                    "minimum": 1,
+                                    "maximum": 100
                                 },
                                 "cursor": {
                                     "description": "Opaque pagination token from the previous response nextCursor. Omit for the first page.",
@@ -630715,7 +630732,7 @@
                                     "description": "The page of recently opened murals returned by the provider."
                                 },
                                 "next": {
-                                    "description": "Token to fetch the next page of murals. Omit when there are no further pages.",
+                                    "description": "Token to fetch another page of murals. It can still be returned on the final page, so stop when `value` is empty.",
                                     "type": "string"
                                 }
                             },
@@ -630848,7 +630865,7 @@
                 "input": "ActionInput_mural_listroomfolders",
                 "name": "list-room-folders",
                 "output": ["ActionOutput_mural_listroomfolders"],
-                "scopes": [],
+                "scopes": ["rooms:read"],
                 "usedModels": ["ActionInput_mural_listroomfolders", "ActionOutput_mural_listroomfolders"],
                 "version": "1.0.0",
                 "json_schema": {
@@ -630978,16 +630995,16 @@
                                                 "type": "string"
                                             },
                                             "firstName": {
-                                                "type": "string",
-                                                "description": "First name of the member."
+                                                "description": "First name of the member, when set.",
+                                                "type": "string"
                                             },
                                             "lastName": {
-                                                "type": "string",
-                                                "description": "Last name of the member."
+                                                "description": "Last name of the member, when set.",
+                                                "type": "string"
                                             },
                                             "avatar": {
-                                                "type": "string",
-                                                "description": "URL of the member's avatar image."
+                                                "description": "URL of the member's avatar image, when set.",
+                                                "type": "string"
                                             },
                                             "type": {
                                                 "type": "string",
@@ -630999,13 +631016,13 @@
                                                 "type": "number"
                                             }
                                         },
-                                        "required": ["id", "firstName", "lastName", "avatar", "type"],
+                                        "required": ["id", "type"],
                                         "additionalProperties": false
                                     },
                                     "description": "Members with access to the room."
                                 },
                                 "nextCursor": {
-                                    "description": "Pagination token for the next page of members; pass it back as `cursor` on the next call.",
+                                    "description": "Pagination token for another page of members; pass it back as `cursor` on the next call. It can still be returned on the final page, so stop when `members` is empty.",
                                     "type": "string"
                                 }
                             },
@@ -631226,7 +631243,7 @@
                 "input": "ActionInput_mural_listworkspacemurals",
                 "name": "list-workspace-murals",
                 "output": ["ActionOutput_mural_listworkspacemurals"],
-                "scopes": [],
+                "scopes": ["murals:read"],
                 "usedModels": ["ActionInput_mural_listworkspacemurals", "ActionOutput_mural_listworkspacemurals"],
                 "version": "1.0.0",
                 "json_schema": {
@@ -631391,7 +631408,7 @@
                                     "description": "Murals in the workspace on this page."
                                 },
                                 "nextCursor": {
-                                    "description": "Token to pass as `cursor` to fetch the next page; omitted when there are no more murals.",
+                                    "description": "Token to pass as `cursor` to fetch another page. It can still be returned on the final page, so stop when `murals` is empty.",
                                     "type": "string"
                                 }
                             },
@@ -631410,7 +631427,7 @@
                 "input": "ActionInput_mural_listworkspacerooms",
                 "name": "list-workspace-rooms",
                 "output": ["ActionOutput_mural_listworkspacerooms"],
-                "scopes": [],
+                "scopes": ["rooms:read"],
                 "usedModels": ["ActionInput_mural_listworkspacerooms", "ActionOutput_mural_listworkspacerooms"],
                 "version": "1.0.0",
                 "json_schema": {
@@ -631475,8 +631492,8 @@
                                                 "description": "Whether the authenticated user is a member of the room."
                                             },
                                             "favorite": {
-                                                "type": "boolean",
-                                                "description": "Whether the authenticated user has favorited the room."
+                                                "description": "Whether the authenticated user has favorited the room.",
+                                                "type": "boolean"
                                             },
                                             "createdOn": {
                                                 "type": "number",
@@ -631486,27 +631503,26 @@
                                                 "type": "object",
                                                 "properties": {
                                                     "id": {
-                                                        "type": "string",
-                                                        "description": "ID of the user. Example: \"u6ed91a0eb0c5cb4ae8713013\""
+                                                        "description": "ID of the user. Example: \"u6ed91a0eb0c5cb4ae8713013\"",
+                                                        "type": "string"
                                                     },
                                                     "firstName": {
-                                                        "type": "string",
-                                                        "description": "First name of the user."
+                                                        "description": "First name of the user.",
+                                                        "type": "string"
                                                     },
                                                     "lastName": {
-                                                        "type": "string",
-                                                        "description": "Last name of the user."
+                                                        "description": "Last name of the user.",
+                                                        "type": "string"
                                                     },
                                                     "email": {
-                                                        "type": "string",
-                                                        "description": "Email address of the user."
+                                                        "description": "Email address of the user, when available.",
+                                                        "type": "string"
                                                     },
                                                     "type": {
-                                                        "type": "string",
-                                                        "description": "User type. Example: \"member\""
+                                                        "description": "User type. Example: \"member\"",
+                                                        "type": "string"
                                                     }
                                                 },
-                                                "required": ["id", "firstName", "lastName", "email", "type"],
                                                 "additionalProperties": false,
                                                 "description": "User who created the room."
                                             },
@@ -631518,27 +631534,26 @@
                                                 "type": "object",
                                                 "properties": {
                                                     "id": {
-                                                        "type": "string",
-                                                        "description": "ID of the user. Example: \"u6ed91a0eb0c5cb4ae8713013\""
+                                                        "description": "ID of the user. Example: \"u6ed91a0eb0c5cb4ae8713013\"",
+                                                        "type": "string"
                                                     },
                                                     "firstName": {
-                                                        "type": "string",
-                                                        "description": "First name of the user."
+                                                        "description": "First name of the user.",
+                                                        "type": "string"
                                                     },
                                                     "lastName": {
-                                                        "type": "string",
-                                                        "description": "Last name of the user."
+                                                        "description": "Last name of the user.",
+                                                        "type": "string"
                                                     },
                                                     "email": {
-                                                        "type": "string",
-                                                        "description": "Email address of the user."
+                                                        "description": "Email address of the user, when available.",
+                                                        "type": "string"
                                                     },
                                                     "type": {
-                                                        "type": "string",
-                                                        "description": "User type. Example: \"member\""
+                                                        "description": "User type. Example: \"member\"",
+                                                        "type": "string"
                                                     }
                                                 },
-                                                "required": ["id", "firstName", "lastName", "email", "type"],
                                                 "additionalProperties": false,
                                                 "description": "User who last updated the room."
                                             }
@@ -631551,7 +631566,6 @@
                                             "confidential",
                                             "workspaceId",
                                             "isMember",
-                                            "favorite",
                                             "createdOn",
                                             "createdBy",
                                             "updatedOn",
@@ -631562,7 +631576,7 @@
                                     "description": "Rooms in the workspace for this page."
                                 },
                                 "nextCursor": {
-                                    "description": "Cursor for the next page; pass it as `cursor` on the next call. Absent when there are no more rooms.",
+                                    "description": "Cursor for another page; pass it as `cursor` on the next call. It can still be returned on the final page, so stop when `rooms` is empty.",
                                     "type": "string"
                                 }
                             },
@@ -631581,7 +631595,7 @@
                 "input": "ActionInput_mural_listworkspacetemplates",
                 "name": "list-workspace-templates",
                 "output": ["ActionOutput_mural_listworkspacetemplates"],
-                "scopes": [],
+                "scopes": ["templates:read"],
                 "usedModels": ["ActionInput_mural_listworkspacetemplates", "ActionOutput_mural_listworkspacetemplates"],
                 "version": "1.0.0",
                 "json_schema": {
@@ -631698,7 +631712,7 @@
                 "input": "ActionInput_mural_listworkspaces",
                 "name": "list-workspaces",
                 "output": ["ActionOutput_mural_listworkspaces"],
-                "scopes": [],
+                "scopes": ["workspaces:read"],
                 "usedModels": ["ActionInput_mural_listworkspaces", "ActionOutput_mural_listworkspaces"],
                 "version": "1.0.0",
                 "json_schema": {
@@ -631857,7 +631871,7 @@
                                     "description": "Workspaces the authenticated connection can access."
                                 },
                                 "next": {
-                                    "description": "Token to fetch the next page of workspaces. Absent when all workspaces fit in a single page.",
+                                    "description": "Token to fetch another page of workspaces. It can still be returned when the final page is full, so stop when `value` is empty.",
                                     "anyOf": [
                                         {
                                             "type": "string"
@@ -631907,10 +631921,10 @@
                                     "maximum": 9007199254740991
                                 },
                                 "limit": {
-                                    "description": "Maximum number of murals to return per page (1-99).",
+                                    "description": "Maximum number of murals to return per page (1-25).",
                                     "type": "integer",
                                     "minimum": 1,
-                                    "maximum": 99
+                                    "maximum": 25
                                 },
                                 "cursor": {
                                     "description": "Pagination cursor returned by a previous call; omit to fetch the first page.",
@@ -631985,7 +631999,7 @@
                                     "description": "Murals matching the search query."
                                 },
                                 "nextCursor": {
-                                    "description": "Cursor to fetch the next page of results, present only when more results exist.",
+                                    "description": "Cursor to fetch another page of results. It can still be returned on the final page, so stop when `murals` is empty.",
                                     "type": "string"
                                 }
                             },
@@ -632093,7 +632107,7 @@
                 "input": "ActionInput_mural_searchtemplates",
                 "name": "search-templates",
                 "output": ["ActionOutput_mural_searchtemplates"],
-                "scopes": [],
+                "scopes": ["templates:read"],
                 "usedModels": ["ActionInput_mural_searchtemplates", "ActionOutput_mural_searchtemplates"],
                 "version": "1.0.0",
                 "json_schema": {
@@ -632112,10 +632126,10 @@
                                     "description": "Text to search template names for. Example: \"profile\""
                                 },
                                 "limit": {
-                                    "description": "Maximum number of templates to return. Example: 50",
+                                    "description": "Maximum number of templates to return per page (1-25). Example: 20",
                                     "type": "integer",
-                                    "exclusiveMinimum": 0,
-                                    "maximum": 9007199254740991
+                                    "minimum": 1,
+                                    "maximum": 25
                                 },
                                 "cursor": {
                                     "description": "Pagination token returned as nextCursor by a previous call. Omit to fetch the first page.",
@@ -632171,7 +632185,7 @@
                                     "description": "Templates matching the search query."
                                 },
                                 "nextCursor": {
-                                    "description": "Token to fetch the next page of results, passed back as the cursor input.",
+                                    "description": "Token to fetch another page of results, passed back as the cursor input. It can still be returned on the final page, so stop when `templates` is empty.",
                                     "type": "string"
                                 }
                             },
@@ -632264,13 +632278,15 @@
                                 },
                                 "text": {
                                     "description": "New tag text, limited to 25 characters. Omit to leave the current text unchanged.",
-                                    "type": "string"
+                                    "type": "string",
+                                    "maxLength": 25
                                 },
                                 "backgroundColor": {
                                     "description": "New tag background color as 8-digit hex with alpha, e.g. \"#FAFAFAFF\". Pass null to clear it; omit to leave it unchanged.",
                                     "anyOf": [
                                         {
-                                            "type": "string"
+                                            "type": "string",
+                                            "pattern": "^#[0-9A-Fa-f]{8}$"
                                         },
                                         {
                                             "type": "null"
@@ -632281,7 +632297,8 @@
                                     "description": "New tag border color as 8-digit hex with alpha, e.g. \"#FAFAFAFF\". Pass null to clear it; omit to leave it unchanged.",
                                     "anyOf": [
                                         {
-                                            "type": "string"
+                                            "type": "string",
+                                            "pattern": "^#[0-9A-Fa-f]{8}$"
                                         },
                                         {
                                             "type": "null"
@@ -632292,7 +632309,8 @@
                                     "description": "New tag text color as 8-digit hex with alpha, e.g. \"#FAFAFAFF\". Pass null to clear it; omit to leave it unchanged.",
                                     "anyOf": [
                                         {
-                                            "type": "string"
+                                            "type": "string",
+                                            "pattern": "^#[0-9A-Fa-f]{8}$"
                                         },
                                         {
                                             "type": "null"
@@ -632343,7 +632361,7 @@
                 "input": "ActionInput_mural_updatemural",
                 "name": "update-mural",
                 "output": ["ActionOutput_mural_updatemural"],
-                "scopes": [],
+                "scopes": ["murals:write"],
                 "usedModels": ["ActionInput_mural_updatemural", "ActionOutput_mural_updatemural"],
                 "version": "1.0.0",
                 "json_schema": {
@@ -632360,8 +632378,9 @@
                                     "type": "string"
                                 },
                                 "backgroundColor": {
-                                    "description": "New background color as an 8-digit hex ARGB value. Example: \"#FAFAFAFF\"",
-                                    "type": "string"
+                                    "description": "New background color as an 8-digit #RRGGBBAA hex value. Example: \"#FAFAFAFF\"",
+                                    "type": "string",
+                                    "pattern": "^#[0-9A-Fa-f]{8}$"
                                 },
                                 "width": {
                                     "description": "New width of the mural in pixels, between 3000 and 60000.",
@@ -632392,16 +632411,16 @@
                                     "description": "Title of the mural."
                                 },
                                 "backgroundColor": {
-                                    "type": "string",
-                                    "description": "Background color of the mural as an 8-digit hex ARGB value. Example: \"#FAFAFAFF\""
+                                    "description": "Background color of the mural as an 8-digit #RRGGBBAA hex value. Example: \"#FAFAFAFF\"",
+                                    "type": "string"
                                 },
                                 "width": {
-                                    "type": "number",
-                                    "description": "Width of the mural in pixels."
+                                    "description": "Width of the mural in pixels.",
+                                    "type": "number"
                                 },
                                 "height": {
-                                    "type": "number",
-                                    "description": "Height of the mural in pixels."
+                                    "description": "Height of the mural in pixels.",
+                                    "type": "number"
                                 },
                                 "status": {
                                     "type": "string",
@@ -632544,7 +632563,7 @@
                                     "additionalProperties": false
                                 }
                             },
-                            "required": ["id", "title", "backgroundColor", "width", "height", "status", "workspaceId", "createdOn", "updatedOn"],
+                            "required": ["id", "title", "status", "workspaceId", "createdOn", "updatedOn"],
                             "additionalProperties": false,
                             "description": "The updated mural."
                         }
@@ -632559,7 +632578,7 @@
                 "input": "ActionInput_mural_updateroom",
                 "name": "update-room",
                 "output": ["ActionOutput_mural_updateroom"],
-                "scopes": [],
+                "scopes": ["rooms:read", "rooms:write"],
                 "usedModels": ["ActionInput_mural_updateroom", "ActionOutput_mural_updateroom"],
                 "version": "1.0.0",
                 "json_schema": {
@@ -632691,6 +632710,17 @@
                                         }
                                     },
                                     "additionalProperties": false
+                                },
+                                "sharingSettings": {
+                                    "description": "Sharing settings, only returned when the authenticated user owns the room.",
+                                    "type": "object",
+                                    "properties": {
+                                        "link": {
+                                            "description": "Invitation link that a member with an account can use to access the room.",
+                                            "type": "string"
+                                        }
+                                    },
+                                    "additionalProperties": false
                                 }
                             },
                             "required": ["id"],
@@ -632770,7 +632800,9 @@
                                 },
                                 "rotation": {
                                     "description": "New rotation angle of the shape in degrees, from 0 up to (but not including) 360.",
-                                    "type": "number"
+                                    "type": "number",
+                                    "minimum": 0,
+                                    "exclusiveMaximum": 360
                                 },
                                 "style": {
                                     "description": "Style properties to apply to the shape. Only the provided style fields are changed.",
@@ -632778,11 +632810,13 @@
                                     "properties": {
                                         "backgroundColor": {
                                             "description": "New background color of the shape in 8-digit hex with alpha format. Example: \"#FCFE7DFF\".",
-                                            "type": "string"
+                                            "type": "string",
+                                            "pattern": "^#[0-9A-Fa-f]{8}$"
                                         },
                                         "borderColor": {
                                             "description": "New border color of the shape in 8-digit hex with alpha format. Example: \"#000000FF\".",
-                                            "type": "string"
+                                            "type": "string",
+                                            "pattern": "^#[0-9A-Fa-f]{8}$"
                                         },
                                         "borderStyle": {
                                             "description": "New border style of the shape.",
@@ -632795,7 +632829,8 @@
                                         },
                                         "fontColor": {
                                             "description": "New font color of the shape text in 8-digit hex with alpha format. Example: \"#000000FF\".",
-                                            "type": "string"
+                                            "type": "string",
+                                            "pattern": "^#[0-9A-Fa-f]{8}$"
                                         }
                                     },
                                     "additionalProperties": false
@@ -633057,7 +633092,8 @@
                                     "properties": {
                                         "backgroundColor": {
                                             "description": "Background color as 8-digit hex with alpha. Example: \"#FCFE7DFF\".",
-                                            "type": "string"
+                                            "type": "string",
+                                            "pattern": "^#[0-9A-Fa-f]{8}$"
                                         },
                                         "bold": {
                                             "description": "Whether the text is bold.",
@@ -633083,7 +633119,8 @@
                                         },
                                         "fontSize": {
                                             "description": "Text size.",
-                                            "type": "number"
+                                            "type": "number",
+                                            "minimum": 1
                                         },
                                         "italic": {
                                             "description": "Whether the text is italic.",
@@ -633367,7 +633404,7 @@
                 "input": "ActionInput_mural_updatetextbox",
                 "name": "update-text-box",
                 "output": ["ActionOutput_mural_updatetextbox"],
-                "scopes": [],
+                "scopes": ["murals:write"],
                 "usedModels": ["ActionInput_mural_updatetextbox", "ActionOutput_mural_updatetextbox"],
                 "version": "1.0.0",
                 "json_schema": {
@@ -633731,7 +633768,7 @@
                 "name": "mural-widgets",
                 "output": ["Widget"],
                 "runs": "every hour",
-                "scopes": [],
+                "scopes": ["workspaces:read", "murals:read"],
                 "sync_type": "full",
                 "track_deletes": false,
                 "usedModels": ["Widget"],
@@ -634032,7 +634069,7 @@
                                             "type": "object",
                                             "properties": {
                                                 "backgroundColor": {
-                                                    "description": "Background color as an 8-digit hex ARGB value, e.g. #FCFE7DFF.",
+                                                    "description": "Background color as an 8-digit #RRGGBBAA hex value, e.g. #FCFE7DFF.",
                                                     "anyOf": [
                                                         {
                                                             "type": "string"
@@ -634065,7 +634102,7 @@
                                                     ]
                                                 },
                                                 "borderColor": {
-                                                    "description": "Border color as an 8-digit hex ARGB value.",
+                                                    "description": "Border color as an 8-digit #RRGGBBAA hex value.",
                                                     "anyOf": [
                                                         {
                                                             "type": "string"
@@ -634098,7 +634135,7 @@
                                                     ]
                                                 },
                                                 "color": {
-                                                    "description": "Icon color as an 8-digit hex ARGB value (icon widgets only).",
+                                                    "description": "Icon color as an 8-digit #RRGGBBAA hex value (icon widgets only).",
                                                     "anyOf": [
                                                         {
                                                             "type": "string"
@@ -634120,7 +634157,7 @@
                                                     ]
                                                 },
                                                 "fontColor": {
-                                                    "description": "Text color as an 8-digit hex ARGB value.",
+                                                    "description": "Text color as an 8-digit #RRGGBBAA hex value.",
                                                     "anyOf": [
                                                         {
                                                             "type": "string"
@@ -634164,7 +634201,7 @@
                                                     ]
                                                 },
                                                 "strokeColor": {
-                                                    "description": "Connector stroke color as an 8-digit hex ARGB value (arrow widgets only).",
+                                                    "description": "Connector stroke color as an 8-digit #RRGGBBAA hex value (arrow widgets only).",
                                                     "anyOf": [
                                                         {
                                                             "type": "string"
@@ -634734,7 +634771,7 @@
                 "name": "murals",
                 "output": ["Mural"],
                 "runs": "every hour",
-                "scopes": [],
+                "scopes": ["workspaces:read", "murals:read"],
                 "sync_type": "full",
                 "track_deletes": false,
                 "usedModels": ["Mural"],
@@ -634884,7 +634921,7 @@
                 "name": "rooms",
                 "output": ["Room"],
                 "runs": "every hour",
-                "scopes": [],
+                "scopes": ["workspaces:read", "rooms:read"],
                 "sync_type": "full",
                 "track_deletes": false,
                 "usedModels": ["Room"],
@@ -635004,7 +635041,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -635353,7 +635390,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -637663,7 +637700,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -637916,7 +637953,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -641126,7 +641163,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -646457,7 +646494,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -647566,7 +647603,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -648170,7 +648207,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -654452,7 +654489,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -660734,7 +660771,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": "okta"
     },
     {
@@ -667016,7 +667053,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": "okta"
     },
     {
@@ -667052,7 +667089,7 @@
                         "ActionOutput_omnisend_deleteautomationsid": {}
                     }
                 },
-                "features": []
+                "features": ["checkpoints"]
             },
             {
                 "type": "action",
@@ -667084,7 +667121,7 @@
                         "ActionOutput_omnisend_deletecampaignsid": {}
                     }
                 },
-                "features": []
+                "features": ["checkpoints"]
             },
             {
                 "type": "action",
@@ -667152,7 +667189,7 @@
                         "ActionOutput_omnisend_deletecontactstags": {}
                     }
                 },
-                "features": []
+                "features": ["checkpoints"]
             },
             {
                 "type": "action",
@@ -667184,7 +667221,7 @@
                         "ActionOutput_omnisend_deleteemailtemplatesid": {}
                     }
                 },
-                "features": []
+                "features": ["checkpoints"]
             },
             {
                 "type": "action",
@@ -667216,7 +667253,7 @@
                         "ActionOutput_omnisend_deleteemailuniversallayoutsid": {}
                     }
                 },
-                "features": []
+                "features": ["checkpoints"]
             },
             {
                 "type": "action",
@@ -667248,7 +667285,7 @@
                         "ActionOutput_omnisend_deleteimagesid": {}
                     }
                 },
-                "features": []
+                "features": ["checkpoints"]
             },
             {
                 "type": "action",
@@ -667280,7 +667317,7 @@
                         "ActionOutput_omnisend_deleteproductcategoriescategoryid": {}
                     }
                 },
-                "features": []
+                "features": ["checkpoints"]
             },
             {
                 "type": "action",
@@ -667312,7 +667349,7 @@
                         "ActionOutput_omnisend_deleteproductsproductid": {}
                     }
                 },
-                "features": []
+                "features": ["checkpoints"]
             },
             {
                 "type": "action",
@@ -667344,7 +667381,7 @@
                         "ActionOutput_omnisend_deletesegmentssegmentid": {}
                     }
                 },
-                "features": []
+                "features": ["checkpoints"]
             },
             {
                 "type": "action",
@@ -667400,7 +667437,7 @@
                         }
                     }
                 },
-                "features": []
+                "features": ["checkpoints"]
             },
             {
                 "type": "action",
@@ -667464,7 +667501,7 @@
                         }
                     }
                 },
-                "features": []
+                "features": ["checkpoints"]
             },
             {
                 "type": "action",
@@ -668104,7 +668141,7 @@
                         }
                     }
                 },
-                "features": []
+                "features": ["checkpoints"]
             },
             {
                 "type": "action",
@@ -668493,7 +668530,7 @@
                         }
                     }
                 },
-                "features": []
+                "features": ["checkpoints"]
             },
             {
                 "type": "action",
@@ -668616,7 +668653,7 @@
                         }
                     }
                 },
-                "features": []
+                "features": ["checkpoints"]
             },
             {
                 "type": "action",
@@ -668739,7 +668776,7 @@
                         }
                     }
                 },
-                "features": []
+                "features": ["checkpoints"]
             },
             {
                 "type": "action",
@@ -668927,7 +668964,7 @@
                         }
                     }
                 },
-                "features": []
+                "features": ["checkpoints"]
             },
             {
                 "type": "action",
@@ -668982,7 +669019,7 @@
                         }
                     }
                 },
-                "features": []
+                "features": ["checkpoints"]
             },
             {
                 "type": "action",
@@ -669097,7 +669134,7 @@
                         }
                     }
                 },
-                "features": []
+                "features": ["checkpoints"]
             },
             {
                 "type": "action",
@@ -669410,7 +669447,7 @@
                         }
                     }
                 },
-                "features": []
+                "features": ["checkpoints"]
             },
             {
                 "type": "action",
@@ -669823,7 +669860,7 @@
                         }
                     }
                 },
-                "features": []
+                "features": ["checkpoints"]
             },
             {
                 "type": "action",
@@ -670023,7 +670060,7 @@
                         }
                     }
                 },
-                "features": []
+                "features": ["checkpoints"]
             },
             {
                 "type": "action",
@@ -670305,7 +670342,7 @@
                         }
                     }
                 },
-                "features": []
+                "features": ["checkpoints"]
             },
             {
                 "type": "action",
@@ -671062,7 +671099,7 @@
                         }
                     }
                 },
-                "features": []
+                "features": ["checkpoints"]
             },
             {
                 "type": "action",
@@ -671823,7 +671860,7 @@
                         }
                     }
                 },
-                "features": []
+                "features": ["checkpoints"]
             },
             {
                 "type": "action",
@@ -671940,7 +671977,7 @@
                         }
                     }
                 },
-                "features": []
+                "features": ["checkpoints"]
             },
             {
                 "type": "action",
@@ -672280,7 +672317,7 @@
                         }
                     }
                 },
-                "features": []
+                "features": ["checkpoints"]
             },
             {
                 "type": "action",
@@ -672679,7 +672716,7 @@
                         }
                     }
                 },
-                "features": []
+                "features": ["checkpoints"]
             },
             {
                 "type": "action",
@@ -672746,7 +672783,7 @@
                         }
                     }
                 },
-                "features": []
+                "features": ["checkpoints"]
             },
             {
                 "type": "action",
@@ -672880,7 +672917,7 @@
                         }
                     }
                 },
-                "features": []
+                "features": ["checkpoints"]
             },
             {
                 "type": "action",
@@ -672929,7 +672966,7 @@
                         }
                     }
                 },
-                "features": []
+                "features": ["checkpoints"]
             },
             {
                 "type": "action",
@@ -673032,7 +673069,7 @@
                         }
                     }
                 },
-                "features": []
+                "features": ["checkpoints"]
             },
             {
                 "type": "action",
@@ -673179,7 +673216,7 @@
                         }
                     }
                 },
-                "features": []
+                "features": ["checkpoints"]
             },
             {
                 "type": "action",
@@ -673380,7 +673417,7 @@
                         }
                     }
                 },
-                "features": []
+                "features": ["checkpoints"]
             },
             {
                 "type": "action",
@@ -673422,7 +673459,7 @@
                         }
                     }
                 },
-                "features": []
+                "features": ["checkpoints"]
             },
             {
                 "type": "action",
@@ -673517,7 +673554,7 @@
                         }
                     }
                 },
-                "features": []
+                "features": ["checkpoints"]
             },
             {
                 "type": "action",
@@ -673659,7 +673696,7 @@
                         }
                     }
                 },
-                "features": []
+                "features": ["checkpoints"]
             },
             {
                 "type": "action",
@@ -674631,7 +674668,7 @@
                         }
                     }
                 },
-                "features": []
+                "features": ["checkpoints"]
             },
             {
                 "type": "action",
@@ -675149,7 +675186,7 @@
                         }
                     }
                 },
-                "features": []
+                "features": ["checkpoints"]
             },
             {
                 "type": "action",
@@ -675518,7 +675555,7 @@
                         }
                     }
                 },
-                "features": []
+                "features": ["checkpoints"]
             },
             {
                 "type": "action",
@@ -675888,7 +675925,7 @@
                         }
                     }
                 },
-                "features": []
+                "features": ["checkpoints"]
             },
             {
                 "type": "action",
@@ -675939,7 +675976,7 @@
                         }
                     }
                 },
-                "features": []
+                "features": ["checkpoints"]
             },
             {
                 "type": "action",
@@ -676104,7 +676141,7 @@
                         }
                     }
                 },
-                "features": []
+                "features": ["checkpoints"]
             },
             {
                 "type": "action",
@@ -676264,7 +676301,7 @@
                         }
                     }
                 },
-                "features": []
+                "features": ["checkpoints"]
             },
             {
                 "type": "action",
@@ -676316,7 +676353,7 @@
                         "ActionOutput_omnisend_postautomationsidblocksblockidtestemail": {}
                     }
                 },
-                "features": []
+                "features": ["checkpoints"]
             },
             {
                 "type": "action",
@@ -676965,7 +677002,7 @@
                         }
                     }
                 },
-                "features": []
+                "features": ["checkpoints"]
             },
             {
                 "type": "action",
@@ -677616,7 +677653,7 @@
                         }
                     }
                 },
-                "features": []
+                "features": ["checkpoints"]
             },
             {
                 "type": "action",
@@ -678265,7 +678302,7 @@
                         }
                     }
                 },
-                "features": []
+                "features": ["checkpoints"]
             },
             {
                 "type": "action",
@@ -679351,7 +679388,7 @@
                         }
                     }
                 },
-                "features": []
+                "features": ["checkpoints"]
             },
             {
                 "type": "action",
@@ -679416,7 +679453,7 @@
                         }
                     }
                 },
-                "features": []
+                "features": ["checkpoints"]
             },
             {
                 "type": "action",
@@ -679493,7 +679530,7 @@
                         }
                     }
                 },
-                "features": []
+                "features": ["checkpoints"]
             },
             {
                 "type": "action",
@@ -679525,7 +679562,7 @@
                         "ActionOutput_omnisend_postcampaignsidabtestresume": {}
                     }
                 },
-                "features": []
+                "features": ["checkpoints"]
             },
             {
                 "type": "action",
@@ -679557,7 +679594,7 @@
                         "ActionOutput_omnisend_postcampaignsidabteststop": {}
                     }
                 },
-                "features": []
+                "features": ["checkpoints"]
             },
             {
                 "type": "action",
@@ -679600,7 +679637,7 @@
                         "ActionOutput_omnisend_postcampaignsidabtestwinner": {}
                     }
                 },
-                "features": []
+                "features": ["checkpoints"]
             },
             {
                 "type": "action",
@@ -679632,7 +679669,7 @@
                         "ActionOutput_omnisend_postcampaignsidcancel": {}
                     }
                 },
-                "features": []
+                "features": ["checkpoints"]
             },
             {
                 "type": "action",
@@ -679945,7 +679982,7 @@
                         }
                     }
                 },
-                "features": []
+                "features": ["checkpoints"]
             },
             {
                 "type": "action",
@@ -679977,7 +680014,7 @@
                         "ActionOutput_omnisend_postcampaignsidsend": {}
                     }
                 },
-                "features": []
+                "features": ["checkpoints"]
             },
             {
                 "type": "action",
@@ -680025,7 +680062,7 @@
                         "ActionOutput_omnisend_postcampaignsidtestemail": {}
                     }
                 },
-                "features": []
+                "features": ["checkpoints"]
             },
             {
                 "type": "action",
@@ -680596,7 +680633,7 @@
                         }
                     }
                 },
-                "features": []
+                "features": ["checkpoints"]
             },
             {
                 "type": "action",
@@ -680664,7 +680701,7 @@
                         "ActionOutput_omnisend_postcontactstags": {}
                     }
                 },
-                "features": []
+                "features": ["checkpoints"]
             },
             {
                 "type": "action",
@@ -680963,7 +681000,7 @@
                         }
                     }
                 },
-                "features": []
+                "features": ["checkpoints"]
             },
             {
                 "type": "action",
@@ -680999,7 +681036,7 @@
                         }
                     }
                 },
-                "features": []
+                "features": ["checkpoints"]
             },
             {
                 "type": "action",
@@ -681039,7 +681076,7 @@
                         }
                     }
                 },
-                "features": []
+                "features": ["checkpoints"]
             },
             {
                 "type": "action",
@@ -681810,7 +681847,7 @@
                         }
                     }
                 },
-                "features": []
+                "features": ["checkpoints"]
             },
             {
                 "type": "action",
@@ -683033,7 +683070,7 @@
                         }
                     }
                 },
-                "features": []
+                "features": ["checkpoints"]
             },
             {
                 "type": "action",
@@ -683678,7 +683715,7 @@
                         }
                     }
                 },
-                "features": []
+                "features": ["checkpoints"]
             },
             {
                 "type": "action",
@@ -683771,7 +683808,7 @@
                         }
                     }
                 },
-                "features": []
+                "features": ["checkpoints"]
             },
             {
                 "type": "action",
@@ -683855,7 +683892,7 @@
                         }
                     }
                 },
-                "features": []
+                "features": ["checkpoints"]
             },
             {
                 "type": "action",
@@ -684053,7 +684090,7 @@
                         "ActionOutput_omnisend_postevents": {}
                     }
                 },
-                "features": []
+                "features": ["checkpoints"]
             },
             {
                 "type": "action",
@@ -684130,7 +684167,7 @@
                         }
                     }
                 },
-                "features": []
+                "features": ["checkpoints"]
             },
             {
                 "type": "action",
@@ -684207,7 +684244,7 @@
                         }
                     }
                 },
-                "features": []
+                "features": ["checkpoints"]
             },
             {
                 "type": "action",
@@ -684260,7 +684297,7 @@
                         }
                     }
                 },
-                "features": []
+                "features": ["checkpoints"]
             },
             {
                 "type": "action",
@@ -684412,7 +684449,7 @@
                         }
                     }
                 },
-                "features": []
+                "features": ["checkpoints"]
             },
             {
                 "type": "action",
@@ -684536,7 +684573,7 @@
                         }
                     }
                 },
-                "features": []
+                "features": ["checkpoints"]
             },
             {
                 "type": "action",
@@ -684618,7 +684655,7 @@
                         }
                     }
                 },
-                "features": []
+                "features": ["checkpoints"]
             },
             {
                 "type": "action",
@@ -685460,7 +685497,7 @@
                         }
                     }
                 },
-                "features": []
+                "features": ["checkpoints"]
             },
             {
                 "type": "action",
@@ -685641,7 +685678,7 @@
                         }
                     }
                 },
-                "features": []
+                "features": ["checkpoints"]
             },
             {
                 "type": "action",
@@ -687124,7 +687161,7 @@
                         }
                     }
                 },
-                "features": []
+                "features": ["checkpoints"]
             },
             {
                 "type": "action",
@@ -688351,7 +688388,7 @@
                         }
                     }
                 },
-                "features": []
+                "features": ["checkpoints"]
             },
             {
                 "type": "action",
@@ -689000,7 +689037,7 @@
                         }
                     }
                 },
-                "features": []
+                "features": ["checkpoints"]
             },
             {
                 "type": "action",
@@ -689084,7 +689121,7 @@
                         }
                     }
                 },
-                "features": []
+                "features": ["checkpoints"]
             },
             {
                 "type": "action",
@@ -689240,7 +689277,7 @@
                         }
                     }
                 },
-                "features": []
+                "features": ["checkpoints"]
             },
             {
                 "type": "action",
@@ -689368,7 +689405,7 @@
                         }
                     }
                 },
-                "features": []
+                "features": ["checkpoints"]
             }
         ],
         "syncs": [
@@ -689845,7 +689882,7 @@
                         }
                     }
                 },
-                "features": []
+                "features": ["checkpoints"]
             },
             {
                 "type": "sync",
@@ -690167,7 +690204,7 @@
                         }
                     }
                 },
-                "features": []
+                "features": ["checkpoints"]
             },
             {
                 "type": "sync",
@@ -690376,7 +690413,7 @@
                         }
                     }
                 },
-                "features": []
+                "features": ["checkpoints"]
             },
             {
                 "type": "sync",
@@ -690435,7 +690472,7 @@
                         }
                     }
                 },
-                "features": []
+                "features": ["checkpoints"]
             },
             {
                 "type": "sync",
@@ -690784,7 +690821,7 @@
                         }
                     }
                 },
-                "features": []
+                "features": ["checkpoints"]
             },
             {
                 "type": "sync",
@@ -690860,7 +690897,7 @@
                         }
                     }
                 },
-                "features": []
+                "features": ["checkpoints"]
             },
             {
                 "type": "sync",
@@ -690918,7 +690955,7 @@
                         }
                     }
                 },
-                "features": []
+                "features": ["checkpoints"]
             },
             {
                 "type": "sync",
@@ -691074,7 +691111,7 @@
                         }
                     }
                 },
-                "features": []
+                "features": ["checkpoints"]
             },
             {
                 "type": "sync",
@@ -691171,7 +691208,7 @@
                         }
                     }
                 },
-                "features": []
+                "features": ["checkpoints"]
             }
         ],
         "onEventScripts": {
@@ -691179,7 +691216,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -693458,7 +693495,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -695374,7 +695411,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -699087,7 +699124,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -699773,7 +699810,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -703639,7 +703676,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -718735,7 +718772,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -719084,7 +719121,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -719148,7 +719185,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -725014,7 +725051,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -730880,7 +730917,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": "paypal"
     },
     {
@@ -752036,7 +752073,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -752224,7 +752261,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -765796,7 +765833,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -772430,7 +772467,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -784878,7 +784915,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -800634,7 +800671,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -810452,7 +810489,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -820270,7 +820307,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": "quickbooks"
     },
     {
@@ -849287,7 +849324,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -878304,7 +878341,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": "ramp"
     },
     {
@@ -878786,7 +878823,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -880404,7 +880441,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -886967,7 +887004,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -887512,7 +887549,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -888057,7 +888094,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": "ring-central"
     },
     {
@@ -888166,7 +888203,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -891001,7 +891038,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -893836,7 +893873,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": "salesforce"
     },
     {
@@ -894567,7 +894604,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -899217,7 +899254,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -914887,7 +914924,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -930557,7 +930594,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": "sentry"
     },
     {
@@ -934977,7 +935014,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -942202,7 +942239,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -960502,7 +960539,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -961772,7 +961809,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -977885,7 +977922,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -984708,7 +984745,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -989403,7 +989440,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -989591,7 +989628,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -991627,7 +991664,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -995657,7 +995694,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -1000680,7 +1000717,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -1008263,7 +1008300,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -1015846,7 +1015883,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": "squareup"
     },
     {
@@ -1019952,7 +1019989,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -1034690,7 +1034727,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -1049428,7 +1049465,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": "stripe"
     },
     {
@@ -1064166,7 +1064203,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": "stripe"
     },
     {
@@ -1078904,7 +1078941,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": "stripe"
     },
     {
@@ -1093642,7 +1093679,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": "stripe"
     },
     {
@@ -1096377,7 +1096414,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -1096791,7 +1096828,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -1102102,7 +1102139,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -1102593,7 +1102630,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -1111218,7 +1111255,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -1112248,7 +1112285,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -1119745,7 +1119782,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -1123692,7 +1123729,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -1128408,7 +1128445,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -1137121,7 +1137158,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -1141240,7 +1141277,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -1149179,7 +1149216,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -1156694,7 +1156731,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -1159527,7 +1159564,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -1162591,7 +1162628,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -1162940,7 +1162977,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -1163289,7 +1163326,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -1164847,7 +1164884,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -1170867,7 +1170904,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -1170939,7 +1170976,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -1181565,7 +1181602,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -1192271,7 +1192308,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -1193452,7 +1193489,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -1195289,7 +1195326,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": "workday-refresh-token"
     },
     {
@@ -1197126,7 +1197163,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": "workday-refresh-token"
     },
     {
@@ -1198963,7 +1199000,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -1203805,7 +1203842,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -1210726,7 +1210763,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -1216153,7 +1216190,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -1219259,7 +1219296,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -1219659,7 +1219696,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -1222181,7 +1222218,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -1226645,7 +1226682,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -1236024,7 +1236061,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -1250230,7 +1250267,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -1259107,7 +1259144,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -1262193,7 +1262230,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -1277797,7 +1277834,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -1288684,7 +1288721,7 @@
                         }
                     }
                 },
-                "features": []
+                "features": ["checkpoints"]
             },
             {
                 "type": "sync",
@@ -1288845,7 +1288882,7 @@
                         }
                     }
                 },
-                "features": []
+                "features": ["checkpoints"]
             },
             {
                 "type": "sync",
@@ -1289064,7 +1289101,7 @@
                         }
                     }
                 },
-                "features": []
+                "features": ["checkpoints"]
             },
             {
                 "type": "sync",
@@ -1289221,7 +1289258,7 @@
                         }
                     }
                 },
-                "features": []
+                "features": ["checkpoints"]
             },
             {
                 "type": "sync",
@@ -1289408,7 +1289445,7 @@
                         }
                     }
                 },
-                "features": []
+                "features": ["checkpoints"]
             },
             {
                 "type": "sync",
@@ -1289789,7 +1289826,7 @@
                         }
                     }
                 },
-                "features": []
+                "features": ["checkpoints"]
             },
             {
                 "type": "sync",
@@ -1289907,7 +1289944,7 @@
                         }
                     }
                 },
-                "features": []
+                "features": ["checkpoints"]
             }
         ],
         "onEventScripts": {
@@ -1289915,7 +1289952,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -1293364,7 +1293401,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -1295205,7 +1295242,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -1298317,7 +1298354,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     },
     {
@@ -1299592,7 +1299629,7 @@
             "pre-connection-deletion": [],
             "validate-connection": []
         },
-        "sdkVersion": "0.71.12",
+        "sdkVersion": "0.71.13",
         "symLinkTargetName": null
     }
 ]
