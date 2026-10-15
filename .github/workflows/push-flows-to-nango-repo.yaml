@@ -12,7 +12,7 @@ concurrency:
 
 jobs:
     push_to_nango_repo:
-        runs-on: ubuntu-latest
+        runs-on: blacksmith-4vcpu-ubuntu-2404
         steps:
             - name: Checkout the current repository
               uses: actions/checkout@v4

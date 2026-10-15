@@ -16,7 +16,7 @@ jobs:
         runs-on: ${{ matrix.os }}
         strategy:
             matrix:
-                os: [ubuntu-latest]
+                os: [blacksmith-4vcpu-ubuntu-2404]
                 node-version: [20.x, 22.x, 24.x]
 
         steps:
