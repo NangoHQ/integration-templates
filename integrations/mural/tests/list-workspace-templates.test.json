@@ -1,0 +1,191 @@
+{
+  "input": {
+    "workspaceId": "nangodev4776",
+    "limit": 5
+  },
+  "output": {
+    "templates": [
+      {
+        "id": "033a3ea3-739f-457e-b957-40f259d4c196",
+        "name": "1 minute profile",
+        "description": "Introduce a large group of people to each other",
+        "type": "default",
+        "thumbUrl": "https://images.ctfassets.net/6pzismvphxft/1ohXJ4ubuymchhYcnq5WkA/3fe364f371b95adac0b33513be57986d/1-min-profile.webp",
+        "viewLink": "https://app.mural.co/template/033a3ea3-739f-457e-b957-40f259d4c196/a2f84eb8-8c5d-48de-bb26-b2ed00e2768a",
+        "createdBy": "MURAL",
+        "createdOn": 1636402954433,
+        "updatedBy": "MURAL",
+        "updatedOn": 1750180227423,
+        "workspaceId": "visualmethodcuration1638"
+      },
+      {
+        "id": "ab399cdf-1a86-4267-867e-2e3fc47fceae",
+        "name": "100 ideas in 30 minutes",
+        "description": "Go for quantity in your idea generation with a wide focus on your challenge",
+        "type": "default",
+        "thumbUrl": "https://images.ctfassets.net/6pzismvphxft/2myBxP1h63kyn7qDcKFcGB/cbd01f13864c5c478ef12438516d9303/100-ideas-in-30-minutes.webp",
+        "viewLink": "https://app.mural.co/template/ab399cdf-1a86-4267-867e-2e3fc47fceae/95d6e6fb-df1f-4fe5-b14f-642b00fd00ce",
+        "createdBy": "MURAL",
+        "createdOn": 1636402328670,
+        "updatedBy": "MURAL",
+        "updatedOn": 1750180226602,
+        "workspaceId": "visualmethodcuration1638"
+      },
+      {
+        "id": "45c33859-2bc0-4da3-83fa-9959a0f29cfe",
+        "name": "10x10 writing",
+        "description": "Gather ideas to ten different prompts in 30 minutes",
+        "type": "default",
+        "thumbUrl": "https://images.ctfassets.net/6pzismvphxft/2XZ1NEe3LEC7cyhovewiwK/bf329ab3cd973d026bed7e9c13337435/10x10-writing.webp",
+        "viewLink": "https://app.mural.co/template/45c33859-2bc0-4da3-83fa-9959a0f29cfe/7072932a-549e-4fe6-861a-88cbd8631a3b",
+        "createdBy": "MURAL",
+        "createdOn": 1607957771181,
+        "updatedBy": "MURAL",
+        "updatedOn": 1750180225889,
+        "workspaceId": "visualmethodcuration1638"
+      },
+      {
+        "id": "3f210e35-ee57-4ad9-b835-27b384f335d9",
+        "name": "2022 annual calendar row",
+        "description": "Create your plan for the 2022 calendar year",
+        "type": "default",
+        "thumbUrl": "https://murally.blob.core.windows.net/thumbnails/visualmethodcuration1638/templates/3f210e35-ee57-4ad9-b835-27b384f335d9-c52d2135-bceb-46ce-944a-fc8760275a42.png?v=5c2a7b55-2bba-439a-92eb-8542b864feaa",
+        "viewLink": "https://app.mural.co/template/3f210e35-ee57-4ad9-b835-27b384f335d9/b2961d50-5d0f-4e73-b282-f1636c1c7fa3",
+        "createdBy": "MURAL",
+        "createdOn": 1626338370122,
+        "updatedBy": "MURAL",
+        "updatedOn": 1789077544424,
+        "workspaceId": "visualmethodcuration1638"
+      },
+      {
+        "id": "7c032439-03c9-4c5d-922a-89906844e6fd",
+        "name": "2023 annual calendar grid",
+        "description": "Annual calendars: plan for upcoming projects, events, vacations, and more",
+        "type": "default",
+        "thumbUrl": "https://images.ctfassets.net/6pzismvphxft/3CHIFAnRzdrksjYFMvanxV/f9be1c5c93567d5c19de075c65a29cfb/2023-annual-calendar-grid.png",
+        "viewLink": "https://app.mural.co/template/7c032439-03c9-4c5d-922a-89906844e6fd/62f26077-24cb-4a55-801c-9b5942006d75",
+        "createdBy": "MURAL",
+        "createdOn": 1669305766369,
+        "updatedBy": "MURAL",
+        "updatedOn": 1734650993255,
+        "workspaceId": "visualmethodcuration1638"
+      }
+    ],
+    "next": "eyJjdXJzb3IiOnsic2tpcCI6NX0sImxpbWl0Ijo1LCJzb3J0QnkiOm51bGwsImV4cGlyYXRpb24iOjE3OTE5OTcxMDE3ODR9"
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/api/public/v1/workspaces/nangodev4776/templates": {
+        "response": {
+          "next": "eyJjdXJzb3IiOnsic2tpcCI6NX0sImxpbWl0Ijo1LCJzb3J0QnkiOm51bGwsImV4cGlyYXRpb24iOjE3OTE5OTcxMDE3ODR9",
+          "value": [
+            {
+              "createdBy": "MURAL",
+              "createdOn": 1636402954433,
+              "description": "Introduce a large group of people to each other",
+              "id": "033a3ea3-739f-457e-b957-40f259d4c196",
+              "name": "1 minute profile",
+              "thumbUrl": "https://images.ctfassets.net/6pzismvphxft/1ohXJ4ubuymchhYcnq5WkA/3fe364f371b95adac0b33513be57986d/1-min-profile.webp",
+              "type": "default",
+              "updatedBy": "MURAL",
+              "updatedOn": 1750180227423,
+              "viewLink": "https://app.mural.co/template/033a3ea3-739f-457e-b957-40f259d4c196/a2f84eb8-8c5d-48de-bb26-b2ed00e2768a",
+              "workspaceId": "visualmethodcuration1638"
+            },
+            {
+              "createdBy": "MURAL",
+              "createdOn": 1636402328670,
+              "description": "Go for quantity in your idea generation with a wide focus on your challenge",
+              "id": "ab399cdf-1a86-4267-867e-2e3fc47fceae",
+              "name": "100 ideas in 30 minutes",
+              "thumbUrl": "https://images.ctfassets.net/6pzismvphxft/2myBxP1h63kyn7qDcKFcGB/cbd01f13864c5c478ef12438516d9303/100-ideas-in-30-minutes.webp",
+              "type": "default",
+              "updatedBy": "MURAL",
+              "updatedOn": 1750180226602,
+              "viewLink": "https://app.mural.co/template/ab399cdf-1a86-4267-867e-2e3fc47fceae/95d6e6fb-df1f-4fe5-b14f-642b00fd00ce",
+              "workspaceId": "visualmethodcuration1638"
+            },
+            {
+              "createdBy": "MURAL",
+              "createdOn": 1607957771181,
+              "description": "Gather ideas to ten different prompts in 30 minutes",
+              "id": "45c33859-2bc0-4da3-83fa-9959a0f29cfe",
+              "name": "10x10 writing",
+              "thumbUrl": "https://images.ctfassets.net/6pzismvphxft/2XZ1NEe3LEC7cyhovewiwK/bf329ab3cd973d026bed7e9c13337435/10x10-writing.webp",
+              "type": "default",
+              "updatedBy": "MURAL",
+              "updatedOn": 1750180225889,
+              "viewLink": "https://app.mural.co/template/45c33859-2bc0-4da3-83fa-9959a0f29cfe/7072932a-549e-4fe6-861a-88cbd8631a3b",
+              "workspaceId": "visualmethodcuration1638"
+            },
+            {
+              "createdBy": "MURAL",
+              "createdOn": 1626338370122,
+              "description": "Create your plan for the 2022 calendar year",
+              "id": "3f210e35-ee57-4ad9-b835-27b384f335d9",
+              "name": "2022 annual calendar row",
+              "thumbUrl": "https://murally.blob.core.windows.net/thumbnails/visualmethodcuration1638/templates/3f210e35-ee57-4ad9-b835-27b384f335d9-c52d2135-bceb-46ce-944a-fc8760275a42.png?v=5c2a7b55-2bba-439a-92eb-8542b864feaa",
+              "type": "default",
+              "updatedBy": "MURAL",
+              "updatedOn": 1789077544424,
+              "viewLink": "https://app.mural.co/template/3f210e35-ee57-4ad9-b835-27b384f335d9/b2961d50-5d0f-4e73-b282-f1636c1c7fa3",
+              "workspaceId": "visualmethodcuration1638"
+            },
+            {
+              "createdBy": "MURAL",
+              "createdOn": 1669305766369,
+              "description": "Annual calendars: plan for upcoming projects, events, vacations, and more",
+              "id": "7c032439-03c9-4c5d-922a-89906844e6fd",
+              "name": "2023 annual calendar grid",
+              "thumbUrl": "https://images.ctfassets.net/6pzismvphxft/3CHIFAnRzdrksjYFMvanxV/f9be1c5c93567d5c19de075c65a29cfb/2023-annual-calendar-grid.png",
+              "type": "default",
+              "updatedBy": "MURAL",
+              "updatedOn": 1734650993255,
+              "viewLink": "https://app.mural.co/template/7c032439-03c9-4c5d-922a-89906844e6fd/62f26077-24cb-4a55-801c-9b5942006d75",
+              "workspaceId": "visualmethodcuration1638"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 14 Oct 2026 16:43:21 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
+          "x-ratelimit-limit": "25",
+          "x-ratelimit-remaining": "22",
+          "x-ratelimit-reset": "1791996201",
+          "set-cookie": "ApplicationGatewayAffinityCORS=e7b6b252aef359a2b30db07ca6ee7d03; Path=/; SameSite=None; Secure, ApplicationGatewayAffinity=e7b6b252aef359a2b30db07ca6ee7d03; Path=/",
+          "vary": "Origin, Accept-Encoding",
+          "x-jwt-expires-in": "899",
+          "cache-control": "private, no-cache, no-store, must-revalidate",
+          "x-mural-ly-version": "1.0.0",
+          "x-request-id": "c8c1ca1c-ee05-47df-b90e-2ab7a90c301e",
+          "x-ratelimit-app-limit": "10000",
+          "x-ratelimit-app-remaining": "9929",
+          "x-ratelimit-app-reset": "1791996202",
+          "etag": "W/\"b92-hSZCjydtJwc6vYjXIjfOqVvCwrY\"",
+          "x-robots-tag": "none",
+          "x-recruiting": "If you are reading this, you should probably stop what you are doing and head to mural.co/careers"
+        },
+        "hash": "c8224efd467e41a877a5a4f6ed48e2d02ea48a56",
+        "request": {
+          "params": {
+            "limit": "5"
+          }
+        }
+      }
+    }
+  }
+}

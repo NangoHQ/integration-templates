@@ -1,0 +1,316 @@
+{
+  "input": {
+    "workspaceId": "nangodev4776"
+  },
+  "output": {
+    "items": [
+      {
+        "id": 1791984264781658,
+        "name": "Nango's room",
+        "description": "",
+        "favorite": true,
+        "createdOn": 1791984264781,
+        "createdBy": {
+          "id": "u6ed91a0eb0c5cb4ae8713013",
+          "firstName": "Nango",
+          "lastName": "Developer",
+          "email": "api@nango.dev",
+          "type": "member"
+        },
+        "updatedBy": {
+          "id": "u6ed91a0eb0c5cb4ae8713013",
+          "firstName": "Nango",
+          "lastName": "Developer",
+          "email": "api@nango.dev",
+          "type": "member"
+        },
+        "updatedOn": 1791984264781,
+        "type": "open",
+        "confidential": false,
+        "workspaceId": "nangodev4776",
+        "isMember": true
+      },
+      {
+        "id": 1791996379676463,
+        "name": "Nango Invite Room Members Temp",
+        "description": "",
+        "favorite": false,
+        "createdOn": 1791996379676,
+        "createdBy": {
+          "id": "u6ed91a0eb0c5cb4ae8713013",
+          "firstName": "Nango",
+          "lastName": "Developer",
+          "email": "api@nango.dev",
+          "type": "member"
+        },
+        "updatedBy": {
+          "id": "u6ed91a0eb0c5cb4ae8713013",
+          "firstName": "Nango",
+          "lastName": "Developer",
+          "email": "api@nango.dev",
+          "type": "member"
+        },
+        "updatedOn": 1791996379676,
+        "type": "open",
+        "confidential": false,
+        "workspaceId": "nangodev4776",
+        "isMember": true
+      },
+      {
+        "id": 1791996417643284,
+        "name": "Nango Search Probe A",
+        "description": "",
+        "favorite": false,
+        "createdOn": 1791996417643,
+        "createdBy": {
+          "id": "u6ed91a0eb0c5cb4ae8713013",
+          "firstName": "Nango",
+          "lastName": "Developer",
+          "email": "api@nango.dev",
+          "type": "member"
+        },
+        "updatedBy": {
+          "id": "u6ed91a0eb0c5cb4ae8713013",
+          "firstName": "Nango",
+          "lastName": "Developer",
+          "email": "api@nango.dev",
+          "type": "member"
+        },
+        "updatedOn": 1791996417643,
+        "type": "open",
+        "confidential": false,
+        "workspaceId": "nangodev4776",
+        "isMember": true
+      },
+      {
+        "id": 1791996418182441,
+        "name": "Nango Search Probe B",
+        "description": "",
+        "favorite": false,
+        "createdOn": 1791996418182,
+        "createdBy": {
+          "id": "u6ed91a0eb0c5cb4ae8713013",
+          "firstName": "Nango",
+          "lastName": "Developer",
+          "email": "api@nango.dev",
+          "type": "member"
+        },
+        "updatedBy": {
+          "id": "u6ed91a0eb0c5cb4ae8713013",
+          "firstName": "Nango",
+          "lastName": "Developer",
+          "email": "api@nango.dev",
+          "type": "member"
+        },
+        "updatedOn": 1791996418182,
+        "type": "open",
+        "confidential": false,
+        "workspaceId": "nangodev4776",
+        "isMember": true
+      },
+      {
+        "id": 1791996418728493,
+        "name": "Nango Search Probe C",
+        "description": "",
+        "favorite": false,
+        "createdOn": 1791996418728,
+        "createdBy": {
+          "id": "u6ed91a0eb0c5cb4ae8713013",
+          "firstName": "Nango",
+          "lastName": "Developer",
+          "email": "api@nango.dev",
+          "type": "member"
+        },
+        "updatedBy": {
+          "id": "u6ed91a0eb0c5cb4ae8713013",
+          "firstName": "Nango",
+          "lastName": "Developer",
+          "email": "api@nango.dev",
+          "type": "member"
+        },
+        "updatedOn": 1791996418728,
+        "type": "open",
+        "confidential": false,
+        "workspaceId": "nangodev4776",
+        "isMember": true
+      }
+    ],
+    "nextCursor": "eyJjdXJzb3IiOnsic2tpcCI6MTAwfSwibGltaXQiOjEwMCwic29ydEJ5IjpudWxsLCJleHBpcmF0aW9uIjoxNzkxOTk3MzQ4MTIyfQ=="
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/api/public/v1/workspaces/nangodev4776/rooms/open": {
+        "response": {
+          "next": "eyJjdXJzb3IiOnsic2tpcCI6MTAwfSwibGltaXQiOjEwMCwic29ydEJ5IjpudWxsLCJleHBpcmF0aW9uIjoxNzkxOTk3MzQ4MTIyfQ==",
+          "value": [
+            {
+              "confidential": false,
+              "createdBy": {
+                "email": "api@nango.dev",
+                "firstName": "Nango",
+                "id": "u6ed91a0eb0c5cb4ae8713013",
+                "lastName": "Developer",
+                "type": "member"
+              },
+              "createdOn": 1791984264781,
+              "description": "",
+              "favorite": true,
+              "id": 1791984264781658,
+              "isMember": true,
+              "name": "Nango's room",
+              "type": "open",
+              "updatedBy": {
+                "email": "api@nango.dev",
+                "firstName": "Nango",
+                "id": "u6ed91a0eb0c5cb4ae8713013",
+                "lastName": "Developer",
+                "type": "member"
+              },
+              "updatedOn": 1791984264781,
+              "workspaceId": "nangodev4776"
+            },
+            {
+              "confidential": false,
+              "createdBy": {
+                "email": "api@nango.dev",
+                "firstName": "Nango",
+                "id": "u6ed91a0eb0c5cb4ae8713013",
+                "lastName": "Developer",
+                "type": "member"
+              },
+              "createdOn": 1791996379676,
+              "description": "",
+              "favorite": false,
+              "id": 1791996379676463,
+              "isMember": true,
+              "name": "Nango Invite Room Members Temp",
+              "type": "open",
+              "updatedBy": {
+                "email": "api@nango.dev",
+                "firstName": "Nango",
+                "id": "u6ed91a0eb0c5cb4ae8713013",
+                "lastName": "Developer",
+                "type": "member"
+              },
+              "updatedOn": 1791996379676,
+              "workspaceId": "nangodev4776"
+            },
+            {
+              "confidential": false,
+              "createdBy": {
+                "email": "api@nango.dev",
+                "firstName": "Nango",
+                "id": "u6ed91a0eb0c5cb4ae8713013",
+                "lastName": "Developer",
+                "type": "member"
+              },
+              "createdOn": 1791996417643,
+              "description": "",
+              "favorite": false,
+              "id": 1791996417643284,
+              "isMember": true,
+              "name": "Nango Search Probe A",
+              "type": "open",
+              "updatedBy": {
+                "email": "api@nango.dev",
+                "firstName": "Nango",
+                "id": "u6ed91a0eb0c5cb4ae8713013",
+                "lastName": "Developer",
+                "type": "member"
+              },
+              "updatedOn": 1791996417643,
+              "workspaceId": "nangodev4776"
+            },
+            {
+              "confidential": false,
+              "createdBy": {
+                "email": "api@nango.dev",
+                "firstName": "Nango",
+                "id": "u6ed91a0eb0c5cb4ae8713013",
+                "lastName": "Developer",
+                "type": "member"
+              },
+              "createdOn": 1791996418182,
+              "description": "",
+              "favorite": false,
+              "id": 1791996418182441,
+              "isMember": true,
+              "name": "Nango Search Probe B",
+              "type": "open",
+              "updatedBy": {
+                "email": "api@nango.dev",
+                "firstName": "Nango",
+                "id": "u6ed91a0eb0c5cb4ae8713013",
+                "lastName": "Developer",
+                "type": "member"
+              },
+              "updatedOn": 1791996418182,
+              "workspaceId": "nangodev4776"
+            },
+            {
+              "confidential": false,
+              "createdBy": {
+                "email": "api@nango.dev",
+                "firstName": "Nango",
+                "id": "u6ed91a0eb0c5cb4ae8713013",
+                "lastName": "Developer",
+                "type": "member"
+              },
+              "createdOn": 1791996418728,
+              "description": "",
+              "favorite": false,
+              "id": 1791996418728493,
+              "isMember": true,
+              "name": "Nango Search Probe C",
+              "type": "open",
+              "updatedBy": {
+                "email": "api@nango.dev",
+                "firstName": "Nango",
+                "id": "u6ed91a0eb0c5cb4ae8713013",
+                "lastName": "Developer",
+                "type": "member"
+              },
+              "updatedOn": 1791996418728,
+              "workspaceId": "nangodev4776"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 14 Oct 2026 16:47:28 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
+          "x-ratelimit-limit": "25",
+          "x-ratelimit-remaining": "22",
+          "x-ratelimit-reset": "1791996448",
+          "set-cookie": "ApplicationGatewayAffinityCORS=e7b6b252aef359a2b30db07ca6ee7d03; Path=/; SameSite=None; Secure, ApplicationGatewayAffinity=e7b6b252aef359a2b30db07ca6ee7d03; Path=/",
+          "vary": "Origin, Accept-Encoding",
+          "x-jwt-expires-in": "899",
+          "cache-control": "private, no-cache, no-store, must-revalidate",
+          "x-mural-ly-version": "1.0.0",
+          "x-request-id": "2cc4c2b3-c448-41ee-8165-35786dd07791",
+          "x-ratelimit-app-limit": "10000",
+          "x-ratelimit-app-remaining": "9910",
+          "x-ratelimit-app-reset": "1791996448",
+          "etag": "W/\"9de-znrujkjkyilP1ftfQZVBbaxoMz4\"",
+          "x-robots-tag": "none",
+          "x-recruiting": "If you are reading this, you should probably stop what you are doing and head to mural.co/careers"
+        },
+        "hash": "7bfbf21c487cecd774df75315e8dae54af27dc3a",
+        "request": {}
+      }
+    }
+  }
+}

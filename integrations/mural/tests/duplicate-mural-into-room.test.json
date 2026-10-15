@@ -1,0 +1,211 @@
+{
+  "input": {
+    "workspaceId": "nangodev4776",
+    "sourceMuralId": "nangodev4776.1791984276717",
+    "targetRoomName": "Nango Dup Verify Room",
+    "newTitle": "Nango Dup Into New Room"
+  },
+  "output": {
+    "targetRoomId": 1791996230496893,
+    "roomWasCreated": false,
+    "duplicatedMural": {
+      "id": "nangodev4776.1791996239282",
+      "title": "Nango Dup Into New Room",
+      "roomId": 1791996230496893,
+      "workspaceId": "nangodev4776",
+      "createdOn": 1791996239282,
+      "updatedOn": 1791996239282,
+      "status": "active",
+      "infinite": true,
+      "backgroundColor": "#FAFAFAFF",
+      "height": 6237,
+      "width": 9216,
+      "thumbnailUrl": "https://app.mural.co/static/images/mural-thumb.svg"
+    }
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/api/public/v1/workspaces/nangodev4776/rooms": {
+        "response": {
+          "next": "eyJjdXJzb3IiOnsic2tpcCI6MTAwfSwibGltaXQiOjEwMCwic29ydEJ5IjpudWxsLCJleHBpcmF0aW9uIjoxNzkxOTk3MTM4NDU2fQ==",
+          "value": [
+            {
+              "confidential": false,
+              "createdBy": {
+                "email": "api@nango.dev",
+                "firstName": "Nango",
+                "id": "u6ed91a0eb0c5cb4ae8713013",
+                "lastName": "Developer",
+                "type": "member"
+              },
+              "createdOn": 1791984264781,
+              "description": "",
+              "favorite": true,
+              "id": 1791984264781658,
+              "isMember": true,
+              "name": "Nango's room",
+              "type": "open",
+              "updatedBy": {
+                "email": "api@nango.dev",
+                "firstName": "Nango",
+                "id": "u6ed91a0eb0c5cb4ae8713013",
+                "lastName": "Developer",
+                "type": "member"
+              },
+              "updatedOn": 1791984264781,
+              "workspaceId": "nangodev4776"
+            },
+            {
+              "confidential": false,
+              "createdBy": {
+                "email": "api@nango.dev",
+                "firstName": "Nango",
+                "id": "u6ed91a0eb0c5cb4ae8713013",
+                "lastName": "Developer",
+                "type": "member"
+              },
+              "createdOn": 1791996230496,
+              "description": "",
+              "favorite": false,
+              "id": 1791996230496893,
+              "isMember": true,
+              "name": "Nango Dup Verify Room",
+              "type": "open",
+              "updatedBy": {
+                "email": "api@nango.dev",
+                "firstName": "Nango",
+                "id": "u6ed91a0eb0c5cb4ae8713013",
+                "lastName": "Developer",
+                "type": "member"
+              },
+              "updatedOn": 1791996230496,
+              "workspaceId": "nangodev4776"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 14 Oct 2026 16:43:58 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
+          "x-ratelimit-limit": "25",
+          "x-ratelimit-remaining": "24",
+          "x-ratelimit-reset": "1791996239",
+          "set-cookie": "ApplicationGatewayAffinityCORS=e7b6b252aef359a2b30db07ca6ee7d03; Path=/; SameSite=None; Secure, ApplicationGatewayAffinity=e7b6b252aef359a2b30db07ca6ee7d03; Path=/",
+          "vary": "Origin, Accept-Encoding",
+          "x-jwt-expires-in": "900",
+          "cache-control": "private, no-cache, no-store, must-revalidate",
+          "x-mural-ly-version": "1.0.0",
+          "x-request-id": "87ccd9ec-857c-4056-88b2-39a606498bf8",
+          "x-ratelimit-app-limit": "10000",
+          "x-ratelimit-app-remaining": "9935",
+          "x-ratelimit-app-reset": "1791996240",
+          "etag": "W/\"435-PnwXJQ/HXMbKwymCkoGioQ8NsuM\"",
+          "x-robots-tag": "none",
+          "x-recruiting": "If you are reading this, you should probably stop what you are doing and head to mural.co/careers"
+        },
+        "hash": "c476341f466745ce2ca65153ed9aaf5f3521e39c",
+        "request": {
+          "params": {
+            "limit": "100"
+          }
+        }
+      }
+    },
+    "post": {
+      "/api/public/v1/murals/nangodev4776.1791984276717/duplicate": {
+        "response": {
+          "value": {
+            "_canvasLink": "https://app.mural.co/a/2f87bb2c-642b-43be-b111-19904173de4b/t/nangodev4776/m/nangodev4776/1791996239282/6ed084888824efe3e691ef2b6ba9e601df364f87",
+            "backgroundColor": "#FAFAFAFF",
+            "createdBy": {
+              "firstName": "Nango",
+              "id": "u6ed91a0eb0c5cb4ae8713013",
+              "lastName": "Developer"
+            },
+            "createdOn": 1791996239282,
+            "embedLink": "",
+            "favorite": false,
+            "height": 6237,
+            "id": "nangodev4776.1791996239282",
+            "infinite": true,
+            "roomId": 1791996230496893,
+            "sharingSettings": {
+              "link": "https://app.mural.co/invitation/mural/nangodev4776/1791996239282?sender=u6ed91a0eb0c5cb4ae8713013&key=170767a4-4cd2-4e82-8888-c3c1be0c01a6"
+            },
+            "state": "6ed084888824efe3e691ef2b6ba9e601df364f87",
+            "status": "active",
+            "thumbnailUrl": "https://app.mural.co/static/images/mural-thumb.svg",
+            "timerSoundTheme": "airplane",
+            "title": "Nango Dup Into New Room",
+            "updatedBy": {
+              "firstName": "Nango",
+              "id": "u6ed91a0eb0c5cb4ae8713013",
+              "lastName": "Developer"
+            },
+            "updatedOn": 1791996239282,
+            "visitorAvatarTheme": "animals",
+            "visitorsSettings": {
+              "link": "https://app.mural.co/t/nangodev4776/m/nangodev4776/1791996239282/6ed084888824efe3e691ef2b6ba9e601df364f87?sender=u6ed91a0eb0c5cb4ae8713013",
+              "visitors": "none",
+              "workspaceMembers": "write"
+            },
+            "width": 9216,
+            "workspaceId": "nangodev4776"
+          }
+        },
+        "status": 201,
+        "headers": {
+          "date": "Wed, 14 Oct 2026 16:43:59 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
+          "x-ratelimit-limit": "25",
+          "x-ratelimit-remaining": "23",
+          "x-ratelimit-reset": "1791996239",
+          "set-cookie": "ApplicationGatewayAffinityCORS=e7b6b252aef359a2b30db07ca6ee7d03; Path=/; SameSite=None; Secure, ApplicationGatewayAffinity=e7b6b252aef359a2b30db07ca6ee7d03; Path=/",
+          "vary": "Origin, Accept-Encoding",
+          "x-jwt-expires-in": "899",
+          "cache-control": "private, no-cache, no-store, must-revalidate",
+          "x-mural-ly-version": "1.0.0",
+          "x-request-id": "b01d835e-4a04-4d17-8410-1b3ecd6ee71f",
+          "x-ratelimit-app-limit": "10000",
+          "x-ratelimit-app-remaining": "9934",
+          "x-ratelimit-app-reset": "1791996240",
+          "etag": "W/\"4bb-NRVxgInUqVMW0NBZgnHvx+SN3GU\"",
+          "x-robots-tag": "none",
+          "x-recruiting": "If you are reading this, you should probably stop what you are doing and head to mural.co/careers"
+        },
+        "hash": "20f4d8f41dfb525a74b9d3ea547ea429d6be6b6b",
+        "request": {
+          "data": {
+            "roomId": 1791996230496893,
+            "title": "Nango Dup Into New Room"
+          }
+        }
+      }
+    }
+  }
+}

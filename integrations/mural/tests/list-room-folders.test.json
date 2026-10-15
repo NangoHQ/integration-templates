@@ -1,0 +1,86 @@
+{
+  "input": {
+    "roomId": "1791984264781658"
+  },
+  "output": {
+    "value": [
+      {
+        "id": "63f6d1e3-5251-4052-9495-08337b3a1781",
+        "name": "Nango Test Folder",
+        "children": [
+          {
+            "id": "162480fe-c5a6-4b56-898d-80d6c9d43bd3",
+            "name": "Nango Child Folder",
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "b7300fcb-dc0b-4c01-9c83-18782b67bd58",
+        "name": "Nango Folder Delete Test",
+        "children": []
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/api/public/v1/rooms/1791984264781658/folders": {
+        "response": {
+          "value": [
+            {
+              "children": [
+                {
+                  "children": [],
+                  "id": "162480fe-c5a6-4b56-898d-80d6c9d43bd3",
+                  "name": "Nango Child Folder"
+                }
+              ],
+              "id": "63f6d1e3-5251-4052-9495-08337b3a1781",
+              "name": "Nango Test Folder"
+            },
+            {
+              "children": [],
+              "id": "b7300fcb-dc0b-4c01-9c83-18782b67bd58",
+              "name": "Nango Folder Delete Test"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 14 Oct 2026 16:41:26 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
+          "x-ratelimit-limit": "25",
+          "x-ratelimit-remaining": "21",
+          "x-ratelimit-reset": "1791996086",
+          "set-cookie": "ApplicationGatewayAffinityCORS=e7b6b252aef359a2b30db07ca6ee7d03; Path=/; SameSite=None; Secure, ApplicationGatewayAffinity=e7b6b252aef359a2b30db07ca6ee7d03; Path=/",
+          "vary": "Origin, Accept-Encoding",
+          "x-jwt-expires-in": "900",
+          "cache-control": "private, no-cache, no-store, must-revalidate",
+          "x-mural-ly-version": "1.0.0",
+          "x-request-id": "e1892a5b-c75f-40a9-aadf-121dd72dac3a",
+          "x-ratelimit-app-limit": "10000",
+          "x-ratelimit-app-remaining": "9795",
+          "x-ratelimit-app-reset": "1791996086",
+          "etag": "W/\"117-HQUJh9dzNJBz5apv57lh1hb6GwM\"",
+          "x-robots-tag": "none",
+          "x-recruiting": "If you are reading this, you should probably stop what you are doing and head to mural.co/careers"
+        },
+        "hash": "973422c6b624ca0fd951de24d6a4dba0b97f391e",
+        "request": {}
+      }
+    }
+  }
+}
