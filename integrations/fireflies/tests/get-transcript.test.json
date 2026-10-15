@@ -23,6 +23,13 @@
         "start_time": 2.1,
         "end_time": 3.5,
         "text": "Hi Charlie."
+      },
+      {
+        "index": 2,
+        "speaker_name": "Dana",
+        "speaker_id": "2",
+        "raw_text": "One more thing.",
+        "text": "One more thing."
       }
     ],
     "speakers": [],
@@ -60,6 +67,15 @@
                   "start_time": 2.1,
                   "end_time": 3.5,
                   "text": "Hi Charlie."
+                },
+                {
+                  "index": 2,
+                  "speaker_name": "Dana",
+                  "speaker_id": 2,
+                  "raw_text": "One more thing.",
+                  "start_time": "",
+                  "end_time": "  ",
+                  "text": "One more thing."
                 }
               ],
               "summary": null,

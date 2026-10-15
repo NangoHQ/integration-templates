@@ -147,13 +147,27 @@ function normalizeActionItems(actionItems: string | string[]): string {
     return Array.isArray(actionItems) ? actionItems.join('\n') : actionItems;
 }
 
+/**
+ * Converts a provider timestamp to a finite number. Blank and malformed
+ * strings return undefined rather than coercing to 0 (`Number('') === 0`),
+ * so a missing value never becomes a real zero-second boundary.
+ */
+function toFiniteNumber(value: string | number | null | undefined): number | undefined {
+    if (value == null) return undefined;
+    if (typeof value === 'number') return Number.isFinite(value) ? value : undefined;
+    const trimmed = value.trim();
+    if (trimmed === '') return undefined;
+    const parsed = Number(trimmed);
+    return Number.isFinite(parsed) ? parsed : undefined;
+}
+
 /** Normalizes provider sentences to the output shape: string speaker_id, numeric times. */
 function normalizeSentence(sentence: z.infer<typeof ProviderSentenceSchema>): z.infer<typeof SentenceSchema> {
     return {
         ...sentence,
         speaker_id: sentence.speaker_id != null ? String(sentence.speaker_id) : sentence.speaker_id,
-        start_time: sentence.start_time != null && isFinite(Number(sentence.start_time)) ? Number(sentence.start_time) : undefined,
-        end_time: sentence.end_time != null && isFinite(Number(sentence.end_time)) ? Number(sentence.end_time) : undefined
+        start_time: toFiniteNumber(sentence.start_time),
+        end_time: toFiniteNumber(sentence.end_time)
     };
 }
 
