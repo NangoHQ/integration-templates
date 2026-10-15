@@ -10,9 +10,19 @@ const SentenceSchema = z.object({
     speaker_name: z.string().nullish(),
     speaker_id: z.string().nullish(),
     raw_text: z.string().nullish(),
-    start_time: z.string().nullish(),
-    end_time: z.string().nullish(),
+    start_time: z.number().nullish(),
+    end_time: z.number().nullish(),
     text: z.string().nullish()
+});
+
+// Fireflies returns speaker_id as a number and start_time/end_time as float
+// seconds; older transcripts can carry strings. Accept both and normalize to
+// the output's shape (string speaker_id, numeric times), matching the
+// transcript-sentences sync.
+const ProviderSentenceSchema = SentenceSchema.extend({
+    speaker_id: z.union([z.string(), z.number()]).nullish(),
+    start_time: z.union([z.number(), z.string()]).nullish(),
+    end_time: z.union([z.number(), z.string()]).nullish()
 });
 
 const SummarySectionSchema = z.object({
@@ -96,7 +106,7 @@ const AnalyticsSchema = z.object({
 const TranscriptSchema = z.object({
     id: z.string().nullish(),
     title: z.string().nullish(),
-    sentences: z.array(SentenceSchema).nullish(),
+    sentences: z.array(ProviderSentenceSchema).nullish(),
     summary: ProviderSummarySchema.nullable().optional(),
     speakers: z.array(SpeakerSchema).nullish(),
     meeting_info: MeetingInfoSchema.nullable().optional(),
@@ -137,9 +147,19 @@ function normalizeActionItems(actionItems: string | string[]): string {
     return Array.isArray(actionItems) ? actionItems.join('\n') : actionItems;
 }
 
+/** Normalizes provider sentences to the output shape: string speaker_id, numeric times. */
+function normalizeSentence(sentence: z.infer<typeof ProviderSentenceSchema>): z.infer<typeof SentenceSchema> {
+    return {
+        ...sentence,
+        speaker_id: sentence.speaker_id != null ? String(sentence.speaker_id) : sentence.speaker_id,
+        start_time: sentence.start_time != null && isFinite(Number(sentence.start_time)) ? Number(sentence.start_time) : undefined,
+        end_time: sentence.end_time != null && isFinite(Number(sentence.end_time)) ? Number(sentence.end_time) : undefined
+    };
+}
+
 const action = createAction({
     description: 'Retrieve a single transcript by ID including sentences, summary, speakers, and metadata.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: [],
@@ -254,7 +274,7 @@ const action = createAction({
         return {
             id: transcript.id ?? undefined,
             title: transcript.title ?? undefined,
-            sentences: transcript.sentences ?? undefined,
+            sentences: transcript.sentences ? transcript.sentences.map(normalizeSentence) : undefined,
             summary: transcript.summary
                 ? {
                       ...transcript.summary,

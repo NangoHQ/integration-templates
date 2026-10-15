@@ -5,7 +5,26 @@
   "output": {
     "id": "01KW0T0ZX43S6JJ9D3B7DP8FVB",
     "title": "Test upload",
-    "sentences": [],
+    "sentences": [
+      {
+        "index": 0,
+        "speaker_name": "Charlie",
+        "speaker_id": "1",
+        "raw_text": "Hello everyone.",
+        "start_time": 0.44,
+        "end_time": 1.92,
+        "text": "Hello everyone."
+      },
+      {
+        "index": 1,
+        "speaker_name": "Dana",
+        "speaker_id": "2",
+        "raw_text": "Hi Charlie.",
+        "start_time": 2.1,
+        "end_time": 3.5,
+        "text": "Hi Charlie."
+      }
+    ],
     "speakers": [],
     "meeting_info": {
       "fred_joined": null,
@@ -23,7 +42,26 @@
             "transcript": {
               "id": "01KW0T0ZX43S6JJ9D3B7DP8FVB",
               "title": "Test upload",
-              "sentences": [],
+              "sentences": [
+                {
+                  "index": 0,
+                  "speaker_name": "Charlie",
+                  "speaker_id": 1,
+                  "raw_text": "Hello everyone.",
+                  "start_time": 0.44,
+                  "end_time": 1.92,
+                  "text": "Hello everyone."
+                },
+                {
+                  "index": 1,
+                  "speaker_name": "Dana",
+                  "speaker_id": 2,
+                  "raw_text": "Hi Charlie.",
+                  "start_time": 2.1,
+                  "end_time": 3.5,
+                  "text": "Hi Charlie."
+                }
+              ],
               "summary": null,
               "speakers": [],
               "meeting_info": {
