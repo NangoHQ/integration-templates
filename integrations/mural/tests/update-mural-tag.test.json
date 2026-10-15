@@ -1,0 +1,70 @@
+{
+  "input": {
+    "muralId": "nangodev4776.1791984276717",
+    "tagId": "tag-1791996376240",
+    "text": "Nango Updated Tag",
+    "color": "#00AAFFFF"
+  },
+  "output": {
+    "id": "tag-1791996376240",
+    "text": "Nango Updated Tag",
+    "backgroundColor": "#00FF00FF",
+    "borderColor": "#0000FFFF",
+    "color": "#00AAFFFF"
+  },
+  "nango": {},
+  "api": {
+    "patch": {
+      "/api/public/v1/murals/nangodev4776.1791984276717/tags/tag-1791996376240": {
+        "response": {
+          "value": {
+            "backgroundColor": "#00FF00FF",
+            "borderColor": "#0000FFFF",
+            "color": "#00AAFFFF",
+            "id": "tag-1791996376240",
+            "text": "Nango Updated Tag"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 14 Oct 2026 16:47:32 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "139",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
+          "x-ratelimit-limit": "25",
+          "x-ratelimit-remaining": "22",
+          "x-ratelimit-reset": "1791996453",
+          "set-cookie": "<redacted>",
+          "vary": "Origin, Accept-Encoding",
+          "x-jwt-expires-in": "899",
+          "cache-control": "private, no-cache, no-store, must-revalidate",
+          "x-mural-ly-version": "1.0.0",
+          "x-request-id": "ee734fdd-53d1-4c15-b31f-3265a6e783d6",
+          "x-ratelimit-app-limit": "10000",
+          "x-ratelimit-app-remaining": "9903",
+          "x-ratelimit-app-reset": "1791996453",
+          "etag": "W/\"8b-jy8REjcvWe/xAurVO8lfHiMfE/g\"",
+          "x-robots-tag": "none",
+          "x-recruiting": "If you are reading this, you should probably stop what you are doing and head to mural.co/careers"
+        },
+        "hash": "b64b411756ad7ac6c0546efac8b084c870e05fd0",
+        "request": {
+          "data": {
+            "text": "Nango Updated Tag",
+            "color": "#00AAFFFF"
+          }
+        }
+      }
+    }
+  }
+}

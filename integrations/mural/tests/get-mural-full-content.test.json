@@ -1,0 +1,614 @@
+{
+  "input": {
+    "muralId": "nangodev4776.1791984276717"
+  },
+  "output": {
+    "mural": {
+      "id": "nangodev4776.1791984276717",
+      "title": "",
+      "status": "active",
+      "workspaceId": "nangodev4776",
+      "roomId": 1791984264781658,
+      "width": 9216,
+      "height": 6237,
+      "infinite": true,
+      "backgroundColor": "#FAFAFAFF",
+      "favorite": false,
+      "state": "6f15798ce4b3d1901ed2acb5be2e5a74fc4c653f",
+      "thumbnailUrl": "https://murally.blob.core.windows.net/thumbnails/nangodev4776/murals/nangodev4776.1791984276717-undefined-2b9556de-32cd-4daf-88e8-e6f97e22124d.png?v=e05f4892-2843-445e-8490-5f84453a8a3d",
+      "embedLink": "",
+      "createdOn": 1791984276717,
+      "updatedOn": 1791996304646,
+      "createdBy": {
+        "id": "u6ed91a0eb0c5cb4ae8713013",
+        "firstName": "Nango",
+        "lastName": "Developer"
+      },
+      "updatedBy": {
+        "id": "u6ed91a0eb0c5cb4ae8713013",
+        "firstName": "Nango",
+        "lastName": "Developer"
+      },
+      "sharingSettings": {
+        "link": "https://app.mural.co/invitation/mural/nangodev4776/1791984276717?sender=u6ed91a0eb0c5cb4ae8713013&key=06e36032-b95d-4be1-82e3-03322dae57c0"
+      },
+      "visitorsSettings": {
+        "link": "https://app.mural.co/t/nangodev4776/m/nangodev4776/1791984276717/6f15798ce4b3d1901ed2acb5be2e5a74fc4c653f?sender=u6ed91a0eb0c5cb4ae8713013",
+        "visitors": "none",
+        "workspaceMembers": "write"
+      },
+      "_canvasLink": "https://app.mural.co/a/2f87bb2c-642b-43be-b111-19904173de4b/t/nangodev4776/m/nangodev4776/1791984276717/6f15798ce4b3d1901ed2acb5be2e5a74fc4c653f",
+      "timerSoundTheme": "airplane",
+      "visitorAvatarTheme": "animals"
+    },
+    "widgets": [
+      {
+        "id": "b531e594-4a0f-4c77-aef2-2e90ef34823a",
+        "type": "sticky note",
+        "title": "Nango test sticky",
+        "text": "",
+        "shape": "rectangle",
+        "x": 100,
+        "y": 100,
+        "width": 168,
+        "height": 168,
+        "rotation": 0,
+        "stackingOrder": 0,
+        "minLines": 6,
+        "hidden": false,
+        "invisible": false,
+        "locked": false,
+        "lockedByFacilitator": false,
+        "hideEditor": false,
+        "hideOwner": false,
+        "instruction": "",
+        "parentId": null,
+        "presentationIndex": -1,
+        "viewLink": "https://app.mural.co/t/nangodev4776/m/nangodev4776/1791984276717?wid=b531e594-4a0f-4c77-aef2-2e90ef34823a",
+        "contentEditedOn": 1791996042052,
+        "createdOn": 1791996042069,
+        "updatedOn": 1791996042069,
+        "createdBy": {
+          "id": "u6ed91a0eb0c5cb4ae8713013",
+          "firstName": "Nango",
+          "lastName": "Developer"
+        },
+        "updatedBy": {
+          "id": "u6ed91a0eb0c5cb4ae8713013",
+          "firstName": "Nango",
+          "lastName": "Developer"
+        },
+        "contentEditedBy": {
+          "id": "u6ed91a0eb0c5cb4ae8713013",
+          "firstName": "Nango",
+          "lastName": "Developer"
+        },
+        "style": {
+          "backgroundColor": "#FCFE7DFF",
+          "bold": false,
+          "italic": false,
+          "underline": false,
+          "strike": false,
+          "font": "proxima-nova",
+          "fontSize": 23,
+          "textAlign": "center",
+          "border": false
+        }
+      },
+      {
+        "id": "0c6a5b67-5edc-47f2-8a68-a3e46a3c6419",
+        "type": "text",
+        "title": "",
+        "text": "Nango test textbox",
+        "x": 200,
+        "y": 200,
+        "width": 296,
+        "height": 28,
+        "rotation": 0,
+        "stackingOrder": 0,
+        "fixedWidth": true,
+        "hidden": false,
+        "invisible": false,
+        "locked": false,
+        "lockedByFacilitator": false,
+        "hideEditor": false,
+        "hideOwner": false,
+        "instruction": "",
+        "parentId": null,
+        "presentationIndex": -1,
+        "viewLink": "https://app.mural.co/t/nangodev4776/m/nangodev4776/1791984276717?wid=0c6a5b67-5edc-47f2-8a68-a3e46a3c6419",
+        "contentEditedOn": 1791996043521,
+        "createdOn": 1791996043541,
+        "updatedOn": 1791996043541,
+        "createdBy": {
+          "id": "u6ed91a0eb0c5cb4ae8713013",
+          "firstName": "Nango",
+          "lastName": "Developer"
+        },
+        "updatedBy": {
+          "id": "u6ed91a0eb0c5cb4ae8713013",
+          "firstName": "Nango",
+          "lastName": "Developer"
+        },
+        "contentEditedBy": {
+          "id": "u6ed91a0eb0c5cb4ae8713013",
+          "firstName": "Nango",
+          "lastName": "Developer"
+        },
+        "style": {
+          "backgroundColor": "#FFFFFF00",
+          "font": "proxima-nova",
+          "fontSize": 24,
+          "textAlign": "left"
+        }
+      },
+      {
+        "id": "c0df7fb4-ced9-4ded-83ff-a22f5df7b22a",
+        "type": "shape",
+        "title": "",
+        "text": "",
+        "shape": "rectangle",
+        "x": 300,
+        "y": 300,
+        "width": 100,
+        "height": 100,
+        "rotation": 0,
+        "stackingOrder": 0,
+        "hidden": false,
+        "invisible": false,
+        "locked": false,
+        "lockedByFacilitator": false,
+        "hideEditor": false,
+        "hideOwner": false,
+        "instruction": "",
+        "parentId": null,
+        "presentationIndex": -1,
+        "viewLink": "https://app.mural.co/t/nangodev4776/m/nangodev4776/1791984276717?wid=c0df7fb4-ced9-4ded-83ff-a22f5df7b22a",
+        "contentEditedOn": 1791996044107,
+        "createdOn": 1791996044125,
+        "updatedOn": 1791996044125,
+        "createdBy": {
+          "id": "u6ed91a0eb0c5cb4ae8713013",
+          "firstName": "Nango",
+          "lastName": "Developer"
+        },
+        "updatedBy": {
+          "id": "u6ed91a0eb0c5cb4ae8713013",
+          "firstName": "Nango",
+          "lastName": "Developer"
+        },
+        "contentEditedBy": {
+          "id": "u6ed91a0eb0c5cb4ae8713013",
+          "firstName": "Nango",
+          "lastName": "Developer"
+        },
+        "style": {
+          "backgroundColor": "#FFFFFF00",
+          "borderColor": "#000000FF",
+          "borderStyle": "solid",
+          "borderWidth": 3,
+          "bold": false,
+          "italic": false,
+          "underline": false,
+          "strike": false,
+          "font": "proxima-nova",
+          "fontColor": "#000000FF",
+          "fontSize": 23,
+          "textAlign": "center"
+        }
+      }
+    ],
+    "tags": [
+      {
+        "id": "tag-1791996077023",
+        "text": "nango-full-content-tag"
+      },
+      {
+        "id": "tag-1791996343312",
+        "text": "Nango Probe",
+        "color": "#FF0000FF"
+      }
+    ],
+    "members": [
+      {
+        "id": "u6ed91a0eb0c5cb4ae8713013",
+        "type": "member",
+        "email": "api@nango.dev",
+        "avatar": "https://lh3.googleusercontent.com/a/ACg8ocK6hPtnyJxrsAu6MwEP8pz0LKBFnAUIwqK_cH0sM6svMmUwkA=s96-c",
+        "firstName": "Nango",
+        "lastName": "Developer",
+        "createdOn": 0,
+        "permissions": {
+          "owner": true,
+          "facilitator": true
+        }
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/api/public/v1/murals/nangodev4776.1791984276717": {
+        "response": {
+          "value": {
+            "_canvasLink": "https://app.mural.co/a/2f87bb2c-642b-43be-b111-19904173de4b/t/nangodev4776/m/nangodev4776/1791984276717/6f15798ce4b3d1901ed2acb5be2e5a74fc4c653f",
+            "backgroundColor": "#FAFAFAFF",
+            "createdBy": {
+              "firstName": "Nango",
+              "id": "u6ed91a0eb0c5cb4ae8713013",
+              "lastName": "Developer"
+            },
+            "createdOn": 1791984276717,
+            "embedLink": "",
+            "favorite": false,
+            "height": 6237,
+            "id": "nangodev4776.1791984276717",
+            "infinite": true,
+            "roomId": 1791984264781658,
+            "sharingSettings": {
+              "link": "https://app.mural.co/invitation/mural/nangodev4776/1791984276717?sender=u6ed91a0eb0c5cb4ae8713013&key=06e36032-b95d-4be1-82e3-03322dae57c0"
+            },
+            "state": "6f15798ce4b3d1901ed2acb5be2e5a74fc4c653f",
+            "status": "active",
+            "thumbnailUrl": "https://murally.blob.core.windows.net/thumbnails/nangodev4776/murals/nangodev4776.1791984276717-undefined-2b9556de-32cd-4daf-88e8-e6f97e22124d.png?v=e05f4892-2843-445e-8490-5f84453a8a3d",
+            "timerSoundTheme": "airplane",
+            "title": "",
+            "updatedBy": {
+              "firstName": "Nango",
+              "id": "u6ed91a0eb0c5cb4ae8713013",
+              "lastName": "Developer"
+            },
+            "updatedOn": 1791996304646,
+            "visitorAvatarTheme": "animals",
+            "visitorsSettings": {
+              "link": "https://app.mural.co/t/nangodev4776/m/nangodev4776/1791984276717/6f15798ce4b3d1901ed2acb5be2e5a74fc4c653f?sender=u6ed91a0eb0c5cb4ae8713013",
+              "visitors": "none",
+              "workspaceMembers": "write"
+            },
+            "width": 9216,
+            "workspaceId": "nangodev4776"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 14 Oct 2026 16:45:42 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
+          "x-ratelimit-limit": "25",
+          "x-ratelimit-remaining": "20",
+          "x-ratelimit-reset": "1791996342",
+          "set-cookie": "ApplicationGatewayAffinityCORS=e7b6b252aef359a2b30db07ca6ee7d03; Path=/; SameSite=None; Secure, ApplicationGatewayAffinity=e7b6b252aef359a2b30db07ca6ee7d03; Path=/",
+          "vary": "Origin, Accept-Encoding",
+          "x-jwt-expires-in": "899",
+          "cache-control": "private, no-cache, no-store, must-revalidate",
+          "x-mural-ly-version": "1.0.0",
+          "x-request-id": "980bda2a-0ef2-47f6-bbfe-7e8a7c1bacdb",
+          "x-ratelimit-app-limit": "10000",
+          "x-ratelimit-app-remaining": "9956",
+          "x-ratelimit-app-reset": "1791996344",
+          "etag": "W/\"52b-iM8aq+dWvwbS5PgWlXqLVpjVZTU\"",
+          "x-robots-tag": "none",
+          "x-recruiting": "If you are reading this, you should probably stop what you are doing and head to mural.co/careers"
+        },
+        "hash": "7288de816c54767b800b61c43efec1fb6c4d9392",
+        "request": {}
+      },
+      "/api/public/v1/murals/nangodev4776.1791984276717/widgets": {
+        "response": {
+          "value": [
+            {
+              "contentEditedBy": {
+                "firstName": "Nango",
+                "id": "u6ed91a0eb0c5cb4ae8713013",
+                "lastName": "Developer"
+              },
+              "contentEditedOn": 1791996042052,
+              "createdBy": {
+                "firstName": "Nango",
+                "id": "u6ed91a0eb0c5cb4ae8713013",
+                "lastName": "Developer"
+              },
+              "createdOn": 1791996042069,
+              "height": 168,
+              "hidden": false,
+              "hideEditor": false,
+              "hideOwner": false,
+              "id": "b531e594-4a0f-4c77-aef2-2e90ef34823a",
+              "instruction": "",
+              "invisible": false,
+              "locked": false,
+              "lockedByFacilitator": false,
+              "parentId": null,
+              "presentationIndex": -1,
+              "rotation": 0,
+              "stackingOrder": 0,
+              "title": "Nango test sticky",
+              "updatedBy": {
+                "firstName": "Nango",
+                "id": "u6ed91a0eb0c5cb4ae8713013",
+                "lastName": "Developer"
+              },
+              "updatedOn": 1791996042069,
+              "viewLink": "https://app.mural.co/t/nangodev4776/m/nangodev4776/1791984276717?wid=b531e594-4a0f-4c77-aef2-2e90ef34823a",
+              "width": 168,
+              "x": 100,
+              "y": 100,
+              "minLines": 6,
+              "shape": "rectangle",
+              "style": {
+                "backgroundColor": "#FCFE7DFF",
+                "bold": false,
+                "border": false,
+                "font": "proxima-nova",
+                "fontSize": 23,
+                "italic": false,
+                "strike": false,
+                "textAlign": "center",
+                "underline": false
+              },
+              "text": "",
+              "type": "sticky note"
+            },
+            {
+              "contentEditedBy": {
+                "firstName": "Nango",
+                "id": "u6ed91a0eb0c5cb4ae8713013",
+                "lastName": "Developer"
+              },
+              "contentEditedOn": 1791996043521,
+              "createdBy": {
+                "firstName": "Nango",
+                "id": "u6ed91a0eb0c5cb4ae8713013",
+                "lastName": "Developer"
+              },
+              "createdOn": 1791996043541,
+              "height": 28,
+              "hidden": false,
+              "hideEditor": false,
+              "hideOwner": false,
+              "id": "0c6a5b67-5edc-47f2-8a68-a3e46a3c6419",
+              "instruction": "",
+              "invisible": false,
+              "locked": false,
+              "lockedByFacilitator": false,
+              "parentId": null,
+              "presentationIndex": -1,
+              "rotation": 0,
+              "stackingOrder": 0,
+              "title": "",
+              "updatedBy": {
+                "firstName": "Nango",
+                "id": "u6ed91a0eb0c5cb4ae8713013",
+                "lastName": "Developer"
+              },
+              "updatedOn": 1791996043541,
+              "viewLink": "https://app.mural.co/t/nangodev4776/m/nangodev4776/1791984276717?wid=0c6a5b67-5edc-47f2-8a68-a3e46a3c6419",
+              "width": 296,
+              "x": 200,
+              "y": 200,
+              "fixedWidth": true,
+              "style": {
+                "backgroundColor": "#FFFFFF00",
+                "font": "proxima-nova",
+                "fontSize": 24,
+                "textAlign": "left"
+              },
+              "text": "Nango test textbox",
+              "type": "text"
+            },
+            {
+              "contentEditedBy": {
+                "firstName": "Nango",
+                "id": "u6ed91a0eb0c5cb4ae8713013",
+                "lastName": "Developer"
+              },
+              "contentEditedOn": 1791996044107,
+              "createdBy": {
+                "firstName": "Nango",
+                "id": "u6ed91a0eb0c5cb4ae8713013",
+                "lastName": "Developer"
+              },
+              "createdOn": 1791996044125,
+              "height": 100,
+              "hidden": false,
+              "hideEditor": false,
+              "hideOwner": false,
+              "id": "c0df7fb4-ced9-4ded-83ff-a22f5df7b22a",
+              "instruction": "",
+              "invisible": false,
+              "locked": false,
+              "lockedByFacilitator": false,
+              "parentId": null,
+              "presentationIndex": -1,
+              "rotation": 0,
+              "stackingOrder": 0,
+              "title": "",
+              "updatedBy": {
+                "firstName": "Nango",
+                "id": "u6ed91a0eb0c5cb4ae8713013",
+                "lastName": "Developer"
+              },
+              "updatedOn": 1791996044125,
+              "viewLink": "https://app.mural.co/t/nangodev4776/m/nangodev4776/1791984276717?wid=c0df7fb4-ced9-4ded-83ff-a22f5df7b22a",
+              "width": 100,
+              "x": 300,
+              "y": 300,
+              "shape": "rectangle",
+              "style": {
+                "backgroundColor": "#FFFFFF00",
+                "bold": false,
+                "borderColor": "#000000FF",
+                "borderStyle": "solid",
+                "borderWidth": 3,
+                "font": "proxima-nova",
+                "fontColor": "#000000FF",
+                "fontSize": 23,
+                "italic": false,
+                "strike": false,
+                "textAlign": "center",
+                "underline": false
+              },
+              "text": "",
+              "type": "shape"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 14 Oct 2026 16:45:43 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
+          "x-ratelimit-limit": "25",
+          "x-ratelimit-remaining": "21",
+          "x-ratelimit-reset": "1791996343",
+          "set-cookie": "ApplicationGatewayAffinityCORS=e7b6b252aef359a2b30db07ca6ee7d03; Path=/; SameSite=None; Secure, ApplicationGatewayAffinity=e7b6b252aef359a2b30db07ca6ee7d03; Path=/",
+          "vary": "Origin, Accept-Encoding",
+          "x-jwt-expires-in": "899",
+          "cache-control": "private, no-cache, no-store, must-revalidate",
+          "x-mural-ly-version": "1.0.0",
+          "x-request-id": "c9b8d63b-3e58-4e17-8261-02b20ce5f01b",
+          "x-ratelimit-app-limit": "10000",
+          "x-ratelimit-app-remaining": "9954",
+          "x-ratelimit-app-reset": "1791996344",
+          "etag": "W/\"be1-VTLA0zapUHezKMciU0jU6Id+rkI\"",
+          "x-robots-tag": "none",
+          "x-recruiting": "If you are reading this, you should probably stop what you are doing and head to mural.co/careers"
+        },
+        "hash": "62d2beb02f4a8d68e672b936e77dda46e6c16d49",
+        "request": {
+          "params": {
+            "limit": "100"
+          }
+        }
+      },
+      "/api/public/v1/murals/nangodev4776.1791984276717/tags": {
+        "response": {
+          "value": [
+            {
+              "id": "tag-1791996077023",
+              "text": "nango-full-content-tag"
+            },
+            {
+              "color": "#FF0000FF",
+              "id": "tag-1791996343312",
+              "text": "Nango Probe"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 14 Oct 2026 16:45:43 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "138",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
+          "x-ratelimit-limit": "25",
+          "x-ratelimit-remaining": "21",
+          "x-ratelimit-reset": "1791996343",
+          "set-cookie": "ApplicationGatewayAffinityCORS=e7b6b252aef359a2b30db07ca6ee7d03; Path=/; SameSite=None; Secure, ApplicationGatewayAffinity=e7b6b252aef359a2b30db07ca6ee7d03; Path=/",
+          "vary": "Origin, Accept-Encoding",
+          "x-jwt-expires-in": "899",
+          "cache-control": "private, no-cache, no-store, must-revalidate",
+          "x-mural-ly-version": "1.0.0",
+          "x-request-id": "3864c9ea-046f-4aee-95c9-8ca336c0f6a1",
+          "x-ratelimit-app-limit": "10000",
+          "x-ratelimit-app-remaining": "9952",
+          "x-ratelimit-app-reset": "1791996344",
+          "etag": "W/\"8a-244PergmE2qclUHJgjDb2A2+H+4\"",
+          "x-robots-tag": "none",
+          "x-recruiting": "If you are reading this, you should probably stop what you are doing and head to mural.co/careers"
+        },
+        "hash": "760a694c8baeb79d1b77afbd864119bbb9e0dfac",
+        "request": {}
+      },
+      "/api/public/v1/murals/nangodev4776.1791984276717/users": {
+        "response": {
+          "value": [
+            {
+              "avatar": "https://lh3.googleusercontent.com/a/ACg8ocK6hPtnyJxrsAu6MwEP8pz0LKBFnAUIwqK_cH0sM6svMmUwkA=s96-c",
+              "createdOn": 0,
+              "email": "api@nango.dev",
+              "firstName": "Nango",
+              "id": "u6ed91a0eb0c5cb4ae8713013",
+              "lastName": "Developer",
+              "type": "member",
+              "permissions": {
+                "facilitator": true,
+                "owner": true
+              }
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 14 Oct 2026 16:45:44 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
+          "x-ratelimit-limit": "25",
+          "x-ratelimit-remaining": "21",
+          "x-ratelimit-reset": "1791996344",
+          "set-cookie": "ApplicationGatewayAffinityCORS=e7b6b252aef359a2b30db07ca6ee7d03; Path=/; SameSite=None; Secure, ApplicationGatewayAffinity=e7b6b252aef359a2b30db07ca6ee7d03; Path=/",
+          "vary": "Origin, Accept-Encoding",
+          "x-jwt-expires-in": "899",
+          "cache-control": "private, no-cache, no-store, must-revalidate",
+          "x-mural-ly-version": "1.0.0",
+          "x-request-id": "ab2b7507-d7c9-4b6a-a45d-8ea9f96cff96",
+          "x-ratelimit-app-limit": "10000",
+          "x-ratelimit-app-remaining": "9951",
+          "x-ratelimit-app-reset": "1791996344",
+          "etag": "W/\"12b-R8jpKIedogFJe9uolBNABiJK4Cs\"",
+          "x-robots-tag": "none",
+          "x-recruiting": "If you are reading this, you should probably stop what you are doing and head to mural.co/careers"
+        },
+        "hash": "b55eca9366720f8f1295b42d3496c0490e91f7e1",
+        "request": {
+          "params": {
+            "limit": "100"
+          }
+        }
+      }
+    }
+  }
+}
