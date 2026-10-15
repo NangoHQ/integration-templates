@@ -87,6 +87,7 @@ const action = createAction({
         const workspaceId = encodeURIComponent(input.workspaceId);
         let targetRoomId: number | undefined;
         let next: string | undefined;
+        const seenCursors = new Set<string>();
         let searching = true;
 
         // Search every page: stopping early could miss an existing room and create a duplicate.
@@ -107,10 +108,18 @@ const action = createAction({
             if (match) {
                 targetRoomId = match.id;
                 searching = false;
-            } else if (parsed.value.length === 0 || !parsed.next || parsed.next === next) {
-                // A repeated cursor would re-request the same page forever.
+            } else if (parsed.value.length === 0 || !parsed.next) {
                 searching = false;
+            } else if (seenCursors.has(parsed.next)) {
+                // A repeated cursor means the scan cannot be proven complete; creating the room now
+                // could duplicate one on an unread page, so fail instead.
+                throw new nango.ActionError({
+                    type: 'incomplete_room_search',
+                    message: 'Mural returned a pagination cursor that was already used, so the room search could not finish.',
+                    workspaceId: input.workspaceId
+                });
             } else {
+                seenCursors.add(parsed.next);
                 next = parsed.next;
             }
         }
