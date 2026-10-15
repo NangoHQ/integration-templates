@@ -79,6 +79,7 @@ const OutputSchema = z
 const action = createAction({
     description: 'Composite: duplicate an existing mural into a target room identified by name, creating that room first if it does not exist.',
     version: '1.0.0',
+    scopes: ['rooms:read', 'rooms:write', 'murals:write'],
     input: InputSchema,
     output: OutputSchema,
 
@@ -86,9 +87,10 @@ const action = createAction({
         const workspaceId = encodeURIComponent(input.workspaceId);
         let targetRoomId: number | undefined;
         let next: string | undefined;
-        const maxPages = 100;
+        let searching = true;
 
-        for (let page = 0; page < maxPages; page++) {
+        // Search every page: stopping early could miss an existing room and create a duplicate.
+        while (searching) {
             const response = await nango.get({
                 // https://developers.mural.co/public/reference/getworkspacerooms
                 endpoint: `/api/public/v1/workspaces/${workspaceId}/rooms`,
@@ -104,14 +106,12 @@ const action = createAction({
 
             if (match) {
                 targetRoomId = match.id;
-                break;
+                searching = false;
+            } else if (parsed.value.length === 0 || !parsed.next) {
+                searching = false;
+            } else {
+                next = parsed.next;
             }
-
-            if (parsed.value.length === 0 || !parsed.next) {
-                break;
-            }
-
-            next = parsed.next;
         }
 
         let roomWasCreated = false;

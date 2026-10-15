@@ -32,8 +32,8 @@ const action = createAction({
         await nango.delete({
             // https://developers.mural.co/public/reference/deletemuraltag
             endpoint: `/api/public/v1/murals/${encodeURIComponent(input.muralId)}/tags/${encodeURIComponent(input.tagId)}`,
-            // DELETE is idempotent: re-issuing it after a lost response cannot create a duplicate side effect.
-            retries: 3
+            // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries -- a retry after a lost success response would 404 on the already-deleted resource and report a completed delete as a failure.
+            retries: 0
         });
 
         return {

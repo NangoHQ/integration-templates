@@ -42,10 +42,6 @@ const ProviderWorkspaceSchema = z.object({
     id: z.string()
 });
 
-const ProviderWorkspacesResponseSchema = z.object({
-    value: z.array(ProviderWorkspaceSchema)
-});
-
 const MuralUserSchema = z
     .object({
         id: z.string().describe('Unique identifier of the Mural user. Example: "u6ed91a0eb0c5cb4ae8713013".'),
@@ -122,6 +118,7 @@ function normalizeMural(mural: ProviderMural) {
 const sync = createSync({
     description: 'Sync every mural in the workspace (title, room, status, sharing/visitor settings, timestamps).',
     version: '1.0.0',
+    scopes: ['workspaces:read', 'murals:read'],
     frequency: 'every hour',
     autoStart: true,
     models: {
@@ -129,13 +126,27 @@ const sync = createSync({
     },
 
     exec: async (nango) => {
-        // Mural public API - List workspaces: https://developers.mural.co/public/reference
-        const workspacesResponse = await nango.get({
+        const workspaces: z.infer<typeof ProviderWorkspaceSchema>[] = [];
+        const workspacesConfig: ProxyConfiguration = {
+            // https://developers.mural.co/public/reference/getworkspaces
             endpoint: '/api/public/v1/workspaces',
+            paginate: {
+                type: 'cursor',
+                cursor_name_in_request: 'next',
+                cursor_path_in_response: 'next',
+                response_path: 'value',
+                limit_name_in_request: 'limit',
+                limit: MURAL_PAGE_LIMIT
+            },
             retries: 3
-        });
+        };
 
-        const workspaces = ProviderWorkspacesResponseSchema.parse(workspacesResponse.data).value;
+        // Resolve every workspace page before opening the delete-tracking window, so murals
+        // in later workspaces are never missed and then falsely deleted.
+        for await (const page of nango.paginate<unknown>(workspacesConfig)) {
+            workspaces.push(...z.array(ProviderWorkspaceSchema).parse(page));
+        }
+
         if (workspaces.length === 0) {
             throw new Error('No Mural workspace is available for this connection.');
         }

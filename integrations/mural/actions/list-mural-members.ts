@@ -5,7 +5,7 @@ const InputSchema = z
     .object({
         muralId: z.string().describe('Unique identifier of the mural. Example: "nangodev4776.1606743986126"'),
         cursor: z.string().min(1).optional().describe("Opaque pagination token from a previous response's nextCursor. Omit to fetch the first page."),
-        limit: z.number().int().positive().optional().describe('Maximum number of members to return. Example: 50')
+        limit: z.number().int().min(1).max(100).optional().describe('Maximum number of members to return per page (1-100). Example: 50')
     })
     .describe('Input for listing the members and guests who have access to a mural.');
 
@@ -49,7 +49,10 @@ const MemberSchema = z.object({
 const OutputSchema = z
     .object({
         members: z.array(MemberSchema).describe('Members and guests with access to the mural.'),
-        nextCursor: z.string().optional().describe('Opaque token to fetch the next page of members. Absent when no further pages are returned.')
+        nextCursor: z
+            .string()
+            .optional()
+            .describe('Opaque token to fetch another page of members. It can still be returned on the final page, so stop when `members` is empty.')
     })
     .describe('A page of members and guests who have access to the mural.');
 

@@ -34,7 +34,7 @@ const ShapeInputSchema = z.object({
         .optional()
         .describe('ID of the parent area widget that should contain this shape, e.g. "0-12345". When set, x and y are relative to the area.'),
     hidden: z.boolean().optional().describe('Whether the shape is hidden from non-facilitators.'),
-    rotation: z.number().optional().describe('Rotation of the shape in degrees.'),
+    rotation: z.number().min(0).lt(360).optional().describe('Rotation of the shape in degrees.'),
     stackingOrder: z.number().optional().describe('Z-index stacking order of the shape.'),
     presentationIndex: z.number().optional().describe('Ordering index of the shape within a presentation.'),
     style: ShapeStyleInputSchema.optional().describe(
@@ -126,6 +126,7 @@ const OutputSchema = z
 const action = createAction({
     description: 'Create one or more shape widgets on a mural canvas.',
     version: '1.0.0',
+    scopes: ['murals:write'],
     input: InputSchema,
     output: OutputSchema,
 

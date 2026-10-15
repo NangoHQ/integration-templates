@@ -35,6 +35,7 @@ const OutputSchema = z
 const action = createAction({
     description: 'Start an export of a mural to a downloadable file and return the export job id.',
     version: '1.0.0',
+    scopes: ['murals:read'],
     input: InputSchema,
     output: OutputSchema,
 

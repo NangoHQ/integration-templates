@@ -4,6 +4,7 @@ import { createAction } from 'nango';
 const StickyNoteStyleSchema = z.object({
     backgroundColor: z
         .string()
+        .regex(/^#[0-9A-Fa-f]{8}$/)
         .optional()
         .describe('Background color in 8-digit hex with alpha (e.g. "#FCFE7DFF"). Omitted properties keep their provider defaults.'),
     bold: z.boolean().optional().describe('Whether the text is bold.'),
@@ -15,7 +16,7 @@ const StickyNoteStyleSchema = z.object({
         .enum(['adelle', 'blambot-casual', 'blambot-pro', 'lint-mccree', 'marker-felt', 'museo-slab', 'proxima-nova', 'shark-water'])
         .optional()
         .describe('Font family of the text.'),
-    fontSize: z.number().optional().describe('Text size in points.'),
+    fontSize: z.number().min(1).optional().describe('Text size in points.'),
     textAlign: z.enum(['left', 'center', 'right']).optional().describe('Horizontal text alignment.')
 });
 
@@ -33,7 +34,7 @@ const StickyNoteInputSchema = z.object({
     instruction: z.string().optional().describe('Facilitator-only instructions attached to the sticky note.'),
     parentId: z.string().optional().describe('ID of the area widget that should contain this sticky note.'),
     presentationIndex: z.number().optional().describe('Order of the sticky note in the outline. Default: -1.'),
-    rotation: z.number().optional().describe('Rotation angle in degrees (0 to less than 360). Default: 0.'),
+    rotation: z.number().min(0).lt(360).optional().describe('Rotation angle in degrees (0 to less than 360). Default: 0.'),
     stackingOrder: z.number().optional().describe('Z-index stacking order of the sticky note.'),
     tags: z.array(z.string()).optional().describe('IDs of tags to apply to the sticky note.'),
     hyperlink: z.string().optional().describe('URL to attach to the sticky note.'),
@@ -134,8 +135,8 @@ const action = createAction({
             // https://developers.mural.co/public/reference/createstickynote
             endpoint: `/api/public/v1/murals/${encodeURIComponent(input.muralId)}/widgets/sticky-note`,
             data: body,
-            // POST creates new widgets and has no idempotency key, so keep retries at the minimum this repo's lint allows (0 is rejected) to avoid duplicate sticky notes after a lost response.
-            retries: 1
+            // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries -- POST creates new widgets and has no idempotency key, so a retry after a lost response would duplicate sticky notes.
+            retries: 0
         });
 
         const parsed = z.object({ value: z.array(StickyNoteWidgetSchema) }).parse(response.data);

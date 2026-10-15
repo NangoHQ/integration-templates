@@ -33,7 +33,11 @@ const InputSchema = z
     .object({
         muralId: z.string().describe('Unique identifier of the mural to update. Example: "workspace1234.1606743986126"'),
         title: z.string().optional().describe('New title for the mural. Omit to keep the current title.'),
-        backgroundColor: z.string().optional().describe('New background color as an 8-digit hex ARGB value. Example: "#FAFAFAFF"'),
+        backgroundColor: z
+            .string()
+            .regex(/^#[0-9A-Fa-f]{8}$/)
+            .optional()
+            .describe('New background color as an 8-digit #RRGGBBAA hex value. Example: "#FAFAFAFF"'),
         width: z.number().int().min(3000).max(60000).optional().describe('New width of the mural in pixels, between 3000 and 60000.'),
         height: z.number().int().min(3000).max(60000).optional().describe('New height of the mural in pixels, between 3000 and 60000.')
     })
@@ -43,9 +47,9 @@ const OutputSchema = z
     .object({
         id: z.string().describe('Unique identifier of the mural.'),
         title: z.string().describe('Title of the mural.'),
-        backgroundColor: z.string().describe('Background color of the mural as an 8-digit hex ARGB value. Example: "#FAFAFAFF"'),
-        width: z.number().describe('Width of the mural in pixels.'),
-        height: z.number().describe('Height of the mural in pixels.'),
+        backgroundColor: z.string().optional().describe('Background color of the mural as an 8-digit #RRGGBBAA hex value. Example: "#FAFAFAFF"'),
+        width: z.number().optional().describe('Width of the mural in pixels.'),
+        height: z.number().optional().describe('Height of the mural in pixels.'),
         status: z.enum(['active', 'archived']).describe('Whether the mural is active or archived.'),
         workspaceId: z.string().describe('Unique identifier of the workspace containing the mural.'),
         roomId: z.number().optional().describe('Identifier of the room containing the mural.'),
@@ -78,6 +82,7 @@ const MuralResponseSchema = z.object({
 const action = createAction({
     description: "Update a mural's title, background color, or dimensions. Partial merge.",
     version: '1.0.0',
+    scopes: ['murals:write'],
     input: InputSchema,
     output: OutputSchema,
 

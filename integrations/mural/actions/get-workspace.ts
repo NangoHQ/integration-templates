@@ -76,6 +76,7 @@ const OutputSchema = z
 const action = createAction({
     description: 'Retrieve a single workspace by ID, including who created it.',
     version: '1.0.0',
+    scopes: ['workspaces:read'],
     input: InputSchema,
     output: OutputSchema,
 

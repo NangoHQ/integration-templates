@@ -1,5 +1,7 @@
-import { createSync } from 'nango';
+import { createSync, type ProxyConfiguration } from 'nango';
 import { z } from 'zod';
+
+const PAGE_LIMIT = 100;
 
 const ProviderUserSchema = z.object({
     id: z.string().nullable().optional(),
@@ -26,16 +28,6 @@ const ProviderRoomSchema = z.object({
 
 const ProviderWorkspaceSchema = z.object({
     id: z.string()
-});
-
-const WorkspacesEnvelopeSchema = z.object({
-    value: z.array(ProviderWorkspaceSchema),
-    next: z.string().optional()
-});
-
-const RoomsEnvelopeSchema = z.object({
-    value: z.array(ProviderRoomSchema),
-    next: z.string().optional()
 });
 
 const RoomUserSchema = z
@@ -100,6 +92,7 @@ function mapRoom(raw: z.infer<typeof ProviderRoomSchema>): z.infer<typeof RoomSc
 const sync = createSync({
     description: 'Sync every room in every accessible Mural workspace.',
     version: '1.0.0',
+    scopes: ['workspaces:read', 'rooms:read'],
     frequency: 'every hour',
     autoStart: true,
     models: {
@@ -110,86 +103,60 @@ const sync = createSync({
         // Mural exposes no updated-since filter on its rooms endpoint (unrecognized query
         // params are rejected with 400 QUERY), so this is always a full refresh and relies on
         // delete tracking to drop rooms that were removed since the previous run.
+        // Mural returns a `next` token even on the last page; nango.paginate stops on an
+        // absent cursor or an empty `value` array.
         const workspaces: z.infer<typeof ProviderWorkspaceSchema>[] = [];
-        let workspacesNext: string | undefined = undefined;
-        let hasMoreWorkspaces = true;
-        while (hasMoreWorkspaces) {
+        const workspacesConfig: ProxyConfiguration = {
             // https://developers.mural.co/public/reference/getworkspaces
-            const response = await nango.get<unknown>({
-                endpoint: '/api/public/v1/workspaces',
-                params: {
-                    limit: 100,
-                    ...(workspacesNext !== undefined && { next: workspacesNext })
-                },
-                retries: 3
-            });
+            endpoint: '/api/public/v1/workspaces',
+            paginate: {
+                type: 'cursor',
+                cursor_name_in_request: 'next',
+                cursor_path_in_response: 'next',
+                response_path: 'value',
+                limit_name_in_request: 'limit',
+                limit: PAGE_LIMIT
+            },
+            retries: 3
+        };
 
-            const parsed = WorkspacesEnvelopeSchema.safeParse(response.data);
-            if (!parsed.success) {
-                throw new Error(`Failed to parse workspaces response: ${parsed.error.message}`);
-            }
+        for await (const page of nango.paginate<unknown>(workspacesConfig)) {
+            workspaces.push(...z.array(ProviderWorkspaceSchema).parse(page));
+        }
 
-            // Mural always returns a `next` token, including on the last page, so the only
-            // reliable end-of-data signal is an empty `value` array.
-            if (parsed.data.value.length === 0) {
-                hasMoreWorkspaces = false;
-                break;
-            }
-
-            workspaces.push(...parsed.data.value);
-
-            if (parsed.data.next === undefined) {
-                hasMoreWorkspaces = false;
-            } else {
-                workspacesNext = parsed.data.next;
-            }
+        // An empty workspace list (lost access, transient provider issue) would otherwise
+        // complete a zero-room delete scan and remove every previously synced room.
+        if (workspaces.length === 0) {
+            throw new Error('No Mural workspace is available for this connection.');
         }
 
         // Open delete tracking only after the prerequisite workspace list is resolved, so a
         // failure before this point never leaves a delete window open without a matching end.
         await nango.trackDeletesStart('Room');
 
-        const rooms: z.infer<typeof RoomSchema>[] = [];
         for (const workspace of workspaces) {
-            let roomsNext: string | undefined = undefined;
-            let hasMoreRooms = true;
-            while (hasMoreRooms) {
+            const roomsConfig: ProxyConfiguration = {
                 // https://developers.mural.co/public/reference/getworkspacerooms
-                const response = await nango.get<unknown>({
-                    endpoint: `/api/public/v1/workspaces/${encodeURIComponent(workspace.id)}/rooms`,
-                    params: {
-                        limit: 100,
-                        ...(roomsNext !== undefined && { next: roomsNext })
-                    },
-                    retries: 3
-                });
+                endpoint: `/api/public/v1/workspaces/${encodeURIComponent(workspace.id)}/rooms`,
+                paginate: {
+                    type: 'cursor',
+                    cursor_name_in_request: 'next',
+                    cursor_path_in_response: 'next',
+                    response_path: 'value',
+                    limit_name_in_request: 'limit',
+                    limit: PAGE_LIMIT
+                },
+                retries: 3
+            };
 
-                const parsed = RoomsEnvelopeSchema.safeParse(response.data);
-                if (!parsed.success) {
-                    // Throw on parse failure: silently skipping a malformed record inside a
-                    // delete-tracked scan would falsely mark it as deleted.
-                    throw new Error(`Failed to parse rooms response: ${parsed.error.message}`);
-                }
-
-                if (parsed.data.value.length === 0) {
-                    hasMoreRooms = false;
-                    break;
-                }
-
-                for (const raw of parsed.data.value) {
-                    rooms.push(mapRoom(raw));
-                }
-
-                if (parsed.data.next === undefined) {
-                    hasMoreRooms = false;
-                } else {
-                    roomsNext = parsed.data.next;
+            for await (const page of nango.paginate<unknown>(roomsConfig)) {
+                // Throw on parse failure: silently skipping a malformed record inside a
+                // delete-tracked scan would falsely mark it as deleted.
+                const rooms = z.array(ProviderRoomSchema).parse(page);
+                if (rooms.length > 0) {
+                    await nango.batchSave(rooms.map(mapRoom), 'Room');
                 }
             }
-        }
-
-        if (rooms.length > 0) {
-            await nango.batchSave(rooms, 'Room');
         }
 
         await nango.trackDeletesEnd('Room');

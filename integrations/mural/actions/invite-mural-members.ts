@@ -3,7 +3,11 @@ import { createAction } from 'nango';
 
 const InvitationInputSchema = z
     .object({
-        email: z.string().email().optional().describe('Email address of the person to invite. Provide this or `username`. Example: "teammate@example.com"'),
+        email: z
+            .string()
+            .email()
+            .optional()
+            .describe('Email address of the person to invite. Provide exactly one of this or `username`. Example: "teammate@example.com"'),
         username: z
             .string()
             .optional()
@@ -18,8 +22,9 @@ const InvitationInputSchema = z
             )
     })
     .describe('A single person to invite to the mural, identified by email or username.')
-    .refine((invitation) => invitation.email !== undefined || invitation.username !== undefined, {
-        message: 'Each invitation must include either an email or a username.'
+    // Mural silently ignores `email` when `username` is also sent, so require exactly one.
+    .refine((invitation) => (invitation.email !== undefined) !== (invitation.username !== undefined), {
+        message: 'Each invitation must include exactly one of email or username.'
     });
 
 const InputSchema = z
@@ -72,6 +77,7 @@ const OutputSchema = z
 const action = createAction({
     description: 'Invite one or more people (by email) to a specific mural with a view or edit permission level.',
     version: '1.0.0',
+    scopes: ['murals:write'],
     input: InputSchema,
     output: OutputSchema,
 
@@ -88,8 +94,8 @@ const action = createAction({
                 ...(input.sendEmail !== undefined && { sendEmail: input.sendEmail }),
                 ...(input.message !== undefined && { message: input.message })
             },
-            // Repeat invites to the same recipient are rejected by the provider (EXISTING_REF_CODE_OR_MEMBER) instead of duplicating, so a small retry count is safe after a lost response.
-            retries: 2
+            // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries -- a retry after a lost success response comes back as rejected EXISTING_REF_CODE_OR_MEMBER, misreporting a completed invite.
+            retries: 0
         });
 
         const parsed = ProviderInviteResponseSchema.parse(response.data);

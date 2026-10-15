@@ -48,6 +48,7 @@ const ProviderResponseSchema = z.object({
 const action = createAction({
     description: "List the mural templates available to a workspace, including Mural's default/shared library.",
     version: '1.0.0',
+    scopes: ['templates:read'],
     input: InputSchema,
     output: OutputSchema,
 

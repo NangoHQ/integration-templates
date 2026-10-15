@@ -30,6 +30,18 @@ const OutputSchema = z
     })
     .describe('A single tag on a mural.');
 
+function getErrorStatus(error: unknown): number | undefined {
+    if (typeof error !== 'object' || error === null || !('response' in error)) {
+        return undefined;
+    }
+    const response = error.response;
+    if (typeof response !== 'object' || response === null || !('status' in response)) {
+        return undefined;
+    }
+    const status = response.status;
+    return typeof status === 'number' ? status : undefined;
+}
+
 /**
  * @tags: [read]
  * @tagReason: Reads a single existing tag from a mural without modifying any provider data.
@@ -42,22 +54,28 @@ const action = createAction({
     scopes: ['murals:read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        // https://developers.mural.co/public/reference/getmuraltag
-        const response = await nango.get({
-            endpoint: `/api/public/v1/murals/${encodeURIComponent(input.muralId)}/tags/${encodeURIComponent(input.tagId)}`,
-            retries: 3
-        });
-
-        if (!response.data) {
-            throw new nango.ActionError({
-                type: 'not_found',
-                message: 'The tag was not found or does not exist.',
-                muralId: input.muralId,
-                tagId: input.tagId
+        let responseData: unknown;
+        // @allowTryCatch - translate the documented 404 (TAG_NOT_FOUND / MURAL_NOT_FOUND) into a typed ActionError.
+        try {
+            // https://developers.mural.co/public/reference/getmuraltag
+            const response = await nango.get({
+                endpoint: `/api/public/v1/murals/${encodeURIComponent(input.muralId)}/tags/${encodeURIComponent(input.tagId)}`,
+                retries: 3
             });
+            responseData = response.data;
+        } catch (error) {
+            if (getErrorStatus(error) === 404) {
+                throw new nango.ActionError({
+                    type: 'not_found',
+                    message: `Tag "${input.tagId}" was not found in mural "${input.muralId}".`,
+                    muralId: input.muralId,
+                    tagId: input.tagId
+                });
+            }
+            throw error;
         }
 
-        const providerTag = ProviderResponseSchema.parse(response.data).value;
+        const providerTag = ProviderResponseSchema.parse(responseData).value;
 
         return {
             id: providerTag.id,

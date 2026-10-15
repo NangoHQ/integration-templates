@@ -602,8 +602,12 @@
           "x-robots-tag": "none",
           "x-recruiting": "If you are reading this, you should probably stop what you are doing and head to mural.co/careers"
         },
-        "hash": "c3d11715792a6d0654349449cb7fbd3e06d29ac5",
-        "request": {}
+        "hash": "b55eca9366720f8f1295b42d3496c0490e91f7e1",
+        "request": {
+          "params": {
+            "limit": "100"
+          }
+        }
       }
     }
   }

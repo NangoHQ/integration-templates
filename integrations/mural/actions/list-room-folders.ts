@@ -45,6 +45,7 @@ const OutputSchema = z
 const action = createAction({
     description: 'List the folders that exist inside a room.',
     version: '1.0.0',
+    scopes: ['rooms:read'],
     input: InputSchema,
     output: OutputSchema,
 

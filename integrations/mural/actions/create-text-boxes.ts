@@ -3,12 +3,16 @@ import { createAction } from 'nango';
 
 const TextStyleSchema = z
     .object({
-        backgroundColor: z.string().optional().describe('Background color as 8-digit hex with alpha, e.g. "#FFFFFF00" for fully transparent.'),
+        backgroundColor: z
+            .string()
+            .regex(/^#[0-9A-Fa-f]{8}$/)
+            .optional()
+            .describe('Background color as 8-digit hex with alpha, e.g. "#FFFFFF00" for fully transparent.'),
         font: z
             .enum(['adelle', 'blambot-casual', 'blambot-pro', 'lint-mccree', 'marker-felt', 'museo-slab', 'proxima-nova', 'shark-water'])
             .optional()
             .describe('Font family of the text.'),
-        fontSize: z.number().optional().describe('Text size in px. Minimum 1.'),
+        fontSize: z.number().min(1).optional().describe('Text size in px. Minimum 1.'),
         textAlign: z.enum(['left', 'center', 'right']).optional().describe('Horizontal alignment of the text.')
     })
     .describe('Text styling: background color, font, size, and alignment.');
@@ -28,7 +32,7 @@ const TextBoxInputSchema = z
         instruction: z.string().optional().describe('Facilitator-only instructions for the widget.'),
         parentId: z.string().optional().describe('ID of the area widget that should contain this text box.'),
         presentationIndex: z.number().optional().describe('Position of the widget in the outline. Defaults to -1.'),
-        rotation: z.number().optional().describe('Rotation angle in degrees (0 inclusive, 360 exclusive). Defaults to 0.'),
+        rotation: z.number().min(0).lt(360).optional().describe('Rotation angle in degrees (0 inclusive, 360 exclusive). Defaults to 0.'),
         stackingOrder: z.number().optional().describe('Z-index stacking order of the widget.')
     })
     .describe('A single text box to create on the mural. Every field is optional; omitted values use the provider defaults.');

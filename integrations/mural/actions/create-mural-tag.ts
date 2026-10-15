@@ -52,6 +52,7 @@ const OutputSchema = z
 const action = createAction({
     description: 'Create a new tag on a mural.',
     version: '1.0.0',
+    scopes: ['murals:write'],
     input: InputSchema,
     output: OutputSchema,
 

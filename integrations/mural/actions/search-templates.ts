@@ -15,7 +15,7 @@ const InputSchema = z
     .object({
         workspaceId: z.string().min(1).describe('ID of the MURAL workspace to search templates in. Example: "workspace1234"'),
         query: z.string().min(1).describe('Text to search template names for. Example: "profile"'),
-        limit: z.number().int().positive().optional().describe('Maximum number of templates to return. Example: 50'),
+        limit: z.number().int().min(1).max(25).optional().describe('Maximum number of templates to return per page (1-25). Example: 20'),
         cursor: z.string().min(1).optional().describe('Pagination token returned as nextCursor by a previous call. Omit to fetch the first page.')
     })
     .describe('Search parameters for finding templates by name within a workspace.');
@@ -23,7 +23,12 @@ const InputSchema = z
 const OutputSchema = z
     .object({
         templates: z.array(TemplateSchema).describe('Templates matching the search query.'),
-        nextCursor: z.string().optional().describe('Token to fetch the next page of results, passed back as the cursor input.')
+        nextCursor: z
+            .string()
+            .optional()
+            .describe(
+                'Token to fetch another page of results, passed back as the cursor input. It can still be returned on the final page, so stop when `templates` is empty.'
+            )
     })
     .describe('Templates matching the search query, plus an optional cursor for the next page.');
 
@@ -40,6 +45,7 @@ const ProviderResponseSchema = z.object({
 const action = createAction({
     description: 'Full-text search for templates by name, scoped to a workspace.',
     version: '1.0.0',
+    scopes: ['templates:read'],
     input: InputSchema,
     output: OutputSchema,
 

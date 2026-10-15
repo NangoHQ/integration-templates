@@ -186,6 +186,7 @@ function getErrorStatus(error: unknown): number | undefined {
 const action = createAction({
     description: 'Retrieve a single widget by ID.',
     version: '1.0.0',
+    scopes: ['murals:read'],
     input: InputSchema,
     output: OutputSchema,
 

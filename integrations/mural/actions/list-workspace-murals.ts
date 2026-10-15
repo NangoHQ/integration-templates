@@ -60,7 +60,10 @@ const InputSchema = z
 const OutputSchema = z
     .object({
         murals: z.array(MuralSchema).describe('Murals in the workspace on this page.'),
-        nextCursor: z.string().optional().describe('Token to pass as `cursor` to fetch the next page; omitted when there are no more murals.')
+        nextCursor: z
+            .string()
+            .optional()
+            .describe('Token to pass as `cursor` to fetch another page. It can still be returned on the final page, so stop when `murals` is empty.')
     })
     .describe('A page of murals in the workspace and the token needed to fetch the next page.');
 
@@ -77,6 +80,7 @@ const ProviderResponseSchema = z.object({
 const action = createAction({
     description: 'List every mural across an entire workspace (all rooms).',
     version: '1.0.0',
+    scopes: ['murals:read'],
     input: InputSchema,
     output: OutputSchema,
 

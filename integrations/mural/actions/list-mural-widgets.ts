@@ -56,7 +56,10 @@ const InputSchema = z
 const OutputSchema = z
     .object({
         widgets: z.array(WidgetSchema).describe('Widgets on the mural canvas.'),
-        nextCursor: z.string().optional().describe('Token to fetch the next page of widgets. Absent when there are no more results.')
+        nextCursor: z
+            .string()
+            .optional()
+            .describe('Token to fetch another page of widgets. It can still be returned on the final page, so stop when `widgets` is empty.')
     })
     .describe('A page of widgets on the mural canvas.');
 
@@ -68,6 +71,7 @@ const OutputSchema = z
 const action = createAction({
     description: 'List every widget (sticky note, text, shape, image, etc.) on a mural canvas.',
     version: '1.0.0',
+    scopes: ['murals:read'],
     input: InputSchema,
     output: OutputSchema,
 

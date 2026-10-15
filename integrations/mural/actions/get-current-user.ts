@@ -4,15 +4,15 @@ import { createAction } from 'nango';
 const ProviderMeResponseSchema = z.object({
     value: z.object({
         id: z.string(),
-        email: z.string().optional(),
-        avatar: z.string(),
-        firstName: z.string(),
-        lastName: z.string(),
+        email: z.string().nullable().optional(),
+        avatar: z.string().nullable().optional(),
+        firstName: z.string().nullable().optional(),
+        lastName: z.string().nullable().optional(),
         type: z.string(),
-        createdOn: z.number().optional(),
-        companyId: z.string().optional(),
-        companyName: z.string().optional(),
-        lastActiveWorkspace: z.string().optional()
+        createdOn: z.number().nullable().optional(),
+        companyId: z.string().nullable().optional(),
+        companyName: z.string().nullable().optional(),
+        lastActiveWorkspace: z.string().nullable().optional()
     })
 });
 
@@ -22,9 +22,9 @@ const OutputSchema = z
     .object({
         id: z.string().describe('Unique identifier of the authenticated user. Example: "u1651c4ac9145e4b8497d5982"'),
         email: z.string().optional().describe('Email address of the authenticated user. Example: "user@example.com"'),
-        avatar: z.string().describe("URL of the authenticated user's avatar image."),
-        firstName: z.string().describe('First name of the authenticated user. Example: "John"'),
-        lastName: z.string().describe('Last name of the authenticated user. Example: "Smith"'),
+        avatar: z.string().optional().describe("URL of the authenticated user's avatar image, when set."),
+        firstName: z.string().optional().describe('First name of the authenticated user, when set. Example: "John"'),
+        lastName: z.string().optional().describe('Last name of the authenticated user, when set. Example: "Smith"'),
         type: z.string().describe('Type of collaborator account. Example: "member"'),
         createdOn: z.number().optional().describe('Timestamp when the user account was created, in milliseconds since the Unix epoch. Example: 1608060691000'),
         companyId: z.string().optional().describe('Unique identifier of the company the user belongs to, when the user belongs to one.'),
@@ -59,9 +59,9 @@ const action = createAction({
         return {
             id: providerUser.id,
             ...(providerUser.email != null && { email: providerUser.email }),
-            avatar: providerUser.avatar,
-            firstName: providerUser.firstName,
-            lastName: providerUser.lastName,
+            ...(providerUser.avatar != null && { avatar: providerUser.avatar }),
+            ...(providerUser.firstName != null && { firstName: providerUser.firstName }),
+            ...(providerUser.lastName != null && { lastName: providerUser.lastName }),
             type: providerUser.type,
             ...(providerUser.createdOn != null && { createdOn: providerUser.createdOn }),
             ...(providerUser.companyId != null && { companyId: providerUser.companyId }),

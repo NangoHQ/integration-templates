@@ -28,19 +28,19 @@ const WidgetUserSchema = z
 
 const WidgetStyleSchema = z
     .object({
-        backgroundColor: z.string().nullable().optional().describe('Background color as an 8-digit hex ARGB value, e.g. #FCFE7DFF.'),
+        backgroundColor: z.string().nullable().optional().describe('Background color as an 8-digit #RRGGBBAA hex value, e.g. #FCFE7DFF.'),
         bold: z.boolean().nullable().optional().describe('Whether the widget text is bold.'),
         border: z.boolean().nullable().optional().describe('Whether a black border is drawn around the widget.'),
-        borderColor: z.string().nullable().optional().describe('Border color as an 8-digit hex ARGB value.'),
+        borderColor: z.string().nullable().optional().describe('Border color as an 8-digit #RRGGBBAA hex value.'),
         borderStyle: z.string().nullable().optional().describe('Border line style: solid, dashed, dotted or dotted-spaced.'),
         borderWidth: z.number().nullable().optional().describe('Border width in pixels.'),
-        color: z.string().nullable().optional().describe('Icon color as an 8-digit hex ARGB value (icon widgets only).'),
+        color: z.string().nullable().optional().describe('Icon color as an 8-digit #RRGGBBAA hex value (icon widgets only).'),
         font: z.string().nullable().optional().describe('Font family used for the widget text, e.g. proxima-nova.'),
-        fontColor: z.string().nullable().optional().describe('Text color as an 8-digit hex ARGB value.'),
+        fontColor: z.string().nullable().optional().describe('Text color as an 8-digit #RRGGBBAA hex value.'),
         fontSize: z.number().nullable().optional().describe('Text size in points.'),
         italic: z.boolean().nullable().optional().describe('Whether the widget text is italic.'),
         strike: z.boolean().nullable().optional().describe('Whether the widget text is struck through.'),
-        strokeColor: z.string().nullable().optional().describe('Connector stroke color as an 8-digit hex ARGB value (arrow widgets only).'),
+        strokeColor: z.string().nullable().optional().describe('Connector stroke color as an 8-digit #RRGGBBAA hex value (arrow widgets only).'),
         strokeStyle: z.string().nullable().optional().describe('Connector stroke style: solid, dashed, dotted or dotted-spaced (arrow widgets only).'),
         strokeWidth: z.number().nullable().optional().describe('Connector stroke width in pixels (arrow widgets only).'),
         textAlign: z.string().nullable().optional().describe('Horizontal text alignment: left, center or right.'),
@@ -142,6 +142,7 @@ const WidgetCheckpointSchema = z.object({
 const sync = createSync({
     description: 'Sync every widget across every mural in the workspace.',
     version: '1.0.0',
+    scopes: ['workspaces:read', 'murals:read'],
     frequency: 'every hour',
     autoStart: true,
     models: {
@@ -170,6 +171,7 @@ const sync = createSync({
                 return null;
             }
 
+            // @allowTryCatch: a corrupt checkpoint is discarded so the run restarts from a fresh mural snapshot instead of failing forever.
             try {
                 const muralIds = z.array(z.string()).parse(JSON.parse(parsed.data.muralIdsJson));
                 if (parsed.data.nextMuralIndex > muralIds.length) {
@@ -212,6 +214,12 @@ const sync = createSync({
                 for (const workspace of workspaces) {
                     workspaceIds.push(workspace.id);
                 }
+            }
+
+            // An empty workspace list (lost access, transient provider issue) would otherwise
+            // complete a zero-widget delete scan and remove every previously synced widget.
+            if (workspaceIds.length === 0) {
+                throw new Error('No Mural workspace is available for this connection.');
             }
 
             muralIds = [];
@@ -268,6 +276,9 @@ const sync = createSync({
                     retries: 3
                 };
 
+                // Ids saved for this mural so far, so a 404 on a later page can undo them.
+                const savedRecordIds: string[] = [];
+                // @allowTryCatch: a mural deleted after the snapshot returns 404; treat it as an empty widget set instead of failing the sync.
                 try {
                     for await (const widgetPage of nango.paginate<unknown>(widgetsConfig)) {
                         // Throw on parse failure: a silently skipped record inside a
@@ -283,12 +294,21 @@ const sync = createSync({
 
                         if (records.length > 0) {
                             await nango.batchSave(z.array(WidgetSchema).parse(records), 'Widget');
+                            savedRecordIds.push(...records.map((record) => record.id));
                         }
                     }
                 } catch (error) {
                     if (isNotFoundError(error)) {
                         // The mural can disappear between the mural snapshot and the widget fetch.
                         // Treat that as an empty widget set so delete tracking drops its old widgets.
+                        // Pages saved before the 404 count as seen by trackDeletesEnd, so delete them
+                        // explicitly.
+                        if (savedRecordIds.length > 0) {
+                            await nango.batchDelete(
+                                savedRecordIds.map((id) => ({ id })),
+                                'Widget'
+                            );
+                        }
                         await nango.saveCheckpoint({ muralIdsJson: checkpointMuralIdsJson, nextMuralIndex: muralIndex + 1 });
                         continue;
                     }

@@ -67,6 +67,7 @@ const ResponseSchema = z.object({
 const action = createAction({
     description: "Retrieve a single mural's full details by ID.",
     version: '1.0.0',
+    scopes: ['murals:read'],
     input: InputSchema,
     output: MuralSchema,
 

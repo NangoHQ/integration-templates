@@ -95,10 +95,10 @@ const action = createAction({
         }
 
         // https://developers.mural.co/public/reference/deleteroombyid
-        // DELETE is idempotent: a retry after a lost response simply 404s instead of repeating the mutation.
         await nango.delete({
             endpoint: `/api/public/v1/rooms/${roomId}`,
-            retries: 3
+            // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries -- a retry after a lost success response would 404 on the already-deleted resource and report a completed delete as a failure.
+            retries: 0
         });
 
         let confirmedDeleted = false;

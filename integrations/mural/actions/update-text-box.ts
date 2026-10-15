@@ -87,6 +87,7 @@ const OutputSchema = z
 const action = createAction({
     description: 'Update an existing text widget on a mural.',
     version: '1.0.0',
+    scopes: ['murals:write'],
     input: InputSchema,
     output: OutputSchema,
 

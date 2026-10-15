@@ -178,8 +178,12 @@
           "x-robots-tag": "none",
           "x-recruiting": "If you are reading this, you should probably stop what you are doing and head to mural.co/careers"
         },
-        "hash": "f163df4aaa319b2cd70eddb36488956a330e7b75",
-        "request": {}
+        "hash": "fd2c37222703da970d92e3a51923270bc3c26a39",
+        "request": {
+          "params": {
+            "limit": "100"
+          }
+        }
       },
       "/api/public/v1/workspaces/nangodev4776/murals": {
         "response": {

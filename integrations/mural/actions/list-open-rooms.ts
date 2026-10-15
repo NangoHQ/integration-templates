@@ -32,7 +32,7 @@ const ProviderResponseSchema = z.object({
 const InputSchema = z
     .object({
         workspaceId: z.string().describe('Unique identifier of the workspace whose open rooms to list. Example: "workspace1234"'),
-        limit: z.number().int().positive().optional().describe('Maximum number of rooms to return per page.'),
+        limit: z.number().int().min(1).max(100).optional().describe('Maximum number of rooms to return per page (1-100).'),
         cursor: z.string().optional().describe('Opaque pagination token from the previous response nextCursor. Omit for the first page.')
     })
     .describe('Filters for listing the open rooms of a workspace.');

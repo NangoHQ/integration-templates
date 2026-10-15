@@ -15,14 +15,16 @@ const InputSchema = z
     })
     .describe('Input for listing the members who have access to a Mural room.');
 
+// Mural documents every profile field of a member or guest as optional (only the id is
+// always present), so tolerate missing or null values and omit them in the output.
 const ProviderRoomMemberSchema = z.object({
     id: z.string(),
-    email: z.string().optional(),
-    firstName: z.string(),
-    lastName: z.string(),
-    avatar: z.string(),
+    email: z.string().nullable().optional(),
+    firstName: z.string().nullable().optional(),
+    lastName: z.string().nullable().optional(),
+    avatar: z.string().nullable().optional(),
     type: z.enum(['member', 'guest']),
-    createdOn: z.number().optional()
+    createdOn: z.number().nullable().optional()
 });
 
 const ProviderResponseSchema = z.object({
@@ -33,9 +35,9 @@ const ProviderResponseSchema = z.object({
 const RoomMemberSchema = z.object({
     id: z.string().describe('Unique identifier of the room member.'),
     email: z.string().optional().describe('Email address of the member, when returned by Mural.'),
-    firstName: z.string().describe('First name of the member.'),
-    lastName: z.string().describe('Last name of the member.'),
-    avatar: z.string().describe("URL of the member's avatar image."),
+    firstName: z.string().optional().describe('First name of the member, when set.'),
+    lastName: z.string().optional().describe('Last name of the member, when set.'),
+    avatar: z.string().optional().describe("URL of the member's avatar image, when set."),
     type: z.enum(['member', 'guest']).describe('Whether the user is a workspace member or a guest.'),
     createdOn: z.number().optional().describe('Member creation timestamp in Unix epoch milliseconds as reported by Mural (may be 0 when unknown).')
 });
@@ -43,7 +45,12 @@ const RoomMemberSchema = z.object({
 const OutputSchema = z
     .object({
         members: z.array(RoomMemberSchema).describe('Members with access to the room.'),
-        nextCursor: z.string().optional().describe('Pagination token for the next page of members; pass it back as `cursor` on the next call.')
+        nextCursor: z
+            .string()
+            .optional()
+            .describe(
+                'Pagination token for another page of members; pass it back as `cursor` on the next call. It can still be returned on the final page, so stop when `members` is empty.'
+            )
     })
     .describe('A page of members with access to a Mural room, plus the cursor for the next page.');
 
@@ -75,12 +82,12 @@ const action = createAction({
         return {
             members: providerResponse.value.map((member) => ({
                 id: member.id,
-                ...(member.email !== undefined && { email: member.email }),
-                firstName: member.firstName,
-                lastName: member.lastName,
-                avatar: member.avatar,
+                ...(member.email != null && { email: member.email }),
+                ...(member.firstName != null && { firstName: member.firstName }),
+                ...(member.lastName != null && { lastName: member.lastName }),
+                ...(member.avatar != null && { avatar: member.avatar }),
                 type: member.type,
-                ...(member.createdOn !== undefined && { createdOn: member.createdOn })
+                ...(member.createdOn != null && { createdOn: member.createdOn })
             })),
             ...(providerResponse.next !== undefined && { nextCursor: providerResponse.next })
         };

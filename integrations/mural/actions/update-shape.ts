@@ -2,11 +2,23 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputStyleSchema = z.object({
-    backgroundColor: z.string().optional().describe('New background color of the shape in 8-digit hex with alpha format. Example: "#FCFE7DFF".'),
-    borderColor: z.string().optional().describe('New border color of the shape in 8-digit hex with alpha format. Example: "#000000FF".'),
+    backgroundColor: z
+        .string()
+        .regex(/^#[0-9A-Fa-f]{8}$/)
+        .optional()
+        .describe('New background color of the shape in 8-digit hex with alpha format. Example: "#FCFE7DFF".'),
+    borderColor: z
+        .string()
+        .regex(/^#[0-9A-Fa-f]{8}$/)
+        .optional()
+        .describe('New border color of the shape in 8-digit hex with alpha format. Example: "#000000FF".'),
     borderStyle: z.enum(['solid', 'dotted']).optional().describe('New border style of the shape.'),
     borderWidth: z.number().optional().describe('New border width of the shape in px, between 1 and 7.'),
-    fontColor: z.string().optional().describe('New font color of the shape text in 8-digit hex with alpha format. Example: "#000000FF".')
+    fontColor: z
+        .string()
+        .regex(/^#[0-9A-Fa-f]{8}$/)
+        .optional()
+        .describe('New font color of the shape text in 8-digit hex with alpha format. Example: "#000000FF".')
 });
 
 const InputSchema = z
@@ -24,7 +36,7 @@ const InputSchema = z
         instruction: z.string().optional().describe('New facilitator instruction for the shape, as HTML.'),
         parentId: z.string().optional().describe('Identifier of the area widget that should contain the shape.'),
         presentationIndex: z.number().optional().describe('New list order of the shape in the mural outline.'),
-        rotation: z.number().optional().describe('New rotation angle of the shape in degrees, from 0 up to (but not including) 360.'),
+        rotation: z.number().min(0).lt(360).optional().describe('New rotation angle of the shape in degrees, from 0 up to (but not including) 360.'),
         style: InputStyleSchema.optional().describe('Style properties to apply to the shape. Only the provided style fields are changed.')
     })
     .describe('Fields to change on an existing shape widget; omitted fields keep their current values.');

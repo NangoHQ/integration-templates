@@ -35,6 +35,7 @@ const ProviderResponseSchema = z.object({
 const action = createAction({
     description: 'Create a folder inside a room, to further organize murals.',
     version: '1.0.0',
+    scopes: ['rooms:write'],
     input: InputSchema,
     output: FolderNodeSchema,
 

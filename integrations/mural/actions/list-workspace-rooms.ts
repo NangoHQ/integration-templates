@@ -2,11 +2,11 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const RoomUserSchema = z.object({
-    id: z.string().describe('ID of the user. Example: "u6ed91a0eb0c5cb4ae8713013"'),
-    firstName: z.string().describe('First name of the user.'),
-    lastName: z.string().describe('Last name of the user.'),
-    email: z.string().describe('Email address of the user.'),
-    type: z.string().describe('User type. Example: "member"')
+    id: z.string().optional().describe('ID of the user. Example: "u6ed91a0eb0c5cb4ae8713013"'),
+    firstName: z.string().optional().describe('First name of the user.'),
+    lastName: z.string().optional().describe('Last name of the user.'),
+    email: z.string().optional().describe('Email address of the user, when available.'),
+    type: z.string().optional().describe('User type. Example: "member"')
 });
 
 const RoomSchema = z.object({
@@ -17,7 +17,7 @@ const RoomSchema = z.object({
     confidential: z.boolean().describe('Whether the room is confidential (enterprise plans only).'),
     workspaceId: z.string().describe('ID of the workspace the room belongs to. Example: "nangodev4776"'),
     isMember: z.boolean().describe('Whether the authenticated user is a member of the room.'),
-    favorite: z.boolean().describe('Whether the authenticated user has favorited the room.'),
+    favorite: z.boolean().optional().describe('Whether the authenticated user has favorited the room.'),
     createdOn: z.number().describe('Creation time as a Unix epoch in milliseconds. Example: 1791984264781'),
     createdBy: RoomUserSchema.describe('User who created the room.'),
     updatedOn: z.number().describe('Last update time as a Unix epoch in milliseconds. Example: 1791984264781'),
@@ -41,7 +41,12 @@ const InputSchema = z
 const OutputSchema = z
     .object({
         rooms: z.array(RoomSchema).describe('Rooms in the workspace for this page.'),
-        nextCursor: z.string().optional().describe('Cursor for the next page; pass it as `cursor` on the next call. Absent when there are no more rooms.')
+        nextCursor: z
+            .string()
+            .optional()
+            .describe(
+                'Cursor for another page; pass it as `cursor` on the next call. It can still be returned on the final page, so stop when `rooms` is empty.'
+            )
     })
     .describe('A page of rooms in the workspace along with a cursor for the next page.');
 
@@ -58,6 +63,7 @@ const ProviderResponseSchema = z.object({
 const action = createAction({
     description: 'List every room (folder/container) in a workspace.',
     version: '1.0.0',
+    scopes: ['rooms:read'],
     input: InputSchema,
     output: OutputSchema,
 
@@ -71,14 +77,6 @@ const action = createAction({
             },
             retries: 3
         });
-
-        if (!response.data) {
-            throw new nango.ActionError({
-                type: 'not_found',
-                message: 'The workspace rooms could not be listed.',
-                workspaceId: input.workspaceId
-            });
-        }
 
         const providerResponse = ProviderResponseSchema.parse(response.data);
 

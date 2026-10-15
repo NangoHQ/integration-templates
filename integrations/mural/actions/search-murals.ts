@@ -41,7 +41,7 @@ const InputSchema = z
         workspaceId: z.string().describe('ID of the workspace to search. Example: "workspace1234".'),
         query: z.string().min(1).describe('Full-text search text matched against mural titles.'),
         roomId: z.number().int().optional().describe('Restrict results to murals inside this room ID.'),
-        limit: z.number().int().min(1).max(99).optional().describe('Maximum number of murals to return per page (1-99).'),
+        limit: z.number().int().min(1).max(25).optional().describe('Maximum number of murals to return per page (1-25).'),
         cursor: z.string().optional().describe('Pagination cursor returned by a previous call; omit to fetch the first page.')
     })
     .describe('Input for searching murals in a workspace by title, optionally scoped to a room.');
@@ -49,7 +49,10 @@ const InputSchema = z
 const OutputSchema = z
     .object({
         murals: z.array(MuralSummarySchema).describe('Murals matching the search query.'),
-        nextCursor: z.string().optional().describe('Cursor to fetch the next page of results, present only when more results exist.')
+        nextCursor: z
+            .string()
+            .optional()
+            .describe('Cursor to fetch another page of results. It can still be returned on the final page, so stop when `murals` is empty.')
     })
     .describe('Search results containing the matching murals and an optional cursor for the next page.');
 

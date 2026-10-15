@@ -50,7 +50,10 @@ const InputSchema = z
 const OutputSchema = z
     .object({
         value: z.array(MuralSchema).describe('The page of recently opened murals returned by the provider.'),
-        next: z.string().optional().describe('Token to fetch the next page of murals. Omit when there are no further pages.')
+        next: z
+            .string()
+            .optional()
+            .describe('Token to fetch another page of murals. It can still be returned on the final page, so stop when `value` is empty.')
     })
     .describe("A page of the authenticated user's recently opened active murals in a workspace.");
 

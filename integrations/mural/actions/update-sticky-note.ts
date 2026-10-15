@@ -6,11 +6,15 @@ const TextFontSchema = z.enum(['adelle', 'blambot-casual', 'blambot-pro', 'lint-
 
 const StickyNoteStyleInputSchema = z
     .object({
-        backgroundColor: z.string().optional().describe('Background color as 8-digit hex with alpha. Example: "#FCFE7DFF".'),
+        backgroundColor: z
+            .string()
+            .regex(/^#[0-9A-Fa-f]{8}$/)
+            .optional()
+            .describe('Background color as 8-digit hex with alpha. Example: "#FCFE7DFF".'),
         bold: z.boolean().optional().describe('Whether the text is bold.'),
         border: z.boolean().optional().describe('Whether a black border is drawn around the sticky note.'),
         font: TextFontSchema.optional().describe('Font family used for the text.'),
-        fontSize: z.number().optional().describe('Text size.'),
+        fontSize: z.number().min(1).optional().describe('Text size.'),
         italic: z.boolean().optional().describe('Whether the text is italic.'),
         strike: z.boolean().optional().describe('Whether the text is struck through.'),
         textAlign: z.enum(['left', 'center', 'right']).optional().describe('Horizontal alignment of the text.'),

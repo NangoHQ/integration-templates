@@ -7,7 +7,7 @@ const InputSchema = z
             .string()
             .regex(/^[1-9]\d*$/)
             .describe('Numeric ID of the room to invite people to, as a string. Example: "1610033618903"'),
-        emails: z.array(z.string()).min(1).describe('Email addresses of the people to invite to the room.'),
+        emails: z.array(z.string().email()).min(1).describe('Email addresses of the people to invite to the room.'),
         message: z.string().optional().describe('Custom message included in the invitation email.'),
         sendEmail: z
             .boolean()

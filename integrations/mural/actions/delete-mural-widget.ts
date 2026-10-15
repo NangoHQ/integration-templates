@@ -24,6 +24,7 @@ const OutputSchema = z
 const action = createAction({
     description: 'Permanently delete a single widget from a mural, regardless of its type.',
     version: '1.0.0',
+    scopes: ['murals:write'],
     input: InputSchema,
     output: OutputSchema,
 
@@ -31,7 +32,8 @@ const action = createAction({
         // https://developers.mural.co/public/reference/deletewidgetbyid
         await nango.delete({
             endpoint: `/api/public/v1/murals/${encodeURIComponent(input.muralId)}/widgets/${encodeURIComponent(input.widgetId)}`,
-            retries: 3
+            // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries -- a retry after a lost success response would 404 on the already-deleted resource and report a completed delete as a failure.
+            retries: 0
         });
 
         return {

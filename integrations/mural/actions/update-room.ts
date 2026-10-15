@@ -22,7 +22,13 @@ const RoomSchema = z
         createdOn: z.number().optional().describe('Creation timestamp in Unix epoch milliseconds.'),
         updatedOn: z.number().optional().describe('Last update timestamp in Unix epoch milliseconds.'),
         createdBy: UserInfoSchema.optional().describe('User who created the room.'),
-        updatedBy: UserInfoSchema.optional().describe('User who last updated the room.')
+        updatedBy: UserInfoSchema.optional().describe('User who last updated the room.'),
+        sharingSettings: z
+            .object({
+                link: z.string().optional().describe('Invitation link that a member with an account can use to access the room.')
+            })
+            .optional()
+            .describe('Sharing settings, only returned when the authenticated user owns the room.')
     })
     .describe('A Mural room inside a workspace.');
 
@@ -50,6 +56,7 @@ const InputSchema = z
 const action = createAction({
     description: 'Update a room name or description (partial merge).',
     version: '1.0.0',
+    scopes: ['rooms:read', 'rooms:write'],
     input: InputSchema,
     output: RoomSchema,
 

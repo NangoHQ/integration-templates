@@ -32,7 +32,8 @@ const action = createAction({
         // https://developers.mural.co/public/reference/deletefolderbyid
         await nango.delete({
             endpoint: `/api/public/v1/rooms/${encodeURIComponent(String(input.roomId))}/folders/${encodeURIComponent(input.folderId)}`,
-            retries: 3
+            // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries -- a retry after a lost success response would 404 on the already-deleted resource and report a completed delete as a failure.
+            retries: 0
         });
 
         return {

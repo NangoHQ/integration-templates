@@ -76,6 +76,7 @@ const OutputSchema = z
 const action = createAction({
     description: 'Create a room in a workspace.',
     version: '1.0.0',
+    scopes: ['rooms:write'],
     input: InputSchema,
     output: OutputSchema,
 

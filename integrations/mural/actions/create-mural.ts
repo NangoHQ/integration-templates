@@ -23,7 +23,11 @@ const InputSchema = z
     .object({
         roomId: z.number().int().positive().describe('ID of the room that will contain the new mural. Example: 1608152669000'),
         title: z.string().optional().describe('Title of the mural. Omit it or pass an empty string to create an untitled mural.'),
-        backgroundColor: z.string().optional().describe('Background color of the mural as an 8-digit hex string (#RRGGBBAA). Example: "#FAFAFAFF"'),
+        backgroundColor: z
+            .string()
+            .regex(/^#[0-9A-Fa-f]{8}$/)
+            .optional()
+            .describe('Background color of the mural as an 8-digit hex string (#RRGGBBAA). Example: "#FAFAFAFF"'),
         folderId: z
             .string()
             .optional()
@@ -39,9 +43,9 @@ const ProviderMuralSchema = z.object({
     title: z.string(),
     roomId: z.number().optional(),
     workspaceId: z.string(),
-    backgroundColor: z.string(),
-    width: z.number(),
-    height: z.number(),
+    backgroundColor: z.string().optional(),
+    width: z.number().optional(),
+    height: z.number().optional(),
     infinite: z.boolean().optional(),
     status: z.enum(['active', 'archived']),
     createdOn: z.number(),
@@ -70,9 +74,9 @@ const OutputSchema = z
         title: z.string().describe('Title of the created mural; empty string when it was created untitled.'),
         roomId: z.number().optional().describe('ID of the room containing the mural. Example: 1608152669000'),
         workspaceId: z.string().describe('ID of the workspace containing the mural. Example: "nangodev4776"'),
-        backgroundColor: z.string().describe('Background color of the mural as an 8-digit hex string. Example: "#FAFAFAFF"'),
-        width: z.number().describe('Width of the mural in pixels. Example: 9216'),
-        height: z.number().describe('Height of the mural in pixels. Example: 6237'),
+        backgroundColor: z.string().optional().describe('Background color of the mural as an 8-digit hex string. Example: "#FAFAFAFF"'),
+        width: z.number().optional().describe('Width of the mural in pixels. Example: 9216'),
+        height: z.number().optional().describe('Height of the mural in pixels. Example: 6237'),
         infinite: z.boolean().optional().describe('Whether the mural canvas is borderless and grows as widgets are added.'),
         status: z.enum(['active', 'archived']).describe('Whether the mural is active or archived.'),
         createdOn: z.number().describe('Unix epoch milliseconds when the mural was created.'),
@@ -98,6 +102,7 @@ const OutputSchema = z
 const action = createAction({
     description: 'Create a new, empty mural inside a room.',
     version: '1.0.0',
+    scopes: ['murals:write'],
     input: InputSchema,
     output: OutputSchema,
 
@@ -126,9 +131,9 @@ const action = createAction({
             id: mural.id,
             title: mural.title,
             workspaceId: mural.workspaceId,
-            backgroundColor: mural.backgroundColor,
-            width: mural.width,
-            height: mural.height,
+            ...(mural.backgroundColor !== undefined && { backgroundColor: mural.backgroundColor }),
+            ...(mural.width !== undefined && { width: mural.width }),
+            ...(mural.height !== undefined && { height: mural.height }),
             status: mural.status,
             createdOn: mural.createdOn,
             updatedOn: mural.updatedOn,

@@ -172,11 +172,13 @@ const TagsResponseSchema = z.object({
     value: z.array(TagSchema)
 });
 
-const MembersResponseSchema = z.object({
-    value: z.array(MemberSchema)
+const MembersPageSchema = z.object({
+    value: z.array(MemberSchema),
+    next: z.string().optional()
 });
 
 const WIDGETS_PAGE_SIZE = 100;
+const MEMBERS_PAGE_SIZE = 100;
 
 /**
  * @tags: [read]
@@ -186,6 +188,7 @@ const WIDGETS_PAGE_SIZE = 100;
 const action = createAction({
     description: 'COMPOSITE: get a mural full picture in one call - its own metadata, every widget on its canvas, its tags, and its member list.',
     version: '1.0.0',
+    scopes: ['murals:read', 'users:read'],
     input: InputSchema,
     output: OutputSchema,
 
@@ -234,13 +237,34 @@ const action = createAction({
 
         const tags = TagsResponseSchema.parse(tagsResponse.data).value;
 
-        // https://developers.mural.co/public/reference/getmuralusers
-        const membersResponse = await nango.get({
-            endpoint: `/api/public/v1/murals/${encodeURIComponent(input.muralId)}/users`,
-            retries: 3
-        });
+        const members: z.infer<typeof MemberSchema>[] = [];
+        let membersCursor: string | undefined = undefined;
+        let hasMoreMembers = true;
 
-        const members = MembersResponseSchema.parse(membersResponse.data).value;
+        while (hasMoreMembers) {
+            const config: ProxyConfiguration = {
+                // https://developers.mural.co/public/reference/getmuralusers
+                endpoint: `/api/public/v1/murals/${encodeURIComponent(input.muralId)}/users`,
+                params: membersCursor === undefined ? { limit: MEMBERS_PAGE_SIZE } : { limit: MEMBERS_PAGE_SIZE, next: membersCursor },
+                retries: 3
+            };
+
+            const response = await nango.get(config);
+            const page = MembersPageSchema.parse(response.data);
+
+            // Mural can return `next` on the final page, so an empty page is the end signal.
+            if (page.value.length === 0) {
+                hasMoreMembers = false;
+            } else {
+                members.push(...page.value);
+
+                if (page.next === undefined || page.next === membersCursor) {
+                    hasMoreMembers = false;
+                } else {
+                    membersCursor = page.next;
+                }
+            }
+        }
 
         return {
             mural,

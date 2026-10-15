@@ -22,6 +22,7 @@ const OutputSchema = z
 const action = createAction({
     description: 'Permanently delete a mural. HARD delete - no recycle bin, no restore.',
     version: '1.0.0',
+    scopes: ['murals:write'],
     input: InputSchema,
     output: OutputSchema,
 
@@ -29,7 +30,8 @@ const action = createAction({
         const config: ProxyConfiguration = {
             // https://developers.mural.co/public/reference/deletemuralbyid
             endpoint: `/api/public/v1/murals/${encodeURIComponent(input.muralId)}`,
-            retries: 3
+            // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries -- a retry after a lost success response would 404 on the already-deleted resource and report a completed delete as a failure.
+            retries: 0
         };
 
         await nango.delete(config);

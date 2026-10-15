@@ -37,18 +37,23 @@ const InputSchema = z
 const OutputSchema = z
     .object({
         value: z.array(WorkspaceSchema).describe('Workspaces the authenticated connection can access.'),
-        next: z.string().nullable().optional().describe('Token to fetch the next page of workspaces. Absent when all workspaces fit in a single page.')
+        next: z
+            .string()
+            .nullable()
+            .optional()
+            .describe('Token to fetch another page of workspaces. It can still be returned when the final page is full, so stop when `value` is empty.')
     })
     .describe('A page of workspaces accessible to the connection.');
 
 /**
  * @tags: [read]
  * @tagReason: Reads the workspaces accessible to the connection without creating, modifying, or deleting any provider state.
- * @pitfalls: createdOn is a raw Unix epoch-milliseconds integer, not an ISO-8601 string; the list includes inactive and suspended workspaces, so filter on suspended/locked when you only want active ones; a "next" token appears only when more than one page of workspaces exists, so its absence is normal.
+ * @pitfalls: createdOn is a raw Unix epoch-milliseconds integer, not an ISO-8601 string; the list includes inactive and suspended workspaces, so filter on suspended/locked when you only want active ones; a "next" token can still be returned when the final page is exactly full, so stop paginating when the page is empty.
  */
 const action = createAction({
     description: "List the workspaces this connection can access (top-level org units in Mural's object model).",
     version: '1.0.0',
+    scopes: ['workspaces:read'],
     input: InputSchema,
     output: OutputSchema,
 

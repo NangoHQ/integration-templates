@@ -5,19 +5,22 @@ const InputSchema = z
     .object({
         muralId: z.string().describe('Unique identifier of the mural that contains the tag. Example: "nangodev4776.1791984276717".'),
         tagId: z.string().describe('Unique identifier of the tag to update. Example: "tag-1655472415437".'),
-        text: z.string().optional().describe('New tag text, limited to 25 characters. Omit to leave the current text unchanged.'),
+        text: z.string().max(25).optional().describe('New tag text, limited to 25 characters. Omit to leave the current text unchanged.'),
         backgroundColor: z
             .string()
+            .regex(/^#[0-9A-Fa-f]{8}$/)
             .nullable()
             .optional()
             .describe('New tag background color as 8-digit hex with alpha, e.g. "#FAFAFAFF". Pass null to clear it; omit to leave it unchanged.'),
         borderColor: z
             .string()
+            .regex(/^#[0-9A-Fa-f]{8}$/)
             .nullable()
             .optional()
             .describe('New tag border color as 8-digit hex with alpha, e.g. "#FAFAFAFF". Pass null to clear it; omit to leave it unchanged.'),
         color: z
             .string()
+            .regex(/^#[0-9A-Fa-f]{8}$/)
             .nullable()
             .optional()
             .describe('New tag text color as 8-digit hex with alpha, e.g. "#FAFAFAFF". Pass null to clear it; omit to leave it unchanged.')
