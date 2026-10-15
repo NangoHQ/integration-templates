@@ -52,7 +52,8 @@
         "hash": "88f23153eb85466c2ec2f654be04f3621f36b17f",
         "request": {
           "params": {
-            "fields": "id,name,mimeType,createdTime,parents"
+            "fields": "id,name,mimeType,createdTime,parents",
+            "supportsAllDrives": "true"
           },
           "data": {
             "name": "Test Folder Nango 2",
