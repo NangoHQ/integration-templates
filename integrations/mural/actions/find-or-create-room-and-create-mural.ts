@@ -82,7 +82,8 @@ const action = createAction({
             if (match !== undefined) {
                 roomId = match.id;
                 searching = false;
-            } else if (page.value.length === 0 || page.next == null) {
+            } else if (page.value.length === 0 || page.next == null || page.next === nextToken) {
+                // A repeated cursor would re-request the same page forever.
                 searching = false;
             } else {
                 nextToken = page.next;

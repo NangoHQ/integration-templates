@@ -107,7 +107,8 @@ const action = createAction({
             if (match) {
                 targetRoomId = match.id;
                 searching = false;
-            } else if (parsed.value.length === 0 || !parsed.next) {
+            } else if (parsed.value.length === 0 || !parsed.next || parsed.next === next) {
+                // A repeated cursor would re-request the same page forever.
                 searching = false;
             } else {
                 next = parsed.next;
