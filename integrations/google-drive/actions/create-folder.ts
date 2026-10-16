@@ -29,7 +29,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a new folder in Google Drive',
-    version: '1.0.1',
+    version: '1.0.2',
 
     input: InputSchema,
     output: OutputSchema,
@@ -49,6 +49,7 @@ const action = createAction({
         const response = await nango.post({
             endpoint: '/drive/v3/files',
             params: {
+                supportsAllDrives: 'true',
                 fields: 'id,name,mimeType,createdTime,parents'
             },
             data: requestBody,

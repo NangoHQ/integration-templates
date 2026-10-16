@@ -50,7 +50,8 @@
         "hash": "c2b1b5f4d759beb86d8b76419587d60650cf6383",
         "request": {
           "params": {
-            "fields": "id,name,mimeType,webViewLink,webContentLink"
+            "fields": "id,name,mimeType,webViewLink,webContentLink",
+            "supportsAllDrives": "true"
           },
           "data": {
             "name": "test-upload.txt",
@@ -92,7 +93,8 @@
         "request": {
           "params": {
             "fields": "id,name,mimeType,webViewLink,webContentLink",
-            "uploadType": "media"
+            "uploadType": "media",
+            "supportsAllDrives": "true"
           },
           "headers": {
             "Content-Type": "text/plain"

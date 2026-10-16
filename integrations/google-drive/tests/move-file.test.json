@@ -54,7 +54,8 @@
           "params": {
             "addParents": "1Bl1rB7hkBbdzmKUka3zSj0bhAK3pGypD",
             "fields": "id,name,mimeType,parents",
-            "removeParents": "1SpnQKJHqNDh-qhbj_zGD2aIm-G-RKC_k"
+            "removeParents": "1SpnQKJHqNDh-qhbj_zGD2aIm-G-RKC_k",
+            "supportsAllDrives": "true"
           }
         }
       }
