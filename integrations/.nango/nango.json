@@ -550093,7 +550093,7 @@
       },
       {
         "type": "action",
-        "description": "Get a user's personal OneDrive (drive).",
+        "description": "Get the connected user's OneDrive, or another user's drive when a user ID is provided.",
         "endpoint": null,
         "input": "ActionInput_microsoft_powerpoint_oauth2_cc_getuserdrive",
         "name": "get-user-drive",
@@ -550107,20 +550107,17 @@
           "ActionInput_microsoft_powerpoint_oauth2_cc_getuserdrive",
           "ActionOutput_microsoft_powerpoint_oauth2_cc_getuserdrive"
         ],
-        "version": "1.0.0",
+        "version": "1.0.1",
         "json_schema": {
           "definitions": {
             "ActionInput_microsoft_powerpoint_oauth2_cc_getuserdrive": {
               "type": "object",
               "properties": {
                 "userId": {
-                  "type": "string",
-                  "description": "User ID or user principal name. Example: \"test_api@nango.dev\""
+                  "description": "User ID or user principal name. Omit to get the connected user's drive. Example: \"test_api@nango.dev\"",
+                  "type": "string"
                 }
               },
-              "required": [
-                "userId"
-              ],
               "additionalProperties": false
             },
             "ActionOutput_microsoft_powerpoint_oauth2_cc_getuserdrive": {
@@ -552459,7 +552456,7 @@
       },
       {
         "type": "action",
-        "description": "Get a user's personal OneDrive (drive).",
+        "description": "Get the connected user's OneDrive, or another user's drive when a user ID is provided.",
         "endpoint": null,
         "input": "ActionInput_microsoft_excel_oauth2_cc_getuserdrive",
         "name": "get-user-drive",
@@ -552473,20 +552470,17 @@
           "ActionInput_microsoft_excel_oauth2_cc_getuserdrive",
           "ActionOutput_microsoft_excel_oauth2_cc_getuserdrive"
         ],
-        "version": "1.0.1",
+        "version": "1.0.2",
         "json_schema": {
           "definitions": {
             "ActionInput_microsoft_excel_oauth2_cc_getuserdrive": {
               "type": "object",
               "properties": {
                 "userId": {
-                  "type": "string",
-                  "description": "User ID or user principal name. Example: \"api@nango.dev\""
+                  "description": "User ID or user principal name. Omit to get the connected user's drive. Example: \"api@nango.dev\"",
+                  "type": "string"
                 }
               },
-              "required": [
-                "userId"
-              ],
               "additionalProperties": false
             },
             "ActionOutput_microsoft_excel_oauth2_cc_getuserdrive": {
@@ -558059,7 +558053,7 @@
       },
       {
         "type": "action",
-        "description": "Get a user's personal OneDrive (drive).",
+        "description": "Get the connected user's OneDrive, or another user's drive when a user ID is provided.",
         "endpoint": null,
         "input": "ActionInput_microsoft_word_oauth2_cc_getuserdrive",
         "name": "get-user-drive",
@@ -558073,20 +558067,17 @@
           "ActionInput_microsoft_word_oauth2_cc_getuserdrive",
           "ActionOutput_microsoft_word_oauth2_cc_getuserdrive"
         ],
-        "version": "1.0.0",
+        "version": "1.0.1",
         "json_schema": {
           "definitions": {
             "ActionInput_microsoft_word_oauth2_cc_getuserdrive": {
               "type": "object",
               "properties": {
                 "userId": {
-                  "type": "string",
-                  "description": "User ID. Example: \"aea0ba47-35e8-4a85-92bb-03ea32f9d3f6\""
+                  "description": "User ID. Omit to get the connected user's drive. Example: \"aea0ba47-35e8-4a85-92bb-03ea32f9d3f6\"",
+                  "type": "string"
                 }
               },
-              "required": [
-                "userId"
-              ],
               "additionalProperties": false
             },
             "ActionOutput_microsoft_word_oauth2_cc_getuserdrive": {

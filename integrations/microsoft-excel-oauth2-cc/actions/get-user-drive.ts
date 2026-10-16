@@ -2,7 +2,10 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    userId: z.string().describe('User ID or user principal name. Example: "api@nango.dev"')
+    userId: z
+        .string()
+        .optional()
+        .describe('User ID or user principal name. Omit to get the connected user\'s drive. Example: "api@nango.dev"')
 });
 
 const ProviderDriveSchema = z.object({
@@ -20,24 +23,25 @@ const OutputSchema = z.object({
 });
 
 const action = createAction({
-    description: "Get a user's personal OneDrive (drive).",
-    version: '1.0.1',
+    description: "Get the connected user's OneDrive, or another user's drive when a user ID is provided.",
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['Files.Read.All'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        const endpoint = input.userId ? `/v1.0/users/${encodeURIComponent(input.userId)}/drive` : '/v1.0/me/drive';
         const response = await nango.get({
-            // https://learn.microsoft.com/en-us/graph/api/resources/drive
-            endpoint: `/v1.0/users/${encodeURIComponent(input.userId)}/drive`,
+            // https://learn.microsoft.com/en-us/graph/api/drive-get
+            endpoint,
             retries: 3
         });
 
         if (!response.data) {
             throw new nango.ActionError({
                 type: 'not_found',
-                message: 'Drive not found for the given user',
-                userId: input.userId
+                message: input.userId ? 'Drive not found for the given user' : 'Drive not found for the connected user',
+                ...(input.userId && { userId: input.userId })
             });
         }
 

@@ -16,4 +16,13 @@ describe('microsoft-excel-oauth2-cc get-user-drive tests', () => {
 
         expect(response).toEqual(output);
     });
+
+    it('gets the connected user drive when userId is omitted', async () => {
+        const getSpy = vi.spyOn(nangoMock, 'get').mockResolvedValueOnce({
+            data: { id: 'current-user-drive' }
+        } as Awaited<ReturnType<typeof nangoMock.get>>);
+
+        await expect(createAction.exec(nangoMock, {})).resolves.toEqual({ id: 'current-user-drive' });
+        expect(getSpy).toHaveBeenCalledWith({ endpoint: '/v1.0/me/drive', retries: 3 });
+    });
 });
