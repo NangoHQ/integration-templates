@@ -1,0 +1,756 @@
+{
+  "input": {
+    "presentationId": "1XFaFcivdWdl-Em5A8HC0_Oua7fSWpw-MR_QDj1AHsPI",
+    "objectId": "my_text_box_1",
+    "text": "Inserted by Nango",
+    "insertionIndex": 0
+  },
+  "output": {
+    "presentationId": "1XFaFcivdWdl-Em5A8HC0_Oua7fSWpw-MR_QDj1AHsPI",
+    "objectId": "my_text_box_1",
+    "insertedText": "Inserted by Nango",
+    "insertionIndex": 0,
+    "text": "Inserted by NangoInserted by NangoInserted by NangoInserted by Nango\n",
+    "verified": true
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/v1/presentations/1XFaFcivdWdl-Em5A8HC0_Oua7fSWpw-MR_QDj1AHsPI:batchUpdate": {
+        "response": {
+          "presentationId": "1XFaFcivdWdl-Em5A8HC0_Oua7fSWpw-MR_QDj1AHsPI",
+          "replies": [
+            {}
+          ],
+          "writeControl": {
+            "requiredRevisionId": "nTvhMrh2mEFRQQ"
+          },
+          "commentUpdateState": "NO_UPDATES_REQUESTED"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 15 Oct 2026 16:17:00 GMT",
+          "content-type": "application/json; charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1990",
+          "x-ratelimit-reset": "1792081069",
+          "vary": "Origin, X-Origin, Referer",
+          "server": "ESF",
+          "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
+          "x-l2-request-path": "l2-managed-4"
+        },
+        "hash": "7c003ace71a61a37591875470dd5d399bf107de6",
+        "request": {
+          "data": {
+            "requests": [
+              {
+                "insertText": {
+                  "objectId": "my_text_box_1",
+                  "text": "Inserted by Nango",
+                  "insertionIndex": 0
+                }
+              }
+            ]
+          }
+        }
+      }
+    },
+    "get": {
+      "/v1/presentations/1XFaFcivdWdl-Em5A8HC0_Oua7fSWpw-MR_QDj1AHsPI": {
+        "response": {
+          "slides": [
+            {
+              "objectId": "p",
+              "pageElements": [
+                {
+                  "objectId": "i0",
+                  "shape": {}
+                },
+                {
+                  "objectId": "i1",
+                  "shape": {}
+                },
+                {
+                  "objectId": "itc_table_1",
+                  "table": {
+                    "tableRows": [
+                      {
+                        "tableCells": [
+                          {},
+                          {},
+                          {},
+                          {},
+                          {}
+                        ]
+                      },
+                      {
+                        "tableCells": [
+                          {},
+                          {},
+                          {},
+                          {},
+                          {}
+                        ]
+                      },
+                      {
+                        "tableCells": [
+                          {},
+                          {},
+                          {},
+                          {},
+                          {}
+                        ]
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "objectId": "SLIDES_API1674887689_0",
+              "pageElements": [
+                {
+                  "objectId": "SLIDES_API1674887689_1",
+                  "shape": {}
+                },
+                {
+                  "objectId": "SLIDES_API1674887689_2",
+                  "shape": {}
+                }
+              ]
+            },
+            {
+              "objectId": "SLIDES_API36128344_0",
+              "pageElements": [
+                {
+                  "objectId": "SLIDES_API36128344_1",
+                  "shape": {}
+                },
+                {
+                  "objectId": "SLIDES_API36128344_2",
+                  "shape": {}
+                }
+              ]
+            },
+            {
+              "objectId": "slide_empty_1",
+              "pageElements": [
+                {
+                  "objectId": "SLIDES_API1911645080_0",
+                  "shape": {}
+                },
+                {
+                  "objectId": "action_table_1",
+                  "table": {
+                    "tableRows": [
+                      {
+                        "tableCells": [
+                          {},
+                          {},
+                          {}
+                        ]
+                      },
+                      {
+                        "tableCells": [
+                          {},
+                          {},
+                          {}
+                        ]
+                      }
+                    ]
+                  }
+                },
+                {
+                  "objectId": "SLIDES_API1359688834_0",
+                  "shape": {}
+                }
+              ]
+            },
+            {
+              "objectId": "SLIDES_API2092878690_0",
+              "pageElements": [
+                {
+                  "objectId": "SLIDES_API2092878690_1",
+                  "shape": {}
+                },
+                {
+                  "objectId": "SLIDES_API2092878690_2",
+                  "shape": {}
+                }
+              ]
+            },
+            {
+              "objectId": "SLIDES_API1815926584_0",
+              "pageElements": [
+                {
+                  "objectId": "SLIDES_API1815926584_1",
+                  "shape": {}
+                },
+                {
+                  "objectId": "SLIDES_API1815926584_2",
+                  "shape": {}
+                }
+              ]
+            },
+            {
+              "objectId": "SLIDES_API1676022713_0",
+              "pageElements": [
+                {
+                  "objectId": "SLIDES_API1676022713_1",
+                  "shape": {}
+                },
+                {
+                  "objectId": "SLIDES_API1676022713_2",
+                  "shape": {}
+                }
+              ]
+            },
+            {
+              "objectId": "SLIDES_API1796972850_0",
+              "pageElements": [
+                {
+                  "objectId": "SLIDES_API1796972850_1",
+                  "shape": {}
+                },
+                {
+                  "objectId": "SLIDES_API1796972850_2",
+                  "shape": {}
+                }
+              ]
+            },
+            {
+              "objectId": "SLIDES_API1607775223_0",
+              "pageElements": [
+                {
+                  "objectId": "my_table_1",
+                  "table": {
+                    "tableRows": [
+                      {
+                        "tableCells": [
+                          {
+                            "text": {
+                              "textElements": [
+                                {
+                                  "endIndex": 13,
+                                  "paragraphMarker": {
+                                    "style": {
+                                      "lineSpacing": 100,
+                                      "alignment": "START",
+                                      "indentStart": {
+                                        "unit": "PT"
+                                      },
+                                      "indentEnd": {
+                                        "unit": "PT"
+                                      },
+                                      "spaceAbove": {
+                                        "unit": "PT"
+                                      },
+                                      "spaceBelow": {
+                                        "unit": "PT"
+                                      },
+                                      "indentFirstLine": {
+                                        "unit": "PT"
+                                      },
+                                      "direction": "LEFT_TO_RIGHT",
+                                      "spacingMode": "COLLAPSE_LISTS"
+                                    }
+                                  }
+                                },
+                                {
+                                  "endIndex": 13,
+                                  "textRun": {
+                                    "content": "[tbl]Cell A1\n",
+                                    "style": {
+                                      "backgroundColor": {},
+                                      "foregroundColor": {
+                                        "opaqueColor": {
+                                          "rgbColor": {}
+                                        }
+                                      },
+                                      "bold": false,
+                                      "italic": false,
+                                      "fontFamily": "Arial",
+                                      "fontSize": {
+                                        "magnitude": 14,
+                                        "unit": "PT"
+                                      },
+                                      "baselineOffset": "NONE",
+                                      "smallCaps": false,
+                                      "strikethrough": false,
+                                      "underline": false,
+                                      "weightedFontFamily": {
+                                        "fontFamily": "Arial",
+                                        "weight": 400
+                                      }
+                                    }
+                                  }
+                                }
+                              ]
+                            }
+                          },
+                          {},
+                          {},
+                          {}
+                        ]
+                      },
+                      {
+                        "tableCells": [
+                          {},
+                          {},
+                          {},
+                          {}
+                        ]
+                      },
+                      {
+                        "tableCells": [
+                          {},
+                          {},
+                          {},
+                          {}
+                        ]
+                      },
+                      {
+                        "tableCells": [
+                          {},
+                          {},
+                          {},
+                          {}
+                        ]
+                      }
+                    ]
+                  }
+                },
+                {
+                  "objectId": "my_image_1"
+                },
+                {
+                  "objectId": "nango_delrow_table_1",
+                  "table": {
+                    "tableRows": [
+                      {
+                        "tableCells": [
+                          {},
+                          {}
+                        ]
+                      },
+                      {
+                        "tableCells": [
+                          {},
+                          {}
+                        ]
+                      },
+                      {
+                        "tableCells": [
+                          {},
+                          {}
+                        ]
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "objectId": "slide_test_1",
+              "pageElements": [
+                {
+                  "objectId": "SLIDES_API326449874_0",
+                  "shape": {
+                    "text": {
+                      "textElements": [
+                        {
+                          "endIndex": 18,
+                          "paragraphMarker": {
+                            "style": {
+                              "direction": "LEFT_TO_RIGHT"
+                            }
+                          }
+                        },
+                        {
+                          "endIndex": 18,
+                          "textRun": {
+                            "content": "NangoX Test Title\n",
+                            "style": {
+                              "foregroundColor": {
+                                "opaqueColor": {
+                                  "rgbColor": {
+                                    "red": 0.8,
+                                    "green": 0.101960786,
+                                    "blue": 0.101960786
+                                  }
+                                }
+                              },
+                              "bold": true,
+                              "italic": true
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "objectId": "SLIDES_API326449874_1",
+                  "shape": {
+                    "text": {
+                      "textElements": [
+                        {
+                          "endIndex": 24,
+                          "paragraphMarker": {
+                            "style": {
+                              "indentStart": {
+                                "unit": "PT"
+                              },
+                              "indentFirstLine": {
+                                "unit": "PT"
+                              },
+                              "direction": "LEFT_TO_RIGHT"
+                            }
+                          }
+                        },
+                        {
+                          "endIndex": 24,
+                          "textRun": {
+                            "content": "NangoX Test Body Line 1\n",
+                            "style": {}
+                          }
+                        },
+                        {
+                          "startIndex": 24,
+                          "endIndex": 25,
+                          "paragraphMarker": {
+                            "style": {
+                              "indentStart": {
+                                "unit": "PT"
+                              },
+                              "indentFirstLine": {
+                                "unit": "PT"
+                              },
+                              "direction": "LEFT_TO_RIGHT"
+                            }
+                          }
+                        },
+                        {
+                          "startIndex": 24,
+                          "endIndex": 25,
+                          "textRun": {
+                            "content": "\n",
+                            "style": {}
+                          }
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "objectId": "my_text_box_1",
+                  "shape": {
+                    "text": {
+                      "textElements": [
+                        {
+                          "endIndex": 69,
+                          "paragraphMarker": {
+                            "style": {
+                              "lineSpacing": 100,
+                              "alignment": "START",
+                              "indentStart": {
+                                "unit": "PT"
+                              },
+                              "indentEnd": {
+                                "unit": "PT"
+                              },
+                              "spaceAbove": {
+                                "unit": "PT"
+                              },
+                              "spaceBelow": {
+                                "unit": "PT"
+                              },
+                              "indentFirstLine": {
+                                "unit": "PT"
+                              },
+                              "direction": "LEFT_TO_RIGHT",
+                              "spacingMode": "COLLAPSE_LISTS"
+                            }
+                          }
+                        },
+                        {
+                          "endIndex": 69,
+                          "textRun": {
+                            "content": "Inserted by NangoInserted by NangoInserted by NangoInserted by Nango\n",
+                            "style": {
+                              "backgroundColor": {},
+                              "foregroundColor": {
+                                "opaqueColor": {
+                                  "themeColor": "DARK2"
+                                }
+                              },
+                              "bold": false,
+                              "italic": false,
+                              "fontFamily": "Arial",
+                              "fontSize": {
+                                "magnitude": 18,
+                                "unit": "PT"
+                              },
+                              "baselineOffset": "NONE",
+                              "smallCaps": false,
+                              "strikethrough": false,
+                              "underline": false,
+                              "weightedFontFamily": {
+                                "fontFamily": "Arial",
+                                "weight": 400
+                              }
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "objectId": "my_rect_1",
+                  "shape": {}
+                },
+                {
+                  "objectId": "SLIDES_API1109984005_0",
+                  "shape": {}
+                },
+                {
+                  "objectId": "SLIDES_API1350133488_0",
+                  "shape": {}
+                },
+                {
+                  "objectId": "SLIDES_API1748152129_0",
+                  "shape": {}
+                },
+                {
+                  "objectId": "delete_text_target_1",
+                  "shape": {
+                    "text": {
+                      "textElements": [
+                        {
+                          "endIndex": 15,
+                          "paragraphMarker": {
+                            "style": {
+                              "lineSpacing": 100,
+                              "alignment": "START",
+                              "indentStart": {
+                                "unit": "PT"
+                              },
+                              "indentEnd": {
+                                "unit": "PT"
+                              },
+                              "spaceAbove": {
+                                "unit": "PT"
+                              },
+                              "spaceBelow": {
+                                "unit": "PT"
+                              },
+                              "indentFirstLine": {
+                                "unit": "PT"
+                              },
+                              "direction": "LEFT_TO_RIGHT",
+                              "spacingMode": "COLLAPSE_LISTS"
+                            }
+                          }
+                        },
+                        {
+                          "endIndex": 15,
+                          "textRun": {
+                            "content": "te text sample\n",
+                            "style": {
+                              "backgroundColor": {},
+                              "foregroundColor": {
+                                "opaqueColor": {
+                                  "themeColor": "DARK2"
+                                }
+                              },
+                              "bold": false,
+                              "italic": false,
+                              "fontFamily": "Arial",
+                              "fontSize": {
+                                "magnitude": 18,
+                                "unit": "PT"
+                              },
+                              "baselineOffset": "NONE",
+                              "smallCaps": false,
+                              "strikethrough": false,
+                              "underline": false,
+                              "weightedFontFamily": {
+                                "fontFamily": "Arial",
+                                "weight": 400
+                              }
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "objectId": "SLIDES_API774170725_0",
+              "pageElements": [
+                {
+                  "objectId": "SLIDES_API774170725_1",
+                  "shape": {
+                    "text": {
+                      "textElements": [
+                        {
+                          "endIndex": 22,
+                          "paragraphMarker": {
+                            "style": {
+                              "direction": "LEFT_TO_RIGHT"
+                            }
+                          }
+                        },
+                        {
+                          "endIndex": 22,
+                          "textRun": {
+                            "content": "Nango Composite Title\n",
+                            "style": {}
+                          }
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "objectId": "SLIDES_API774170725_2",
+                  "shape": {
+                    "text": {
+                      "textElements": [
+                        {
+                          "endIndex": 21,
+                          "paragraphMarker": {
+                            "style": {
+                              "indentStart": {
+                                "unit": "PT"
+                              },
+                              "indentFirstLine": {
+                                "unit": "PT"
+                              },
+                              "direction": "LEFT_TO_RIGHT"
+                            }
+                          }
+                        },
+                        {
+                          "endIndex": 21,
+                          "textRun": {
+                            "content": "Nango Composite Body\n",
+                            "style": {}
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "objectId": "SLIDES_API921625521_0",
+              "pageElements": [
+                {
+                  "objectId": "SLIDES_API921625521_1",
+                  "shape": {
+                    "text": {
+                      "textElements": [
+                        {
+                          "endIndex": 22,
+                          "paragraphMarker": {
+                            "style": {
+                              "direction": "LEFT_TO_RIGHT"
+                            }
+                          }
+                        },
+                        {
+                          "endIndex": 22,
+                          "textRun": {
+                            "content": "Nango Composite Title\n",
+                            "style": {}
+                          }
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "objectId": "SLIDES_API921625521_2",
+                  "shape": {
+                    "text": {
+                      "textElements": [
+                        {
+                          "endIndex": 21,
+                          "paragraphMarker": {
+                            "style": {
+                              "indentStart": {
+                                "unit": "PT"
+                              },
+                              "indentFirstLine": {
+                                "unit": "PT"
+                              },
+                              "direction": "LEFT_TO_RIGHT"
+                            }
+                          }
+                        },
+                        {
+                          "endIndex": 21,
+                          "textRun": {
+                            "content": "Nango Composite Body\n",
+                            "style": {}
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 15 Oct 2026 16:17:00 GMT",
+          "content-type": "application/json; charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1989",
+          "x-ratelimit-reset": "1792081069",
+          "vary": "Origin, X-Origin, Referer",
+          "server": "ESF",
+          "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
+          "x-l2-request-path": "l2-managed-4"
+        },
+        "hash": "e7fa33002c700f9f4308e75362bbb5fb09aac551",
+        "request": {
+          "params": {
+            "fields": "slides(objectId,pageElements(objectId,shape.text,table.tableRows.tableCells.text))"
+          }
+        }
+      }
+    }
+  }
+}
