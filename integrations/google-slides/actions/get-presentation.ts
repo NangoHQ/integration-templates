@@ -54,7 +54,13 @@ const PageSchema = z
 
 const InputSchema = z
     .object({
-        presentationId: z.string().describe('The ID of the presentation to retrieve. Example: "1XFaFcivdWdl-Em5A8HC0_Oua7fSWpw-MR_QDj1AHsPI"')
+        presentationId: z.string().describe('The ID of the presentation to retrieve. Example: "1XFaFcivdWdl-Em5A8HC0_Oua7fSWpw-MR_QDj1AHsPI"'),
+        fields: z
+            .string()
+            .optional()
+            .describe(
+                'Optional Google partial-response field mask to limit the response size. Include objectId in any slides/layouts/masters/pageElements sub-selection. Omit to return the full presentation. Example: "presentationId,title,slides(objectId,pageElements(objectId,shape/text))"'
+            )
     })
     .describe('Identifies the presentation to fetch by its Google Slides presentation ID.');
 
@@ -72,15 +78,20 @@ const OutputSchema = z
         notesMaster: PageSchema.optional().describe('The notes master of the presentation.')
     })
     .passthrough()
-    .describe('The full structure of a Google Slides presentation, including its slides, page elements, masters, layouts, and notes master.');
+    .describe('The structure of a Google Slides presentation (limited to the requested fields when a field mask is given), including its slides, page elements, masters, layouts, and notes master.');
+
+const ProviderPresentationSchema = OutputSchema.extend({
+    presentationId: z.string().optional()
+});
 
 /**
  * @tags: [read]
  * @tagReason: Fetches a presentation's full structure from the Google Slides API without modifying any provider data.
- * @pitfalls: A slide with no page elements omits the pageElements key entirely rather than returning an empty array, and a nonexistent or inaccessible presentationId returns a 404 error.
+ * @pitfalls: A slide with no page elements omits the pageElements key entirely rather than returning an empty array, and a nonexistent or inaccessible presentationId returns a 404 error. The unmasked response includes every master and layout and can be very large; a fields mask that omits objectId on pages or page elements fails validation.
  */
 const action = createAction({
-    description: "Fetch a presentation's full structure - every slide, page element, and metadata - in one call.",
+    description:
+        "Fetch a presentation's full structure - every slide, page element, and metadata - in one call. The full response can be several MB for large decks; pass a fields mask to limit it.",
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
@@ -90,10 +101,12 @@ const action = createAction({
         // https://developers.google.com/slides/api/reference/rest/v1/presentations/get
         const response = await nango.get({
             endpoint: `/v1/presentations/${encodeURIComponent(input.presentationId)}`,
+            ...(input.fields !== undefined && input.fields.length > 0 && { params: { fields: input.fields } }),
             retries: 3
         });
 
-        const parsed = OutputSchema.safeParse(response.data);
+        // A field mask may leave out presentationId, so it falls back to the requested ID.
+        const parsed = ProviderPresentationSchema.safeParse(response.data);
 
         if (!parsed.success) {
             throw new nango.ActionError({
@@ -103,7 +116,10 @@ const action = createAction({
             });
         }
 
-        return parsed.data;
+        return {
+            ...parsed.data,
+            presentationId: parsed.data.presentationId ?? input.presentationId
+        };
     }
 });
 

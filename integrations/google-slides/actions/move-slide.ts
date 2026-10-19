@@ -47,6 +47,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['https://www.googleapis.com/auth/presentations'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://developers.google.com/slides/api/reference/rest/v1/presentations/batchUpdate

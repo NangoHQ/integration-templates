@@ -65,7 +65,7 @@ const OutputSchema = z
 /**
  * @tags: [write]
  * @tagReason: Creates a new presentation in the user's Google Drive via presentations.create; it does not delete, clear, or irreversibly modify any existing provider data.
- * @pitfalls: Only the title is honored, so the new deck always starts with exactly one default slide whose placeholder object IDs are auto-generated, and any other content must be added in a later call. Presentations cannot be deleted through the Slides API, so the created deck is permanent.
+ * @pitfalls: Only the title is honored, so the new deck always starts with exactly one default slide whose placeholder object IDs are auto-generated, and any other content must be added in a later call. The Slides API has no delete endpoint, so removing the deck requires the Google Drive API (files.delete or moving it to trash), which needs a Drive scope.
  */
 const action = createAction({
     description: 'Create a new, blank Google Slides presentation with a title.',

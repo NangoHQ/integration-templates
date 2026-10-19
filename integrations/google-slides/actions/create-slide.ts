@@ -3,7 +3,6 @@ import { createAction } from 'nango';
 
 const PredefinedLayoutSchema = z
     .enum([
-        'PREDEFINED_LAYOUT_UNSPECIFIED',
         'BLANK',
         'CAPTION_ONLY',
         'TITLE',

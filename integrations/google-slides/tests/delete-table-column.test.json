@@ -2,11 +2,14 @@
   "input": {
     "presentationId": "1XMjFrmrnGzfPhHQb0ZMc4YSKwLvyn0HckTRodgW6mGw",
     "tableObjectId": "tbl_fixture_1",
-    "rowIndex": 0,
-    "columnIndex": 1
+    "cellLocation": {
+      "rowIndex": 0,
+      "columnIndex": 1
+    }
   },
   "output": {
     "presentationId": "1XMjFrmrnGzfPhHQb0ZMc4YSKwLvyn0HckTRodgW6mGw",
+    "tableObjectId": "tbl_fixture_1",
     "success": true
   },
   "nango": {},

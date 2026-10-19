@@ -3,7 +3,7 @@ import { createAction } from 'nango';
 
 const DimensionSchema = z.object({
     magnitude: z.number().describe('The magnitude of the dimension. Example: 3000000'),
-    unit: z.enum(['UNIT_UNSPECIFIED', 'EMU', 'PT']).describe('The units for the magnitude. Example: "EMU"')
+    unit: z.enum(['EMU', 'PT']).describe('The units for the magnitude: "EMU" (914400 EMU = 1 inch) or "PT" (points). Example: "EMU"')
 });
 
 const SizeSchema = z.object({
@@ -18,7 +18,7 @@ const TransformSchema = z.object({
     shearY: z.number().optional().describe('The Y coordinate shearing element. Defaults to 0.'),
     translateX: z.number().optional().describe('The X coordinate translation element, in the given unit. Defaults to 0.'),
     translateY: z.number().optional().describe('The Y coordinate translation element, in the given unit. Defaults to 0.'),
-    unit: z.enum(['UNIT_UNSPECIFIED', 'EMU', 'PT']).optional().describe('The units for the translate elements. Example: "EMU"')
+    unit: z.enum(['EMU', 'PT']).describe('The units for the translate elements: "EMU" or "PT". Required by the API. Example: "EMU"')
 });
 
 const InputSchema = z

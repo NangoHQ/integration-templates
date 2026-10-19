@@ -30,6 +30,20 @@
         "kind": "group"
       },
       {
+        "objectId": "my_text_box_1",
+        "kind": "shape",
+        "shapeType": "TEXT_BOX",
+        "parentGroupObjectId": "SLIDES_API712370979_0",
+        "text": ""
+      },
+      {
+        "objectId": "my_rect_1",
+        "kind": "shape",
+        "shapeType": "RECTANGLE",
+        "parentGroupObjectId": "SLIDES_API712370979_0",
+        "text": ""
+      },
+      {
         "objectId": "SLIDES_API1109984005_0",
         "kind": "shape",
         "shapeType": "RECTANGLE",

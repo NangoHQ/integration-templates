@@ -376840,11 +376840,10 @@
                         "unit": {
                           "type": "string",
                           "enum": [
-                            "UNIT_UNSPECIFIED",
                             "EMU",
                             "PT"
                           ],
-                          "description": "The units for the magnitude. Example: \"EMU\""
+                          "description": "The units for the magnitude: \"EMU\" (914400 EMU = 1 inch) or \"PT\" (points). Example: \"EMU\""
                         }
                       },
                       "required": [
@@ -376864,11 +376863,10 @@
                         "unit": {
                           "type": "string",
                           "enum": [
-                            "UNIT_UNSPECIFIED",
                             "EMU",
                             "PT"
                           ],
-                          "description": "The units for the magnitude. Example: \"EMU\""
+                          "description": "The units for the magnitude: \"EMU\" (914400 EMU = 1 inch) or \"PT\" (points). Example: \"EMU\""
                         }
                       },
                       "required": [
@@ -376914,15 +376912,17 @@
                       "type": "number"
                     },
                     "unit": {
-                      "description": "The units for the translate elements. Example: \"EMU\"",
                       "type": "string",
                       "enum": [
-                        "UNIT_UNSPECIFIED",
                         "EMU",
                         "PT"
-                      ]
+                      ],
+                      "description": "The units for the translate elements: \"EMU\" or \"PT\". Required by the API. Example: \"EMU\""
                     }
                   },
+                  "required": [
+                    "unit"
+                  ],
                   "additionalProperties": false
                 }
               },
@@ -377094,16 +377094,15 @@
                   "type": "string"
                 },
                 "size": {
-                  "description": "Optional size of the shape, in EMU (914400 EMU = 1 inch).",
+                  "description": "Optional size of the shape. Both width and height are required when size is given.",
                   "type": "object",
                   "properties": {
                     "width": {
-                      "description": "Width of the element.",
                       "type": "object",
                       "properties": {
                         "magnitude": {
                           "type": "number",
-                          "description": "Numeric measurement value, expressed in `unit`."
+                          "description": "Numeric measurement value, expressed in `unit`. Example: 3000000"
                         },
                         "unit": {
                           "type": "string",
@@ -377111,21 +377110,22 @@
                             "EMU",
                             "PT"
                           ],
-                          "description": "Measurement unit. EMU is the default (914400 EMU = 1 inch)."
+                          "description": "Measurement unit: \"EMU\" (914400 EMU = 1 inch) or \"PT\" (points). Required by the API. Example: \"EMU\""
                         }
                       },
                       "required": [
-                        "magnitude"
+                        "magnitude",
+                        "unit"
                       ],
-                      "additionalProperties": false
+                      "additionalProperties": false,
+                      "description": "Width of the element."
                     },
                     "height": {
-                      "description": "Height of the element.",
                       "type": "object",
                       "properties": {
                         "magnitude": {
                           "type": "number",
-                          "description": "Numeric measurement value, expressed in `unit`."
+                          "description": "Numeric measurement value, expressed in `unit`. Example: 3000000"
                         },
                         "unit": {
                           "type": "string",
@@ -377133,15 +377133,21 @@
                             "EMU",
                             "PT"
                           ],
-                          "description": "Measurement unit. EMU is the default (914400 EMU = 1 inch)."
+                          "description": "Measurement unit: \"EMU\" (914400 EMU = 1 inch) or \"PT\" (points). Required by the API. Example: \"EMU\""
                         }
                       },
                       "required": [
-                        "magnitude"
+                        "magnitude",
+                        "unit"
                       ],
-                      "additionalProperties": false
+                      "additionalProperties": false,
+                      "description": "Height of the element."
                     }
                   },
+                  "required": [
+                    "width",
+                    "height"
+                  ],
                   "additionalProperties": false
                 },
                 "transform": {
@@ -377178,9 +377184,12 @@
                         "EMU",
                         "PT"
                       ],
-                      "description": "Measurement unit. EMU is the default (914400 EMU = 1 inch)."
+                      "description": "Measurement unit: \"EMU\" (914400 EMU = 1 inch) or \"PT\" (points). Required by the API. Example: \"EMU\""
                     }
                   },
+                  "required": [
+                    "unit"
+                  ],
                   "additionalProperties": false
                 }
               },
@@ -377220,21 +377229,14 @@
                       "type": "object",
                       "properties": {
                         "magnitude": {
-                          "type": "number",
-                          "description": "Numeric measurement value, expressed in `unit`."
+                          "description": "Numeric measurement value, expressed in `unit`. Omitted when 0.",
+                          "type": "number"
                         },
                         "unit": {
-                          "type": "string",
-                          "enum": [
-                            "EMU",
-                            "PT"
-                          ],
-                          "description": "Measurement unit. EMU is the default (914400 EMU = 1 inch)."
+                          "description": "Measurement unit, usually \"EMU\".",
+                          "type": "string"
                         }
                       },
-                      "required": [
-                        "magnitude"
-                      ],
                       "additionalProperties": false
                     },
                     "height": {
@@ -377242,21 +377244,14 @@
                       "type": "object",
                       "properties": {
                         "magnitude": {
-                          "type": "number",
-                          "description": "Numeric measurement value, expressed in `unit`."
+                          "description": "Numeric measurement value, expressed in `unit`. Omitted when 0.",
+                          "type": "number"
                         },
                         "unit": {
-                          "type": "string",
-                          "enum": [
-                            "EMU",
-                            "PT"
-                          ],
-                          "description": "Measurement unit. EMU is the default (914400 EMU = 1 inch)."
+                          "description": "Measurement unit, usually \"EMU\".",
+                          "type": "string"
                         }
                       },
-                      "required": [
-                        "magnitude"
-                      ],
                       "additionalProperties": false
                     }
                   },
@@ -377283,20 +377278,16 @@
                       "type": "number"
                     },
                     "translateX": {
-                      "description": "X-axis translation, in `unit`.",
+                      "description": "X-axis translation, in `unit`. Omitted when 0.",
                       "type": "number"
                     },
                     "translateY": {
-                      "description": "Y-axis translation, in `unit`.",
+                      "description": "Y-axis translation, in `unit`. Omitted when 0.",
                       "type": "number"
                     },
                     "unit": {
-                      "type": "string",
-                      "enum": [
-                        "EMU",
-                        "PT"
-                      ],
-                      "description": "Measurement unit. EMU is the default (914400 EMU = 1 inch)."
+                      "description": "Unit of the translation values, usually \"EMU\".",
+                      "type": "string"
                     }
                   },
                   "additionalProperties": false
@@ -377317,7 +377308,7 @@
       },
       {
         "type": "action",
-        "description": "COMPOSITE: create a new slide with a title/body layout and populate its title and body text in one call, including the placeholder-objectId-discovery step a naive implementation would miss.",
+        "description": "Create a new slide with a title/body layout and fill its title and body placeholders in one call, discovering the generated placeholder object IDs automatically.",
         "endpoint": null,
         "input": "ActionInput_google_slides_createslidewithcontent",
         "name": "create-slide-with-content",
@@ -377472,7 +377463,6 @@
                     "predefinedLayout": {
                       "type": "string",
                       "enum": [
-                        "PREDEFINED_LAYOUT_UNSPECIFIED",
                         "BLANK",
                         "CAPTION_ONLY",
                         "TITLE",
@@ -377589,7 +377579,9 @@
         "output": [
           "ActionOutput_google_slides_createtable"
         ],
-        "scopes": [],
+        "scopes": [
+          "https://www.googleapis.com/auth/presentations"
+        ],
         "usedModels": [
           "ActionInput_google_slides_createtable",
           "ActionOutput_google_slides_createtable"
@@ -377639,8 +377631,7 @@
                           "type": "string",
                           "enum": [
                             "EMU",
-                            "PT",
-                            "UNIT_UNSPECIFIED"
+                            "PT"
                           ],
                           "description": "The unit for magnitude: \"EMU\" (English Metric Units) or \"PT\" (points). Example: \"EMU\""
                         }
@@ -377663,8 +377654,7 @@
                           "type": "string",
                           "enum": [
                             "EMU",
-                            "PT",
-                            "UNIT_UNSPECIFIED"
+                            "PT"
                           ],
                           "description": "The unit for magnitude: \"EMU\" (English Metric Units) or \"PT\" (points). Example: \"EMU\""
                         }
@@ -377712,15 +377702,17 @@
                       "type": "number"
                     },
                     "unit": {
-                      "description": "The unit for the translation values: \"EMU\" or \"PT\". Example: \"EMU\"",
                       "type": "string",
                       "enum": [
                         "EMU",
-                        "PT",
-                        "UNIT_UNSPECIFIED"
-                      ]
+                        "PT"
+                      ],
+                      "description": "The unit for the translation values: \"EMU\" or \"PT\". Required by the API. Example: \"EMU\""
                     }
                   },
+                  "required": [
+                    "unit"
+                  ],
                   "additionalProperties": false
                 }
               },
@@ -377806,11 +377798,11 @@
                   "type": "string"
                 },
                 "width": {
-                  "description": "Width of the text box in EMU (English Metric Units). Defaults to the size Google chooses when omitted.",
+                  "description": "Width of the text box in EMU (English Metric Units). Must be provided together with height; Google chooses a size when both are omitted.",
                   "type": "number"
                 },
                 "height": {
-                  "description": "Height of the text box in EMU (English Metric Units). Defaults to the size Google chooses when omitted.",
+                  "description": "Height of the text box in EMU (English Metric Units). Must be provided together with width; Google chooses a size when both are omitted.",
                   "type": "number"
                 },
                 "translateX": {
@@ -377914,15 +377906,15 @@
                   "type": "string",
                   "description": "The object ID of the slide that was deleted."
                 },
-                "deleted": {
+                "success": {
                   "type": "boolean",
-                  "description": "Always true when the deletion request was accepted by the provider."
+                  "description": "True when the deletion request was accepted by the provider."
                 }
               },
               "required": [
                 "presentationId",
                 "slideId",
-                "deleted"
+                "success"
               ],
               "additionalProperties": false,
               "description": "Confirmation that the slide deletion request was accepted for the given presentation."
@@ -377961,24 +377953,34 @@
                   "type": "string",
                   "description": "Object ID of the table to delete a column from. Example: \"tbl_fixture_1\""
                 },
-                "rowIndex": {
-                  "type": "integer",
-                  "minimum": 0,
-                  "maximum": 9007199254740991,
-                  "description": "Zero-based row index of the reference cell inside the table. Example: 0"
-                },
-                "columnIndex": {
-                  "type": "integer",
-                  "minimum": 0,
-                  "maximum": 9007199254740991,
-                  "description": "Zero-based column index of the column to delete. Example: 1"
+                "cellLocation": {
+                  "type": "object",
+                  "properties": {
+                    "rowIndex": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 9007199254740991,
+                      "description": "Zero-based row index of the reference cell. Example: 0"
+                    },
+                    "columnIndex": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 9007199254740991,
+                      "description": "Zero-based column index of the reference cell. The column containing this cell is deleted. Example: 1"
+                    }
+                  },
+                  "required": [
+                    "rowIndex",
+                    "columnIndex"
+                  ],
+                  "additionalProperties": false,
+                  "description": "A cell inside the table; the column containing this cell is the one that gets deleted."
                 }
               },
               "required": [
                 "presentationId",
                 "tableObjectId",
-                "rowIndex",
-                "columnIndex"
+                "cellLocation"
               ],
               "additionalProperties": false,
               "description": "Reference cell identifying the table column to delete."
@@ -377990,6 +377992,10 @@
                   "type": "string",
                   "description": "ID of the presentation whose table column was deleted."
                 },
+                "tableObjectId": {
+                  "type": "string",
+                  "description": "Object ID of the table the column was deleted from."
+                },
                 "success": {
                   "type": "boolean",
                   "description": "True when the Google Slides API accepted the deleteTableColumn request (HTTP 200)."
@@ -377997,6 +378003,7 @@
               },
               "required": [
                 "presentationId",
+                "tableObjectId",
                 "success"
               ],
               "additionalProperties": false,
@@ -378075,14 +378082,19 @@
                   "type": "string",
                   "description": "The ID of the presentation that was updated. Example: \"1XFaFcivdWdl-Em5A8HC0_Oua7fSWpw-MR_QDj1AHsPI\""
                 },
-                "replies": {
-                  "description": "Per-request batchUpdate replies. A successful deleteTableRow reply is an empty object.",
-                  "type": "array",
-                  "items": {}
+                "tableObjectId": {
+                  "type": "string",
+                  "description": "The object ID of the table the row was deleted from."
+                },
+                "success": {
+                  "type": "boolean",
+                  "description": "True when the Google Slides API accepted the deleteTableRow request."
                 }
               },
               "required": [
-                "presentationId"
+                "presentationId",
+                "tableObjectId",
+                "success"
               ],
               "additionalProperties": false,
               "description": "Result of the batchUpdate that deleted the table row."
@@ -378333,11 +378345,11 @@
               "properties": {
                 "occurrencesChanged": {
                   "type": "number",
-                  "description": "Occurrences the provider reported replacing; 0 when the provider reply omits the field."
+                  "description": "Authoritative number of occurrences the provider reported replacing; 0 when the provider reply omits the field."
                 },
                 "preCount": {
                   "type": "number",
-                  "description": "Occurrences of searchText found in the presentation before the update."
+                  "description": "Occurrences of searchText counted in slide and speaker notes text (within the requested pages) before the update."
                 },
                 "postSearchTextCount": {
                   "type": "number",
@@ -378363,7 +378375,7 @@
       },
       {
         "type": "action",
-        "description": "Fetch a presentation's full structure - every slide, page element, and metadata - in one call.",
+        "description": "Fetch a presentation's full structure - every slide, page element, and metadata - in one call. The full response can be several MB for large decks; pass a fields mask to limit it.",
         "endpoint": null,
         "input": "ActionInput_google_slides_getpresentation",
         "name": "get-presentation",
@@ -378386,6 +378398,10 @@
                 "presentationId": {
                   "type": "string",
                   "description": "The ID of the presentation to retrieve. Example: \"1XFaFcivdWdl-Em5A8HC0_Oua7fSWpw-MR_QDj1AHsPI\""
+                },
+                "fields": {
+                  "description": "Optional Google partial-response field mask to limit the response size. Include objectId in any slides/layouts/masters/pageElements sub-selection. Omit to return the full presentation. Example: \"presentationId,title,slides(objectId,pageElements(objectId,shape/text))\"",
+                  "type": "string"
                 }
               },
               "required": [
@@ -378956,7 +378972,7 @@
                 "presentationId"
               ],
               "additionalProperties": {},
-              "description": "The full structure of a Google Slides presentation, including its slides, page elements, masters, layouts, and notes master."
+              "description": "The structure of a Google Slides presentation (limited to the requested fields when a field mask is given), including its slides, page elements, masters, layouts, and notes master."
             }
           }
         },
@@ -378964,7 +378980,7 @@
       },
       {
         "type": "action",
-        "description": "COMPOSITE: get one slide merged with every page element's type and extracted text, as one readable summary instead of a raw nested dump.",
+        "description": "Get one slide merged with every page element's type and extracted text, as one readable summary.",
         "endpoint": null,
         "input": "ActionInput_google_slides_getslidefullcontent",
         "name": "get-slide-full-content",
@@ -379061,6 +379077,10 @@
                         "description": "Shape type when the element is a shape, for example \"TEXT_BOX\", \"RECTANGLE\", \"TITLE\", or \"BODY\".",
                         "type": "string"
                       },
+                      "parentGroupObjectId": {
+                        "description": "Object ID of the group that directly contains this element. Omitted for elements placed directly on the slide.",
+                        "type": "string"
+                      },
                       "text": {
                         "description": "Flattened text of the element: shape text runs joined together, table cells joined per row, or word art text. Present as an empty string when a shape or table has a text container but no text. Omitted for elements that cannot hold text, such as images and lines.",
                         "type": "string"
@@ -379072,7 +379092,7 @@
                     ],
                     "additionalProperties": false
                   },
-                  "description": "Readable summary of every page element on the slide. Empty when the slide has no page elements."
+                  "description": "Readable summary of every page element on the slide, with group children listed right after their group (at any nesting depth). Empty when the slide has no page elements."
                 }
               },
               "required": [
@@ -379095,7 +379115,9 @@
         "output": [
           "ActionOutput_google_slides_getslidethumbnail"
         ],
-        "scopes": [],
+        "scopes": [
+          "https://www.googleapis.com/auth/presentations"
+        ],
         "usedModels": [
           "ActionInput_google_slides_getslidethumbnail",
           "ActionOutput_google_slides_getslidethumbnail"
@@ -379336,7 +379358,9 @@
         "output": [
           "ActionOutput_google_slides_inserttablerows"
         ],
-        "scopes": [],
+        "scopes": [
+          "https://www.googleapis.com/auth/presentations"
+        ],
         "usedModels": [
           "ActionInput_google_slides_inserttablerows",
           "ActionOutput_google_slides_inserttablerows"
@@ -379540,8 +379564,8 @@
                   "description": "The 0-based index at which the text was inserted."
                 },
                 "text": {
-                  "type": "string",
-                  "description": "The full text content of the target shape or table cell after the insert."
+                  "description": "The full text content of the target shape or table cell after the insert. Omitted when the target could not be located on a slide or speaker notes page (for example a layout or master shape).",
+                  "type": "string"
                 },
                 "verified": {
                   "type": "boolean",
@@ -379553,7 +379577,6 @@
                 "objectId",
                 "insertedText",
                 "insertionIndex",
-                "text",
                 "verified"
               ],
               "additionalProperties": false,
@@ -379572,7 +379595,9 @@
         "output": [
           "ActionOutput_google_slides_moveslide"
         ],
-        "scopes": [],
+        "scopes": [
+          "https://www.googleapis.com/auth/presentations"
+        ],
         "usedModels": [
           "ActionInput_google_slides_moveslide",
           "ActionOutput_google_slides_moveslide"
@@ -379850,7 +379875,7 @@
       },
       {
         "type": "action",
-        "description": "Update a shape's background fill, outline, shadow, or alignment.",
+        "description": "Update a shape's background fill, outline, or content alignment.",
         "endpoint": null,
         "input": "ActionInput_google_slides_updateshapeproperties",
         "name": "update-shape-properties",
@@ -380053,11 +380078,10 @@
                             "unit": {
                               "type": "string",
                               "enum": [
-                                "UNIT_UNSPECIFIED",
                                 "EMU",
                                 "PT"
                               ],
-                              "description": "The unit of the dimension. Example: \"PT\"."
+                              "description": "The unit of the dimension: \"EMU\" or \"PT\". Example: \"PT\"."
                             }
                           },
                           "required": [
@@ -380096,7 +380120,6 @@
                       "type": "string",
                       "enum": [
                         "CONTENT_ALIGNMENT_UNSPECIFIED",
-                        "CONTENT_ALIGNMENT_UNSUPPORTED",
                         "TOP",
                         "MIDDLE",
                         "BOTTOM"
@@ -380317,11 +380340,10 @@
                             "unit": {
                               "type": "string",
                               "enum": [
-                                "UNIT_UNSPECIFIED",
                                 "EMU",
                                 "PT"
                               ],
-                              "description": "The unit of the dimension. Example: \"PT\"."
+                              "description": "The unit of the dimension: \"EMU\" or \"PT\". Example: \"PT\"."
                             }
                           },
                           "required": [
@@ -380360,7 +380382,6 @@
                       "type": "string",
                       "enum": [
                         "CONTENT_ALIGNMENT_UNSPECIFIED",
-                        "CONTENT_ALIGNMENT_UNSUPPORTED",
                         "TOP",
                         "MIDDLE",
                         "BOTTOM"
@@ -380432,10 +380453,6 @@
                 "isSkipped": {
                   "type": "boolean",
                   "description": "Whether the slide should be skipped during slideshow playback. Set true to exclude the slide from the presentation without deleting it."
-                },
-                "fields": {
-                  "description": "Field mask of the slide properties to update. Defaults to \"isSkipped\".",
-                  "type": "string"
                 }
               },
               "required": [
@@ -380545,9 +380562,28 @@
                       ]
                     },
                     "fontSize": {
-                      "description": "Font size in points.",
-                      "type": "number",
-                      "exclusiveMinimum": 0
+                      "description": "Font size as a Slides Dimension. Example: { \"magnitude\": 18, \"unit\": \"PT\" }",
+                      "type": "object",
+                      "properties": {
+                        "magnitude": {
+                          "type": "number",
+                          "exclusiveMinimum": 0,
+                          "description": "Font size value, expressed in `unit`. Example: 18"
+                        },
+                        "unit": {
+                          "type": "string",
+                          "enum": [
+                            "PT",
+                            "EMU"
+                          ],
+                          "description": "Unit for the magnitude: \"PT\" (points) or \"EMU\" (12700 EMU = 1 point). Example: \"PT\""
+                        }
+                      },
+                      "required": [
+                        "magnitude",
+                        "unit"
+                      ],
+                      "additionalProperties": false
                     },
                     "weightedFontFamily": {
                       "description": "Font family together with an explicit weight.",
@@ -609830,7 +609866,9 @@
             "ActionOutput_omnisend_deleteautomationsid": {}
           }
         },
-        "features": []
+        "features": [
+          "checkpoints"
+        ]
       },
       {
         "type": "action",
@@ -609869,7 +609907,9 @@
             "ActionOutput_omnisend_deletecampaignsid": {}
           }
         },
-        "features": []
+        "features": [
+          "checkpoints"
+        ]
       },
       {
         "type": "action",
@@ -609946,7 +609986,9 @@
             "ActionOutput_omnisend_deletecontactstags": {}
           }
         },
-        "features": []
+        "features": [
+          "checkpoints"
+        ]
       },
       {
         "type": "action",
@@ -609985,7 +610027,9 @@
             "ActionOutput_omnisend_deleteemailtemplatesid": {}
           }
         },
-        "features": []
+        "features": [
+          "checkpoints"
+        ]
       },
       {
         "type": "action",
@@ -610024,7 +610068,9 @@
             "ActionOutput_omnisend_deleteemailuniversallayoutsid": {}
           }
         },
-        "features": []
+        "features": [
+          "checkpoints"
+        ]
       },
       {
         "type": "action",
@@ -610063,7 +610109,9 @@
             "ActionOutput_omnisend_deleteimagesid": {}
           }
         },
-        "features": []
+        "features": [
+          "checkpoints"
+        ]
       },
       {
         "type": "action",
@@ -610102,7 +610150,9 @@
             "ActionOutput_omnisend_deleteproductcategoriescategoryid": {}
           }
         },
-        "features": []
+        "features": [
+          "checkpoints"
+        ]
       },
       {
         "type": "action",
@@ -610141,7 +610191,9 @@
             "ActionOutput_omnisend_deleteproductsproductid": {}
           }
         },
-        "features": []
+        "features": [
+          "checkpoints"
+        ]
       },
       {
         "type": "action",
@@ -610180,7 +610232,9 @@
             "ActionOutput_omnisend_deletesegmentssegmentid": {}
           }
         },
-        "features": []
+        "features": [
+          "checkpoints"
+        ]
       },
       {
         "type": "action",
@@ -610244,7 +610298,9 @@
             }
           }
         },
-        "features": []
+        "features": [
+          "checkpoints"
+        ]
       },
       {
         "type": "action",
@@ -610315,7 +610371,9 @@
             }
           }
         },
-        "features": []
+        "features": [
+          "checkpoints"
+        ]
       },
       {
         "type": "action",
@@ -611039,7 +611097,9 @@
             }
           }
         },
-        "features": []
+        "features": [
+          "checkpoints"
+        ]
       },
       {
         "type": "action",
@@ -611465,7 +611525,9 @@
             }
           }
         },
-        "features": []
+        "features": [
+          "checkpoints"
+        ]
       },
       {
         "type": "action",
@@ -611595,7 +611657,9 @@
             }
           }
         },
-        "features": []
+        "features": [
+          "checkpoints"
+        ]
       },
       {
         "type": "action",
@@ -611725,7 +611789,9 @@
             }
           }
         },
-        "features": []
+        "features": [
+          "checkpoints"
+        ]
       },
       {
         "type": "action",
@@ -611929,7 +611995,9 @@
             }
           }
         },
-        "features": []
+        "features": [
+          "checkpoints"
+        ]
       },
       {
         "type": "action",
@@ -611989,7 +612057,9 @@
             }
           }
         },
-        "features": []
+        "features": [
+          "checkpoints"
+        ]
       },
       {
         "type": "action",
@@ -612111,7 +612181,9 @@
             }
           }
         },
-        "features": []
+        "features": [
+          "checkpoints"
+        ]
       },
       {
         "type": "action",
@@ -612474,7 +612546,9 @@
             }
           }
         },
-        "features": []
+        "features": [
+          "checkpoints"
+        ]
       },
       {
         "type": "action",
@@ -612961,7 +613035,9 @@
             }
           }
         },
-        "features": []
+        "features": [
+          "checkpoints"
+        ]
       },
       {
         "type": "action",
@@ -613192,7 +613268,9 @@
             }
           }
         },
-        "features": []
+        "features": [
+          "checkpoints"
+        ]
       },
       {
         "type": "action",
@@ -613513,7 +613591,9 @@
             }
           }
         },
-        "features": []
+        "features": [
+          "checkpoints"
+        ]
       },
       {
         "type": "action",
@@ -614277,7 +614357,9 @@
             }
           }
         },
-        "features": []
+        "features": [
+          "checkpoints"
+        ]
       },
       {
         "type": "action",
@@ -615045,7 +615127,9 @@
             }
           }
         },
-        "features": []
+        "features": [
+          "checkpoints"
+        ]
       },
       {
         "type": "action",
@@ -615173,7 +615257,9 @@
             }
           }
         },
-        "features": []
+        "features": [
+          "checkpoints"
+        ]
       },
       {
         "type": "action",
@@ -615520,7 +615606,9 @@
             }
           }
         },
-        "features": []
+        "features": [
+          "checkpoints"
+        ]
       },
       {
         "type": "action",
@@ -615924,7 +616012,9 @@
             }
           }
         },
-        "features": []
+        "features": [
+          "checkpoints"
+        ]
       },
       {
         "type": "action",
@@ -615998,7 +616088,9 @@
             }
           }
         },
-        "features": []
+        "features": [
+          "checkpoints"
+        ]
       },
       {
         "type": "action",
@@ -616143,7 +616235,9 @@
             }
           }
         },
-        "features": []
+        "features": [
+          "checkpoints"
+        ]
       },
       {
         "type": "action",
@@ -616199,7 +616293,9 @@
             }
           }
         },
-        "features": []
+        "features": [
+          "checkpoints"
+        ]
       },
       {
         "type": "action",
@@ -616311,7 +616407,9 @@
             }
           }
         },
-        "features": []
+        "features": [
+          "checkpoints"
+        ]
       },
       {
         "type": "action",
@@ -616484,7 +616582,9 @@
             }
           }
         },
-        "features": []
+        "features": [
+          "checkpoints"
+        ]
       },
       {
         "type": "action",
@@ -616713,7 +616813,9 @@
             }
           }
         },
-        "features": []
+        "features": [
+          "checkpoints"
+        ]
       },
       {
         "type": "action",
@@ -616762,7 +616864,9 @@
             }
           }
         },
-        "features": []
+        "features": [
+          "checkpoints"
+        ]
       },
       {
         "type": "action",
@@ -616870,7 +616974,9 @@
             }
           }
         },
-        "features": []
+        "features": [
+          "checkpoints"
+        ]
       },
       {
         "type": "action",
@@ -617027,7 +617133,9 @@
             }
           }
         },
-        "features": []
+        "features": [
+          "checkpoints"
+        ]
       },
       {
         "type": "action",
@@ -618183,7 +618291,9 @@
             }
           }
         },
-        "features": []
+        "features": [
+          "checkpoints"
+        ]
       },
       {
         "type": "action",
@@ -618778,7 +618888,9 @@
             }
           }
         },
-        "features": []
+        "features": [
+          "checkpoints"
+        ]
       },
       {
         "type": "action",
@@ -619203,7 +619315,9 @@
             }
           }
         },
-        "features": []
+        "features": [
+          "checkpoints"
+        ]
       },
       {
         "type": "action",
@@ -619629,7 +619743,9 @@
             }
           }
         },
-        "features": []
+        "features": [
+          "checkpoints"
+        ]
       },
       {
         "type": "action",
@@ -619690,7 +619806,9 @@
             }
           }
         },
-        "features": []
+        "features": [
+          "checkpoints"
+        ]
       },
       {
         "type": "action",
@@ -619864,7 +619982,9 @@
             }
           }
         },
-        "features": []
+        "features": [
+          "checkpoints"
+        ]
       },
       {
         "type": "action",
@@ -620031,7 +620151,9 @@
             }
           }
         },
-        "features": []
+        "features": [
+          "checkpoints"
+        ]
       },
       {
         "type": "action",
@@ -620094,7 +620216,9 @@
             "ActionOutput_omnisend_postautomationsidblocksblockidtestemail": {}
           }
         },
-        "features": []
+        "features": [
+          "checkpoints"
+        ]
       },
       {
         "type": "action",
@@ -620828,7 +620952,9 @@
             }
           }
         },
-        "features": []
+        "features": [
+          "checkpoints"
+        ]
       },
       {
         "type": "action",
@@ -621569,7 +621695,9 @@
             }
           }
         },
-        "features": []
+        "features": [
+          "checkpoints"
+        ]
       },
       {
         "type": "action",
@@ -622303,7 +622431,9 @@
             }
           }
         },
-        "features": []
+        "features": [
+          "checkpoints"
+        ]
       },
       {
         "type": "action",
@@ -623597,7 +623727,9 @@
             }
           }
         },
-        "features": []
+        "features": [
+          "checkpoints"
+        ]
       },
       {
         "type": "action",
@@ -623681,7 +623813,9 @@
             }
           }
         },
-        "features": []
+        "features": [
+          "checkpoints"
+        ]
       },
       {
         "type": "action",
@@ -623769,7 +623903,9 @@
             }
           }
         },
-        "features": []
+        "features": [
+          "checkpoints"
+        ]
       },
       {
         "type": "action",
@@ -623808,7 +623944,9 @@
             "ActionOutput_omnisend_postcampaignsidabtestresume": {}
           }
         },
-        "features": []
+        "features": [
+          "checkpoints"
+        ]
       },
       {
         "type": "action",
@@ -623847,7 +623985,9 @@
             "ActionOutput_omnisend_postcampaignsidabteststop": {}
           }
         },
-        "features": []
+        "features": [
+          "checkpoints"
+        ]
       },
       {
         "type": "action",
@@ -623900,7 +624040,9 @@
             "ActionOutput_omnisend_postcampaignsidabtestwinner": {}
           }
         },
-        "features": []
+        "features": [
+          "checkpoints"
+        ]
       },
       {
         "type": "action",
@@ -623939,7 +624081,9 @@
             "ActionOutput_omnisend_postcampaignsidcancel": {}
           }
         },
-        "features": []
+        "features": [
+          "checkpoints"
+        ]
       },
       {
         "type": "action",
@@ -624302,7 +624446,9 @@
             }
           }
         },
-        "features": []
+        "features": [
+          "checkpoints"
+        ]
       },
       {
         "type": "action",
@@ -624341,7 +624487,9 @@
             "ActionOutput_omnisend_postcampaignsidsend": {}
           }
         },
-        "features": []
+        "features": [
+          "checkpoints"
+        ]
       },
       {
         "type": "action",
@@ -624399,7 +624547,9 @@
             "ActionOutput_omnisend_postcampaignsidtestemail": {}
           }
         },
-        "features": []
+        "features": [
+          "checkpoints"
+        ]
       },
       {
         "type": "action",
@@ -625088,7 +625238,9 @@
             }
           }
         },
-        "features": []
+        "features": [
+          "checkpoints"
+        ]
       },
       {
         "type": "action",
@@ -625165,7 +625317,9 @@
             "ActionOutput_omnisend_postcontactstags": {}
           }
         },
-        "features": []
+        "features": [
+          "checkpoints"
+        ]
       },
       {
         "type": "action",
@@ -625506,7 +625660,9 @@
             }
           }
         },
-        "features": []
+        "features": [
+          "checkpoints"
+        ]
       },
       {
         "type": "action",
@@ -625549,7 +625705,9 @@
             }
           }
         },
-        "features": []
+        "features": [
+          "checkpoints"
+        ]
       },
       {
         "type": "action",
@@ -625596,7 +625754,9 @@
             }
           }
         },
-        "features": []
+        "features": [
+          "checkpoints"
+        ]
       },
       {
         "type": "action",
@@ -626377,7 +626537,9 @@
             }
           }
         },
-        "features": []
+        "features": [
+          "checkpoints"
+        ]
       },
       {
         "type": "action",
@@ -627607,7 +627769,9 @@
             }
           }
         },
-        "features": []
+        "features": [
+          "checkpoints"
+        ]
       },
       {
         "type": "action",
@@ -628259,7 +628423,9 @@
             }
           }
         },
-        "features": []
+        "features": [
+          "checkpoints"
+        ]
       },
       {
         "type": "action",
@@ -628365,7 +628531,9 @@
             }
           }
         },
-        "features": []
+        "features": [
+          "checkpoints"
+        ]
       },
       {
         "type": "action",
@@ -628459,7 +628627,9 @@
             }
           }
         },
-        "features": []
+        "features": [
+          "checkpoints"
+        ]
       },
       {
         "type": "action",
@@ -628680,7 +628850,9 @@
             "ActionOutput_omnisend_postevents": {}
           }
         },
-        "features": []
+        "features": [
+          "checkpoints"
+        ]
       },
       {
         "type": "action",
@@ -628766,7 +628938,9 @@
             }
           }
         },
-        "features": []
+        "features": [
+          "checkpoints"
+        ]
       },
       {
         "type": "action",
@@ -628852,7 +629026,9 @@
             }
           }
         },
-        "features": []
+        "features": [
+          "checkpoints"
+        ]
       },
       {
         "type": "action",
@@ -628915,7 +629091,9 @@
             }
           }
         },
-        "features": []
+        "features": [
+          "checkpoints"
+        ]
       },
       {
         "type": "action",
@@ -629093,7 +629271,9 @@
             }
           }
         },
-        "features": []
+        "features": [
+          "checkpoints"
+        ]
       },
       {
         "type": "action",
@@ -629235,7 +629415,9 @@
             }
           }
         },
-        "features": []
+        "features": [
+          "checkpoints"
+        ]
       },
       {
         "type": "action",
@@ -629332,7 +629514,9 @@
             }
           }
         },
-        "features": []
+        "features": [
+          "checkpoints"
+        ]
       },
       {
         "type": "action",
@@ -630315,7 +630499,9 @@
             }
           }
         },
-        "features": []
+        "features": [
+          "checkpoints"
+        ]
       },
       {
         "type": "action",
@@ -630504,7 +630690,9 @@
             }
           }
         },
-        "features": []
+        "features": [
+          "checkpoints"
+        ]
       },
       {
         "type": "action",
@@ -631995,7 +632183,9 @@
             }
           }
         },
-        "features": []
+        "features": [
+          "checkpoints"
+        ]
       },
       {
         "type": "action",
@@ -633230,7 +633420,9 @@
             }
           }
         },
-        "features": []
+        "features": [
+          "checkpoints"
+        ]
       },
       {
         "type": "action",
@@ -633887,7 +634079,9 @@
             }
           }
         },
-        "features": []
+        "features": [
+          "checkpoints"
+        ]
       },
       {
         "type": "action",
@@ -633981,7 +634175,9 @@
             }
           }
         },
-        "features": []
+        "features": [
+          "checkpoints"
+        ]
       },
       {
         "type": "action",
@@ -634164,7 +634360,9 @@
             }
           }
         },
-        "features": []
+        "features": [
+          "checkpoints"
+        ]
       },
       {
         "type": "action",
@@ -634311,7 +634509,9 @@
             }
           }
         },
-        "features": []
+        "features": [
+          "checkpoints"
+        ]
       }
     ],
     "syncs": [
@@ -634853,7 +635053,9 @@
             }
           }
         },
-        "features": []
+        "features": [
+          "checkpoints"
+        ]
       },
       {
         "type": "sync",
@@ -635226,7 +635428,9 @@
             }
           }
         },
-        "features": []
+        "features": [
+          "checkpoints"
+        ]
       },
       {
         "type": "sync",
@@ -635467,7 +635671,9 @@
             }
           }
         },
-        "features": []
+        "features": [
+          "checkpoints"
+        ]
       },
       {
         "type": "sync",
@@ -635534,7 +635740,9 @@
             }
           }
         },
-        "features": []
+        "features": [
+          "checkpoints"
+        ]
       },
       {
         "type": "sync",
@@ -635891,7 +636099,9 @@
             }
           }
         },
-        "features": []
+        "features": [
+          "checkpoints"
+        ]
       },
       {
         "type": "sync",
@@ -635975,7 +636185,9 @@
             }
           }
         },
-        "features": []
+        "features": [
+          "checkpoints"
+        ]
       },
       {
         "type": "sync",
@@ -636041,7 +636253,9 @@
             }
           }
         },
-        "features": []
+        "features": [
+          "checkpoints"
+        ]
       },
       {
         "type": "sync",
@@ -636224,7 +636438,9 @@
             }
           }
         },
-        "features": []
+        "features": [
+          "checkpoints"
+        ]
       },
       {
         "type": "sync",
@@ -636335,7 +636551,9 @@
             }
           }
         },
-        "features": []
+        "features": [
+          "checkpoints"
+        ]
       }
     ],
     "onEventScripts": {
@@ -1148126,7 +1148344,9 @@
             }
           }
         },
-        "features": []
+        "features": [
+          "checkpoints"
+        ]
       },
       {
         "type": "sync",
@@ -1148298,7 +1148518,9 @@
             }
           }
         },
-        "features": []
+        "features": [
+          "checkpoints"
+        ]
       },
       {
         "type": "sync",
@@ -1148528,7 +1148750,9 @@
             }
           }
         },
-        "features": []
+        "features": [
+          "checkpoints"
+        ]
       },
       {
         "type": "sync",
@@ -1148697,7 +1148921,9 @@
             }
           }
         },
-        "features": []
+        "features": [
+          "checkpoints"
+        ]
       },
       {
         "type": "sync",
@@ -1148896,7 +1149122,9 @@
             }
           }
         },
-        "features": []
+        "features": [
+          "checkpoints"
+        ]
       },
       {
         "type": "sync",
@@ -1149288,7 +1149516,9 @@
             }
           }
         },
-        "features": []
+        "features": [
+          "checkpoints"
+        ]
       },
       {
         "type": "sync",
@@ -1149418,7 +1149648,9 @@
             }
           }
         },
-        "features": []
+        "features": [
+          "checkpoints"
+        ]
       }
     ],
     "onEventScripts": {

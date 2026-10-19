@@ -34,18 +34,37 @@ const WordArtSchema = z.object({
     renderedText: z.string().optional()
 });
 
-const PageElementSchema = z.object({
-    objectId: z.string(),
-    shape: ShapeSchema.optional(),
-    image: z.unknown().optional(),
-    table: TableSchema.optional(),
-    line: z.unknown().optional(),
-    elementGroup: z.unknown().optional(),
-    video: z.unknown().optional(),
-    wordArt: WordArtSchema.optional(),
-    sheetsChart: z.unknown().optional(),
-    speakerSpotlight: z.unknown().optional()
-});
+interface PageElement {
+    objectId: string;
+    shape?: z.infer<typeof ShapeSchema> | undefined;
+    image?: unknown;
+    table?: z.infer<typeof TableSchema> | undefined;
+    line?: unknown;
+    elementGroup?: { children?: PageElement[] | undefined } | undefined;
+    video?: unknown;
+    wordArt?: z.infer<typeof WordArtSchema> | undefined;
+    sheetsChart?: unknown;
+    speakerSpotlight?: unknown;
+}
+
+const PageElementSchema: z.ZodType<PageElement> = z.lazy(() =>
+    z.object({
+        objectId: z.string(),
+        shape: ShapeSchema.optional(),
+        image: z.unknown().optional(),
+        table: TableSchema.optional(),
+        line: z.unknown().optional(),
+        elementGroup: z
+            .object({
+                children: z.array(PageElementSchema).optional()
+            })
+            .optional(),
+        video: z.unknown().optional(),
+        wordArt: WordArtSchema.optional(),
+        sheetsChart: z.unknown().optional(),
+        speakerSpotlight: z.unknown().optional()
+    })
+);
 
 const SlidePropertiesSchema = z.object({
     layoutObjectId: z.string().optional(),
@@ -69,6 +88,10 @@ const ElementSummarySchema = z.object({
             'Element kind inferred from the populated sub-object: "shape", "image", "table", "line", "group", "video", "wordArt", "sheetsChart", "speakerSpotlight", or "unknown".'
         ),
     shapeType: z.string().optional().describe('Shape type when the element is a shape, for example "TEXT_BOX", "RECTANGLE", "TITLE", or "BODY".'),
+    parentGroupObjectId: z
+        .string()
+        .optional()
+        .describe('Object ID of the group that directly contains this element. Omitted for elements placed directly on the slide.'),
     text: z
         .string()
         .optional()
@@ -101,11 +124,15 @@ const InputSchema = z
 const OutputSchema = z
     .object({
         slide: SlideSummarySchema.describe('The requested slide with its page-level metadata.'),
-        elements: z.array(ElementSummarySchema).describe('Readable summary of every page element on the slide. Empty when the slide has no page elements.')
+        elements: z
+            .array(ElementSummarySchema)
+            .describe(
+                'Readable summary of every page element on the slide, with group children listed right after their group (at any nesting depth). Empty when the slide has no page elements.'
+            )
     })
     .describe('The requested slide merged with a readable summary of each of its page elements.');
 
-function getElementKind(element: z.infer<typeof PageElementSchema>): string {
+function getElementKind(element: PageElement): string {
     if (element.shape != null) {
         return 'shape';
     }
@@ -151,7 +178,7 @@ function flattenTableText(table: z.infer<typeof TableSchema>): string {
         .join('\n');
 }
 
-function extractElementText(element: z.infer<typeof PageElementSchema>): string | undefined {
+function extractElementText(element: PageElement): string | undefined {
     if (element.shape != null) {
         return element.shape.text != null ? flattenTextContent(element.shape.text) : '';
     }
@@ -164,13 +191,34 @@ function extractElementText(element: z.infer<typeof PageElementSchema>): string 
     return undefined;
 }
 
+function summarizeElements(elements: PageElement[] | undefined, parentGroupObjectId?: string): z.infer<typeof ElementSummarySchema>[] {
+    const summaries: z.infer<typeof ElementSummarySchema>[] = [];
+    for (const element of elements ?? []) {
+        const shapeType = element.shape?.shapeType;
+        const text = extractElementText(element);
+
+        summaries.push({
+            objectId: element.objectId,
+            kind: getElementKind(element),
+            ...(shapeType != null && { shapeType }),
+            ...(parentGroupObjectId !== undefined && { parentGroupObjectId }),
+            ...(text !== undefined && { text })
+        });
+
+        if (element.elementGroup?.children) {
+            summaries.push(...summarizeElements(element.elementGroup.children, element.objectId));
+        }
+    }
+    return summaries;
+}
+
 /**
  * @tags: [read]
  * @tagReason: Reads an existing slide and its page elements; makes no changes to the presentation.
- * @pitfalls: Grouped shapes and tables are not expanded, so text inside a group is not included and the group appears as a single element with kind "group" and no text; flattened shape and table text keeps the provider's mandatory trailing newline, so the last character is usually "\n".
+ * @pitfalls: Group children are expanded recursively and listed after their group with parentGroupObjectId set, while the group itself has kind "group" and no text; speaker notes are not included; flattened shape and table text keeps the provider's mandatory trailing newline, so the last character is usually "\n".
  */
 const action = createAction({
-    description: "COMPOSITE: get one slide merged with every page element's type and extracted text, as one readable summary instead of a raw nested dump.",
+    description: "Get one slide merged with every page element's type and extracted text, as one readable summary.",
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
@@ -185,17 +233,7 @@ const action = createAction({
 
         const page = PageSchema.parse(response.data);
 
-        const elements = (page.pageElements ?? []).map((element) => {
-            const shapeType = element.shape?.shapeType;
-            const text = extractElementText(element);
-
-            return {
-                objectId: element.objectId,
-                kind: getElementKind(element),
-                ...(shapeType != null && { shapeType }),
-                ...(text !== undefined && { text })
-            };
-        });
+        const elements = summarizeElements(page.pageElements);
 
         return {
             slide: {

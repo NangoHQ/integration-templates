@@ -25,11 +25,11 @@ const PropertyStateSchema = z.enum(['RENDERED', 'NOT_RENDERED', 'INHERIT']);
 
 const DashStyleSchema = z.enum(['DASH_STYLE_UNSPECIFIED', 'SOLID', 'DOT', 'DASH', 'DASH_DOT', 'LONG_DASH', 'LONG_DASH_DOT']);
 
-const ContentAlignmentSchema = z.enum(['CONTENT_ALIGNMENT_UNSPECIFIED', 'CONTENT_ALIGNMENT_UNSUPPORTED', 'TOP', 'MIDDLE', 'BOTTOM']);
+const ContentAlignmentSchema = z.enum(['CONTENT_ALIGNMENT_UNSPECIFIED', 'TOP', 'MIDDLE', 'BOTTOM']);
 
 const AutofitTypeSchema = z.enum(['AUTOFIT_TYPE_UNSPECIFIED', 'NONE']);
 
-const UnitSchema = z.enum(['UNIT_UNSPECIFIED', 'EMU', 'PT']);
+const UnitSchema = z.enum(['EMU', 'PT']);
 
 const RgbColorSchema = z.object({
     red: z.number().describe('Red component of the color, from 0.0 to 1.0. Example: 0.2.'),
@@ -49,7 +49,7 @@ const SolidFillSchema = z.object({
 
 const DimensionSchema = z.object({
     magnitude: z.number().describe('The magnitude of the dimension. Example: 2.'),
-    unit: UnitSchema.describe('The unit of the dimension. Example: "PT".')
+    unit: UnitSchema.describe('The unit of the dimension: "EMU" or "PT". Example: "PT".')
 });
 
 const ShapeBackgroundFillSchema = z.object({
@@ -107,7 +107,7 @@ const OutputSchema = z
  * @pitfalls: A successful call returns no updated-property data, so it confirms the request was accepted rather than that the shape visibly changed; only fields listed in the FieldMask are applied, setting shapeBackgroundFill.propertyState or outline.propertyState to NOT_RENDERED removes that property and ignores the other fill/outline values sent alongside it, and autofit accepts only NONE on write while any change that affects text fitting silently turns autofit off.
  */
 const action = createAction({
-    description: "Update a shape's background fill, outline, shadow, or alignment.",
+    description: "Update a shape's background fill, outline, or content alignment.",
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
@@ -128,8 +128,8 @@ const action = createAction({
                     }
                 ]
             },
-            // batchUpdate is not idempotent; retrying after a lost response would repeat the mutation.
-            retries: 10
+            // updateShapeProperties writes absolute values for the masked fields, so replaying the same request is idempotent.
+            retries: 3
         });
 
         return {

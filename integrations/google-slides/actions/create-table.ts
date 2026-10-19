@@ -3,7 +3,7 @@ import { createAction } from 'nango';
 
 const DimensionSchema = z.object({
     magnitude: z.number().describe('The magnitude of the dimension. Example: 914400'),
-    unit: z.enum(['EMU', 'PT', 'UNIT_UNSPECIFIED']).describe('The unit for magnitude: "EMU" (English Metric Units) or "PT" (points). Example: "EMU"')
+    unit: z.enum(['EMU', 'PT']).describe('The unit for magnitude: "EMU" (English Metric Units) or "PT" (points). Example: "EMU"')
 });
 
 const AffineTransformSchema = z.object({
@@ -13,7 +13,7 @@ const AffineTransformSchema = z.object({
     shearY: z.number().optional().describe('Vertical shear factor. Tables require no shear. Example: 0'),
     translateX: z.number().optional().describe('Horizontal translation in the units set by "unit". Example: 500000'),
     translateY: z.number().optional().describe('Vertical translation in the units set by "unit". Example: 500000'),
-    unit: z.enum(['EMU', 'PT', 'UNIT_UNSPECIFIED']).optional().describe('The unit for the translation values: "EMU" or "PT". Example: "EMU"')
+    unit: z.enum(['EMU', 'PT']).describe('The unit for the translation values: "EMU" or "PT". Required by the API. Example: "EMU"')
 });
 
 const InputSchema = z
@@ -93,6 +93,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['https://www.googleapis.com/auth/presentations'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const createResponse = await nango.post({

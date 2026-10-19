@@ -11,12 +11,21 @@ const InputSchema = z
             .describe(
                 'Optional user-supplied ID for the text box. Must be 5-50 characters and unique among all pages and page elements in the presentation. If omitted, Google generates one.'
             ),
-        width: z.number().optional().describe('Width of the text box in EMU (English Metric Units). Defaults to the size Google chooses when omitted.'),
-        height: z.number().optional().describe('Height of the text box in EMU (English Metric Units). Defaults to the size Google chooses when omitted.'),
+        width: z
+            .number()
+            .optional()
+            .describe('Width of the text box in EMU (English Metric Units). Must be provided together with height; Google chooses a size when both are omitted.'),
+        height: z
+            .number()
+            .optional()
+            .describe('Height of the text box in EMU (English Metric Units). Must be provided together with width; Google chooses a size when both are omitted.'),
         translateX: z.number().optional().describe('Horizontal offset of the text box in EMU, measured from the top-left of the slide.'),
         translateY: z.number().optional().describe('Vertical offset of the text box in EMU, measured from the top-left of the slide.'),
         scaleX: z.number().optional().describe('Horizontal scale factor of the text box transform. Defaults to 1 when omitted.'),
         scaleY: z.number().optional().describe('Vertical scale factor of the text box transform. Defaults to 1 when omitted.')
+    })
+    .refine((data) => (data.width === undefined) === (data.height === undefined), {
+        message: 'width and height must be provided together.'
     })
     .describe('Parameters for creating a new, empty text box on a slide.');
 
@@ -57,6 +66,13 @@ const action = createAction({
     scopes: ['https://www.googleapis.com/auth/presentations'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        if ((input.width === undefined) !== (input.height === undefined)) {
+            throw new nango.ActionError({
+                type: 'invalid_input',
+                message: 'width and height must be provided together.'
+            });
+        }
+
         const elementProperties: {
             pageObjectId: string;
             size?: {

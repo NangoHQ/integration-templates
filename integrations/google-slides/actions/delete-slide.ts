@@ -12,7 +12,7 @@ const OutputSchema = z
     .object({
         presentationId: z.string().describe('The ID of the presentation the slide was deleted from.'),
         slideId: z.string().describe('The object ID of the slide that was deleted.'),
-        deleted: z.boolean().describe('Always true when the deletion request was accepted by the provider.')
+        success: z.boolean().describe('True when the deletion request was accepted by the provider.')
     })
     .describe('Confirmation that the slide deletion request was accepted for the given presentation.');
 
@@ -50,7 +50,7 @@ const action = createAction({
         return {
             presentationId: input.presentationId,
             slideId: input.slideId,
-            deleted: true
+            success: true
         };
     }
 });

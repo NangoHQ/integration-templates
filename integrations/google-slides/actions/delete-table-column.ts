@@ -5,8 +5,16 @@ const InputSchema = z
     .object({
         presentationId: z.string().describe('Google Slides presentation ID. Example: "1XMjFrmrnGzfPhHQb0ZMc4YSKwLvyn0HckTRodgW6mGw"'),
         tableObjectId: z.string().describe('Object ID of the table to delete a column from. Example: "tbl_fixture_1"'),
-        rowIndex: z.number().int().nonnegative().describe('Zero-based row index of the reference cell inside the table. Example: 0'),
-        columnIndex: z.number().int().nonnegative().describe('Zero-based column index of the column to delete. Example: 1')
+        cellLocation: z
+            .object({
+                rowIndex: z.number().int().nonnegative().describe('Zero-based row index of the reference cell. Example: 0'),
+                columnIndex: z
+                    .number()
+                    .int()
+                    .nonnegative()
+                    .describe('Zero-based column index of the reference cell. The column containing this cell is deleted. Example: 1')
+            })
+            .describe('A cell inside the table; the column containing this cell is the one that gets deleted.')
     })
     .describe('Reference cell identifying the table column to delete.');
 
@@ -18,6 +26,7 @@ const BatchUpdateResponseSchema = z.object({
 const OutputSchema = z
     .object({
         presentationId: z.string().describe('ID of the presentation whose table column was deleted.'),
+        tableObjectId: z.string().describe('Object ID of the table the column was deleted from.'),
         success: z.boolean().describe('True when the Google Slides API accepted the deleteTableColumn request (HTTP 200).')
     })
     .describe('Result of deleting a table column.');
@@ -44,8 +53,8 @@ const action = createAction({
                         deleteTableColumn: {
                             tableObjectId: input.tableObjectId,
                             cellLocation: {
-                                rowIndex: input.rowIndex,
-                                columnIndex: input.columnIndex
+                                rowIndex: input.cellLocation.rowIndex,
+                                columnIndex: input.cellLocation.columnIndex
                             }
                         }
                     }
@@ -74,6 +83,7 @@ const action = createAction({
 
         return {
             presentationId: input.presentationId,
+            tableObjectId: input.tableObjectId,
             success: true
         };
     }

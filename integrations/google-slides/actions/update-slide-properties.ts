@@ -9,8 +9,7 @@ const InputSchema = z
             .boolean()
             .describe(
                 'Whether the slide should be skipped during slideshow playback. Set true to exclude the slide from the presentation without deleting it.'
-            ),
-        fields: z.string().optional().describe('Field mask of the slide properties to update. Defaults to "isSkipped".')
+            )
     })
     .describe('Input for updating the properties of a slide in a Google Slides presentation.');
 
@@ -50,8 +49,6 @@ const action = createAction({
     scopes: ['https://www.googleapis.com/auth/presentations'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const fields = input.fields ?? 'isSkipped';
-
         // https://developers.google.com/slides/api/reference/rest/v1/presentations/batchUpdate
         await nango.post({
             endpoint: `/v1/presentations/${encodeURIComponent(input.presentationId)}:batchUpdate`,
@@ -63,7 +60,8 @@ const action = createAction({
                             slideProperties: {
                                 isSkipped: input.isSkipped
                             },
-                            fields
+                            // isSkipped is the only writable slide property.
+                            fields: 'isSkipped'
                         }
                     }
                 ]

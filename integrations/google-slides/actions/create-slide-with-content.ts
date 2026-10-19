@@ -87,11 +87,11 @@ const OutputSchema = z
 /**
  * @tags: [read, write]
  * @tagReason: Reads the newly created slide to discover its auto-generated placeholder IDs, then writes the title and body text into them.
- * @pitfalls: Only TITLE/CENTERED_TITLE and BODY placeholders are filled, so other layouts (e.g. BLANK, or TITLE with a SUBTITLE) still create the slide but place little or none of the supplied text; a custom slideObjectId must be 5-50 characters and unique across the entire presentation.
+ * @pitfalls: Only TITLE/CENTERED_TITLE and BODY placeholders are filled, so other layouts (e.g. BLANK, or TITLE with a SUBTITLE) still create the slide but place little or none of the supplied text; a custom slideObjectId must be 5-50 characters and unique across the entire presentation; if inserting the text fails, the new slide is deleted (best effort) before the error is returned.
  */
 const action = createAction({
     description:
-        'COMPOSITE: create a new slide with a title/body layout and populate its title and body text in one call, including the placeholder-objectId-discovery step a naive implementation would miss.',
+        'Create a new slide with a title/body layout and fill its title and body placeholders in one call, discovering the generated placeholder object IDs automatically.',
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
@@ -151,26 +151,44 @@ const action = createAction({
         const bodyPlaceholderObjectId = bodyElement?.objectId;
 
         const requests: Array<{ insertText: { objectId: string; text: string; insertionIndex: number } }> = [];
-        if (input.title !== undefined && titlePlaceholderObjectId !== undefined) {
+        if (input.title !== undefined && input.title.length > 0 && titlePlaceholderObjectId !== undefined) {
             requests.push({ insertText: { objectId: titlePlaceholderObjectId, text: input.title, insertionIndex: 0 } });
         }
-        if (input.body !== undefined && bodyPlaceholderObjectId !== undefined) {
+        if (input.body !== undefined && input.body.length > 0 && bodyPlaceholderObjectId !== undefined) {
             requests.push({ insertText: { objectId: bodyPlaceholderObjectId, text: input.body, insertionIndex: 0 } });
         }
 
         if (requests.length > 0) {
-            // https://developers.google.com/slides/api/reference/rest/v1/presentations/batchUpdate
-            await nango.post({
-                endpoint: `/v1/presentations/${encodeURIComponent(input.presentationId)}:batchUpdate`,
-                data: { requests },
-                // Non-idempotent text insert: a retry after a lost response would duplicate the inserted text.
-                // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries
-                retries: 0
-            });
+            // @allowTryCatch Roll back the new slide when the text insert fails, then rethrow.
+            try {
+                // https://developers.google.com/slides/api/reference/rest/v1/presentations/batchUpdate
+                await nango.post({
+                    endpoint: `/v1/presentations/${encodeURIComponent(input.presentationId)}:batchUpdate`,
+                    data: { requests },
+                    // Non-idempotent text insert: a retry after a lost response would duplicate the inserted text.
+                    // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries
+                    retries: 0
+                });
+            } catch (error) {
+                // @allowTryCatch Best-effort rollback: a failed cleanup must not mask the original error.
+                try {
+                    // https://developers.google.com/slides/api/reference/rest/v1/presentations/request#DeleteObjectRequest
+                    await nango.post({
+                        endpoint: `/v1/presentations/${encodeURIComponent(input.presentationId)}:batchUpdate`,
+                        data: { requests: [{ deleteObject: { objectId: slideObjectId } }] },
+                        // Deleting the slide again after a lost response would fail on the missing object, so this is not retried.
+                        // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries
+                        retries: 0
+                    });
+                } catch {
+                    await nango.log(`Failed to clean up slide ${slideObjectId} after the text insert failed; it may need to be deleted manually.`, { level: 'warn' });
+                }
+                throw error;
+            }
         }
 
-        const titleInserted = input.title !== undefined && titlePlaceholderObjectId !== undefined;
-        const bodyInserted = input.body !== undefined && bodyPlaceholderObjectId !== undefined;
+        const titleInserted = input.title !== undefined && input.title.length > 0 && titlePlaceholderObjectId !== undefined;
+        const bodyInserted = input.body !== undefined && input.body.length > 0 && bodyPlaceholderObjectId !== undefined;
 
         const insertedParts: string[] = [];
         if (titleInserted) {

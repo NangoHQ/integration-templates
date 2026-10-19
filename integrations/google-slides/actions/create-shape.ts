@@ -1,16 +1,16 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
-const UnitSchema = z.enum(['EMU', 'PT']).describe('Measurement unit. EMU is the default (914400 EMU = 1 inch).');
+const UnitSchema = z.enum(['EMU', 'PT']).describe('Measurement unit: "EMU" (914400 EMU = 1 inch) or "PT" (points). Required by the API. Example: "EMU"');
 
 const DimensionSchema = z.object({
-    magnitude: z.number().describe('Numeric measurement value, expressed in `unit`.'),
-    unit: UnitSchema.optional()
+    magnitude: z.number().describe('Numeric measurement value, expressed in `unit`. Example: 3000000'),
+    unit: UnitSchema
 });
 
 const SizeSchema = z.object({
-    width: DimensionSchema.optional().describe('Width of the element.'),
-    height: DimensionSchema.optional().describe('Height of the element.')
+    width: DimensionSchema.describe('Width of the element.'),
+    height: DimensionSchema.describe('Height of the element.')
 });
 
 const AffineTransformSchema = z.object({
@@ -20,7 +20,28 @@ const AffineTransformSchema = z.object({
     shearY: z.number().optional().describe('Y-axis shear factor.'),
     translateX: z.number().optional().describe('X-axis translation, in `unit`.'),
     translateY: z.number().optional().describe('Y-axis translation, in `unit`.'),
-    unit: UnitSchema.optional()
+    unit: UnitSchema
+});
+
+// Read-back shapes: Google omits zero-valued fields, so every field is optional here.
+const StoredDimensionSchema = z.object({
+    magnitude: z.number().optional().describe('Numeric measurement value, expressed in `unit`. Omitted when 0.'),
+    unit: z.string().optional().describe('Measurement unit, usually "EMU".')
+});
+
+const StoredSizeSchema = z.object({
+    width: StoredDimensionSchema.optional().describe('Width of the element.'),
+    height: StoredDimensionSchema.optional().describe('Height of the element.')
+});
+
+const StoredTransformSchema = z.object({
+    scaleX: z.number().optional().describe('X-axis scale factor.'),
+    scaleY: z.number().optional().describe('Y-axis scale factor.'),
+    shearX: z.number().optional().describe('X-axis shear factor.'),
+    shearY: z.number().optional().describe('Y-axis shear factor.'),
+    translateX: z.number().optional().describe('X-axis translation, in `unit`. Omitted when 0.'),
+    translateY: z.number().optional().describe('Y-axis translation, in `unit`. Omitted when 0.'),
+    unit: z.string().optional().describe('Unit of the translation values, usually "EMU".')
 });
 
 const InputSchema = z
@@ -36,7 +57,7 @@ const InputSchema = z
             .describe(
                 'Optional user-supplied object ID for the new shape (5-50 characters, starting with a letter, digit or underscore, unique across all pages and page elements). Omit to let Google generate one.'
             ),
-        size: SizeSchema.optional().describe('Optional size of the shape, in EMU (914400 EMU = 1 inch).'),
+        size: SizeSchema.optional().describe('Optional size of the shape. Both width and height are required when size is given.'),
         transform: AffineTransformSchema.optional().describe('Optional transform of the shape (placement, scale, shear) relative to the slide.')
     })
     .describe('Input for adding a new shape to a slide.');
@@ -47,8 +68,8 @@ const OutputSchema = z
         pageObjectId: z.string().describe('Object ID of the slide the shape was added to.'),
         objectId: z.string().describe('Object ID of the newly created shape.'),
         shapeType: z.string().describe('Shape type of the created shape, e.g. RECTANGLE or ELLIPSE.'),
-        size: SizeSchema.optional().describe('Actual size of the created shape as stored by Google, read back from the slide.'),
-        transform: AffineTransformSchema.optional().describe(
+        size: StoredSizeSchema.optional().describe('Actual size of the created shape as stored by Google, read back from the slide.'),
+        transform: StoredTransformSchema.optional().describe(
             'Actual transform of the created shape as stored by Google, read back from the slide; Google may normalize the values you requested.'
         )
     })
@@ -71,8 +92,8 @@ const BatchUpdateResponseSchema = z.object({
 
 const PageElementSchema = z.object({
     objectId: z.string(),
-    size: SizeSchema.optional(),
-    transform: AffineTransformSchema.optional(),
+    size: StoredSizeSchema.optional(),
+    transform: StoredTransformSchema.optional(),
     shape: z
         .object({
             shapeType: z.string()

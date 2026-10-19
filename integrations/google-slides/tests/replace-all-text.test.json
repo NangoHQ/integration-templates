@@ -1,36 +1,36 @@
 {
   "input": {
-    "presentationId": "1XFaFcivdWdl-Em5A8HC0_Oua7fSWpw-MR_QDj1AHsPI",
-    "searchText": "NangoX Test",
-    "replacementText": "NangoX Test",
-    "matchCase": false
+    "presentationId": "1x-KnnTWp4A51416Gl2c8ixPuC3ybxXKMOrvuE54_yco",
+    "searchText": "Swapped",
+    "replacementText": "Nango Replaced",
+    "matchCase": true
   },
   "output": {
-    "presentationId": "1XFaFcivdWdl-Em5A8HC0_Oua7fSWpw-MR_QDj1AHsPI",
-    "occurrencesChanged": 2,
-    "revisionId": "DY8sTqYT3ZgGww"
+    "presentationId": "1x-KnnTWp4A51416Gl2c8ixPuC3ybxXKMOrvuE54_yco",
+    "occurrencesChanged": 4,
+    "revisionId": "jwqWsNLEvRjD3g"
   },
   "nango": {},
   "api": {
     "post": {
-      "/v1/presentations/1XFaFcivdWdl-Em5A8HC0_Oua7fSWpw-MR_QDj1AHsPI:batchUpdate": {
+      "/v1/presentations/1x-KnnTWp4A51416Gl2c8ixPuC3ybxXKMOrvuE54_yco:batchUpdate": {
         "response": {
-          "presentationId": "1XFaFcivdWdl-Em5A8HC0_Oua7fSWpw-MR_QDj1AHsPI",
+          "presentationId": "1x-KnnTWp4A51416Gl2c8ixPuC3ybxXKMOrvuE54_yco",
           "replies": [
             {
               "replaceAllText": {
-                "occurrencesChanged": 2
+                "occurrencesChanged": 4
               }
             }
           ],
           "writeControl": {
-            "requiredRevisionId": "DY8sTqYT3ZgGww"
+            "requiredRevisionId": "jwqWsNLEvRjD3g"
           },
           "commentUpdateState": "NO_UPDATES_REQUESTED"
         },
         "status": 200,
         "headers": {
-          "date": "Thu, 15 Oct 2026 16:14:36 GMT",
+          "date": "Mon, 19 Oct 2026 02:31:04 GMT",
           "content-type": "application/json; charset=UTF-8",
           "transfer-encoding": "chunked",
           "connection": "keep-alive",
@@ -45,24 +45,24 @@
           "access-control-allow-origin": "*",
           "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
           "x-ratelimit-limit": "2000",
-          "x-ratelimit-remaining": "1898",
-          "x-ratelimit-reset": "1792080886",
+          "x-ratelimit-remaining": "1976",
+          "x-ratelimit-reset": "1792377070",
           "vary": "Origin, X-Origin, Referer",
           "server": "ESF",
           "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
           "x-l2-request-path": "l2-managed-4"
         },
-        "hash": "c13bcca978092167afc0517cb0c8e41dc2f7cb45",
+        "hash": "f1457d5b00c10c5aea1e1dd44f7242a4575dd9ad",
         "request": {
           "data": {
             "requests": [
               {
                 "replaceAllText": {
                   "containsText": {
-                    "text": "NangoX Test",
-                    "matchCase": false
+                    "text": "Swapped",
+                    "matchCase": true
                   },
-                  "replaceText": "NangoX Test"
+                  "replaceText": "Nango Replaced"
                 }
               }
             ]

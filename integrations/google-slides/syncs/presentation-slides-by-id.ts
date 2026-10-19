@@ -66,6 +66,20 @@ const ProviderPresentationSchema = z.object({
     notesMaster: PageSchema.optional()
 });
 
+function getErrorStatus(error: unknown): number | undefined {
+    if (error === null || typeof error !== 'object') {
+        return undefined;
+    }
+    if ('status' in error && typeof error.status === 'number') {
+        return error.status;
+    }
+    if ('response' in error && error.response !== null && typeof error.response === 'object' && 'status' in error.response) {
+        const status = error.response.status;
+        return typeof status === 'number' ? status : undefined;
+    }
+    return undefined;
+}
+
 const sync = createSync({
     description: 'Sync full slide/object structure and content for presentation IDs supplied in connection metadata',
     version: '1.0.0',
@@ -87,21 +101,32 @@ const sync = createSync({
 
         const presentationIds = parsedMetadata.data.presentationIds;
 
-        if (presentationIds.length === 0) {
-            return;
-        }
-
         // Full refresh over the metadata-supplied presentation IDs. Each presentation is fetched
         // with a single non-paginated GET, so there is no pagination state to checkpoint; the scan
         // always restarts from the first ID so a delete-tracked run never skips earlier IDs.
+        // Delete tracking also runs when the list is empty, so records for IDs removed from the
+        // metadata are deleted.
         await nango.trackDeletesStart('Presentation');
 
         for (const presentationId of presentationIds) {
-            // https://developers.google.com/slides/api/reference/rest/v1/presentations/get
-            const response = await nango.get({
-                endpoint: `/v1/presentations/${encodeURIComponent(presentationId)}`,
-                retries: 3
-            });
+            let response;
+            // @allowTryCatch A deleted or unshared deck (403/404) is skipped instead of failing the whole sync.
+            try {
+                // https://developers.google.com/slides/api/reference/rest/v1/presentations/get
+                response = await nango.get({
+                    endpoint: `/v1/presentations/${encodeURIComponent(presentationId)}`,
+                    retries: 3
+                });
+            } catch (error) {
+                const status = getErrorStatus(error);
+                if (status === 403 || status === 404) {
+                    // A deleted or no-longer-shared deck must not fail the whole sync; it is skipped and
+                    // its previously saved record is removed by delete tracking.
+                    await nango.log(`Skipping presentation ${presentationId}: Google returned ${status}.`, { level: 'warn' });
+                    continue;
+                }
+                throw error;
+            }
 
             const parsedPresentation = ProviderPresentationSchema.safeParse(response.data);
 

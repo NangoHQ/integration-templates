@@ -55,7 +55,13 @@ const TextStyleSchema = z.object({
     strikethrough: z.boolean().optional().describe('Whether the text is struck through.'),
     smallCaps: z.boolean().optional().describe('Whether the text is rendered in small capitals.'),
     baselineOffset: z.enum(['NONE', 'SUPERSCRIPT', 'SUBSCRIPT']).optional().describe('Vertical offset of the text from its normal baseline.'),
-    fontSize: z.number().positive().optional().describe('Font size in points.'),
+    fontSize: z
+        .object({
+            magnitude: z.number().positive().describe('Font size value, expressed in `unit`. Example: 18'),
+            unit: z.enum(['PT', 'EMU']).describe('Unit for the magnitude: "PT" (points) or "EMU" (12700 EMU = 1 point). Example: "PT"')
+        })
+        .optional()
+        .describe('Font size as a Slides Dimension. Example: { "magnitude": 18, "unit": "PT" }'),
     weightedFontFamily: WeightedFontFamilySchema.optional().describe('Font family together with an explicit weight.'),
     foregroundColor: OptionalColorSchema.optional().describe('Color of the text itself.'),
     backgroundColor: OptionalColorSchema.optional().describe('Background color behind the text.'),
@@ -156,7 +162,7 @@ const action = createAction({
             ...(input.style.strikethrough !== undefined && { strikethrough: input.style.strikethrough }),
             ...(input.style.smallCaps !== undefined && { smallCaps: input.style.smallCaps }),
             ...(input.style.baselineOffset !== undefined && { baselineOffset: input.style.baselineOffset }),
-            ...(input.style.fontSize !== undefined && { fontSize: input.style.fontSize }),
+            ...(input.style.fontSize !== undefined && { fontSize: { magnitude: input.style.fontSize.magnitude, unit: input.style.fontSize.unit } }),
             ...(input.style.weightedFontFamily !== undefined && { weightedFontFamily: input.style.weightedFontFamily }),
             ...(input.style.foregroundColor !== undefined && { foregroundColor: input.style.foregroundColor }),
             ...(input.style.backgroundColor !== undefined && { backgroundColor: input.style.backgroundColor }),

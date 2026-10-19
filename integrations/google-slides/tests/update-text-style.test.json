@@ -1,25 +1,19 @@
 {
   "input": {
-    "presentationId": "1XFaFcivdWdl-Em5A8HC0_Oua7fSWpw-MR_QDj1AHsPI",
-    "objectId": "my_text_box_1",
+    "presentationId": "1x-KnnTWp4A51416Gl2c8ixPuC3ybxXKMOrvuE54_yco",
+    "objectId": "i0",
     "style": {
       "bold": true,
-      "italic": true,
-      "foregroundColor": {
-        "opaqueColor": {
-          "rgbColor": {
-            "red": 1,
-            "green": 0,
-            "blue": 0
-          }
-        }
+      "fontSize": {
+        "magnitude": 24,
+        "unit": "PT"
       }
     }
   },
   "output": {
-    "presentationId": "1XFaFcivdWdl-Em5A8HC0_Oua7fSWpw-MR_QDj1AHsPI",
-    "objectId": "my_text_box_1",
-    "fields": "bold,italic,foregroundColor",
+    "presentationId": "1x-KnnTWp4A51416Gl2c8ixPuC3ybxXKMOrvuE54_yco",
+    "objectId": "i0",
+    "fields": "bold,fontSize",
     "textRange": {
       "type": "ALL"
     }
@@ -27,20 +21,20 @@
   "nango": {},
   "api": {
     "post": {
-      "/v1/presentations/1XFaFcivdWdl-Em5A8HC0_Oua7fSWpw-MR_QDj1AHsPI:batchUpdate": {
+      "/v1/presentations/1x-KnnTWp4A51416Gl2c8ixPuC3ybxXKMOrvuE54_yco:batchUpdate": {
         "response": {
-          "presentationId": "1XFaFcivdWdl-Em5A8HC0_Oua7fSWpw-MR_QDj1AHsPI",
+          "presentationId": "1x-KnnTWp4A51416Gl2c8ixPuC3ybxXKMOrvuE54_yco",
           "replies": [
             {}
           ],
           "writeControl": {
-            "requiredRevisionId": "gvJi0-Tt2D6rFA"
+            "requiredRevisionId": "jra_inpLVCKiYA"
           },
           "commentUpdateState": "NO_UPDATES_REQUESTED"
         },
         "status": 200,
         "headers": {
-          "date": "Thu, 15 Oct 2026 16:20:20 GMT",
+          "date": "Mon, 19 Oct 2026 02:28:01 GMT",
           "content-type": "application/json; charset=UTF-8",
           "transfer-encoding": "chunked",
           "connection": "keep-alive",
@@ -55,37 +49,31 @@
           "access-control-allow-origin": "*",
           "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
           "x-ratelimit-limit": "2000",
-          "x-ratelimit-remaining": "1996",
-          "x-ratelimit-reset": "1792081278",
+          "x-ratelimit-remaining": "1997",
+          "x-ratelimit-reset": "1792376938",
           "vary": "Origin, X-Origin, Referer",
           "server": "ESF",
           "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
           "x-l2-request-path": "l2-managed-4"
         },
-        "hash": "e77b613b0029bb457db9dee770b1c00480c8cfe8",
+        "hash": "03b301a40eda4e96e3ce8d3042d1665f108e3837",
         "request": {
           "data": {
             "requests": [
               {
                 "updateTextStyle": {
-                  "objectId": "my_text_box_1",
+                  "objectId": "i0",
                   "style": {
                     "bold": true,
-                    "italic": true,
-                    "foregroundColor": {
-                      "opaqueColor": {
-                        "rgbColor": {
-                          "red": 1,
-                          "green": 0,
-                          "blue": 0
-                        }
-                      }
+                    "fontSize": {
+                      "magnitude": 24,
+                      "unit": "PT"
                     }
                   },
                   "textRange": {
                     "type": "ALL"
                   },
-                  "fields": "bold,italic,foregroundColor"
+                  "fields": "bold,fontSize"
                 }
               }
             ]

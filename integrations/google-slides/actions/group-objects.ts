@@ -46,7 +46,7 @@ const OutputSchema = z
 /**
  * @tags: [write]
  * @tagReason: Creates a new group page element inside the presentation through batchUpdate, mutating provider state.
- * @pitfalls: Only page elements can be grouped, and videos, tables, and placeholders cannot; all children must be top-level elements on the same slide and not already in another group. A supplied groupObjectId must be 5-50 characters and unique across the entire presentation, not just the slide. Grouping replaces the children with one group element, which is reversible via ungroup-objects.
+ * @pitfalls: Only page elements can be grouped, and videos, tables, and placeholders cannot; all children must be top-level elements on the same slide and not already in another group. A supplied groupObjectId must be 5-50 characters and unique across the entire presentation, not just the slide. Grouping replaces the children with one group element; it can be reversed with the Slides API ungroupObjects request, which this integration does not expose as an action.
  */
 const action = createAction({
     description: 'Combine two or more page elements on a slide into a single group.',
@@ -69,8 +69,9 @@ const action = createAction({
                     }
                 ]
             },
-            // Bounded retries are safe here: re-grouping already-grouped children fails instead of duplicating the group, so a retry cannot repeat the mutation.
-            retries: 3
+            // Not retried: if the first attempt was applied but its response was lost, a retry fails with "cannot be grouped" and would turn a success into an error.
+            // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries
+            retries: 0
         });
 
         const parsed = ProviderBatchUpdateResponseSchema.parse(response.data);

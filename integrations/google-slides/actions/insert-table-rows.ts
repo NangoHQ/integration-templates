@@ -59,10 +59,11 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['https://www.googleapis.com/auth/presentations'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://developers.google.com/slides/api/reference/rest/v1/presentations/batchUpdate
-        const response = await nango.post({
+        await nango.post({
             endpoint: `/v1/presentations/${encodeURIComponent(input.presentationId)}:batchUpdate`,
             data: {
                 requests: [
@@ -83,16 +84,6 @@ const action = createAction({
             // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries
             retries: 0
         });
-
-        if (response.status >= 400) {
-            throw new nango.ActionError({
-                type: 'insert_table_rows_failed',
-                message: 'Google Slides rejected the insertTableRows request.',
-                status: response.status,
-                presentationId: input.presentationId,
-                tableObjectId: input.tableObjectId
-            });
-        }
 
         // https://developers.google.com/slides/api/reference/rest/v1/presentations/get
         const presentationResponse = await nango.get({

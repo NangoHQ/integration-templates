@@ -9,9 +9,8 @@
   },
   "output": {
     "presentationId": "1XFaFcivdWdl-Em5A8HC0_Oua7fSWpw-MR_QDj1AHsPI",
-    "replies": [
-      {}
-    ]
+    "tableObjectId": "nango_delrow_table_1",
+    "success": true
   },
   "nango": {},
   "api": {

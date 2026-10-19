@@ -74,7 +74,9 @@ const action = createAction({
             data: {
                 requests
             },
-            retries: 3
+            // Not idempotent: when replacementText contains searchText, a retry after a lost response would replace again.
+            // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries
+            retries: 0
         });
 
         const parsed = BatchUpdateResponseSchema.parse(response.data);

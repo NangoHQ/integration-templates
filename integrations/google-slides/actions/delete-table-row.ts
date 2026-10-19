@@ -19,14 +19,14 @@ const InputSchema = z
     .describe('Identifies the table row to delete via a reference cell inside that row.');
 
 const ProviderResponseSchema = z.object({
-    presentationId: z.string().optional(),
-    replies: z.array(z.unknown()).optional()
+    presentationId: z.string().optional()
 });
 
 const OutputSchema = z
     .object({
         presentationId: z.string().describe('The ID of the presentation that was updated. Example: "1XFaFcivdWdl-Em5A8HC0_Oua7fSWpw-MR_QDj1AHsPI"'),
-        replies: z.array(z.unknown()).optional().describe('Per-request batchUpdate replies. A successful deleteTableRow reply is an empty object.')
+        tableObjectId: z.string().describe('The object ID of the table the row was deleted from.'),
+        success: z.boolean().describe('True when the Google Slides API accepted the deleteTableRow request.')
     })
     .describe('Result of the batchUpdate that deleted the table row.');
 
@@ -68,7 +68,8 @@ const action = createAction({
 
         return {
             presentationId: providerResponse.presentationId ?? input.presentationId,
-            ...(providerResponse.replies !== undefined && { replies: providerResponse.replies })
+            tableObjectId: input.tableObjectId,
+            success: true
         };
     }
 });
