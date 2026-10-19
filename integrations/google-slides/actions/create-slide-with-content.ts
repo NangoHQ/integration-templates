@@ -181,7 +181,9 @@ const action = createAction({
                         retries: 0
                     });
                 } catch {
-                    await nango.log(`Failed to clean up slide ${slideObjectId} after the text insert failed; it may need to be deleted manually.`, { level: 'warn' });
+                    await nango.log(`Failed to clean up slide ${slideObjectId} after the text insert failed; it may need to be deleted manually.`, {
+                        level: 'warn'
+                    });
                 }
                 throw error;
             }

@@ -14,11 +14,15 @@ const InputSchema = z
         width: z
             .number()
             .optional()
-            .describe('Width of the text box in EMU (English Metric Units). Must be provided together with height; Google chooses a size when both are omitted.'),
+            .describe(
+                'Width of the text box in EMU (English Metric Units). Must be provided together with height; Google chooses a size when both are omitted.'
+            ),
         height: z
             .number()
             .optional()
-            .describe('Height of the text box in EMU (English Metric Units). Must be provided together with width; Google chooses a size when both are omitted.'),
+            .describe(
+                'Height of the text box in EMU (English Metric Units). Must be provided together with width; Google chooses a size when both are omitted.'
+            ),
         translateX: z.number().optional().describe('Horizontal offset of the text box in EMU, measured from the top-left of the slide.'),
         translateY: z.number().optional().describe('Vertical offset of the text box in EMU, measured from the top-left of the slide.'),
         scaleX: z.number().optional().describe('Horizontal scale factor of the text box transform. Defaults to 1 when omitted.'),

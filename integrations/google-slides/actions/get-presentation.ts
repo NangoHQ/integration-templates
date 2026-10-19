@@ -78,7 +78,9 @@ const OutputSchema = z
         notesMaster: PageSchema.optional().describe('The notes master of the presentation.')
     })
     .passthrough()
-    .describe('The structure of a Google Slides presentation (limited to the requested fields when a field mask is given), including its slides, page elements, masters, layouts, and notes master.');
+    .describe(
+        'The structure of a Google Slides presentation (limited to the requested fields when a field mask is given), including its slides, page elements, masters, layouts, and notes master.'
+    );
 
 const ProviderPresentationSchema = OutputSchema.extend({
     presentationId: z.string().optional()

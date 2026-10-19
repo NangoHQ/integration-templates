@@ -16,7 +16,9 @@ const InputSchema = z
 
 const OutputSchema = z
     .object({
-        occurrencesChanged: z.number().describe('Authoritative number of occurrences the provider reported replacing; 0 when the provider reply omits the field.'),
+        occurrencesChanged: z
+            .number()
+            .describe('Authoritative number of occurrences the provider reported replacing; 0 when the provider reply omits the field.'),
         preCount: z.number().describe('Occurrences of searchText counted in slide and speaker notes text (within the requested pages) before the update.'),
         postSearchTextCount: z.number().describe('Occurrences of searchText remaining after the update; expected to be 0 for an unscoped replacement.'),
         postReplaceTextCount: z.number().describe('Occurrences of replaceText present in the presentation after the update.')

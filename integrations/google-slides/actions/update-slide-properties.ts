@@ -7,9 +7,7 @@ const InputSchema = z
         slideObjectId: z.string().describe('The object ID of the slide to update. Example: "slide_test_1"'),
         isSkipped: z
             .boolean()
-            .describe(
-                'Whether the slide should be skipped during slideshow playback. Set true to exclude the slide from the presentation without deleting it.'
-            )
+            .describe('Whether the slide should be skipped during slideshow playback. Set true to exclude the slide from the presentation without deleting it.')
     })
     .describe('Input for updating the properties of a slide in a Google Slides presentation.');
 
