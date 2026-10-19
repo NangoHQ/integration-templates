@@ -1,0 +1,224 @@
+{
+  "input": {
+    "presentationId": "1XFaFcivdWdl-Em5A8HC0_Oua7fSWpw-MR_QDj1AHsPI",
+    "tableObjectId": "my_table_1",
+    "cellLocation": {
+      "rowIndex": 0,
+      "columnIndex": 0
+    },
+    "insertBelow": true,
+    "number": 1
+  },
+  "output": {
+    "presentationId": "1XFaFcivdWdl-Em5A8HC0_Oua7fSWpw-MR_QDj1AHsPI",
+    "pageObjectId": "SLIDES_API1607775223_0",
+    "tableObjectId": "my_table_1",
+    "insertBelow": true,
+    "rowsInserted": 1,
+    "rowCount": 4,
+    "columnCount": 3
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/v1/presentations/1XFaFcivdWdl-Em5A8HC0_Oua7fSWpw-MR_QDj1AHsPI:batchUpdate": {
+        "response": {
+          "presentationId": "1XFaFcivdWdl-Em5A8HC0_Oua7fSWpw-MR_QDj1AHsPI",
+          "replies": [
+            {}
+          ],
+          "writeControl": {
+            "requiredRevisionId": "rDlbWghzVXTI8g"
+          },
+          "commentUpdateState": "NO_UPDATES_REQUESTED"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 15 Oct 2026 16:13:39 GMT",
+          "content-type": "application/json; charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1932",
+          "x-ratelimit-reset": "1792080824",
+          "vary": "Origin, X-Origin, Referer",
+          "server": "ESF",
+          "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
+          "x-l2-request-path": "l2-managed-4"
+        },
+        "hash": "44c307055e1df37ee5f70a132740ecf204d6f7fb",
+        "request": {
+          "data": {
+            "requests": [
+              {
+                "insertTableRows": {
+                  "tableObjectId": "my_table_1",
+                  "cellLocation": {
+                    "rowIndex": 0,
+                    "columnIndex": 0
+                  },
+                  "insertBelow": true,
+                  "number": 1
+                }
+              }
+            ]
+          }
+        }
+      }
+    },
+    "get": {
+      "/v1/presentations/1XFaFcivdWdl-Em5A8HC0_Oua7fSWpw-MR_QDj1AHsPI": {
+        "response": {
+          "slides": [
+            {
+              "objectId": "p",
+              "pageElements": [
+                {
+                  "objectId": "i0"
+                },
+                {
+                  "objectId": "i1"
+                }
+              ]
+            },
+            {
+              "objectId": "SLIDES_API2092878690_0",
+              "pageElements": [
+                {
+                  "objectId": "SLIDES_API2092878690_1"
+                },
+                {
+                  "objectId": "SLIDES_API2092878690_2"
+                }
+              ]
+            },
+            {
+              "objectId": "SLIDES_API1815926584_0",
+              "pageElements": [
+                {
+                  "objectId": "SLIDES_API1815926584_1"
+                },
+                {
+                  "objectId": "SLIDES_API1815926584_2"
+                }
+              ]
+            },
+            {
+              "objectId": "SLIDES_API1676022713_0",
+              "pageElements": [
+                {
+                  "objectId": "SLIDES_API1676022713_1"
+                },
+                {
+                  "objectId": "SLIDES_API1676022713_2"
+                }
+              ]
+            },
+            {
+              "objectId": "SLIDES_API1796972850_0",
+              "pageElements": [
+                {
+                  "objectId": "SLIDES_API1796972850_1"
+                },
+                {
+                  "objectId": "SLIDES_API1796972850_2"
+                }
+              ]
+            },
+            {
+              "objectId": "SLIDES_API1607775223_0",
+              "pageElements": [
+                {
+                  "objectId": "my_table_1",
+                  "table": {
+                    "rows": 4,
+                    "columns": 3
+                  }
+                },
+                {
+                  "objectId": "my_image_1"
+                },
+                {
+                  "objectId": "nango_delrow_table_1",
+                  "table": {
+                    "rows": 3,
+                    "columns": 2
+                  }
+                }
+              ]
+            },
+            {
+              "objectId": "slide_test_1",
+              "pageElements": [
+                {
+                  "objectId": "SLIDES_API326449874_0"
+                },
+                {
+                  "objectId": "SLIDES_API326449874_1"
+                },
+                {
+                  "objectId": "my_text_box_1"
+                },
+                {
+                  "objectId": "my_rect_1"
+                },
+                {
+                  "objectId": "SLIDES_API1109984005_0"
+                },
+                {
+                  "objectId": "SLIDES_API1350133488_0"
+                },
+                {
+                  "objectId": "SLIDES_API1748152129_0"
+                }
+              ]
+            },
+            {
+              "objectId": "slide_empty_1"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 15 Oct 2026 16:13:39 GMT",
+          "content-type": "application/json; charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1931",
+          "x-ratelimit-reset": "1792080824",
+          "vary": "Origin, X-Origin, Referer",
+          "server": "ESF",
+          "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
+          "x-l2-request-path": "l2-managed-4"
+        },
+        "hash": "69f2204b6006197de797494d5c235547059e605b",
+        "request": {
+          "params": {
+            "fields": "slides(objectId,pageElements(objectId,table(rows,columns)))"
+          }
+        }
+      }
+    }
+  }
+}
