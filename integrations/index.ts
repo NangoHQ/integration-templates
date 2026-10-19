@@ -3032,6 +3032,27 @@ import './google-sheet/actions/update-conditional-format-rule.js';
 import './google-sheet/actions/update-values.js';
 import './google-sheet/actions/upsert-row.js';
 
+// -- Integration: google-tasks
+import './google-tasks/syncs/task-lists.js';
+import './google-tasks/syncs/tasks.js';
+import './google-tasks/actions/complete-task-and-verify.js';
+import './google-tasks/actions/complete-task.js';
+import './google-tasks/actions/create-task.js';
+import './google-tasks/actions/create-tasklist.js';
+import './google-tasks/actions/delete-task.js';
+import './google-tasks/actions/delete-tasklist.js';
+import './google-tasks/actions/find-or-create-task-in-tasklist.js';
+import './google-tasks/actions/get-task.js';
+import './google-tasks/actions/get-tasklist-full-tree.js';
+import './google-tasks/actions/get-tasklist.js';
+import './google-tasks/actions/list-tasklists.js';
+import './google-tasks/actions/list-tasks.js';
+import './google-tasks/actions/move-task.js';
+import './google-tasks/actions/patch-task.js';
+import './google-tasks/actions/reopen-task.js';
+import './google-tasks/actions/update-task.js';
+import './google-tasks/actions/update-tasklist.js';
+
 // -- Integration: gorgias
 import './gorgias/syncs/custom-fields.js';
 import './gorgias/syncs/customers.js';
