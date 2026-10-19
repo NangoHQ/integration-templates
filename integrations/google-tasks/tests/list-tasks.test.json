@@ -5,6 +5,7 @@
   "output": {
     "items": [
       {
+        "kind": "tasks#task",
         "id": "X0EyX2NYOUhJRldLTlZBTA",
         "etag": "\"_OiKTL4Ik2I\"",
         "title": "Nango List Subtask",
@@ -16,6 +17,7 @@
         "webViewLink": "https://tasks.google.com/task/_A2_cX9HIFWKNVAL?sa=6"
       },
       {
+        "kind": "tasks#task",
         "id": "WlV1dFJXZWg1ZUtILU1Fbg",
         "etag": "\"ayZyqvrS4sQ\"",
         "title": "Nango List Task Beta",
@@ -28,6 +30,7 @@
         "webViewLink": "https://tasks.google.com/task/ZUutRWeh5eKH-MEn?sa=6"
       },
       {
+        "kind": "tasks#task",
         "id": "dHp2MWxIeWxHRW1QdFE3aw",
         "etag": "\"XhiXs_PnX0M\"",
         "title": "Nango List Task Alpha",

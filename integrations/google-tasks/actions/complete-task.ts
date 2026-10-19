@@ -1,27 +1,6 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
-
-const TaskLinkSchema = z.object({
-    type: z.string().optional().describe('Type of the link, for example "email", "generic", "chat_message", or "keep_note".'),
-    description: z.string().optional().describe('Description of the link; may be an empty string.'),
-    link: z.string().optional().describe('The URL of the link.')
-});
-
-const DriveResourceInfoSchema = z.object({
-    driveFileId: z.string().optional().describe('Identifier of the originating file in the Drive API.'),
-    resourceKey: z.string().optional().describe('Resource key required to access files shared via a shared link.')
-});
-
-const SpaceInfoSchema = z.object({
-    space: z.string().optional().describe('The Chat space the task originates from, formatted as "spaces/{space}".')
-});
-
-const AssignmentInfoSchema = z.object({
-    linkToTask: z.string().optional().describe('Absolute link to the original task in the surface it was assigned from.'),
-    surfaceType: z.string().optional().describe('Type of surface the assigned task originates from, for example "DOCUMENT" or "SPACE".'),
-    driveResourceInfo: DriveResourceInfoSchema.optional().describe('Information about the Drive file the task originates from.'),
-    spaceInfo: SpaceInfoSchema.optional().describe('Information about the Chat space the task originates from.')
-});
+import { ProviderTaskSchema, TaskSchema, toTask } from '../helpers/schemas.js';
 
 const InputSchema = z
     .object({
@@ -30,27 +9,7 @@ const InputSchema = z
     })
     .describe('Identifies the task to mark as completed.');
 
-const OutputSchema = z
-    .object({
-        kind: z.string().optional().describe('Resource type; always "tasks#task".'),
-        id: z.string().describe('Task identifier.'),
-        etag: z.string().optional().describe('ETag of the task resource.'),
-        title: z.string().optional().describe('Title of the task.'),
-        updated: z.string().optional().describe('Last modification time of the task as an RFC 3339 timestamp.'),
-        selfLink: z.string().optional().describe('URL that points to this task.'),
-        parent: z.string().optional().describe('Identifier of the parent task; omitted for top-level tasks.'),
-        position: z.string().optional().describe('Lexicographic position of the task among its siblings.'),
-        notes: z.string().optional().describe('Notes describing the task.'),
-        status: z.string().optional().describe('Task status, either "needsAction" or "completed".'),
-        due: z.string().optional().describe('Due date of the task as an RFC 3339 timestamp; the time portion is discarded by the provider.'),
-        completed: z.string().optional().describe('Completion date of the task as an RFC 3339 timestamp; present once the task is completed.'),
-        deleted: z.boolean().optional().describe('Whether the task has been deleted.'),
-        hidden: z.boolean().optional().describe('Whether the task is hidden because its list was cleared after it was completed.'),
-        links: z.array(TaskLinkSchema).optional().describe('Collection of links attached to the task.'),
-        webViewLink: z.string().optional().describe('Absolute link to the task in the Google Tasks web UI.'),
-        assignmentInfo: AssignmentInfoSchema.optional().describe('Context information for tasks assigned from surfaces such as Docs or Chat spaces.')
-    })
-    .describe('The task resource returned after it was marked as completed.');
+const OutputSchema = TaskSchema.describe('The task resource returned after it was marked as completed.');
 
 /**
  * @tags: [write]
@@ -75,7 +34,7 @@ const action = createAction({
             retries: 3
         });
 
-        return OutputSchema.parse(response.data);
+        return toTask(ProviderTaskSchema.parse(response.data));
     }
 });
 

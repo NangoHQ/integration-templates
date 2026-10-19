@@ -1,27 +1,12 @@
 import { createSync, type ProxyConfiguration } from 'nango';
-import { z } from 'zod';
-
-const ProviderTaskListSchema = z.object({
-    id: z.string(),
-    title: z.string().optional(),
-    updated: z.string().optional(),
-    selfLink: z.string().optional()
-});
-
-const TaskListSchema = z
-    .object({
-        id: z.string().describe('The unique identifier of the task list.'),
-        title: z.string().optional().describe('The title of the task list.'),
-        updated: z.string().optional().describe('The last modification time of the task list as an RFC 3339 timestamp.'),
-        selfLink: z.string().optional().describe('The URL that points to this task list.')
-    })
-    .describe('Metadata about a single Google Tasks task list.');
+import { ProviderTaskListSchema, TaskListSchema, toTaskList } from '../helpers/schemas.js';
 
 const sync = createSync({
     description: 'Sync metadata (title, updated timestamp) for every task list in the account.',
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['https://www.googleapis.com/auth/tasks'],
     models: {
         TaskList: TaskListSchema
     },
@@ -45,16 +30,8 @@ const sync = createSync({
             retries: 3
         };
 
-        for await (const page of nango.paginate<z.infer<typeof ProviderTaskListSchema>>(proxyConfig)) {
-            const taskLists = page.map((item) => {
-                const taskList = ProviderTaskListSchema.parse(item);
-                return {
-                    id: taskList.id,
-                    ...(taskList.title != null && { title: taskList.title }),
-                    ...(taskList.updated != null && { updated: taskList.updated }),
-                    ...(taskList.selfLink != null && { selfLink: taskList.selfLink })
-                };
-            });
+        for await (const page of nango.paginate(proxyConfig)) {
+            const taskLists = page.map((item) => toTaskList(ProviderTaskListSchema.parse(item)));
 
             if (taskLists.length > 0) {
                 await nango.batchSave(taskLists, 'TaskList');

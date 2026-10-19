@@ -3,31 +3,41 @@
     "batchSave": {
       "TaskList": [
         {
+          "kind": "tasks#taskList",
           "id": "MDQwOTY3MjU2NTE0MjcwODI3ODI6MDow",
+          "etag": "\"tEg8T0EO6cI\"",
           "title": "My Tasks",
           "updated": "2025-11-11T21:17:21.284Z",
           "selfLink": "https://www.googleapis.com/tasks/v1/users/@me/lists/MDQwOTY3MjU2NTE0MjcwODI3ODI6MDow"
         },
         {
+          "kind": "tasks#taskList",
           "id": "NFRkZ1Z4NW9pazZXZkFrdA",
+          "etag": "\"jM3HKOWmgB0\"",
           "title": "Nango Full Tree Test List",
           "updated": "2026-10-15T16:24:34.968Z",
           "selfLink": "https://www.googleapis.com/tasks/v1/users/@me/lists/NFRkZ1Z4NW9pazZXZkFrdA"
         },
         {
+          "kind": "tasks#taskList",
           "id": "TEVsMFMzU2RocEZCWGUybQ",
+          "etag": "\"jSMDEYH8Y_M\"",
           "title": "Nango Update Task Test",
           "updated": "2026-10-15T16:25:44.185Z",
           "selfLink": "https://www.googleapis.com/tasks/v1/users/@me/lists/TEVsMFMzU2RocEZCWGUybQ"
         },
         {
+          "kind": "tasks#taskList",
           "id": "RENLMjFmblNNOUs0bTdaTA",
+          "etag": "\"CSj9AM4I4uc\"",
           "title": "Nango Cascade Verify Test",
           "updated": "2026-10-15T16:26:07.689Z",
           "selfLink": "https://www.googleapis.com/tasks/v1/users/@me/lists/RENLMjFmblNNOUs0bTdaTA"
         },
         {
+          "kind": "tasks#taskList",
           "id": "aXdQXzNGN2VQWW9fUjcxQw",
+          "etag": "\"zD0A7VGcZvQ\"",
           "title": "Nango List Tasks Test",
           "updated": "2026-10-15T16:24:55.733Z",
           "selfLink": "https://www.googleapis.com/tasks/v1/users/@me/lists/aXdQXzNGN2VQWW9fUjcxQw"

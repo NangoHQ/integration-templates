@@ -1,5 +1,6 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
+import { ProviderTaskListSchema, TaskListSchema, toTaskList } from '../helpers/schemas.js';
 
 const InputSchema = z
     .object({
@@ -11,25 +12,7 @@ const InputSchema = z
     })
     .describe('Identifies which task list to retrieve.');
 
-const ProviderTaskListSchema = z.object({
-    kind: z.string().optional(),
-    id: z.string(),
-    etag: z.string().optional(),
-    title: z.string().optional(),
-    updated: z.string().optional(),
-    selfLink: z.string().optional()
-});
-
-const OutputSchema = z
-    .object({
-        kind: z.string().optional().describe('Resource type. Always "tasks#taskList". Example: "tasks#taskList"'),
-        id: z.string().describe('Task list identifier. Example: "MDQwOTY3MjU2NTE0MjcwODI3ODI6MDow"'),
-        etag: z.string().optional().describe('ETag of the task list, useful for detecting concurrent modifications.'),
-        title: z.string().optional().describe('Title of the task list. Example: "My Tasks"'),
-        updated: z.string().optional().describe('Last modification time of the task list as an RFC 3339 timestamp. Example: "2025-11-11T21:17:21.284Z"'),
-        selfLink: z.string().optional().describe('URL pointing to this task list, usable to retrieve, update, or delete it.')
-    })
-    .describe('A Google Tasks task list.');
+const OutputSchema = TaskListSchema.describe('A Google Tasks task list.');
 
 /**
  * @tags: [read]
@@ -50,16 +33,7 @@ const action = createAction({
             retries: 3
         });
 
-        const taskList = ProviderTaskListSchema.parse(response.data);
-
-        return {
-            ...(taskList.kind != null && { kind: taskList.kind }),
-            id: taskList.id,
-            ...(taskList.etag != null && { etag: taskList.etag }),
-            ...(taskList.title != null && { title: taskList.title }),
-            ...(taskList.updated != null && { updated: taskList.updated }),
-            ...(taskList.selfLink != null && { selfLink: taskList.selfLink })
-        };
+        return toTaskList(ProviderTaskListSchema.parse(response.data));
     }
 });
 

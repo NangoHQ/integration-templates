@@ -1,7 +1,7 @@
 {
   "input": {
-    "tasklist_id": "TEVsMFMzU2RocEZCWGUybQ",
-    "task_id": "NGhVdGtWUGotQ0JqcnVKWg",
+    "tasklist": "TEVsMFMzU2RocEZCWGUybQ",
+    "task": "NGhVdGtWUGotQ0JqcnVKWg",
     "title": "Replaced By Nango",
     "notes": "notes set by nango action",
     "status": "completed",

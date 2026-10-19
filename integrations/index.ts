@@ -3049,7 +3049,6 @@ import './google-tasks/actions/list-tasklists.js';
 import './google-tasks/actions/list-tasks.js';
 import './google-tasks/actions/move-task.js';
 import './google-tasks/actions/patch-task.js';
-import './google-tasks/actions/patch-tasklist.js';
 import './google-tasks/actions/reopen-task.js';
 import './google-tasks/actions/update-task.js';
 import './google-tasks/actions/update-tasklist.js';

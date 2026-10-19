@@ -1,63 +1,34 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
+import { ProviderTaskSchema, TaskSchema, toTask, type ProviderTask } from '../helpers/schemas.js';
 
 const InputSchema = z
     .object({
         tasklist: z
             .string()
-            .optional()
-            .describe(
-                'ID of the task list that contains the task. Defaults to "@default", the authenticated user\'s default list. Example: "MDQwOTY3MjU2NTE0MjcwODI3ODI6MDow"'
-            ),
+            .describe('ID of the task list that contains the task. Use "@default" for the authenticated user\'s default list. Example: "MDQwOTY3MjU2NTE0MjcwODI3ODI6MDow"'),
         task: z.string().describe('ID of the task to mark as completed. Example: "LWlneng5SFhnU2IyN2h4Qg"')
     })
     .describe('Identifies the task to complete within a task list.');
 
-const ProviderTaskSchema = z.object({
-    id: z.string(),
-    title: z.string().nullish(),
-    status: z.string().nullish(),
-    completed: z.string().nullish(),
-    parent: z.string().nullish(),
-    updated: z.string().nullish(),
-    deleted: z.boolean().nullish(),
-    hidden: z.boolean().nullish()
-});
-
-const ProviderTasksListSchema = z.object({
-    items: z.array(ProviderTaskSchema).nullish()
-});
-
-const TaskSchema = z.object({
-    id: z.string().describe('Unique identifier of the task.'),
-    title: z.string().optional().describe('Title of the task.'),
-    status: z.string().describe('Current status of the task. This is "completed" when the action succeeds.'),
-    completed: z.string().optional().describe('RFC 3339 completion timestamp set by the provider once the task is completed.'),
-    parent: z.string().optional().describe('ID of the parent task when this task is a subtask.'),
-    updated: z.string().optional().describe('RFC 3339 timestamp of the last modification to the task.'),
-    deleted: z.boolean().optional().describe('Whether the task is a deleted tombstone.'),
-    hidden: z.boolean().optional().describe('Whether the task is hidden from the default task view.')
-});
-
-const CascadedSubtaskSchema = z.object({
-    id: z.string().describe('Unique identifier of the subtask that was auto-completed.'),
-    title: z.string().optional().describe('Title of the subtask.'),
-    status: z.string().describe('Subtask status; "completed" confirms the parent completion cascaded to it.'),
-    completed: z.string().optional().describe('RFC 3339 completion timestamp set by the provider on the subtask.'),
-    parent: z.string().optional().describe('ID of the parent task (the task that was completed).')
+const ProviderTasksPageSchema = z.object({
+    items: z.array(ProviderTaskSchema).nullish(),
+    nextPageToken: z.string().nullish()
 });
 
 const OutputSchema = z
     .object({
         task: TaskSchema.describe('The completed task as read back from the provider after the update.'),
-        cascadedSubtasks: z.array(CascadedSubtaskSchema).describe('Direct subtasks that were auto-completed as a side effect of completing the task.')
+        cascadedSubtasks: z
+            .array(TaskSchema)
+            .describe('Direct subtasks that are completed after the update, i.e. auto-completed as a side effect of completing the task.')
     })
     .describe('The verified completed task together with any subtasks that were auto-completed by the cascade.');
 
 /**
  * @tags: [read, write]
  * @tagReason: Reads the task and its task list, then mutates the task's status to completed.
- * @pitfalls: Completing a parent task automatically completes its direct subtasks, and any subtask that is already completed when the action reads back is reported in cascadedSubtasks, so subtasks completed earlier may also appear; completion is reversible by setting the status back to "needsAction".
+ * @pitfalls: Completing a parent task automatically completes its direct subtasks, and any subtask that is already completed when the action reads back is reported in cascadedSubtasks, so subtasks completed earlier may also appear; the read-back pages through the whole list (100 tasks per request), so very large lists cost several requests; completion is reversible by setting the status back to "needsAction".
  */
 const action = createAction({
     description: 'Complete a task, verify its final state, and report any subtasks that were auto-completed as a side effect.',
@@ -67,8 +38,7 @@ const action = createAction({
     scopes: ['https://www.googleapis.com/auth/tasks'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const rawTasklist = input.tasklist ?? '@default';
-        const encodedTasklist = rawTasklist === '@default' ? '@default' : encodeURIComponent(rawTasklist);
+        const encodedTasklist = encodeURIComponent(input.tasklist);
         const encodedTask = encodeURIComponent(input.task);
 
         // https://developers.google.com/tasks/reference/rest/v1/tasks/patch
@@ -98,39 +68,31 @@ const action = createAction({
             });
         }
 
-        // https://developers.google.com/tasks/reference/rest/v1/tasks/list
-        const listResponse = await nango.get({
-            endpoint: `/tasks/v1/lists/${encodedTasklist}/tasks`,
-            params: {
-                showCompleted: 'true',
-                showHidden: 'true'
-            },
-            retries: 3
-        });
+        // Page through the whole list: the default page size is 20, so a single request would undercount subtasks.
+        const tasks: ProviderTask[] = [];
+        let pageToken: string | undefined;
+        do {
+            // https://developers.google.com/tasks/reference/rest/v1/tasks/list
+            const listResponse = await nango.get({
+                endpoint: `/tasks/v1/lists/${encodedTasklist}/tasks`,
+                params: {
+                    maxResults: 100,
+                    showCompleted: 'true',
+                    showHidden: 'true',
+                    ...(pageToken !== undefined && { pageToken })
+                },
+                retries: 3
+            });
 
-        const tasksList = ProviderTasksListSchema.parse(listResponse.data);
+            const page = ProviderTasksPageSchema.parse(listResponse.data);
+            tasks.push(...(page.items ?? []));
+            pageToken = page.nextPageToken ?? undefined;
+        } while (pageToken !== undefined);
 
-        const cascadedSubtasks = (tasksList.items ?? [])
-            .filter((item) => item.parent === task.id && item.status === 'completed')
-            .map((item) => ({
-                id: item.id,
-                ...(item.title != null && { title: item.title }),
-                status: item.status ?? 'completed',
-                ...(item.completed != null && { completed: item.completed }),
-                ...(item.parent != null && { parent: item.parent })
-            }));
+        const cascadedSubtasks = tasks.filter((item) => item.parent === task.id && item.status === 'completed' && item.deleted !== true).map(toTask);
 
         return {
-            task: {
-                id: task.id,
-                ...(task.title != null && { title: task.title }),
-                status: task.status,
-                ...(task.completed != null && { completed: task.completed }),
-                ...(task.parent != null && { parent: task.parent }),
-                ...(task.updated != null && { updated: task.updated }),
-                ...(task.deleted != null && { deleted: task.deleted }),
-                ...(task.hidden != null && { hidden: task.hidden })
-            },
+            task: toTask(task),
             cascadedSubtasks
         };
     }

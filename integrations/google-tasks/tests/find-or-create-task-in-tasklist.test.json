@@ -1,29 +1,33 @@
 {
   "input": {
-    "listName": "Nango FindOrCreate Composite",
-    "title": "First composite task",
-    "notes": "Created by the find-or-create composite action"
+    "listName": "claude-fix-tmp",
+    "title": "claude find-or-create task",
+    "notes": "Created by the find-or-create action"
   },
   "output": {
     "task": {
-      "id": "NG12Q0RsTW5hZk02dGFGSw",
-      "title": "First composite task",
-      "notes": "Created by the find-or-create composite action",
-      "status": "needsAction",
+      "kind": "tasks#task",
+      "id": "LUo5bkJ6TlVubUpZNzM4VA",
+      "etag": "\"QFQHOdJtf70\"",
+      "title": "claude find-or-create task",
+      "updated": "2026-10-19T02:36:05.866Z",
+      "selfLink": "https://www.googleapis.com/tasks/v1/lists/RDZ3ZWJMUGh3Q1B0eWNscg/tasks/LUo5bkJ6TlVubUpZNzM4VA",
       "position": "00000000000000000000",
-      "updated": "2026-10-15T16:30:08.029Z",
-      "selfLink": "https://www.googleapis.com/tasks/v1/lists/dGd4c2hMSkV5MDdkbjJYNw/tasks/NG12Q0RsTW5hZk02dGFGSw",
-      "webViewLink": "https://tasks.google.com/task/4mvCDlMnafM6taFK?sa=6",
-      "etag": "\"kEI9mYgj4Jo\""
+      "notes": "Created by the find-or-create action",
+      "status": "needsAction",
+      "links": [],
+      "webViewLink": "https://tasks.google.com/task/-J9nBzNUnmJY738T?sa=6"
     },
     "tasklist": {
-      "id": "dGd4c2hMSkV5MDdkbjJYNw",
-      "title": "Nango FindOrCreate Composite",
-      "updated": "2026-10-15T16:30:01.145Z",
-      "selfLink": "https://www.googleapis.com/tasks/v1/users/@me/lists/dGd4c2hMSkV5MDdkbjJYNw",
-      "etag": "\"bL_Qe25w2pY\""
+      "kind": "tasks#taskList",
+      "id": "RDZ3ZWJMUGh3Q1B0eWNscg",
+      "etag": "\"KPSd6PguX3s\"",
+      "title": "claude-fix-tmp",
+      "updated": "2026-10-19T02:34:21.290Z",
+      "selfLink": "https://www.googleapis.com/tasks/v1/users/@me/lists/RDZ3ZWJMUGh3Q1B0eWNscg"
     },
-    "tasklistCreated": false
+    "tasklistCreated": false,
+    "taskCreated": true
   },
   "nango": {},
   "api": {
@@ -31,14 +35,14 @@
       "/tasks/v1/users/@me/lists": {
         "response": {
           "kind": "tasks#taskLists",
-          "etag": "\"a8cK1HlpUKI\"",
+          "etag": "\"No65ZePaI68\"",
           "items": [
             {
               "kind": "tasks#taskList",
               "id": "MDQwOTY3MjU2NTE0MjcwODI3ODI6MDow",
-              "etag": "\"tEg8T0EO6cI\"",
+              "etag": "\"xg0es2lMVK0\"",
               "title": "My Tasks",
-              "updated": "2025-11-11T21:17:21.284Z",
+              "updated": "2026-10-15T16:34:28.656Z",
               "selfLink": "https://www.googleapis.com/tasks/v1/users/@me/lists/MDQwOTY3MjU2NTE0MjcwODI3ODI6MDow"
             },
             {
@@ -51,25 +55,25 @@
             },
             {
               "kind": "tasks#taskList",
-              "id": "X3VMaUd4eTRKRUZIRjIzTw",
-              "etag": "\"PTeKgF2-f2w\"",
-              "title": "Nango Patch Task Scratch",
-              "updated": "2026-10-15T16:29:16.906Z",
-              "selfLink": "https://www.googleapis.com/tasks/v1/users/@me/lists/X3VMaUd4eTRKRUZIRjIzTw"
+              "id": "RDZ3ZWJMUGh3Q1B0eWNscg",
+              "etag": "\"KPSd6PguX3s\"",
+              "title": "claude-fix-tmp",
+              "updated": "2026-10-19T02:34:21.290Z",
+              "selfLink": "https://www.googleapis.com/tasks/v1/users/@me/lists/RDZ3ZWJMUGh3Q1B0eWNscg"
             },
             {
               "kind": "tasks#taskList",
-              "id": "dGd4c2hMSkV5MDdkbjJYNw",
-              "etag": "\"bL_Qe25w2pY\"",
-              "title": "Nango FindOrCreate Composite",
-              "updated": "2026-10-15T16:30:01.145Z",
-              "selfLink": "https://www.googleapis.com/tasks/v1/users/@me/lists/dGd4c2hMSkV5MDdkbjJYNw"
+              "id": "SVpXUDl1Nmc4dGxjY0xiVQ",
+              "etag": "\"XpRIdjDKc1g\"",
+              "title": "claude-fix-tmp-2",
+              "updated": "2026-10-19T02:35:46.158Z",
+              "selfLink": "https://www.googleapis.com/tasks/v1/users/@me/lists/SVpXUDl1Nmc4dGxjY0xiVQ"
             }
           ]
         },
         "status": 200,
         "headers": {
-          "date": "Thu, 15 Oct 2026 16:30:07 GMT",
+          "date": "Mon, 19 Oct 2026 02:36:04 GMT",
           "content-type": "application/json; charset=UTF-8",
           "transfer-encoding": "chunked",
           "connection": "keep-alive",
@@ -84,9 +88,9 @@
           "access-control-allow-origin": "*",
           "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
           "x-ratelimit-limit": "2000",
-          "x-ratelimit-remaining": "1990",
-          "x-ratelimit-reset": "1792081858",
-          "etag": "\"a8cK1HlpUKI\"",
+          "x-ratelimit-remaining": "1976",
+          "x-ratelimit-reset": "1792377370",
+          "etag": "\"No65ZePaI68\"",
           "vary": "Origin, X-Origin, Referer",
           "server": "ESF",
           "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
@@ -98,26 +102,83 @@
             "maxResults": "100"
           }
         }
-      }
-    },
-    "post": {
-      "/tasks/v1/lists/dGd4c2hMSkV5MDdkbjJYNw/tasks": {
+      },
+      "/tasks/v1/lists/RDZ3ZWJMUGh3Q1B0eWNscg/tasks": {
         "response": {
-          "kind": "tasks#task",
-          "id": "NG12Q0RsTW5hZk02dGFGSw",
-          "etag": "\"kEI9mYgj4Jo\"",
-          "title": "First composite task",
-          "updated": "2026-10-15T16:30:08.029Z",
-          "selfLink": "https://www.googleapis.com/tasks/v1/lists/dGd4c2hMSkV5MDdkbjJYNw/tasks/NG12Q0RsTW5hZk02dGFGSw",
-          "position": "00000000000000000000",
-          "notes": "Created by the find-or-create composite action",
-          "status": "needsAction",
-          "links": [],
-          "webViewLink": "https://tasks.google.com/task/4mvCDlMnafM6taFK?sa=6"
+          "kind": "tasks#tasks",
+          "etag": "\"xR4V9A5GYIc\"",
+          "items": [
+            {
+              "kind": "tasks#task",
+              "id": "c3ZPU1lLZjNwVEp1U0FjMQ",
+              "etag": "\"RC8YltahlNI\"",
+              "title": "claude cascade parent",
+              "updated": "2026-10-19T02:34:21.290Z",
+              "selfLink": "https://www.googleapis.com/tasks/v1/lists/RDZ3ZWJMUGh3Q1B0eWNscg/tasks/c3ZPU1lLZjNwVEp1U0FjMQ",
+              "position": "00000000000000000001",
+              "status": "completed",
+              "completed": "2026-10-19T02:34:21.236Z",
+              "links": [],
+              "webViewLink": "https://tasks.google.com/task/svOSYKf3pTJuSAc1?sa=6"
+            },
+            {
+              "kind": "tasks#task",
+              "id": "SWlVay1QM2pNck9VZlQ3Mw",
+              "etag": "\"r0OlzRD-Ff0\"",
+              "title": "claude cascade child 1",
+              "updated": "2026-10-19T02:34:21.290Z",
+              "selfLink": "https://www.googleapis.com/tasks/v1/lists/RDZ3ZWJMUGh3Q1B0eWNscg/tasks/SWlVay1QM2pNck9VZlQ3Mw",
+              "parent": "c3ZPU1lLZjNwVEp1U0FjMQ",
+              "position": "00000000000000000000",
+              "status": "completed",
+              "completed": "2026-10-19T02:34:21.264Z",
+              "links": [],
+              "webViewLink": "https://tasks.google.com/task/IiUk-P3jMrOUfT73?sa=6"
+            },
+            {
+              "kind": "tasks#task",
+              "id": "V0RtSHJ3UW1fbVZfcTVyNQ",
+              "etag": "\"VJ-nVrViCwI\"",
+              "title": "claude cascade child 2",
+              "updated": "2026-10-19T02:34:21.290Z",
+              "selfLink": "https://www.googleapis.com/tasks/v1/lists/RDZ3ZWJMUGh3Q1B0eWNscg/tasks/V0RtSHJ3UW1fbVZfcTVyNQ",
+              "parent": "c3ZPU1lLZjNwVEp1U0FjMQ",
+              "position": "00000000000000000001",
+              "status": "completed",
+              "completed": "2026-10-19T02:34:21.264Z",
+              "links": [],
+              "webViewLink": "https://tasks.google.com/task/WDmHrwQm_mV_q5r5?sa=6"
+            },
+            {
+              "kind": "tasks#task",
+              "id": "aDVCck9rQjR3NklNMWs5cA",
+              "etag": "\"H0m8-4ZhPCs\"",
+              "title": "claude unrelated completed",
+              "updated": "2026-10-19T02:34:07.403Z",
+              "selfLink": "https://www.googleapis.com/tasks/v1/lists/RDZ3ZWJMUGh3Q1B0eWNscg/tasks/aDVCck9rQjR3NklNMWs5cA",
+              "position": "00000000000000000000",
+              "status": "completed",
+              "completed": "2026-10-19T02:34:07.387Z",
+              "links": [],
+              "webViewLink": "https://tasks.google.com/task/h5BrOkB4w6IM1k9p?sa=6"
+            },
+            {
+              "kind": "tasks#task",
+              "id": "aXduS2J6ekd4aDNDbHlpYw",
+              "etag": "\"zm_QQrbCUlw\"",
+              "title": "sync t3 (unchanged)",
+              "updated": "2026-10-19T02:31:19.938Z",
+              "selfLink": "https://www.googleapis.com/tasks/v1/lists/RDZ3ZWJMUGh3Q1B0eWNscg/tasks/aXduS2J6ekd4aDNDbHlpYw",
+              "position": "00000000000000000002",
+              "status": "needsAction",
+              "links": [],
+              "webViewLink": "https://tasks.google.com/task/iwnKbzzGxh3Clyic?sa=6"
+            }
+          ]
         },
         "status": 200,
         "headers": {
-          "date": "Thu, 15 Oct 2026 16:30:08 GMT",
+          "date": "Mon, 19 Oct 2026 02:36:05 GMT",
           "content-type": "application/json; charset=UTF-8",
           "transfer-encoding": "chunked",
           "connection": "keep-alive",
@@ -132,19 +193,69 @@
           "access-control-allow-origin": "*",
           "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
           "x-ratelimit-limit": "2000",
-          "x-ratelimit-remaining": "1989",
-          "x-ratelimit-reset": "1792081858",
-          "etag": "\"kEI9mYgj4Jo\"",
+          "x-ratelimit-remaining": "1975",
+          "x-ratelimit-reset": "1792377370",
+          "etag": "\"xR4V9A5GYIc\"",
           "vary": "Origin, X-Origin, Referer",
           "server": "ESF",
           "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
           "x-l2-request-path": "l2-managed-14"
         },
-        "hash": "f83f151a8af4e66ebbb2a889405c98497c0ac43d",
+        "hash": "bc8bee511ff4237eac588fa2c6413a145f5e14c4",
+        "request": {
+          "params": {
+            "maxResults": "100",
+            "showCompleted": "true",
+            "showHidden": "true"
+          }
+        }
+      }
+    },
+    "post": {
+      "/tasks/v1/lists/RDZ3ZWJMUGh3Q1B0eWNscg/tasks": {
+        "response": {
+          "kind": "tasks#task",
+          "id": "LUo5bkJ6TlVubUpZNzM4VA",
+          "etag": "\"QFQHOdJtf70\"",
+          "title": "claude find-or-create task",
+          "updated": "2026-10-19T02:36:05.866Z",
+          "selfLink": "https://www.googleapis.com/tasks/v1/lists/RDZ3ZWJMUGh3Q1B0eWNscg/tasks/LUo5bkJ6TlVubUpZNzM4VA",
+          "position": "00000000000000000000",
+          "notes": "Created by the find-or-create action",
+          "status": "needsAction",
+          "links": [],
+          "webViewLink": "https://tasks.google.com/task/-J9nBzNUnmJY738T?sa=6"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Mon, 19 Oct 2026 02:36:05 GMT",
+          "content-type": "application/json; charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1974",
+          "x-ratelimit-reset": "1792377370",
+          "etag": "\"QFQHOdJtf70\"",
+          "vary": "Origin, X-Origin, Referer",
+          "server": "ESF",
+          "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
+          "x-l2-request-path": "l2-managed-14"
+        },
+        "hash": "1080e90c6ce75e0c348b473eaccac02b676fe596",
         "request": {
           "data": {
-            "title": "First composite task",
-            "notes": "Created by the find-or-create composite action"
+            "title": "claude find-or-create task",
+            "notes": "Created by the find-or-create action"
           }
         }
       }

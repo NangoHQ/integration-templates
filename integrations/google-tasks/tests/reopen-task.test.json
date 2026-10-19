@@ -4,12 +4,16 @@
     "task": "WnpnNlRJR2tYYjJGLVFJZg"
   },
   "output": {
+    "kind": "tasks#task",
     "id": "WnpnNlRJR2tYYjJGLVFJZg",
-    "status": "needsAction",
+    "etag": "\"gQEXDhT6jFE\"",
     "title": "Nango Reopen Task",
-    "notes": "to be reopened",
-    "position": "00000000000000000002",
     "updated": "2026-10-15T16:24:29.043Z",
+    "selfLink": "https://www.googleapis.com/tasks/v1/lists/cEs2UVRxSGhHM1Z3QXcxcA/tasks/WnpnNlRJR2tYYjJGLVFJZg",
+    "position": "00000000000000000002",
+    "notes": "to be reopened",
+    "status": "needsAction",
+    "links": [],
     "webViewLink": "https://tasks.google.com/task/Zzg6TIGkXb2F-QIf?sa=6"
   },
   "nango": {},

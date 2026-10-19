@@ -1,5 +1,6 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
+import { ProviderTaskSchema, TaskSchema, toTask } from '../helpers/schemas.js';
 
 const InputSchema = z
     .object({
@@ -22,32 +23,7 @@ const InputSchema = z
     })
     .describe('Fields to partially update on an existing Google Task; only the provided fields are changed.');
 
-const TaskLinkSchema = z.object({
-    type: z.string().optional().describe('Type of the link, for example "email".'),
-    description: z.string().optional().describe('Description of the link.'),
-    link: z.string().optional().describe('The URL of the link.')
-});
-
-const OutputSchema = z
-    .object({
-        kind: z.string().optional().describe('Resource type identifier. Always "tasks#task".'),
-        id: z.string().describe('Identifier of the task.'),
-        etag: z.string().optional().describe('ETag of the task, which changes whenever the task is modified.'),
-        title: z.string().optional().describe('Title of the task.'),
-        updated: z.string().optional().describe('Last modification time of the task as an RFC 3339 timestamp.'),
-        selfLink: z.string().optional().describe('URL that points to this task.'),
-        parent: z.string().optional().describe('Identifier of the parent task when this task is a subtask.'),
-        position: z.string().optional().describe('Position of the task among its sibling tasks.'),
-        notes: z.string().optional().describe('Free-form notes attached to the task.'),
-        status: z.string().optional().describe('Completion status, either "needsAction" or "completed".'),
-        due: z.string().optional().describe('Due date of the task as an RFC 3339 timestamp.'),
-        completed: z.string().optional().describe('Completion time of the task as an RFC 3339 timestamp, present only for completed tasks.'),
-        deleted: z.boolean().optional().describe('Whether the task has been deleted.'),
-        hidden: z.boolean().optional().describe('Whether the task is hidden from the default view.'),
-        links: z.array(TaskLinkSchema).optional().describe('Links associated with the task.'),
-        webViewLink: z.string().optional().describe('URL that opens the task in the Google Tasks UI.')
-    })
-    .describe('The task after the partial update, with all of its current fields.');
+const OutputSchema = TaskSchema.describe('The task after the partial update, with all of its current fields.');
 
 /**
  * @tags: [write]
@@ -55,10 +31,11 @@ const OutputSchema = z
  * @pitfalls: Setting status to "completed" also completes the task's subtasks, while reopening a subtask does not reopen its parent; notes or due are only cleared by passing null or an empty string because omitted fields are left unchanged.
  */
 const action = createAction({
-    description: 'Update only the specified fields of a task; everything else is left untouched. Does not require `id` in the body.',
+    description: 'Partially update a task (PATCH): only the fields you pass change and everything else is left untouched. Use update-task to replace the whole task.',
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['https://www.googleapis.com/auth/tasks'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://developers.google.com/tasks/reference/rest/v1/tasks/patch
@@ -73,7 +50,7 @@ const action = createAction({
             retries: 3
         });
 
-        return OutputSchema.parse(response.data);
+        return toTask(ProviderTaskSchema.parse(response.data));
     }
 });
 

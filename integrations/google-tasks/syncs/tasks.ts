@@ -1,23 +1,13 @@
 import { createSync, type ProxyConfiguration } from 'nango';
 import { z } from 'zod';
+import { ProviderTaskListSchema, ProviderTaskSchema, TaskSchema, toTask } from '../helpers/schemas.js';
 
-const TaskSchema = z
-    .object({
-        id: z.string().describe('Unique record id, scoped to the parent task list as `${tasklistId}:${taskId}`.'),
-        tasklistId: z.string().describe('Id of the task list that contains the task.'),
-        taskId: z.string().describe('The task id assigned by Google Tasks, unique within its task list.'),
-        title: z.string().optional().describe('Title of the task.'),
-        notes: z.string().optional().describe('Free-form notes attached to the task.'),
-        status: z.string().optional().describe('Completion status of the task: "needsAction" or "completed".'),
-        due: z.string().optional().describe('Due date of the task in RFC 3339 format.'),
-        completed: z.string().optional().describe('Completion time of the task in RFC 3339 format.'),
-        deleted: z.boolean().optional().describe('True when this record is a delete tombstone for a task removed from the list.'),
-        hidden: z.boolean().optional().describe('True when the task was completed at the time its task list was last cleared.'),
-        parent: z.string().optional().describe('Id of the parent task when this task is a subtask.'),
-        position: z.string().optional().describe('Position of the task among its siblings within the task list.'),
+const TaskRecordSchema = TaskSchema.omit({ deleted: true })
+    .extend({
+        tasklistId: z.string().describe('Id of the task list that currently contains the task. Updated in place when the task is moved to another list.'),
         updated: z.string().describe('Last modification time of the task in RFC 3339 format, used as the incremental watermark.')
     })
-    .describe('A single Google Task, scoped to the task list that contains it.');
+    .describe('A single Google Task. The record id is the Google task id, which is globally unique and survives moves between task lists.');
 
 const CheckpointSchema = z
     .object({})
@@ -26,51 +16,57 @@ const CheckpointSchema = z
         'Map of `tasklist:<task list id>` keys to the newest task `updated` timestamp seen for that list, used as `updatedMin` on the next incremental run.'
     );
 
-const ProviderTaskListSchema = z.object({
-    id: z.string()
-});
-
-const ProviderTaskSchema = z.object({
-    id: z.string(),
-    title: z.string().nullish(),
-    notes: z.string().nullish(),
-    status: z.string().nullish(),
-    due: z.string().nullish(),
-    completed: z.string().nullish(),
-    deleted: z.boolean().nullish(),
-    hidden: z.boolean().nullish(),
-    parent: z.string().nullish(),
-    position: z.string().nullish(),
+const ProviderSyncTaskSchema = ProviderTaskSchema.extend({
     updated: z.string()
 });
 
+const ErrorStatusSchema = z.object({
+    status: z.number().optional(),
+    response: z
+        .object({
+            status: z.number().optional()
+        })
+        .optional()
+});
+
+function isNotFoundError(error: unknown): boolean {
+    const parsed = ErrorStatusSchema.safeParse(error);
+    return parsed.success && (parsed.data.status === 404 || parsed.data.response?.status === 404);
+}
+
 const CURSOR_PREFIX = 'tasklist:';
 
+/**
+ * Change source: tasks.list `updatedMin` per task list, with `showDeleted=true` so deletions arrive as
+ * `deleted: true` tombstones (routed to batchDelete). Google Tasks has no change feed for task lists themselves,
+ * so a deleted list is detected by comparing the enumerated lists with the checkpoint keys. On the first run,
+ * or when a list has vanished, the sync does a full reconcile of every list (no `updatedMin`) wrapped in
+ * trackDeletesStart/trackDeletesEnd so the vanished list's tasks are removed.
+ */
 const sync = createSync({
-    description: 'Sync every task across every task list in the account, incrementally, including completed/hidden tasks and delete-tombstones.',
+    description:
+        'Sync every task across every task list in the account, incrementally, including completed, hidden, and assigned tasks; deleted tasks and tasks of deleted lists are removed.',
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['https://www.googleapis.com/auth/tasks'],
     checkpoint: CheckpointSchema,
     models: {
-        Task: TaskSchema
+        Task: TaskRecordSchema
     },
 
     exec: async (nango) => {
         const checkpoint = await nango.getCheckpoint();
-        const cursors: Record<string, string> = {};
+        const previousCursors: Record<string, string> = {};
         for (const [key, value] of Object.entries(checkpoint ?? {})) {
             if (key.startsWith(CURSOR_PREFIX)) {
-                cursors[key] = value;
+                previousCursors[key] = value;
             }
         }
 
         const listConfig: ProxyConfiguration = {
             // https://developers.google.com/tasks/reference/rest/v1/tasklists/list
             endpoint: '/tasks/v1/users/@me/lists',
-            params: {
-                maxResults: 100
-            },
             paginate: {
                 type: 'cursor',
                 cursor_name_in_request: 'pageToken',
@@ -82,59 +78,80 @@ const sync = createSync({
             retries: 3
         };
 
-        let tasklistCount = 0;
-
+        const tasklistIds: string[] = [];
         for await (const listPage of nango.paginate(listConfig)) {
-            const tasklists = z.array(ProviderTaskListSchema).parse(listPage);
+            for (const item of listPage) {
+                tasklistIds.push(ProviderTaskListSchema.parse(item).id);
+            }
+        }
 
-            for (const tasklist of tasklists) {
-                const tasklistId = tasklist.id;
-                const cursorKey = CURSOR_PREFIX + tasklistId;
-                const updatedMin = cursors[cursorKey];
+        const currentKeys = new Set(tasklistIds.map((id) => CURSOR_PREFIX + id));
+        const vanishedKeys = Object.keys(previousCursors).filter((key) => !currentKeys.has(key));
 
-                const tasksConfig: ProxyConfiguration = {
-                    // https://developers.google.com/tasks/reference/rest/v1/tasks/list
-                    endpoint: `/tasks/v1/lists/${encodeURIComponent(tasklistId)}/tasks`,
-                    params: {
-                        showCompleted: 'true',
-                        showHidden: 'true',
-                        showDeleted: 'true',
-                        ...(updatedMin !== undefined && { updatedMin })
-                    },
-                    paginate: {
-                        type: 'cursor',
-                        cursor_name_in_request: 'pageToken',
-                        cursor_path_in_response: 'nextPageToken',
-                        limit_name_in_request: 'maxResults',
-                        response_path: 'items',
-                        limit: 100
-                    },
-                    retries: 3
-                };
+        // Full reconcile on the first run (no per-list cursors yet) or when a task list disappeared: deleted lists
+        // leave no tombstones, so their tasks can only be removed by trackDeletes over a complete fetch.
+        const fullReconcile = Object.keys(previousCursors).length === 0 || vanishedKeys.length > 0;
 
-                let maxUpdated: string | undefined;
+        if (fullReconcile) {
+            await nango.trackDeletesStart('Task');
+        }
 
+        if (vanishedKeys.length > 0) {
+            await nango.log(`Detected ${vanishedKeys.length} deleted task list(s); running a full reconcile.`);
+        }
+
+        // Per-list cursors produced by this run. Lists that 404 mid-run are left out so they get reconciled.
+        const nextCursors: Record<string, string> = {};
+
+        for (const tasklistId of tasklistIds) {
+            const cursorKey = CURSOR_PREFIX + tasklistId;
+            const updatedMin = fullReconcile ? undefined : previousCursors[cursorKey];
+
+            const tasksConfig: ProxyConfiguration = {
+                // https://developers.google.com/tasks/reference/rest/v1/tasks/list
+                endpoint: `/tasks/v1/lists/${encodeURIComponent(tasklistId)}/tasks`,
+                params: {
+                    showCompleted: 'true',
+                    showHidden: 'true',
+                    showAssigned: 'true',
+                    // A full reconcile only needs live tasks; incremental runs need tombstones to detect deletions.
+                    showDeleted: fullReconcile ? 'false' : 'true',
+                    ...(updatedMin !== undefined && { updatedMin })
+                },
+                paginate: {
+                    type: 'cursor',
+                    cursor_name_in_request: 'pageToken',
+                    cursor_path_in_response: 'nextPageToken',
+                    limit_name_in_request: 'maxResults',
+                    response_path: 'items',
+                    limit: 100
+                },
+                retries: 3
+            };
+
+            let maxUpdated = previousCursors[cursorKey];
+
+            // @allowTryCatch A task list deleted after enumeration returns 404 "Task list not found"; skip it instead of failing the run.
+            try {
                 for await (const taskPage of nango.paginate(tasksConfig)) {
-                    const tasks = z.array(ProviderTaskSchema).parse(taskPage);
+                    const tasks = z.array(ProviderSyncTaskSchema).parse(taskPage);
 
-                    const records = tasks.map((task) => ({
-                        id: `${tasklistId}:${task.id}`,
-                        tasklistId,
-                        taskId: task.id,
-                        ...(task.title != null && { title: task.title }),
-                        ...(task.notes != null && { notes: task.notes }),
-                        ...(task.status != null && { status: task.status }),
-                        ...(task.due != null && { due: task.due }),
-                        ...(task.completed != null && { completed: task.completed }),
-                        ...(task.deleted != null && { deleted: task.deleted }),
-                        ...(task.hidden != null && { hidden: task.hidden }),
-                        ...(task.parent != null && { parent: task.parent }),
-                        ...(task.position != null && { position: task.position }),
-                        updated: task.updated
-                    }));
+                    const records = tasks
+                        .filter((task) => task.deleted !== true)
+                        .map((task) => ({
+                            ...toTask({ ...task, deleted: undefined }),
+                            tasklistId,
+                            updated: task.updated
+                        }));
+
+                    const deletions = tasks.filter((task) => task.deleted === true).map((task) => ({ id: task.id }));
 
                     if (records.length > 0) {
                         await nango.batchSave(records, 'Task');
+                    }
+
+                    if (deletions.length > 0) {
+                        await nango.batchDelete(deletions, 'Task');
                     }
 
                     for (const task of tasks) {
@@ -143,17 +160,29 @@ const sync = createSync({
                         }
                     }
                 }
-
-                if (maxUpdated !== undefined && (updatedMin === undefined || maxUpdated > updatedMin)) {
-                    cursors[cursorKey] = maxUpdated;
+            } catch (error) {
+                if (!isNotFoundError(error)) {
+                    throw error;
                 }
-
-                tasklistCount += 1;
-                await nango.saveCheckpoint(cursors);
+                // The list was deleted after it was enumerated. Keep its old cursor so the next run sees it as
+                // vanished and reconciles; in a full reconcile its tasks are simply not saved and get removed below.
+                await nango.log(`Task list ${tasklistId} was not found; it will be reconciled as deleted.`);
+                continue;
             }
+
+            if (maxUpdated !== undefined) {
+                nextCursors[cursorKey] = maxUpdated;
+            }
+
+            // Keep keys of lists not processed yet (and of vanished lists) so an interrupted run resumes safely.
+            await nango.saveCheckpoint({ ...previousCursors, ...nextCursors });
         }
 
-        await nango.log(`Synced tasks for ${tasklistCount} task lists.`);
+        if (fullReconcile) {
+            await nango.trackDeletesEnd('Task');
+            // Prune cursors of vanished lists only once their tasks have been removed.
+            await nango.saveCheckpoint(nextCursors);
+        }
     }
 });
 

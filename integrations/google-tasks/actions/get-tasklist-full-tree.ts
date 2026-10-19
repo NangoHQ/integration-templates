@@ -1,5 +1,6 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
+import { ProviderTaskListSchema, ProviderTaskSchema } from '../helpers/schemas.js';
 
 const InputSchema = z
     .object({
@@ -66,40 +67,6 @@ const OutputSchema = z
     })
     .describe('A task list plus all of its tasks reconstructed into a nested parent/child tree.');
 
-const ProviderTaskLinkSchema = z.object({
-    type: z.string().optional(),
-    description: z.string().optional(),
-    link: z.string().optional()
-});
-
-const ProviderTaskSchema = z.object({
-    kind: z.string().optional(),
-    id: z.string(),
-    etag: z.string().optional(),
-    title: z.string().optional().nullable(),
-    updated: z.string().optional().nullable(),
-    selfLink: z.string().optional().nullable(),
-    parent: z.string().optional().nullable(),
-    position: z.string().optional().nullable(),
-    notes: z.string().optional().nullable(),
-    status: z.string().optional().nullable(),
-    due: z.string().optional().nullable(),
-    completed: z.string().optional().nullable(),
-    deleted: z.boolean().optional().nullable(),
-    hidden: z.boolean().optional().nullable(),
-    links: z.array(ProviderTaskLinkSchema).optional().nullable(),
-    webViewLink: z.string().optional().nullable()
-});
-
-const ProviderTaskListSchema = z.object({
-    kind: z.string().optional(),
-    id: z.string(),
-    etag: z.string().optional().nullable(),
-    title: z.string().optional().nullable(),
-    updated: z.string().optional().nullable(),
-    selfLink: z.string().optional().nullable()
-});
-
 const ProviderTasksPageSchema = z.object({
     kind: z.string().optional(),
     etag: z.string().optional().nullable(),
@@ -117,6 +84,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['https://www.googleapis.com/auth/tasks'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const tasklist = encodeURIComponent(input.tasklist);
