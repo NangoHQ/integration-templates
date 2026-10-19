@@ -6,7 +6,9 @@ const InputSchema = z
     .object({
         tasklist: z
             .string()
-            .describe('ID of the task list that contains the task. Use "@default" for the authenticated user\'s default list. Example: "MDQwOTY3MjU2NTE0MjcwODI3ODI6MDow"'),
+            .describe(
+                'ID of the task list that contains the task. Use "@default" for the authenticated user\'s default list. Example: "MDQwOTY3MjU2NTE0MjcwODI3ODI6MDow"'
+            ),
         task: z.string().describe('ID of the task to mark as completed. Example: "LWlneng5SFhnU2IyN2h4Qg"')
     })
     .describe('Identifies the task to complete within a task list.');

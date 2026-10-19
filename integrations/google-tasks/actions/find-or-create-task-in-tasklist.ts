@@ -19,7 +19,9 @@ const InputSchema = z
             .describe('Exact, case-sensitive title of the task list to use. The list is created if no list with this title exists yet. Example: "Groceries"'),
         title: z
             .string()
-            .describe('Exact, case-sensitive title of the task to find. A new task with this title is created only if the list has no matching task. Example: "Buy milk"'),
+            .describe(
+                'Exact, case-sensitive title of the task to find. A new task with this title is created only if the list has no matching task. Example: "Buy milk"'
+            ),
         notes: z.string().optional().describe('Notes for the task. Only used when a new task is created. Maximum length: 8192 characters.'),
         status: z
             .enum(['needsAction', 'completed'])

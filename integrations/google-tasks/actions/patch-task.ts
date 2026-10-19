@@ -31,7 +31,8 @@ const OutputSchema = TaskSchema.describe('The task after the partial update, wit
  * @pitfalls: Setting status to "completed" also completes the task's subtasks, while reopening a subtask does not reopen its parent; notes or due are only cleared by passing null or an empty string because omitted fields are left unchanged.
  */
 const action = createAction({
-    description: 'Partially update a task (PATCH): only the fields you pass change and everything else is left untouched. Use update-task to replace the whole task.',
+    description:
+        'Partially update a task (PATCH): only the fields you pass change and everything else is left untouched. Use update-task to replace the whole task.',
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
