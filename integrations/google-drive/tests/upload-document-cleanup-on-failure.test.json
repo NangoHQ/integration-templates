@@ -21,7 +21,8 @@
         },
         "request": {
           "params": {
-            "fields": "id,name,mimeType,webViewLink,webContentLink"
+            "fields": "id,name,mimeType,webViewLink,webContentLink",
+            "supportsAllDrives": "true"
           },
           "data": {
             "name": "test-upload.txt",
@@ -40,7 +41,8 @@
         "request": {
           "params": {
             "fields": "id,name,mimeType,webViewLink,webContentLink",
-            "uploadType": "media"
+            "uploadType": "media",
+            "supportsAllDrives": "true"
           },
           "headers": {
             "Content-Type": "text/plain"
