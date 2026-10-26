@@ -12,9 +12,7 @@ import { z } from 'zod';
 // Raw provider response schemas
 const TitleAnnotationSchema = z.object({
     type: z.string(),
-    text: z.object({
-        content: z.string()
-    })
+    plain_text: z.string()
 });
 
 const PageObjectSchema = z.object({
@@ -48,13 +46,13 @@ const PageObjectSchema = z.object({
     archived: z.boolean().optional(),
     in_trash: z.boolean().optional(),
     properties: z
-        .object({
-            title: z
-                .object({
-                    title: z.array(TitleAnnotationSchema)
-                })
-                .optional()
-        })
+        .record(
+            z.string(),
+            z.object({
+                type: z.string(),
+                title: z.array(TitleAnnotationSchema).optional()
+            })
+        )
         .optional(),
     url: z.string().optional(),
     public_url: z.string().nullable().optional()
@@ -119,14 +117,14 @@ type DataSourceObject = z.infer<typeof DataSourceObjectSchema>;
  */
 function extractTitle(item: PageObject | DataSourceObject): string | undefined {
     if (item.object === 'page') {
-        const titleProperty = item.properties?.title?.title;
+        const titleProperty = Object.values(item.properties ?? {}).find((property) => property.type === 'title')?.title;
         if (titleProperty && titleProperty.length > 0) {
-            return titleProperty.map((t) => t.text.content).join('');
+            return titleProperty.map((t) => t.plain_text).join('');
         }
     } else if (item.object === 'data_source') {
         const titleArray = item.title;
         if (titleArray && titleArray.length > 0) {
-            return titleArray.map((t) => t.text.content).join('');
+            return titleArray.map((t) => t.plain_text).join('');
         }
     }
     return undefined;
@@ -209,7 +207,7 @@ function extractParent(item: PageObject | DataSourceObject): { parent_id?: strin
 
 const sync = createSync({
     description: 'Sync page and data source metadata for broad Notion content discovery.',
-    version: '3.0.2',
+    version: '3.0.3',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
