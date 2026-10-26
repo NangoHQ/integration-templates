@@ -61,7 +61,7 @@ const CommitSearchItemSchema = z.object({
     comments_url: z.string().optional().describe('API URL for comments on the commit.'),
     commit: CommitSchema.describe('Git commit details, including message and author identities.'),
     author: SimpleUserSchema.nullable().optional().describe('GitHub account linked as the commit author, or null when not linked.'),
-    committer: GitUserSchema.nullable().optional().describe('Git committer identity for the commit, or an empty object when unavailable.'),
+    committer: SimpleUserSchema.nullable().optional().describe('GitHub account linked as the commit committer, or null when not linked.'),
     parents: z
         .array(
             z.object({
@@ -80,7 +80,7 @@ const InputSchema = z
     .object({
         q: z
             .string()
-            .min(1)
+            .regex(/\S/, 'q must contain a search term.')
             .describe(
                 'Search query using GitHub commit search qualifiers. Example: "repo:octocat/Hello-World fix" or "author:octocat committer-date:>2024-01-01".'
             ),
@@ -91,24 +91,40 @@ const InputSchema = z
     })
     .describe('Search query and pagination options for finding commits with the GitHub commit search API.');
 
+const ProviderSearchResponseSchema = z.object({
+    total_count: z.number(),
+    incomplete_results: z.boolean(),
+    items: z.array(CommitSearchItemSchema)
+});
+
 const OutputSchema = z
     .object({
         total_count: z.number().describe('Total number of commits matching the query.'),
         incomplete_results: z.boolean().describe('Whether GitHub timed out before returning all matching commits.'),
-        items: z.array(CommitSearchItemSchema).describe('Commits matching the search query on the requested page.')
+        items: z.array(CommitSearchItemSchema).describe('Commits matching the search query on the requested page.'),
+        next_page: z.number().int().optional().describe('Page number to request next. Omitted on the last accessible page.')
     })
     .describe('A page of GitHub commit search results.');
+
+function getNextPage(linkHeader: unknown): number | undefined {
+    if (typeof linkHeader !== 'string') {
+        return undefined;
+    }
+    const match = linkHeader.match(/<[^>]*[?&]page=(\d+)[^>]*>;\s*rel="next"/);
+    return match?.[1] !== undefined ? Number(match[1]) : undefined;
+}
 
 /**
  * @tags: [read]
  * @tagReason: Searches and reads commit metadata from GitHub without modifying provider state.
- * @pitfalls: q must include search text because qualifier-only queries are rejected; search covers the default branch only and caps at 1,000 results, and incomplete_results indicates partial results. order is ignored unless sort is provided, and committer can be an empty object rather than null.
+ * @pitfalls: GitHub returns 422 when q contains only scoping qualifiers (repo:, org:, user:, is:), so add search text such as "repo:octocat/Hello-World fix"; author:, committer:, hash:, and date qualifiers work on their own. Search covers the default branch only, caps at 1,000 results, and incomplete_results indicates partial results. order is ignored unless sort is provided.
  */
 const action = createAction({
     description: 'Search commits across indexed repositories by message, author, or metadata qualifiers.',
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['contents:read'],
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({
             // https://docs.github.com/en/rest/search/search#search-commits
@@ -123,7 +139,15 @@ const action = createAction({
             retries: 3
         });
 
-        return OutputSchema.parse(response.data);
+        const result = ProviderSearchResponseSchema.parse(response.data);
+        const nextPage = getNextPage(response.headers?.['link']);
+
+        return {
+            total_count: result.total_count,
+            incomplete_results: result.incomplete_results,
+            items: result.items,
+            ...(nextPage !== undefined && { next_page: nextPage })
+        };
     }
 });
 

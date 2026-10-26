@@ -4,7 +4,10 @@ import { createAction } from 'nango';
 const InputSchema = z
     .object({
         repository_id: z.number().int().positive().describe('Numeric ID of the repository to search labels in. Example: 1224437532'),
-        q: z.string().min(1).describe('Search keywords matched against label names and descriptions. Qualifiers are not supported. Example: "bug"'),
+        q: z
+            .string()
+            .regex(/\S/, 'q must contain a search term.')
+            .describe('Search keywords matched against label names and descriptions. Qualifiers are not supported. Example: "bug"'),
         sort: z.enum(['created', 'updated']).optional().describe('Field used to sort the results. Defaults to best match when omitted.'),
         order: z.enum(['asc', 'desc']).optional().describe('Sort direction, applied only when sort is set. Defaults to "desc".'),
         per_page: z.number().int().min(1).max(100).optional().describe('Number of results to return per page, from 1 to 100. Defaults to 30.'),
@@ -53,6 +56,14 @@ const OutputSchema = z
     })
     .describe('A page of label search results from a GitHub repository.');
 
+function getNextPage(linkHeader: unknown): number | undefined {
+    if (typeof linkHeader !== 'string') {
+        return undefined;
+    }
+    const match = linkHeader.match(/<[^>]*[?&]page=(\d+)[^>]*>;\s*rel="next"/);
+    return match?.[1] !== undefined ? Number(match[1]) : undefined;
+}
+
 /**
  * @tags: [read]
  * @tagReason: Searches and reads label metadata from a repository without modifying provider data.
@@ -63,11 +74,9 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['issues:read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const perPage = input.per_page ?? 30;
-        const page = input.page ?? 1;
-
         // https://docs.github.com/en/rest/search/search#search-labels
         const response = await nango.get({
             endpoint: '/search/labels',
@@ -83,8 +92,7 @@ const action = createAction({
         });
 
         const result = ProviderSearchResponseSchema.parse(response.data);
-        const accessibleCount = Math.min(result.total_count, 1000);
-        const nextPage = page * perPage < accessibleCount ? page + 1 : undefined;
+        const nextPage = getNextPage(response.headers?.['link']);
 
         return {
             total_count: result.total_count,

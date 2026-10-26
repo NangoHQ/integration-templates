@@ -36,7 +36,8 @@
         "is_pull_request": false,
         "score": 1
       }
-    ]
+    ],
+    "next_page": 2
   },
   "nango": {},
   "api": {
@@ -125,7 +126,7 @@
         },
         "status": 200,
         "headers": {
-          "date": "Mon, 26 Oct 2026 18:38:24 GMT",
+          "date": "Mon, 26 Oct 2026 19:31:56 GMT",
           "content-type": "application/json; charset=utf-8",
           "transfer-encoding": "chunked",
           "connection": "keep-alive",
@@ -140,8 +141,8 @@
           "access-control-allow-origin": "*",
           "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
           "x-ratelimit-limit": "30",
-          "x-ratelimit-remaining": "26",
-          "x-ratelimit-reset": "1793039957",
+          "x-ratelimit-remaining": "28",
+          "x-ratelimit-reset": "1793043168",
           "cache-control": "no-cache",
           "vary": "Accept, Authorization, Cookie, X-GitHub-OTP,Accept-Encoding, Accept, X-Requested-With",
           "x-github-media-type": "github.v3",
@@ -150,9 +151,9 @@
           "x-github-api-version-selected": "2022-11-28",
           "content-security-policy": "default-src 'none'",
           "server": "github.com",
-          "x-ratelimit-used": "4",
+          "x-ratelimit-used": "2",
           "x-ratelimit-resource": "search",
-          "x-github-request-id": "36BD:275110:5729EAA:7D7B903:6ADF9E0D",
+          "x-github-request-id": "E483:15BC58:590B8C2:8049100:6ADFAA9C",
           "x-github-edge-region": "sea"
         },
         "hash": "4c01f417ce316f4174692ca75ca9eea3c9c5be0a",

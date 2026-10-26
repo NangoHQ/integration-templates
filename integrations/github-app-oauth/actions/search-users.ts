@@ -3,7 +3,10 @@ import { createAction } from 'nango';
 
 const InputSchema = z
     .object({
-        q: z.string().min(1).describe('Search keywords and qualifiers, for example "octocat type:user" or "location:london followers:>100".'),
+        q: z
+            .string()
+            .regex(/\S/, 'q must contain a search term.')
+            .describe('Search keywords and qualifiers, for example "octocat type:user" or "location:london followers:>100".'),
         sort: z.enum(['followers', 'repositories', 'joined']).optional().describe('Field used to sort the results. Defaults to best match when omitted.'),
         order: z.enum(['desc', 'asc']).optional().describe('Sort direction for the selected sort field. Ignored when sort is omitted.'),
         per_page: z.number().int().min(1).max(100).optional().describe('Number of results per page, from 1 to 100. GitHub defaults to 30.'),
@@ -53,6 +56,14 @@ const OutputSchema = z
     })
     .describe('User and organization accounts matching the search query.');
 
+function getNextPage(linkHeader: unknown): number | undefined {
+    if (typeof linkHeader !== 'string') {
+        return undefined;
+    }
+    const match = linkHeader.match(/<[^>]*[?&]page=(\d+)[^>]*>;\s*rel="next"/);
+    return match?.[1] !== undefined ? Number(match[1]) : undefined;
+}
+
 /**
  * @tags: [read]
  * @tagReason: Calls GitHub's user search endpoint, which only reads public account data and never modifies provider state.
@@ -63,6 +74,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['metadata:read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({
@@ -79,16 +91,13 @@ const action = createAction({
         });
 
         const providerResponse = ProviderResponseSchema.parse(response.data);
-        const page = input.page ?? 1;
-        const perPage = input.per_page ?? 30;
-        const maxResults = Math.min(providerResponse.total_count, 1000);
-        const hasNextPage = providerResponse.items.length === perPage && page * perPage < maxResults;
+        const nextPage = getNextPage(response.headers?.['link']);
 
         return {
             total_count: providerResponse.total_count,
             incomplete_results: providerResponse.incomplete_results,
             items: providerResponse.items,
-            ...(hasNextPage && { next_page: page + 1 })
+            ...(nextPage !== undefined && { next_page: nextPage })
         };
     }
 });

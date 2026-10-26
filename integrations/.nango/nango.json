@@ -319530,7 +319530,9 @@
         "output": [
           "ActionOutput_github_app_oauth_searchcode"
         ],
-        "scopes": [],
+        "scopes": [
+          "contents:read"
+        ],
         "usedModels": [
           "ActionInput_github_app_oauth_searchcode",
           "ActionOutput_github_app_oauth_searchcode"
@@ -319543,8 +319545,7 @@
               "properties": {
                 "q": {
                   "type": "string",
-                  "minLength": 1,
-                  "pattern": "(?:^|\\s)(repo|org|user|language|path|extension|filename):",
+                  "pattern": "\\S",
                   "description": "Code search query with keywords and GitHub qualifiers. Example: \"addClass in:file language:js repo:jquery/jquery\"."
                 },
                 "sort": {
@@ -319759,6 +319760,12 @@
                     "additionalProperties": false
                   },
                   "description": "Matching code files for the requested page."
+                },
+                "next_page": {
+                  "description": "Page number to request next. Omitted on the last accessible page.",
+                  "type": "integer",
+                  "minimum": -9007199254740991,
+                  "maximum": 9007199254740991
                 }
               },
               "required": [
@@ -319782,7 +319789,9 @@
         "output": [
           "ActionOutput_github_app_oauth_searchcommits"
         ],
-        "scopes": [],
+        "scopes": [
+          "contents:read"
+        ],
         "usedModels": [
           "ActionInput_github_app_oauth_searchcommits",
           "ActionOutput_github_app_oauth_searchcommits"
@@ -319795,7 +319804,7 @@
               "properties": {
                 "q": {
                   "type": "string",
-                  "minLength": 1,
+                  "pattern": "\\S",
                   "description": "Search query using GitHub commit search qualifiers. Example: \"repo:octocat/Hello-World fix\" or \"author:octocat committer-date:>2024-01-01\"."
                 },
                 "sort": {
@@ -320099,13 +320108,25 @@
                         ]
                       },
                       "committer": {
-                        "description": "Git committer identity for the commit, or an empty object when unavailable.",
+                        "description": "GitHub account linked as the commit committer, or null when not linked.",
                         "anyOf": [
                           {
                             "type": "object",
                             "properties": {
+                              "login": {
+                                "type": "string",
+                                "description": "GitHub username of the account. Example: \"octocat\"."
+                              },
+                              "id": {
+                                "type": "number",
+                                "description": "Numeric GitHub account ID."
+                              },
+                              "node_id": {
+                                "description": "GraphQL node ID of the account.",
+                                "type": "string"
+                              },
                               "name": {
-                                "description": "Name recorded on the Git commit.",
+                                "description": "Display name of the account, if set.",
                                 "anyOf": [
                                   {
                                     "type": "string"
@@ -320116,7 +320137,7 @@
                                 ]
                               },
                               "email": {
-                                "description": "Email address recorded on the Git commit.",
+                                "description": "Public email address of the account, if set.",
                                 "anyOf": [
                                   {
                                     "type": "string"
@@ -320126,18 +320147,27 @@
                                   }
                                 ]
                               },
-                              "date": {
-                                "description": "ISO 8601 timestamp recorded on the Git commit.",
-                                "anyOf": [
-                                  {
-                                    "type": "string"
-                                  },
-                                  {
-                                    "type": "null"
-                                  }
-                                ]
+                              "avatar_url": {
+                                "description": "URL of the account avatar image.",
+                                "type": "string"
+                              },
+                              "html_url": {
+                                "description": "URL of the account profile page.",
+                                "type": "string"
+                              },
+                              "type": {
+                                "description": "Account type, such as \"User\" or \"Organization\".",
+                                "type": "string"
+                              },
+                              "site_admin": {
+                                "description": "Whether the account is a GitHub site administrator.",
+                                "type": "boolean"
                               }
                             },
+                            "required": [
+                              "login",
+                              "id"
+                            ],
                             "additionalProperties": false
                           },
                           {
@@ -320321,6 +320351,12 @@
                     "additionalProperties": false
                   },
                   "description": "Commits matching the search query on the requested page."
+                },
+                "next_page": {
+                  "description": "Page number to request next. Omitted on the last accessible page.",
+                  "type": "integer",
+                  "minimum": -9007199254740991,
+                  "maximum": 9007199254740991
                 }
               },
               "required": [
@@ -320344,7 +320380,10 @@
         "output": [
           "ActionOutput_github_app_oauth_searchissuesandpullrequests"
         ],
-        "scopes": [],
+        "scopes": [
+          "issues:read",
+          "pull_requests:read"
+        ],
         "usedModels": [
           "ActionInput_github_app_oauth_searchissuesandpullrequests",
           "ActionOutput_github_app_oauth_searchissuesandpullrequests"
@@ -320364,7 +320403,7 @@
                   "type": "string"
                 },
                 "type": {
-                  "description": "Restrict results to issues (is:issue) or pull requests (is:pr). Required when authenticating as a GitHub App user.",
+                  "description": "Restrict results to issues (is:issue) or pull requests (is:pr). Omit to return both.",
                   "type": "string",
                   "enum": [
                     "issue",
@@ -320640,6 +320679,12 @@
                     "additionalProperties": false
                   },
                   "description": "Issues and pull requests matching the query for the requested page."
+                },
+                "next_page": {
+                  "description": "Page number to request next. Omitted on the last accessible page.",
+                  "type": "integer",
+                  "minimum": -9007199254740991,
+                  "maximum": 9007199254740991
                 }
               },
               "required": [
@@ -320663,7 +320708,9 @@
         "output": [
           "ActionOutput_github_app_oauth_searchlabels"
         ],
-        "scopes": [],
+        "scopes": [
+          "issues:read"
+        ],
         "usedModels": [
           "ActionInput_github_app_oauth_searchlabels",
           "ActionOutput_github_app_oauth_searchlabels"
@@ -320682,7 +320729,7 @@
                 },
                 "q": {
                   "type": "string",
-                  "minLength": 1,
+                  "pattern": "\\S",
                   "description": "Search keywords matched against label names and descriptions. Qualifiers are not supported. Example: \"bug\""
                 },
                 "sort": {
@@ -320879,7 +320926,9 @@
         "output": [
           "ActionOutput_github_app_oauth_searchrepositories"
         ],
-        "scopes": [],
+        "scopes": [
+          "metadata:read"
+        ],
         "usedModels": [
           "ActionInput_github_app_oauth_searchrepositories",
           "ActionOutput_github_app_oauth_searchrepositories"
@@ -320892,8 +320941,8 @@
               "properties": {
                 "q": {
                   "type": "string",
-                  "minLength": 1,
-                  "description": "Repository search query. Supports GitHub qualifiers such as `language:typescript`, `stars:>100`, `topic:javascript`, `org:NangoHQ`, `user:octocat`, and `is:fork`. Example: \"nango\"."
+                  "pattern": "\\S",
+                  "description": "Repository search query. Supports GitHub qualifiers such as `language:typescript`, `stars:>100`, `topic:javascript`, `org:NangoHQ`, `user:octocat`, and `fork:only`. Example: \"nango\"."
                 },
                 "sort": {
                   "description": "Field to sort results by. Defaults to GitHub best-match relevance when omitted.",
@@ -321032,7 +321081,7 @@
                           "type",
                           "site_admin"
                         ],
-                        "additionalProperties": {},
+                        "additionalProperties": false,
                         "description": "The account that owns the repository."
                       },
                       "html_url": {
@@ -321195,7 +321244,7 @@
                               "spdx_id",
                               "url"
                             ],
-                            "additionalProperties": {}
+                            "additionalProperties": false
                           },
                           {
                             "type": "null"
@@ -321240,9 +321289,15 @@
                       "archived",
                       "score"
                     ],
-                    "additionalProperties": {}
+                    "additionalProperties": false
                   },
                   "description": "The repositories matching the search query."
+                },
+                "next_page": {
+                  "description": "Page number to request next. Omitted on the last accessible page.",
+                  "type": "integer",
+                  "minimum": -9007199254740991,
+                  "maximum": 9007199254740991
                 }
               },
               "required": [
@@ -321266,7 +321321,9 @@
         "output": [
           "ActionOutput_github_app_oauth_searchtopics"
         ],
-        "scopes": [],
+        "scopes": [
+          "metadata:read"
+        ],
         "usedModels": [
           "ActionInput_github_app_oauth_searchtopics",
           "ActionOutput_github_app_oauth_searchtopics"
@@ -321279,7 +321336,7 @@
               "properties": {
                 "q": {
                   "type": "string",
-                  "minLength": 1,
+                  "pattern": "\\S",
                   "description": "Search keywords and qualifiers, for example \"javascript\" or \"ruby is:featured\"."
                 },
                 "per_page": {
@@ -321426,29 +321483,30 @@
                             "items": {
                               "type": "object",
                               "properties": {
-                                "id": {
-                                  "type": "number",
-                                  "description": "Numeric identifier of the topic relation."
-                                },
-                                "name": {
-                                  "type": "string",
-                                  "description": "Name of the related or aliased topic."
-                                },
-                                "topic_id": {
-                                  "type": "number",
-                                  "description": "Numeric identifier of the related or aliased topic."
-                                },
-                                "relation_type": {
-                                  "type": "string",
-                                  "description": "Type of relationship, such as related or alias."
+                                "topic_relation": {
+                                  "description": "Relation details for the related or aliased topic.",
+                                  "type": "object",
+                                  "properties": {
+                                    "id": {
+                                      "description": "Numeric identifier of the topic relation.",
+                                      "type": "number"
+                                    },
+                                    "name": {
+                                      "description": "Name of the related or aliased topic.",
+                                      "type": "string"
+                                    },
+                                    "topic_id": {
+                                      "description": "Numeric identifier of the related or aliased topic.",
+                                      "type": "number"
+                                    },
+                                    "relation_type": {
+                                      "description": "Type of relationship, such as related or alias.",
+                                      "type": "string"
+                                    }
+                                  },
+                                  "additionalProperties": false
                                 }
                               },
-                              "required": [
-                                "id",
-                                "name",
-                                "topic_id",
-                                "relation_type"
-                              ],
                               "additionalProperties": false
                             }
                           },
@@ -321465,29 +321523,30 @@
                             "items": {
                               "type": "object",
                               "properties": {
-                                "id": {
-                                  "type": "number",
-                                  "description": "Numeric identifier of the topic relation."
-                                },
-                                "name": {
-                                  "type": "string",
-                                  "description": "Name of the related or aliased topic."
-                                },
-                                "topic_id": {
-                                  "type": "number",
-                                  "description": "Numeric identifier of the related or aliased topic."
-                                },
-                                "relation_type": {
-                                  "type": "string",
-                                  "description": "Type of relationship, such as related or alias."
+                                "topic_relation": {
+                                  "description": "Relation details for the related or aliased topic.",
+                                  "type": "object",
+                                  "properties": {
+                                    "id": {
+                                      "description": "Numeric identifier of the topic relation.",
+                                      "type": "number"
+                                    },
+                                    "name": {
+                                      "description": "Name of the related or aliased topic.",
+                                      "type": "string"
+                                    },
+                                    "topic_id": {
+                                      "description": "Numeric identifier of the related or aliased topic.",
+                                      "type": "number"
+                                    },
+                                    "relation_type": {
+                                      "description": "Type of relationship, such as related or alias.",
+                                      "type": "string"
+                                    }
+                                  },
+                                  "additionalProperties": false
                                 }
                               },
-                              "required": [
-                                "id",
-                                "name",
-                                "topic_id",
-                                "relation_type"
-                              ],
                               "additionalProperties": false
                             }
                           },
@@ -321513,6 +321572,12 @@
                     "additionalProperties": false
                   },
                   "description": "Topics matching the query, ordered by best match."
+                },
+                "next_page": {
+                  "description": "Page number to request next. Omitted on the last accessible page.",
+                  "type": "integer",
+                  "minimum": -9007199254740991,
+                  "maximum": 9007199254740991
                 }
               },
               "required": [
@@ -321536,7 +321601,9 @@
         "output": [
           "ActionOutput_github_app_oauth_searchusers"
         ],
-        "scopes": [],
+        "scopes": [
+          "metadata:read"
+        ],
         "usedModels": [
           "ActionInput_github_app_oauth_searchusers",
           "ActionOutput_github_app_oauth_searchusers"
@@ -321549,7 +321616,7 @@
               "properties": {
                 "q": {
                   "type": "string",
-                  "minLength": 1,
+                  "pattern": "\\S",
                   "description": "Search keywords and qualifiers, for example \"octocat type:user\" or \"location:london followers:>100\"."
                 },
                 "sort": {

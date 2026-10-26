@@ -133,7 +133,8 @@
         },
         "score": 1
       }
-    ]
+    ],
+    "next_page": 2
   },
   "nango": {},
   "api": {
@@ -527,7 +528,7 @@
         },
         "status": 200,
         "headers": {
-          "date": "Mon, 26 Oct 2026 18:38:28 GMT",
+          "date": "Mon, 26 Oct 2026 19:31:40 GMT",
           "content-type": "application/json",
           "transfer-encoding": "chunked",
           "connection": "keep-alive",
@@ -542,14 +543,14 @@
           "access-control-allow-origin": "*",
           "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
           "x-ratelimit-limit": "10",
-          "x-ratelimit-remaining": "8",
-          "x-ratelimit-reset": "1793039961",
+          "x-ratelimit-remaining": "9",
+          "x-ratelimit-reset": "1793043160",
           "link": "<https://api.github.com/search/code?q=addClass%20in%3Afile%20language%3Ajs%20repo%3Ajquery%2Fjquery&page=2&per_page=5>; rel=\"next\", <https://api.github.com/search/code?q=addClass%20in%3Afile%20language%3Ajs%20repo%3Ajquery%2Fjquery&page=1&per_page=5>; rel=\"first\", <https://api.github.com/search/code?q=addClass%20in%3Afile%20language%3Ajs%20repo%3Ajquery%2Fjquery&page=2&per_page=5>; rel=\"last\"",
           "vary": "accept-encoding",
           "server": "github.com",
-          "x-ratelimit-used": "2",
+          "x-ratelimit-used": "1",
           "x-ratelimit-resource": "code_search",
-          "x-github-request-id": "55F6:283113:55955DD:7B187AF:6ADF9E0D",
+          "x-github-request-id": "E483:15BC58:5908DC5:8045211:6ADFAA82",
           "x-github-edge-region": "sea"
         },
         "hash": "814ba5c2dc50f61b38e5eca25cc22e5948005865",

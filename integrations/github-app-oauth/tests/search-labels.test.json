@@ -1,42 +1,44 @@
 {
   "input": {
-    "repository_id": 1224437532,
-    "q": "bug"
+    "repository_id": 167174,
+    "q": "needs",
+    "per_page": 1
   },
   "output": {
-    "total_count": 1,
+    "total_count": 2,
     "incomplete_results": false,
     "items": [
       {
-        "id": 10819384865,
-        "node_id": "LA_kwDOSPtvHM8AAAAChOK2IQ",
-        "url": "https://api.github.com/repos/viictoo/api-playground2/labels/bug",
-        "name": "bug",
-        "color": "d73a4a",
-        "default": true,
-        "description": "Something isn't working",
+        "id": 133727374,
+        "node_id": "MDU6TGFiZWwxMzM3MjczNzQ=",
+        "url": "https://api.github.com/repos/jquery/jquery/labels/Needs%20info",
+        "name": "Needs info",
+        "color": "000000",
+        "default": false,
+        "description": null,
         "archived_at": null,
         "archived_by": null,
         "score": 1
       }
-    ]
+    ],
+    "next_page": 2
   },
   "nango": {},
   "api": {
     "get": {
       "/search/labels": {
         "response": {
-          "total_count": 1,
+          "total_count": 2,
           "incomplete_results": false,
           "items": [
             {
-              "id": 10819384865,
-              "node_id": "LA_kwDOSPtvHM8AAAAChOK2IQ",
-              "url": "https://api.github.com/repos/viictoo/api-playground2/labels/bug",
-              "name": "bug",
-              "color": "d73a4a",
-              "default": true,
-              "description": "Something isn't working",
+              "id": 133727374,
+              "node_id": "MDU6TGFiZWwxMzM3MjczNzQ=",
+              "url": "https://api.github.com/repos/jquery/jquery/labels/Needs%20info",
+              "name": "Needs info",
+              "color": "000000",
+              "default": false,
+              "description": null,
               "archived_at": null,
               "archived_by": null,
               "score": 1
@@ -45,7 +47,7 @@
         },
         "status": 200,
         "headers": {
-          "date": "Mon, 26 Oct 2026 18:43:36 GMT",
+          "date": "Mon, 26 Oct 2026 19:33:01 GMT",
           "content-type": "application/json; charset=utf-8",
           "transfer-encoding": "chunked",
           "connection": "keep-alive",
@@ -60,25 +62,27 @@
           "access-control-allow-origin": "*",
           "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
           "x-ratelimit-limit": "30",
-          "x-ratelimit-remaining": "26",
-          "x-ratelimit-reset": "1793040243",
+          "x-ratelimit-remaining": "29",
+          "x-ratelimit-reset": "1793043241",
           "cache-control": "no-cache",
           "vary": "Accept, Authorization, Cookie, X-GitHub-OTP,Accept-Encoding, Accept, X-Requested-With",
           "x-github-media-type": "github.v3",
+          "link": "<https://api.github.com/search/labels?repository_id=167174&q=needs&per_page=1&page=2>; rel=\"next\", <https://api.github.com/search/labels?repository_id=167174&q=needs&per_page=1&page=2>; rel=\"last\"",
           "x-accepted-github-permissions": "metadata=read",
           "x-github-api-version-selected": "2022-11-28",
           "content-security-policy": "default-src 'none'",
           "server": "github.com",
-          "x-ratelimit-used": "4",
+          "x-ratelimit-used": "1",
           "x-ratelimit-resource": "search",
-          "x-github-request-id": "9415:109CF7:88389D:F26508:6ADF9F53",
+          "x-github-request-id": "93D1:250054:8B5FA5:F6F2C1:6ADFAAED",
           "x-github-edge-region": "westus2"
         },
-        "hash": "63f23a940f093db352c09903202ff00b2ec6c043",
+        "hash": "342f3d079fd599e480f0352346afcf3d3aeb33ce",
         "request": {
           "params": {
-            "q": "bug",
-            "repository_id": "1224437532"
+            "per_page": "1",
+            "q": "needs",
+            "repository_id": "167174"
           }
         }
       }

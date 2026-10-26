@@ -5,10 +5,7 @@ const InputSchema = z
     .object({
         q: z.string().optional().describe('Free-form issue search keywords and qualifiers appended to the generated query. Example: "memory leak in:title".'),
         repository: z.string().optional().describe('Limit results to one repository in "owner/repo" format. Example: "octocat/Hello-World".'),
-        type: z
-            .enum(['issue', 'pull_request'])
-            .optional()
-            .describe('Restrict results to issues (is:issue) or pull requests (is:pr). Required when authenticating as a GitHub App user.'),
+        type: z.enum(['issue', 'pull_request']).optional().describe('Restrict results to issues (is:issue) or pull requests (is:pr). Omit to return both.'),
         state: z.enum(['open', 'closed']).optional().describe('Restrict results to open or closed issues and pull requests.'),
         label: z.string().optional().describe('Only include items carrying this label. Example: "bug".'),
         assignee: z.string().optional().describe('Only include items assigned to this GitHub login. Example: "octocat".'),
@@ -138,7 +135,8 @@ const OutputSchema = z
     .object({
         total_count: z.number().describe('Total number of items matching the query across all pages.'),
         incomplete_results: z.boolean().describe('Whether GitHub timed out before returning every matching result.'),
-        items: z.array(OutputIssueSchema).describe('Issues and pull requests matching the query for the requested page.')
+        items: z.array(OutputIssueSchema).describe('Issues and pull requests matching the query for the requested page.'),
+        next_page: z.number().int().optional().describe('Page number to request next. Omitted on the last accessible page.')
     })
     .describe('Paginated GitHub issue and pull request search results.');
 
@@ -150,16 +148,25 @@ function toUser(user: z.infer<typeof ProviderUserSchema>): z.infer<typeof Output
     };
 }
 
+function getNextPage(linkHeader: unknown): number | undefined {
+    if (typeof linkHeader !== 'string') {
+        return undefined;
+    }
+    const match = linkHeader.match(/<[^>]*[?&]page=(\d+)[^>]*>;\s*rel="next"/);
+    return match?.[1] !== undefined ? Number(match[1]) : undefined;
+}
+
 /**
  * @tags: [read]
  * @tagReason: Searches GitHub issues and pull requests without modifying any provider data.
- * @pitfalls: GitHub only makes the first 1,000 matches retrievable even when total_count is higher, caps authenticated search at 30 requests per minute, and returns a 422 when a GitHub App user token query lacks is:issue or is:pr; incomplete_results=true means a timeout truncated the results.
+ * @pitfalls: GitHub only makes the first 1,000 matches retrievable even when total_count is higher, caps authenticated search at 30 requests per minute; incomplete_results=true means a timeout truncated the results.
  */
 const action = createAction({
     description: "Search issues and pull requests across indexed repositories using GitHub's issue-search qualifiers.",
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['issues:read', 'pull_requests:read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const queryParts: string[] = [];
@@ -210,6 +217,7 @@ const action = createAction({
         });
 
         const result = ProviderSearchSchema.parse(response.data);
+        const nextPage = getNextPage(response.headers?.['link']);
 
         return {
             total_count: result.total_count,
@@ -250,7 +258,8 @@ const action = createAction({
                     }
                 }),
                 ...(item.score !== undefined && { score: item.score })
-            }))
+            })),
+            ...(nextPage !== undefined && { next_page: nextPage })
         };
     }
 });

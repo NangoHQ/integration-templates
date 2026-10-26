@@ -5,11 +5,7 @@ const InputSchema = z
     .object({
         q: z
             .string()
-            .min(1)
-            .regex(
-                /(?:^|\s)(repo|org|user|language|path|extension|filename):/i,
-                'q must include at least one scoping qualifier such as repo:, org:, user:, language:, path:, extension:, or filename:.'
-            )
+            .regex(/\S/, 'q must contain a search term.')
             .describe('Code search query with keywords and GitHub qualifiers. Example: "addClass in:file language:js repo:jquery/jquery".'),
         sort: z
             .enum(['indexed'])
@@ -55,24 +51,40 @@ const CodeSearchItemSchema = z.object({
     line_numbers: z.array(z.string()).optional().describe('Line numbers of the match when GitHub includes them.')
 });
 
+const ProviderSearchResponseSchema = z.object({
+    total_count: z.number().int(),
+    incomplete_results: z.boolean(),
+    items: z.array(CodeSearchItemSchema)
+});
+
 const OutputSchema = z
     .object({
         total_count: z.number().int().describe('Total number of matching files, up to the GitHub search result cap.'),
         incomplete_results: z.boolean().describe('Whether the search timed out before returning all possible matches.'),
-        items: z.array(CodeSearchItemSchema).describe('Matching code files for the requested page.')
+        items: z.array(CodeSearchItemSchema).describe('Matching code files for the requested page.'),
+        next_page: z.number().int().optional().describe('Page number to request next. Omitted on the last accessible page.')
     })
     .describe('A page of GitHub code search results.');
+
+function getNextPage(linkHeader: unknown): number | undefined {
+    if (typeof linkHeader !== 'string') {
+        return undefined;
+    }
+    const match = linkHeader.match(/<[^>]*[?&]page=(\d+)[^>]*>;\s*rel="next"/);
+    return match?.[1] !== undefined ? Number(match[1]) : undefined;
+}
 
 /**
  * @tags: [read]
  * @tagReason: Reads code search results from GitHub without modifying any repository data.
- * @pitfalls: Code search only indexes default-branch files under 384 KB, requires at least one search term with a scoping qualifier, caps matches at 1,000, and is limited to 10 requests per minute; incomplete_results=true means the query timed out and results may be partial.
+ * @pitfalls: Code search only indexes default-branch files under 384 KB, requires at least one search term (qualifiers alone are not enough), caps matches at 1,000, and is limited to 10 requests per minute; without a repo:, org:, or user: qualifier it searches all public code GitHub has indexed. incomplete_results=true means the query timed out and results may be partial.
  */
 const action = createAction({
     description: 'Search file contents across indexed GitHub repositories using code-search qualifiers.',
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['contents:read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({
@@ -88,7 +100,15 @@ const action = createAction({
             retries: 3
         });
 
-        return OutputSchema.parse(response.data);
+        const result = ProviderSearchResponseSchema.parse(response.data);
+        const nextPage = getNextPage(response.headers?.['link']);
+
+        return {
+            total_count: result.total_count,
+            incomplete_results: result.incomplete_results,
+            items: result.items,
+            ...(nextPage !== undefined && { next_page: nextPage })
+        };
     }
 });
 
