@@ -1,0 +1,77 @@
+{
+    "dateMention": {
+        "type": "mention",
+        "mention": {
+            "type": "date",
+            "date": {
+                "start": "2026-01-01",
+                "end": null
+            }
+        },
+        "plain_text": "2026-01-01",
+        "href": null,
+        "annotations": {
+            "bold": false,
+            "italic": false,
+            "strikethrough": false,
+            "underline": false,
+            "code": false,
+            "color": "default"
+        }
+    },
+    "userMention": {
+        "type": "mention",
+        "mention": {
+            "type": "user",
+            "user": {
+                "object": "user",
+                "id": "00000000-0000-4000-8000-000000000002"
+            }
+        },
+        "plain_text": "@Anonymous",
+        "href": null,
+        "annotations": {
+            "bold": false,
+            "italic": false,
+            "strikethrough": false,
+            "underline": false,
+            "code": false,
+            "color": "default"
+        }
+    },
+    "pageMention": {
+        "type": "mention",
+        "mention": {
+            "type": "page",
+            "page": {
+                "id": "00000000-0000-4000-8000-000000000005"
+            }
+        },
+        "plain_text": "Launch notes",
+        "href": "https://www.notion.so/00000000000040008000000000000005",
+        "annotations": {
+            "bold": false,
+            "italic": false,
+            "strikethrough": false,
+            "underline": false,
+            "code": false,
+            "color": "default"
+        }
+    },
+    "equation": {
+        "type": "equation",
+        "equation": {
+            "expression": "E = mc^2"
+        },
+        "plain_text": "E = mc^2",
+        "href": null,
+        "annotations": {
+            "bold": false,
+            "italic": false,
+            "strikethrough": false,
+            "underline": false,
+            "code": false,
+            "color": "default"
+        }
+    }
+}

@@ -1,15 +1,18 @@
 import { describe, expect, test, vi } from 'vitest';
 import sync from '../syncs/content-metadata.js';
 import page from './fixtures/content-metadata-page.json';
+import richTextParts from './fixtures/content-metadata-title-parts.json';
+
+type TitlePart = { type: string; plain_text: string };
 
 const titleProperty = page.properties.Name;
 const titleParts = titleProperty.title;
-const standalonePageWithTitle = (parts = titleParts) => ({
+const standalonePageWithTitle = (parts: TitlePart[] = titleParts) => ({
     ...page,
     parent: { type: 'page_id', page_id: '00000000-0000-4000-8000-000000000005' },
     properties: { title: { ...titleProperty, title: parts } }
 });
-const dataSourcePageWithTitle = (name: string, parts = titleParts) => ({
+const dataSourcePageWithTitle = (name: string, parts: TitlePart[] = titleParts) => ({
     ...page,
     properties: {
         Status: page.properties.Status,
@@ -35,6 +38,38 @@ async function expectSyncedTitle(item: unknown, expected: string | undefined) {
 }
 
 describe('Notion content-metadata titles', () => {
+    describe.each([
+        { label: 'standalone page', makeItem: standalonePageWithTitle },
+        { label: 'data source page with Name', makeItem: (parts: TitlePart[]) => dataSourcePageWithTitle('Name', parts) },
+        { label: 'data source page with Nombre', makeItem: (parts: TitlePart[]) => dataSourcePageWithTitle('Nombre', parts) },
+        {
+            label: 'data source',
+            makeItem: (parts: TitlePart[]) => ({
+                object: 'data_source',
+                id: '00000000-0000-4000-8000-000000000003',
+                created_time: page.created_time,
+                last_edited_time: page.last_edited_time,
+                title: parts,
+                parent: { type: 'database_id', database_id: '00000000-0000-4000-8000-000000000004' }
+            })
+        }
+    ])('rich text titles in $label', ({ makeItem }) => {
+        test.each([
+            { label: 'date mention', part: richTextParts.dateMention, expected: 'Launch 2026-01-01 checklist' },
+            { label: 'user mention', part: richTextParts.userMention, expected: 'Launch @Anonymous checklist' },
+            { label: 'page mention', part: richTextParts.pageMention, expected: 'Launch Launch notes checklist' },
+            { label: 'equation', part: richTextParts.equation, expected: 'Launch E = mc^2 checklist' }
+        ])('concatenates text with a $label', async ({ part, expected }) => {
+            const parts = [
+                splitTitleParts[0]!,
+                part,
+                { ...firstTitlePart, text: { ...firstTitlePart.text, content: ' checklist' }, plain_text: ' checklist' }
+            ];
+
+            await expectSyncedTitle(makeItem(parts), expected);
+        });
+    });
+
     describe('standalone pages', () => {
         test('reads the title from properties.title', async () => {
             await expectSyncedTitle(standalonePageWithTitle(), 'Launch checklist');

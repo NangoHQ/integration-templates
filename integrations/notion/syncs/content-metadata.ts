@@ -12,9 +12,7 @@ import { z } from 'zod';
 // Raw provider response schemas
 const TitleAnnotationSchema = z.object({
     type: z.string(),
-    text: z.object({
-        content: z.string()
-    })
+    plain_text: z.string()
 });
 
 const PageObjectSchema = z.object({
@@ -121,12 +119,12 @@ function extractTitle(item: PageObject | DataSourceObject): string | undefined {
     if (item.object === 'page') {
         const titleProperty = Object.values(item.properties ?? {}).find((property) => property.type === 'title')?.title;
         if (titleProperty && titleProperty.length > 0) {
-            return titleProperty.map((t) => t.text.content).join('');
+            return titleProperty.map((t) => t.plain_text).join('');
         }
     } else if (item.object === 'data_source') {
         const titleArray = item.title;
         if (titleArray && titleArray.length > 0) {
-            return titleArray.map((t) => t.text.content).join('');
+            return titleArray.map((t) => t.plain_text).join('');
         }
     }
     return undefined;
