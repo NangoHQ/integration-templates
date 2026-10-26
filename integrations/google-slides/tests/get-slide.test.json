@@ -1,0 +1,1705 @@
+{
+  "input": {
+    "presentationId": "1XFaFcivdWdl-Em5A8HC0_Oua7fSWpw-MR_QDj1AHsPI",
+    "pageId": "slide_test_1"
+  },
+  "output": {
+    "objectId": "slide_test_1",
+    "revisionId": "H5SgFd8_Mqt3AA",
+    "pageElements": [
+      {
+        "objectId": "SLIDES_API326449874_0",
+        "size": {
+          "width": {
+            "magnitude": 3000000,
+            "unit": "EMU"
+          },
+          "height": {
+            "magnitude": 3000000,
+            "unit": "EMU"
+          }
+        },
+        "transform": {
+          "scaleX": 2.8402,
+          "scaleY": 0.1909,
+          "translateX": 311700,
+          "translateY": 445025,
+          "unit": "EMU"
+        },
+        "shape": {
+          "shapeType": "TEXT_BOX",
+          "text": {
+            "textElements": [
+              {
+                "endIndex": 18,
+                "paragraphMarker": {
+                  "style": {
+                    "direction": "LEFT_TO_RIGHT"
+                  }
+                }
+              },
+              {
+                "endIndex": 18,
+                "textRun": {
+                  "content": "NangoX Test Title\n",
+                  "style": {
+                    "foregroundColor": {
+                      "opaqueColor": {
+                        "rgbColor": {
+                          "red": 0.8,
+                          "green": 0.101960786,
+                          "blue": 0.101960786
+                        }
+                      }
+                    },
+                    "bold": true,
+                    "italic": true
+                  }
+                }
+              }
+            ]
+          },
+          "placeholder": {
+            "type": "TITLE",
+            "parentObjectId": "p4_i0"
+          },
+          "shapeProperties": {
+            "shapeBackgroundFill": {
+              "propertyState": "INHERIT"
+            },
+            "outline": {
+              "propertyState": "INHERIT"
+            },
+            "shadow": {
+              "propertyState": "INHERIT"
+            },
+            "autofit": {
+              "autofitType": "NONE",
+              "fontScale": 1
+            }
+          }
+        }
+      },
+      {
+        "objectId": "SLIDES_API326449874_1",
+        "size": {
+          "width": {
+            "magnitude": 3000000,
+            "unit": "EMU"
+          },
+          "height": {
+            "magnitude": 3000000,
+            "unit": "EMU"
+          }
+        },
+        "transform": {
+          "scaleX": 2.8402,
+          "scaleY": 1.1388,
+          "translateX": 311700,
+          "translateY": 1152475,
+          "unit": "EMU"
+        },
+        "shape": {
+          "shapeType": "TEXT_BOX",
+          "text": {
+            "textElements": [
+              {
+                "endIndex": 24,
+                "paragraphMarker": {
+                  "style": {
+                    "indentStart": {
+                      "unit": "PT"
+                    },
+                    "indentFirstLine": {
+                      "unit": "PT"
+                    },
+                    "direction": "LEFT_TO_RIGHT"
+                  }
+                }
+              },
+              {
+                "endIndex": 24,
+                "textRun": {
+                  "content": "NangoX Test Body Line 1\n",
+                  "style": {}
+                }
+              },
+              {
+                "startIndex": 24,
+                "endIndex": 25,
+                "paragraphMarker": {
+                  "style": {
+                    "indentStart": {
+                      "unit": "PT"
+                    },
+                    "indentFirstLine": {
+                      "unit": "PT"
+                    },
+                    "direction": "LEFT_TO_RIGHT"
+                  }
+                }
+              },
+              {
+                "startIndex": 24,
+                "endIndex": 25,
+                "textRun": {
+                  "content": "\n",
+                  "style": {}
+                }
+              }
+            ]
+          },
+          "placeholder": {
+            "type": "BODY",
+            "parentObjectId": "p4_i1"
+          },
+          "shapeProperties": {
+            "shapeBackgroundFill": {
+              "propertyState": "INHERIT"
+            },
+            "outline": {
+              "propertyState": "INHERIT"
+            },
+            "shadow": {
+              "propertyState": "INHERIT"
+            },
+            "autofit": {
+              "autofitType": "NONE",
+              "fontScale": 1
+            }
+          }
+        }
+      },
+      {
+        "objectId": "my_text_box_1",
+        "size": {
+          "width": {
+            "magnitude": 3000000,
+            "unit": "EMU"
+          },
+          "height": {
+            "magnitude": 3000000,
+            "unit": "EMU"
+          }
+        },
+        "transform": {
+          "scaleX": 1,
+          "scaleY": 0.3333,
+          "translateX": 700000,
+          "translateY": 4000000,
+          "unit": "EMU"
+        },
+        "shape": {
+          "shapeType": "TEXT_BOX",
+          "text": {
+            "textElements": [
+              {
+                "endIndex": 69,
+                "paragraphMarker": {
+                  "style": {
+                    "lineSpacing": 100,
+                    "alignment": "START",
+                    "indentStart": {
+                      "unit": "PT"
+                    },
+                    "indentEnd": {
+                      "unit": "PT"
+                    },
+                    "spaceAbove": {
+                      "unit": "PT"
+                    },
+                    "spaceBelow": {
+                      "unit": "PT"
+                    },
+                    "indentFirstLine": {
+                      "unit": "PT"
+                    },
+                    "direction": "LEFT_TO_RIGHT",
+                    "spacingMode": "COLLAPSE_LISTS"
+                  }
+                }
+              },
+              {
+                "endIndex": 69,
+                "textRun": {
+                  "content": "Inserted by NangoInserted by NangoInserted by NangoInserted by Nango\n",
+                  "style": {
+                    "backgroundColor": {},
+                    "foregroundColor": {
+                      "opaqueColor": {
+                        "rgbColor": {
+                          "red": 1
+                        }
+                      }
+                    },
+                    "bold": true,
+                    "italic": true,
+                    "fontFamily": "Arial",
+                    "fontSize": {
+                      "magnitude": 18,
+                      "unit": "PT"
+                    },
+                    "baselineOffset": "NONE",
+                    "smallCaps": false,
+                    "strikethrough": false,
+                    "underline": false,
+                    "weightedFontFamily": {
+                      "fontFamily": "Arial",
+                      "weight": 700
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          "shapeProperties": {
+            "shapeBackgroundFill": {
+              "propertyState": "NOT_RENDERED",
+              "solidFill": {
+                "color": {
+                  "rgbColor": {
+                    "red": 1,
+                    "green": 1,
+                    "blue": 1
+                  }
+                },
+                "alpha": 1
+              }
+            },
+            "outline": {
+              "outlineFill": {
+                "solidFill": {
+                  "color": {
+                    "rgbColor": {}
+                  },
+                  "alpha": 1
+                }
+              },
+              "weight": {
+                "magnitude": 9525,
+                "unit": "EMU"
+              },
+              "dashStyle": "SOLID",
+              "propertyState": "NOT_RENDERED"
+            },
+            "shadow": {
+              "type": "OUTER",
+              "transform": {
+                "scaleX": 1,
+                "scaleY": 1,
+                "unit": "EMU"
+              },
+              "alignment": "BOTTOM_LEFT",
+              "blurRadius": {
+                "unit": "EMU"
+              },
+              "color": {
+                "rgbColor": {}
+              },
+              "alpha": 1,
+              "rotateWithShape": false,
+              "propertyState": "NOT_RENDERED"
+            },
+            "contentAlignment": "TOP",
+            "autofit": {
+              "autofitType": "NONE",
+              "fontScale": 1
+            }
+          }
+        }
+      },
+      {
+        "objectId": "my_rect_1",
+        "size": {
+          "width": {
+            "magnitude": 3000000,
+            "unit": "EMU"
+          },
+          "height": {
+            "magnitude": 3000000,
+            "unit": "EMU"
+          }
+        },
+        "transform": {
+          "scaleX": 0.5,
+          "scaleY": 0.3333,
+          "translateX": 4600000,
+          "translateY": 4000000,
+          "unit": "EMU"
+        },
+        "shape": {
+          "shapeType": "RECTANGLE",
+          "shapeProperties": {
+            "shapeBackgroundFill": {
+              "solidFill": {
+                "color": {
+                  "rgbColor": {
+                    "red": 0.2,
+                    "green": 0.6,
+                    "blue": 0.2
+                  }
+                },
+                "alpha": 1
+              }
+            },
+            "outline": {
+              "outlineFill": {
+                "solidFill": {
+                  "color": {
+                    "themeColor": "DARK2"
+                  },
+                  "alpha": 1
+                }
+              },
+              "weight": {
+                "magnitude": 9525,
+                "unit": "EMU"
+              },
+              "dashStyle": "SOLID"
+            },
+            "shadow": {
+              "type": "OUTER",
+              "transform": {
+                "scaleX": 1,
+                "scaleY": 1,
+                "unit": "EMU"
+              },
+              "alignment": "BOTTOM_LEFT",
+              "blurRadius": {
+                "unit": "EMU"
+              },
+              "color": {
+                "rgbColor": {}
+              },
+              "alpha": 1,
+              "rotateWithShape": false,
+              "propertyState": "NOT_RENDERED"
+            },
+            "contentAlignment": "MIDDLE",
+            "autofit": {
+              "autofitType": "NONE",
+              "fontScale": 1
+            }
+          }
+        }
+      },
+      {
+        "objectId": "SLIDES_API1109984005_0",
+        "size": {
+          "width": {
+            "magnitude": 3000000,
+            "unit": "EMU"
+          },
+          "height": {
+            "magnitude": 3000000,
+            "unit": "EMU"
+          }
+        },
+        "transform": {
+          "scaleX": 0.5,
+          "scaleY": 0.3333,
+          "translateX": 4500000,
+          "translateY": 4000000,
+          "unit": "EMU"
+        },
+        "shape": {
+          "shapeType": "RECTANGLE",
+          "shapeProperties": {
+            "shapeBackgroundFill": {
+              "solidFill": {
+                "color": {
+                  "rgbColor": {
+                    "red": 0.2,
+                    "green": 0.6,
+                    "blue": 0.8980392
+                  }
+                },
+                "alpha": 1
+              }
+            },
+            "outline": {
+              "outlineFill": {
+                "solidFill": {
+                  "color": {
+                    "themeColor": "DARK2"
+                  },
+                  "alpha": 1
+                }
+              },
+              "weight": {
+                "magnitude": 9525,
+                "unit": "EMU"
+              },
+              "dashStyle": "SOLID"
+            },
+            "shadow": {
+              "type": "OUTER",
+              "transform": {
+                "scaleX": 1,
+                "scaleY": 1,
+                "unit": "EMU"
+              },
+              "alignment": "BOTTOM_LEFT",
+              "blurRadius": {
+                "unit": "EMU"
+              },
+              "color": {
+                "rgbColor": {}
+              },
+              "alpha": 1,
+              "rotateWithShape": false,
+              "propertyState": "NOT_RENDERED"
+            },
+            "contentAlignment": "MIDDLE",
+            "autofit": {
+              "autofitType": "NONE",
+              "fontScale": 1
+            }
+          }
+        }
+      },
+      {
+        "objectId": "SLIDES_API1350133488_0",
+        "size": {
+          "width": {
+            "magnitude": 3000000,
+            "unit": "EMU"
+          },
+          "height": {
+            "magnitude": 3000000,
+            "unit": "EMU"
+          }
+        },
+        "transform": {
+          "scaleX": 0.6667,
+          "scaleY": 0.3333,
+          "translateX": 500000,
+          "translateY": 500000,
+          "unit": "EMU"
+        },
+        "shape": {
+          "shapeType": "RECTANGLE",
+          "shapeProperties": {
+            "shapeBackgroundFill": {
+              "solidFill": {
+                "color": {
+                  "themeColor": "LIGHT2"
+                },
+                "alpha": 1
+              }
+            },
+            "outline": {
+              "outlineFill": {
+                "solidFill": {
+                  "color": {
+                    "themeColor": "DARK2"
+                  },
+                  "alpha": 1
+                }
+              },
+              "weight": {
+                "magnitude": 9525,
+                "unit": "EMU"
+              },
+              "dashStyle": "SOLID"
+            },
+            "shadow": {
+              "type": "OUTER",
+              "transform": {
+                "scaleX": 1,
+                "scaleY": 1,
+                "unit": "EMU"
+              },
+              "alignment": "BOTTOM_LEFT",
+              "blurRadius": {
+                "unit": "EMU"
+              },
+              "color": {
+                "rgbColor": {}
+              },
+              "alpha": 1,
+              "rotateWithShape": false,
+              "propertyState": "NOT_RENDERED"
+            },
+            "contentAlignment": "MIDDLE",
+            "autofit": {
+              "autofitType": "NONE",
+              "fontScale": 1
+            }
+          }
+        }
+      },
+      {
+        "objectId": "SLIDES_API1748152129_0",
+        "size": {
+          "width": {
+            "magnitude": 3000000,
+            "unit": "EMU"
+          },
+          "height": {
+            "magnitude": 3000000,
+            "unit": "EMU"
+          }
+        },
+        "transform": {
+          "scaleX": 0.6667,
+          "scaleY": 0.3333,
+          "translateX": 500000,
+          "translateY": 500000,
+          "unit": "EMU"
+        },
+        "shape": {
+          "shapeType": "RECTANGLE",
+          "shapeProperties": {
+            "shapeBackgroundFill": {
+              "solidFill": {
+                "color": {
+                  "themeColor": "LIGHT2"
+                },
+                "alpha": 1
+              }
+            },
+            "outline": {
+              "outlineFill": {
+                "solidFill": {
+                  "color": {
+                    "themeColor": "DARK2"
+                  },
+                  "alpha": 1
+                }
+              },
+              "weight": {
+                "magnitude": 9525,
+                "unit": "EMU"
+              },
+              "dashStyle": "SOLID"
+            },
+            "shadow": {
+              "type": "OUTER",
+              "transform": {
+                "scaleX": 1,
+                "scaleY": 1,
+                "unit": "EMU"
+              },
+              "alignment": "BOTTOM_LEFT",
+              "blurRadius": {
+                "unit": "EMU"
+              },
+              "color": {
+                "rgbColor": {}
+              },
+              "alpha": 1,
+              "rotateWithShape": false,
+              "propertyState": "NOT_RENDERED"
+            },
+            "contentAlignment": "MIDDLE",
+            "autofit": {
+              "autofitType": "NONE",
+              "fontScale": 1
+            }
+          }
+        }
+      },
+      {
+        "objectId": "delete_text_target_1",
+        "size": {
+          "width": {
+            "magnitude": 3000000,
+            "unit": "EMU"
+          },
+          "height": {
+            "magnitude": 3000000,
+            "unit": "EMU"
+          }
+        },
+        "transform": {
+          "scaleX": 1,
+          "scaleY": 0.3333,
+          "translateX": 100000,
+          "translateY": 100000,
+          "unit": "EMU"
+        },
+        "shape": {
+          "shapeType": "TEXT_BOX",
+          "text": {
+            "textElements": [
+              {
+                "endIndex": 15,
+                "paragraphMarker": {
+                  "style": {
+                    "lineSpacing": 100,
+                    "alignment": "START",
+                    "indentStart": {
+                      "unit": "PT"
+                    },
+                    "indentEnd": {
+                      "unit": "PT"
+                    },
+                    "spaceAbove": {
+                      "unit": "PT"
+                    },
+                    "spaceBelow": {
+                      "unit": "PT"
+                    },
+                    "indentFirstLine": {
+                      "unit": "PT"
+                    },
+                    "direction": "LEFT_TO_RIGHT",
+                    "spacingMode": "COLLAPSE_LISTS"
+                  }
+                }
+              },
+              {
+                "endIndex": 15,
+                "textRun": {
+                  "content": "te text sample\n",
+                  "style": {
+                    "backgroundColor": {},
+                    "foregroundColor": {
+                      "opaqueColor": {
+                        "themeColor": "DARK2"
+                      }
+                    },
+                    "bold": false,
+                    "italic": false,
+                    "fontFamily": "Arial",
+                    "fontSize": {
+                      "magnitude": 18,
+                      "unit": "PT"
+                    },
+                    "baselineOffset": "NONE",
+                    "smallCaps": false,
+                    "strikethrough": false,
+                    "underline": false,
+                    "weightedFontFamily": {
+                      "fontFamily": "Arial",
+                      "weight": 400
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          "shapeProperties": {
+            "shapeBackgroundFill": {
+              "propertyState": "NOT_RENDERED",
+              "solidFill": {
+                "color": {
+                  "rgbColor": {
+                    "red": 1,
+                    "green": 1,
+                    "blue": 1
+                  }
+                },
+                "alpha": 1
+              }
+            },
+            "outline": {
+              "outlineFill": {
+                "solidFill": {
+                  "color": {
+                    "rgbColor": {}
+                  },
+                  "alpha": 1
+                }
+              },
+              "weight": {
+                "magnitude": 9525,
+                "unit": "EMU"
+              },
+              "dashStyle": "SOLID",
+              "propertyState": "NOT_RENDERED"
+            },
+            "shadow": {
+              "type": "OUTER",
+              "transform": {
+                "scaleX": 1,
+                "scaleY": 1,
+                "unit": "EMU"
+              },
+              "alignment": "BOTTOM_LEFT",
+              "blurRadius": {
+                "unit": "EMU"
+              },
+              "color": {
+                "rgbColor": {}
+              },
+              "alpha": 1,
+              "rotateWithShape": false,
+              "propertyState": "NOT_RENDERED"
+            },
+            "contentAlignment": "TOP",
+            "autofit": {
+              "autofitType": "NONE",
+              "fontScale": 1
+            }
+          }
+        }
+      }
+    ],
+    "pageProperties": {
+      "pageBackgroundFill": {
+        "propertyState": "INHERIT"
+      }
+    },
+    "slideProperties": {
+      "layoutObjectId": "p4",
+      "masterObjectId": "simple-light-2",
+      "notesPage": {
+        "objectId": "slide_test_1:notes",
+        "pageType": "NOTES",
+        "pageElements": [
+          {
+            "objectId": "SLIDES_API326449874_2",
+            "size": {
+              "width": {
+                "magnitude": 3000000,
+                "unit": "EMU"
+              },
+              "height": {
+                "magnitude": 3000000,
+                "unit": "EMU"
+              }
+            },
+            "transform": {
+              "scaleX": 2.032,
+              "scaleY": 1.143,
+              "translateX": 381300,
+              "translateY": 685800,
+              "unit": "EMU"
+            },
+            "shape": {
+              "shapeProperties": {
+                "outline": {
+                  "propertyState": "INHERIT"
+                }
+              },
+              "placeholder": {
+                "type": "SLIDE_IMAGE",
+                "parentObjectId": "n:slide"
+              }
+            }
+          },
+          {
+            "objectId": "SLIDES_API326449874_3",
+            "size": {
+              "width": {
+                "magnitude": 3000000,
+                "unit": "EMU"
+              },
+              "height": {
+                "magnitude": 3000000,
+                "unit": "EMU"
+              }
+            },
+            "transform": {
+              "scaleX": 1.8288,
+              "scaleY": 1.3716,
+              "translateX": 685800,
+              "translateY": 4343400,
+              "unit": "EMU"
+            },
+            "shape": {
+              "shapeType": "TEXT_BOX",
+              "shapeProperties": {
+                "shapeBackgroundFill": {
+                  "propertyState": "INHERIT"
+                },
+                "outline": {
+                  "propertyState": "INHERIT"
+                },
+                "shadow": {
+                  "propertyState": "INHERIT"
+                },
+                "autofit": {
+                  "fontScale": 1
+                }
+              },
+              "placeholder": {
+                "type": "BODY",
+                "index": 1,
+                "parentObjectId": "n:text"
+              }
+            }
+          }
+        ],
+        "pageProperties": {
+          "pageBackgroundFill": {
+            "propertyState": "INHERIT"
+          }
+        },
+        "notesProperties": {
+          "speakerNotesObjectId": "SLIDES_API326449874_3"
+        }
+      },
+      "isSkipped": true
+    },
+    "commentsViewMode": "COMMENTS_VIEW_MODE_OMITTED"
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/v1/presentations/1XFaFcivdWdl-Em5A8HC0_Oua7fSWpw-MR_QDj1AHsPI/pages/slide_test_1": {
+        "response": {
+          "objectId": "slide_test_1",
+          "pageElements": [
+            {
+              "objectId": "SLIDES_API326449874_0",
+              "size": {
+                "width": {
+                  "magnitude": 3000000,
+                  "unit": "EMU"
+                },
+                "height": {
+                  "magnitude": 3000000,
+                  "unit": "EMU"
+                }
+              },
+              "transform": {
+                "scaleX": 2.8402,
+                "scaleY": 0.1909,
+                "translateX": 311700,
+                "translateY": 445025,
+                "unit": "EMU"
+              },
+              "shape": {
+                "shapeType": "TEXT_BOX",
+                "text": {
+                  "textElements": [
+                    {
+                      "endIndex": 18,
+                      "paragraphMarker": {
+                        "style": {
+                          "direction": "LEFT_TO_RIGHT"
+                        }
+                      }
+                    },
+                    {
+                      "endIndex": 18,
+                      "textRun": {
+                        "content": "NangoX Test Title\n",
+                        "style": {
+                          "foregroundColor": {
+                            "opaqueColor": {
+                              "rgbColor": {
+                                "red": 0.8,
+                                "green": 0.101960786,
+                                "blue": 0.101960786
+                              }
+                            }
+                          },
+                          "bold": true,
+                          "italic": true
+                        }
+                      }
+                    }
+                  ]
+                },
+                "shapeProperties": {
+                  "shapeBackgroundFill": {
+                    "propertyState": "INHERIT"
+                  },
+                  "outline": {
+                    "propertyState": "INHERIT"
+                  },
+                  "shadow": {
+                    "propertyState": "INHERIT"
+                  },
+                  "autofit": {
+                    "autofitType": "NONE",
+                    "fontScale": 1
+                  }
+                },
+                "placeholder": {
+                  "type": "TITLE",
+                  "parentObjectId": "p4_i0"
+                }
+              }
+            },
+            {
+              "objectId": "SLIDES_API326449874_1",
+              "size": {
+                "width": {
+                  "magnitude": 3000000,
+                  "unit": "EMU"
+                },
+                "height": {
+                  "magnitude": 3000000,
+                  "unit": "EMU"
+                }
+              },
+              "transform": {
+                "scaleX": 2.8402,
+                "scaleY": 1.1388,
+                "translateX": 311700,
+                "translateY": 1152475,
+                "unit": "EMU"
+              },
+              "shape": {
+                "shapeType": "TEXT_BOX",
+                "text": {
+                  "textElements": [
+                    {
+                      "endIndex": 24,
+                      "paragraphMarker": {
+                        "style": {
+                          "indentStart": {
+                            "unit": "PT"
+                          },
+                          "indentFirstLine": {
+                            "unit": "PT"
+                          },
+                          "direction": "LEFT_TO_RIGHT"
+                        }
+                      }
+                    },
+                    {
+                      "endIndex": 24,
+                      "textRun": {
+                        "content": "NangoX Test Body Line 1\n",
+                        "style": {}
+                      }
+                    },
+                    {
+                      "startIndex": 24,
+                      "endIndex": 25,
+                      "paragraphMarker": {
+                        "style": {
+                          "indentStart": {
+                            "unit": "PT"
+                          },
+                          "indentFirstLine": {
+                            "unit": "PT"
+                          },
+                          "direction": "LEFT_TO_RIGHT"
+                        }
+                      }
+                    },
+                    {
+                      "startIndex": 24,
+                      "endIndex": 25,
+                      "textRun": {
+                        "content": "\n",
+                        "style": {}
+                      }
+                    }
+                  ]
+                },
+                "shapeProperties": {
+                  "shapeBackgroundFill": {
+                    "propertyState": "INHERIT"
+                  },
+                  "outline": {
+                    "propertyState": "INHERIT"
+                  },
+                  "shadow": {
+                    "propertyState": "INHERIT"
+                  },
+                  "autofit": {
+                    "autofitType": "NONE",
+                    "fontScale": 1
+                  }
+                },
+                "placeholder": {
+                  "type": "BODY",
+                  "parentObjectId": "p4_i1"
+                }
+              }
+            },
+            {
+              "objectId": "my_text_box_1",
+              "size": {
+                "width": {
+                  "magnitude": 3000000,
+                  "unit": "EMU"
+                },
+                "height": {
+                  "magnitude": 3000000,
+                  "unit": "EMU"
+                }
+              },
+              "transform": {
+                "scaleX": 1,
+                "scaleY": 0.3333,
+                "translateX": 700000,
+                "translateY": 4000000,
+                "unit": "EMU"
+              },
+              "shape": {
+                "shapeType": "TEXT_BOX",
+                "text": {
+                  "textElements": [
+                    {
+                      "endIndex": 69,
+                      "paragraphMarker": {
+                        "style": {
+                          "lineSpacing": 100,
+                          "alignment": "START",
+                          "indentStart": {
+                            "unit": "PT"
+                          },
+                          "indentEnd": {
+                            "unit": "PT"
+                          },
+                          "spaceAbove": {
+                            "unit": "PT"
+                          },
+                          "spaceBelow": {
+                            "unit": "PT"
+                          },
+                          "indentFirstLine": {
+                            "unit": "PT"
+                          },
+                          "direction": "LEFT_TO_RIGHT",
+                          "spacingMode": "COLLAPSE_LISTS"
+                        }
+                      }
+                    },
+                    {
+                      "endIndex": 69,
+                      "textRun": {
+                        "content": "Inserted by NangoInserted by NangoInserted by NangoInserted by Nango\n",
+                        "style": {
+                          "backgroundColor": {},
+                          "foregroundColor": {
+                            "opaqueColor": {
+                              "rgbColor": {
+                                "red": 1
+                              }
+                            }
+                          },
+                          "bold": true,
+                          "italic": true,
+                          "fontFamily": "Arial",
+                          "fontSize": {
+                            "magnitude": 18,
+                            "unit": "PT"
+                          },
+                          "baselineOffset": "NONE",
+                          "smallCaps": false,
+                          "strikethrough": false,
+                          "underline": false,
+                          "weightedFontFamily": {
+                            "fontFamily": "Arial",
+                            "weight": 700
+                          }
+                        }
+                      }
+                    }
+                  ]
+                },
+                "shapeProperties": {
+                  "shapeBackgroundFill": {
+                    "propertyState": "NOT_RENDERED",
+                    "solidFill": {
+                      "color": {
+                        "rgbColor": {
+                          "red": 1,
+                          "green": 1,
+                          "blue": 1
+                        }
+                      },
+                      "alpha": 1
+                    }
+                  },
+                  "outline": {
+                    "outlineFill": {
+                      "solidFill": {
+                        "color": {
+                          "rgbColor": {}
+                        },
+                        "alpha": 1
+                      }
+                    },
+                    "weight": {
+                      "magnitude": 9525,
+                      "unit": "EMU"
+                    },
+                    "dashStyle": "SOLID",
+                    "propertyState": "NOT_RENDERED"
+                  },
+                  "shadow": {
+                    "type": "OUTER",
+                    "transform": {
+                      "scaleX": 1,
+                      "scaleY": 1,
+                      "unit": "EMU"
+                    },
+                    "alignment": "BOTTOM_LEFT",
+                    "blurRadius": {
+                      "unit": "EMU"
+                    },
+                    "color": {
+                      "rgbColor": {}
+                    },
+                    "alpha": 1,
+                    "rotateWithShape": false,
+                    "propertyState": "NOT_RENDERED"
+                  },
+                  "contentAlignment": "TOP",
+                  "autofit": {
+                    "autofitType": "NONE",
+                    "fontScale": 1
+                  }
+                }
+              }
+            },
+            {
+              "objectId": "my_rect_1",
+              "size": {
+                "width": {
+                  "magnitude": 3000000,
+                  "unit": "EMU"
+                },
+                "height": {
+                  "magnitude": 3000000,
+                  "unit": "EMU"
+                }
+              },
+              "transform": {
+                "scaleX": 0.5,
+                "scaleY": 0.3333,
+                "translateX": 4600000,
+                "translateY": 4000000,
+                "unit": "EMU"
+              },
+              "shape": {
+                "shapeType": "RECTANGLE",
+                "shapeProperties": {
+                  "shapeBackgroundFill": {
+                    "solidFill": {
+                      "color": {
+                        "rgbColor": {
+                          "red": 0.2,
+                          "green": 0.6,
+                          "blue": 0.2
+                        }
+                      },
+                      "alpha": 1
+                    }
+                  },
+                  "outline": {
+                    "outlineFill": {
+                      "solidFill": {
+                        "color": {
+                          "themeColor": "DARK2"
+                        },
+                        "alpha": 1
+                      }
+                    },
+                    "weight": {
+                      "magnitude": 9525,
+                      "unit": "EMU"
+                    },
+                    "dashStyle": "SOLID"
+                  },
+                  "shadow": {
+                    "type": "OUTER",
+                    "transform": {
+                      "scaleX": 1,
+                      "scaleY": 1,
+                      "unit": "EMU"
+                    },
+                    "alignment": "BOTTOM_LEFT",
+                    "blurRadius": {
+                      "unit": "EMU"
+                    },
+                    "color": {
+                      "rgbColor": {}
+                    },
+                    "alpha": 1,
+                    "rotateWithShape": false,
+                    "propertyState": "NOT_RENDERED"
+                  },
+                  "contentAlignment": "MIDDLE",
+                  "autofit": {
+                    "autofitType": "NONE",
+                    "fontScale": 1
+                  }
+                }
+              }
+            },
+            {
+              "objectId": "SLIDES_API1109984005_0",
+              "size": {
+                "width": {
+                  "magnitude": 3000000,
+                  "unit": "EMU"
+                },
+                "height": {
+                  "magnitude": 3000000,
+                  "unit": "EMU"
+                }
+              },
+              "transform": {
+                "scaleX": 0.5,
+                "scaleY": 0.3333,
+                "translateX": 4500000,
+                "translateY": 4000000,
+                "unit": "EMU"
+              },
+              "shape": {
+                "shapeType": "RECTANGLE",
+                "shapeProperties": {
+                  "shapeBackgroundFill": {
+                    "solidFill": {
+                      "color": {
+                        "rgbColor": {
+                          "red": 0.2,
+                          "green": 0.6,
+                          "blue": 0.8980392
+                        }
+                      },
+                      "alpha": 1
+                    }
+                  },
+                  "outline": {
+                    "outlineFill": {
+                      "solidFill": {
+                        "color": {
+                          "themeColor": "DARK2"
+                        },
+                        "alpha": 1
+                      }
+                    },
+                    "weight": {
+                      "magnitude": 9525,
+                      "unit": "EMU"
+                    },
+                    "dashStyle": "SOLID"
+                  },
+                  "shadow": {
+                    "type": "OUTER",
+                    "transform": {
+                      "scaleX": 1,
+                      "scaleY": 1,
+                      "unit": "EMU"
+                    },
+                    "alignment": "BOTTOM_LEFT",
+                    "blurRadius": {
+                      "unit": "EMU"
+                    },
+                    "color": {
+                      "rgbColor": {}
+                    },
+                    "alpha": 1,
+                    "rotateWithShape": false,
+                    "propertyState": "NOT_RENDERED"
+                  },
+                  "contentAlignment": "MIDDLE",
+                  "autofit": {
+                    "autofitType": "NONE",
+                    "fontScale": 1
+                  }
+                }
+              }
+            },
+            {
+              "objectId": "SLIDES_API1350133488_0",
+              "size": {
+                "width": {
+                  "magnitude": 3000000,
+                  "unit": "EMU"
+                },
+                "height": {
+                  "magnitude": 3000000,
+                  "unit": "EMU"
+                }
+              },
+              "transform": {
+                "scaleX": 0.6667,
+                "scaleY": 0.3333,
+                "translateX": 500000,
+                "translateY": 500000,
+                "unit": "EMU"
+              },
+              "shape": {
+                "shapeType": "RECTANGLE",
+                "shapeProperties": {
+                  "shapeBackgroundFill": {
+                    "solidFill": {
+                      "color": {
+                        "themeColor": "LIGHT2"
+                      },
+                      "alpha": 1
+                    }
+                  },
+                  "outline": {
+                    "outlineFill": {
+                      "solidFill": {
+                        "color": {
+                          "themeColor": "DARK2"
+                        },
+                        "alpha": 1
+                      }
+                    },
+                    "weight": {
+                      "magnitude": 9525,
+                      "unit": "EMU"
+                    },
+                    "dashStyle": "SOLID"
+                  },
+                  "shadow": {
+                    "type": "OUTER",
+                    "transform": {
+                      "scaleX": 1,
+                      "scaleY": 1,
+                      "unit": "EMU"
+                    },
+                    "alignment": "BOTTOM_LEFT",
+                    "blurRadius": {
+                      "unit": "EMU"
+                    },
+                    "color": {
+                      "rgbColor": {}
+                    },
+                    "alpha": 1,
+                    "rotateWithShape": false,
+                    "propertyState": "NOT_RENDERED"
+                  },
+                  "contentAlignment": "MIDDLE",
+                  "autofit": {
+                    "autofitType": "NONE",
+                    "fontScale": 1
+                  }
+                }
+              }
+            },
+            {
+              "objectId": "SLIDES_API1748152129_0",
+              "size": {
+                "width": {
+                  "magnitude": 3000000,
+                  "unit": "EMU"
+                },
+                "height": {
+                  "magnitude": 3000000,
+                  "unit": "EMU"
+                }
+              },
+              "transform": {
+                "scaleX": 0.6667,
+                "scaleY": 0.3333,
+                "translateX": 500000,
+                "translateY": 500000,
+                "unit": "EMU"
+              },
+              "shape": {
+                "shapeType": "RECTANGLE",
+                "shapeProperties": {
+                  "shapeBackgroundFill": {
+                    "solidFill": {
+                      "color": {
+                        "themeColor": "LIGHT2"
+                      },
+                      "alpha": 1
+                    }
+                  },
+                  "outline": {
+                    "outlineFill": {
+                      "solidFill": {
+                        "color": {
+                          "themeColor": "DARK2"
+                        },
+                        "alpha": 1
+                      }
+                    },
+                    "weight": {
+                      "magnitude": 9525,
+                      "unit": "EMU"
+                    },
+                    "dashStyle": "SOLID"
+                  },
+                  "shadow": {
+                    "type": "OUTER",
+                    "transform": {
+                      "scaleX": 1,
+                      "scaleY": 1,
+                      "unit": "EMU"
+                    },
+                    "alignment": "BOTTOM_LEFT",
+                    "blurRadius": {
+                      "unit": "EMU"
+                    },
+                    "color": {
+                      "rgbColor": {}
+                    },
+                    "alpha": 1,
+                    "rotateWithShape": false,
+                    "propertyState": "NOT_RENDERED"
+                  },
+                  "contentAlignment": "MIDDLE",
+                  "autofit": {
+                    "autofitType": "NONE",
+                    "fontScale": 1
+                  }
+                }
+              }
+            },
+            {
+              "objectId": "delete_text_target_1",
+              "size": {
+                "width": {
+                  "magnitude": 3000000,
+                  "unit": "EMU"
+                },
+                "height": {
+                  "magnitude": 3000000,
+                  "unit": "EMU"
+                }
+              },
+              "transform": {
+                "scaleX": 1,
+                "scaleY": 0.3333,
+                "translateX": 100000,
+                "translateY": 100000,
+                "unit": "EMU"
+              },
+              "shape": {
+                "shapeType": "TEXT_BOX",
+                "text": {
+                  "textElements": [
+                    {
+                      "endIndex": 15,
+                      "paragraphMarker": {
+                        "style": {
+                          "lineSpacing": 100,
+                          "alignment": "START",
+                          "indentStart": {
+                            "unit": "PT"
+                          },
+                          "indentEnd": {
+                            "unit": "PT"
+                          },
+                          "spaceAbove": {
+                            "unit": "PT"
+                          },
+                          "spaceBelow": {
+                            "unit": "PT"
+                          },
+                          "indentFirstLine": {
+                            "unit": "PT"
+                          },
+                          "direction": "LEFT_TO_RIGHT",
+                          "spacingMode": "COLLAPSE_LISTS"
+                        }
+                      }
+                    },
+                    {
+                      "endIndex": 15,
+                      "textRun": {
+                        "content": "te text sample\n",
+                        "style": {
+                          "backgroundColor": {},
+                          "foregroundColor": {
+                            "opaqueColor": {
+                              "themeColor": "DARK2"
+                            }
+                          },
+                          "bold": false,
+                          "italic": false,
+                          "fontFamily": "Arial",
+                          "fontSize": {
+                            "magnitude": 18,
+                            "unit": "PT"
+                          },
+                          "baselineOffset": "NONE",
+                          "smallCaps": false,
+                          "strikethrough": false,
+                          "underline": false,
+                          "weightedFontFamily": {
+                            "fontFamily": "Arial",
+                            "weight": 400
+                          }
+                        }
+                      }
+                    }
+                  ]
+                },
+                "shapeProperties": {
+                  "shapeBackgroundFill": {
+                    "propertyState": "NOT_RENDERED",
+                    "solidFill": {
+                      "color": {
+                        "rgbColor": {
+                          "red": 1,
+                          "green": 1,
+                          "blue": 1
+                        }
+                      },
+                      "alpha": 1
+                    }
+                  },
+                  "outline": {
+                    "outlineFill": {
+                      "solidFill": {
+                        "color": {
+                          "rgbColor": {}
+                        },
+                        "alpha": 1
+                      }
+                    },
+                    "weight": {
+                      "magnitude": 9525,
+                      "unit": "EMU"
+                    },
+                    "dashStyle": "SOLID",
+                    "propertyState": "NOT_RENDERED"
+                  },
+                  "shadow": {
+                    "type": "OUTER",
+                    "transform": {
+                      "scaleX": 1,
+                      "scaleY": 1,
+                      "unit": "EMU"
+                    },
+                    "alignment": "BOTTOM_LEFT",
+                    "blurRadius": {
+                      "unit": "EMU"
+                    },
+                    "color": {
+                      "rgbColor": {}
+                    },
+                    "alpha": 1,
+                    "rotateWithShape": false,
+                    "propertyState": "NOT_RENDERED"
+                  },
+                  "contentAlignment": "TOP",
+                  "autofit": {
+                    "autofitType": "NONE",
+                    "fontScale": 1
+                  }
+                }
+              }
+            }
+          ],
+          "slideProperties": {
+            "layoutObjectId": "p4",
+            "masterObjectId": "simple-light-2",
+            "notesPage": {
+              "objectId": "slide_test_1:notes",
+              "pageType": "NOTES",
+              "pageElements": [
+                {
+                  "objectId": "SLIDES_API326449874_2",
+                  "size": {
+                    "width": {
+                      "magnitude": 3000000,
+                      "unit": "EMU"
+                    },
+                    "height": {
+                      "magnitude": 3000000,
+                      "unit": "EMU"
+                    }
+                  },
+                  "transform": {
+                    "scaleX": 2.032,
+                    "scaleY": 1.143,
+                    "translateX": 381300,
+                    "translateY": 685800,
+                    "unit": "EMU"
+                  },
+                  "shape": {
+                    "shapeProperties": {
+                      "outline": {
+                        "propertyState": "INHERIT"
+                      }
+                    },
+                    "placeholder": {
+                      "type": "SLIDE_IMAGE",
+                      "parentObjectId": "n:slide"
+                    }
+                  }
+                },
+                {
+                  "objectId": "SLIDES_API326449874_3",
+                  "size": {
+                    "width": {
+                      "magnitude": 3000000,
+                      "unit": "EMU"
+                    },
+                    "height": {
+                      "magnitude": 3000000,
+                      "unit": "EMU"
+                    }
+                  },
+                  "transform": {
+                    "scaleX": 1.8288,
+                    "scaleY": 1.3716,
+                    "translateX": 685800,
+                    "translateY": 4343400,
+                    "unit": "EMU"
+                  },
+                  "shape": {
+                    "shapeType": "TEXT_BOX",
+                    "shapeProperties": {
+                      "shapeBackgroundFill": {
+                        "propertyState": "INHERIT"
+                      },
+                      "outline": {
+                        "propertyState": "INHERIT"
+                      },
+                      "shadow": {
+                        "propertyState": "INHERIT"
+                      },
+                      "autofit": {
+                        "fontScale": 1
+                      }
+                    },
+                    "placeholder": {
+                      "type": "BODY",
+                      "index": 1,
+                      "parentObjectId": "n:text"
+                    }
+                  }
+                }
+              ],
+              "pageProperties": {
+                "pageBackgroundFill": {
+                  "propertyState": "INHERIT"
+                }
+              },
+              "notesProperties": {
+                "speakerNotesObjectId": "SLIDES_API326449874_3"
+              }
+            },
+            "isSkipped": true
+          },
+          "revisionId": "H5SgFd8_Mqt3AA",
+          "pageProperties": {
+            "pageBackgroundFill": {
+              "propertyState": "INHERIT"
+            }
+          },
+          "commentsViewMode": "COMMENTS_VIEW_MODE_OMITTED"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Mon, 26 Oct 2026 09:27:57 GMT",
+          "content-type": "application/json; charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1992",
+          "x-ratelimit-reset": "1793006929",
+          "vary": "Origin, X-Origin, Referer",
+          "server": "ESF",
+          "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
+          "x-l2-request-path": "l2-managed-4"
+        },
+        "hash": "c4f1aea59bfb9a68b5482faf92aceda428557cf9",
+        "request": {}
+      }
+    }
+  }
+}
