@@ -20,7 +20,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Upload plain text or base64 file content up to 5 MB, optionally into a folder with a description; defaults to root',
-    version: '2.0.2',
+    version: '2.0.3',
 
     input: InputSchema,
     output: OutputSchema,
@@ -53,6 +53,7 @@ const action = createAction({
         const createResponse = await nango.post({
             endpoint: '/drive/v3/files',
             params: {
+                supportsAllDrives: 'true',
                 fields: 'id,name,mimeType,webViewLink,webContentLink'
             },
             data: metadataBody,
@@ -83,6 +84,7 @@ const action = createAction({
                 endpoint: `/upload/drive/v3/files/${fileId}`,
                 params: {
                     uploadType: 'media',
+                    supportsAllDrives: 'true',
                     fields: 'id,name,mimeType,webViewLink,webContentLink'
                 },
                 headers: {
@@ -97,6 +99,9 @@ const action = createAction({
                 await nango
                     .delete({
                         endpoint: `/drive/v3/files/${fileId}`,
+                        params: {
+                            supportsAllDrives: 'true'
+                        },
                         retries: 3
                     })
                     .catch(() => undefined);

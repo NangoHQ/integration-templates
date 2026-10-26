@@ -16,7 +16,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Move a file to a different folder',
-    version: '1.0.1',
+    version: '1.0.2',
 
     input: InputSchema,
     output: OutputSchema,
@@ -29,6 +29,7 @@ const action = createAction({
             params: {
                 addParents: input.toFolderId,
                 removeParents: input.fromFolderId,
+                supportsAllDrives: 'true',
                 fields: 'id,name,mimeType,parents'
             },
             retries: 3
