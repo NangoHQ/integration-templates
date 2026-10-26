@@ -3053,6 +3053,35 @@ import './google-tasks/actions/reopen-task.js';
 import './google-tasks/actions/update-task.js';
 import './google-tasks/actions/update-tasklist.js';
 
+// -- Integration: google-slides
+import './google-slides/syncs/presentation-slides-by-id.js';
+import './google-slides/actions/create-image.js';
+import './google-slides/actions/create-presentation.js';
+import './google-slides/actions/create-shape.js';
+import './google-slides/actions/create-slide-with-content.js';
+import './google-slides/actions/create-slide.js';
+import './google-slides/actions/create-table.js';
+import './google-slides/actions/create-text-box.js';
+import './google-slides/actions/delete-slide.js';
+import './google-slides/actions/delete-table-column.js';
+import './google-slides/actions/delete-table-row.js';
+import './google-slides/actions/delete-text.js';
+import './google-slides/actions/duplicate-slide.js';
+import './google-slides/actions/find-and-replace-with-report.js';
+import './google-slides/actions/get-presentation.js';
+import './google-slides/actions/get-slide-full-content.js';
+import './google-slides/actions/get-slide-thumbnail.js';
+import './google-slides/actions/group-objects.js';
+import './google-slides/actions/insert-table-columns.js';
+import './google-slides/actions/insert-table-rows.js';
+import './google-slides/actions/insert-text.js';
+import './google-slides/actions/move-slide.js';
+import './google-slides/actions/replace-all-text.js';
+import './google-slides/actions/update-page-element-transform.js';
+import './google-slides/actions/update-shape-properties.js';
+import './google-slides/actions/update-slide-properties.js';
+import './google-slides/actions/update-text-style.js';
+
 // -- Integration: gorgias
 import './gorgias/syncs/custom-fields.js';
 import './gorgias/syncs/customers.js';
