@@ -3071,6 +3071,7 @@ import './google-slides/actions/find-and-replace-with-report.js';
 import './google-slides/actions/get-presentation.js';
 import './google-slides/actions/get-slide-full-content.js';
 import './google-slides/actions/get-slide-thumbnail.js';
+import './google-slides/actions/get-slide.js';
 import './google-slides/actions/group-objects.js';
 import './google-slides/actions/insert-table-columns.js';
 import './google-slides/actions/insert-table-rows.js';
