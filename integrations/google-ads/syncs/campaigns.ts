@@ -8,9 +8,16 @@ const MetadataSchema = z.object({
 
 // Checkpoint values must be scalars (string/number/boolean); the set of initialized customer IDs
 // is encoded as a comma-separated string rather than an array.
+// Bump when stored Campaign records change shape: a checkpoint from an older version is then
+// ignored, which forces one full refresh so records the incremental path would never revisit are rewritten too.
+// 2: start/end dates are sourced from campaign.start_date_time/end_date_time (start_date/end_date
+// were removed by Google), and campaigns without an end date no longer carry the 2037-12-30 placeholder.
+const RECORD_VERSION = 2;
+
 const CheckpointSchema = z.object({
     updated_after: z.string(),
-    initialized_customer_ids: z.string()
+    initialized_customer_ids: z.string(),
+    record_version: z.number()
 });
 
 const CampaignSchema = z.object({
@@ -219,7 +226,7 @@ const sync = createSync({
 
         const rawCheckpoint = await nango.getCheckpoint();
         const checkpointResult = rawCheckpoint ? CheckpointSchema.safeParse(rawCheckpoint) : null;
-        const checkpoint = checkpointResult && checkpointResult.success ? checkpointResult.data : null;
+        const checkpoint = checkpointResult?.success && checkpointResult.data.record_version === RECORD_VERSION ? checkpointResult.data : null;
         const globalUpdatedAfter = checkpoint?.updated_after;
         const currentCustomerIds = new Set(metadata.customer_ids);
         // Prune to customers currently in scope: if a customer was previously removed from
@@ -262,9 +269,9 @@ const sync = createSync({
                     status: campaign.status,
                     advertisingChannelType: campaign.advertisingChannelType,
                     // Google Ads removed campaign.start_date/end_date in favor of the *_date_time
-                    // fields ("yyyy-MM-dd HH:mm:ss"); the model keeps its existing field names.
-                    startDate: campaign.startDateTime,
-                    endDate: campaign.endDateTime,
+                    // fields ("yyyy-MM-dd HH:mm:ss"); keep the model's existing yyyy-MM-dd values.
+                    startDate: campaign.startDateTime?.slice(0, 10),
+                    endDate: campaign.endDateTime?.slice(0, 10),
                     containsEuPoliticalAdvertising: campaign.containsEuPoliticalAdvertising,
                     campaignBudgetResourceName: campaignBudget?.resourceName,
                     budgetAmountMicros: campaignBudget?.amountMicros ?? null,
@@ -433,7 +440,7 @@ WHERE campaign.resource_name IN (${resourceNames})
             initializedCustomerIds.add(customerId);
         }
 
-        await nango.saveCheckpoint({ updated_after: now, initialized_customer_ids: [...initializedCustomerIds].join(',') });
+        await nango.saveCheckpoint({ updated_after: now, initialized_customer_ids: [...initializedCustomerIds].join(','), record_version: RECORD_VERSION });
     }
 });
 
