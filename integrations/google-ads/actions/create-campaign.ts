@@ -1,6 +1,5 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
-import { getDeveloperToken } from '../helpers/get-developer-token.js';
 
 const NetworkSettingsSchema = z.object({
     targetGoogleSearch: z.boolean(),
@@ -66,20 +65,12 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a campaign that references an existing budget.',
-    version: '1.0.2',
+    version: '1.0.3',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['https://www.googleapis.com/auth/adwords'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const developerToken = await getDeveloperToken(nango);
-        if (!developerToken) {
-            throw new nango.ActionError({
-                type: 'missing_config',
-                message: 'developer_token is required in connection config'
-            });
-        }
-
         if (input.biddingStrategy === 'targetCpa' && input.targetCpaMicros === undefined) {
             throw new nango.ActionError({
                 type: 'invalid_input',
@@ -104,7 +95,7 @@ const action = createAction({
 
         // https://developers.google.com/google-ads/api/docs/mutating/service-mutates
         const response = await nango.post({
-            endpoint: `v25/customers/${encodeURIComponent(input.customerId)}/campaigns:mutate`,
+            endpoint: `v26/customers/${encodeURIComponent(input.customerId)}/campaigns:mutate`,
             data: {
                 operations: [
                     {
@@ -121,7 +112,6 @@ const action = createAction({
                 ]
             },
             headers: {
-                'developer-token': developerToken,
                 ...(input.loginCustomerId && { 'login-customer-id': input.loginCustomerId })
             },
             retries: 3

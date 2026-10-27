@@ -6,11 +6,6 @@
       ],
       "login_customer_id": "3608201627"
     },
-    "getConnection": {
-      "connection_config": {
-        "developer_token": "YOUR_DEVELOPER_TOKEN"
-      }
-    },
     "batchSave": {
       "AdGroupAd": [
         {
@@ -61,7 +56,7 @@
   },
   "api": {
     "post": {
-      "/v25/customers/1781900691/googleAds:searchStream": [
+      "/v26/customers/1781900691/googleAds:searchStream": [
         {
           "response": [
             {
@@ -170,10 +165,9 @@
             "server": "ESF",
             "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
           },
-          "hash": "70fd0d85e32458b8ac9a77984ba7aefe35d6d2aa",
+          "hash": "2de9db41651df55de9afe8057dc0383904bef1ee",
           "request": {
             "headers": {
-              "developer-token": "YOUR_DEVELOPER_TOKEN",
               "login-customer-id": "3608201627"
             },
             "data": {

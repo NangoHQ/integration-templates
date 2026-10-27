@@ -1,5 +1,4 @@
 import { createSync, ProxyConfiguration } from 'nango';
-import { getDeveloperToken } from '../helpers/get-developer-token.js';
 import { z } from 'zod';
 
 const KeywordCriterionSchema = z.object({
@@ -240,7 +239,7 @@ function mapResultToKeywordCriterion(result: z.infer<typeof SearchStreamResultSc
 async function fetchKeywordCriteriaViaSearchStream(nango: NangoSyncLocal, customerId: string, headers: Record<string, string>, query: string) {
     const proxyConfig: ProxyConfiguration = {
         // https://developers.google.com/google-ads/api/docs/reporting/streaming
-        endpoint: `v25/customers/${encodeURIComponent(customerId)}/googleAds:searchStream`,
+        endpoint: `v26/customers/${encodeURIComponent(customerId)}/googleAds:searchStream`,
         method: 'POST',
         headers,
         data: { query },
@@ -285,7 +284,7 @@ async function fetchChangeStatusForWindow(
 
     const proxyConfig: ProxyConfiguration = {
         // https://developers.google.com/google-ads/api/docs/change-status
-        endpoint: `v25/customers/${encodeURIComponent(customerId)}/googleAds:searchStream`,
+        endpoint: `v26/customers/${encodeURIComponent(customerId)}/googleAds:searchStream`,
         method: 'POST',
         headers,
         data: { query },
@@ -312,7 +311,7 @@ async function fetchChangeStatusForWindow(
 
 const sync = createSync({
     description: 'Sync ad group keyword criteria for customer accounts in scope',
-    version: '1.0.3',
+    version: '1.0.4',
     frequency: 'every hour',
     autoStart: false,
     scopes: ['https://www.googleapis.com/auth/adwords'],
@@ -335,13 +334,7 @@ const sync = createSync({
 
         const loginCustomerId = parsedMetadata.data.login_customer_id;
 
-        const developerToken = await getDeveloperToken(nango);
-        if (!developerToken) {
-            throw new Error('developer_token is required in connection config');
-        }
-
         const headers: Record<string, string> = {
-            'developer-token': developerToken,
             ...(loginCustomerId && { 'login-customer-id': loginCustomerId })
         };
 

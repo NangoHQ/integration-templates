@@ -1,6 +1,5 @@
-import { createHash } from 'node:crypto';
+import { createHash } from 'crypto';
 import { createSync } from 'nango';
-import { getDeveloperToken } from '../helpers/get-developer-token.js';
 import { z } from 'zod';
 
 const ConversionActionSchema = z.object({
@@ -61,7 +60,7 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync conversion actions configured on customer accounts in scope',
-    version: '1.0.5',
+    version: '1.0.6',
     frequency: 'every hour',
     autoStart: false,
     scopes: ['https://www.googleapis.com/auth/adwords'],
@@ -78,11 +77,6 @@ const sync = createSync({
             throw new Error('Invalid metadata: ' + metadataResult.error.message);
         }
         const metadata = metadataResult.data;
-
-        const developerToken = await getDeveloperToken(nango);
-        if (!developerToken) {
-            throw new Error('developer_token is required in connection config');
-        }
 
         const customerIdsHash = createHash('sha256').update(JSON.stringify(metadata.customerIds)).digest('hex');
         const checkpointResult = CheckpointSchema.safeParse(await nango.getCheckpoint());
@@ -107,9 +101,8 @@ const sync = createSync({
 
             // https://developers.google.com/google-ads/api/docs/reporting/streaming
             const response = await nango.post({
-                endpoint: `v25/customers/${encodeURIComponent(customerId)}/googleAds:searchStream`,
+                endpoint: `v26/customers/${encodeURIComponent(customerId)}/googleAds:searchStream`,
                 headers: {
-                    'developer-token': developerToken,
                     ...(metadata.loginCustomerId && {
                         'login-customer-id': metadata.loginCustomerId
                     })

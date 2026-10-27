@@ -17,16 +17,9 @@
         "fieldMask": "campaign.id,campaign.name",
         "requestId": "-wmLytVuBONxut172E248A"
     },
-    "nango": {
-        "getConnection": {
-            "connection_config": {
-                "developer_token": "YOUR_DEVELOPER_TOKEN"
-            }
-        }
-    },
     "api": {
         "post": {
-            "/v25/customers/1781900691/googleAds:searchStream": {
+            "/v26/customers/1781900691/googleAds:searchStream": {
                 "response": [
                     {
                         "results": [
@@ -65,10 +58,9 @@
                     "server": "ESF",
                     "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
                 },
-                "hash": "7943391d8dbbf8550e04ba41e06a92284d3ad92a",
+                "hash": "e7e359a233dbd3d6e6703c445d53e3f64e261764",
                 "request": {
                     "headers": {
-                        "developer-token": "YOUR_DEVELOPER_TOKEN",
                         "login-customer-id": "3608201627"
                     },
                     "data": {

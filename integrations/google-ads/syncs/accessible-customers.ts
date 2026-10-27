@@ -1,5 +1,4 @@
 import { createSync } from 'nango';
-import { getDeveloperToken } from '../helpers/get-developer-token.js';
 import { z } from 'zod';
 
 const CustomerSchema = z.object({
@@ -73,7 +72,7 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync directly accessible Google Ads customer accounts',
-    version: '1.0.4',
+    version: '1.0.5',
     frequency: 'every hour',
     autoStart: false,
     scopes: ['https://www.googleapis.com/auth/adwords'],
@@ -83,11 +82,6 @@ const sync = createSync({
     },
 
     exec: async (nango) => {
-        const developerToken = await getDeveloperToken(nango);
-        if (!developerToken) {
-            throw new Error('developer_token is required in connection config');
-        }
-
         const rawCheckpoint = await nango.getCheckpoint();
         const checkpointResult = CheckpointSchema.safeParse(rawCheckpoint);
         if (rawCheckpoint != null && !checkpointResult.success) {
@@ -108,10 +102,7 @@ const sync = createSync({
         } else {
             // https://developers.google.com/google-ads/api/docs/account-management/listing-accounts
             const listResponse = await nango.get({
-                endpoint: 'v25/customers:listAccessibleCustomers',
-                headers: {
-                    'developer-token': developerToken
-                },
+                endpoint: 'v26/customers:listAccessibleCustomers',
                 retries: 3
             });
 
@@ -131,16 +122,13 @@ const sync = createSync({
                 // https://developers.google.com/google-ads/api/docs/reporting/streaming
                 let searchResponse;
                 // @allowTryCatch: a listed account can still be inaccessible to the
-                // developer token or require manager context that this endpoint does
+                // Cloud project (Test access only) or require manager context that this endpoint does
                 // not provide. Skip it without finalizing deletion tracking.
                 try {
                     searchResponse = await nango.post({
-                        endpoint: `v25/customers/${encodeURIComponent(customerId)}/googleAds:searchStream`,
+                        endpoint: `v26/customers/${encodeURIComponent(customerId)}/googleAds:searchStream`,
                         data: {
                             query: 'SELECT customer.id, customer.descriptive_name, customer.manager, customer.test_account, customer.status FROM customer'
-                        },
-                        headers: {
-                            'developer-token': developerToken
                         },
                         retries: 3
                     });
@@ -158,7 +146,7 @@ const sync = createSync({
                     ) {
                         const errorPayload = JSON.stringify(err.response.data);
                         isSkippableAuthorizationError =
-                            errorPayload.includes('DEVELOPER_TOKEN_NOT_APPROVED') || errorPayload.includes('USER_PERMISSION_DENIED');
+                            errorPayload.includes('CLOUD_PROJECT_NOT_APPROVED_FOR_PRODUCTION') || errorPayload.includes('USER_PERMISSION_DENIED');
                     }
                     if (isSkippableAuthorizationError) {
                         anyAccountSkipped = true;
@@ -202,7 +190,7 @@ const sync = createSync({
 
         await nango.clearCheckpoint();
 
-        // If any account was skipped (test-only developer token cannot access it), this run only
+        // If any account was skipped (a Test-access Cloud project cannot access it), this run only
         // observed a partial view of accessible customers. Finalizing deletion tracking here would
         // falsely mark previously-synced, unobserved customers as deleted, so skip finalization and
         // let a future run with full access reconcile deletes instead.

@@ -6,16 +6,9 @@
       "customers/7202353356"
     ]
   },
-  "nango": {
-    "getConnection": {
-      "connection_config": {
-        "developer_token": "YOUR_DEVELOPER_TOKEN"
-      }
-    }
-  },
   "api": {
     "get": {
-      "/v25/customers:listAccessibleCustomers": {
+      "/v26/customers:listAccessibleCustomers": {
         "response": {
           "resourceNames": [
             "customers/3608201627",
@@ -45,12 +38,8 @@
           "server": "ESF",
           "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
         },
-        "hash": "32056a1c5423b052141bdaeb103dd68c275b9e5c",
-        "request": {
-          "headers": {
-            "developer-token": "YOUR_DEVELOPER_TOKEN"
-          }
-        }
+        "hash": "c9ec608a72c0fbdf2cd722412aa20ca6437850e7",
+        "request": {}
       }
     }
   }

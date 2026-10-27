@@ -1,6 +1,5 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
-import { getDeveloperToken } from '../helpers/get-developer-token.js';
 
 const MonthlySearchVolumeSchema = z.object({
     year: z.string().optional(),
@@ -54,20 +53,12 @@ const InputSchema = z
 
 const action = createAction({
     description: 'Generate keyword ideas and search volume/competition metrics from a seed keyword list or URL.',
-    version: '1.0.2',
+    version: '1.0.3',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['https://www.googleapis.com/auth/adwords'],
 
     exec: async (nango, input) => {
-        const developerToken = await getDeveloperToken(nango);
-        if (!developerToken) {
-            throw new nango.ActionError({
-                type: 'missing_config',
-                message: 'developer_token is required in connection config'
-            });
-        }
-
         const seed: Record<string, unknown> = {};
 
         if (input.keywords && input.keywords.length > 0 && input.url) {
@@ -99,17 +90,15 @@ const action = createAction({
             ...(input.pageSize !== undefined && { pageSize: input.pageSize })
         };
 
-        const headers: Record<string, string> = {
-            'developer-token': developerToken
-        };
+        const headers: Record<string, string> = {};
 
         if (input.loginCustomerId) {
             headers['login-customer-id'] = input.loginCustomerId;
         }
 
         const response = await nango.post({
-            // https://developers.google.com/google-ads/api/reference/rpc/v25/KeywordPlanIdeaService/GenerateKeywordIdeas
-            endpoint: `v25/customers/${encodeURIComponent(input.customerId)}:generateKeywordIdeas`,
+            // https://developers.google.com/google-ads/api/reference/rpc/v26/KeywordPlanIdeaService/GenerateKeywordIdeas
+            endpoint: `v26/customers/${encodeURIComponent(input.customerId)}:generateKeywordIdeas`,
             data: body,
             headers,
             retries: 3

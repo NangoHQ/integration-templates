@@ -1,6 +1,5 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
-import { getDeveloperToken } from '../helpers/get-developer-token.js';
 
 const InputSchema = z.object({
     customer_id: z.string().describe('Customer ID. Example: "1781900691"'),
@@ -29,28 +28,19 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Add a negative keyword criterion to an ad group so its ads stop showing for that term.',
-    version: '1.0.2',
+    version: '1.0.3',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['https://www.googleapis.com/auth/adwords'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const developerToken = await getDeveloperToken(nango);
-        if (!developerToken) {
-            throw new nango.ActionError({
-                type: 'missing_config',
-                message: 'developer_token is required in connection config'
-            });
-        }
-
         const customerId = encodeURIComponent(input.customer_id);
         const adGroup = `customers/${input.customer_id}/adGroups/${input.ad_group_id}`;
 
         const response = await nango.post({
             // https://developers.google.com/google-ads/api/docs/mutating/service-mutates
-            endpoint: `v25/customers/${customerId}/adGroupCriteria:mutate`,
+            endpoint: `v26/customers/${customerId}/adGroupCriteria:mutate`,
             headers: {
-                'developer-token': developerToken,
                 ...(input.login_customer_id && { 'login-customer-id': input.login_customer_id })
             },
             data: {
