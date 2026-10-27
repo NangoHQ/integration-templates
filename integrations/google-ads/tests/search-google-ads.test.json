@@ -15,16 +15,9 @@
       }
     ]
   },
-  "nango": {
-    "getConnection": {
-      "connection_config": {
-        "developer_token": "YOUR_DEVELOPER_TOKEN"
-      }
-    }
-  },
   "api": {
     "post": {
-      "/v25/customers/1781900691/googleAds:search": {
+      "/v26/customers/1781900691/googleAds:search": {
         "response": {
           "results": [
             {
@@ -61,10 +54,9 @@
           "server": "ESF",
           "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
         },
-        "hash": "bf4bb887b7d38fde70ed50dfd15e7801937573eb",
+        "hash": "f6780e13a9ba76616d7df4768eb6f8f71dbec95e",
         "request": {
           "headers": {
-            "developer-token": "YOUR_DEVELOPER_TOKEN",
             "login-customer-id": "3608201627"
           },
           "data": {

@@ -6,11 +6,6 @@
       ],
       "login_customer_id": "3608201627"
     },
-    "getConnection": {
-      "connection_config": {
-        "developer_token": "YOUR_DEVELOPER_TOKEN"
-      }
-    },
     "batchSave": {
       "CampaignBudget": [
         {
@@ -89,7 +84,7 @@
   },
   "api": {
     "post": {
-      "/v25/customers/1781900691/googleAds:searchStream": {
+      "/v26/customers/1781900691/googleAds:searchStream": {
         "response": [
           {
             "results": [
@@ -211,10 +206,9 @@
           "server": "ESF",
           "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
         },
-        "hash": "0538c3ec19e0c31f0a0f74f2a0be785ea49a0246",
+        "hash": "7c7f36a4d40d06137ff88a405382f80b602847c5",
         "request": {
           "headers": {
-            "developer-token": "YOUR_DEVELOPER_TOKEN",
             "login-customer-id": "3608201627"
           },
           "data": {

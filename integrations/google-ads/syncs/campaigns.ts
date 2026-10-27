@@ -1,5 +1,4 @@
 import { createSync } from 'nango';
-import { getDeveloperToken } from '../helpers/get-developer-token.js';
 import { z } from 'zod';
 
 const MetadataSchema = z.object({
@@ -34,8 +33,8 @@ const ProviderCampaignRowSchema = z.object({
         name: z.string(),
         status: z.string(),
         advertisingChannelType: z.string().optional(),
-        startDate: z.string().optional(),
-        endDate: z.string().optional(),
+        startDateTime: z.string().optional(),
+        endDateTime: z.string().optional(),
         campaignBudget: z.string().optional(),
         containsEuPoliticalAdvertising: z.string().optional()
     }),
@@ -197,7 +196,7 @@ function extractSearchStreamRows(data: unknown): unknown[] {
 
 const sync = createSync({
     description: 'Sync campaigns for customer accounts in scope.',
-    version: '1.0.3',
+    version: '1.0.4',
     frequency: 'every hour',
     autoStart: false,
     scopes: ['https://www.googleapis.com/auth/adwords'],
@@ -216,11 +215,6 @@ const sync = createSync({
         const metadata = metadataResult.data;
         if (!metadata.customer_ids.length) {
             throw new Error('customer_ids is required in metadata');
-        }
-
-        const developerToken = await getDeveloperToken(nango);
-        if (!developerToken) {
-            throw new Error('developer_token is required in connection config');
         }
 
         const rawCheckpoint = await nango.getCheckpoint();
@@ -242,9 +236,8 @@ const sync = createSync({
         const searchStream = async (customerId: string, loginCustomerId: string, query: string): Promise<unknown[]> => {
             // https://developers.google.com/google-ads/api/docs/reporting/streaming
             const response = await nango.post({
-                endpoint: `/v25/customers/${encodeURIComponent(customerId)}/googleAds:searchStream`,
+                endpoint: `/v26/customers/${encodeURIComponent(customerId)}/googleAds:searchStream`,
                 headers: {
-                    'developer-token': developerToken,
                     'login-customer-id': loginCustomerId
                 },
                 data: {
@@ -268,8 +261,10 @@ const sync = createSync({
                     name: campaign.name,
                     status: campaign.status,
                     advertisingChannelType: campaign.advertisingChannelType,
-                    startDate: campaign.startDate,
-                    endDate: campaign.endDate,
+                    // Google Ads removed campaign.start_date/end_date in favor of the *_date_time
+                    // fields ("yyyy-MM-dd HH:mm:ss"); the model keeps its existing field names.
+                    startDate: campaign.startDateTime,
+                    endDate: campaign.endDateTime,
                     containsEuPoliticalAdvertising: campaign.containsEuPoliticalAdvertising,
                     campaignBudgetResourceName: campaignBudget?.resourceName,
                     budgetAmountMicros: campaignBudget?.amountMicros ?? null,
@@ -286,8 +281,8 @@ SELECT
   campaign.name,
   campaign.status,
   campaign.advertising_channel_type,
-  campaign.start_date,
-  campaign.end_date,
+  campaign.start_date_time,
+  campaign.end_date_time,
   campaign.campaign_budget,
   campaign.contains_eu_political_advertising,
   campaign_budget.resource_name,
@@ -416,8 +411,8 @@ SELECT
   campaign.name,
   campaign.status,
   campaign.advertising_channel_type,
-  campaign.start_date,
-  campaign.end_date,
+  campaign.start_date_time,
+  campaign.end_date_time,
   campaign.campaign_budget,
   campaign.contains_eu_political_advertising,
   campaign_budget.resource_name,

@@ -1,6 +1,5 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
-import { getDeveloperToken } from '../helpers/get-developer-token.js';
 
 const InputSchema = z.object({
     customerId: z.string().describe('Google Ads customer ID. Example: "1781900691"'),
@@ -8,8 +7,8 @@ const InputSchema = z.object({
     updateMask: z.array(z.string()).describe('Fields to update. Example: ["name", "status"]'),
     name: z.string().optional(),
     status: z.enum(['ENABLED', 'PAUSED', 'REMOVED']).optional(),
-    startDate: z.string().optional(),
-    endDate: z.string().optional(),
+    startDate: z.string().optional().describe('Sent as start_date_time. Example: "2026-12-01" or "2026-12-01 00:00:00"'),
+    endDate: z.string().optional().describe('Sent as end_date_time; a date-only value is sent as end of day. Example: "2026-12-31" or "2026-12-31 23:59:59"'),
     campaignBudget: z.string().optional(),
     manualCpc: z
         .object({
@@ -55,9 +54,18 @@ const OutputSchema = z.object({
     resourceName: z.string()
 });
 
+// Google Ads removed campaign.start_date/end_date; callers using the old mask paths are mapped
+// to the *_date_time fields the startDate/endDate inputs are now sent as.
+const RENAMED_MASK_PATHS: Record<string, string> = {
+    start_date: 'start_date_time',
+    startDate: 'start_date_time',
+    end_date: 'end_date_time',
+    endDate: 'end_date_time'
+};
+
 const action = createAction({
     description: 'Update mutable campaign settings.',
-    version: '1.0.2',
+    version: '1.0.3',
     input: InputSchema,
     output: OutputSchema,
     metadata: MetadataSchema,
@@ -72,12 +80,10 @@ const action = createAction({
             loginCustomerId = loginCustomerId ?? metadata?.loginCustomerId;
         }
 
-        const developerToken = await getDeveloperToken(nango);
-
-        if (!loginCustomerId || !developerToken) {
+        if (!loginCustomerId) {
             throw new nango.ActionError({
                 type: 'missing_configuration',
-                message: 'loginCustomerId is required (pass as input or set in connection metadata); developer_token is required in connection config.'
+                message: 'loginCustomerId is required (pass as input or set in connection metadata).'
             });
         }
 
@@ -115,10 +121,11 @@ const action = createAction({
             update['status'] = input.status;
         }
         if (input.startDate !== undefined) {
-            update['startDate'] = input.startDate;
+            update['startDateTime'] = input.startDate;
         }
         if (input.endDate !== undefined) {
-            update['endDate'] = input.endDate;
+            // end_date_time must end at 23:59:59; keep accepting the date-only format end_date used.
+            update['endDateTime'] = /^\d{4}-\d{2}-\d{2}$/.test(input.endDate) ? `${input.endDate} 23:59:59` : input.endDate;
         }
         if (input.campaignBudget !== undefined) {
             update['campaignBudget'] = input.campaignBudget;
@@ -144,15 +151,14 @@ const action = createAction({
 
         const response = await nango.post({
             // https://developers.google.com/google-ads/api/docs/mutating/service-mutates
-            endpoint: `v25/customers/${encodeURIComponent(input.customerId)}/campaigns:mutate`,
+            endpoint: `v26/customers/${encodeURIComponent(input.customerId)}/campaigns:mutate`,
             headers: {
-                'developer-token': developerToken,
                 'login-customer-id': loginCustomerId
             },
             data: {
                 operations: [
                     {
-                        updateMask: input.updateMask.join(','),
+                        updateMask: input.updateMask.map((path) => RENAMED_MASK_PATHS[path] ?? path).join(','),
                         update
                     }
                 ]

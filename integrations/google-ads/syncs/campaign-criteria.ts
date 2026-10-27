@@ -1,5 +1,4 @@
 import { createSync, type ProxyConfiguration } from 'nango';
-import { getDeveloperToken } from '../helpers/get-developer-token.js';
 import { z } from 'zod';
 
 const MetadataSchema = z.object({
@@ -60,10 +59,8 @@ const SearchResponseSchema = z.object({
     nextPageToken: z.string().optional()
 });
 
-function buildHeaders(metadata: z.infer<typeof MetadataSchema>, developerToken: string): Record<string, string> {
-    const headers: Record<string, string> = {
-        'developer-token': developerToken
-    };
+function buildHeaders(metadata: z.infer<typeof MetadataSchema>): Record<string, string> {
+    const headers: Record<string, string> = {};
     if (metadata.loginCustomerId) {
         headers['login-customer-id'] = metadata.loginCustomerId;
     }
@@ -202,7 +199,7 @@ function mapRowToCampaignCriterion(row: z.infer<typeof GoogleAdsRowSchema>): z.i
 
 const sync = createSync({
     description: 'Sync campaign-level criteria (negative keywords and location targeting) for customer accounts in scope.',
-    version: '1.0.3',
+    version: '1.0.4',
     frequency: 'every hour',
     autoStart: false,
     scopes: ['https://www.googleapis.com/auth/adwords'],
@@ -217,11 +214,6 @@ const sync = createSync({
         const metadata = MetadataSchema.parse(metadataRaw);
         if (metadata.customerIds.length === 0) {
             throw new Error('customerIds is required in metadata');
-        }
-
-        const developerToken = await getDeveloperToken(nango);
-        if (!developerToken) {
-            throw new Error('developer_token is required in connection config');
         }
 
         const checkpointRaw = await nango.getCheckpoint();
@@ -268,7 +260,7 @@ const sync = createSync({
         }
 
         for (const customerId of metadata.customerIds) {
-            const headers = buildHeaders(metadata, developerToken);
+            const headers = buildHeaders(metadata);
             const needsFullRefresh = customerNeedsFullRefresh.get(customerId) ?? true;
 
             if (!needsFullRefresh) {
@@ -295,7 +287,7 @@ const sync = createSync({
 
                         const csConfig: ProxyConfiguration = {
                             // https://developers.google.com/google-ads/api/docs/reporting/streaming
-                            endpoint: `v25/customers/${encodeURIComponent(customerId)}/googleAds:search`,
+                            endpoint: `v26/customers/${encodeURIComponent(customerId)}/googleAds:search`,
                             data: {
                                 query: csQuery,
                                 ...(csPageToken && { pageToken: csPageToken })
@@ -361,7 +353,7 @@ const sync = createSync({
 
                             const fetchConfig: ProxyConfiguration = {
                                 // https://developers.google.com/google-ads/api/docs/reporting/streaming
-                                endpoint: `v25/customers/${encodeURIComponent(customerId)}/googleAds:search`,
+                                endpoint: `v26/customers/${encodeURIComponent(customerId)}/googleAds:search`,
                                 data: {
                                     query: fetchQuery,
                                     ...(fetchPageToken && { pageToken: fetchPageToken })
@@ -406,7 +398,7 @@ const sync = createSync({
 
                     const config: ProxyConfiguration = {
                         // https://developers.google.com/google-ads/api/docs/reporting/streaming
-                        endpoint: `v25/customers/${encodeURIComponent(customerId)}/googleAds:search`,
+                        endpoint: `v26/customers/${encodeURIComponent(customerId)}/googleAds:search`,
                         data: {
                             query,
                             ...(pageToken && { pageToken })

@@ -6,16 +6,9 @@
     "output": {
         "resource_name": "customers/1781900691/adGroupAds/197714341385~816946667447"
     },
-    "nango": {
-        "getConnection": {
-            "connection_config": {
-                "developer_token": "YOUR_DEVELOPER_TOKEN"
-            }
-        }
-    },
     "api": {
         "post": {
-            "/v25/customers/1781900691/adGroupAds:mutate": {
+            "/v26/customers/1781900691/adGroupAds:mutate": {
                 "response": {
                     "results": [
                         {
@@ -46,10 +39,9 @@
                     "server": "ESF",
                     "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
                 },
-                "hash": "cec3864c29f17482df86eb95f86a189c2f4e3d0c",
+                "hash": "42b00a8066ec1a2d5c0dc8c16ba4ff9d012c6c2e",
                 "request": {
                     "headers": {
-                        "developer-token": "YOUR_DEVELOPER_TOKEN",
                         "login-customer-id": "3608201627"
                     },
                     "data": {

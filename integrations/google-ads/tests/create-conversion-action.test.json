@@ -11,16 +11,9 @@
   "output": {
     "resourceName": "customers/1781900691/conversionActions/7685281095"
   },
-  "nango": {
-    "getConnection": {
-      "connection_config": {
-        "developer_token": "YOUR_DEVELOPER_TOKEN"
-      }
-    }
-  },
   "api": {
     "post": {
-      "/v25/customers/1781900691/conversionActions:mutate": {
+      "/v26/customers/1781900691/conversionActions:mutate": {
         "response": {
           "results": [
             {
@@ -51,10 +44,9 @@
           "server": "ESF",
           "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
         },
-        "hash": "e77622986caf6e96bfb4187265c0687d14134fb6",
+        "hash": "1be3fc8514fa66fd0411e6819366b2c3f5132f44",
         "request": {
           "headers": {
-            "developer-token": "YOUR_DEVELOPER_TOKEN",
             "login-customer-id": "3608201627"
           },
           "data": {

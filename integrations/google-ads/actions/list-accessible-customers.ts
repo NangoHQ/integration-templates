@@ -1,6 +1,5 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
-import { getDeveloperToken } from '../helpers/get-developer-token.js';
 
 const InputSchema = z.object({});
 
@@ -14,26 +13,15 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List customer accounts directly accessible to the authenticated user.',
-    version: '1.0.2',
+    version: '1.0.3',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['https://www.googleapis.com/auth/adwords'],
 
     exec: async (nango): Promise<z.infer<typeof OutputSchema>> => {
-        const developerToken = await getDeveloperToken(nango);
-        if (!developerToken) {
-            throw new nango.ActionError({
-                type: 'missing_config',
-                message: 'developer_token is required in connection config'
-            });
-        }
-
         const response = await nango.get({
             // https://developers.google.com/google-ads/api/docs/account-management/listing-accounts
-            endpoint: 'v25/customers:listAccessibleCustomers',
-            headers: {
-                'developer-token': developerToken
-            },
+            endpoint: 'v26/customers:listAccessibleCustomers',
             retries: 3
         });
 

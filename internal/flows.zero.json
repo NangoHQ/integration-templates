@@ -379266,7 +379266,7 @@
                 "output": ["ActionOutput_google_ads_createadgroupad"],
                 "scopes": ["https://www.googleapis.com/auth/adwords"],
                 "usedModels": ["ActionInput_google_ads_createadgroupad", "ActionOutput_google_ads_createadgroupad"],
-                "version": "1.0.2",
+                "version": "1.0.3",
                 "json_schema": {
                     "definitions": {
                         "ActionInput_google_ads_createadgroupad": {
@@ -379346,7 +379346,7 @@
                 "output": ["ActionOutput_google_ads_createadgroup"],
                 "scopes": ["https://www.googleapis.com/auth/adwords"],
                 "usedModels": ["ActionInput_google_ads_createadgroup", "ActionOutput_google_ads_createadgroup"],
-                "version": "1.0.3",
+                "version": "1.0.4",
                 "json_schema": {
                     "definitions": {
                         "ActionInput_google_ads_createadgroup": {
@@ -379421,7 +379421,7 @@
                 "output": ["ActionOutput_google_ads_createcampaignbudget"],
                 "scopes": ["https://www.googleapis.com/auth/adwords"],
                 "usedModels": ["ActionInput_google_ads_createcampaignbudget", "ActionOutput_google_ads_createcampaignbudget"],
-                "version": "1.0.2",
+                "version": "1.0.3",
                 "json_schema": {
                     "definitions": {
                         "ActionInput_google_ads_createcampaignbudget": {
@@ -379482,7 +379482,7 @@
                 "output": ["ActionOutput_google_ads_createcampaignlocationcriterion"],
                 "scopes": ["https://www.googleapis.com/auth/adwords"],
                 "usedModels": ["ActionInput_google_ads_createcampaignlocationcriterion", "ActionOutput_google_ads_createcampaignlocationcriterion"],
-                "version": "1.0.3",
+                "version": "1.0.4",
                 "json_schema": {
                     "definitions": {
                         "ActionInput_google_ads_createcampaignlocationcriterion": {
@@ -379531,7 +379531,7 @@
                 "output": ["ActionOutput_google_ads_createcampaignnegativekeyword"],
                 "scopes": ["https://www.googleapis.com/auth/adwords"],
                 "usedModels": ["ActionInput_google_ads_createcampaignnegativekeyword", "ActionOutput_google_ads_createcampaignnegativekeyword"],
-                "version": "1.0.2",
+                "version": "1.0.3",
                 "json_schema": {
                     "definitions": {
                         "ActionInput_google_ads_createcampaignnegativekeyword": {
@@ -379586,7 +379586,7 @@
                 "output": ["ActionOutput_google_ads_createcampaign"],
                 "scopes": ["https://www.googleapis.com/auth/adwords"],
                 "usedModels": ["ActionInput_google_ads_createcampaign", "ActionOutput_google_ads_createcampaign"],
-                "version": "1.0.2",
+                "version": "1.0.3",
                 "json_schema": {
                     "definitions": {
                         "ActionInput_google_ads_createcampaign": {
@@ -379722,7 +379722,7 @@
                 "output": ["ActionOutput_google_ads_createconversionaction"],
                 "scopes": ["https://www.googleapis.com/auth/adwords"],
                 "usedModels": ["ActionInput_google_ads_createconversionaction", "ActionOutput_google_ads_createconversionaction"],
-                "version": "1.0.2",
+                "version": "1.0.3",
                 "json_schema": {
                     "definitions": {
                         "ActionInput_google_ads_createconversionaction": {
@@ -379784,7 +379784,7 @@
                 "output": ["ActionOutput_google_ads_createkeywordcriterion"],
                 "scopes": ["https://www.googleapis.com/auth/adwords"],
                 "usedModels": ["ActionInput_google_ads_createkeywordcriterion", "ActionOutput_google_ads_createkeywordcriterion"],
-                "version": "1.0.2",
+                "version": "1.0.3",
                 "json_schema": {
                     "definitions": {
                         "ActionInput_google_ads_createkeywordcriterion": {
@@ -379852,7 +379852,7 @@
                 "output": ["ActionOutput_google_ads_createnegativekeyword"],
                 "scopes": ["https://www.googleapis.com/auth/adwords"],
                 "usedModels": ["ActionInput_google_ads_createnegativekeyword", "ActionOutput_google_ads_createnegativekeyword"],
-                "version": "1.0.2",
+                "version": "1.0.3",
                 "json_schema": {
                     "definitions": {
                         "ActionInput_google_ads_createnegativekeyword": {
@@ -379906,7 +379906,7 @@
                 "output": ["ActionOutput_google_ads_generatekeywordideas"],
                 "scopes": ["https://www.googleapis.com/auth/adwords"],
                 "usedModels": ["ActionInput_google_ads_generatekeywordideas", "ActionOutput_google_ads_generatekeywordideas"],
-                "version": "1.0.2",
+                "version": "1.0.3",
                 "json_schema": {
                     "definitions": {
                         "ActionInput_google_ads_generatekeywordideas": {
@@ -380049,7 +380049,7 @@
                 "output": ["ActionOutput_google_ads_listaccessiblecustomers"],
                 "scopes": ["https://www.googleapis.com/auth/adwords"],
                 "usedModels": ["ActionInput_google_ads_listaccessiblecustomers", "ActionOutput_google_ads_listaccessiblecustomers"],
-                "version": "1.0.2",
+                "version": "1.0.3",
                 "json_schema": {
                     "definitions": {
                         "ActionInput_google_ads_listaccessiblecustomers": {
@@ -380082,7 +380082,7 @@
                 "output": ["ActionOutput_google_ads_removeadgroupad"],
                 "scopes": ["https://www.googleapis.com/auth/adwords"],
                 "usedModels": ["ActionInput_google_ads_removeadgroupad", "ActionOutput_google_ads_removeadgroupad"],
-                "version": "1.0.2",
+                "version": "1.0.3",
                 "json_schema": {
                     "definitions": {
                         "ActionInput_google_ads_removeadgroupad": {
@@ -380123,7 +380123,7 @@
                 "output": ["ActionOutput_google_ads_removeadgroup"],
                 "scopes": ["https://www.googleapis.com/auth/adwords"],
                 "usedModels": ["ActionInput_google_ads_removeadgroup", "ActionOutput_google_ads_removeadgroup"],
-                "version": "1.0.2",
+                "version": "1.0.3",
                 "json_schema": {
                     "definitions": {
                         "ActionInput_google_ads_removeadgroup": {
@@ -380165,7 +380165,7 @@
                 "output": ["ActionOutput_google_ads_removecampaignbudget"],
                 "scopes": ["https://www.googleapis.com/auth/adwords"],
                 "usedModels": ["ActionInput_google_ads_removecampaignbudget", "ActionOutput_google_ads_removecampaignbudget"],
-                "version": "1.0.2",
+                "version": "1.0.3",
                 "json_schema": {
                     "definitions": {
                         "ActionInput_google_ads_removecampaignbudget": {
@@ -380205,7 +380205,7 @@
                 "output": ["ActionOutput_google_ads_removecampaigncriterion"],
                 "scopes": ["https://www.googleapis.com/auth/adwords"],
                 "usedModels": ["ActionInput_google_ads_removecampaigncriterion", "ActionOutput_google_ads_removecampaigncriterion"],
-                "version": "1.0.2",
+                "version": "1.0.3",
                 "json_schema": {
                     "definitions": {
                         "ActionInput_google_ads_removecampaigncriterion": {
@@ -380251,7 +380251,7 @@
                 "output": ["ActionOutput_google_ads_removecampaign"],
                 "scopes": ["https://www.googleapis.com/auth/adwords"],
                 "usedModels": ["ActionInput_google_ads_removecampaign", "ActionOutput_google_ads_removecampaign"],
-                "version": "1.0.2",
+                "version": "1.0.3",
                 "json_schema": {
                     "definitions": {
                         "ActionInput_google_ads_removecampaign": {
@@ -380292,7 +380292,7 @@
                 "output": ["ActionOutput_google_ads_removeconversionaction"],
                 "scopes": ["https://www.googleapis.com/auth/adwords"],
                 "usedModels": ["ActionInput_google_ads_removeconversionaction", "ActionOutput_google_ads_removeconversionaction"],
-                "version": "1.0.2",
+                "version": "1.0.3",
                 "json_schema": {
                     "definitions": {
                         "ActionInput_google_ads_removeconversionaction": {
@@ -380333,7 +380333,7 @@
                 "output": ["ActionOutput_google_ads_removekeywordcriterion"],
                 "scopes": ["https://www.googleapis.com/auth/adwords"],
                 "usedModels": ["ActionInput_google_ads_removekeywordcriterion", "ActionOutput_google_ads_removekeywordcriterion"],
-                "version": "1.0.2",
+                "version": "1.0.3",
                 "json_schema": {
                     "definitions": {
                         "ActionInput_google_ads_removekeywordcriterion": {
@@ -380377,7 +380377,7 @@
                 "output": ["ActionOutput_google_ads_searchgoogleads"],
                 "scopes": ["https://www.googleapis.com/auth/adwords"],
                 "usedModels": ["ActionInput_google_ads_searchgoogleads", "ActionOutput_google_ads_searchgoogleads"],
-                "version": "1.0.2",
+                "version": "1.0.3",
                 "json_schema": {
                     "definitions": {
                         "ActionInput_google_ads_searchgoogleads": {
@@ -380435,7 +380435,7 @@
                 "output": ["ActionOutput_google_ads_searchstreamgoogleads"],
                 "scopes": ["https://www.googleapis.com/auth/adwords"],
                 "usedModels": ["ActionInput_google_ads_searchstreamgoogleads", "ActionOutput_google_ads_searchstreamgoogleads"],
-                "version": "1.0.2",
+                "version": "1.0.3",
                 "json_schema": {
                     "definitions": {
                         "ActionInput_google_ads_searchstreamgoogleads": {
@@ -380508,7 +380508,7 @@
                 "output": ["ActionOutput_google_ads_suggestgeotargetconstants"],
                 "scopes": ["https://www.googleapis.com/auth/adwords"],
                 "usedModels": ["ActionInput_google_ads_suggestgeotargetconstants", "ActionOutput_google_ads_suggestgeotargetconstants"],
-                "version": "1.0.3",
+                "version": "1.0.4",
                 "json_schema": {
                     "definitions": {
                         "ActionInput_google_ads_suggestgeotargetconstants": {
@@ -380651,7 +380651,7 @@
                 "output": ["ActionOutput_google_ads_updateadgroupad"],
                 "scopes": ["https://www.googleapis.com/auth/adwords"],
                 "usedModels": ["ActionInput_google_ads_updateadgroupad", "ActionOutput_google_ads_updateadgroupad"],
-                "version": "1.0.2",
+                "version": "1.0.3",
                 "json_schema": {
                     "definitions": {
                         "ActionInput_google_ads_updateadgroupad": {
@@ -380717,7 +380717,7 @@
                 "output": ["ActionOutput_google_ads_updateadgroup"],
                 "scopes": ["https://www.googleapis.com/auth/adwords"],
                 "usedModels": ["ActionInput_google_ads_updateadgroup", "ActionOutput_google_ads_updateadgroup"],
-                "version": "1.0.2",
+                "version": "1.0.3",
                 "json_schema": {
                     "definitions": {
                         "ActionInput_google_ads_updateadgroup": {
@@ -380797,7 +380797,7 @@
                 "output": ["ActionOutput_google_ads_updatecampaignbudget"],
                 "scopes": ["https://www.googleapis.com/auth/adwords"],
                 "usedModels": ["ActionInput_google_ads_updatecampaignbudget", "ActionOutput_google_ads_updatecampaignbudget"],
-                "version": "1.0.3",
+                "version": "1.0.4",
                 "json_schema": {
                     "definitions": {
                         "ActionInput_google_ads_updatecampaignbudget": {
@@ -380863,7 +380863,7 @@
                 "output": ["ActionOutput_google_ads_updatecampaign"],
                 "scopes": ["https://www.googleapis.com/auth/adwords"],
                 "usedModels": ["ActionInput_google_ads_updatecampaign", "ActionOutput_google_ads_updatecampaign"],
-                "version": "1.0.2",
+                "version": "1.0.3",
                 "json_schema": {
                     "definitions": {
                         "ActionInput_google_ads_updatecampaign": {
@@ -380892,9 +380892,11 @@
                                     "enum": ["ENABLED", "PAUSED", "REMOVED"]
                                 },
                                 "startDate": {
+                                    "description": "Sent as start_date_time. Example: \"2026-12-01\" or \"2026-12-01 00:00:00\"",
                                     "type": "string"
                                 },
                                 "endDate": {
+                                    "description": "Sent as end_date_time; a date-only value is sent as end of day. Example: \"2026-12-31\" or \"2026-12-31 23:59:59\"",
                                     "type": "string"
                                 },
                                 "campaignBudget": {
@@ -380994,7 +380996,7 @@
                 "output": ["ActionOutput_google_ads_updateconversionaction"],
                 "scopes": ["https://www.googleapis.com/auth/adwords"],
                 "usedModels": ["ActionInput_google_ads_updateconversionaction", "ActionOutput_google_ads_updateconversionaction"],
-                "version": "1.0.2",
+                "version": "1.0.3",
                 "json_schema": {
                     "definitions": {
                         "ActionInput_google_ads_updateconversionaction": {
@@ -381068,7 +381070,7 @@
                 "output": ["ActionOutput_google_ads_updatekeywordcriterion"],
                 "scopes": ["https://www.googleapis.com/auth/adwords"],
                 "usedModels": ["ActionInput_google_ads_updatekeywordcriterion", "ActionOutput_google_ads_updatekeywordcriterion"],
-                "version": "1.0.2",
+                "version": "1.0.3",
                 "json_schema": {
                     "definitions": {
                         "ActionInput_google_ads_updatekeywordcriterion": {
@@ -381129,7 +381131,7 @@
                 "output": ["ActionOutput_google_ads_validategoogleadsmutate"],
                 "scopes": ["https://www.googleapis.com/auth/adwords"],
                 "usedModels": ["ActionInput_google_ads_validategoogleadsmutate", "ActionOutput_google_ads_validategoogleadsmutate"],
-                "version": "1.0.2",
+                "version": "1.0.3",
                 "json_schema": {
                     "definitions": {
                         "ActionInput_google_ads_validategoogleadsmutate": {
@@ -381137,7 +381139,7 @@
                             "properties": {
                                 "path": {
                                     "type": "string",
-                                    "description": "Google Ads mutate endpoint path. Example: \"v25/customers/1781900691/campaigns:mutate\""
+                                    "description": "Google Ads mutate endpoint path. Example: \"v26/customers/1781900691/campaigns:mutate\""
                                 },
                                 "body": {
                                     "type": "object",
@@ -381179,7 +381181,7 @@
                 "sync_type": "full",
                 "track_deletes": false,
                 "usedModels": ["Customer"],
-                "version": "1.0.4",
+                "version": "1.0.5",
                 "webhookSubscriptions": [],
                 "json_schema": {
                     "definitions": {
@@ -381225,7 +381227,7 @@
                 "sync_type": "full",
                 "track_deletes": false,
                 "usedModels": ["AdGroupAd", "SyncMetadata_google_ads_adgroupads"],
-                "version": "1.0.3",
+                "version": "1.0.4",
                 "webhookSubscriptions": [],
                 "json_schema": {
                     "definitions": {
@@ -381295,7 +381297,7 @@
                 "sync_type": "full",
                 "track_deletes": false,
                 "usedModels": ["AdGroup", "SyncMetadata_google_ads_adgroups"],
-                "version": "1.0.3",
+                "version": "1.0.4",
                 "webhookSubscriptions": [],
                 "json_schema": {
                     "definitions": {
@@ -381377,7 +381379,7 @@
                 "sync_type": "full",
                 "track_deletes": false,
                 "usedModels": ["CampaignBudget", "SyncMetadata_google_ads_campaignbudgets"],
-                "version": "1.0.3",
+                "version": "1.0.4",
                 "webhookSubscriptions": [],
                 "json_schema": {
                     "definitions": {
@@ -381448,7 +381450,7 @@
                 "sync_type": "full",
                 "track_deletes": false,
                 "usedModels": ["CampaignCriterion", "SyncMetadata_google_ads_campaigncriteria"],
-                "version": "1.0.3",
+                "version": "1.0.4",
                 "webhookSubscriptions": [],
                 "json_schema": {
                     "definitions": {
@@ -381516,7 +381518,7 @@
                 "sync_type": "full",
                 "track_deletes": false,
                 "usedModels": ["Campaign", "SyncMetadata_google_ads_campaigns"],
-                "version": "1.0.3",
+                "version": "1.0.4",
                 "webhookSubscriptions": [],
                 "json_schema": {
                     "definitions": {
@@ -381598,7 +381600,7 @@
                 "sync_type": "full",
                 "track_deletes": false,
                 "usedModels": ["ConversionAction", "SyncMetadata_google_ads_conversionactions"],
-                "version": "1.0.5",
+                "version": "1.0.6",
                 "webhookSubscriptions": [],
                 "json_schema": {
                     "definitions": {
@@ -381711,7 +381713,7 @@
                 "sync_type": "full",
                 "track_deletes": false,
                 "usedModels": ["KeywordCriterion", "SyncMetadata_google_ads_keywordcriteria"],
-                "version": "1.0.3",
+                "version": "1.0.4",
                 "webhookSubscriptions": [],
                 "json_schema": {
                     "definitions": {

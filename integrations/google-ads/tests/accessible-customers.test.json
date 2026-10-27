@@ -1,10 +1,5 @@
 {
   "nango": {
-    "getConnection": {
-      "connection_config": {
-        "developer_token": "YOUR_DEVELOPER_TOKEN"
-      }
-    },
     "batchSave": {
       "Customer": [
         {
@@ -23,7 +18,7 @@
   },
   "api": {
     "get": {
-      "/v25/customers:listAccessibleCustomers": {
+      "/v26/customers:listAccessibleCustomers": {
         "response": {
           "resourceNames": [
             "customers/3608201627",
@@ -54,16 +49,12 @@
           "server": "ESF",
           "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
         },
-        "hash": "61d128377a564e724e22ede53499dbedc0c7cebe",
-        "request": {
-          "headers": {
-            "developer-token": "YOUR_DEVELOPER_TOKEN"
-          }
-        }
+        "hash": "c9ec608a72c0fbdf2cd722412aa20ca6437850e7",
+        "request": {}
       }
     },
     "post": {
-      "/v25/customers/3608201627/googleAds:searchStream": {
+      "/v26/customers/3608201627/googleAds:searchStream": {
         "response": [
           {
             "results": [
@@ -106,17 +97,14 @@
           "server": "ESF",
           "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
         },
-        "hash": "bdc3a4b13eb73117bbe8ad3ebe19e0ec44c38428",
+        "hash": "b3dbcda2b02240d6e1b59bddefc1cf1ce17e3496",
         "request": {
-          "headers": {
-            "developer-token": "YOUR_DEVELOPER_TOKEN"
-          },
           "data": {
             "query": "SELECT customer.id, customer.descriptive_name, customer.manager, customer.test_account, customer.status FROM customer"
           }
         }
       },
-      "/v25/customers/7202353356/googleAds:searchStream": {
+      "/v26/customers/7202353356/googleAds:searchStream": {
         "response": [
           {
             "error": {
@@ -125,7 +113,7 @@
               "status": "PERMISSION_DENIED",
               "details": [
                 {
-                  "@type": "type.googleapis.com/google.ads.googleads.v25.errors.GoogleAdsFailure",
+                  "@type": "type.googleapis.com/google.ads.googleads.v26.errors.GoogleAdsFailure",
                   "errors": [
                     {
                       "errorCode": {
@@ -165,11 +153,8 @@
           "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
           "etag": "W/\"2df-z8xnlv1H210RrobsyRTBnUiEzC0\""
         },
-        "hash": "cb48ab2f607ebf490a9d924981c1519bd84138a9",
+        "hash": "a0b03315626e9d6e7cdedb8a44d239bf4bdc88da",
         "request": {
-          "headers": {
-            "developer-token": "YOUR_DEVELOPER_TOKEN"
-          },
           "data": {
             "query": "SELECT customer.id, customer.descriptive_name, customer.manager, customer.test_account, customer.status FROM customer"
           }

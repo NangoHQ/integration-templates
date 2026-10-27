@@ -22,16 +22,9 @@
     "adGroupAdId": "197714341345~816948922766",
     "adId": "816948922766"
   },
-  "nango": {
-    "getConnection": {
-      "connection_config": {
-        "developer_token": "YOUR_DEVELOPER_TOKEN"
-      }
-    }
-  },
   "api": {
     "post": {
-      "/v25/customers/1781900691/adGroupAds:mutate": {
+      "/v26/customers/1781900691/adGroupAds:mutate": {
         "response": {
           "results": [
             {
@@ -62,10 +55,9 @@
           "server": "ESF",
           "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
         },
-        "hash": "cd8b4caa05aee91d0582f1b71a04a621cdc9d803",
+        "hash": "b2c840a38981ca9a828c929402d4b5b68958d731",
         "request": {
           "headers": {
-            "developer-token": "YOUR_DEVELOPER_TOKEN",
             "login-customer-id": "3608201627"
           },
           "data": {

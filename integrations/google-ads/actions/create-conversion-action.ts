@@ -1,6 +1,5 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
-import { getDeveloperToken } from '../helpers/get-developer-token.js';
 
 const InputSchema = z.object({
     customerId: z.string().describe('Google Ads customer ID. Example: "1781900691"'),
@@ -26,31 +25,21 @@ const MutateResponseSchema = z.object({
 
 const action = createAction({
     description: 'Create a conversion action for tracking conversions.',
-    version: '1.0.2',
+    version: '1.0.3',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['https://www.googleapis.com/auth/adwords'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const developerToken = await getDeveloperToken(nango);
-        if (!developerToken) {
-            throw new nango.ActionError({
-                type: 'missing_config',
-                message: 'developer_token is required in connection config'
-            });
-        }
-
-        const headers: Record<string, string> = {
-            'developer-token': developerToken
-        };
+        const headers: Record<string, string> = {};
 
         if (input.loginCustomerId !== undefined && input.loginCustomerId !== '') {
             headers['login-customer-id'] = input.loginCustomerId;
         }
 
         const response = await nango.post({
-            // https://developers.google.com/google-ads/api/reference/rpc/v25/ConversionActionService/MutateConversionActions
-            endpoint: `/v25/customers/${encodeURIComponent(input.customerId)}/conversionActions:mutate`,
+            // https://developers.google.com/google-ads/api/reference/rpc/v26/ConversionActionService/MutateConversionActions
+            endpoint: `/v26/customers/${encodeURIComponent(input.customerId)}/conversionActions:mutate`,
             headers,
             data: {
                 operations: [

@@ -316,16 +316,9 @@
       }
     ]
   },
-  "nango": {
-    "getConnection": {
-      "connection_config": {
-        "developer_token": "YOUR_DEVELOPER_TOKEN"
-      }
-    }
-  },
   "api": {
     "post": {
-      "/v25/geoTargetConstants:suggest": {
+      "/v26/geoTargetConstants:suggest": {
         "response": {
           "geoTargetConstantSuggestions": [
             {
@@ -657,11 +650,8 @@
           "server": "ESF",
           "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
         },
-        "hash": "1da97dbeb611ccad6877f5f99ce3e683428ede2d",
+        "hash": "b8f8ce5341944bcf9ca523b161e42875a4a7709a",
         "request": {
-          "headers": {
-            "developer-token": "YOUR_DEVELOPER_TOKEN"
-          },
           "data": {
             "locale": "en",
             "countryCode": "US",
