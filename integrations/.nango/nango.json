@@ -159601,7 +159601,7 @@
         "usedModels": [
           "BrandTemplate"
         ],
-        "version": "1.0.2",
+        "version": "1.0.3",
         "webhookSubscriptions": [],
         "json_schema": {
           "definitions": {
@@ -159787,7 +159787,7 @@
         "usedModels": [
           "Design"
         ],
-        "version": "1.0.2",
+        "version": "1.0.3",
         "webhookSubscriptions": [],
         "json_schema": {
           "definitions": {
