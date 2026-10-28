@@ -34,7 +34,7 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync design metadata.',
-    version: '1.0.2',
+    version: '1.0.3',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
@@ -60,6 +60,7 @@ const sync = createSync({
         await nango.trackDeletesStart('Design');
 
         let nextContinuation: string | undefined = continuation;
+        let checkpointSaved = false;
 
         const proxyConfig: ProxyConfiguration = {
             // https://www.canva.dev/docs/connect/api-reference/designs/
@@ -156,10 +157,15 @@ const sync = createSync({
                 await nango.saveCheckpoint({
                     continuation: nextContinuation
                 });
+                checkpointSaved = true;
             }
         }
 
-        await nango.clearCheckpoint();
+        // Deleting a checkpoint that was never written (e.g. a single-page run
+        // starting from scratch) fails with checkpoint_conflict.
+        if (rawCheckpoint != null || checkpointSaved) {
+            await nango.clearCheckpoint();
+        }
         await nango.trackDeletesEnd('Design');
     }
 });
