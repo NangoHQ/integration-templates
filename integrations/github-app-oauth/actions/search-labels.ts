@@ -71,10 +71,10 @@ function getNextPage(linkHeader: unknown): number | undefined {
  */
 const action = createAction({
     description: 'Search for labels within a specific repository by name or description.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['issues:read'],
+    scopes: ['metadata:read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://docs.github.com/en/rest/search/search#search-labels

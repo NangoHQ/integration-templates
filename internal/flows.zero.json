@@ -332103,7 +332103,7 @@
                 "input": "ActionInput_github_app_searchlabels",
                 "name": "search-labels",
                 "output": ["ActionOutput_github_app_searchlabels"],
-                "scopes": ["issues:read"],
+                "scopes": ["metadata:read"],
                 "usedModels": ["ActionInput_github_app_searchlabels", "ActionOutput_github_app_searchlabels"],
                 "version": "1.0.0",
                 "json_schema": {
@@ -342761,7 +342761,7 @@
                 "output": ["ActionOutput_github_app_oauth_searchissuesandpullrequests"],
                 "scopes": ["issues:read", "pull_requests:read"],
                 "usedModels": ["ActionInput_github_app_oauth_searchissuesandpullrequests", "ActionOutput_github_app_oauth_searchissuesandpullrequests"],
-                "version": "1.0.0",
+                "version": "1.0.1",
                 "json_schema": {
                     "definitions": {
                         "ActionInput_github_app_oauth_searchissuesandpullrequests": {
@@ -343058,9 +343058,9 @@
                 "input": "ActionInput_github_app_oauth_searchlabels",
                 "name": "search-labels",
                 "output": ["ActionOutput_github_app_oauth_searchlabels"],
-                "scopes": ["issues:read"],
+                "scopes": ["metadata:read"],
                 "usedModels": ["ActionInput_github_app_oauth_searchlabels", "ActionOutput_github_app_oauth_searchlabels"],
-                "version": "1.0.0",
+                "version": "1.0.1",
                 "json_schema": {
                     "definitions": {
                         "ActionInput_github_app_oauth_searchlabels": {

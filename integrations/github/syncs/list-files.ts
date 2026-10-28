@@ -128,7 +128,8 @@ async function getCommitsSinceLastSync(owner: string, repo: string, since: Date,
             link_rel_in_response_header: 'next',
             limit_name_in_request: 'per_page',
             limit: LIMIT
-        }
+        },
+        retries: 3
     };
 
     await nango.log(`Fetching commits from endpoint ${endpoint}.`);
