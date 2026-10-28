@@ -28,7 +28,7 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync brand template metadata',
-    version: '1.0.2',
+    version: '1.0.3',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
@@ -48,6 +48,7 @@ const sync = createSync({
         await nango.trackDeletesStart('BrandTemplate');
 
         let nextCursor = cursor;
+        let checkpointSaved = false;
         let hasMore = true;
         while (hasMore) {
             // https://www.canva.dev/docs/connect/api-reference/brand-templates/
@@ -74,12 +75,17 @@ const sync = createSync({
 
             if (continuation !== undefined) {
                 await nango.saveCheckpoint({ continuation });
+                checkpointSaved = true;
             }
 
             nextCursor = continuation;
         }
 
-        await nango.clearCheckpoint();
+        // Deleting a checkpoint that was never written (e.g. a single-page run
+        // starting from scratch) fails with checkpoint_conflict.
+        if (checkpoint != null || checkpointSaved) {
+            await nango.clearCheckpoint();
+        }
         await nango.trackDeletesEnd('BrandTemplate');
     }
 });
