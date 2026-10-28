@@ -2523,6 +2523,13 @@ import './github/actions/list-workflow-runs.js';
 import './github/actions/list-workflows.js';
 import './github/actions/merge-pull-request.js';
 import './github/actions/rerun-workflow-run.js';
+import './github/actions/search-code.js';
+import './github/actions/search-commits.js';
+import './github/actions/search-issues-and-pull-requests.js';
+import './github/actions/search-labels.js';
+import './github/actions/search-repositories.js';
+import './github/actions/search-topics.js';
+import './github/actions/search-users.js';
 import './github/actions/submit-pull-request-review.js';
 import './github/actions/trigger-workflow-dispatch.js';
 import './github/actions/update-issue.js';
@@ -2534,6 +2541,13 @@ import './github/actions/update-release.js';
 import './github-app/syncs/commits.js';
 import './github-app/syncs/pull-requests.js';
 import './github-app/actions/repositories.js';
+import './github-app/actions/search-code.js';
+import './github-app/actions/search-commits.js';
+import './github-app/actions/search-issues-and-pull-requests.js';
+import './github-app/actions/search-labels.js';
+import './github-app/actions/search-repositories.js';
+import './github-app/actions/search-topics.js';
+import './github-app/actions/search-users.js';
 
 // -- Integration: github-app-oauth
 import './github-app-oauth/syncs/branches.js';

@@ -206,7 +206,7 @@ const sync = createSync<
     typeof CheckpointSchema
 >({
     description: 'Sync commits for repositories and branches in scope',
-    version: '1.0.3',
+    version: '1.0.4',
     frequency: 'every hour',
     autoStart: true,
     scopes: ['repo'],
@@ -247,6 +247,8 @@ const sync = createSync<
                         ...(since ? { since } : {})
                     },
                     paginate: {
+                        type: 'link',
+                        link_rel_in_response_header: 'next',
                         limit_name_in_request: 'per_page',
                         limit: 100
                     },

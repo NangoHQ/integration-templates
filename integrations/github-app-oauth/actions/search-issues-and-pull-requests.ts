@@ -5,7 +5,12 @@ const InputSchema = z
     .object({
         q: z.string().optional().describe('Free-form issue search keywords and qualifiers appended to the generated query. Example: "memory leak in:title".'),
         repository: z.string().optional().describe('Limit results to one repository in "owner/repo" format. Example: "octocat/Hello-World".'),
-        type: z.enum(['issue', 'pull_request']).optional().describe('Restrict results to issues (is:issue) or pull requests (is:pr). Omit to return both.'),
+        type: z
+            .enum(['issue', 'pull_request'])
+            .optional()
+            .describe(
+                'Restrict results to issues (is:issue) or pull requests (is:pr). Required when the connection uses a GitHub App user access token (OAuth); installation-token connections may omit it to return both.'
+            ),
         state: z.enum(['open', 'closed']).optional().describe('Restrict results to open or closed issues and pull requests.'),
         label: z.string().optional().describe('Only include items carrying this label. Example: "bug".'),
         assignee: z.string().optional().describe('Only include items assigned to this GitHub login. Example: "octocat".'),
@@ -159,7 +164,7 @@ function getNextPage(linkHeader: unknown): number | undefined {
 /**
  * @tags: [read]
  * @tagReason: Searches GitHub issues and pull requests without modifying any provider data.
- * @pitfalls: GitHub only makes the first 1,000 matches retrievable even when total_count is higher, caps authenticated search at 30 requests per minute; incomplete_results=true means a timeout truncated the results.
+ * @pitfalls: GitHub only makes the first 1,000 matches retrievable even when total_count is higher and caps authenticated search at 30 requests per minute. When the connection holds a GitHub App user access token (OAuth), GitHub returns 422 unless the query includes is:issue or is:pr, so set type; installation tokens accept mixed queries. incomplete_results=true means a timeout truncated the results.
  */
 const action = createAction({
     description: "Search issues and pull requests across indexed repositories using GitHub's issue-search qualifiers.",

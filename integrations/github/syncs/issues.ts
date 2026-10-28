@@ -1,4 +1,4 @@
-import { createSync } from 'nango';
+import { createSync, type ProxyConfiguration } from 'nango';
 import { z } from 'zod';
 
 // GitHub REST API: https://docs.github.com/en/rest/issues/issues#list-repository-issues
@@ -204,7 +204,7 @@ const getRepositoriesInScope = async (nango: RepositoryScopeNango): Promise<Scop
 
 const sync = createSync({
     description: 'Sync issues for one or more GitHub repositories with incremental updates based on issue activity',
-    version: '3.0.4',
+    version: '3.0.5',
     frequency: 'every hour',
     autoStart: true,
     scopes: ['repo'],
@@ -229,8 +229,8 @@ const sync = createSync({
         let latestIssueUpdate: string | undefined;
 
         for (const repo of repositories) {
-            // https://docs.github.com/en/rest/issues/issues#list-repository-issues
-            const proxyConfig = {
+            const proxyConfig: ProxyConfiguration = {
+                // https://docs.github.com/en/rest/issues/issues#list-repository-issues
                 endpoint: `/repos/${encodeURIComponent(repo.owner)}/${encodeURIComponent(repo.repo)}/issues`,
                 params: {
                     state: 'all',
@@ -239,6 +239,8 @@ const sync = createSync({
                     ...(lastUpdatedAt ? { since: lastUpdatedAt } : {})
                 },
                 paginate: {
+                    type: 'link',
+                    link_rel_in_response_header: 'next',
                     limit_name_in_request: 'per_page',
                     limit: 100
                 },
