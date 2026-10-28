@@ -42,7 +42,7 @@ const CommitFileSchema = z.object({
 
 const sync = createSync({
     description: 'Lists all the files of a Github repo given a specific branch',
-    version: '2.0.3',
+    version: '2.0.4',
     frequency: 'every hour',
     autoStart: false,
 
@@ -93,7 +93,7 @@ async function saveAllRepositoryFiles(nango: NangoSyncLocal, owner: string, repo
         // https://docs.github.com/en/rest/git/trees?apiVersion=2022-11-28
         endpoint,
         params: { recursive: '1' },
-        paginate: { response_path: 'tree', limit: LIMIT },
+        paginate: { type: 'link', link_rel_in_response_header: 'next', limit_name_in_request: 'per_page', response_path: 'tree', limit: LIMIT },
         retries: 3
     };
 
@@ -124,8 +124,12 @@ async function getCommitsSinceLastSync(owner: string, repo: string, since: Date,
         endpoint,
         params: { since: since.toISOString() },
         paginate: {
+            type: 'link',
+            link_rel_in_response_header: 'next',
+            limit_name_in_request: 'per_page',
             limit: LIMIT
-        }
+        },
+        retries: 3
     };
 
     await nango.log(`Fetching commits from endpoint ${endpoint}.`);
@@ -146,6 +150,9 @@ async function saveFilesUpdatedByCommit(owner: string, repo: string, commitSumma
         // https://docs.github.com/en/rest/commits/commits?apiVersion=2022-11-28#get-a-commit
         endpoint,
         paginate: {
+            type: 'link',
+            link_rel_in_response_header: 'next',
+            limit_name_in_request: 'per_page',
             response_path: 'files',
             limit: LIMIT
         },

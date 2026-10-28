@@ -1,0 +1,1120 @@
+{
+  "input": {
+    "q": "repo:jquery/jquery fix",
+    "per_page": 5
+  },
+  "output": {
+    "total_count": 2490,
+    "incomplete_results": false,
+    "items": [
+      {
+        "sha": "e77f87c89ea78ffa086d0cf2778cdab652507e55",
+        "node_id": "MDY6Q29tbWl0MTY3MTc0OmU3N2Y4N2M4OWVhNzhmZmEwODZkMGNmMjc3OGNkYWI2NTI1MDdlNTU=",
+        "url": "https://api.github.com/repos/jquery/jquery/commits/e77f87c89ea78ffa086d0cf2778cdab652507e55",
+        "html_url": "https://github.com/jquery/jquery/commit/e77f87c89ea78ffa086d0cf2778cdab652507e55",
+        "comments_url": "https://api.github.com/repos/jquery/jquery/commits/e77f87c89ea78ffa086d0cf2778cdab652507e55/comments",
+        "commit": {
+          "message": "Selector: Fix the runescape regex in unescapeSelector\n\nThe goal is to match the escape fix in gh-5807 to avoid catastrophic\nbacktracking.\n\nConsidering the issue mostly affects invalid selectors and `unescapeSelector`\nruns on an already parsed selector, this may not be possible to abuse, but\nfor completeness let's replace this regex as well.\n\nWe cannot just reuse the escape definition from `escape.js` as the non-hex\npart is put in a capturing group here.\n\nCloses gh-5862",
+          "author": {
+            "name": "Michał Gołębiowski-Owczarek",
+            "email": "m.goleb@gmail.com",
+            "date": "2026-08-31T18:59:13.000+02:00"
+          },
+          "committer": {
+            "name": "GitHub",
+            "email": "noreply@github.com",
+            "date": "2026-08-31T18:59:13.000+02:00"
+          },
+          "comment_count": 0,
+          "url": "https://api.github.com/repos/jquery/jquery/git/commits/e77f87c89ea78ffa086d0cf2778cdab652507e55"
+        },
+        "author": {
+          "login": "mgol",
+          "id": 1758366,
+          "node_id": "MDQ6VXNlcjE3NTgzNjY=",
+          "avatar_url": "https://avatars.githubusercontent.com/u/1758366?v=4",
+          "html_url": "https://github.com/mgol",
+          "type": "User",
+          "site_admin": false
+        },
+        "committer": {
+          "login": "web-flow",
+          "id": 19864447,
+          "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+          "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+          "html_url": "https://github.com/web-flow",
+          "type": "User",
+          "site_admin": false
+        },
+        "parents": [
+          {
+            "sha": "71c0dd14927c41d1aab5ce5ef2687d7808a4186b",
+            "url": "https://api.github.com/repos/jquery/jquery/commits/71c0dd14927c41d1aab5ce5ef2687d7808a4186b",
+            "html_url": "https://github.com/jquery/jquery/commit/71c0dd14927c41d1aab5ce5ef2687d7808a4186b"
+          }
+        ],
+        "repository": {
+          "id": 167174,
+          "node_id": "MDEwOlJlcG9zaXRvcnkxNjcxNzQ=",
+          "name": "jquery",
+          "full_name": "jquery/jquery",
+          "private": false,
+          "html_url": "https://github.com/jquery/jquery",
+          "description": "jQuery JavaScript Library",
+          "fork": false,
+          "owner": {
+            "login": "jquery",
+            "id": 70142,
+            "node_id": "MDEyOk9yZ2FuaXphdGlvbjcwMTQy",
+            "avatar_url": "https://avatars.githubusercontent.com/u/70142?v=4",
+            "html_url": "https://github.com/jquery",
+            "type": "Organization",
+            "site_admin": false
+          }
+        },
+        "score": 1
+      },
+      {
+        "sha": "71c0dd14927c41d1aab5ce5ef2687d7808a4186b",
+        "node_id": "MDY6Q29tbWl0MTY3MTc0OjcxYzBkZDE0OTI3YzQxZDFhYWI1Y2U1ZWYyNjg3ZDc4MDhhNDE4NmI=",
+        "url": "https://api.github.com/repos/jquery/jquery/commits/71c0dd14927c41d1aab5ce5ef2687d7808a4186b",
+        "html_url": "https://github.com/jquery/jquery/commit/71c0dd14927c41d1aab5ce5ef2687d7808a4186b",
+        "comments_url": "https://api.github.com/repos/jquery/jquery/commits/71c0dd14927c41d1aab5ce5ef2687d7808a4186b/comments",
+        "commit": {
+          "message": "Docs: Fix spelling of XMLHttpRequest in README (#5903)",
+          "author": {
+            "name": "서울민트초코",
+            "email": "minseong130502@gmail.com",
+            "date": "2026-08-21T00:09:49.000+09:00"
+          },
+          "committer": {
+            "name": "GitHub",
+            "email": "noreply@github.com",
+            "date": "2026-08-20T11:09:49.000-04:00"
+          },
+          "comment_count": 0,
+          "url": "https://api.github.com/repos/jquery/jquery/git/commits/71c0dd14927c41d1aab5ce5ef2687d7808a4186b"
+        },
+        "author": {
+          "login": "minirang",
+          "id": 220184520,
+          "node_id": "U_kgDODR-_yA",
+          "avatar_url": "https://avatars.githubusercontent.com/u/220184520?v=4",
+          "html_url": "https://github.com/minirang",
+          "type": "User",
+          "site_admin": false
+        },
+        "committer": {
+          "login": "web-flow",
+          "id": 19864447,
+          "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+          "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+          "html_url": "https://github.com/web-flow",
+          "type": "User",
+          "site_admin": false
+        },
+        "parents": [
+          {
+            "sha": "1183ba16fe38ebac23db3b885080e864f494954e",
+            "url": "https://api.github.com/repos/jquery/jquery/commits/1183ba16fe38ebac23db3b885080e864f494954e",
+            "html_url": "https://github.com/jquery/jquery/commit/1183ba16fe38ebac23db3b885080e864f494954e"
+          }
+        ],
+        "repository": {
+          "id": 167174,
+          "node_id": "MDEwOlJlcG9zaXRvcnkxNjcxNzQ=",
+          "name": "jquery",
+          "full_name": "jquery/jquery",
+          "private": false,
+          "html_url": "https://github.com/jquery/jquery",
+          "description": "jQuery JavaScript Library",
+          "fork": false,
+          "owner": {
+            "login": "jquery",
+            "id": 70142,
+            "node_id": "MDEyOk9yZ2FuaXphdGlvbjcwMTQy",
+            "avatar_url": "https://avatars.githubusercontent.com/u/70142?v=4",
+            "html_url": "https://github.com/jquery",
+            "type": "Organization",
+            "site_admin": false
+          }
+        },
+        "score": 1
+      },
+      {
+        "sha": "5691e03ae26542732a7719d86357f0eabb2d489b",
+        "node_id": "MDY6Q29tbWl0MTY3MTc0OjU2OTFlMDNhZTI2NTQyNzMyYTc3MTlkODYzNTdmMGVhYmIyZDQ4OWI=",
+        "url": "https://api.github.com/repos/jquery/jquery/commits/5691e03ae26542732a7719d86357f0eabb2d489b",
+        "html_url": "https://github.com/jquery/jquery/commit/5691e03ae26542732a7719d86357f0eabb2d489b",
+        "comments_url": "https://api.github.com/repos/jquery/jquery/commits/5691e03ae26542732a7719d86357f0eabb2d489b/comments",
+        "commit": {
+          "message": "Ajax: Add the `responseURL` field to jqXHR\n\nExpose `xhr.responseURL` (the final URL after redirects, including any\nredirects followed by the browser) as `jqXHR.responseURL`. The XHR\ntransport passes it through the object-form `completeCallback`\nintroduced in gh-4634, so the positional signature stays untouched.\n\nFollowing the existing `responseText`/`responseXML`/`responseJSON`\npattern, `jqXHR.responseURL` is only set when a transport reports it.\nAs a result:\n\n* modern-browser XHR: the final URL string\n* IE 11 XHR: `undefined` (no native support)\n* script / JSONP / aborted requests: `undefined` (transport has no\n  way to know the URL)\n\nA reusable `redirect` mock action has been added to both the Node\nmiddleware and `mock.php` so the redirect path can be exercised.\n\nCloses gh-5826\nFixes gh-4339\nRef gh-4634\nRef gh-5793",
+          "author": {
+            "name": "Michał Gołębiowski-Owczarek",
+            "email": "m.goleb@gmail.com",
+            "date": "2026-05-16T21:49:55.000+02:00"
+          },
+          "committer": {
+            "name": "GitHub",
+            "email": "noreply@github.com",
+            "date": "2026-05-16T21:49:55.000+02:00"
+          },
+          "comment_count": 0,
+          "url": "https://api.github.com/repos/jquery/jquery/git/commits/5691e03ae26542732a7719d86357f0eabb2d489b"
+        },
+        "author": {
+          "login": "mgol",
+          "id": 1758366,
+          "node_id": "MDQ6VXNlcjE3NTgzNjY=",
+          "avatar_url": "https://avatars.githubusercontent.com/u/1758366?v=4",
+          "html_url": "https://github.com/mgol",
+          "type": "User",
+          "site_admin": false
+        },
+        "committer": {
+          "login": "web-flow",
+          "id": 19864447,
+          "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+          "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+          "html_url": "https://github.com/web-flow",
+          "type": "User",
+          "site_admin": false
+        },
+        "parents": [
+          {
+            "sha": "35789e7687d31512072098ce0d826079904938d2",
+            "url": "https://api.github.com/repos/jquery/jquery/commits/35789e7687d31512072098ce0d826079904938d2",
+            "html_url": "https://github.com/jquery/jquery/commit/35789e7687d31512072098ce0d826079904938d2"
+          }
+        ],
+        "repository": {
+          "id": 167174,
+          "node_id": "MDEwOlJlcG9zaXRvcnkxNjcxNzQ=",
+          "name": "jquery",
+          "full_name": "jquery/jquery",
+          "private": false,
+          "html_url": "https://github.com/jquery/jquery",
+          "description": "jQuery JavaScript Library",
+          "fork": false,
+          "owner": {
+            "login": "jquery",
+            "id": 70142,
+            "node_id": "MDEyOk9yZ2FuaXphdGlvbjcwMTQy",
+            "avatar_url": "https://avatars.githubusercontent.com/u/70142?v=4",
+            "html_url": "https://github.com/jquery",
+            "type": "Organization",
+            "site_admin": false
+          }
+        },
+        "score": 1
+      },
+      {
+        "sha": "d41cf7ddbdd1c48a0a4c577026f83731c451073e",
+        "node_id": "MDY6Q29tbWl0MTY3MTc0OmQ0MWNmN2RkYmRkMWM0OGEwYTRjNTc3MDI2ZjgzNzMxYzQ1MTA3M2U=",
+        "url": "https://api.github.com/repos/jquery/jquery/commits/d41cf7ddbdd1c48a0a4c577026f83731c451073e",
+        "html_url": "https://github.com/jquery/jquery/commit/d41cf7ddbdd1c48a0a4c577026f83731c451073e",
+        "comments_url": "https://api.github.com/repos/jquery/jquery/commits/d41cf7ddbdd1c48a0a4c577026f83731c451073e/comments",
+        "commit": {
+          "message": "Selector: Fix ReDoS in identifier matching\n\nGet closer to the spec by explicitly excluding digits & hex characters from\nthe non-hex-digit part of the production, also fixing ReDoS in identifier\nmatching. Without this change, a long chain of hex escapes followed by an\ninvalid character, e.g. in an attribute selector, led to catastrophic\nbacktracking.\n\nTo make the definition clearer, extract the `escape` definition.\n\nThanks to John Herren for the report.\n\nCloses gh-5807\nRef gh-5808\n\nCo-authored-by: Richard Gibson <richard.gibson@gmail.com>",
+          "author": {
+            "name": "Michał Gołębiowski-Owczarek",
+            "email": "m.goleb@gmail.com",
+            "date": "2026-03-30T22:20:18.000+02:00"
+          },
+          "committer": {
+            "name": "GitHub",
+            "email": "noreply@github.com",
+            "date": "2026-03-30T22:20:18.000+02:00"
+          },
+          "comment_count": 0,
+          "url": "https://api.github.com/repos/jquery/jquery/git/commits/d41cf7ddbdd1c48a0a4c577026f83731c451073e"
+        },
+        "author": {
+          "login": "mgol",
+          "id": 1758366,
+          "node_id": "MDQ6VXNlcjE3NTgzNjY=",
+          "avatar_url": "https://avatars.githubusercontent.com/u/1758366?v=4",
+          "html_url": "https://github.com/mgol",
+          "type": "User",
+          "site_admin": false
+        },
+        "committer": {
+          "login": "web-flow",
+          "id": 19864447,
+          "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+          "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+          "html_url": "https://github.com/web-flow",
+          "type": "User",
+          "site_admin": false
+        },
+        "parents": [
+          {
+            "sha": "74439453991ba9b8f9114a3d4735891e94330135",
+            "url": "https://api.github.com/repos/jquery/jquery/commits/74439453991ba9b8f9114a3d4735891e94330135",
+            "html_url": "https://github.com/jquery/jquery/commit/74439453991ba9b8f9114a3d4735891e94330135"
+          }
+        ],
+        "repository": {
+          "id": 167174,
+          "node_id": "MDEwOlJlcG9zaXRvcnkxNjcxNzQ=",
+          "name": "jquery",
+          "full_name": "jquery/jquery",
+          "private": false,
+          "html_url": "https://github.com/jquery/jquery",
+          "description": "jQuery JavaScript Library",
+          "fork": false,
+          "owner": {
+            "login": "jquery",
+            "id": 70142,
+            "node_id": "MDEyOk9yZ2FuaXphdGlvbjcwMTQy",
+            "avatar_url": "https://avatars.githubusercontent.com/u/70142?v=4",
+            "html_url": "https://github.com/jquery",
+            "type": "Organization",
+            "site_admin": false
+          }
+        },
+        "score": 1
+      },
+      {
+        "sha": "ac837496ec136ad120fbbad89d2beb8e2610ad31",
+        "node_id": "MDY6Q29tbWl0MTY3MTc0OmFjODM3NDk2ZWMxMzZhZDEyMGZiYmFkODlkMmJlYjhlMjYxMGFkMzE=",
+        "url": "https://api.github.com/repos/jquery/jquery/commits/ac837496ec136ad120fbbad89d2beb8e2610ad31",
+        "html_url": "https://github.com/jquery/jquery/commit/ac837496ec136ad120fbbad89d2beb8e2610ad31",
+        "comments_url": "https://api.github.com/repos/jquery/jquery/commits/ac837496ec136ad120fbbad89d2beb8e2610ad31/comments",
+        "commit": {
+          "message": "Tests: Add unit tests for callback-only animation signatures\n\nAdd tests for:\n\n* show/hide/toggle(callback)\n* slideDown/slideUp/slideToggle(callback)\n* fadeIn/fadeOut/fadeToggle(callback)\n\nto verify that passing only a callback function as the first argument triggers\nan animated transition with the default duration.\n\nThese signatures have been supported historically but were never explicitly\ntested. The callback-only form is documented and should animate with\n`jQuery.fx.speeds._default` (400ms) duration rather than toggling visibility\nimmediately.\n\nFixes gh-1738\nCloses gh-5776",
+          "author": {
+            "name": "TomTensor",
+            "email": "thetbomb@live.com",
+            "date": "2026-04-16T00:00:33.000+01:00"
+          },
+          "committer": {
+            "name": "GitHub",
+            "email": "noreply@github.com",
+            "date": "2026-04-16T01:00:33.000+02:00"
+          },
+          "comment_count": 0,
+          "url": "https://api.github.com/repos/jquery/jquery/git/commits/ac837496ec136ad120fbbad89d2beb8e2610ad31"
+        },
+        "author": {
+          "login": "tommyhgunz14",
+          "id": 225848704,
+          "node_id": "U_kgDODXYtgA",
+          "avatar_url": "https://avatars.githubusercontent.com/u/225848704?v=4",
+          "html_url": "https://github.com/tommyhgunz14",
+          "type": "User",
+          "site_admin": false
+        },
+        "committer": {
+          "login": "web-flow",
+          "id": 19864447,
+          "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+          "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+          "html_url": "https://github.com/web-flow",
+          "type": "User",
+          "site_admin": false
+        },
+        "parents": [
+          {
+            "sha": "53a2bcf984ec5d1955d35ea9565e847cbeea0200",
+            "url": "https://api.github.com/repos/jquery/jquery/commits/53a2bcf984ec5d1955d35ea9565e847cbeea0200",
+            "html_url": "https://github.com/jquery/jquery/commit/53a2bcf984ec5d1955d35ea9565e847cbeea0200"
+          }
+        ],
+        "repository": {
+          "id": 167174,
+          "node_id": "MDEwOlJlcG9zaXRvcnkxNjcxNzQ=",
+          "name": "jquery",
+          "full_name": "jquery/jquery",
+          "private": false,
+          "html_url": "https://github.com/jquery/jquery",
+          "description": "jQuery JavaScript Library",
+          "fork": false,
+          "owner": {
+            "login": "jquery",
+            "id": 70142,
+            "node_id": "MDEyOk9yZ2FuaXphdGlvbjcwMTQy",
+            "avatar_url": "https://avatars.githubusercontent.com/u/70142?v=4",
+            "html_url": "https://github.com/jquery",
+            "type": "Organization",
+            "site_admin": false
+          }
+        },
+        "score": 1
+      }
+    ],
+    "next_page": 2
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/search/commits": {
+        "response": {
+          "total_count": 2490,
+          "incomplete_results": false,
+          "items": [
+            {
+              "url": "https://api.github.com/repos/jquery/jquery/commits/e77f87c89ea78ffa086d0cf2778cdab652507e55",
+              "sha": "e77f87c89ea78ffa086d0cf2778cdab652507e55",
+              "node_id": "MDY6Q29tbWl0MTY3MTc0OmU3N2Y4N2M4OWVhNzhmZmEwODZkMGNmMjc3OGNkYWI2NTI1MDdlNTU=",
+              "html_url": "https://github.com/jquery/jquery/commit/e77f87c89ea78ffa086d0cf2778cdab652507e55",
+              "comments_url": "https://api.github.com/repos/jquery/jquery/commits/e77f87c89ea78ffa086d0cf2778cdab652507e55/comments",
+              "commit": {
+                "url": "https://api.github.com/repos/jquery/jquery/git/commits/e77f87c89ea78ffa086d0cf2778cdab652507e55",
+                "author": {
+                  "date": "2026-08-31T18:59:13.000+02:00",
+                  "name": "Michał Gołębiowski-Owczarek",
+                  "email": "m.goleb@gmail.com"
+                },
+                "committer": {
+                  "date": "2026-08-31T18:59:13.000+02:00",
+                  "name": "GitHub",
+                  "email": "noreply@github.com"
+                },
+                "message": "Selector: Fix the runescape regex in unescapeSelector\n\nThe goal is to match the escape fix in gh-5807 to avoid catastrophic\nbacktracking.\n\nConsidering the issue mostly affects invalid selectors and `unescapeSelector`\nruns on an already parsed selector, this may not be possible to abuse, but\nfor completeness let's replace this regex as well.\n\nWe cannot just reuse the escape definition from `escape.js` as the non-hex\npart is put in a capturing group here.\n\nCloses gh-5862",
+                "tree": {
+                  "url": "https://api.github.com/repos/jquery/jquery/git/trees/25bdc72b44b243b91ee6935635c5482c1d41fab3",
+                  "sha": "25bdc72b44b243b91ee6935635c5482c1d41fab3"
+                },
+                "comment_count": 0
+              },
+              "author": {
+                "login": "mgol",
+                "id": 1758366,
+                "node_id": "MDQ6VXNlcjE3NTgzNjY=",
+                "avatar_url": "https://avatars.githubusercontent.com/u/1758366?v=4",
+                "gravatar_id": "",
+                "url": "https://api.github.com/users/mgol",
+                "html_url": "https://github.com/mgol",
+                "followers_url": "https://api.github.com/users/mgol/followers",
+                "following_url": "https://api.github.com/users/mgol/following{/other_user}",
+                "gists_url": "https://api.github.com/users/mgol/gists{/gist_id}",
+                "starred_url": "https://api.github.com/users/mgol/starred{/owner}{/repo}",
+                "subscriptions_url": "https://api.github.com/users/mgol/subscriptions",
+                "organizations_url": "https://api.github.com/users/mgol/orgs",
+                "repos_url": "https://api.github.com/users/mgol/repos",
+                "events_url": "https://api.github.com/users/mgol/events{/privacy}",
+                "received_events_url": "https://api.github.com/users/mgol/received_events",
+                "type": "User",
+                "user_view_type": "public",
+                "site_admin": false
+              },
+              "committer": {
+                "login": "web-flow",
+                "id": 19864447,
+                "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+                "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+                "gravatar_id": "",
+                "url": "https://api.github.com/users/web-flow",
+                "html_url": "https://github.com/web-flow",
+                "followers_url": "https://api.github.com/users/web-flow/followers",
+                "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+                "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+                "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+                "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+                "organizations_url": "https://api.github.com/users/web-flow/orgs",
+                "repos_url": "https://api.github.com/users/web-flow/repos",
+                "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+                "received_events_url": "https://api.github.com/users/web-flow/received_events",
+                "type": "User",
+                "user_view_type": "public",
+                "site_admin": false
+              },
+              "parents": [
+                {
+                  "url": "https://api.github.com/repos/jquery/jquery/commits/71c0dd14927c41d1aab5ce5ef2687d7808a4186b",
+                  "html_url": "https://github.com/jquery/jquery/commit/71c0dd14927c41d1aab5ce5ef2687d7808a4186b",
+                  "sha": "71c0dd14927c41d1aab5ce5ef2687d7808a4186b"
+                }
+              ],
+              "repository": {
+                "id": 167174,
+                "node_id": "MDEwOlJlcG9zaXRvcnkxNjcxNzQ=",
+                "name": "jquery",
+                "full_name": "jquery/jquery",
+                "private": false,
+                "owner": {
+                  "login": "jquery",
+                  "id": 70142,
+                  "node_id": "MDEyOk9yZ2FuaXphdGlvbjcwMTQy",
+                  "avatar_url": "https://avatars.githubusercontent.com/u/70142?v=4",
+                  "gravatar_id": "",
+                  "url": "https://api.github.com/users/jquery",
+                  "html_url": "https://github.com/jquery",
+                  "followers_url": "https://api.github.com/users/jquery/followers",
+                  "following_url": "https://api.github.com/users/jquery/following{/other_user}",
+                  "gists_url": "https://api.github.com/users/jquery/gists{/gist_id}",
+                  "starred_url": "https://api.github.com/users/jquery/starred{/owner}{/repo}",
+                  "subscriptions_url": "https://api.github.com/users/jquery/subscriptions",
+                  "organizations_url": "https://api.github.com/users/jquery/orgs",
+                  "repos_url": "https://api.github.com/users/jquery/repos",
+                  "events_url": "https://api.github.com/users/jquery/events{/privacy}",
+                  "received_events_url": "https://api.github.com/users/jquery/received_events",
+                  "type": "Organization",
+                  "user_view_type": "public",
+                  "site_admin": false
+                },
+                "html_url": "https://github.com/jquery/jquery",
+                "description": "jQuery JavaScript Library",
+                "fork": false,
+                "url": "https://api.github.com/repos/jquery/jquery",
+                "forks_url": "https://api.github.com/repos/jquery/jquery/forks",
+                "keys_url": "https://api.github.com/repos/jquery/jquery/keys{/key_id}",
+                "collaborators_url": "https://api.github.com/repos/jquery/jquery/collaborators{/collaborator}",
+                "teams_url": "https://api.github.com/repos/jquery/jquery/teams",
+                "hooks_url": "https://api.github.com/repos/jquery/jquery/hooks",
+                "issue_events_url": "https://api.github.com/repos/jquery/jquery/issues/events{/number}",
+                "events_url": "https://api.github.com/repos/jquery/jquery/events",
+                "assignees_url": "https://api.github.com/repos/jquery/jquery/assignees{/user}",
+                "branches_url": "https://api.github.com/repos/jquery/jquery/branches{/branch}",
+                "tags_url": "https://api.github.com/repos/jquery/jquery/tags",
+                "blobs_url": "https://api.github.com/repos/jquery/jquery/git/blobs{/sha}",
+                "git_tags_url": "https://api.github.com/repos/jquery/jquery/git/tags{/sha}",
+                "git_refs_url": "https://api.github.com/repos/jquery/jquery/git/refs{/sha}",
+                "trees_url": "https://api.github.com/repos/jquery/jquery/git/trees{/sha}",
+                "statuses_url": "https://api.github.com/repos/jquery/jquery/statuses/{sha}",
+                "languages_url": "https://api.github.com/repos/jquery/jquery/languages",
+                "stargazers_url": "https://api.github.com/repos/jquery/jquery/stargazers",
+                "contributors_url": "https://api.github.com/repos/jquery/jquery/contributors",
+                "subscribers_url": "https://api.github.com/repos/jquery/jquery/subscribers",
+                "subscription_url": "https://api.github.com/repos/jquery/jquery/subscription",
+                "commits_url": "https://api.github.com/repos/jquery/jquery/commits{/sha}",
+                "git_commits_url": "https://api.github.com/repos/jquery/jquery/git/commits{/sha}",
+                "comments_url": "https://api.github.com/repos/jquery/jquery/comments{/number}",
+                "issue_comment_url": "https://api.github.com/repos/jquery/jquery/issues/comments{/number}",
+                "contents_url": "https://api.github.com/repos/jquery/jquery/contents/{+path}",
+                "compare_url": "https://api.github.com/repos/jquery/jquery/compare/{base}...{head}",
+                "merges_url": "https://api.github.com/repos/jquery/jquery/merges",
+                "archive_url": "https://api.github.com/repos/jquery/jquery/{archive_format}{/ref}",
+                "downloads_url": "https://api.github.com/repos/jquery/jquery/downloads",
+                "issues_url": "https://api.github.com/repos/jquery/jquery/issues{/number}",
+                "pulls_url": "https://api.github.com/repos/jquery/jquery/pulls{/number}",
+                "milestones_url": "https://api.github.com/repos/jquery/jquery/milestones{/number}",
+                "notifications_url": "https://api.github.com/repos/jquery/jquery/notifications{?since,all,participating}",
+                "labels_url": "https://api.github.com/repos/jquery/jquery/labels{/name}",
+                "releases_url": "https://api.github.com/repos/jquery/jquery/releases{/id}",
+                "deployments_url": "https://api.github.com/repos/jquery/jquery/deployments"
+              },
+              "score": 1
+            },
+            {
+              "url": "https://api.github.com/repos/jquery/jquery/commits/71c0dd14927c41d1aab5ce5ef2687d7808a4186b",
+              "sha": "71c0dd14927c41d1aab5ce5ef2687d7808a4186b",
+              "node_id": "MDY6Q29tbWl0MTY3MTc0OjcxYzBkZDE0OTI3YzQxZDFhYWI1Y2U1ZWYyNjg3ZDc4MDhhNDE4NmI=",
+              "html_url": "https://github.com/jquery/jquery/commit/71c0dd14927c41d1aab5ce5ef2687d7808a4186b",
+              "comments_url": "https://api.github.com/repos/jquery/jquery/commits/71c0dd14927c41d1aab5ce5ef2687d7808a4186b/comments",
+              "commit": {
+                "url": "https://api.github.com/repos/jquery/jquery/git/commits/71c0dd14927c41d1aab5ce5ef2687d7808a4186b",
+                "author": {
+                  "date": "2026-08-21T00:09:49.000+09:00",
+                  "name": "서울민트초코",
+                  "email": "minseong130502@gmail.com"
+                },
+                "committer": {
+                  "date": "2026-08-20T11:09:49.000-04:00",
+                  "name": "GitHub",
+                  "email": "noreply@github.com"
+                },
+                "message": "Docs: Fix spelling of XMLHttpRequest in README (#5903)",
+                "tree": {
+                  "url": "https://api.github.com/repos/jquery/jquery/git/trees/9a4f2ecc95cbebe2147ef86d2690f74d77b9ba83",
+                  "sha": "9a4f2ecc95cbebe2147ef86d2690f74d77b9ba83"
+                },
+                "comment_count": 0
+              },
+              "author": {
+                "login": "minirang",
+                "id": 220184520,
+                "node_id": "U_kgDODR-_yA",
+                "avatar_url": "https://avatars.githubusercontent.com/u/220184520?v=4",
+                "gravatar_id": "",
+                "url": "https://api.github.com/users/minirang",
+                "html_url": "https://github.com/minirang",
+                "followers_url": "https://api.github.com/users/minirang/followers",
+                "following_url": "https://api.github.com/users/minirang/following{/other_user}",
+                "gists_url": "https://api.github.com/users/minirang/gists{/gist_id}",
+                "starred_url": "https://api.github.com/users/minirang/starred{/owner}{/repo}",
+                "subscriptions_url": "https://api.github.com/users/minirang/subscriptions",
+                "organizations_url": "https://api.github.com/users/minirang/orgs",
+                "repos_url": "https://api.github.com/users/minirang/repos",
+                "events_url": "https://api.github.com/users/minirang/events{/privacy}",
+                "received_events_url": "https://api.github.com/users/minirang/received_events",
+                "type": "User",
+                "user_view_type": "public",
+                "site_admin": false
+              },
+              "committer": {
+                "login": "web-flow",
+                "id": 19864447,
+                "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+                "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+                "gravatar_id": "",
+                "url": "https://api.github.com/users/web-flow",
+                "html_url": "https://github.com/web-flow",
+                "followers_url": "https://api.github.com/users/web-flow/followers",
+                "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+                "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+                "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+                "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+                "organizations_url": "https://api.github.com/users/web-flow/orgs",
+                "repos_url": "https://api.github.com/users/web-flow/repos",
+                "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+                "received_events_url": "https://api.github.com/users/web-flow/received_events",
+                "type": "User",
+                "user_view_type": "public",
+                "site_admin": false
+              },
+              "parents": [
+                {
+                  "url": "https://api.github.com/repos/jquery/jquery/commits/1183ba16fe38ebac23db3b885080e864f494954e",
+                  "html_url": "https://github.com/jquery/jquery/commit/1183ba16fe38ebac23db3b885080e864f494954e",
+                  "sha": "1183ba16fe38ebac23db3b885080e864f494954e"
+                }
+              ],
+              "repository": {
+                "id": 167174,
+                "node_id": "MDEwOlJlcG9zaXRvcnkxNjcxNzQ=",
+                "name": "jquery",
+                "full_name": "jquery/jquery",
+                "private": false,
+                "owner": {
+                  "login": "jquery",
+                  "id": 70142,
+                  "node_id": "MDEyOk9yZ2FuaXphdGlvbjcwMTQy",
+                  "avatar_url": "https://avatars.githubusercontent.com/u/70142?v=4",
+                  "gravatar_id": "",
+                  "url": "https://api.github.com/users/jquery",
+                  "html_url": "https://github.com/jquery",
+                  "followers_url": "https://api.github.com/users/jquery/followers",
+                  "following_url": "https://api.github.com/users/jquery/following{/other_user}",
+                  "gists_url": "https://api.github.com/users/jquery/gists{/gist_id}",
+                  "starred_url": "https://api.github.com/users/jquery/starred{/owner}{/repo}",
+                  "subscriptions_url": "https://api.github.com/users/jquery/subscriptions",
+                  "organizations_url": "https://api.github.com/users/jquery/orgs",
+                  "repos_url": "https://api.github.com/users/jquery/repos",
+                  "events_url": "https://api.github.com/users/jquery/events{/privacy}",
+                  "received_events_url": "https://api.github.com/users/jquery/received_events",
+                  "type": "Organization",
+                  "user_view_type": "public",
+                  "site_admin": false
+                },
+                "html_url": "https://github.com/jquery/jquery",
+                "description": "jQuery JavaScript Library",
+                "fork": false,
+                "url": "https://api.github.com/repos/jquery/jquery",
+                "forks_url": "https://api.github.com/repos/jquery/jquery/forks",
+                "keys_url": "https://api.github.com/repos/jquery/jquery/keys{/key_id}",
+                "collaborators_url": "https://api.github.com/repos/jquery/jquery/collaborators{/collaborator}",
+                "teams_url": "https://api.github.com/repos/jquery/jquery/teams",
+                "hooks_url": "https://api.github.com/repos/jquery/jquery/hooks",
+                "issue_events_url": "https://api.github.com/repos/jquery/jquery/issues/events{/number}",
+                "events_url": "https://api.github.com/repos/jquery/jquery/events",
+                "assignees_url": "https://api.github.com/repos/jquery/jquery/assignees{/user}",
+                "branches_url": "https://api.github.com/repos/jquery/jquery/branches{/branch}",
+                "tags_url": "https://api.github.com/repos/jquery/jquery/tags",
+                "blobs_url": "https://api.github.com/repos/jquery/jquery/git/blobs{/sha}",
+                "git_tags_url": "https://api.github.com/repos/jquery/jquery/git/tags{/sha}",
+                "git_refs_url": "https://api.github.com/repos/jquery/jquery/git/refs{/sha}",
+                "trees_url": "https://api.github.com/repos/jquery/jquery/git/trees{/sha}",
+                "statuses_url": "https://api.github.com/repos/jquery/jquery/statuses/{sha}",
+                "languages_url": "https://api.github.com/repos/jquery/jquery/languages",
+                "stargazers_url": "https://api.github.com/repos/jquery/jquery/stargazers",
+                "contributors_url": "https://api.github.com/repos/jquery/jquery/contributors",
+                "subscribers_url": "https://api.github.com/repos/jquery/jquery/subscribers",
+                "subscription_url": "https://api.github.com/repos/jquery/jquery/subscription",
+                "commits_url": "https://api.github.com/repos/jquery/jquery/commits{/sha}",
+                "git_commits_url": "https://api.github.com/repos/jquery/jquery/git/commits{/sha}",
+                "comments_url": "https://api.github.com/repos/jquery/jquery/comments{/number}",
+                "issue_comment_url": "https://api.github.com/repos/jquery/jquery/issues/comments{/number}",
+                "contents_url": "https://api.github.com/repos/jquery/jquery/contents/{+path}",
+                "compare_url": "https://api.github.com/repos/jquery/jquery/compare/{base}...{head}",
+                "merges_url": "https://api.github.com/repos/jquery/jquery/merges",
+                "archive_url": "https://api.github.com/repos/jquery/jquery/{archive_format}{/ref}",
+                "downloads_url": "https://api.github.com/repos/jquery/jquery/downloads",
+                "issues_url": "https://api.github.com/repos/jquery/jquery/issues{/number}",
+                "pulls_url": "https://api.github.com/repos/jquery/jquery/pulls{/number}",
+                "milestones_url": "https://api.github.com/repos/jquery/jquery/milestones{/number}",
+                "notifications_url": "https://api.github.com/repos/jquery/jquery/notifications{?since,all,participating}",
+                "labels_url": "https://api.github.com/repos/jquery/jquery/labels{/name}",
+                "releases_url": "https://api.github.com/repos/jquery/jquery/releases{/id}",
+                "deployments_url": "https://api.github.com/repos/jquery/jquery/deployments"
+              },
+              "score": 1
+            },
+            {
+              "url": "https://api.github.com/repos/jquery/jquery/commits/5691e03ae26542732a7719d86357f0eabb2d489b",
+              "sha": "5691e03ae26542732a7719d86357f0eabb2d489b",
+              "node_id": "MDY6Q29tbWl0MTY3MTc0OjU2OTFlMDNhZTI2NTQyNzMyYTc3MTlkODYzNTdmMGVhYmIyZDQ4OWI=",
+              "html_url": "https://github.com/jquery/jquery/commit/5691e03ae26542732a7719d86357f0eabb2d489b",
+              "comments_url": "https://api.github.com/repos/jquery/jquery/commits/5691e03ae26542732a7719d86357f0eabb2d489b/comments",
+              "commit": {
+                "url": "https://api.github.com/repos/jquery/jquery/git/commits/5691e03ae26542732a7719d86357f0eabb2d489b",
+                "author": {
+                  "date": "2026-05-16T21:49:55.000+02:00",
+                  "name": "Michał Gołębiowski-Owczarek",
+                  "email": "m.goleb@gmail.com"
+                },
+                "committer": {
+                  "date": "2026-05-16T21:49:55.000+02:00",
+                  "name": "GitHub",
+                  "email": "noreply@github.com"
+                },
+                "message": "Ajax: Add the `responseURL` field to jqXHR\n\nExpose `xhr.responseURL` (the final URL after redirects, including any\nredirects followed by the browser) as `jqXHR.responseURL`. The XHR\ntransport passes it through the object-form `completeCallback`\nintroduced in gh-4634, so the positional signature stays untouched.\n\nFollowing the existing `responseText`/`responseXML`/`responseJSON`\npattern, `jqXHR.responseURL` is only set when a transport reports it.\nAs a result:\n\n* modern-browser XHR: the final URL string\n* IE 11 XHR: `undefined` (no native support)\n* script / JSONP / aborted requests: `undefined` (transport has no\n  way to know the URL)\n\nA reusable `redirect` mock action has been added to both the Node\nmiddleware and `mock.php` so the redirect path can be exercised.\n\nCloses gh-5826\nFixes gh-4339\nRef gh-4634\nRef gh-5793",
+                "tree": {
+                  "url": "https://api.github.com/repos/jquery/jquery/git/trees/ec9f3b305d46837182a80518f41bbcf251a1d1b4",
+                  "sha": "ec9f3b305d46837182a80518f41bbcf251a1d1b4"
+                },
+                "comment_count": 0
+              },
+              "author": {
+                "login": "mgol",
+                "id": 1758366,
+                "node_id": "MDQ6VXNlcjE3NTgzNjY=",
+                "avatar_url": "https://avatars.githubusercontent.com/u/1758366?v=4",
+                "gravatar_id": "",
+                "url": "https://api.github.com/users/mgol",
+                "html_url": "https://github.com/mgol",
+                "followers_url": "https://api.github.com/users/mgol/followers",
+                "following_url": "https://api.github.com/users/mgol/following{/other_user}",
+                "gists_url": "https://api.github.com/users/mgol/gists{/gist_id}",
+                "starred_url": "https://api.github.com/users/mgol/starred{/owner}{/repo}",
+                "subscriptions_url": "https://api.github.com/users/mgol/subscriptions",
+                "organizations_url": "https://api.github.com/users/mgol/orgs",
+                "repos_url": "https://api.github.com/users/mgol/repos",
+                "events_url": "https://api.github.com/users/mgol/events{/privacy}",
+                "received_events_url": "https://api.github.com/users/mgol/received_events",
+                "type": "User",
+                "user_view_type": "public",
+                "site_admin": false
+              },
+              "committer": {
+                "login": "web-flow",
+                "id": 19864447,
+                "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+                "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+                "gravatar_id": "",
+                "url": "https://api.github.com/users/web-flow",
+                "html_url": "https://github.com/web-flow",
+                "followers_url": "https://api.github.com/users/web-flow/followers",
+                "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+                "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+                "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+                "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+                "organizations_url": "https://api.github.com/users/web-flow/orgs",
+                "repos_url": "https://api.github.com/users/web-flow/repos",
+                "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+                "received_events_url": "https://api.github.com/users/web-flow/received_events",
+                "type": "User",
+                "user_view_type": "public",
+                "site_admin": false
+              },
+              "parents": [
+                {
+                  "url": "https://api.github.com/repos/jquery/jquery/commits/35789e7687d31512072098ce0d826079904938d2",
+                  "html_url": "https://github.com/jquery/jquery/commit/35789e7687d31512072098ce0d826079904938d2",
+                  "sha": "35789e7687d31512072098ce0d826079904938d2"
+                }
+              ],
+              "repository": {
+                "id": 167174,
+                "node_id": "MDEwOlJlcG9zaXRvcnkxNjcxNzQ=",
+                "name": "jquery",
+                "full_name": "jquery/jquery",
+                "private": false,
+                "owner": {
+                  "login": "jquery",
+                  "id": 70142,
+                  "node_id": "MDEyOk9yZ2FuaXphdGlvbjcwMTQy",
+                  "avatar_url": "https://avatars.githubusercontent.com/u/70142?v=4",
+                  "gravatar_id": "",
+                  "url": "https://api.github.com/users/jquery",
+                  "html_url": "https://github.com/jquery",
+                  "followers_url": "https://api.github.com/users/jquery/followers",
+                  "following_url": "https://api.github.com/users/jquery/following{/other_user}",
+                  "gists_url": "https://api.github.com/users/jquery/gists{/gist_id}",
+                  "starred_url": "https://api.github.com/users/jquery/starred{/owner}{/repo}",
+                  "subscriptions_url": "https://api.github.com/users/jquery/subscriptions",
+                  "organizations_url": "https://api.github.com/users/jquery/orgs",
+                  "repos_url": "https://api.github.com/users/jquery/repos",
+                  "events_url": "https://api.github.com/users/jquery/events{/privacy}",
+                  "received_events_url": "https://api.github.com/users/jquery/received_events",
+                  "type": "Organization",
+                  "user_view_type": "public",
+                  "site_admin": false
+                },
+                "html_url": "https://github.com/jquery/jquery",
+                "description": "jQuery JavaScript Library",
+                "fork": false,
+                "url": "https://api.github.com/repos/jquery/jquery",
+                "forks_url": "https://api.github.com/repos/jquery/jquery/forks",
+                "keys_url": "https://api.github.com/repos/jquery/jquery/keys{/key_id}",
+                "collaborators_url": "https://api.github.com/repos/jquery/jquery/collaborators{/collaborator}",
+                "teams_url": "https://api.github.com/repos/jquery/jquery/teams",
+                "hooks_url": "https://api.github.com/repos/jquery/jquery/hooks",
+                "issue_events_url": "https://api.github.com/repos/jquery/jquery/issues/events{/number}",
+                "events_url": "https://api.github.com/repos/jquery/jquery/events",
+                "assignees_url": "https://api.github.com/repos/jquery/jquery/assignees{/user}",
+                "branches_url": "https://api.github.com/repos/jquery/jquery/branches{/branch}",
+                "tags_url": "https://api.github.com/repos/jquery/jquery/tags",
+                "blobs_url": "https://api.github.com/repos/jquery/jquery/git/blobs{/sha}",
+                "git_tags_url": "https://api.github.com/repos/jquery/jquery/git/tags{/sha}",
+                "git_refs_url": "https://api.github.com/repos/jquery/jquery/git/refs{/sha}",
+                "trees_url": "https://api.github.com/repos/jquery/jquery/git/trees{/sha}",
+                "statuses_url": "https://api.github.com/repos/jquery/jquery/statuses/{sha}",
+                "languages_url": "https://api.github.com/repos/jquery/jquery/languages",
+                "stargazers_url": "https://api.github.com/repos/jquery/jquery/stargazers",
+                "contributors_url": "https://api.github.com/repos/jquery/jquery/contributors",
+                "subscribers_url": "https://api.github.com/repos/jquery/jquery/subscribers",
+                "subscription_url": "https://api.github.com/repos/jquery/jquery/subscription",
+                "commits_url": "https://api.github.com/repos/jquery/jquery/commits{/sha}",
+                "git_commits_url": "https://api.github.com/repos/jquery/jquery/git/commits{/sha}",
+                "comments_url": "https://api.github.com/repos/jquery/jquery/comments{/number}",
+                "issue_comment_url": "https://api.github.com/repos/jquery/jquery/issues/comments{/number}",
+                "contents_url": "https://api.github.com/repos/jquery/jquery/contents/{+path}",
+                "compare_url": "https://api.github.com/repos/jquery/jquery/compare/{base}...{head}",
+                "merges_url": "https://api.github.com/repos/jquery/jquery/merges",
+                "archive_url": "https://api.github.com/repos/jquery/jquery/{archive_format}{/ref}",
+                "downloads_url": "https://api.github.com/repos/jquery/jquery/downloads",
+                "issues_url": "https://api.github.com/repos/jquery/jquery/issues{/number}",
+                "pulls_url": "https://api.github.com/repos/jquery/jquery/pulls{/number}",
+                "milestones_url": "https://api.github.com/repos/jquery/jquery/milestones{/number}",
+                "notifications_url": "https://api.github.com/repos/jquery/jquery/notifications{?since,all,participating}",
+                "labels_url": "https://api.github.com/repos/jquery/jquery/labels{/name}",
+                "releases_url": "https://api.github.com/repos/jquery/jquery/releases{/id}",
+                "deployments_url": "https://api.github.com/repos/jquery/jquery/deployments"
+              },
+              "score": 1
+            },
+            {
+              "url": "https://api.github.com/repos/jquery/jquery/commits/d41cf7ddbdd1c48a0a4c577026f83731c451073e",
+              "sha": "d41cf7ddbdd1c48a0a4c577026f83731c451073e",
+              "node_id": "MDY6Q29tbWl0MTY3MTc0OmQ0MWNmN2RkYmRkMWM0OGEwYTRjNTc3MDI2ZjgzNzMxYzQ1MTA3M2U=",
+              "html_url": "https://github.com/jquery/jquery/commit/d41cf7ddbdd1c48a0a4c577026f83731c451073e",
+              "comments_url": "https://api.github.com/repos/jquery/jquery/commits/d41cf7ddbdd1c48a0a4c577026f83731c451073e/comments",
+              "commit": {
+                "url": "https://api.github.com/repos/jquery/jquery/git/commits/d41cf7ddbdd1c48a0a4c577026f83731c451073e",
+                "author": {
+                  "date": "2026-03-30T22:20:18.000+02:00",
+                  "name": "Michał Gołębiowski-Owczarek",
+                  "email": "m.goleb@gmail.com"
+                },
+                "committer": {
+                  "date": "2026-03-30T22:20:18.000+02:00",
+                  "name": "GitHub",
+                  "email": "noreply@github.com"
+                },
+                "message": "Selector: Fix ReDoS in identifier matching\n\nGet closer to the spec by explicitly excluding digits & hex characters from\nthe non-hex-digit part of the production, also fixing ReDoS in identifier\nmatching. Without this change, a long chain of hex escapes followed by an\ninvalid character, e.g. in an attribute selector, led to catastrophic\nbacktracking.\n\nTo make the definition clearer, extract the `escape` definition.\n\nThanks to John Herren for the report.\n\nCloses gh-5807\nRef gh-5808\n\nCo-authored-by: Richard Gibson <richard.gibson@gmail.com>",
+                "tree": {
+                  "url": "https://api.github.com/repos/jquery/jquery/git/trees/5395864ab40919520db3d288b2eb4f6400513142",
+                  "sha": "5395864ab40919520db3d288b2eb4f6400513142"
+                },
+                "comment_count": 0
+              },
+              "author": {
+                "login": "mgol",
+                "id": 1758366,
+                "node_id": "MDQ6VXNlcjE3NTgzNjY=",
+                "avatar_url": "https://avatars.githubusercontent.com/u/1758366?v=4",
+                "gravatar_id": "",
+                "url": "https://api.github.com/users/mgol",
+                "html_url": "https://github.com/mgol",
+                "followers_url": "https://api.github.com/users/mgol/followers",
+                "following_url": "https://api.github.com/users/mgol/following{/other_user}",
+                "gists_url": "https://api.github.com/users/mgol/gists{/gist_id}",
+                "starred_url": "https://api.github.com/users/mgol/starred{/owner}{/repo}",
+                "subscriptions_url": "https://api.github.com/users/mgol/subscriptions",
+                "organizations_url": "https://api.github.com/users/mgol/orgs",
+                "repos_url": "https://api.github.com/users/mgol/repos",
+                "events_url": "https://api.github.com/users/mgol/events{/privacy}",
+                "received_events_url": "https://api.github.com/users/mgol/received_events",
+                "type": "User",
+                "user_view_type": "public",
+                "site_admin": false
+              },
+              "committer": {
+                "login": "web-flow",
+                "id": 19864447,
+                "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+                "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+                "gravatar_id": "",
+                "url": "https://api.github.com/users/web-flow",
+                "html_url": "https://github.com/web-flow",
+                "followers_url": "https://api.github.com/users/web-flow/followers",
+                "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+                "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+                "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+                "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+                "organizations_url": "https://api.github.com/users/web-flow/orgs",
+                "repos_url": "https://api.github.com/users/web-flow/repos",
+                "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+                "received_events_url": "https://api.github.com/users/web-flow/received_events",
+                "type": "User",
+                "user_view_type": "public",
+                "site_admin": false
+              },
+              "parents": [
+                {
+                  "url": "https://api.github.com/repos/jquery/jquery/commits/74439453991ba9b8f9114a3d4735891e94330135",
+                  "html_url": "https://github.com/jquery/jquery/commit/74439453991ba9b8f9114a3d4735891e94330135",
+                  "sha": "74439453991ba9b8f9114a3d4735891e94330135"
+                }
+              ],
+              "repository": {
+                "id": 167174,
+                "node_id": "MDEwOlJlcG9zaXRvcnkxNjcxNzQ=",
+                "name": "jquery",
+                "full_name": "jquery/jquery",
+                "private": false,
+                "owner": {
+                  "login": "jquery",
+                  "id": 70142,
+                  "node_id": "MDEyOk9yZ2FuaXphdGlvbjcwMTQy",
+                  "avatar_url": "https://avatars.githubusercontent.com/u/70142?v=4",
+                  "gravatar_id": "",
+                  "url": "https://api.github.com/users/jquery",
+                  "html_url": "https://github.com/jquery",
+                  "followers_url": "https://api.github.com/users/jquery/followers",
+                  "following_url": "https://api.github.com/users/jquery/following{/other_user}",
+                  "gists_url": "https://api.github.com/users/jquery/gists{/gist_id}",
+                  "starred_url": "https://api.github.com/users/jquery/starred{/owner}{/repo}",
+                  "subscriptions_url": "https://api.github.com/users/jquery/subscriptions",
+                  "organizations_url": "https://api.github.com/users/jquery/orgs",
+                  "repos_url": "https://api.github.com/users/jquery/repos",
+                  "events_url": "https://api.github.com/users/jquery/events{/privacy}",
+                  "received_events_url": "https://api.github.com/users/jquery/received_events",
+                  "type": "Organization",
+                  "user_view_type": "public",
+                  "site_admin": false
+                },
+                "html_url": "https://github.com/jquery/jquery",
+                "description": "jQuery JavaScript Library",
+                "fork": false,
+                "url": "https://api.github.com/repos/jquery/jquery",
+                "forks_url": "https://api.github.com/repos/jquery/jquery/forks",
+                "keys_url": "https://api.github.com/repos/jquery/jquery/keys{/key_id}",
+                "collaborators_url": "https://api.github.com/repos/jquery/jquery/collaborators{/collaborator}",
+                "teams_url": "https://api.github.com/repos/jquery/jquery/teams",
+                "hooks_url": "https://api.github.com/repos/jquery/jquery/hooks",
+                "issue_events_url": "https://api.github.com/repos/jquery/jquery/issues/events{/number}",
+                "events_url": "https://api.github.com/repos/jquery/jquery/events",
+                "assignees_url": "https://api.github.com/repos/jquery/jquery/assignees{/user}",
+                "branches_url": "https://api.github.com/repos/jquery/jquery/branches{/branch}",
+                "tags_url": "https://api.github.com/repos/jquery/jquery/tags",
+                "blobs_url": "https://api.github.com/repos/jquery/jquery/git/blobs{/sha}",
+                "git_tags_url": "https://api.github.com/repos/jquery/jquery/git/tags{/sha}",
+                "git_refs_url": "https://api.github.com/repos/jquery/jquery/git/refs{/sha}",
+                "trees_url": "https://api.github.com/repos/jquery/jquery/git/trees{/sha}",
+                "statuses_url": "https://api.github.com/repos/jquery/jquery/statuses/{sha}",
+                "languages_url": "https://api.github.com/repos/jquery/jquery/languages",
+                "stargazers_url": "https://api.github.com/repos/jquery/jquery/stargazers",
+                "contributors_url": "https://api.github.com/repos/jquery/jquery/contributors",
+                "subscribers_url": "https://api.github.com/repos/jquery/jquery/subscribers",
+                "subscription_url": "https://api.github.com/repos/jquery/jquery/subscription",
+                "commits_url": "https://api.github.com/repos/jquery/jquery/commits{/sha}",
+                "git_commits_url": "https://api.github.com/repos/jquery/jquery/git/commits{/sha}",
+                "comments_url": "https://api.github.com/repos/jquery/jquery/comments{/number}",
+                "issue_comment_url": "https://api.github.com/repos/jquery/jquery/issues/comments{/number}",
+                "contents_url": "https://api.github.com/repos/jquery/jquery/contents/{+path}",
+                "compare_url": "https://api.github.com/repos/jquery/jquery/compare/{base}...{head}",
+                "merges_url": "https://api.github.com/repos/jquery/jquery/merges",
+                "archive_url": "https://api.github.com/repos/jquery/jquery/{archive_format}{/ref}",
+                "downloads_url": "https://api.github.com/repos/jquery/jquery/downloads",
+                "issues_url": "https://api.github.com/repos/jquery/jquery/issues{/number}",
+                "pulls_url": "https://api.github.com/repos/jquery/jquery/pulls{/number}",
+                "milestones_url": "https://api.github.com/repos/jquery/jquery/milestones{/number}",
+                "notifications_url": "https://api.github.com/repos/jquery/jquery/notifications{?since,all,participating}",
+                "labels_url": "https://api.github.com/repos/jquery/jquery/labels{/name}",
+                "releases_url": "https://api.github.com/repos/jquery/jquery/releases{/id}",
+                "deployments_url": "https://api.github.com/repos/jquery/jquery/deployments"
+              },
+              "score": 1
+            },
+            {
+              "url": "https://api.github.com/repos/jquery/jquery/commits/ac837496ec136ad120fbbad89d2beb8e2610ad31",
+              "sha": "ac837496ec136ad120fbbad89d2beb8e2610ad31",
+              "node_id": "MDY6Q29tbWl0MTY3MTc0OmFjODM3NDk2ZWMxMzZhZDEyMGZiYmFkODlkMmJlYjhlMjYxMGFkMzE=",
+              "html_url": "https://github.com/jquery/jquery/commit/ac837496ec136ad120fbbad89d2beb8e2610ad31",
+              "comments_url": "https://api.github.com/repos/jquery/jquery/commits/ac837496ec136ad120fbbad89d2beb8e2610ad31/comments",
+              "commit": {
+                "url": "https://api.github.com/repos/jquery/jquery/git/commits/ac837496ec136ad120fbbad89d2beb8e2610ad31",
+                "author": {
+                  "date": "2026-04-16T00:00:33.000+01:00",
+                  "name": "TomTensor",
+                  "email": "thetbomb@live.com"
+                },
+                "committer": {
+                  "date": "2026-04-16T01:00:33.000+02:00",
+                  "name": "GitHub",
+                  "email": "noreply@github.com"
+                },
+                "message": "Tests: Add unit tests for callback-only animation signatures\n\nAdd tests for:\n\n* show/hide/toggle(callback)\n* slideDown/slideUp/slideToggle(callback)\n* fadeIn/fadeOut/fadeToggle(callback)\n\nto verify that passing only a callback function as the first argument triggers\nan animated transition with the default duration.\n\nThese signatures have been supported historically but were never explicitly\ntested. The callback-only form is documented and should animate with\n`jQuery.fx.speeds._default` (400ms) duration rather than toggling visibility\nimmediately.\n\nFixes gh-1738\nCloses gh-5776",
+                "tree": {
+                  "url": "https://api.github.com/repos/jquery/jquery/git/trees/394b9c9f16fbc49c68cad94e72c3d90f0fa9bbc4",
+                  "sha": "394b9c9f16fbc49c68cad94e72c3d90f0fa9bbc4"
+                },
+                "comment_count": 0
+              },
+              "author": {
+                "login": "tommyhgunz14",
+                "id": 225848704,
+                "node_id": "U_kgDODXYtgA",
+                "avatar_url": "https://avatars.githubusercontent.com/u/225848704?v=4",
+                "gravatar_id": "",
+                "url": "https://api.github.com/users/tommyhgunz14",
+                "html_url": "https://github.com/tommyhgunz14",
+                "followers_url": "https://api.github.com/users/tommyhgunz14/followers",
+                "following_url": "https://api.github.com/users/tommyhgunz14/following{/other_user}",
+                "gists_url": "https://api.github.com/users/tommyhgunz14/gists{/gist_id}",
+                "starred_url": "https://api.github.com/users/tommyhgunz14/starred{/owner}{/repo}",
+                "subscriptions_url": "https://api.github.com/users/tommyhgunz14/subscriptions",
+                "organizations_url": "https://api.github.com/users/tommyhgunz14/orgs",
+                "repos_url": "https://api.github.com/users/tommyhgunz14/repos",
+                "events_url": "https://api.github.com/users/tommyhgunz14/events{/privacy}",
+                "received_events_url": "https://api.github.com/users/tommyhgunz14/received_events",
+                "type": "User",
+                "user_view_type": "public",
+                "site_admin": false
+              },
+              "committer": {
+                "login": "web-flow",
+                "id": 19864447,
+                "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+                "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+                "gravatar_id": "",
+                "url": "https://api.github.com/users/web-flow",
+                "html_url": "https://github.com/web-flow",
+                "followers_url": "https://api.github.com/users/web-flow/followers",
+                "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+                "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+                "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+                "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+                "organizations_url": "https://api.github.com/users/web-flow/orgs",
+                "repos_url": "https://api.github.com/users/web-flow/repos",
+                "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+                "received_events_url": "https://api.github.com/users/web-flow/received_events",
+                "type": "User",
+                "user_view_type": "public",
+                "site_admin": false
+              },
+              "parents": [
+                {
+                  "url": "https://api.github.com/repos/jquery/jquery/commits/53a2bcf984ec5d1955d35ea9565e847cbeea0200",
+                  "html_url": "https://github.com/jquery/jquery/commit/53a2bcf984ec5d1955d35ea9565e847cbeea0200",
+                  "sha": "53a2bcf984ec5d1955d35ea9565e847cbeea0200"
+                }
+              ],
+              "repository": {
+                "id": 167174,
+                "node_id": "MDEwOlJlcG9zaXRvcnkxNjcxNzQ=",
+                "name": "jquery",
+                "full_name": "jquery/jquery",
+                "private": false,
+                "owner": {
+                  "login": "jquery",
+                  "id": 70142,
+                  "node_id": "MDEyOk9yZ2FuaXphdGlvbjcwMTQy",
+                  "avatar_url": "https://avatars.githubusercontent.com/u/70142?v=4",
+                  "gravatar_id": "",
+                  "url": "https://api.github.com/users/jquery",
+                  "html_url": "https://github.com/jquery",
+                  "followers_url": "https://api.github.com/users/jquery/followers",
+                  "following_url": "https://api.github.com/users/jquery/following{/other_user}",
+                  "gists_url": "https://api.github.com/users/jquery/gists{/gist_id}",
+                  "starred_url": "https://api.github.com/users/jquery/starred{/owner}{/repo}",
+                  "subscriptions_url": "https://api.github.com/users/jquery/subscriptions",
+                  "organizations_url": "https://api.github.com/users/jquery/orgs",
+                  "repos_url": "https://api.github.com/users/jquery/repos",
+                  "events_url": "https://api.github.com/users/jquery/events{/privacy}",
+                  "received_events_url": "https://api.github.com/users/jquery/received_events",
+                  "type": "Organization",
+                  "user_view_type": "public",
+                  "site_admin": false
+                },
+                "html_url": "https://github.com/jquery/jquery",
+                "description": "jQuery JavaScript Library",
+                "fork": false,
+                "url": "https://api.github.com/repos/jquery/jquery",
+                "forks_url": "https://api.github.com/repos/jquery/jquery/forks",
+                "keys_url": "https://api.github.com/repos/jquery/jquery/keys{/key_id}",
+                "collaborators_url": "https://api.github.com/repos/jquery/jquery/collaborators{/collaborator}",
+                "teams_url": "https://api.github.com/repos/jquery/jquery/teams",
+                "hooks_url": "https://api.github.com/repos/jquery/jquery/hooks",
+                "issue_events_url": "https://api.github.com/repos/jquery/jquery/issues/events{/number}",
+                "events_url": "https://api.github.com/repos/jquery/jquery/events",
+                "assignees_url": "https://api.github.com/repos/jquery/jquery/assignees{/user}",
+                "branches_url": "https://api.github.com/repos/jquery/jquery/branches{/branch}",
+                "tags_url": "https://api.github.com/repos/jquery/jquery/tags",
+                "blobs_url": "https://api.github.com/repos/jquery/jquery/git/blobs{/sha}",
+                "git_tags_url": "https://api.github.com/repos/jquery/jquery/git/tags{/sha}",
+                "git_refs_url": "https://api.github.com/repos/jquery/jquery/git/refs{/sha}",
+                "trees_url": "https://api.github.com/repos/jquery/jquery/git/trees{/sha}",
+                "statuses_url": "https://api.github.com/repos/jquery/jquery/statuses/{sha}",
+                "languages_url": "https://api.github.com/repos/jquery/jquery/languages",
+                "stargazers_url": "https://api.github.com/repos/jquery/jquery/stargazers",
+                "contributors_url": "https://api.github.com/repos/jquery/jquery/contributors",
+                "subscribers_url": "https://api.github.com/repos/jquery/jquery/subscribers",
+                "subscription_url": "https://api.github.com/repos/jquery/jquery/subscription",
+                "commits_url": "https://api.github.com/repos/jquery/jquery/commits{/sha}",
+                "git_commits_url": "https://api.github.com/repos/jquery/jquery/git/commits{/sha}",
+                "comments_url": "https://api.github.com/repos/jquery/jquery/comments{/number}",
+                "issue_comment_url": "https://api.github.com/repos/jquery/jquery/issues/comments{/number}",
+                "contents_url": "https://api.github.com/repos/jquery/jquery/contents/{+path}",
+                "compare_url": "https://api.github.com/repos/jquery/jquery/compare/{base}...{head}",
+                "merges_url": "https://api.github.com/repos/jquery/jquery/merges",
+                "archive_url": "https://api.github.com/repos/jquery/jquery/{archive_format}{/ref}",
+                "downloads_url": "https://api.github.com/repos/jquery/jquery/downloads",
+                "issues_url": "https://api.github.com/repos/jquery/jquery/issues{/number}",
+                "pulls_url": "https://api.github.com/repos/jquery/jquery/pulls{/number}",
+                "milestones_url": "https://api.github.com/repos/jquery/jquery/milestones{/number}",
+                "notifications_url": "https://api.github.com/repos/jquery/jquery/notifications{?since,all,participating}",
+                "labels_url": "https://api.github.com/repos/jquery/jquery/labels{/name}",
+                "releases_url": "https://api.github.com/repos/jquery/jquery/releases{/id}",
+                "deployments_url": "https://api.github.com/repos/jquery/jquery/deployments"
+              },
+              "score": 1
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Mon, 26 Oct 2026 19:31:48 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "deny",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "origin-when-cross-origin, strict-origin-when-cross-origin",
+          "strict-transport-security": "max-age=31536000; includeSubdomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
+          "x-ratelimit-limit": "30",
+          "x-ratelimit-remaining": "29",
+          "x-ratelimit-reset": "1793043168",
+          "cache-control": "no-cache",
+          "vary": "Accept, Authorization, Cookie, X-GitHub-OTP,Accept-Encoding, Accept, X-Requested-With",
+          "x-github-media-type": "github.v3",
+          "link": "<https://api.github.com/search/commits?q=repo%3Ajquery%2Fjquery+fix&per_page=5&page=2>; rel=\"next\", <https://api.github.com/search/commits?q=repo%3Ajquery%2Fjquery+fix&per_page=5&page=200>; rel=\"last\"",
+          "x-accepted-github-permissions": "allows_permissionless_access=true",
+          "x-github-api-version-selected": "2022-11-28",
+          "content-security-policy": "default-src 'none'",
+          "server": "github.com",
+          "x-ratelimit-used": "1",
+          "x-ratelimit-resource": "search",
+          "x-github-request-id": "3641:BA2A6:5852D3B:7F886BE:6ADFAA86",
+          "x-github-edge-region": "sea"
+        },
+        "hash": "7bed83d2849f13e9a4eaffe011d0838d8b12005e",
+        "request": {
+          "params": {
+            "per_page": "5",
+            "q": "repo:jquery/jquery fix"
+          }
+        }
+      }
+    }
+  }
+}

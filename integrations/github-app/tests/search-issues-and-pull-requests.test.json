@@ -1,0 +1,171 @@
+{
+  "input": {
+    "repository": "octocat/Hello-World",
+    "type": "issue",
+    "per_page": 1,
+    "sort": "created",
+    "order": "asc"
+  },
+  "output": {
+    "total_count": 8704,
+    "incomplete_results": false,
+    "items": [
+      {
+        "id": 2637744,
+        "number": 7,
+        "title": "Hello World in all programming languages",
+        "state": "closed",
+        "state_reason": "completed",
+        "html_url": "https://github.com/octocat/Hello-World/issues/7",
+        "url": "https://api.github.com/repos/octocat/Hello-World/issues/7",
+        "repository_url": "https://api.github.com/repos/octocat/Hello-World",
+        "body": "It could be a good idea to add code snippets for hello world in all programming languages. So that its a kind of \"one-stop-shop\" for a simple Hello World program\n",
+        "user": {
+          "login": "mwumvax",
+          "id": 1271441,
+          "html_url": "https://github.com/mwumvax"
+        },
+        "labels": [],
+        "assignees": [],
+        "locked": false,
+        "comments": 22,
+        "created_at": "2011-12-22T14:36:37Z",
+        "updated_at": "2026-08-13T09:32:55Z",
+        "closed_at": "2012-03-06T23:08:02Z",
+        "author_association": "NONE",
+        "is_pull_request": false,
+        "score": 1
+      }
+    ],
+    "next_page": 2
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/search/issues": {
+        "response": {
+          "total_count": 8704,
+          "incomplete_results": false,
+          "items": [
+            {
+              "url": "https://api.github.com/repos/octocat/Hello-World/issues/7",
+              "repository_url": "https://api.github.com/repos/octocat/Hello-World",
+              "labels_url": "https://api.github.com/repos/octocat/Hello-World/issues/7/labels{/name}",
+              "comments_url": "https://api.github.com/repos/octocat/Hello-World/issues/7/comments",
+              "events_url": "https://api.github.com/repos/octocat/Hello-World/issues/7/events",
+              "html_url": "https://github.com/octocat/Hello-World/issues/7",
+              "id": 2637744,
+              "node_id": "MDU6SXNzdWUyNjM3NzQ0",
+              "number": 7,
+              "title": "Hello World in all programming languages",
+              "user": {
+                "login": "mwumvax",
+                "id": 1271441,
+                "node_id": "MDQ6VXNlcjEyNzE0NDE=",
+                "avatar_url": "https://avatars.githubusercontent.com/u/1271441?v=4",
+                "gravatar_id": "",
+                "url": "https://api.github.com/users/mwumvax",
+                "html_url": "https://github.com/mwumvax",
+                "followers_url": "https://api.github.com/users/mwumvax/followers",
+                "following_url": "https://api.github.com/users/mwumvax/following{/other_user}",
+                "gists_url": "https://api.github.com/users/mwumvax/gists{/gist_id}",
+                "starred_url": "https://api.github.com/users/mwumvax/starred{/owner}{/repo}",
+                "subscriptions_url": "https://api.github.com/users/mwumvax/subscriptions",
+                "organizations_url": "https://api.github.com/users/mwumvax/orgs",
+                "repos_url": "https://api.github.com/users/mwumvax/repos",
+                "events_url": "https://api.github.com/users/mwumvax/events{/privacy}",
+                "received_events_url": "https://api.github.com/users/mwumvax/received_events",
+                "type": "User",
+                "user_view_type": "public",
+                "site_admin": false
+              },
+              "labels": [],
+              "state": "closed",
+              "locked": false,
+              "assignees": [],
+              "milestone": null,
+              "comments": 22,
+              "created_at": "2011-12-22T14:36:37Z",
+              "updated_at": "2026-08-13T09:32:55Z",
+              "closed_at": "2012-03-06T23:08:02Z",
+              "assignee": null,
+              "author_association": "NONE",
+              "active_lock_reason": null,
+              "sub_issues_summary": {
+                "total": 0,
+                "completed": 0,
+                "percent_completed": 0
+              },
+              "issue_dependencies_summary": {
+                "blocked_by": 0,
+                "total_blocked_by": 0,
+                "blocking": 0,
+                "total_blocking": 0
+              },
+              "body": "It could be a good idea to add code snippets for hello world in all programming languages. So that its a kind of \"one-stop-shop\" for a simple Hello World program\n",
+              "reactions": {
+                "url": "https://api.github.com/repos/octocat/Hello-World/issues/7/reactions",
+                "total_count": 3,
+                "+1": 0,
+                "-1": 0,
+                "laugh": 0,
+                "hooray": 1,
+                "confused": 0,
+                "heart": 0,
+                "rocket": 1,
+                "eyes": 1
+              },
+              "timeline_url": "https://api.github.com/repos/octocat/Hello-World/issues/7/timeline",
+              "performed_via_github_app": null,
+              "state_reason": "completed",
+              "pinned_comment": null,
+              "score": 1
+            }
+          ],
+          "search_type": "lexical"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Mon, 26 Oct 2026 19:31:56 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "deny",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "origin-when-cross-origin, strict-origin-when-cross-origin",
+          "strict-transport-security": "max-age=31536000; includeSubdomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
+          "x-ratelimit-limit": "30",
+          "x-ratelimit-remaining": "28",
+          "x-ratelimit-reset": "1793043168",
+          "cache-control": "no-cache",
+          "vary": "Accept, Authorization, Cookie, X-GitHub-OTP,Accept-Encoding, Accept, X-Requested-With",
+          "x-github-media-type": "github.v3",
+          "link": "<https://api.github.com/search/issues?q=is%3Aissue+repo%3Aoctocat%2FHello-World&sort=created&order=asc&per_page=1&page=2>; rel=\"next\", <https://api.github.com/search/issues?q=is%3Aissue+repo%3Aoctocat%2FHello-World&sort=created&order=asc&per_page=1&page=1000>; rel=\"last\"",
+          "x-accepted-github-permissions": "allows_permissionless_access=true",
+          "x-github-api-version-selected": "2022-11-28",
+          "content-security-policy": "default-src 'none'",
+          "server": "github.com",
+          "x-ratelimit-used": "2",
+          "x-ratelimit-resource": "search",
+          "x-github-request-id": "E483:15BC58:590B8C2:8049100:6ADFAA9C",
+          "x-github-edge-region": "sea"
+        },
+        "hash": "4c01f417ce316f4174692ca75ca9eea3c9c5be0a",
+        "request": {
+          "params": {
+            "order": "asc",
+            "per_page": "1",
+            "q": "is:issue repo:octocat/Hello-World",
+            "sort": "created"
+          }
+        }
+      }
+    }
+  }
+}

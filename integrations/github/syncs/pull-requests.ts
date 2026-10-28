@@ -1,4 +1,4 @@
-import { createSync } from 'nango';
+import { createSync, type ProxyConfiguration } from 'nango';
 import { z } from 'zod';
 
 // https://docs.github.com/en/rest/pulls/pulls#list-pull-requests
@@ -50,7 +50,7 @@ const GitHubPullRequestSchema = z.object({
     head: z.object({
         ref: z.string(),
         sha: z.string(),
-        label: z.string(),
+        label: z.string().nullable(),
         repo: z
             .object({
                 id: z.number(),
@@ -204,7 +204,7 @@ const getRepositoriesInScope = async (nango: RepositoryScopeNango): Promise<stri
 
 const sync = createSync({
     description: 'Sync pull requests for one or more GitHub repositories, including status, branches, and merge state.',
-    version: '1.0.4',
+    version: '1.0.5',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
@@ -241,10 +241,13 @@ const sync = createSync({
                 direction: 'desc'
             };
 
-            const proxyConfig = {
+            const proxyConfig: ProxyConfiguration = {
+                // https://docs.github.com/en/rest/pulls/pulls#list-pull-requests
                 endpoint: `/repos/${encodeURIComponent(owner)}/${encodeURIComponent(repo)}/pulls`,
                 params,
                 paginate: {
+                    type: 'link',
+                    link_rel_in_response_header: 'next',
                     limit: 100,
                     limit_name_in_request: 'per_page'
                 },
