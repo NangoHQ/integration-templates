@@ -282,6 +282,7 @@ import './amplitude/syncs/event-properties.js';
 import './amplitude/syncs/event-types.js';
 import './amplitude/syncs/events-export.js';
 import './amplitude/syncs/group-properties.js';
+import './amplitude/syncs/sync-event-types.js';
 import './amplitude/syncs/user-properties.js';
 import './amplitude/actions/batch-events.js';
 import './amplitude/actions/bulk-update-annotation-categories.js';
@@ -346,6 +347,8 @@ import './amplitude/actions/update-event-property.js';
 import './amplitude/actions/update-event-type.js';
 import './amplitude/actions/update-group-property.js';
 import './amplitude/actions/update-user-property.js';
+import './amplitude/tools/create-data-subject-access-request.js';
+import './amplitude/tools/list-event-properties.js';
 
 // -- Integration: anrok
 import './anrok/actions/create-ephemeral-transaction.js';
