@@ -4655,6 +4655,11 @@ import './millionverifier/actions/list-bulk-files.js';
 import './millionverifier/actions/stop-bulk-file.js';
 import './millionverifier/actions/verify-email.js';
 
+// -- Integration: miro
+import './miro/syncs/sync-project-members.js';
+import './miro/tools/create-tag.js';
+import './miro/tools/list-app-cards.js';
+
 // -- Integration: mixpanel
 import './mixpanel/syncs/annotations.js';
 import './mixpanel/syncs/events.js';
