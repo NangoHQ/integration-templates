@@ -16,4 +16,15 @@ describe('google-mail get-message tests', () => {
 
         expect(response).toEqual(output);
     });
+
+    it('sends each metadataHeaders value as its own query param', async () => {
+        // @ts-expect-error - stubbing one response to inspect the request
+        nangoMock.get.mockResolvedValueOnce({ data: { id: 'msg-1' } });
+
+        await createAction.exec(nangoMock, { id: 'msg-1', format: 'metadata', metadataHeaders: ['From', 'Subject', 'Date'] });
+
+        expect(nangoMock.get).toHaveBeenLastCalledWith(
+            expect.objectContaining({ params: 'format=metadata&metadataHeaders=From&metadataHeaders=Subject&metadataHeaders=Date' })
+        );
+    });
 });

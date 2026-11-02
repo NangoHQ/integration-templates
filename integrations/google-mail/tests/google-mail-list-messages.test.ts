@@ -16,4 +16,13 @@ describe('google-mail list-messages tests', () => {
 
         expect(response).toEqual(output);
     });
+
+    it('sends each labelIds value as its own query param', async () => {
+        // @ts-expect-error - stubbing one response to inspect the request
+        nangoMock.get.mockResolvedValueOnce({ data: {} });
+
+        await createAction.exec(nangoMock, { labelIds: ['INBOX', 'UNREAD'], maxResults: 5 });
+
+        expect(nangoMock.get).toHaveBeenLastCalledWith(expect.objectContaining({ params: 'labelIds=INBOX&labelIds=UNREAD&maxResults=5' }));
+    });
 });

@@ -16,4 +16,13 @@ describe('google-mail get-thread tests', () => {
 
         expect(response).toEqual(output);
     });
+
+    it('sends each metadataHeaders value as its own query param', async () => {
+        // @ts-expect-error - stubbing one response to inspect the request
+        nangoMock.get.mockResolvedValueOnce({ data: { id: 'thread-1' } });
+
+        await createAction.exec(nangoMock, { id: 'thread-1', format: 'metadata', metadataHeaders: ['From', 'Subject'] });
+
+        expect(nangoMock.get).toHaveBeenLastCalledWith(expect.objectContaining({ params: 'format=metadata&metadataHeaders=From&metadataHeaders=Subject' }));
+    });
 });

@@ -16,4 +16,15 @@ describe('google-mail list-watch-history tests', () => {
 
         expect(response).toEqual(output);
     });
+
+    it('sends each historyTypes value as its own query param', async () => {
+        // @ts-expect-error - stubbing one response to inspect the request
+        nangoMock.get.mockResolvedValueOnce({ data: {} });
+
+        await createAction.exec(nangoMock, { startHistoryId: '123', historyTypes: ['messageAdded', 'labelAdded'] });
+
+        expect(nangoMock.get).toHaveBeenLastCalledWith(
+            expect.objectContaining({ params: 'startHistoryId=123&historyTypes=messageAdded&historyTypes=labelAdded' })
+        );
+    });
 });
