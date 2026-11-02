@@ -33,22 +33,34 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List messages matching Gmail query and label filters.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['https://www.googleapis.com/auth/gmail.readonly'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        // Gmail expects one labelIds key per label. An array in params is sent comma joined (NAN-7966).
+        const params = new URLSearchParams();
+        if (input.q !== undefined) {
+            params.append('q', input.q);
+        }
+        for (const labelId of input.labelIds ?? []) {
+            params.append('labelIds', labelId);
+        }
+        if (input.includeSpamTrash !== undefined) {
+            params.append('includeSpamTrash', String(input.includeSpamTrash));
+        }
+        if (input.maxResults !== undefined) {
+            params.append('maxResults', String(input.maxResults));
+        }
+        if (input.pageToken !== undefined) {
+            params.append('pageToken', input.pageToken);
+        }
+
         // https://developers.google.com/gmail/api/reference/rest/v1/users.messages/list
         const response = await nango.get({
             endpoint: '/gmail/v1/users/me/messages',
-            params: {
-                ...(input.q !== undefined && { q: input.q }),
-                ...(input.labelIds !== undefined && input.labelIds.length > 0 && { labelIds: input.labelIds }),
-                ...(input.includeSpamTrash !== undefined && { includeSpamTrash: String(input.includeSpamTrash) }),
-                ...(input.maxResults !== undefined && { maxResults: String(input.maxResults) }),
-                ...(input.pageToken !== undefined && { pageToken: input.pageToken })
-            },
+            params: params.toString(),
             retries: 3
         });
 

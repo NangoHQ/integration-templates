@@ -56,22 +56,25 @@ const OutputSchema = ThreadSchema;
 
 const action = createAction({
     description: 'Retrieve a Gmail thread and its messages.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['https://www.googleapis.com/auth/gmail.readonly'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        // Gmail expects one metadataHeaders key per header. An array in params is sent comma joined (NAN-7966).
+        const params = new URLSearchParams();
+        if (input.format !== undefined) {
+            params.append('format', input.format);
+        }
+        for (const header of input.metadataHeaders ?? []) {
+            params.append('metadataHeaders', header);
+        }
+
         // https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.threads/get
         const response = await nango.get({
             endpoint: `/gmail/v1/users/me/threads/${encodeURIComponent(input.id)}`,
-            params: {
-                ...(input.format !== undefined && { format: input.format }),
-                ...(input.metadataHeaders !== undefined &&
-                    input.metadataHeaders.length > 0 && {
-                        metadataHeaders: input.metadataHeaders
-                    })
-            },
+            params: params.toString(),
             retries: 3
         });
 

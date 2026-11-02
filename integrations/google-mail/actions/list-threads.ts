@@ -35,34 +35,35 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List conversation threads matching Gmail query and label filters.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['https://www.googleapis.com/auth/gmail.readonly'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.threads/list
-        const params: Record<string, string | number | string[]> = {};
+        // Gmail expects one labelIds key per label. An array in params is sent comma joined (NAN-7966).
+        const params = new URLSearchParams();
 
         if (input.q !== undefined) {
-            params['q'] = input.q;
+            params.append('q', input.q);
         }
-        if (input.labelIds !== undefined) {
-            params['labelIds'] = input.labelIds;
+        for (const labelId of input.labelIds ?? []) {
+            params.append('labelIds', labelId);
         }
         if (input.includeSpamTrash !== undefined) {
-            params['includeSpamTrash'] = input.includeSpamTrash ? 'true' : 'false';
+            params.append('includeSpamTrash', input.includeSpamTrash ? 'true' : 'false');
         }
         if (input.maxResults !== undefined) {
-            params['maxResults'] = input.maxResults;
+            params.append('maxResults', String(input.maxResults));
         }
         if (input.pageToken !== undefined) {
-            params['pageToken'] = input.pageToken;
+            params.append('pageToken', input.pageToken);
         }
 
         const response = await nango.get({
             endpoint: '/gmail/v1/users/me/threads',
-            params,
+            params: params.toString(),
             retries: 3
         });
 

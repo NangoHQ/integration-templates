@@ -144,30 +144,30 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List mailbox history records after a given history ID',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['https://www.googleapis.com/auth/gmail.modify'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const params: Record<string, string | number | string[]> = {
-            startHistoryId: input.startHistoryId
-        };
+        // Gmail expects one historyTypes key per type. An array in params is sent comma joined (NAN-7966).
+        const params = new URLSearchParams();
+        params.append('startHistoryId', String(input.startHistoryId));
 
-        if (input.historyTypes !== undefined && input.historyTypes.length > 0) {
-            params['historyTypes'] = input.historyTypes;
+        for (const historyType of input.historyTypes ?? []) {
+            params.append('historyTypes', historyType);
         }
 
         if (input.labelId !== undefined) {
-            params['labelId'] = input.labelId;
+            params.append('labelId', input.labelId);
         }
 
         if (input.maxResults !== undefined) {
-            params['maxResults'] = input.maxResults;
+            params.append('maxResults', String(input.maxResults));
         }
 
         if (input.pageToken !== undefined) {
-            params['pageToken'] = input.pageToken;
+            params.append('pageToken', input.pageToken);
         }
 
         // https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.history/list
@@ -175,7 +175,7 @@ const action = createAction({
         try {
             response = await nango.get({
                 endpoint: '/gmail/v1/users/me/history',
-                params,
+                params: params.toString(),
                 retries: 3
             });
         } catch (error) {
