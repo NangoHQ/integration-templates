@@ -1603,6 +1603,7 @@ import './datadog/syncs/roles.js';
 import './datadog/syncs/rum_applications.js';
 import './datadog/syncs/service_definitions.js';
 import './datadog/syncs/slos.js';
+import './datadog/syncs/sync-on-call-notification-rules.js';
 import './datadog/syncs/synthetic_tests.js';
 import './datadog/syncs/teams.js';
 import './datadog/syncs/users.js';
@@ -1728,6 +1729,7 @@ import './datadog/actions/update-synthetic-api-test.js';
 import './datadog/actions/update-team.js';
 import './datadog/actions/update-user.js';
 import './datadog/actions/validate-monitor.js';
+import './datadog/tools/create-on-call-notification-channel.js';
 
 // -- Integration: dialpad
 import './dialpad/syncs/users.js';
