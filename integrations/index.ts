@@ -7627,6 +7627,8 @@ import './trello/actions/update-comment.js';
 import './trello/actions/update-label.js';
 import './trello/actions/update-list.js';
 import './trello/actions/update-organization.js';
+import './trello/tools/add-label-to-card.js';
+import './trello/tools/update-member.js';
 
 // -- Integration: twitter-v2
 import './twitter-v2/syncs/liked-tweets.js';
