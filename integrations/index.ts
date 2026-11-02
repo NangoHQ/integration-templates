@@ -6310,6 +6310,7 @@ import './sentry/syncs/monitors.js';
 import './sentry/syncs/project-keys.js';
 import './sentry/syncs/projects.js';
 import './sentry/syncs/releases.js';
+import './sentry/syncs/sync-custom-external-issue-links.js';
 import './sentry/syncs/teams.js';
 import './sentry/actions/add-member-to-team.js';
 import './sentry/actions/add-team-to-project.js';
@@ -6380,6 +6381,8 @@ import './sentry/actions/update-project-key.js';
 import './sentry/actions/update-project.js';
 import './sentry/actions/update-release.js';
 import './sentry/actions/update-team.js';
+import './sentry/tools/add-repository-to-project.js';
+import './sentry/tools/list-scim-teams.js';
 
 // -- Integration: servicenow
 import './servicenow/syncs/approvals.js';
