@@ -7446,6 +7446,7 @@ import './tripletex/syncs/orders.js';
 import './tripletex/syncs/products.js';
 import './tripletex/syncs/projects.js';
 import './tripletex/syncs/suppliers.js';
+import './tripletex/syncs/sync-suppliers.js';
 import './tripletex/actions/create-activity.js';
 import './tripletex/actions/create-contact.js';
 import './tripletex/actions/create-customer.js';
@@ -7491,6 +7492,8 @@ import './tripletex/actions/update-customer.js';
 import './tripletex/actions/update-product.js';
 import './tripletex/actions/update-project.js';
 import './tripletex/actions/update-supplier.js';
+import './tripletex/tools/create-travel-expense.js';
+import './tripletex/tools/list-order-lines.js';
 
 // -- Integration: tracify
 import './tracify/syncs/kpis-channels.js';
