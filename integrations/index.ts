@@ -3672,6 +3672,9 @@ import './intercom/actions/update-article.js';
 import './intercom/actions/update-company.js';
 import './intercom/actions/update-contact.js';
 import './intercom/actions/update-conversation.js';
+import './intercom/tools/create-dynamic-content.js';
+import './intercom/tools/delete-office-hours-exception.js';
+import './intercom/tools/list-office-hours-exceptions.js';
 
 // -- Integration: ironclad
 import './ironclad/syncs/entities.js';
