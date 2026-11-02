@@ -61,27 +61,27 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve a specific Gmail message with optional format selection.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['https://www.googleapis.com/auth/gmail.readonly'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        const params: Record<string, any> = {};
+        // Gmail expects one metadataHeaders key per header. An array in params is sent comma joined (NAN-7966).
+        const params = new URLSearchParams();
 
         if (input.format !== undefined) {
-            params['format'] = input.format;
+            params.append('format', input.format);
         }
 
-        if (input.metadataHeaders !== undefined) {
-            params['metadataHeaders'] = input.metadataHeaders;
+        for (const header of input.metadataHeaders ?? []) {
+            params.append('metadataHeaders', header);
         }
 
         // https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.messages/get
         const response = await nango.get({
             endpoint: `/gmail/v1/users/me/messages/${encodeURIComponent(input.id)}`,
-            params,
+            params: params.toString(),
             retries: 3
         });
 
