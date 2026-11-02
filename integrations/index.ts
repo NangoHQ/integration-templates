@@ -3222,10 +3222,13 @@ import './greenhouse-basic/syncs/jobs.js';
 
 // -- Integration: gusto
 import './gusto/syncs/employees.js';
+import './gusto/syncs/sync-employee-state-taxes.js';
 import './gusto/syncs/unified-employees.js';
 import './gusto/actions/create-employee.js';
 import './gusto/actions/terminate-employee.js';
 import './gusto/actions/update-employee.js';
+import './gusto/tools/add-employee-to-time-off-policy.js';
+import './gusto/tools/list-departments.js';
 
 // -- Integration: hackerrank-work
 import './hackerrank-work/syncs/interviews.js';
