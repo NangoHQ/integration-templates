@@ -7749,6 +7749,7 @@ import './woocommerce/syncs/product-reviews.js';
 import './woocommerce/syncs/product-tags.js';
 import './woocommerce/syncs/product-variations.js';
 import './woocommerce/syncs/refunds.js';
+import './woocommerce/syncs/sync-product-attributes.js';
 import './woocommerce/actions/batch-update-orders.js';
 import './woocommerce/actions/batch-update-products.js';
 import './woocommerce/actions/create-order-note.js';
@@ -7803,6 +7804,8 @@ import './woocommerce/actions/update-product-tag.js';
 import './woocommerce/actions/update-product-variation.js';
 import './woocommerce/actions/update-product.js';
 import './woocommerce/actions/update-webhook.js';
+import './woocommerce/tools/create-product.js';
+import './woocommerce/tools/list-orders.js';
 
 // -- Integration: workable
 import './workable/syncs/candidates-activities.js';
