@@ -5739,6 +5739,9 @@ import './pipedrive/actions/update-person.js';
 import './pipedrive/actions/update-pipeline.js';
 import './pipedrive/actions/update-product.js';
 import './pipedrive/actions/update-stage.js';
+import './pipedrive/tools/add-follower-to-product.js';
+import './pipedrive/tools/list-deal-field-changes.js';
+import './pipedrive/tools/update-organization.js';
 
 // -- Integration: pipelinecrm
 import './pipelinecrm/syncs/calendar_entries.js';
