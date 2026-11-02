@@ -1244,6 +1244,7 @@ import './chargebee/syncs/item-families.js';
 import './chargebee/syncs/item-prices.js';
 import './chargebee/syncs/items.js';
 import './chargebee/syncs/subscriptions.js';
+import './chargebee/syncs/sync-items.js';
 import './chargebee/syncs/transactions.js';
 import './chargebee/actions/cancel-subscription.js';
 import './chargebee/actions/create-credit-note.js';
@@ -1277,6 +1278,8 @@ import './chargebee/actions/update-item-price.js';
 import './chargebee/actions/update-item.js';
 import './chargebee/actions/update-subscription.js';
 import './chargebee/actions/void-credit-note.js';
+import './chargebee/tools/create-invoices-for-unbilled-charges.js';
+import './chargebee/tools/list-customers.js';
 
 // -- Integration: checkr-partner
 import './checkr-partner/syncs/background-checks.js';
