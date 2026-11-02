@@ -488,6 +488,9 @@ import './ashby/actions/list-sources.js';
 import './ashby/actions/list-users.js';
 import './ashby/actions/update-application.js';
 import './ashby/actions/update-candidate.js';
+import './ashby/tools/cancel-interview-event.js';
+import './ashby/tools/create-opening.js';
+import './ashby/tools/list-offers.js';
 
 // -- Integration: attio
 import './attio/syncs/companies.js';
