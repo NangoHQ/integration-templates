@@ -7920,6 +7920,8 @@ import './workday/actions/list-workers.js';
 
 // -- Integration: workday-refresh-token
 import './workday-refresh-token/syncs/organizations.js';
+import './workday-refresh-token/syncs/sync-eligible-absence-types.js';
+import './workday-refresh-token/syncs/sync-workers.js';
 import './workday-refresh-token/syncs/workers.js';
 import './workday-refresh-token/actions/execute-wql-query.js';
 import './workday-refresh-token/actions/get-custom-object-definition.js';
@@ -7936,6 +7938,7 @@ import './workday-refresh-token/actions/list-worker-absence-balances.js';
 import './workday-refresh-token/actions/list-worker-time-off.js';
 import './workday-refresh-token/actions/list-workers.js';
 import './workday-refresh-token/actions/submit-time-off-request.js';
+import './workday-refresh-token/tools/list-eligible-absence-types.js';
 
 // -- Integration: workos
 import './workos/actions/create-connection.js';
