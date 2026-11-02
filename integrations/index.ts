@@ -6982,6 +6982,11 @@ import './spotify/actions/transfer-playback.js';
 import './spotify/actions/unfollow-playlist.js';
 import './spotify/actions/update-playlist.js';
 
+// -- Integration: stackexchange
+import './stackexchange/tools/create-article.js';
+import './stackexchange/tools/delete-answer.js';
+import './stackexchange/tools/list-user-top-answers-in-tags.js';
+
 // -- Integration: strava-web
 import './strava-web/syncs/activities.js';
 import './strava-web/syncs/club-activities.js';
