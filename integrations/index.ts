@@ -1430,6 +1430,9 @@ import './close/actions/update-lead.js';
 import './close/actions/update-note-activity.js';
 import './close/actions/update-opportunity.js';
 import './close/actions/update-task.js';
+import './close/tools/create-lead.js';
+import './close/tools/delete-lead.js';
+import './close/tools/list-tasks.js';
 
 // -- Integration: coda
 import './coda/syncs/columns.js';
