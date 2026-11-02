@@ -4745,6 +4745,11 @@ import './monday/actions/update-column.js';
 import './monday/actions/update-group.js';
 import './monday/actions/update-item.js';
 
+// -- Integration: moneybird
+import './moneybird/tools/create-purchase-invoice-from-financial-mutation.js';
+import './moneybird/tools/get-contact.js';
+import './moneybird/tools/list-sales-invoices.js';
+
 // -- Integration: mural
 import './mural/syncs/mural-widgets.js';
 import './mural/syncs/murals.js';
