@@ -7694,6 +7694,7 @@ import './typeform/actions/patch-form.js';
 import './typeform/actions/update-form.js';
 import './typeform/actions/update-theme.js';
 import './typeform/actions/update-workspace.js';
+import './typeform/tools/add-member-to-workspace.js';
 
 // -- Integration: ukg-pro
 import './ukg-pro/syncs/unified-employees.js';
