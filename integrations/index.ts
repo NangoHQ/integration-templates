@@ -1023,8 +1023,8 @@ import './bitdefender/actions/get-company-details.js';
 
 // -- Integration: box
 import './box/syncs/collaborations.js';
-import './box/syncs/folders.js';
 import './box/syncs/files.js';
+import './box/syncs/folders.js';
 import './box/syncs/users.js';
 import './box/actions/copy-file.js';
 import './box/actions/copy-folder.js';
@@ -1034,9 +1034,9 @@ import './box/actions/create-folder.js';
 import './box/actions/create-user.js';
 import './box/actions/delete-collaboration.js';
 import './box/actions/delete-comment.js';
-import './box/actions/delete-user.js';
 import './box/actions/delete-file.js';
 import './box/actions/delete-folder.js';
+import './box/actions/delete-user.js';
 import './box/actions/download-file.js';
 import './box/actions/folder-content.js';
 import './box/actions/get-collaboration.js';
@@ -1054,6 +1054,9 @@ import './box/actions/update-comment.js';
 import './box/actions/update-file.js';
 import './box/actions/update-folder.js';
 import './box/actions/update-user.js';
+import './box/tools/create-retention-policy.js';
+import './box/tools/list-legal-hold-previous-file-versions.js';
+import './box/tools/move-web-link.js';
 
 // -- Integration: brevo-api-key
 import './brevo-api-key/syncs/companies.js';
