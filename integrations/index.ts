@@ -1940,6 +1940,9 @@ import './dope-security/actions/update-policy-exceptions.js';
 import './dope-security/actions/update-policy-restrictions.js';
 import './dope-security/actions/update-policy-ssl-inspection.js';
 import './dope-security/actions/update-policy-url-bypasses.js';
+import './dope-security/tools/create-custom-category.js';
+import './dope-security/tools/list-custom-category-urls.js';
+import './dope-security/tools/update-url-bypass.js';
 
 // -- Integration: dropbox
 import './dropbox/syncs/files.js';
