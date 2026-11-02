@@ -3723,6 +3723,9 @@ import './ironclad/actions/update-entity.js';
 import './ironclad/actions/update-record-name.js';
 import './ironclad/actions/update-webhook.js';
 import './ironclad/actions/update-workflow-attributes.js';
+import './ironclad/tools/create-group.js';
+import './ironclad/tools/search-workflows.js';
+import './ironclad/tools/update-group.js';
 
 // -- Integration: jira
 import './jira/syncs/fields.js';
