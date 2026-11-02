@@ -8124,6 +8124,7 @@ import './zendesk/syncs/groups.js';
 import './zendesk/syncs/macros.js';
 import './zendesk/syncs/organizations.js';
 import './zendesk/syncs/sections.js';
+import './zendesk/syncs/sync-job-statuses.js';
 import './zendesk/syncs/ticket-comments.js';
 import './zendesk/syncs/ticket-fields.js';
 import './zendesk/syncs/ticket-forms.js';
@@ -8157,6 +8158,8 @@ import './zendesk/actions/search-tickets.js';
 import './zendesk/actions/update-organization.js';
 import './zendesk/actions/update-ticket.js';
 import './zendesk/actions/update-user.js';
+import './zendesk/tools/create-end-user-merge.js';
+import './zendesk/tools/search-automations.js';
 
 // -- Integration: zoho-bigin
 import './zoho-bigin/syncs/accounts.js';
