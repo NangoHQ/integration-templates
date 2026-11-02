@@ -4954,6 +4954,7 @@ import './okta/syncs/groups.js';
 import './okta/syncs/policies.js';
 import './okta/syncs/role-assignments.js';
 import './okta/syncs/schemas.js';
+import './okta/syncs/sync-applications.js';
 import './okta/syncs/system-log-events.js';
 import './okta/syncs/users.js';
 import './okta/actions/activate-application.js';
@@ -5020,6 +5021,8 @@ import './okta/actions/unsuspend-user.js';
 import './okta/actions/update-group.js';
 import './okta/actions/update-user-schema.js';
 import './okta/actions/update-user.js';
+import './okta/tools/create-group.js';
+import './okta/tools/list-applications.js';
 
 // -- Integration: one-drive
 import './one-drive/syncs/drive-items.js';
