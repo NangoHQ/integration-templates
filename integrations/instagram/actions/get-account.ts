@@ -28,7 +28,10 @@ const ProviderUserSchema = z.object({
 const OutputSchema = z
     .object({
         id: z.string().describe('App-scoped Instagram user ID. Example: "27136802592672293"'),
-        user_id: z.string().optional().describe('Instagram professional account ID used by webhooks and other Instagram Platform APIs. Example: "17841446782016736"'),
+        user_id: z
+            .string()
+            .optional()
+            .describe('Instagram professional account ID used by webhooks and other Instagram Platform APIs. Example: "17841446782016736"'),
         username: z.string().optional().describe('Instagram username. Example: "nangodev"'),
         name: z.string().optional().describe('Display name shown on the Instagram profile.'),
         biography: z.string().optional().describe('Profile bio text. Omitted when the account has no bio.'),
