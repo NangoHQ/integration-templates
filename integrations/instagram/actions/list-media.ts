@@ -7,7 +7,7 @@ const InputSchema = z
             .string()
             .min(1)
             .optional()
-            .describe('Instagram professional account ID to list media for. Omit to use the connected account. Example: "27136802592672293"'),
+            .describe('Instagram professional account ID (the user_id from get-account) to list media for. Omit to use the connected account. Example: "17841446782016736"'),
         limit: z
             .number()
             .int()

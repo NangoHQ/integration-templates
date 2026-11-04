@@ -7,7 +7,7 @@ const InputSchema = z
             .string()
             .min(1)
             .optional()
-            .describe('Instagram professional account ID to retrieve. Omit to use the authenticated account. Example: "17841400000000000"')
+            .describe('Instagram professional account ID (user_id) to retrieve. Omit to use the authenticated account. Example: "17841446782016736"')
     })
     .describe('Optional account selector for the Instagram account lookup.');
 

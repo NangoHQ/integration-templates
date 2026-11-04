@@ -501919,7 +501919,7 @@
                             "type": "object",
                             "properties": {
                                 "ig_user_id": {
-                                    "description": "Instagram professional account ID to create the container for. Omit to use the authenticated account (/me). Pass the same value to publish-media-container. Example: \"27136802592672293\"",
+                                    "description": "Instagram professional account ID (the user_id from get-account) to create the container for. Omit to use the authenticated account (/me). Pass the same value to publish-media-container. Example: \"17841446782016736\"",
                                     "type": "string",
                                     "minLength": 1
                                 },
@@ -502163,7 +502163,7 @@
                             "type": "object",
                             "properties": {
                                 "ig_user_id": {
-                                    "description": "Instagram professional account ID to retrieve. Omit to use the authenticated account. Example: \"17841400000000000\"",
+                                    "description": "Instagram professional account ID (user_id) to retrieve. Omit to use the authenticated account. Example: \"17841446782016736\"",
                                     "type": "string",
                                     "minLength": 1
                                 }
@@ -502911,7 +502911,7 @@
                             "type": "object",
                             "properties": {
                                 "ig_user_id": {
-                                    "description": "Instagram professional account ID to list media for. Omit to use the connected account. Example: \"27136802592672293\"",
+                                    "description": "Instagram professional account ID (the user_id from get-account) to list media for. Omit to use the connected account. Example: \"17841446782016736\"",
                                     "type": "string",
                                     "minLength": 1
                                 },
@@ -503110,7 +503110,7 @@
                             "type": "object",
                             "properties": {
                                 "ig_user_id": {
-                                    "description": "Instagram professional account ID that owns the container. Use the same value passed to create-media-container; omit to use the authenticated account (/me). Example: \"27136802592672293\"",
+                                    "description": "Instagram professional account ID (the user_id from get-account) that owns the container. Use the same value passed to create-media-container; omit to use the authenticated account (/me). Example: \"17841446782016736\"",
                                     "type": "string",
                                     "minLength": 1
                                 },

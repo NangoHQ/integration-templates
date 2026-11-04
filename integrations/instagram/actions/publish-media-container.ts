@@ -8,7 +8,7 @@ const InputSchema = z
             .min(1)
             .optional()
             .describe(
-                'Instagram professional account ID that owns the container. Use the same value passed to create-media-container; omit to use the authenticated account (/me). Example: "27136802592672293"'
+                'Instagram professional account ID (the user_id from get-account) that owns the container. Use the same value passed to create-media-container; omit to use the authenticated account (/me). Example: "17841446782016736"'
             ),
         creation_id: z.string().min(1).describe('ID of a prepared Instagram media container whose status_code is FINISHED.')
     })
