@@ -3,17 +3,17 @@ import { createAction } from 'nango';
 
 const InputSchema = z
     .object({
-        comment_id: z.string().describe('The Instagram comment ID to retrieve. Example: "17881770991003328"')
+        comment_id: z.string().min(1).describe('The Instagram comment ID to retrieve. Example: "17881770991003328"')
     })
     .describe('Input for retrieving a single Instagram comment.');
 
 const ProviderCommentSchema = z.object({
-    id: z.string().optional(),
-    text: z.string().optional(),
-    like_count: z.number().optional(),
-    timestamp: z.string().optional(),
-    parent_id: z.string().nullable().optional(),
-    username: z.string().optional()
+    id: z.string().nullish(),
+    text: z.string().nullish(),
+    like_count: z.number().nullish(),
+    timestamp: z.string().nullish(),
+    parent_id: z.string().nullish(),
+    username: z.string().nullish()
 });
 
 const OutputSchema = z
@@ -37,7 +37,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['instagram_business_manage_comments'],
+    scopes: ['instagram_business_basic', 'instagram_business_manage_comments'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({

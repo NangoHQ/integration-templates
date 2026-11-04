@@ -11,28 +11,28 @@ const InputSchema = z
 
 const StoryMediaSchema = z.object({
     id: z.string(),
-    media_type: z.string().optional(),
+    media_type: z.string().nullish(),
     media_url: z.string().nullish(),
     thumbnail_url: z.string().nullish(),
     permalink: z.string().nullish(),
     caption: z.string().nullish(),
-    timestamp: z.string().optional(),
+    timestamp: z.string().nullish(),
     username: z.string().nullish()
 });
 
 const PagingSchema = z.object({
-    next: z.string().optional(),
+    next: z.string().nullish(),
     cursors: z
         .object({
-            before: z.string().optional(),
-            after: z.string().optional()
+            before: z.string().nullish(),
+            after: z.string().nullish()
         })
-        .optional()
+        .nullish()
 });
 
 const StoriesResponseSchema = z.object({
     data: z.array(StoryMediaSchema),
-    paging: PagingSchema.optional()
+    paging: PagingSchema.nullish()
 });
 
 const OutputSchema = z
@@ -84,7 +84,7 @@ const action = createAction({
         const response = await nango.get(config);
         const parsed = StoriesResponseSchema.parse(response.data);
 
-        const nextCursor = parsed.paging?.next !== undefined ? parsed.paging.cursors?.after : undefined;
+        const nextCursor = parsed.paging?.next != null ? parsed.paging.cursors?.after : undefined;
 
         return {
             stories: parsed.data.map((story) => ({

@@ -68,7 +68,8 @@ const CommentReplySchema = z.object({
 const CommentSchema = CommentReplySchema.extend({
     replies: z
         .object({
-            data: z.array(CommentReplySchema)
+            data: z.array(CommentReplySchema),
+            paging: PagingSchema
         })
         .nullish()
 });
@@ -141,6 +142,8 @@ function flattenComments(comments: Comment[], mediaId: string): MediaComment[] {
     return records;
 }
 
+const REPLY_FIELDS = 'id,text,timestamp,username,like_count,parent_id,hidden';
+
 const sync = createSync({
     description: 'Sync comments for Instagram media items in scope.',
     version: '1.0.0',
@@ -150,6 +153,7 @@ const sync = createSync({
     models: {
         MediaComment: MediaCommentSchema
     },
+    scopes: ['instagram_business_basic', 'instagram_business_manage_comments'],
 
     exec: async (nango) => {
         // Blocker: Instagram's media comments edge cannot be filtered by timestamp and exposes no
@@ -165,6 +169,12 @@ const sync = createSync({
         let currentMediaId: string | undefined = checkpoint?.media_id || undefined;
         let currentCommentsAfter: string | undefined = checkpoint?.comments_after || undefined;
         let mediaHasMore = true;
+        let checkpointSaved = false;
+
+        const saveCheckpoint = async (state: z.infer<typeof CheckpointSchema>) => {
+            await nango.saveCheckpoint(state);
+            checkpointSaved = true;
+        };
 
         while (mediaHasMore) {
             const mediaConfig: ProxyConfiguration = {
@@ -196,7 +206,7 @@ const sync = createSync({
                         // https://developers.facebook.com/docs/instagram-platform/instagram-graph-api/reference/ig-media/comments
                         endpoint: `/${encodeURIComponent(media.id)}/comments`,
                         params: {
-                            fields: 'id,text,timestamp,username,like_count,parent_id,hidden,replies{id,text,timestamp,username,like_count,parent_id,hidden}',
+                            fields: `${REPLY_FIELDS},replies{${REPLY_FIELDS}}`,
                             limit: 50,
                             ...(commentsAfter && { after: commentsAfter })
                         },
@@ -210,6 +220,42 @@ const sync = createSync({
                         await nango.batchSave(records, 'MediaComment');
                     }
 
+                    // The expanded replies connection only holds its first page; fetch the rest per comment.
+                    for (const comment of commentsResponse.data) {
+                        const repliesAfter = comment.replies ? getAfterCursor(comment.replies.paging, comment.replies.data.length) : undefined;
+
+                        if (!comment.replies?.paging?.next || !repliesAfter) {
+                            continue;
+                        }
+
+                        const repliesConfig: ProxyConfiguration = {
+                            // https://developers.facebook.com/docs/instagram-platform/instagram-graph-api/reference/ig-comment/replies
+                            endpoint: `/${encodeURIComponent(comment.id)}/replies`,
+                            params: {
+                                fields: REPLY_FIELDS,
+                                after: repliesAfter
+                            },
+                            paginate: {
+                                type: 'cursor',
+                                cursor_name_in_request: 'after',
+                                cursor_path_in_response: 'paging.cursors.after',
+                                response_path: 'data',
+                                limit_name_in_request: 'limit',
+                                limit: 50
+                            },
+                            retries: 3
+                        };
+
+                        for await (const page of nango.paginate<unknown>(repliesConfig)) {
+                            const replies = z.array(CommentReplySchema).parse(page);
+                            const replyRecords = replies.map((reply) => toCommentRecord(reply, media.id, comment.id));
+
+                            if (replyRecords.length > 0) {
+                                await nango.batchSave(replyRecords, 'MediaComment');
+                            }
+                        }
+                    }
+
                     const nextCommentsAfter = getAfterCursor(commentsResponse.paging, commentsResponse.data.length);
 
                     if (!nextCommentsAfter || nextCommentsAfter === commentsAfter) {
@@ -219,7 +265,7 @@ const sync = createSync({
                         currentMediaId = media.id;
                         currentCommentsAfter = commentsAfter;
 
-                        await nango.saveCheckpoint(buildCheckpoint(mediaAfter, index, media.id, commentsAfter));
+                        await saveCheckpoint(buildCheckpoint(mediaAfter, index, media.id, commentsAfter));
                     }
                 }
 
@@ -228,7 +274,7 @@ const sync = createSync({
                 currentCommentsAfter = undefined;
 
                 if (nextMediaIndex < mediaItems.length) {
-                    await nango.saveCheckpoint(buildCheckpoint(mediaAfter, nextMediaIndex));
+                    await saveCheckpoint(buildCheckpoint(mediaAfter, nextMediaIndex));
                 }
             }
 
@@ -242,11 +288,15 @@ const sync = createSync({
                 currentMediaId = undefined;
                 currentCommentsAfter = undefined;
 
-                await nango.saveCheckpoint(buildCheckpoint(mediaAfter, 0));
+                await saveCheckpoint(buildCheckpoint(mediaAfter, 0));
             }
         }
 
-        await nango.clearCheckpoint();
+        // Deleting a checkpoint that was never written (e.g. a single-page run starting from
+        // scratch) fails with checkpoint_conflict.
+        if (rawCheckpoint != null || checkpointSaved) {
+            await nango.clearCheckpoint();
+        }
     }
 });
 

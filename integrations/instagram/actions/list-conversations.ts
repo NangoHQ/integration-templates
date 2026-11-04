@@ -73,7 +73,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['instagram_business_manage_messages'],
+    scopes: ['instagram_business_basic', 'instagram_business_manage_messages'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const config: ProxyConfiguration = {

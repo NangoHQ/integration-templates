@@ -11,9 +11,10 @@ const InputSchema = z
     .object({
         ig_user_id: z
             .string()
+            .min(1)
             .optional()
             .describe(
-                'Instagram professional account ID to create the container for. Omit to use the authenticated account (/me). Example: "27136802592672293"'
+                'Instagram professional account ID to create the container for. Omit to use the authenticated account (/me). Pass the same value to publish-media-container. Example: "27136802592672293"'
             ),
         image_url: z.string().optional().describe('Public URL of a JPEG image to upload. Required for image posts and image carousel items.'),
         video_url: z.string().optional().describe('Public URL of a video to upload. Required for video, reel, and video carousel item containers.'),
@@ -79,7 +80,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['instagram_business_content_publish'],
+    scopes: ['instagram_business_basic', 'instagram_business_content_publish'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const hasMedia = Boolean(input.image_url || input.video_url);

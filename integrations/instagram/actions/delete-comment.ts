@@ -3,7 +3,7 @@ import { createAction } from 'nango';
 
 const InputSchema = z
     .object({
-        comment_id: z.string().describe('The Instagram comment ID to delete. Example: "17895695668004550"')
+        comment_id: z.string().min(1).describe('The Instagram comment ID to delete. Example: "17895695668004550"')
     })
     .describe('Input for deleting an Instagram comment.');
 
@@ -27,7 +27,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['instagram_business_manage_comments'],
+    scopes: ['instagram_business_basic', 'instagram_business_manage_comments'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.delete({

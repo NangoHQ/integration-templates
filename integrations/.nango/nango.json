@@ -453515,6 +453515,7 @@
           "ActionOutput_instagram_createcommentreply"
         ],
         "scopes": [
+          "instagram_business_basic",
           "instagram_business_manage_comments"
         ],
         "usedModels": [
@@ -453529,10 +453530,12 @@
               "properties": {
                 "comment_id": {
                   "type": "string",
+                  "minLength": 1,
                   "description": "The ID of the Instagram comment to reply to. Example: \"17873440459141021\""
                 },
                 "message": {
                   "type": "string",
+                  "minLength": 1,
                   "description": "The text of the reply comment. Example: \"Thanks for sharing!\""
                 }
               },
@@ -453571,6 +453574,7 @@
           "ActionOutput_instagram_createmediacontainer"
         ],
         "scopes": [
+          "instagram_business_basic",
           "instagram_business_content_publish"
         ],
         "usedModels": [
@@ -453584,8 +453588,9 @@
               "type": "object",
               "properties": {
                 "ig_user_id": {
-                  "description": "Instagram professional account ID to create the container for. Omit to use the authenticated account (/me). Example: \"27136802592672293\"",
-                  "type": "string"
+                  "description": "Instagram professional account ID to create the container for. Omit to use the authenticated account (/me). Pass the same value to publish-media-container. Example: \"27136802592672293\"",
+                  "type": "string",
+                  "minLength": 1
                 },
                 "image_url": {
                   "description": "Public URL of a JPEG image to upload. Required for image posts and image carousel items.",
@@ -453723,6 +453728,7 @@
           "ActionOutput_instagram_deletecomment"
         ],
         "scopes": [
+          "instagram_business_basic",
           "instagram_business_manage_comments"
         ],
         "usedModels": [
@@ -453737,6 +453743,7 @@
               "properties": {
                 "comment_id": {
                   "type": "string",
+                  "minLength": 1,
                   "description": "The Instagram comment ID to delete. Example: \"17895695668004550\""
                 }
               },
@@ -453774,6 +453781,7 @@
           "ActionOutput_instagram_deletemedia"
         ],
         "scopes": [
+          "instagram_business_basic",
           "instagram_business_content_publish"
         ],
         "usedModels": [
@@ -453788,6 +453796,7 @@
               "properties": {
                 "mediaId": {
                   "type": "string",
+                  "minLength": 1,
                   "description": "The ID of the published Instagram media object to delete."
                 }
               },
@@ -453882,10 +453891,10 @@
               "properties": {
                 "id": {
                   "type": "string",
-                  "description": "App-scoped Instagram user ID. Example: \"17841400000000000\""
+                  "description": "App-scoped Instagram user ID. Example: \"27136802592672293\""
                 },
                 "user_id": {
-                  "description": "Instagram professional account ID used by webhooks and other Instagram Platform APIs.",
+                  "description": "Instagram professional account ID used by webhooks and other Instagram Platform APIs. Example: \"17841446782016736\"",
                   "type": "string"
                 },
                 "username": {
@@ -453945,6 +453954,7 @@
           "ActionOutput_instagram_getcomment"
         ],
         "scopes": [
+          "instagram_business_basic",
           "instagram_business_manage_comments"
         ],
         "usedModels": [
@@ -453959,6 +453969,7 @@
               "properties": {
                 "comment_id": {
                   "type": "string",
+                  "minLength": 1,
                   "description": "The Instagram comment ID to retrieve. Example: \"17881770991003328\""
                 }
               },
@@ -454028,6 +454039,7 @@
               "properties": {
                 "media_id": {
                   "type": "string",
+                  "minLength": 1,
                   "description": "The Instagram media object ID to retrieve insights for. Example: \"17917362834521812\""
                 },
                 "metrics": {
@@ -454035,7 +454047,8 @@
                   "minItems": 1,
                   "type": "array",
                   "items": {
-                    "type": "string"
+                    "type": "string",
+                    "minLength": 1
                   }
                 }
               },
@@ -454050,6 +454063,7 @@
               "properties": {
                 "media_id": {
                   "type": "string",
+                  "minLength": 1,
                   "description": "The Instagram media object ID the insights belong to."
                 },
                 "metrics": {
@@ -454425,6 +454439,7 @@
           "ActionOutput_instagram_listconversations"
         ],
         "scopes": [
+          "instagram_business_basic",
           "instagram_business_manage_messages"
         ],
         "usedModels": [
@@ -454536,6 +454551,7 @@
               "properties": {
                 "media_id": {
                   "type": "string",
+                  "minLength": 1,
                   "description": "Instagram media ID of the carousel album. Example: \"17896450804038745\""
                 }
               },
@@ -454947,6 +454963,7 @@
           "ActionOutput_instagram_publishmediacontainer"
         ],
         "scopes": [
+          "instagram_business_basic",
           "instagram_business_content_publish"
         ],
         "usedModels": [
@@ -454959,8 +454976,14 @@
             "ActionInput_instagram_publishmediacontainer": {
               "type": "object",
               "properties": {
+                "ig_user_id": {
+                  "description": "Instagram professional account ID that owns the container. Use the same value passed to create-media-container; omit to use the authenticated account (/me). Example: \"27136802592672293\"",
+                  "type": "string",
+                  "minLength": 1
+                },
                 "creation_id": {
                   "type": "string",
+                  "minLength": 1,
                   "description": "ID of a prepared Instagram media container whose status_code is FINISHED."
                 }
               },
@@ -455140,7 +455163,10 @@
           "Conversation"
         ],
         "runs": "every hour",
-        "scopes": [],
+        "scopes": [
+          "instagram_business_basic",
+          "instagram_business_manage_messages"
+        ],
         "sync_type": "full",
         "track_deletes": false,
         "usedModels": [
@@ -455159,24 +455185,59 @@
                 },
                 "updated_time": {
                   "description": "ISO 8601 timestamp when the conversation was last updated",
-                  "anyOf": [
-                    {
-                      "type": "string"
-                    },
-                    {
-                      "type": "null"
-                    }
-                  ]
+                  "type": "string"
                 },
                 "participants": {
                   "description": "Participants in the conversation",
-                  "anyOf": [
-                    {
-                      "type": "object",
-                      "properties": {
-                        "data": {
-                          "type": "array",
-                          "items": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string",
+                            "description": "Instagram-scoped ID (IGSID) of the participant"
+                          },
+                          "username": {
+                            "description": "Instagram username of the participant",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "id"
+                        ],
+                        "additionalProperties": false,
+                        "description": "A participant in an Instagram Direct conversation"
+                      },
+                      "description": "Participants in the conversation"
+                    }
+                  },
+                  "required": [
+                    "data"
+                  ],
+                  "additionalProperties": false
+                },
+                "messages": {
+                  "description": "Most recent message preview for the conversation, newest first",
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string",
+                            "description": "Unique identifier of the message"
+                          },
+                          "created_time": {
+                            "description": "ISO 8601 timestamp when the message was sent",
+                            "type": "string"
+                          },
+                          "from": {
+                            "description": "Sender of the message",
                             "type": "object",
                             "properties": {
                               "id": {
@@ -455185,124 +455246,32 @@
                               },
                               "username": {
                                 "description": "Instagram username of the participant",
-                                "anyOf": [
-                                  {
-                                    "type": "string"
-                                  },
-                                  {
-                                    "type": "null"
-                                  }
-                                ]
+                                "type": "string"
                               }
                             },
                             "required": [
                               "id"
                             ],
-                            "additionalProperties": false,
-                            "description": "A participant in an Instagram Direct conversation"
+                            "additionalProperties": false
                           },
-                          "description": "Participants in the conversation"
-                        }
+                          "message": {
+                            "description": "Text content of the message",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "id"
+                        ],
+                        "additionalProperties": false,
+                        "description": "A message in an Instagram Direct conversation"
                       },
-                      "required": [
-                        "data"
-                      ],
-                      "additionalProperties": false
-                    },
-                    {
-                      "type": "null"
+                      "description": "Most recent messages in the conversation"
                     }
-                  ]
-                },
-                "messages": {
-                  "description": "Most recent message preview for the conversation, newest first",
-                  "anyOf": [
-                    {
-                      "type": "object",
-                      "properties": {
-                        "data": {
-                          "type": "array",
-                          "items": {
-                            "type": "object",
-                            "properties": {
-                              "id": {
-                                "type": "string",
-                                "description": "Unique identifier of the message"
-                              },
-                              "created_time": {
-                                "description": "ISO 8601 timestamp when the message was sent",
-                                "anyOf": [
-                                  {
-                                    "type": "string"
-                                  },
-                                  {
-                                    "type": "null"
-                                  }
-                                ]
-                              },
-                              "from": {
-                                "description": "Sender of the message",
-                                "anyOf": [
-                                  {
-                                    "type": "object",
-                                    "properties": {
-                                      "id": {
-                                        "type": "string",
-                                        "description": "Instagram-scoped ID (IGSID) of the participant"
-                                      },
-                                      "username": {
-                                        "description": "Instagram username of the participant",
-                                        "anyOf": [
-                                          {
-                                            "type": "string"
-                                          },
-                                          {
-                                            "type": "null"
-                                          }
-                                        ]
-                                      }
-                                    },
-                                    "required": [
-                                      "id"
-                                    ],
-                                    "additionalProperties": false,
-                                    "description": "A participant in an Instagram Direct conversation"
-                                  },
-                                  {
-                                    "type": "null"
-                                  }
-                                ]
-                              },
-                              "message": {
-                                "description": "Text content of the message",
-                                "anyOf": [
-                                  {
-                                    "type": "string"
-                                  },
-                                  {
-                                    "type": "null"
-                                  }
-                                ]
-                              }
-                            },
-                            "required": [
-                              "id"
-                            ],
-                            "additionalProperties": false,
-                            "description": "A message in an Instagram Direct conversation"
-                          },
-                          "description": "Most recent messages in the conversation"
-                        }
-                      },
-                      "required": [
-                        "data"
-                      ],
-                      "additionalProperties": false
-                    },
-                    {
-                      "type": "null"
-                    }
-                  ]
+                  },
+                  "required": [
+                    "data"
+                  ],
+                  "additionalProperties": false
                 }
               },
               "required": [
@@ -455328,7 +455297,10 @@
           "MediaComment"
         ],
         "runs": "every hour",
-        "scopes": [],
+        "scopes": [
+          "instagram_business_basic",
+          "instagram_business_manage_comments"
+        ],
         "sync_type": "full",
         "track_deletes": false,
         "usedModels": [
@@ -455398,7 +455370,9 @@
           "Story"
         ],
         "runs": "every hour",
-        "scopes": [],
+        "scopes": [
+          "instagram_business_basic"
+        ],
         "sync_type": "full",
         "track_deletes": false,
         "usedModels": [

@@ -57,17 +57,9 @@ const MetadataSchema = z
 
 const CheckpointSchema = z
     .object({
-        updated_after: z.string().describe('Newest media timestamp already synced, used as the incremental since filter.'),
-        cursor: z.string().describe('Instagram media edge cursor used to resume an in-progress scan.'),
-        newest_timestamp: z.string().describe('Newest media timestamp observed during the current scan.')
+        cursor: z.string().describe('Instagram media edge cursor used to resume an interrupted full refresh.')
     })
-    .describe('Incremental media sync checkpoint.');
-
-const StoredCheckpointSchema = z.object({
-    updated_after: z.string().optional(),
-    cursor: z.string().optional(),
-    newest_timestamp: z.string().optional()
-});
+    .describe('Resume cursor for the media full refresh.');
 
 const MeSchema = z.object({
     id: z.string()
@@ -98,15 +90,6 @@ const ProviderMediaSchema = z.object({
         })
         .nullish()
 });
-
-function toMillis(timestamp: string | null | undefined): number | undefined {
-    if (!timestamp) {
-        return undefined;
-    }
-
-    const millis = Date.parse(timestamp);
-    return Number.isNaN(millis) ? undefined : millis;
-}
 
 function normalizeMedia(media: z.infer<typeof ProviderMediaSchema>): z.infer<typeof MediaSchema> {
     return {
@@ -166,21 +149,23 @@ const sync = createSync({
             igUserId = MeSchema.parse(meResponse.data).id;
         }
 
-        const checkpoint = StoredCheckpointSchema.safeParse(await nango.getCheckpoint());
-        const savedCheckpoint = checkpoint.success ? checkpoint.data : {};
-        const updatedAfter = savedCheckpoint.updated_after || undefined;
-        const resumeCursor = savedCheckpoint.cursor || undefined;
-
-        let newestTimestamp = savedCheckpoint.newest_timestamp || updatedAfter;
-        let newestTimestampMillis = toMillis(newestTimestamp);
+        // Blocker: the media edge's since filter only matches creation time and the API exposes no
+        // deleted-media feed, so an incremental scan would leave like_count/comments_count stale and
+        // never notice deleted posts. Always do a full refresh with delete tracking; the checkpoint
+        // only resumes cursor pagination after an interrupted run.
+        const checkpoint = await nango.getCheckpoint();
+        const storedCheckpoint = CheckpointSchema.safeParse(checkpoint);
+        const resumeCursor = storedCheckpoint.success && storedCheckpoint.data.cursor ? storedCheckpoint.data.cursor : undefined;
         let nextCursor: string | undefined;
+        let checkpointSaved = false;
+
+        await nango.trackDeletesStart('Media');
 
         const proxyConfig: ProxyConfiguration = {
             // https://developers.facebook.com/docs/instagram-platform/instagram-graph-api/reference/ig-user/media
             endpoint: `/${encodeURIComponent(igUserId)}/media`,
             params: {
                 fields: MEDIA_FIELDS,
-                ...(updatedAfter ? { since: updatedAfter } : {}),
                 ...(resumeCursor ? { after: resumeCursor } : {})
             },
             paginate: {
@@ -204,29 +189,18 @@ const sync = createSync({
                 await nango.batchSave(media, 'Media');
             }
 
-            for (const item of media) {
-                const itemMillis = toMillis(item.timestamp);
-
-                if (itemMillis !== undefined && (newestTimestampMillis === undefined || itemMillis > newestTimestampMillis)) {
-                    newestTimestampMillis = itemMillis;
-                    newestTimestamp = item.timestamp;
-                }
-            }
-
             if (nextCursor) {
-                await nango.saveCheckpoint({
-                    updated_after: updatedAfter ?? '',
-                    cursor: nextCursor,
-                    newest_timestamp: newestTimestamp ?? ''
-                });
+                await nango.saveCheckpoint({ cursor: nextCursor });
+                checkpointSaved = true;
             }
         }
 
-        if (newestTimestamp) {
-            await nango.saveCheckpoint({ updated_after: newestTimestamp, cursor: '', newest_timestamp: newestTimestamp });
-        } else {
+        // Deleting a checkpoint that was never written (e.g. a single-page run starting from
+        // scratch) fails with checkpoint_conflict.
+        if (checkpoint != null || checkpointSaved) {
             await nango.clearCheckpoint();
         }
+        await nango.trackDeletesEnd('Media');
     }
 });
 

@@ -3,7 +3,14 @@ import { createAction } from 'nango';
 
 const InputSchema = z
     .object({
-        creation_id: z.string().describe('ID of a prepared Instagram media container whose status_code is FINISHED.')
+        ig_user_id: z
+            .string()
+            .min(1)
+            .optional()
+            .describe(
+                'Instagram professional account ID that owns the container. Use the same value passed to create-media-container; omit to use the authenticated account (/me). Example: "27136802592672293"'
+            ),
+        creation_id: z.string().min(1).describe('ID of a prepared Instagram media container whose status_code is FINISHED.')
     })
     .describe('Input for publishing a prepared Instagram media container.');
 
@@ -27,12 +34,14 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['instagram_business_content_publish'],
+    scopes: ['instagram_business_basic', 'instagram_business_content_publish'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        const igUserId = input.ig_user_id ? encodeURIComponent(input.ig_user_id) : 'me';
+
         // https://developers.facebook.com/docs/instagram-platform/instagram-graph-api/reference/ig-user/media_publish
         const response = await nango.post({
-            endpoint: '/me/media_publish',
+            endpoint: `/${igUserId}/media_publish`,
             params: {
                 creation_id: input.creation_id
             },

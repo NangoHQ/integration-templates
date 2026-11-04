@@ -9,11 +9,11 @@ const MetadataSchema = z
 
 const ProviderStorySchema = z.object({
     id: z.string(),
-    media_type: z.string().optional(),
+    media_type: z.string().nullish(),
     media_url: z.string().nullable().optional(),
     permalink: z.string().nullable().optional(),
     caption: z.string().nullable().optional(),
-    timestamp: z.string().optional(),
+    timestamp: z.string().nullish(),
     username: z.string().nullable().optional(),
     thumbnail_url: z.string().nullable().optional(),
     like_count: z.number().nullable().optional(),
@@ -60,6 +60,7 @@ const sync = createSync({
     models: {
         Story: StorySchema
     },
+    scopes: ['instagram_business_basic'],
 
     exec: async (nango) => {
         const connection = await nango.getConnection();
@@ -70,9 +71,11 @@ const sync = createSync({
         }
 
         const igUserId = metadataResult.data.ig_user_id;
-        const checkpoint = CheckpointSchema.safeParse(await nango.getCheckpoint());
-        const resumeCursor = checkpoint.success ? checkpoint.data.cursor : undefined;
+        const checkpoint = await nango.getCheckpoint();
+        const storedCheckpoint = CheckpointSchema.safeParse(checkpoint);
+        const resumeCursor = storedCheckpoint.success && storedCheckpoint.data.cursor ? storedCheckpoint.data.cursor : undefined;
         let nextCursor: string | undefined;
+        let checkpointSaved = false;
 
         await nango.trackDeletesStart('Story');
 
@@ -144,10 +147,15 @@ const sync = createSync({
 
             if (nextCursor) {
                 await nango.saveCheckpoint({ cursor: nextCursor });
+                checkpointSaved = true;
             }
         }
 
-        await nango.clearCheckpoint();
+        // Deleting a checkpoint that was never written (e.g. a single-page run starting from
+        // scratch) fails with checkpoint_conflict.
+        if (checkpoint != null || checkpointSaved) {
+            await nango.clearCheckpoint();
+        }
         await nango.trackDeletesEnd('Story');
     }
 });

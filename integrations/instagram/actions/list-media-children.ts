@@ -3,7 +3,7 @@ import { createAction } from 'nango';
 
 const InputSchema = z
     .object({
-        media_id: z.string().describe('Instagram media ID of the carousel album. Example: "17896450804038745"')
+        media_id: z.string().min(1).describe('Instagram media ID of the carousel album. Example: "17896450804038745"')
     })
     .describe('Input for listing the child media of an Instagram carousel album.');
 
@@ -23,8 +23,18 @@ const OutputSchema = z
     })
     .describe('Child media items of an Instagram carousel album.');
 
+const ProviderChildMediaSchema = z.object({
+    id: z.string(),
+    media_type: z.string().nullish(),
+    media_url: z.string().nullish(),
+    thumbnail_url: z.string().nullish(),
+    permalink: z.string().nullish(),
+    timestamp: z.string().nullish(),
+    username: z.string().nullish()
+});
+
 const ProviderResponseSchema = z.object({
-    data: z.array(ChildMediaSchema)
+    data: z.array(ProviderChildMediaSchema)
 });
 
 /**

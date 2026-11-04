@@ -3,7 +3,7 @@ import { createAction } from 'nango';
 
 const InputSchema = z
     .object({
-        mediaId: z.string().describe('The ID of the published Instagram media object to delete.')
+        mediaId: z.string().min(1).describe('The ID of the published Instagram media object to delete.')
     })
     .describe('Input for deleting an Instagram media object.');
 
@@ -32,13 +32,15 @@ const OutputSchema = z
     .describe('Result of an Instagram media deletion attempt.');
 
 const HttpErrorSchema = z.object({
-    response: z
-        .object({
-            data: z.unknown()
-        })
-        .optional(),
-    message: z.string().optional()
+    response: z.object({
+        data: z.unknown()
+    })
 });
+
+// Instagram answers DELETE on published media with IGApiException code 100 / subcode 33
+// ("Unsupported delete request"); that is the only rejection reported as deleted: false.
+const UNSUPPORTED_DELETE_CODE = 100;
+const UNSUPPORTED_DELETE_SUBCODE = 33;
 
 function parseProviderError(value: unknown): z.infer<typeof ErrorOutputSchema> | undefined {
     const parsed = ProviderErrorSchema.safeParse(value);
@@ -57,23 +59,11 @@ function parseProviderError(value: unknown): z.infer<typeof ErrorOutputSchema> |
     };
 }
 
-function parseCaughtError(value: unknown): z.infer<typeof ErrorOutputSchema> | undefined {
-    const httpError = HttpErrorSchema.safeParse(value);
+function parseUnsupportedDeleteError(responseData: unknown): z.infer<typeof ErrorOutputSchema> | undefined {
+    const providerError = parseProviderError(responseData);
 
-    if (httpError.success && httpError.data.response !== undefined) {
-        const providerError = parseProviderError(httpError.data.response.data);
-
-        if (providerError !== undefined) {
-            return providerError;
-        }
-    }
-
-    if (value instanceof Error) {
-        return { message: value.message };
-    }
-
-    if (httpError.success && httpError.data.message !== undefined) {
-        return { message: httpError.data.message };
+    if (providerError?.code === UNSUPPORTED_DELETE_CODE && providerError.subcode === UNSUPPORTED_DELETE_SUBCODE) {
+        return providerError;
     }
 
     return undefined;
@@ -89,46 +79,46 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['instagram_business_content_publish'],
+    scopes: ['instagram_business_basic', 'instagram_business_content_publish'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        let caughtError: unknown;
-        let responseStatus: number | undefined;
-        let responseData: unknown;
+        let response;
 
         // @allowTryCatch - Instagram can reject the documented DELETE as unsupported; report that in the output instead of failing the action.
         try {
-            const response = await nango.delete({
+            response = await nango.delete({
                 // https://developers.facebook.com/docs/instagram-platform/reference/instagram-media
                 endpoint: `/${encodeURIComponent(input.mediaId)}`,
                 // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries
                 retries: 0 // Deletion is not idempotent, so retrying a lost response could repeat the mutation.
             });
-
-            responseStatus = response.status;
-            responseData = response.data;
         } catch (error) {
-            caughtError = error;
+            const httpError = HttpErrorSchema.safeParse(error);
+            const unsupportedDelete = httpError.success ? parseUnsupportedDeleteError(httpError.data.response.data) : undefined;
+
+            // Auth, rate-limit, timeout and 5xx failures must surface so callers can retry them.
+            if (unsupportedDelete === undefined) {
+                throw error;
+            }
+
+            return { mediaId: input.mediaId, deleted: false, error: unsupportedDelete };
         }
 
-        if (caughtError !== undefined) {
-            const providerError = parseCaughtError(caughtError);
+        if (response.status >= 400) {
+            const unsupportedDelete = parseUnsupportedDeleteError(response.data);
 
-            return {
-                mediaId: input.mediaId,
-                deleted: false,
-                ...(providerError !== undefined && { error: providerError })
-            };
-        }
+            if (unsupportedDelete === undefined) {
+                const providerError = parseProviderError(response.data);
 
-        if (responseStatus !== undefined && responseStatus >= 400) {
-            const providerError = parseProviderError(responseData);
+                throw new nango.ActionError({
+                    type: 'provider_error',
+                    message: providerError?.message ?? `Instagram rejected the media deletion with HTTP ${response.status}.`,
+                    status: response.status,
+                    ...(providerError !== undefined && { error: providerError })
+                });
+            }
 
-            return {
-                mediaId: input.mediaId,
-                deleted: false,
-                ...(providerError !== undefined && { error: providerError })
-            };
+            return { mediaId: input.mediaId, deleted: false, error: unsupportedDelete };
         }
 
         return {

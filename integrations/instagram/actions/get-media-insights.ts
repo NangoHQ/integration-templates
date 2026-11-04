@@ -3,9 +3,9 @@ import { createAction } from 'nango';
 
 const InputSchema = z
     .object({
-        media_id: z.string().describe('The Instagram media object ID to retrieve insights for. Example: "17917362834521812"'),
+        media_id: z.string().min(1).describe('The Instagram media object ID to retrieve insights for. Example: "17917362834521812"'),
         metrics: z
-            .array(z.string())
+            .array(z.string().min(1))
             .min(1)
             .optional()
             .describe('Insight metrics to request. When omitted, a default set appropriate for the media product type is used.')
@@ -23,7 +23,7 @@ const InsightMetricSchema = z.object({
 
 const OutputSchema = z
     .object({
-        media_id: z.string().describe('The Instagram media object ID the insights belong to.'),
+        media_id: z.string().min(1).describe('The Instagram media object ID the insights belong to.'),
         metrics: z.array(InsightMetricSchema).describe('Insight metrics returned by the provider.')
     })
     .describe('Insight metrics for an Instagram media object.');
