@@ -1,0 +1,290 @@
+{
+  "input": {
+    "media_id": "17917362834521812"
+  },
+  "output": {
+    "media_id": "17917362834521812",
+    "metrics": [
+      {
+        "name": "reach",
+        "title": "Accounts reached",
+        "description": "The number of unique accounts that have seen this post, at least once. Reach is different from impressions, which may include multiple views of your post by the same accounts. This metric is estimated.",
+        "period": "lifetime",
+        "value": 0,
+        "id": "17917362834521812/insights/reach/lifetime"
+      },
+      {
+        "name": "views",
+        "title": "Views",
+        "description": "The number of times your post was played or displayed.",
+        "period": "lifetime",
+        "value": 0,
+        "id": "17917362834521812/insights/views/lifetime"
+      },
+      {
+        "name": "likes",
+        "title": "Likes",
+        "description": "The number of likes on your post.",
+        "period": "lifetime",
+        "value": 1,
+        "id": "17917362834521812/insights/likes/lifetime"
+      },
+      {
+        "name": "comments",
+        "title": "Comments",
+        "description": "The number of comments on your post.",
+        "period": "lifetime",
+        "value": 4,
+        "id": "17917362834521812/insights/comments/lifetime"
+      },
+      {
+        "name": "saved",
+        "title": "Saved",
+        "description": "The number of saves of your post.",
+        "period": "lifetime",
+        "value": 0,
+        "id": "17917362834521812/insights/saved/lifetime"
+      },
+      {
+        "name": "shares",
+        "title": "Shares",
+        "description": "The number of shares of your post.",
+        "period": "lifetime",
+        "value": 0,
+        "id": "17917362834521812/insights/shares/lifetime"
+      },
+      {
+        "name": "total_interactions",
+        "title": "Post interactions",
+        "description": "The number of likes, saves, comments and shares on your post minus the number of unlikes, unsaves and deleted comments.",
+        "period": "lifetime",
+        "value": 5,
+        "id": "17917362834521812/insights/total_interactions/lifetime"
+      },
+      {
+        "name": "profile_visits",
+        "title": "Profile Visits",
+        "description": "The number of times your profile was visited.",
+        "period": "lifetime",
+        "value": 0,
+        "id": "17917362834521812/insights/profile_visits/lifetime"
+      },
+      {
+        "name": "follows",
+        "title": "Follows",
+        "description": "This is how many accounts started following you.",
+        "period": "lifetime",
+        "value": 0,
+        "id": "17917362834521812/insights/follows/lifetime"
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/17917362834521812": {
+        "response": {
+          "media_type": "IMAGE",
+          "media_product_type": "FEED",
+          "id": "17917362834521812"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 04 Nov 2026 14:22:37 GMT",
+          "content-type": "application/json; charset=UTF-8",
+          "content-length": "75",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=31536000; preload; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1961",
+          "x-ratelimit-reset": "1793802180",
+          "vary": "Origin",
+          "cross-origin-resource-policy": "cross-origin",
+          "x-app-usage": "{\"call_volume\":0,\"cpu_time\":0}",
+          "instagram-api-version": "v25.0",
+          "pragma": "no-cache",
+          "cache-control": "private, no-cache, no-store, must-revalidate",
+          "expires": "Sat, 01 Jan 2000 00:00:00 GMT",
+          "x-fb-request-id": "AYZx2iakSySUwGsxV-9lGn5",
+          "x-fb-trace-id": "G4XmfbBxfRe",
+          "x-fb-rev": "1053047704",
+          "x-stack": "www",
+          "x-fb-debug": "f5Hu/EmRmyfLcnayKbonDen8xe4MqU+SrUlV2ZRzuiqTDmauxa9flhqhs6T1raJPDjgkUWWryp2ewKJ9Ycdl/g==",
+          "x-fb-connection-quality": "EXCELLENT; q=0.9, rtt=6, rtx=0, c=4, mss=1380, tbw=25027, tp=-1, tpl=-1, uplat=74, ullat=0",
+          "alt-svc": "h3=\":443\"; ma=86400",
+          "etag": "W/\"4b-+oI3LtuMT6eILOSv8LTCz6x3Kvk\""
+        },
+        "hash": "48a4043cb308739e7c62f796609ca0fea616cd5e",
+        "request": {
+          "params": {
+            "fields": "media_type,media_product_type"
+          }
+        }
+      },
+      "/17917362834521812/insights": {
+        "response": {
+          "data": [
+            {
+              "name": "reach",
+              "period": "lifetime",
+              "values": [
+                {
+                  "value": 0
+                }
+              ],
+              "title": "Accounts reached",
+              "description": "The number of unique accounts that have seen this post, at least once. Reach is different from impressions, which may include multiple views of your post by the same accounts. This metric is estimated.",
+              "id": "17917362834521812/insights/reach/lifetime"
+            },
+            {
+              "name": "views",
+              "period": "lifetime",
+              "values": [
+                {
+                  "value": 0
+                }
+              ],
+              "title": "Views",
+              "description": "The number of times your post was played or displayed.",
+              "id": "17917362834521812/insights/views/lifetime"
+            },
+            {
+              "name": "likes",
+              "period": "lifetime",
+              "values": [
+                {
+                  "value": 1
+                }
+              ],
+              "title": "Likes",
+              "description": "The number of likes on your post.",
+              "id": "17917362834521812/insights/likes/lifetime"
+            },
+            {
+              "name": "comments",
+              "period": "lifetime",
+              "values": [
+                {
+                  "value": 4
+                }
+              ],
+              "title": "Comments",
+              "description": "The number of comments on your post.",
+              "id": "17917362834521812/insights/comments/lifetime"
+            },
+            {
+              "name": "saved",
+              "period": "lifetime",
+              "values": [
+                {
+                  "value": 0
+                }
+              ],
+              "title": "Saved",
+              "description": "The number of saves of your post.",
+              "id": "17917362834521812/insights/saved/lifetime"
+            },
+            {
+              "name": "shares",
+              "period": "lifetime",
+              "values": [
+                {
+                  "value": 0
+                }
+              ],
+              "title": "Shares",
+              "description": "The number of shares of your post.",
+              "id": "17917362834521812/insights/shares/lifetime"
+            },
+            {
+              "name": "total_interactions",
+              "period": "lifetime",
+              "values": [
+                {
+                  "value": 5
+                }
+              ],
+              "title": "Post interactions",
+              "description": "The number of likes, saves, comments and shares on your post minus the number of unlikes, unsaves and deleted comments.",
+              "id": "17917362834521812/insights/total_interactions/lifetime"
+            },
+            {
+              "name": "profile_visits",
+              "period": "lifetime",
+              "values": [
+                {
+                  "value": 0
+                }
+              ],
+              "title": "Profile Visits",
+              "description": "The number of times your profile was visited.",
+              "id": "17917362834521812/insights/profile_visits/lifetime"
+            },
+            {
+              "name": "follows",
+              "period": "lifetime",
+              "values": [
+                {
+                  "value": 0
+                }
+              ],
+              "title": "Follows",
+              "description": "This is how many accounts started following you.",
+              "id": "17917362834521812/insights/follows/lifetime"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 04 Nov 2026 14:22:37 GMT",
+          "content-type": "application/json; charset=UTF-8",
+          "content-length": "2012",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=31536000; preload; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1960",
+          "x-ratelimit-reset": "1793802180",
+          "vary": "Origin, Accept-Encoding",
+          "cross-origin-resource-policy": "cross-origin",
+          "x-app-usage": "{\"call_volume\":0,\"cpu_time\":0}",
+          "instagram-api-version": "v25.0",
+          "pragma": "no-cache",
+          "cache-control": "private, no-cache, no-store, must-revalidate",
+          "expires": "Sat, 01 Jan 2000 00:00:00 GMT",
+          "x-fb-request-id": "A9tdp4VnEAWmmBjViuEtmF7",
+          "x-fb-trace-id": "D7bIYYQy1J6",
+          "x-fb-rev": "1053047704",
+          "x-stack": "www",
+          "x-fb-debug": "QXfMaVjQKRE4KvRgKfaDOurCxv+FC4otytfKuMbsxXzwgwMowOvBEruzLKo4L3SylwclT5eaAjr66kYBYxFi4w==",
+          "x-fb-connection-quality": "EXCELLENT; q=0.9, rtt=7, rtx=0, c=18, mss=1380, tbw=45621, tp=-1, tpl=-1, uplat=258, ullat=0",
+          "alt-svc": "h3=\":443\"; ma=86400",
+          "etag": "W/\"7dc-bpD/xOYpTzUlpluE3V3kdYtIh0A\""
+        },
+        "hash": "31428db6db5c73c71ece4bcdaca78dac64a23e1a",
+        "request": {
+          "params": {
+            "metric": "reach,views,likes,comments,saved,shares,total_interactions,profile_visits,follows"
+          }
+        }
+      }
+    }
+  }
+}

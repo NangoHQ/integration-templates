@@ -1,0 +1,114 @@
+{
+  "input": {
+    "limit": 2
+  },
+  "output": {
+    "items": [
+      {
+        "id": "17915024670282895",
+        "caption": "Nango API carousel test - safe to ignore/delete",
+        "media_type": "CAROUSEL_ALBUM",
+        "media_url": "https://scontent-sea5-1.cdninstagram.com/v/t51.82787-15/890629277_18064106171559401_6018570540642010140_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=104&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0FST1VTRUxfSVRFTS5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=kSr3DfuLkDMQ7kNvwEq6iHT&_nc_oc=AdoQVZWaxTJGTFAaaHbEQIY_NyulbbhtML77rQmlsvlN3_VPzfQLz83fd9ApdYnPenI&_nc_zt=23&_nc_ht=scontent-sea5-1.cdninstagram.com&edm=ANo9K5cEAAAA&_nc_gid=b8mWGtGceYBEH8-dWSIjoA&_nc_tpa=Q5bMBQKZcQzBWYUG9anFZm7ySROwgfNrDb0iCzJ5PmYyGvytCrVmq1nxerYwMIf2Y6Wlz8y6mk0bJLfk0Q&oh=00_AQT-j_kC-aab_mUUCf0tEMjzwydoKh2HomamBZWDbt5G7g&oe=6AF11A22",
+        "permalink": "https://www.instagram.com/p/DfUqLM3m03r/",
+        "timestamp": "2026-11-04T14:21:48+0000",
+        "username": "nangodev",
+        "like_count": 0,
+        "comments_count": 0
+      },
+      {
+        "id": "18203813917328309",
+        "caption": "Nango API test post - safe to ignore/delete",
+        "media_type": "IMAGE",
+        "media_url": "https://scontent-sea5-1.cdninstagram.com/v/t51.82787-15/888023838_18064106210559401_5497051132520162076_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=111&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiRkVFRC5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=HsfHf-0DIdkQ7kNvwFXkS3H&_nc_oc=AdoTtKtAo-eLOD7DMovQK4DbYFLLdaaX-iOVb9yyLSQIqkgRJFVNUngaSPSRYTi7WZs&_nc_zt=23&_nc_ht=scontent-sea5-1.cdninstagram.com&edm=ANo9K5cEAAAA&_nc_gid=b8mWGtGceYBEH8-dWSIjoA&_nc_tpa=Q5bMBQJ3e4zFhjVdWvVCHz_iAatIRLaFEUh_ry0UCFxM8ZjYE0lPSc75nW5UWXcG4fS8AVdtM4IfEiYM3g&oh=00_AQQM0EIiqy1o-eg7yvpJaeMii_t04Fz2dtCnz8iB4-hw-Q&oe=6AF11D05",
+        "permalink": "https://www.instagram.com/p/DfUqK1Wm9jf/",
+        "timestamp": "2026-11-04T14:21:40+0000",
+        "username": "nangodev",
+        "like_count": 0,
+        "comments_count": 0
+      }
+    ],
+    "next_cursor": "QVFIVFktY2Q1bWFoRFRNWEZALWVd6WDM5OWtJM1hZARFZA2c1k4TmUyN0hOZAW9aTVZA4VFVsVEhmcE9BM3VldjViQ3pJMmlWUG5yVGVjR2M5bDc5ZAk82U3ZAKNEpB"
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/me/media": {
+        "response": {
+          "data": [
+            {
+              "id": "17915024670282895",
+              "caption": "Nango API carousel test - safe to ignore/delete",
+              "media_type": "CAROUSEL_ALBUM",
+              "media_url": "https://scontent-sea5-1.cdninstagram.com/v/t51.82787-15/890629277_18064106171559401_6018570540642010140_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=104&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0FST1VTRUxfSVRFTS5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=kSr3DfuLkDMQ7kNvwEq6iHT&_nc_oc=AdoQVZWaxTJGTFAaaHbEQIY_NyulbbhtML77rQmlsvlN3_VPzfQLz83fd9ApdYnPenI&_nc_zt=23&_nc_ht=scontent-sea5-1.cdninstagram.com&edm=ANo9K5cEAAAA&_nc_gid=b8mWGtGceYBEH8-dWSIjoA&_nc_tpa=Q5bMBQKZcQzBWYUG9anFZm7ySROwgfNrDb0iCzJ5PmYyGvytCrVmq1nxerYwMIf2Y6Wlz8y6mk0bJLfk0Q&oh=00_AQT-j_kC-aab_mUUCf0tEMjzwydoKh2HomamBZWDbt5G7g&oe=6AF11A22",
+              "permalink": "https://www.instagram.com/p/DfUqLM3m03r/",
+              "timestamp": "2026-11-04T14:21:48+0000",
+              "username": "nangodev",
+              "like_count": 0,
+              "comments_count": 0
+            },
+            {
+              "id": "18203813917328309",
+              "caption": "Nango API test post - safe to ignore/delete",
+              "media_type": "IMAGE",
+              "media_url": "https://scontent-sea5-1.cdninstagram.com/v/t51.82787-15/888023838_18064106210559401_5497051132520162076_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=111&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiRkVFRC5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=HsfHf-0DIdkQ7kNvwFXkS3H&_nc_oc=AdoTtKtAo-eLOD7DMovQK4DbYFLLdaaX-iOVb9yyLSQIqkgRJFVNUngaSPSRYTi7WZs&_nc_zt=23&_nc_ht=scontent-sea5-1.cdninstagram.com&edm=ANo9K5cEAAAA&_nc_gid=b8mWGtGceYBEH8-dWSIjoA&_nc_tpa=Q5bMBQJ3e4zFhjVdWvVCHz_iAatIRLaFEUh_ry0UCFxM8ZjYE0lPSc75nW5UWXcG4fS8AVdtM4IfEiYM3g&oh=00_AQQM0EIiqy1o-eg7yvpJaeMii_t04Fz2dtCnz8iB4-hw-Q&oe=6AF11D05",
+              "permalink": "https://www.instagram.com/p/DfUqK1Wm9jf/",
+              "timestamp": "2026-11-04T14:21:40+0000",
+              "username": "nangodev",
+              "like_count": 0,
+              "comments_count": 0
+            }
+          ],
+          "paging": {
+            "cursors": {
+              "before": "QVFIVG1sT2RDWGhsWHNjZAFFPSVZALckZAVTnpHajZAkOHh3RlZALeXdDRW1BWDN5cS1lS2hSVTZABTVV5emZAuTk5Fa2cxVTZAXQmtfM2tiNlBKTVNNZAU4zVWRzZAWl3",
+              "after": "QVFIVFktY2Q1bWFoRFRNWEZALWVd6WDM5OWtJM1hZARFZA2c1k4TmUyN0hOZAW9aTVZA4VFVsVEhmcE9BM3VldjViQ3pJMmlWUG5yVGVjR2M5bDc5ZAk82U3ZAKNEpB"
+            },
+            "next": "https://graph.instagram.com/v25.0/17841446782016736/media?fields=id%2Ccaption%2Cmedia_type%2Cmedia_url%2Cpermalink%2Cthumbnail_url%2Ctimestamp%2Cusername%2Clike_count%2Ccomments_count&limit=2&after=QVFIVFktY2Q1bWFoRFRNWEZALWVd6WDM5OWtJM1hZARFZA2c1k4TmUyN0hOZAW9aTVZA4VFVsVEhmcE9BM3VldjViQ3pJMmlWUG5yVGVjR2M5bDc5ZAk82U3ZAKNEpB"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 04 Nov 2026 14:26:03 GMT",
+          "content-type": "application/json; charset=UTF-8",
+          "content-length": "2447",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=31536000; preload; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1968",
+          "x-ratelimit-reset": "1793802380",
+          "vary": "Origin, Accept-Encoding",
+          "cross-origin-resource-policy": "cross-origin",
+          "x-app-usage": "{\"call_volume\":0,\"cpu_time\":0}",
+          "instagram-api-version": "v25.0",
+          "pragma": "no-cache",
+          "cache-control": "private, no-cache, no-store, must-revalidate",
+          "expires": "Sat, 01 Jan 2000 00:00:00 GMT",
+          "x-fb-request-id": "AEL7ZqKtTAo1Npx-jI4iND7",
+          "x-fb-trace-id": "G6DcZXLLGzp",
+          "x-fb-rev": "1053047704",
+          "x-stack": "www",
+          "x-fb-debug": "6vl3/JZ+um54ewtYKNMyeyDqrjF268aYCUxx8ibZgPc4TN/8HMSHI0bZyGEfYju5hQxas9UOMeZBc0nD/uE46w==",
+          "x-fb-connection-quality": "EXCELLENT; q=0.9, rtt=8, rtx=2, c=24, mss=1380, tbw=113438, tp=-1, tpl=-1, uplat=83, ullat=0",
+          "alt-svc": "h3=\":443\"; ma=86400",
+          "etag": "W/\"98f-1jPq8wbAnDdsPnM2J/23S57qatk\""
+        },
+        "hash": "ae2e9c699b1286bd8343c6487195941436708acb",
+        "request": {
+          "params": {
+            "fields": "id,caption,media_type,media_url,permalink,thumbnail_url,timestamp,username,like_count,comments_count",
+            "limit": "2"
+          }
+        }
+      }
+    }
+  }
+}

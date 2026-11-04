@@ -1,0 +1,72 @@
+{
+  "input": {
+    "mediaId": "17917362834521812"
+  },
+  "output": {
+    "mediaId": "17917362834521812",
+    "deleted": false,
+    "error": {
+      "message": "Unsupported delete request. Object with ID '17917362834521812' does not exist, cannot be loaded due to missing permissions, or does not support this operation",
+      "type": "IGApiException",
+      "code": 100,
+      "subcode": 33
+    }
+  },
+  "nango": {},
+  "api": {
+    "delete": {
+      "/17917362834521812": {
+        "response": {
+          "error": {
+            "message": "Unsupported delete request. Object with ID '17917362834521812' does not exist, cannot be loaded due to missing permissions, or does not support this operation",
+            "type": "IGApiException",
+            "code": 100,
+            "error_subcode": 33,
+            "fbtrace_id": "A_FjxK-gabTh8vudacNVEIP"
+          }
+        },
+        "status": 400,
+        "headers": {
+          "date": "Wed, 04 Nov 2026 14:21:24 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "275",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=31536000; preload; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1943",
+          "x-ratelimit-reset": "1793802119",
+          "debug-link": "https://www.meta.com/debug/?mid=4dc5ad788565a3d6a6172b2531a3baa7",
+          "error-mid": "4dc5ad788565a3d6a6172b2531a3baa7",
+          "vary": "Origin, Accept-Encoding",
+          "cross-origin-resource-policy": "cross-origin",
+          "x-app-usage": "{\"call_volume\":0,\"cpu_time\":0}",
+          "www-authenticate": "OAuth \"Facebook Platform\" \"invalid_request\" \"Unsupported delete request. Object with ID '17917362834521812' does not exist, cannot be loaded due to missing permissions, or does not support this operation\"",
+          "instagram-api-version": "v25.0",
+          "pragma": "no-cache",
+          "cache-control": "no-store",
+          "expires": "Sat, 01 Jan 2000 00:00:00 GMT",
+          "x-fb-request-id": "A_FjxK-gabTh8vudacNVEIP",
+          "x-fb-trace-id": "HqR8/KwQpVF",
+          "x-fb-rev": "1053047704",
+          "x-stack": "www",
+          "x-fb-debug": "VkN8iJMGZGkTHHlXpi1Vhtg95Yl8cQjQQY7wp3fYVkQ2ovEPuZ2tIVwaxgzcpLwbNis07yPRkabrPGBlOqtsJA==",
+          "proxy-status": "http_request_error; e_proxy=\"AcRGskWZilVYOGNxvGkyRCvs39bFCATr1hnRVTOYF_mAkOHywsFgH7OmLTIV27168HXh_KFODtVwtI71SE63\"; e_fb_twtaskhandle=\"AcTNg9lhAYmH_6aWqcx3IJg79rLXw9RCSX0F2lF15WvszuCq7bGI8gUqEo5AjVJfKckClKVx2JDI9T3D8G7K8byn0xjwtvqzHSp3wmmClw\"; e_upip=\"AcQBbDMsUfKZTgkI5W1NtFo9jO3taz9v7TlumsAsP27z_1dbGsrnEV_BtUrfKj-4JGQx4k3aKyRXV15e5whq0iIJqezr8or0SnSbxorIiG4\"; e_fb_zone=\"AcTxSe7AN8kLwTMxImftcgvw0U_BVwnQdcOBE31vLWziblak5VYcyUyL8B0RLeyo\"; e_clientaddr=\"AcTte53RJoM9D98Ab9ZZ3CtX5fbdUE3GHDmFlFpdAUJdzsEhEqm9g8JDrlonoKj98JZfUHjSsxo3AEf4U160sfRUcx-QOK8WoAHOOsjFJREy5d24jg\"; e_fb_vipaddr=\"AcS8234xYZNsx2GKYZGjrEFz1rLn4iU0CDnfC0DWugF5jYesljR82OOUF8ZBYuZnklgHA3h8ENDSSNXuGjVIoQXIpeUb4mE65IGlreHR\", http_request_error; e_proxy=\"AcRdrxz3Brc9tb_1T9EkGUonbuARkXumZaFJ9AmlHQYTyTOibqQoflw78RamgxkA49HdwhmhHewLKlc\"; e_fb_twtaskhandle=\"AcQXrUb0-2AW9v2CG7S7LT7jPpSiHo2dNTu_Pw21k5qD5Bs7a6R-slh7iW1qpDjEdgpSMrHPgPYi8ck624VdovUfdh-mu-xUOueQ\"; e_upip=\"AcSqpr0nIRai0zqmltCHwmdIzLQoncjkgrEtm3sO-mDxaSMIrkHmsCHf6U1ncHt6KNlUORTiDie-VBLHIvCl69cCNi2G_HiMHVf1iCHY\"; e_fb_zone=\"AcRQtS334nrsHEPdWW22ZystdKTaQKSeG0qzCaGKRFSfN8OqW7WD6dlsIZ_ELg\"; e_clientaddr=\"AcSk3gXG708wxu6RlwGOdMq92uFjvllKL9iG0dBOohh1bqdgA_3jS4eZBbxkdrBm71SZXcUtI2CsVd_OhA\"; e_fb_vipaddr=\"AcQxIzmz83RwKZnIMc2iK-l5Tzx_kCO8tzC7rWB_BpLCAx2jLtZ_rgo3XFdbqtIObA21zjn9_sw\"",
+          "x-fb-connection-quality": "EXCELLENT; q=0.9, rtt=7, rtx=0, c=18, mss=1380, tbw=39690, tp=-1, tpl=-1, uplat=65, ullat=0",
+          "alt-svc": "h3=\":443\"; ma=86400",
+          "etag": "W/\"113-oZII4MhgCcaRwAZskRHaqzNwz0M\""
+        },
+        "hash": "69599000967f58c1f7ca2908420662067cab925b",
+        "request": {}
+      }
+    }
+  }
+}

@@ -3531,6 +3531,27 @@ import './ingenious-build/actions/update-contracted-invoice.js';
 import './ingenious-build/actions/update-employee.js';
 import './ingenious-build/actions/update-project.js';
 
+// -- Integration: instagram
+import './instagram/syncs/account-media.js';
+import './instagram/syncs/conversations.js';
+import './instagram/syncs/media-comments.js';
+import './instagram/syncs/stories.js';
+import './instagram/actions/create-comment-reply.js';
+import './instagram/actions/create-media-container.js';
+import './instagram/actions/delete-comment.js';
+import './instagram/actions/delete-media.js';
+import './instagram/actions/get-account.js';
+import './instagram/actions/get-comment.js';
+import './instagram/actions/get-media-insights.js';
+import './instagram/actions/get-media.js';
+import './instagram/actions/get-user-insights.js';
+import './instagram/actions/list-conversations.js';
+import './instagram/actions/list-media-children.js';
+import './instagram/actions/list-media-comments.js';
+import './instagram/actions/list-media.js';
+import './instagram/actions/list-stories.js';
+import './instagram/actions/publish-media-container.js';
+
 // -- Integration: instantly
 import './instantly/syncs/account-analytics.js';
 import './instantly/syncs/accounts.js';
