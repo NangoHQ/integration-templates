@@ -1,0 +1,57 @@
+{
+  "input": {},
+  "output": {
+    "stories": []
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/me/stories": {
+        "response": {
+          "data": []
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 04 Nov 2026 14:20:28 GMT",
+          "content-type": "application/json; charset=UTF-8",
+          "content-length": "11",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=31536000; preload; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1933",
+          "x-ratelimit-reset": "1793802058",
+          "vary": "Origin",
+          "cross-origin-resource-policy": "cross-origin",
+          "x-app-usage": "{\"call_volume\":0,\"cpu_time\":0}",
+          "instagram-api-version": "v25.0",
+          "pragma": "no-cache",
+          "cache-control": "private, no-cache, no-store, must-revalidate",
+          "expires": "Sat, 01 Jan 2000 00:00:00 GMT",
+          "x-fb-request-id": "AcpgygMPHhbHk5reGQfbYoM",
+          "x-fb-trace-id": "AMvnnws91Oj",
+          "x-fb-rev": "1053047704",
+          "x-stack": "www",
+          "x-fb-debug": "6FvvgjfQbvJczZfvt0sD9utgSVBJwmJbMu4lQb9XyOkgHJcwGanG4FOHJ80JiD6spKa1XayYwfx+V91/L+G44A==",
+          "x-fb-connection-quality": "EXCELLENT; q=0.9, rtt=7, rtx=0, c=18, mss=1380, tbw=18239, tp=-1, tpl=-1, uplat=77, ullat=0",
+          "alt-svc": "h3=\":443\"; ma=86400",
+          "etag": "W/\"b-EFAlOux7Kcr/ZEgGkn2r+oFAbu4\""
+        },
+        "hash": "b5090505b36de96c444d65347ed9ba2c10ac1b66",
+        "request": {
+          "params": {
+            "fields": "id,media_type,media_url,thumbnail_url,permalink,caption,timestamp,username"
+          }
+        }
+      }
+    }
+  }
+}
