@@ -1,6 +1,5 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
-import { getDeveloperToken } from '../helpers/get-developer-token.js';
 
 const InputSchema = z.object({
     campaign: z.string().describe('Campaign resource name. Example: "customers/123/campaigns/456"'),
@@ -56,20 +55,12 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create an ad group in an existing Google Ads campaign',
-    version: '1.0.3',
+    version: '1.0.4',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['https://www.googleapis.com/auth/adwords'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const developerToken = await getDeveloperToken(nango);
-        if (!developerToken) {
-            throw new nango.ActionError({
-                type: 'missing_config',
-                message: 'developer_token is required in connection config'
-            });
-        }
-
         const campaignParts = input.campaign.split('/');
         const customerId = campaignParts[1];
         if (!customerId || campaignParts.length < 4) {
@@ -94,12 +85,11 @@ const action = createAction({
             responseContentType: 'MUTABLE_RESOURCE'
         };
 
-        // https://developers.google.com/google-ads/api/reference/rpc/v25/AdGroupService/MutateAdGroups
+        // https://developers.google.com/google-ads/api/reference/rpc/v26/AdGroupService/MutateAdGroups
         const response = await nango.post({
-            endpoint: `v25/customers/${encodeURIComponent(customerId)}/adGroups:mutate`,
+            endpoint: `v26/customers/${encodeURIComponent(customerId)}/adGroups:mutate`,
             data: requestBody,
             headers: {
-                'developer-token': developerToken,
                 ...(input.loginCustomerId && { 'login-customer-id': input.loginCustomerId })
             },
             retries: 3

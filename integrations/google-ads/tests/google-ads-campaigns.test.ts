@@ -74,4 +74,29 @@ describe('google-ads campaigns tests', () => {
             }
         }
     });
+
+    // Records saved before RECORD_VERSION 2 hold the old start_date/end_date values; a recent
+    // pre-upgrade checkpoint would otherwise take the incremental path and never rewrite them.
+    it('forces a full refresh when the checkpoint predates the current record version', async () => {
+        const { nangoMock, batchSaveSpy } = createTestContext();
+        const today = new Date().toISOString().slice(0, 10);
+        vi.spyOn(nangoMock, 'getCheckpoint').mockResolvedValue({ updated_after: today, initialized_customer_ids: '1781900691' });
+        const saveCheckpointSpy = vi.spyOn(nangoMock, 'saveCheckpoint');
+
+        await createSync.exec(nangoMock);
+
+        const spied = JSON.parse(JSON.stringify(batchSaveSpy.mock.calls.flatMap((call) => (call[1] === 'Campaign' ? call[0] : []))));
+        expect(spied).toStrictEqual(await nangoMock.getBatchSaveData('Campaign'));
+        expect(saveCheckpointSpy).toHaveBeenCalledWith(expect.objectContaining({ record_version: 2 }));
+    });
+
+    it('stays incremental when the checkpoint is at the current record version', async () => {
+        const { nangoMock, batchSaveSpy } = createTestContext();
+        const today = new Date().toISOString().slice(0, 10);
+        vi.spyOn(nangoMock, 'getCheckpoint').mockResolvedValue({ updated_after: today, initialized_customer_ids: '1781900691', record_version: 2 });
+
+        // The fixture only records the full-refresh query, so the incremental change_status query has no mock.
+        await expect(createSync.exec(nangoMock)).rejects.toThrow();
+        expect(batchSaveSpy).not.toHaveBeenCalled();
+    });
 });

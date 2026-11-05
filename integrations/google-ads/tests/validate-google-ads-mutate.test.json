@@ -1,6 +1,6 @@
 {
   "input": {
-    "path": "v25/customers/1781900691/campaignBudgets:mutate",
+    "path": "v26/customers/1781900691/campaignBudgets:mutate",
     "body": {
       "operations": [
         {
@@ -15,16 +15,9 @@
     "loginCustomerId": "3608201627"
   },
   "output": {},
-  "nango": {
-    "getConnection": {
-      "connection_config": {
-        "developer_token": "YOUR_DEVELOPER_TOKEN"
-      }
-    }
-  },
   "api": {
     "post": {
-      "/v25/customers/1781900691/campaignBudgets:mutate": {
+      "/v26/customers/1781900691/campaignBudgets:mutate": {
         "response": {},
         "status": 200,
         "headers": {
@@ -49,10 +42,9 @@
           "server": "ESF",
           "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
         },
-        "hash": "a3a55630967ac5b644722b4748132353d25e3470",
+        "hash": "3511c5bcacff245be50d79c89ffa891979545f45",
         "request": {
           "headers": {
-            "developer-token": "YOUR_DEVELOPER_TOKEN",
             "login-customer-id": "3608201627"
           },
           "data": {

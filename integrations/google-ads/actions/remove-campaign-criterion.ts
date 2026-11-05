@@ -1,6 +1,5 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
-import { getDeveloperToken } from '../helpers/get-developer-token.js';
 
 const InputSchema = z.object({
     customerId: z.string().describe('The Google Ads customer ID. Example: "1781900691"'),
@@ -34,25 +33,16 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Remove a campaign-level criterion (negative keyword or location target) by resource name.',
-    version: '1.0.2',
+    version: '1.0.3',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['https://www.googleapis.com/auth/adwords'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const developerToken = await getDeveloperToken(nango);
-        if (!developerToken) {
-            throw new nango.ActionError({
-                type: 'missing_config',
-                message: 'developer_token is required in connection config'
-            });
-        }
-
         const response = await nango.post({
             // https://developers.google.com/google-ads/api/docs/mutating/service-mutates
-            endpoint: `v25/customers/${encodeURIComponent(input.customerId)}/campaignCriteria:mutate`,
+            endpoint: `v26/customers/${encodeURIComponent(input.customerId)}/campaignCriteria:mutate`,
             headers: {
-                'developer-token': developerToken,
                 ...(input.loginCustomerId && { 'login-customer-id': input.loginCustomerId })
             },
             data: {

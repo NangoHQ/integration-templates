@@ -6,11 +6,6 @@
       ],
       "login_customer_id": "3608201627"
     },
-    "getConnection": {
-      "connection_config": {
-        "developer_token": "YOUR_DEVELOPER_TOKEN"
-      }
-    },
     "batchSave": {
       "KeywordCriterion": [
         {
@@ -93,7 +88,7 @@
   },
   "api": {
     "post": {
-      "/v25/customers/1781900691/googleAds:searchStream": {
+      "/v26/customers/1781900691/googleAds:searchStream": {
         "response": [
           {
             "results": [
@@ -239,10 +234,9 @@
           "server": "ESF",
           "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
         },
-        "hash": "43267ac1f22c172dfbd3c638d8c267a97f5f039e",
+        "hash": "61fc8e3ccf53c07b7ec540bc6f7414917e2d94ad",
         "request": {
           "headers": {
-            "developer-token": "YOUR_DEVELOPER_TOKEN",
             "login-customer-id": "3608201627"
           },
           "data": {

@@ -1,6 +1,5 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
-import { getDeveloperToken } from '../helpers/get-developer-token.js';
 
 const MetadataSchema = z.object({
     loginCustomerId: z.string().optional()
@@ -36,7 +35,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Update mutable fields on a conversion action',
-    version: '1.0.2',
+    version: '1.0.3',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['https://www.googleapis.com/auth/adwords'],
@@ -48,15 +47,6 @@ const action = createAction({
             const rawMetadata = await nango.getMetadata();
             const metadata = MetadataSchema.parse(rawMetadata ?? {});
             loginCustomerId = loginCustomerId ?? metadata.loginCustomerId;
-        }
-
-        const developerToken = await getDeveloperToken(nango);
-
-        if (!developerToken) {
-            throw new nango.ActionError({
-                type: 'missing_config',
-                message: 'developer_token is required in connection config'
-            });
         }
 
         const updateMaskFields: string[] = [];
@@ -104,17 +94,15 @@ const action = createAction({
             });
         }
 
-        const headers: Record<string, string> = {
-            'developer-token': developerToken
-        };
+        const headers: Record<string, string> = {};
 
         if (loginCustomerId) {
             headers['login-customer-id'] = loginCustomerId;
         }
 
         const response = await nango.post({
-            // https://developers.google.com/google-ads/api/reference/rpc/v25/ConversionActionService/MutateConversionActions
-            endpoint: `v25/customers/${encodeURIComponent(input.customerId)}/conversionActions:mutate`,
+            // https://developers.google.com/google-ads/api/reference/rpc/v26/ConversionActionService/MutateConversionActions
+            endpoint: `v26/customers/${encodeURIComponent(input.customerId)}/conversionActions:mutate`,
             data: {
                 operations: [
                     {

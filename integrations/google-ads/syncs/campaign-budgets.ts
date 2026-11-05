@@ -1,5 +1,4 @@
 import { createSync, type ProxyConfiguration } from 'nango';
-import { getDeveloperToken } from '../helpers/get-developer-token.js';
 import { z } from 'zod';
 
 const MetadataSchema = z.object({
@@ -224,7 +223,7 @@ function mapCampaignBudgetRows(rows: z.infer<typeof CampaignBudgetResultSchema>[
 
 const sync = createSync({
     description: 'Sync campaign budgets for customer accounts in scope',
-    version: '1.0.3',
+    version: '1.0.4',
     frequency: 'every hour',
     autoStart: false,
     scopes: ['https://www.googleapis.com/auth/adwords'],
@@ -246,11 +245,6 @@ const sync = createSync({
             throw new Error('customer_ids is required in metadata');
         }
 
-        const developerToken = await getDeveloperToken(nango);
-        if (!developerToken) {
-            throw new Error('developer_token is required in connection config');
-        }
-
         const rawCheckpoint = await nango.getCheckpoint();
         const checkpointResult = rawCheckpoint ? CheckpointSchema.safeParse(rawCheckpoint) : null;
         const checkpoint = checkpointResult && checkpointResult.success ? checkpointResult.data : null;
@@ -267,9 +261,7 @@ const sync = createSync({
                 .filter((id) => currentCustomerIds.has(id))
         );
 
-        const headers: Record<string, string> = {
-            'developer-token': developerToken
-        };
+        const headers: Record<string, string> = {};
         if (loginCustomerId) {
             headers['login-customer-id'] = loginCustomerId;
         }
@@ -340,7 +332,7 @@ async function runFullFetch(
 
     const proxyConfig: ProxyConfiguration = {
         // https://developers.google.com/google-ads/api/docs/reporting/streaming
-        endpoint: `v25/customers/${encodeURIComponent(customerId)}/googleAds:searchStream`,
+        endpoint: `v26/customers/${encodeURIComponent(customerId)}/googleAds:searchStream`,
         method: 'POST',
         data: { query: fullQuery },
         headers,
@@ -407,7 +399,7 @@ async function runIncrementalFetch(
 
         const changeStatusProxyConfig: ProxyConfiguration = {
             // https://developers.google.com/google-ads/api/docs/reporting/streaming
-            endpoint: `v25/customers/${encodeURIComponent(customerId)}/googleAds:searchStream`,
+            endpoint: `v26/customers/${encodeURIComponent(customerId)}/googleAds:searchStream`,
             method: 'POST',
             data: { query: changeStatusQuery },
             headers,
@@ -477,7 +469,7 @@ async function runIncrementalFetch(
 
             const budgetProxyConfig: ProxyConfiguration = {
                 // https://developers.google.com/google-ads/api/docs/reporting/streaming
-                endpoint: `v25/customers/${encodeURIComponent(customerId)}/googleAds:searchStream`,
+                endpoint: `v26/customers/${encodeURIComponent(customerId)}/googleAds:searchStream`,
                 method: 'POST',
                 data: { query: budgetQuery },
                 headers,

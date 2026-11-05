@@ -1,5 +1,4 @@
 import { createSync, type ProxyConfiguration } from 'nango';
-import { getDeveloperToken } from '../helpers/get-developer-token.js';
 import { z } from 'zod';
 
 const MetadataSchema = z.object({
@@ -111,7 +110,7 @@ const GoogleAdsErrorSchema = z.object({
         .optional()
 });
 
-function isDeveloperTokenNotApprovedError(rawError: unknown): boolean {
+function isCloudProjectNotApprovedForProductionError(rawError: unknown): boolean {
     const parsed = GoogleAdsErrorSchema.safeParse(rawError);
     if (!parsed.success) {
         return false;
@@ -120,7 +119,7 @@ function isDeveloperTokenNotApprovedError(rawError: unknown): boolean {
     const payload = Array.isArray(data) ? data[0] : data;
     const details = payload?.error?.details;
     const authError = details?.[0]?.errors?.[0]?.errorCode?.authorizationError;
-    return authError === 'DEVELOPER_TOKEN_NOT_APPROVED';
+    return authError === 'CLOUD_PROJECT_NOT_APPROVED_FOR_PRODUCTION';
 }
 
 function formatDate(date: Date): string {
@@ -250,7 +249,7 @@ function extractCustomerId(resourceName: string): string | undefined {
 
 const sync = createSync({
     description: 'Sync ad groups for customer accounts in scope.',
-    version: '1.0.3',
+    version: '1.0.4',
     frequency: 'every hour',
     autoStart: false,
     scopes: ['https://www.googleapis.com/auth/adwords'],
@@ -267,11 +266,6 @@ const sync = createSync({
             throw new Error(`Invalid metadata: ${metadataResult.error.message}`);
         }
         const metadata = metadataResult.data;
-
-        const developerToken = await getDeveloperToken(nango);
-        if (!developerToken) {
-            throw new Error('developer_token is required in connection config');
-        }
 
         const rawCheckpoint = await nango.getCheckpoint();
         const checkpointResult = rawCheckpoint ? CheckpointSchema.safeParse(rawCheckpoint) : null;
@@ -294,10 +288,7 @@ const sync = createSync({
         } else {
             const listConfig: ProxyConfiguration = {
                 // https://developers.google.com/google-ads/api/docs/account-management/listing-accounts
-                endpoint: 'v25/customers:listAccessibleCustomers',
-                headers: {
-                    'developer-token': developerToken
-                },
+                endpoint: 'v26/customers:listAccessibleCustomers',
                 retries: 3
             };
             const accessibleResponse = await nango.get(listConfig);
@@ -307,18 +298,15 @@ const sync = createSync({
             for (const accessibleId of accessibleIds) {
                 const clientConfig: ProxyConfiguration = {
                     // https://developers.google.com/google-ads/api/docs/account-management/listing-accounts
-                    endpoint: `v25/customers/${encodeURIComponent(accessibleId)}/googleAds:search`,
+                    endpoint: `v26/customers/${encodeURIComponent(accessibleId)}/googleAds:search`,
                     method: 'POST',
-                    headers: {
-                        'developer-token': developerToken
-                    },
                     data: {
                         query: 'SELECT customer_client.id, customer_client.manager FROM customer_client WHERE customer_client.manager = FALSE'
                     },
                     retries: 3
                 };
 
-                // @allowTryCatch Skip accounts where the developer token is not approved; re-throw everything else.
+                // @allowTryCatch Skip production accounts when the Cloud project only has Test access; re-throw everything else.
                 try {
                     const clientResponse = await nango.post(clientConfig);
                     const clientData = z
@@ -337,7 +325,7 @@ const sync = createSync({
                         }
                     }
                 } catch (err) {
-                    if (isDeveloperTokenNotApprovedError(err)) {
+                    if (isCloudProjectNotApprovedForProductionError(err)) {
                         continue;
                     }
                     throw err;
@@ -389,9 +377,7 @@ const sync = createSync({
         }
 
         for (const account of accountsToProcess) {
-            const headers: Record<string, string> = {
-                'developer-token': developerToken
-            };
+            const headers: Record<string, string> = {};
             if (account.loginCustomerId) {
                 headers['login-customer-id'] = account.loginCustomerId;
             }
@@ -403,7 +389,7 @@ const sync = createSync({
                 // history, or a checkpoint too old for change_status's 90-day retention window.
                 const streamConfig: ProxyConfiguration = {
                     // https://developers.google.com/google-ads/api/docs/reporting/streaming
-                    endpoint: `v25/customers/${encodeURIComponent(account.customerId)}/googleAds:searchStream`,
+                    endpoint: `v26/customers/${encodeURIComponent(account.customerId)}/googleAds:searchStream`,
                     method: 'POST',
                     headers,
                     data: {
@@ -455,7 +441,7 @@ const sync = createSync({
 
                     const changeStatusConfig: ProxyConfiguration = {
                         // https://developers.google.com/google-ads/api/docs/change-status
-                        endpoint: `v25/customers/${encodeURIComponent(account.customerId)}/googleAds:searchStream`,
+                        endpoint: `v26/customers/${encodeURIComponent(account.customerId)}/googleAds:searchStream`,
                         method: 'POST',
                         headers,
                         data: { query: changeStatusQuery },
@@ -515,7 +501,7 @@ const sync = createSync({
 
                     const refetchConfig: ProxyConfiguration = {
                         // https://developers.google.com/google-ads/api/docs/reporting/streaming
-                        endpoint: `v25/customers/${encodeURIComponent(account.customerId)}/googleAds:searchStream`,
+                        endpoint: `v26/customers/${encodeURIComponent(account.customerId)}/googleAds:searchStream`,
                         method: 'POST',
                         headers,
                         data: { query: refetchQuery },

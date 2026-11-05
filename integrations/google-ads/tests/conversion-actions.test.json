@@ -1,10 +1,5 @@
 {
   "nango": {
-    "getConnection": {
-      "connection_config": {
-        "developer_token": "YOUR_DEVELOPER_TOKEN"
-      }
-    },
     "getMetadata": {
       "customerIds": [
         "1781900691"
@@ -98,7 +93,7 @@
   },
   "api": {
     "post": {
-      "/v25/customers/1781900691/googleAds:searchStream": {
+      "/v26/customers/1781900691/googleAds:searchStream": {
         "response": [
           {
             "results": [
@@ -229,10 +224,9 @@
           "server": "ESF",
           "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
         },
-        "hash": "f7bd6c0b2bb2b6ab16372a535eea787dd62c4629",
+        "hash": "df23d45bd4d31c4b472ffb6836a594aa3d7db532",
         "request": {
           "headers": {
-            "developer-token": "YOUR_DEVELOPER_TOKEN",
             "login-customer-id": "3608201627"
           },
           "data": {

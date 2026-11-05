@@ -11,16 +11,9 @@
     "resourceName": "customers/1781900691/campaignBudgets/15722764465",
     "id": "15722764465"
   },
-  "nango": {
-    "getConnection": {
-      "connection_config": {
-        "developer_token": "YOUR_DEVELOPER_TOKEN"
-      }
-    }
-  },
   "api": {
     "post": {
-      "/v25/customers/1781900691/campaignBudgets:mutate": {
+      "/v26/customers/1781900691/campaignBudgets:mutate": {
         "response": {
           "results": [
             {
@@ -51,10 +44,9 @@
           "server": "ESF",
           "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
         },
-        "hash": "6925ac708dc5c0e776c5772d79abc27d4884a9a1",
+        "hash": "690d57210440ff3b75137ebe0ca5bb5d6e32ab8d",
         "request": {
           "headers": {
-            "developer-token": "YOUR_DEVELOPER_TOKEN",
             "login-customer-id": "3608201627"
           },
           "data": {
