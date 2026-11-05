@@ -1,6 +1,7 @@
 import { createSync } from 'nango';
 import type { SapSuccessDepartment } from '../types.js';
 import { toGroup } from '../mappers/to-group.js';
+import { buildModifiedAfterFilter } from '../helpers/utils.js';
 
 import type { ProxyConfiguration } from 'nango';
 import { Group } from '../models.js';
@@ -9,6 +10,12 @@ import { z } from 'zod';
 const CheckpointSchema = z.object({
     updated_after: z.string()
 });
+
+/**
+ * `toGroup` reads only flat FODepartment fields, so the parent's `lastModifiedDateTime`
+ * is sufficient here and no nav property needs watching.
+ */
+const MODIFIED_PATHS = ['lastModifiedDateTime'];
 
 const sync = createSync({
     description: 'Fetches a list of organizational groups from sap success factors',
@@ -43,7 +50,7 @@ const sync = createSync({
             params: {
                 $format: 'json',
                 ...(checkpointUpdatedAfter && {
-                    $filter: `lastModifiedDateTime ge datetime'${checkpointUpdatedAfter.toISOString()}'`
+                    $filter: buildModifiedAfterFilter(MODIFIED_PATHS, checkpointUpdatedAfter)
                 })
             },
             paginate: {
@@ -58,10 +65,16 @@ const sync = createSync({
             retries: 10
         };
 
+        let recordsSaved = 0;
         for await (const records of nango.paginate<SapSuccessDepartment>(config)) {
             const mappedRecords = records.map(toGroup);
             await nango.batchSave(mappedRecords, 'Group');
+            recordsSaved += mappedRecords.length;
         }
+
+        await nango.log(
+            `groups: advancing checkpoint ${checkpointUpdatedAfter?.toISOString() ?? 'none (full sync)'} -> ${runStartedAt} (${recordsSaved} records)`
+        );
         await nango.saveCheckpoint({ updated_after: runStartedAt });
     }
 });

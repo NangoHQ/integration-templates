@@ -98,3 +98,51 @@ export async function getEmployeeLastModifiedWithPath(
     await traverse(employeeRecord);
     return mostRecent;
 }
+
+/**
+ * Builds an OData v2 `$filter` matching records modified on or after `watermark` on any
+ * of `paths`.
+ *
+ * Every expanded nav property needs its own clause. SAP SuccessFactors does not reliably
+ * cascade a nested-record edit into the parent entity's `lastModifiedDateTime`, so a filter
+ * that only watches the parent silently misses changes made to nested records.
+ *
+ * `ge` is used rather than `gt` so a record landing exactly on the watermark is re-read
+ * instead of skipped. Re-reading is safe because `batchSave` upserts on the record id.
+ *
+ * @param paths - Entity paths to watch, e.g. `['lastModifiedDateTime', 'personalInfoNav/lastModifiedDateTime']`
+ * @param watermark - Inclusive lower bound
+ * @returns OData `$filter` expression string
+ */
+export function buildModifiedAfterFilter(paths: string[], watermark: Date): string {
+    const iso = watermark.toISOString();
+    return paths.map((path) => `${path} ge datetime'${iso}'`).join(' or ');
+}
+
+/**
+ * Guards against a nav property being watched by `$filter` without being requested by
+ * `$expand`. SAP rejects (or silently ignores) filter clauses on nav properties that were
+ * not expanded, which reintroduces the blind spot this module exists to prevent.
+ *
+ * @param paths - Entity paths passed to `buildModifiedAfterFilter`
+ * @param expand - Value of the request's `$expand` parameter
+ * @throws if a watched nav property is missing from `$expand`
+ */
+export function assertFilterPathsExpanded(paths: string[], expand: string): void {
+    const expanded = new Set(
+        expand
+            .split(',')
+            .map((nav) => nav.trim().split('/')[0])
+            .filter(Boolean)
+    );
+
+    const notExpanded = paths.map((path) => path.split('/')[0]).filter((root) => root !== 'lastModifiedDateTime' && !expanded.has(root));
+
+    if (notExpanded.length > 0) {
+        throw new Error(
+            `Incremental $filter watches nav propert${notExpanded.length === 1 ? 'y' : 'ies'} ` +
+                `${notExpanded.join(', ')} that are missing from $expand ('${expand}'). ` +
+                `Nested-only changes would be silently missed.`
+        );
+    }
+}

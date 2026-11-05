@@ -818347,7 +818347,7 @@
           "Employee",
           "SyncMetadata_sap_success_factors_employees"
         ],
-        "version": "2.1.0",
+        "version": "2.2.0",
         "webhookSubscriptions": [],
         "json_schema": {
           "definitions": {
@@ -818598,7 +818598,7 @@
           "Location",
           "SyncMetadata_sap_success_factors_locations"
         ],
-        "version": "2.1.0",
+        "version": "2.2.0",
         "webhookSubscriptions": [],
         "json_schema": {
           "definitions": {
@@ -818751,7 +818751,7 @@
           "StandardEmployee",
           "SyncMetadata_sap_success_factors_unifiedemployees"
         ],
-        "version": "2.1.0",
+        "version": "2.2.0",
         "webhookSubscriptions": [],
         "json_schema": {
           "definitions": {

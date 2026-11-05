@@ -1,6 +1,7 @@
 import { createSync } from 'nango';
 import type { SapSuccessFactorsPerPerson } from '../types.js';
 import { toEmployee } from '../mappers/to-employee.js';
+import { assertFilterPathsExpanded, buildModifiedAfterFilter } from '../helpers/utils.js';
 
 import type { ProxyConfiguration } from 'nango';
 import { Employee } from '../models.js';
@@ -10,9 +11,18 @@ const CheckpointSchema = z.object({
     updated_after: z.string()
 });
 
+const EXPAND = 'personalInfoNav';
+
+/**
+ * `toEmployee` reads firstName/lastName/preferredName/gender/nationality/maritalStatus off
+ * `personalInfoNav`, so a personal-info edit has to re-enter the incremental window even
+ * when PerPerson's own `lastModifiedDateTime` is untouched.
+ */
+const MODIFIED_PATHS = ['lastModifiedDateTime', 'personalInfoNav/lastModifiedDateTime'];
+
 const sync = createSync({
     description: 'Fetches a list of current employees from sap success factors',
-    version: '2.1.0',
+    version: '2.2.0',
     frequency: 'every 6 hours',
     autoStart: true,
     checkpoint: CheckpointSchema,
@@ -37,14 +47,16 @@ const sync = createSync({
         const checkpointUpdatedAfter = checkpoint?.updated_after ? new Date(checkpoint.updated_after) : undefined;
         const runStartedAt = new Date().toISOString();
 
+        assertFilterPathsExpanded(MODIFIED_PATHS, EXPAND);
+
         const config: ProxyConfiguration = {
             // https://help.sap.com/docs/successfactors-platform/sap-successfactors-api-reference-guide-odata-v2/perperson
             endpoint: '/odata/v2/PerPerson',
             params: {
                 $format: 'json',
-                $expand: 'personalInfoNav',
+                $expand: EXPAND,
                 ...(checkpointUpdatedAfter && {
-                    $filter: `lastModifiedDateTime ge datetime'${checkpointUpdatedAfter.toISOString()}'`
+                    $filter: buildModifiedAfterFilter(MODIFIED_PATHS, checkpointUpdatedAfter)
                 })
             },
             paginate: {
@@ -59,10 +71,16 @@ const sync = createSync({
             retries: 10
         };
 
+        let recordsSaved = 0;
         for await (const records of nango.paginate<SapSuccessFactorsPerPerson>(config)) {
             const mappedRecords = records.map(toEmployee);
             await nango.batchSave(mappedRecords, 'Employee');
+            recordsSaved += mappedRecords.length;
         }
+
+        await nango.log(
+            `employees: advancing checkpoint ${checkpointUpdatedAfter?.toISOString() ?? 'none (full sync)'} -> ${runStartedAt} (${recordsSaved} records)`
+        );
         await nango.saveCheckpoint({ updated_after: runStartedAt });
     }
 });
