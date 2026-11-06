@@ -1870,6 +1870,7 @@ import './docusign/actions/create-connect-configuration.js';
 import './docusign/actions/create-document-opened-trigger.js';
 import './docusign/actions/create-envelope-from-template.js';
 import './docusign/actions/create-envelope.js';
+import './docusign/actions/create-event-subscription.js';
 import './docusign/actions/create-group.js';
 import './docusign/actions/create-recipient-tabs.js';
 import './docusign/actions/create-recipient-view.js';

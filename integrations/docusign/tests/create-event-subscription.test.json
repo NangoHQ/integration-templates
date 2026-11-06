@@ -1,0 +1,154 @@
+{
+  "input": {
+    "name": "Nango Event Subscription",
+    "urlToPublishTo": "https://example.com/nango-event-subscription",
+    "events": [
+      "recipient-delivered",
+      "recipient-completed",
+      "envelope-completed",
+      "envelope-voided"
+    ],
+    "includeData": [
+      "recipients",
+      "custom_fields"
+    ],
+    "allowEnvelopePublish": false,
+    "includeEnvelopeVoidReason": true
+  },
+  "output": {
+    "connectId": "22399801",
+    "name": "Nango Event Subscription",
+    "urlToPublishTo": "https://example.com/nango-event-subscription",
+    "events": [
+      "recipient-delivered",
+      "recipient-completed",
+      "envelope-completed",
+      "envelope-voided"
+    ],
+    "includeData": [
+      "recipients",
+      "custom_fields"
+    ],
+    "configurationType": "custom",
+    "deliveryMode": "sim",
+    "allUsers": true,
+    "allowEnvelopePublish": false,
+    "requiresAcknowledgement": true,
+    "includeHMAC": false,
+    "eventDataVersion": "restv2.1"
+  },
+  "nango": {
+    "getConnection": {},
+    "getMetadata": {
+      "accountId": "96bfbc88-de80-40a4-9fb7-f047e656eaaf"
+    }
+  },
+  "api": {
+    "post": {
+      "/restapi/v2.1/accounts/96bfbc88-de80-40a4-9fb7-f047e656eaaf/connect": {
+        "response": {
+          "connectId": "22399801",
+          "configurationType": "custom",
+          "urlToPublishTo": "https://example.com/nango-event-subscription",
+          "name": "Nango Event Subscription",
+          "allowEnvelopePublish": "false",
+          "deliveryMode": "sim",
+          "enableLog": "true",
+          "includeDocuments": "false",
+          "includeCertificateOfCompletion": "false",
+          "requiresAcknowledgement": "true",
+          "signMessageWithX509Certificate": "false",
+          "useSoapInterface": "false",
+          "includeTimeZoneInformation": "false",
+          "includeOAuth": "false",
+          "includeHMAC": "false",
+          "integratorManaged": "false",
+          "includeEnvelopeVoidReason": "true",
+          "includeSenderAccountasCustomField": "false",
+          "events": [
+            "recipient-delivered",
+            "recipient-completed",
+            "envelope-completed",
+            "envelope-voided"
+          ],
+          "soapNamespace": "",
+          "allUsers": "true",
+          "allUsersExcept": "false",
+          "includeCertSoapHeader": "false",
+          "requireMutualTls": "false",
+          "includeDocumentFields": "false",
+          "pausePublish": "false",
+          "eventData": {
+            "version": "restv2.1",
+            "includeData": [
+              "recipients",
+              "custom_fields"
+            ]
+          },
+          "enableOAuthPerConfiguration": "false"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 06 Nov 2026 11:32:17 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "968",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
+          "x-ratelimit-limit": "3000",
+          "x-ratelimit-remaining": "2893",
+          "x-ratelimit-reset": "1793966400",
+          "cache-control": "no-cache",
+          "location": "https://demo.docusign.net/restapi/v2.1/accounts/96bfbc88-de80-40a4-9fb7-f047e656eaaf/Connect/22399801",
+          "vary": "Origin",
+          "x-burstlimit-remaining": "199",
+          "x-burstlimit-limit": "200",
+          "x-docusign-tracetoken": "b9709099-e50c-46c6-99ba-ebbe914bf6dd",
+          "x-docusign-node": "W3ESE1DFE5D03",
+          "etag": "W/\"3c8-CgYEm3ZGfAPRKWh+lUAIEb1ldCc\""
+        },
+        "hash": "4b09802d21968a53d99f42c40193db56e0de57ca",
+        "request": {
+          "data": {
+            "configurationType": "custom",
+            "deliveryMode": "SIM",
+            "name": "Nango Event Subscription",
+            "urlToPublishTo": "https://example.com/nango-event-subscription",
+            "allUsers": "true",
+            "allowEnvelopePublish": "false",
+            "enableLog": "true",
+            "requiresAcknowledgement": "true",
+            "includeHMAC": "false",
+            "signMessageWithX509Certificate": "false",
+            "includeTimeZoneInformation": "false",
+            "includeEnvelopeVoidReason": "true",
+            "includeCertificateOfCompletion": "false",
+            "includeDocumentFields": "false",
+            "includeSenderAccountasCustomField": "false",
+            "events": [
+              "recipient-delivered",
+              "recipient-completed",
+              "envelope-completed",
+              "envelope-voided"
+            ],
+            "eventData": {
+              "version": "restv2.1",
+              "includeData": [
+                "recipients",
+                "custom_fields"
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+}
