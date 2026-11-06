@@ -1,0 +1,117 @@
+{
+  "input": {
+    "name": "Nango Document Opened Trigger",
+    "urlToPublishTo": "https://example.com/nango-document-opened"
+  },
+  "output": {
+    "connectId": "22399732",
+    "name": "Nango Document Opened Trigger",
+    "urlToPublishTo": "https://example.com/nango-document-opened",
+    "recipientEvents": [
+      "Delivered"
+    ],
+    "envelopeEvents": [],
+    "configurationType": "custom",
+    "deliveryMode": "aggregate",
+    "allUsers": true,
+    "allowEnvelopePublish": true,
+    "eventDataVersion": "restv2.1"
+  },
+  "nango": {
+    "getConnection": {},
+    "getMetadata": {
+      "accountId": "96bfbc88-de80-40a4-9fb7-f047e656eaaf"
+    }
+  },
+  "api": {
+    "post": {
+      "/restapi/v2.1/accounts/96bfbc88-de80-40a4-9fb7-f047e656eaaf/connect": {
+        "response": {
+          "connectId": "22399732",
+          "configurationType": "custom",
+          "urlToPublishTo": "https://example.com/nango-document-opened",
+          "name": "Nango Document Opened Trigger",
+          "allowEnvelopePublish": "true",
+          "deliveryMode": "aggregate",
+          "enableLog": "true",
+          "includeDocuments": "false",
+          "includeCertificateOfCompletion": "false",
+          "requiresAcknowledgement": "true",
+          "signMessageWithX509Certificate": "false",
+          "useSoapInterface": "false",
+          "includeTimeZoneInformation": "false",
+          "includeOAuth": "false",
+          "includeHMAC": "false",
+          "integratorManaged": "false",
+          "includeEnvelopeVoidReason": "false",
+          "includeSenderAccountasCustomField": "false",
+          "recipientEvents": [
+            "Delivered"
+          ],
+          "soapNamespace": "",
+          "allUsers": "true",
+          "allUsersExcept": "false",
+          "includeCertSoapHeader": "false",
+          "requireMutualTls": "false",
+          "includeDocumentFields": "false",
+          "pausePublish": "false",
+          "eventData": {
+            "version": "restv2.1",
+            "includeData": []
+          },
+          "enableOAuthPerConfiguration": "false"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 06 Nov 2026 10:37:03 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "886",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
+          "x-ratelimit-limit": "3000",
+          "x-ratelimit-remaining": "2988",
+          "x-ratelimit-reset": "1793962800",
+          "cache-control": "no-cache",
+          "location": "https://demo.docusign.net/restapi/v2.1/accounts/96bfbc88-de80-40a4-9fb7-f047e656eaaf/Connect/22399732",
+          "vary": "Origin",
+          "x-burstlimit-remaining": "198",
+          "x-burstlimit-limit": "200",
+          "x-docusign-tracetoken": "4b03c823-87c5-4269-9495-149ff3a32971",
+          "x-docusign-node": "W3ESE1DFE10D01",
+          "etag": "W/\"376-EuQKJ0lyPkLWigsrr0OtjxG/eo8\""
+        },
+        "hash": "734cbe8f1f4b2e5a3655f28326692cbdc928f4d2",
+        "request": {
+          "data": {
+            "configurationType": "custom",
+            "deliveryMode": "Aggregate",
+            "name": "Nango Document Opened Trigger",
+            "urlToPublishTo": "https://example.com/nango-document-opened",
+            "allUsers": "true",
+            "allowEnvelopePublish": "true",
+            "enableLog": "true",
+            "includeHMAC": "false",
+            "requiresAcknowledgement": "true",
+            "signMessageWithX509Certificate": "false",
+            "recipientEvents": [
+              "Delivered"
+            ],
+            "envelopeEvents": [],
+            "eventData": {
+              "version": "restv2.1"
+            }
+          }
+        }
+      }
+    }
+  }
+}

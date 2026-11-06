@@ -246415,6 +246415,103 @@
             },
             {
                 "type": "action",
+                "description": "Configure a DocuSign Connect webhook that fires when any recipient opens or views a document, without needing to know the underlying \"Delivered\" event name.",
+                "endpoint": null,
+                "input": "ActionInput_docusign_createdocumentopenedtrigger",
+                "name": "create-document-opened-trigger",
+                "output": ["ActionOutput_docusign_createdocumentopenedtrigger"],
+                "scopes": [],
+                "usedModels": ["ActionInput_docusign_createdocumentopenedtrigger", "ActionOutput_docusign_createdocumentopenedtrigger"],
+                "version": "1.0.0",
+                "json_schema": {
+                    "definitions": {
+                        "ActionInput_docusign_createdocumentopenedtrigger": {
+                            "type": "object",
+                            "properties": {
+                                "name": {
+                                    "type": "string",
+                                    "minLength": 1,
+                                    "description": "Display name for the DocuSign Connect configuration. Example: \"Document opened trigger\""
+                                },
+                                "urlToPublishTo": {
+                                    "type": "string",
+                                    "format": "uri",
+                                    "pattern": "^https:\\/\\/.*",
+                                    "description": "HTTPS URL that DocuSign posts recipient-open events to. Example: \"https://example.com/webhooks/docusign\""
+                                },
+                                "allUsers": {
+                                    "description": "When true (default), events for all current and future account users are published. Set to false only when account-level user scoping is managed separately.",
+                                    "type": "boolean"
+                                },
+                                "allowEnvelopePublish": {
+                                    "description": "When true (default), the configuration is enabled immediately. When false, DocuSign creates it disabled until it is enabled in the Connect console.",
+                                    "type": "boolean"
+                                }
+                            },
+                            "required": ["name", "urlToPublishTo"],
+                            "additionalProperties": false,
+                            "description": "Input for creating a DocuSign Connect webhook that fires when a recipient opens or views an envelope document."
+                        },
+                        "ActionOutput_docusign_createdocumentopenedtrigger": {
+                            "type": "object",
+                            "properties": {
+                                "connectId": {
+                                    "type": "string",
+                                    "description": "DocuSign-generated ID of the created Connect configuration. Example: \"22399727\""
+                                },
+                                "name": {
+                                    "type": "string",
+                                    "description": "Name of the created Connect configuration."
+                                },
+                                "urlToPublishTo": {
+                                    "type": "string",
+                                    "description": "URL that DocuSign publishes document-open events to."
+                                },
+                                "configurationType": {
+                                    "description": "Connect configuration scope, for example \"custom\" for an account-level configuration.",
+                                    "type": "string"
+                                },
+                                "deliveryMode": {
+                                    "description": "Delivery mode used by DocuSign, for example \"aggregate\".",
+                                    "type": "string"
+                                },
+                                "recipientEvents": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "string"
+                                    },
+                                    "description": "Recipient event statuses that trigger the webhook. This action fixes them to [\"Delivered\"]."
+                                },
+                                "envelopeEvents": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "string"
+                                    },
+                                    "description": "Envelope event statuses that trigger the webhook. This action fixes them to an empty array."
+                                },
+                                "allUsers": {
+                                    "description": "Whether the configuration publishes events for all account users.",
+                                    "type": "boolean"
+                                },
+                                "allowEnvelopePublish": {
+                                    "description": "Whether the configuration is enabled to publish events.",
+                                    "type": "boolean"
+                                },
+                                "eventDataVersion": {
+                                    "description": "Event payload version configured for the webhook. Example: \"restv2.1\"",
+                                    "type": "string"
+                                }
+                            },
+                            "required": ["connectId", "name", "urlToPublishTo", "recipientEvents", "envelopeEvents"],
+                            "additionalProperties": false,
+                            "description": "Details of the DocuSign Connect webhook configuration that was created."
+                        }
+                    }
+                },
+                "features": []
+            },
+            {
+                "type": "action",
                 "description": "Create an envelope using a template, supplying role assignments and pre-fill data.",
                 "endpoint": null,
                 "input": "ActionInput_docusign_createenvelopefromtemplate",
@@ -254547,6 +254644,103 @@
                             },
                             "required": ["connectId", "configurationType", "name", "urlToPublishTo"],
                             "additionalProperties": false
+                        }
+                    }
+                },
+                "features": []
+            },
+            {
+                "type": "action",
+                "description": "Configure a DocuSign Connect webhook that fires when any recipient opens or views a document, without needing to know the underlying \"Delivered\" event name.",
+                "endpoint": null,
+                "input": "ActionInput_docusign_createdocumentopenedtrigger",
+                "name": "create-document-opened-trigger",
+                "output": ["ActionOutput_docusign_createdocumentopenedtrigger"],
+                "scopes": [],
+                "usedModels": ["ActionInput_docusign_createdocumentopenedtrigger", "ActionOutput_docusign_createdocumentopenedtrigger"],
+                "version": "1.0.0",
+                "json_schema": {
+                    "definitions": {
+                        "ActionInput_docusign_createdocumentopenedtrigger": {
+                            "type": "object",
+                            "properties": {
+                                "name": {
+                                    "type": "string",
+                                    "minLength": 1,
+                                    "description": "Display name for the DocuSign Connect configuration. Example: \"Document opened trigger\""
+                                },
+                                "urlToPublishTo": {
+                                    "type": "string",
+                                    "format": "uri",
+                                    "pattern": "^https:\\/\\/.*",
+                                    "description": "HTTPS URL that DocuSign posts recipient-open events to. Example: \"https://example.com/webhooks/docusign\""
+                                },
+                                "allUsers": {
+                                    "description": "When true (default), events for all current and future account users are published. Set to false only when account-level user scoping is managed separately.",
+                                    "type": "boolean"
+                                },
+                                "allowEnvelopePublish": {
+                                    "description": "When true (default), the configuration is enabled immediately. When false, DocuSign creates it disabled until it is enabled in the Connect console.",
+                                    "type": "boolean"
+                                }
+                            },
+                            "required": ["name", "urlToPublishTo"],
+                            "additionalProperties": false,
+                            "description": "Input for creating a DocuSign Connect webhook that fires when a recipient opens or views an envelope document."
+                        },
+                        "ActionOutput_docusign_createdocumentopenedtrigger": {
+                            "type": "object",
+                            "properties": {
+                                "connectId": {
+                                    "type": "string",
+                                    "description": "DocuSign-generated ID of the created Connect configuration. Example: \"22399727\""
+                                },
+                                "name": {
+                                    "type": "string",
+                                    "description": "Name of the created Connect configuration."
+                                },
+                                "urlToPublishTo": {
+                                    "type": "string",
+                                    "description": "URL that DocuSign publishes document-open events to."
+                                },
+                                "configurationType": {
+                                    "description": "Connect configuration scope, for example \"custom\" for an account-level configuration.",
+                                    "type": "string"
+                                },
+                                "deliveryMode": {
+                                    "description": "Delivery mode used by DocuSign, for example \"aggregate\".",
+                                    "type": "string"
+                                },
+                                "recipientEvents": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "string"
+                                    },
+                                    "description": "Recipient event statuses that trigger the webhook. This action fixes them to [\"Delivered\"]."
+                                },
+                                "envelopeEvents": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "string"
+                                    },
+                                    "description": "Envelope event statuses that trigger the webhook. This action fixes them to an empty array."
+                                },
+                                "allUsers": {
+                                    "description": "Whether the configuration publishes events for all account users.",
+                                    "type": "boolean"
+                                },
+                                "allowEnvelopePublish": {
+                                    "description": "Whether the configuration is enabled to publish events.",
+                                    "type": "boolean"
+                                },
+                                "eventDataVersion": {
+                                    "description": "Event payload version configured for the webhook. Example: \"restv2.1\"",
+                                    "type": "string"
+                                }
+                            },
+                            "required": ["connectId", "name", "urlToPublishTo", "recipientEvents", "envelopeEvents"],
+                            "additionalProperties": false,
+                            "description": "Details of the DocuSign Connect webhook configuration that was created."
                         }
                     }
                 },

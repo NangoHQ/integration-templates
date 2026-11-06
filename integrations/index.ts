@@ -1867,6 +1867,7 @@ import './docusign/syncs/templates.js';
 import './docusign/syncs/users.js';
 import './docusign/actions/add-group-users.js';
 import './docusign/actions/create-connect-configuration.js';
+import './docusign/actions/create-document-opened-trigger.js';
 import './docusign/actions/create-envelope-from-template.js';
 import './docusign/actions/create-envelope.js';
 import './docusign/actions/create-group.js';
