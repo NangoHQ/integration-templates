@@ -9,17 +9,17 @@ const InputSchema = z
             .url()
             .startsWith('https://')
             .describe('HTTPS URL that DocuSign posts recipient-open events to. Example: "https://example.com/webhooks/docusign"'),
-        allUsers: z
-            .boolean()
-            .optional()
-            .describe(
-                'When true (default), events for all current and future account users are published. Set to false only when account-level user scoping is managed separately.'
-            ),
         allowEnvelopePublish: z
             .boolean()
             .optional()
             .describe(
                 'When true (default), the configuration is enabled immediately. When false, DocuSign creates it disabled until it is enabled in the Connect console.'
+            ),
+        includeHMAC: z
+            .boolean()
+            .optional()
+            .describe(
+                'When true, notifications are signed with the account HMAC keys so the receiver can verify them. HMAC keys must already be configured in DocuSign Connect settings. Default false.'
             )
     })
     .describe('Input for creating a DocuSign Connect webhook that fires when a recipient opens or views an envelope document.');
@@ -93,6 +93,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['signature'],
     metadata: MetadataSchema,
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
@@ -122,10 +123,11 @@ const action = createAction({
                 deliveryMode: 'Aggregate',
                 name: input.name,
                 urlToPublishTo: input.urlToPublishTo,
-                allUsers: input.allUsers === false ? 'false' : 'true',
+                // Always publish for all users: this action has no userIds input, and allUsers=false without userIds never fires.
+                allUsers: 'true',
                 allowEnvelopePublish: input.allowEnvelopePublish === false ? 'false' : 'true',
                 enableLog: 'true',
-                includeHMAC: 'false',
+                includeHMAC: input.includeHMAC === true ? 'true' : 'false',
                 requiresAcknowledgement: 'true',
                 signMessageWithX509Certificate: 'false',
                 recipientEvents: ['Delivered'],

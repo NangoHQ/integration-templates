@@ -58,13 +58,15 @@ const IncludeDataSchema = z.enum([
     'attachments',
     'custom_fields',
     'documents',
+    'document_fields',
     'extensions',
     'folders',
     'payment_tabs',
     'powerform',
     'prefill_tabs',
     'recipients',
-    'tabs'
+    'tabs',
+    'templates'
 ]);
 
 const InputSchema = z
@@ -94,7 +96,7 @@ const InputSchema = z
         userIds: z
             .array(z.string())
             .optional()
-            .describe('DocuSign user IDs whose envelopes trigger the webhook. Only used, and required, when allUsers is false.'),
+            .describe('DocuSign user IDs whose envelopes trigger the webhook. Required when allUsers is false, and rejected otherwise.'),
         allowEnvelopePublish: z
             .boolean()
             .optional()
@@ -124,6 +126,11 @@ const InputSchema = z
     .refine((data) => data.allUsers !== false || (data.userIds !== undefined && data.userIds.length > 0), {
         // DocuSign accepts allUsers=false without userIds, creating a subscription that never fires.
         message: 'userIds must contain at least one user ID when allUsers is false',
+        path: ['userIds']
+    })
+    .refine((data) => data.allUsers === false || data.userIds === undefined, {
+        // With allUsers true DocuSign ignores userIds, which would silently widen the subscription to every user.
+        message: 'userIds can only be provided when allUsers is false',
         path: ['userIds']
     })
     .describe('Input for creating a DocuSign Connect webhook subscribed to any set of events.');
@@ -206,6 +213,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['signature'],
     metadata: MetadataSchema,
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {

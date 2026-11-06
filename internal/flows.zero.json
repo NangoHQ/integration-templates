@@ -246420,7 +246420,7 @@
                 "input": "ActionInput_docusign_createdocumentopenedtrigger",
                 "name": "create-document-opened-trigger",
                 "output": ["ActionOutput_docusign_createdocumentopenedtrigger"],
-                "scopes": [],
+                "scopes": ["signature"],
                 "usedModels": ["ActionInput_docusign_createdocumentopenedtrigger", "ActionOutput_docusign_createdocumentopenedtrigger"],
                 "version": "1.0.0",
                 "json_schema": {
@@ -246439,12 +246439,12 @@
                                     "pattern": "^https:\\/\\/.*",
                                     "description": "HTTPS URL that DocuSign posts recipient-open events to. Example: \"https://example.com/webhooks/docusign\""
                                 },
-                                "allUsers": {
-                                    "description": "When true (default), events for all current and future account users are published. Set to false only when account-level user scoping is managed separately.",
-                                    "type": "boolean"
-                                },
                                 "allowEnvelopePublish": {
                                     "description": "When true (default), the configuration is enabled immediately. When false, DocuSign creates it disabled until it is enabled in the Connect console.",
+                                    "type": "boolean"
+                                },
+                                "includeHMAC": {
+                                    "description": "When true, notifications are signed with the account HMAC keys so the receiver can verify them. HMAC keys must already be configured in DocuSign Connect settings. Default false.",
                                     "type": "boolean"
                                 }
                             },
@@ -246766,7 +246766,7 @@
                 "input": "ActionInput_docusign_createeventsubscription",
                 "name": "create-event-subscription",
                 "output": ["ActionOutput_docusign_createeventsubscription"],
-                "scopes": [],
+                "scopes": ["signature"],
                 "usedModels": ["ActionInput_docusign_createeventsubscription", "ActionOutput_docusign_createeventsubscription"],
                 "version": "1.0.0",
                 "json_schema": {
@@ -246853,13 +246853,15 @@
                                             "attachments",
                                             "custom_fields",
                                             "documents",
+                                            "document_fields",
                                             "extensions",
                                             "folders",
                                             "payment_tabs",
                                             "powerform",
                                             "prefill_tabs",
                                             "recipients",
-                                            "tabs"
+                                            "tabs",
+                                            "templates"
                                         ]
                                     }
                                 },
@@ -246868,7 +246870,7 @@
                                     "type": "boolean"
                                 },
                                 "userIds": {
-                                    "description": "DocuSign user IDs whose envelopes trigger the webhook. Only used, and required, when allUsers is false.",
+                                    "description": "DocuSign user IDs whose envelopes trigger the webhook. Required when allUsers is false, and rejected otherwise.",
                                     "type": "array",
                                     "items": {
                                         "type": "string"
@@ -254881,7 +254883,7 @@
                 "input": "ActionInput_docusign_createdocumentopenedtrigger",
                 "name": "create-document-opened-trigger",
                 "output": ["ActionOutput_docusign_createdocumentopenedtrigger"],
-                "scopes": [],
+                "scopes": ["signature"],
                 "usedModels": ["ActionInput_docusign_createdocumentopenedtrigger", "ActionOutput_docusign_createdocumentopenedtrigger"],
                 "version": "1.0.0",
                 "json_schema": {
@@ -254900,12 +254902,12 @@
                                     "pattern": "^https:\\/\\/.*",
                                     "description": "HTTPS URL that DocuSign posts recipient-open events to. Example: \"https://example.com/webhooks/docusign\""
                                 },
-                                "allUsers": {
-                                    "description": "When true (default), events for all current and future account users are published. Set to false only when account-level user scoping is managed separately.",
-                                    "type": "boolean"
-                                },
                                 "allowEnvelopePublish": {
                                     "description": "When true (default), the configuration is enabled immediately. When false, DocuSign creates it disabled until it is enabled in the Connect console.",
+                                    "type": "boolean"
+                                },
+                                "includeHMAC": {
+                                    "description": "When true, notifications are signed with the account HMAC keys so the receiver can verify them. HMAC keys must already be configured in DocuSign Connect settings. Default false.",
                                     "type": "boolean"
                                 }
                             },
@@ -255227,7 +255229,7 @@
                 "input": "ActionInput_docusign_createeventsubscription",
                 "name": "create-event-subscription",
                 "output": ["ActionOutput_docusign_createeventsubscription"],
-                "scopes": [],
+                "scopes": ["signature"],
                 "usedModels": ["ActionInput_docusign_createeventsubscription", "ActionOutput_docusign_createeventsubscription"],
                 "version": "1.0.0",
                 "json_schema": {
@@ -255314,13 +255316,15 @@
                                             "attachments",
                                             "custom_fields",
                                             "documents",
+                                            "document_fields",
                                             "extensions",
                                             "folders",
                                             "payment_tabs",
                                             "powerform",
                                             "prefill_tabs",
                                             "recipients",
-                                            "tabs"
+                                            "tabs",
+                                            "templates"
                                         ]
                                     }
                                 },
@@ -255329,7 +255333,7 @@
                                     "type": "boolean"
                                 },
                                 "userIds": {
-                                    "description": "DocuSign user IDs whose envelopes trigger the webhook. Only used, and required, when allUsers is false.",
+                                    "description": "DocuSign user IDs whose envelopes trigger the webhook. Required when allUsers is false, and rejected otherwise.",
                                     "type": "array",
                                     "items": {
                                         "type": "string"
